@@ -1,0 +1,133 @@
+"use client";
+
+import { useState, useCallback, useRef, useEffect } from "react";
+
+interface ShowcaseCard {
+  name: string;
+  pill: string;
+  preview: string;
+  description: string;
+  tags: string[];
+}
+
+export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const handleCopy = useCallback((text: string, index: number) => {
+    const onSuccess = () => {
+      setCopiedIndex(index);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => setCopiedIndex(null), 2000);
+    };
+
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(() => {
+        fallbackCopy(text);
+        onSuccess();
+      });
+    } else {
+      fallbackCopy(text);
+      onSuccess();
+    }
+  }, []);
+
+  return (
+    <div
+      className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
+      style={{ gap: "10px" }}
+    >
+      {cards.map((card, index) => {
+        const isCopied = copiedIndex === index;
+
+        return (
+          <button
+            key={card.name}
+            type="button"
+            onClick={() => handleCopy(card.preview, index)}
+            className="text-left bg-white dark:bg-surface-container-lowest p-6 hover:bg-gray-50 dark:hover:bg-surface-container-high hover:border-gray-300 dark:hover:border-outline-variant transition-all cursor-pointer group"
+            style={{
+              border: "0.5px solid #d1d5db",
+              borderRadius: "12px",
+            }}
+          >
+            {/* Screen-reader-only label */}
+            <span className="sr-only">
+              Copy {card.name} style
+            </span>
+            {/* Category Pill */}
+            <span className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary-fixed rounded-full mb-4">
+              {card.pill}
+            </span>
+            {/* Preview Text */}
+            <div
+              aria-hidden="true"
+              className="text-2xl font-body mb-3 text-on-surface leading-relaxed break-all"
+            >
+              {card.preview}
+            </div>
+            {/* Style Name + Copy Feedback */}
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="font-headline font-bold text-sm text-on-background">
+                {card.name}
+              </h3>
+              <span
+                className={`text-[10px] font-bold uppercase tracking-wider transition-all ${
+                  isCopied
+                    ? "text-[#22c55e]"
+                    : "text-primary opacity-0 group-hover:opacity-100"
+                }`}
+              >
+                {isCopied ? "Copied!" : "Click to copy"}
+              </span>
+            </div>
+            {/* Description */}
+            <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
+              {card.description}
+            </p>
+            {/* Recommended Use Tags */}
+            <div className="flex flex-wrap gap-1.5">
+              {card.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-gray-100 dark:bg-surface-container-high text-on-surface-variant"
+                  style={{
+                    fontSize: "10px",
+                    borderRadius: "3px",
+                    padding: "2px 8px",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function fallbackCopy(text: string) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    document.execCommand("copy");
+  } catch {
+    /* silent */
+  }
+  document.body.removeChild(textarea);
+}
