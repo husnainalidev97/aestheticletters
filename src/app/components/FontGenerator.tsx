@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
+import Link from "next/link";
 import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 
@@ -18,7 +19,11 @@ const INITIAL_COUNT = 4;
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
 
-export default function FontGenerator() {
+interface FontGeneratorProps {
+  totalFontStyles: number;
+}
+
+export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   const [text, setText] = useState("Aesthetic Fonts");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -212,6 +217,26 @@ export default function FontGenerator() {
         id={RESULTS_ID}
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
+        {/* Dynamic Font Counter Badge */}
+        <div className="flex justify-end mb-5">
+          <Link
+            href="/all-tools"
+            title="Browse all aesthetic font generators and text styling tools — explore every style in one place"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0px_8px_24px_rgba(155,89,182,0.3)] active:scale-[0.97]"
+            style={{
+              background: "linear-gradient(135deg, #9b6dd7 0%, #e888b0 100%)",
+            }}
+          >
+            <span
+              className="material-symbols-outlined text-base transition-transform duration-300 group-hover:rotate-12"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              auto_awesome
+            </span>
+            Explore {totalFontStyles}+ Font Styles
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
             <div key={category.name} className="animate-card-fade-in">
