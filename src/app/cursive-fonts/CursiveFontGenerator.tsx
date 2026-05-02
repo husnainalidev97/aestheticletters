@@ -131,7 +131,22 @@ export default function CursiveFontGenerator({
       1500,
     );
     const el = document.getElementById(RESULTS_ID);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   const handleExploreMore = () => {
