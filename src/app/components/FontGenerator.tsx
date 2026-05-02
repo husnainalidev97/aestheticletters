@@ -176,15 +176,8 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Character Counter & Styles Available */}
-          <div className="flex items-center justify-between px-1">
-            <span className="flex items-center gap-1.5 text-xs font-body text-on-surface-variant">
-              <span className="material-symbols-outlined text-sm text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                auto_awesome
-              </span>
-              <span className="font-semibold text-primary">{totalFontStyles}</span>{" "}
-              styles available
-            </span>
+          {/* Character Counter */}
+          <div className="flex items-center justify-end px-1">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
               <span className="font-semibold text-sm">Tt</span>
               Character Count:{" "}
