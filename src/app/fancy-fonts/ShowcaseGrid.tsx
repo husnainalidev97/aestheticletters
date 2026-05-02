@@ -64,7 +64,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
             {/* Preview Text */}
             <div
               aria-hidden="true"
-              className="text-2xl font-body mb-3 text-on-surface leading-relaxed break-all"
+              className="text-2xl font-body mb-3 text-on-surface dark-preview-text leading-relaxed break-all"
             >
               {card.preview}
             </div>

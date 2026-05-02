@@ -122,7 +122,7 @@ export default function FontResultCard({
         </span>
         {/* Unicode preview text — single line, ellipsis overflow */}
         <div
-          className="font-body overflow-hidden transition-[font-size] duration-200 ease-out"
+          className="font-body overflow-hidden transition-[font-size] duration-200 ease-out dark-preview-text"
           style={{
             fontSize: `${effectiveSize}px`,
             lineHeight: "1.6",

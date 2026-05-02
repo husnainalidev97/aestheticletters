@@ -62,7 +62,7 @@ export default function FontCategoryCard({
                 </span>
                 <div
                   aria-hidden="true"
-                  className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark:text-on-surface-variant"
+                  className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
                   style={{ fontSize: `${fontSize}px`, ...(style.fontFamily ? { fontFamily: style.fontFamily } : {}) }}
                 >
                   {converted}
