@@ -51,11 +51,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
             key={card.name}
             type="button"
             onClick={() => handleCopy(card.preview, index)}
-            className="text-left bg-white dark:bg-surface-container-lowest p-6 hover:bg-gray-50 dark:hover:bg-surface-container-high hover:border-gray-300 dark:hover:border-outline-variant transition-all cursor-pointer group"
-            style={{
-              border: "0.5px solid #d1d5db",
-              borderRadius: "12px",
-            }}
+            className="text-left bg-surface-container-lowest p-6 hover:bg-surface-container-high border border-outline-variant/20 hover:border-outline-variant rounded-xl transition-all duration-300 cursor-pointer group"
           >
             {/* Screen-reader-only label */}
             <span className="sr-only">
@@ -96,7 +92,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
               {card.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-gray-100 dark:bg-surface-container-high text-on-surface-variant"
+                  className="bg-surface-container-high text-on-surface-variant"
                   style={{
                     fontSize: "10px",
                     borderRadius: "3px",

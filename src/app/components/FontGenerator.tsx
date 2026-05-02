@@ -153,11 +153,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             />
             <button
               onClick={handleGenerate}
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: generateFlash ? "#22c55e" : "#451ebb",
-                transition: "background-color 300ms ease, transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
               {generateFlash && (
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>

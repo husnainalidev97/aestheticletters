@@ -130,6 +130,14 @@
   animation: theme-toggle-glow 1.2s ease-in-out 4;
 }
 
+/* Accent card for Dark Aesthetic / Glitch categories — always contrasting */
+.dark-accent-card {
+  background: linear-gradient(135deg, #F8F9FA 0%, #E6E6FA 100%);
+}
+.dark .dark-accent-card {
+  background: linear-gradient(135deg, #2b2930 0%, #1d1b2e 100%);
+}
+
 /* Editorial shadow — soft, diffused ambient glow per blueprint */
 .editorial-shadow {
   box-shadow: 0px 20px 40px rgba(28, 27, 27, 0.06);

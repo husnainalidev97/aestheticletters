@@ -23,18 +23,13 @@ export default function FontCategoryCard({
     <div
       className={
         isDark
-          ? "rounded-xl p-6 md:p-8 overflow-hidden relative editorial-shadow"
-          : "rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8"
-      }
-      style={
-        isDark
-          ? { background: "linear-gradient(135deg, #F8F9FA 0%, #E6E6FA 100%)" }
-          : undefined
+          ? "rounded-xl p-6 md:p-8 overflow-hidden relative editorial-shadow dark-accent-card transition-colors duration-300"
+          : "rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300"
       }
     >
       <strong
         className={`block font-headline text-xl font-bold mb-6 ${
-          isDark ? "text-inverse-on-surface" : "text-on-background"
+          isDark ? "text-on-background dark:text-on-background" : "text-on-background"
         }`}
       >
         {title}
@@ -50,7 +45,7 @@ export default function FontCategoryCard({
               key={style.name}
               className={`flex justify-between items-center p-4 rounded-xl transition-all group ${
                 isDark
-                  ? "bg-white/50 hover:bg-white/70"
+                  ? "bg-surface-container-lowest/50 hover:bg-surface-container-lowest/70"
                   : "bg-surface hover:bg-surface-container-high"
               }`}
             >
@@ -58,7 +53,7 @@ export default function FontCategoryCard({
                 <span
                   className={`text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit ${
                     isDark
-                      ? "text-inverse-on-surface bg-surface-container-lowest/60"
+                      ? "text-primary bg-primary-fixed/60"
                       : "text-primary bg-primary-fixed"
                   }`}
                   aria-label={`${category.name} – ${style.name} font style`}
@@ -68,7 +63,7 @@ export default function FontCategoryCard({
                 <div
                   aria-hidden="true"
                   className={`font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out ${
-                    isDark ? "text-inverse-on-surface" : "text-on-surface"
+                    isDark ? "text-on-surface" : "text-on-surface"
                   }`}
                   style={{ fontSize: `${fontSize}px`, ...(style.fontFamily ? { fontFamily: style.fontFamily } : {}) }}
                 >

@@ -248,7 +248,7 @@ export default function CursiveFontGenerator({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCards.map((card) => (
             <div key={card.category} className="animate-card-fade-in">
-              <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8">
+              <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                 <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                   {card.category}
                 </strong>
@@ -291,7 +291,7 @@ export default function CursiveFontGenerator({
                           className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
                             isCopied
                               ? "bg-[#22c55e] text-white"
-                              : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
+                              : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
                           }`}
                         >
                           <span aria-hidden="true" className="material-symbols-outlined text-sm">
@@ -341,7 +341,7 @@ export default function CursiveFontGenerator({
                             className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
                               isUCopied
                                 ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
+                                : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
                             }`}
                           >
                             <span aria-hidden="true" className="material-symbols-outlined text-sm">

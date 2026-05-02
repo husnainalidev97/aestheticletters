@@ -354,11 +354,7 @@ export default function InstagramFontCards() {
             />
             <button
               onClick={handleGenerate}
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: generateFlash ? "#22c55e" : "#451ebb",
-                transition: "background-color 300ms ease, transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
               {generateFlash && (
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
@@ -411,7 +407,7 @@ export default function InstagramFontCards() {
           {cards.slice(0, visibleCount).map((card) => {
             return (
               <div key={card.name} className="animate-card-fade-in">
-                <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8">
+                <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                   <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                     {card.name}
                   </strong>
@@ -446,7 +442,7 @@ export default function InstagramFontCards() {
                             className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
                               isCopied
                                 ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
+                                : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
                             }`}
                           >
                             <span className="material-symbols-outlined text-sm">
