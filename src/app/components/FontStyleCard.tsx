@@ -23,7 +23,7 @@ export default function FontStyleCard({
   const cardClasses = isLarge
     ? "group p-6 md:p-10 rounded-xl bg-surface-container-lowest editorial-shadow flex flex-col justify-between min-h-[250px] md:min-h-[300px] transition-transform duration-300 hover:scale-[1.01]"
     : isDark
-      ? "p-8 rounded-xl bg-[#1c1b1b] text-[#fcf9f8] flex flex-col justify-between overflow-hidden relative min-h-[250px]"
+      ? "p-8 rounded-xl bg-inverse-surface text-inverse-on-surface flex flex-col justify-between overflow-hidden relative min-h-[250px]"
       : "p-8 rounded-xl bg-surface-container-lowest editorial-shadow flex flex-col justify-between transition-all hover:bg-surface-container-low min-h-[250px]";
 
   const badgeClasses = isDark
@@ -39,8 +39,8 @@ export default function FontStyleCard({
   const buttonClasses = isCopied
     ? "relative z-10 mt-8 w-full py-4 bg-[#22c55e] text-white border-transparent rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2"
     : isDark
-      ? "relative z-10 mt-8 w-full py-4 bg-white/10 backdrop-blur-md hover:bg-white hover:text-black rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-      : "relative z-10 mt-8 w-full py-4 border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2";
+      ? "relative z-10 mt-8 w-full py-4 bg-surface-container-lowest/10 backdrop-blur-md hover:bg-surface-container-lowest hover:text-on-surface rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+      : "relative z-10 mt-8 w-full py-4 border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2";
 
   return (
     <div className={cardClasses}>

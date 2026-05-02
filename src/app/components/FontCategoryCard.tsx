@@ -34,7 +34,7 @@ export default function FontCategoryCard({
     >
       <strong
         className={`block font-headline text-xl font-bold mb-6 ${
-          isDark ? "text-[#1c1b1b]" : "text-on-background"
+          isDark ? "text-inverse-on-surface" : "text-on-background"
         }`}
       >
         {title}
@@ -58,7 +58,7 @@ export default function FontCategoryCard({
                 <span
                   className={`text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit ${
                     isDark
-                      ? "text-[#1c1b1b] bg-white/60"
+                      ? "text-inverse-on-surface bg-surface-container-lowest/60"
                       : "text-primary bg-primary-fixed"
                   }`}
                   aria-label={`${category.name} – ${style.name} font style`}
@@ -68,7 +68,7 @@ export default function FontCategoryCard({
                 <div
                   aria-hidden="true"
                   className={`font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out ${
-                    isDark ? "text-[#1c1b1b]" : "text-on-surface"
+                    isDark ? "text-inverse-on-surface" : "text-on-surface"
                   }`}
                   style={{ fontSize: `${fontSize}px`, ...(style.fontFamily ? { fontFamily: style.fontFamily } : {}) }}
                 >
@@ -81,8 +81,8 @@ export default function FontCategoryCard({
                   isCopied
                     ? "bg-[#22c55e] text-white"
                     : isDark
-                      ? "border border-[#451ebb]/30 text-[#451ebb] hover:bg-primary hover:text-white hover:border-transparent"
-                      : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
+                      ? "border border-primary/30 text-primary hover:bg-primary hover:text-on-primary hover:border-transparent"
+                      : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
                 }`}
               >
                 <span className="material-symbols-outlined text-sm">

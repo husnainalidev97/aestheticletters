@@ -9,16 +9,16 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full py-24 px-4 md:px-[150px] bg-[#fcf9f8] flex flex-col md:flex-row justify-between items-center gap-8 border-t border-outline-variant/30">
+    <footer className="w-full py-24 px-4 md:px-[150px] bg-background flex flex-col md:flex-row justify-between items-center gap-8 border-t border-outline-variant/30 transition-colors duration-300">
       <div className="flex flex-col gap-2">
-        <span className="font-headline font-bold text-2xl text-zinc-900">
+        <span className="font-headline font-bold text-2xl text-on-background">
           Aesthetic Letters
         </span>
-        <p className="font-['Manrope'] text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="font-['Manrope'] text-sm text-outline">
           © 2026 Aesthetic Letters. The Digital Curator.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-zinc-500">
+      <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-outline">
         {footerLinks.map((link) => (
           <Link
             key={link.label}
