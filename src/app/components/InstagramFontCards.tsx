@@ -454,17 +454,15 @@ export default function InstagramFontCards() {
                           </div>
                           <button
                             onClick={() => handleCopy(style.text, styleId)}
-                            className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
+                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
                               isCopied
                                 ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
+                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                             }`}
+                            aria-label={isCopied ? "Copied" : "Copy to clipboard"}
                           >
-                            <span className="material-symbols-outlined text-sm">
+                            <span className="material-symbols-outlined text-lg">
                               {isCopied ? "check" : "content_copy"}
-                            </span>
-                            <span className="hidden sm:inline">
-                              {isCopied ? "Copied!" : "Copy"}
                             </span>
                           </button>
                         </div>

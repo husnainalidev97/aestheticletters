@@ -288,17 +288,14 @@ export default function CursiveFontGenerator({
                               ? `Copied ${font.name} font name`
                               : `Copy ${font.name} ${card.category} font name`
                           }
-                          className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
+                          className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
                             isCopied
                               ? "bg-[#22c55e] text-white"
-                              : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
+                              : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                           }`}
                         >
-                          <span aria-hidden="true" className="material-symbols-outlined text-sm">
+                          <span aria-hidden="true" className="material-symbols-outlined text-lg">
                             {isCopied ? "check" : "content_copy"}
-                          </span>
-                          <span className="hidden sm:inline">
-                            {isCopied ? "Copied!" : "Copy"}
                           </span>
                         </button>
                       </div>
@@ -338,17 +335,14 @@ export default function CursiveFontGenerator({
                                 ? `Copied ${style.name} cursive text`
                                 : `Copy ${style.name} cursive text to clipboard`
                             }
-                            className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
+                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
                               isUCopied
                                 ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
+                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                             }`}
                           >
-                            <span aria-hidden="true" className="material-symbols-outlined text-sm">
+                            <span aria-hidden="true" className="material-symbols-outlined text-lg">
                               {isUCopied ? "check" : "content_copy"}
-                            </span>
-                            <span className="hidden sm:inline">
-                              {isUCopied ? "Copied!" : "Copy"}
                             </span>
                           </button>
                         </div>

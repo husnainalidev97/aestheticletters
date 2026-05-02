@@ -7,6 +7,8 @@ interface FontCategoryCardProps {
   copiedId: string | null;
   onCopy: (text: string, id: string) => void;
   isDark?: boolean;
+  isFavorite?: (id: string) => boolean;
+  onToggleFavorite?: (item: { id: string; styleName: string; categoryName: string; text: string }) => void;
 }
 
 export default function FontCategoryCard({
@@ -16,6 +18,8 @@ export default function FontCategoryCard({
   copiedId,
   onCopy,
   isDark = false,
+  isFavorite,
+  onToggleFavorite,
 }: FontCategoryCardProps) {
   const title = category.name;
 
@@ -68,23 +72,40 @@ export default function FontCategoryCard({
                   {converted}
                 </div>
               </div>
-              <button
-                onClick={() => onCopy(converted, styleId)}
-                className={`flex-shrink-0 min-h-12 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
-                  isCopied
-                    ? "bg-[#22c55e] text-white"
-                    : isDark
-                      ? "border border-primary/30 text-primary hover:bg-primary hover:text-on-primary hover:border-transparent"
-                      : "border border-outline-variant/30 hover:bg-primary hover:text-on-primary hover:border-transparent"
-                }`}
-              >
-                <span className="material-symbols-outlined text-sm">
-                  {isCopied ? "check" : "content_copy"}
-                </span>
-                <span className="hidden sm:inline">
-                  {isCopied ? "Copied!" : "Copy"}
-                </span>
-              </button>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {onToggleFavorite && (
+                  <button
+                    onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted })}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                      isFavorite?.(styleId)
+                        ? "text-[#ef4444]"
+                        : isDark
+                          ? "text-on-surface-variant/60 hover:text-[#ef4444]"
+                          : "text-outline hover:text-[#ef4444]"
+                    }`}
+                    aria-label={isFavorite?.(styleId) ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                      favorite
+                    </span>
+                  </button>
+                )}
+                <button
+                  onClick={() => onCopy(converted, styleId)}
+                  className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                    isCopied
+                      ? "bg-[#22c55e] text-white"
+                      : isDark
+                        ? "text-primary hover:bg-primary hover:text-on-primary"
+                        : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                  }`}
+                  aria-label={isCopied ? "Copied" : "Copy to clipboard"}
+                >
+                  <span className="material-symbols-outlined text-lg">
+                    {isCopied ? "check" : "content_copy"}
+                  </span>
+                </button>
+              </div>
             </div>
           );
         })}

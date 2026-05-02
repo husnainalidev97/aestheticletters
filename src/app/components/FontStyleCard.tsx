@@ -64,7 +64,7 @@ export default function FontStyleCard({
         <span className="material-symbols-outlined text-sm">
           {isCopied ? "check" : "content_copy"}
         </span>
-        {isCopied ? "Copied!" : "Copy Style"}
+        <span className="sr-only">{isCopied ? "Copied!" : "Copy Style"}</span>
       </button>
     </div>
   );

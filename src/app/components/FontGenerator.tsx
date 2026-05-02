@@ -4,6 +4,8 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
+import FavoritesSection from "./FavoritesSection";
+import { useFavorites } from "../lib/useFavorites";
 
 const RESULTS_ID = "font-results";
 
@@ -35,6 +37,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const visibleCategories = showAll
     ? fontCategories
@@ -231,6 +234,9 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
         </div>
       </section>
 
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
+
       {/* Font Category Cards — Progressive 3+7 loading */}
       <section
         id={RESULTS_ID}
@@ -266,6 +272,8 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 copiedId={copiedId}
                 onCopy={handleCopy}
                 isDark={DARK_CATEGORIES.has(category.name)}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
               />
             </div>
           ))}
