@@ -328,7 +328,22 @@ export default function InstagramFontCards() {
     generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
 
     const el = document.getElementById("ig-font-results");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   const decreaseSize = () => {
@@ -431,7 +446,7 @@ export default function InstagramFontCards() {
                             </span>
                             <div
                               aria-hidden="true"
-                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface"
+                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark:text-on-surface-variant"
                               style={{ fontSize: "var(--ig-font-size)" }}
                             >
                               {style.text}

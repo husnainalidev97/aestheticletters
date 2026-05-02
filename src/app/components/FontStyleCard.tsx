@@ -32,9 +32,7 @@ export default function FontStyleCard({
 
   const textClasses = `${
     isLarge ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"
-  } font-light tracking-tight ${
-    isDark ? "text-on-surface" : "text-on-surface"
-  } leading-snug break-all overflow-hidden transition-[font-size] duration-200 ease-out`;
+  } font-light tracking-tight text-on-surface dark:text-on-surface-variant leading-snug break-all overflow-hidden transition-[font-size] duration-200 ease-out`;
 
   const buttonClasses = isCopied
     ? "relative z-10 mt-8 w-full py-4 bg-[#22c55e] text-white border-transparent rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2"

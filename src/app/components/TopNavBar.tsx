@@ -48,7 +48,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
       glowTimerRef.current = setTimeout(() => {
         setShowGlow(false);
         localStorage.setItem("theme-toggle-seen", "1");
-      }, 5000);
+      }, 3500);
     }
     return () => {
       if (glowTimerRef.current) clearTimeout(glowTimerRef.current);
