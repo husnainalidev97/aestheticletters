@@ -201,7 +201,7 @@ export default function CursiveFontGenerator({
           </div>
 
           {/* Character Counter + Font Size Slider */}
-          <div className="flex items-center justify-between px-1">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-1">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
               <span className="font-semibold text-sm">Tt</span>
               Character Count:{" "}
