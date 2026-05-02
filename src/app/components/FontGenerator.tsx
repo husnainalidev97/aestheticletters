@@ -179,16 +179,14 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Character Counter */}
-          <div className="flex items-center justify-start px-1">
+          {/* Character Counter + Font Size Slider */}
+          <div className="flex items-center justify-between px-1">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
               <span className="font-semibold text-sm">Tt</span>
               Character Count:{" "}
               <span className="font-semibold">{text.length}</span>
             </span>
-          </div>
-          {/* Font Size Slider */}
-          <div className="flex items-center justify-end gap-3">
+            <div className="flex items-center gap-3">
             <button
               onClick={decreaseSize}
               className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
@@ -218,6 +216,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             <span className="text-xs text-outline font-body tabular-nums w-10 text-right">
               {fontSize}px
             </span>
+            </div>
           </div>
         </div>
       </section>
