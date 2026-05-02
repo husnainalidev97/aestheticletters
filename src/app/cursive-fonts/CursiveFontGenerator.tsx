@@ -2,6 +2,9 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { cursiveUnicodeStyles } from "./cursiveUnicodeStyles";
+import { useFavorites } from "../lib/useFavorites";
+import FavoritesSection from "../components/FavoritesSection";
+import ShareButtons from "../components/ShareButtons";
 
 /* ── Font data types ─────────────────────────────────────────────────── */
 
@@ -44,6 +47,7 @@ export default function CursiveFontGenerator({
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const visibleCards = showAll
     ? fontCards
@@ -191,8 +195,14 @@ export default function CursiveFontGenerator({
             </button>
           </div>
 
-          {/* Font Size Controls */}
-          <div className="flex items-center justify-end gap-3">
+          {/* Character Counter + Font Size Slider */}
+          <div className="flex items-center justify-between px-1">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{text.length}</span>
+            </span>
+            <div className="flex items-center gap-3">
             <button
               onClick={decreaseSize}
               className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
@@ -224,9 +234,13 @@ export default function CursiveFontGenerator({
             >
               {fontSize}px
             </span>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
       {/* Ad Slot — hidden, kept in code */}
       <section className="hidden my-14 px-4 md:px-[150px]">
@@ -281,23 +295,39 @@ export default function CursiveFontGenerator({
                             {displayText}
                           </div>
                         </div>
-                        <button
-                          onClick={() => handleCopy(font.name, styleId)}
-                          aria-label={
-                            isCopied
-                              ? `Copied ${font.name} font name`
-                              : `Copy ${font.name} ${card.category} font name`
-                          }
-                          className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
-                            isCopied
-                              ? "bg-[#22c55e] text-white"
-                              : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
-                          }`}
-                        >
-                          <span aria-hidden="true" className="material-symbols-outlined text-lg">
-                            {isCopied ? "check" : "content_copy"}
-                          </span>
-                        </button>
+                        <div className="flex items-center gap-1 flex-shrink-0">
+                          <ShareButtons text={displayText} />
+                          <button
+                            onClick={() => toggleFavorite({ id: styleId, styleName: font.name, categoryName: card.category, text: displayText })}
+                            className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                              isFavorite(styleId)
+                                ? "text-[#ef4444]"
+                                : "text-outline hover:text-[#ef4444]"
+                            }`}
+                            aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
+                          >
+                            <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                              favorite
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => handleCopy(font.name, styleId)}
+                            aria-label={
+                              isCopied
+                                ? `Copied ${font.name} font name`
+                                : `Copy ${font.name} ${card.category} font name`
+                            }
+                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                              isCopied
+                                ? "bg-[#22c55e] text-white"
+                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                            }`}
+                          >
+                            <span aria-hidden="true" className="material-symbols-outlined text-lg">
+                              {isCopied ? "check" : "content_copy"}
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     );
                   })}
@@ -326,25 +356,41 @@ export default function CursiveFontGenerator({
                               {transformed}
                             </div>
                           </div>
-                          <button
-                            onClick={() =>
-                              handleCopy(transformed, uStyleId)
-                            }
-                            aria-label={
-                              isUCopied
-                                ? `Copied ${style.name} cursive text`
-                                : `Copy ${style.name} cursive text to clipboard`
-                            }
-                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
-                              isUCopied
-                                ? "bg-[#22c55e] text-white"
-                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
-                            }`}
-                          >
-                            <span aria-hidden="true" className="material-symbols-outlined text-lg">
-                              {isUCopied ? "check" : "content_copy"}
-                            </span>
-                          </button>
+                          <div className="flex items-center gap-1 flex-shrink-0">
+                            <ShareButtons text={transformed} />
+                            <button
+                              onClick={() => toggleFavorite({ id: uStyleId, styleName: style.name, categoryName: card.category, text: transformed })}
+                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                                isFavorite(uStyleId)
+                                  ? "text-[#ef4444]"
+                                  : "text-outline hover:text-[#ef4444]"
+                              }`}
+                              aria-label={isFavorite(uStyleId) ? "Remove from favorites" : "Add to favorites"}
+                            >
+                              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(uStyleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                                favorite
+                              </span>
+                            </button>
+                            <button
+                              onClick={() =>
+                                handleCopy(transformed, uStyleId)
+                              }
+                              aria-label={
+                                isUCopied
+                                  ? `Copied ${style.name} cursive text`
+                                  : `Copy ${style.name} cursive text to clipboard`
+                              }
+                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                                isUCopied
+                                  ? "bg-[#22c55e] text-white"
+                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                              }`}
+                            >
+                              <span aria-hidden="true" className="material-symbols-outlined text-lg">
+                                {isUCopied ? "check" : "content_copy"}
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       );
                     },

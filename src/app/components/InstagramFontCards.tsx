@@ -7,6 +7,9 @@ import {
   type FontVariation,
   type SpacingMode,
 } from "../lib/fontEngine";
+import { useFavorites } from "../lib/useFavorites";
+import FavoritesSection from "./FavoritesSection";
+import ShareButtons from "./ShareButtons";
 
 // ── Shorthand builder for engine-driven styles ─────────────────────────────
 
@@ -284,6 +287,7 @@ export default function InstagramFontCards() {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cards = useMemo(() => generateCards(input), [input]);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -377,8 +381,14 @@ export default function InstagramFontCards() {
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Font Size Slider */}
-          <div className="flex items-center justify-end gap-3">
+          {/* Character Counter + Font Size Slider */}
+          <div className="flex items-center justify-between px-1">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${input.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{input.length}</span>
+            </span>
+            <div className="flex items-center gap-3">
             <button
               onClick={decreaseSize}
               className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
@@ -408,9 +418,13 @@ export default function InstagramFontCards() {
             <span className="text-xs text-outline font-body tabular-nums w-10 text-right">
               {fontSize}px
             </span>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
       {/* Font Category Cards */}
       <section
@@ -452,19 +466,35 @@ export default function InstagramFontCards() {
                               {style.text}
                             </div>
                           </div>
-                          <button
-                            onClick={() => handleCopy(style.text, styleId)}
-                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
-                              isCopied
-                                ? "bg-[#22c55e] text-white"
-                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
-                            }`}
-                            aria-label={isCopied ? "Copied" : "Copy to clipboard"}
-                          >
-                            <span className="material-symbols-outlined text-lg">
-                              {isCopied ? "check" : "content_copy"}
-                            </span>
-                          </button>
+                          <div className="flex items-center gap-1 flex-shrink-0">
+                            <ShareButtons text={style.text} />
+                            <button
+                              onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
+                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                                isFavorite(styleId)
+                                  ? "text-[#ef4444]"
+                                  : "text-outline hover:text-[#ef4444]"
+                              }`}
+                              aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
+                            >
+                              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                                favorite
+                              </span>
+                            </button>
+                            <button
+                              onClick={() => handleCopy(style.text, styleId)}
+                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                                isCopied
+                                  ? "bg-[#22c55e] text-white"
+                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                              }`}
+                              aria-label={isCopied ? "Copied" : "Copy to clipboard"}
+                            >
+                              <span className="material-symbols-outlined text-lg">
+                                {isCopied ? "check" : "content_copy"}
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       );
                     })}
