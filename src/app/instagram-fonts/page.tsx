@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
-    images: [{ url: "/instagram-fonts-generator-explained.webp" }],
+    images: [{ url: "/instagram-fonts-generator-explained.webp", width: 848, height: 1230 }],
   },
   twitter: {
     card: "summary_large_image",

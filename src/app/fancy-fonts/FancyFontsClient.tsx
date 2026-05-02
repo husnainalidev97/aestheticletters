@@ -4,6 +4,8 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { fancyFontCategories } from "../lib/fancyFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
+import { useFavorites } from "../lib/useFavorites";
+import FavoritesSection from "../components/FavoritesSection";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -22,8 +24,11 @@ export default function FancyFontsClient() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [generateFlash, setGenerateFlash] = useState(false);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   // The text to transform — use default when input is empty
   const activeText = inputText.trim() || DEFAULT_TEXT;
@@ -50,12 +55,32 @@ export default function FancyFontsClient() {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
     };
   }, []);
 
   const handleCurate = useCallback(() => {
+    setGenerateFlash(true);
+    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
+    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
+
     const el = document.getElementById("fancy-font-results");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   }, []);
 
   const handleExploreMore = useCallback(() => {
@@ -129,56 +154,55 @@ export default function FancyFontsClient() {
             />
             <button
               onClick={handleCurate}
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: "#451ebb",
-                transition: "transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
-              <span
-                className="material-symbols-outlined text-sm"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                auto_fix
-              </span>
-              Generate
+              {generateFlash && (
+                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+              )}
+              {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Font Size Slider */}
-          <div className="flex items-center justify-end gap-3">
-            <button
-              onClick={decreaseSize}
-              className="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Decrease font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                remove
-              </span>
-            </button>
-            <input
-              type="range"
-              min={MIN_SIZE}
-              max={maxSize}
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              aria-label="Adjust font preview size"
-              className="font-size-slider w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-            />
-            <button
-              onClick={increaseSize}
-              className="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Increase font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                add
-              </span>
-            </button>
-            <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
-              {fontSize}px
+          {/* Character Counter + Font Size Slider */}
+          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{inputText.length}</span>
             </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={decreaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Decrease font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <input
+                type="range"
+                min={MIN_SIZE}
+                max={maxSize}
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                aria-label="Adjust font preview size"
+                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+              />
+              <button
+                onClick={increaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Increase font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">add</span>
+              </button>
+              <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
+                {fontSize}px
+              </span>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
       {/* Font Category Cards — Same layout as Home Page */}
       <section
@@ -194,6 +218,8 @@ export default function FancyFontsClient() {
                 fontSize={fontSize}
                 copiedId={copiedId}
                 onCopy={handleCopy}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
               />
             </div>
           ))}

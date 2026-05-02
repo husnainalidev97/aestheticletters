@@ -4,6 +4,7 @@ import FontGenerator from "./components/FontGenerator";
 import SEOSection from "./components/SEOSection";
 import FAQSection, { homeFaqs } from "./components/FAQSection";
 import Footer from "./components/Footer";
+import { getTotalFontStyleCount } from "./lib/fontCount";
 
 export const metadata: Metadata = {
   title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -73,6 +74,8 @@ export default function Home() {
     })),
   };
 
+  const totalFontStyles = getTotalFontStyleCount();
+
   return (
     <>
       <script
@@ -85,7 +88,7 @@ export default function Home() {
       />
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
-        <FontGenerator />
+        <FontGenerator totalFontStyles={totalFontStyles} />
         <SEOSection />
         <FAQSection />
       </main>

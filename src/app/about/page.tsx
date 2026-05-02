@@ -3,7 +3,7 @@ import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle = "About Us | Aesthetic Letters";
+const pageTitle = "About Us";
 const pageDescription =
   "Learn about Aesthetic Letters — a small team passionate about design, accessibility, and the power of Unicode.";
 const canonicalUrl = "https://www.aestheticletters.com/about";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -78,15 +78,15 @@ export default function AboutPage() {
               {/* Card 2: Simplicity */}
               <div className="bg-primary p-12 rounded-xl text-on-primary flex flex-col justify-between shadow-lg">
                 <div>
-                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-8">
-                    <span className="material-symbols-outlined text-white text-3xl">
+                  <div className="w-14 h-14 rounded-full bg-on-primary/20 flex items-center justify-center mb-8">
+                    <span className="material-symbols-outlined text-on-primary text-3xl">
                       code
                     </span>
                   </div>
-                  <h2 className="font-headline text-3xl mb-4 text-white">
+                  <h2 className="font-headline text-3xl mb-4 text-on-primary">
                     Intuitive by Nature
                   </h2>
-                  <p className="text-on-primary-container text-lg opacity-90">
+                  <p className="text-on-primary text-lg opacity-90">
                     We believe in tools that work without instructions. Our
                     interface is designed to be accessible and straightforward,
                     removing all the unnecessary clutter so you can focus

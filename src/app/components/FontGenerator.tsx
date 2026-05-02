@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
+import Link from "next/link";
 import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
+import FavoritesSection from "./FavoritesSection";
+import { useFavorites } from "../lib/useFavorites";
 
 const RESULTS_ID = "font-results";
 
@@ -18,7 +21,11 @@ const INITIAL_COUNT = 4;
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
 
-export default function FontGenerator() {
+interface FontGeneratorProps {
+  totalFontStyles: number;
+}
+
+export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   const [text, setText] = useState("Aesthetic Fonts");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -30,6 +37,7 @@ export default function FontGenerator() {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const visibleCategories = showAll
     ? fontCategories
@@ -105,7 +113,22 @@ export default function FontGenerator() {
     generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
 
     const el = document.getElementById(RESULTS_ID);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   const handleExploreMore = () => {
@@ -148,11 +171,7 @@ export default function FontGenerator() {
             />
             <button
               onClick={handleGenerate}
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: generateFlash ? "#22c55e" : "#451ebb",
-                transition: "background-color 300ms ease, transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
               {generateFlash && (
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
@@ -160,37 +179,40 @@ export default function FontGenerator() {
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Font Size Slider */}
-          <div className="flex items-center justify-end gap-3">
-            <button
-              onClick={decreaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Decrease font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                remove
-              </span>
-            </button>
-            <input
-              type="range"
-              min={MIN_SIZE}
-              max={maxSize}
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              className="font-size-slider w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-            />
-            <button
-              onClick={increaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Increase font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                add
-              </span>
-            </button>
-            <span className="text-xs text-outline font-body tabular-nums w-10 text-right">
-              {fontSize}px
+          {/* Character Counter + Font Size Slider */}
+          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{text.length}</span>
             </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={decreaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Decrease font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <input
+                type="range"
+                min={MIN_SIZE}
+                max={maxSize}
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+              />
+              <button
+                onClick={increaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Increase font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">add</span>
+              </button>
+              <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
+                {fontSize}px
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -207,11 +229,34 @@ export default function FontGenerator() {
         </div>
       </section>
 
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
+
       {/* Font Category Cards — Progressive 3+7 loading */}
       <section
         id={RESULTS_ID}
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
+        {/* Dynamic Font Counter Badge */}
+        <div className="flex justify-end mb-5">
+          <Link
+            href="/all-tools"
+            title="Browse all aesthetic font generators and text styling tools — explore every style in one place"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0px_8px_24px_rgba(155,89,182,0.3)] active:scale-[0.97]"
+            style={{
+              background: "linear-gradient(135deg, #9b6dd7 0%, #e888b0 100%)",
+            }}
+          >
+            <span
+              className="material-symbols-outlined text-base transition-transform duration-300 group-hover:rotate-12"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              auto_awesome
+            </span>
+            Explore {totalFontStyles}+ Font Styles
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
             <div key={category.name} className="animate-card-fade-in">
@@ -222,6 +267,8 @@ export default function FontGenerator() {
                 copiedId={copiedId}
                 onCopy={handleCopy}
                 isDark={DARK_CATEGORIES.has(category.name)}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
               />
             </div>
           ))}

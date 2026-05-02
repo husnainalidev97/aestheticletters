@@ -20,7 +20,10 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aestheticletters.com"),
-  title: "Aesthetic Letters | The Digital Curator",
+  title: {
+    default: "Aesthetic Letters | Free Aesthetic Font Generator",
+    template: "%s | Aesthetic Letters",
+  },
   description:
     "The high-performance specimen for digital expression. Curate your social identity with unicode elegance.",
   icons: {
@@ -76,8 +79,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
-      <body className="bg-background text-on-background font-body">
+    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`} suppressHydrationWarning>
+      <head>
+        {/* FOUC prevention — apply dark class before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="bg-background text-on-background font-body transition-colors duration-300">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded-md focus:font-headline focus:font-bold"

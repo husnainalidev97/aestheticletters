@@ -7,6 +7,9 @@ import {
   type FontVariation,
   type SpacingMode,
 } from "../lib/fontEngine";
+import { useFavorites } from "../lib/useFavorites";
+import FavoritesSection from "./FavoritesSection";
+import ShareButtons from "./ShareButtons";
 
 // ── Shorthand builder for engine-driven styles ─────────────────────────────
 
@@ -284,6 +287,7 @@ export default function InstagramFontCards() {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cards = useMemo(() => generateCards(input), [input]);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -328,7 +332,22 @@ export default function InstagramFontCards() {
     generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
 
     const el = document.getElementById("ig-font-results");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   const decreaseSize = () => {
@@ -354,11 +373,7 @@ export default function InstagramFontCards() {
             />
             <button
               onClick={handleGenerate}
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: generateFlash ? "#22c55e" : "#451ebb",
-                transition: "background-color 300ms ease, transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
               {generateFlash && (
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
@@ -366,40 +381,46 @@ export default function InstagramFontCards() {
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
-          {/* Font Size Slider */}
-          <div className="flex items-center justify-end gap-3">
-            <button
-              onClick={decreaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Decrease font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                remove
-              </span>
-            </button>
-            <input
-              type="range"
-              min={MIN_SIZE}
-              max={maxSize}
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              className="font-size-slider w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-            />
-            <button
-              onClick={increaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Increase font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                add
-              </span>
-            </button>
-            <span className="text-xs text-outline font-body tabular-nums w-10 text-right">
-              {fontSize}px
+          {/* Character Counter + Font Size Slider */}
+          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${input.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{input.length}</span>
             </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={decreaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Decrease font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <input
+                type="range"
+                min={MIN_SIZE}
+                max={maxSize}
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+              />
+              <button
+                onClick={increaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Increase font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">add</span>
+              </button>
+              <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
+                {fontSize}px
+              </span>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
       {/* Font Category Cards */}
       <section
@@ -411,7 +432,7 @@ export default function InstagramFontCards() {
           {cards.slice(0, visibleCount).map((card) => {
             return (
               <div key={card.name} className="animate-card-fade-in">
-                <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8">
+                <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                   <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                     {card.name}
                   </strong>
@@ -428,34 +449,48 @@ export default function InstagramFontCards() {
                         >
                           <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
                             <span
-                              className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed"
+                              className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                               aria-label={`${card.name} – ${style.label} font style`}
                             >
                               {style.label}
                             </span>
                             <div
                               aria-hidden="true"
-                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface"
+                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
                               style={{ fontSize: "var(--ig-font-size)" }}
                             >
                               {style.text}
                             </div>
                           </div>
-                          <button
-                            onClick={() => handleCopy(style.text, styleId)}
-                            className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
-                              isCopied
-                                ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
-                            }`}
-                          >
-                            <span className="material-symbols-outlined text-sm">
-                              {isCopied ? "check" : "content_copy"}
-                            </span>
-                            <span className="hidden sm:inline">
-                              {isCopied ? "Copied!" : "Copy"}
-                            </span>
-                          </button>
+                          <div className="flex items-center gap-1 flex-shrink-0">
+                            <ShareButtons text={style.text} />
+                            <button
+                              onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
+                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                                isFavorite(styleId)
+                                  ? "text-[#ef4444]"
+                                  : "text-outline hover:text-[#ef4444]"
+                              }`}
+                              aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
+                            >
+                              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                                favorite
+                              </span>
+                            </button>
+                            <button
+                              onClick={() => handleCopy(style.text, styleId)}
+                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                                isCopied
+                                  ? "bg-[#22c55e] text-white"
+                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                              }`}
+                              aria-label={isCopied ? "Copied" : "Copy to clipboard"}
+                            >
+                              <span className="material-symbols-outlined text-lg">
+                                {isCopied ? "check" : "content_copy"}
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       );
                     })}

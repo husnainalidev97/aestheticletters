@@ -97,42 +97,18 @@ export default function FontResultCard({
   const effectiveSize = isWide ? Math.round(baseSize * 0.8) : baseSize;
 
   // Derive all styles from React state — no imperative DOM manipulation
-  const cardBg = "#fcfcfd";
-  const cardBorderColor = cardHovered ? "#6366f1" : "#e5e7eb";
-  const cardShadow = cardHovered
-    ? "0 10px 30px rgba(0,0,0,0.08)"
-    : "0 1px 3px rgba(0,0,0,0.02)";
-  const cardTransform = cardHovered ? "translateY(-5px)" : "translateY(0)";
-
-  let btnBg: string;
-  let btnColor: string;
   let btnTransform: string;
   if (copied) {
-    btnBg = "#22c55e";
-    btnColor = "#ffffff";
     btnTransform = "scale(1.1)";
   } else if (btnHovered) {
-    btnBg = "#ede9fe";
-    btnColor = "#6366f1";
     btnTransform = "scale(1.1)";
   } else {
-    btnBg = "#f5f3ff";
-    btnColor = "#6b7280";
     btnTransform = "scale(1)";
   }
 
   return (
     <div
-      className={`${span2 ? "md:col-span-2" : ""} group relative flex justify-between items-center cursor-pointer h-full`}
-      style={{
-        padding: "24px",
-        backgroundColor: cardBg,
-        border: `1px solid ${cardBorderColor}`,
-        borderRadius: "12px",
-        boxShadow: cardShadow,
-        transform: cardTransform,
-        transition: "all 0.3s ease-in-out",
-      }}
+      className={`${span2 ? "md:col-span-2" : ""} group relative flex justify-between items-center cursor-pointer h-full p-6 bg-surface-container-lowest border rounded-xl transition-all duration-300 ease-in-out ${cardHovered ? "border-primary shadow-[0_10px_30px_rgba(0,0,0,0.08)] -translate-y-1" : "border-outline-variant/20 shadow-[0_1px_3px_rgba(0,0,0,0.02)]"}`}
       onMouseEnter={() => setCardHovered(true)}
       onMouseLeave={() => setCardHovered(false)}
       onClick={handleCopy}
@@ -140,18 +116,13 @@ export default function FontResultCard({
       <div className="flex flex-col gap-2 min-w-0 flex-1 mr-4">
         {/* Style name label — turns purple on card hover */}
         <span
-          className="font-bold text-[#6b7280] group-hover:text-[#6366f1] transition-colors duration-300 ease-in-out"
-          style={{
-            fontSize: "10px",
-            textTransform: "uppercase",
-            letterSpacing: "0.05em",
-          }}
+          className="font-bold text-outline group-hover:text-primary transition-colors duration-300 ease-in-out text-[0.625rem] uppercase tracking-widest"
         >
           {label}
         </span>
         {/* Unicode preview text — single line, ellipsis overflow */}
         <div
-          className="font-body overflow-hidden transition-[font-size] duration-200 ease-out"
+          className="font-body overflow-hidden transition-[font-size] duration-200 ease-out dark-preview-text"
           style={{
             fontSize: `${effectiveSize}px`,
             lineHeight: "1.6",
@@ -173,16 +144,8 @@ export default function FontResultCard({
             e.stopPropagation();
             handleCopy();
           }}
-          className="flex items-center justify-center"
-          style={{
-            width: "42px",
-            height: "42px",
-            borderRadius: "50%",
-            backgroundColor: btnBg,
-            color: btnColor,
-            transform: btnTransform,
-            transition: "all 0.3s ease-in-out",
-          }}
+          className={`flex items-center justify-center w-[42px] h-[42px] rounded-full transition-all duration-300 ease-in-out ${copied ? "bg-[#22c55e] text-white" : btnHovered ? "bg-surface-container-high text-primary" : "bg-surface-container text-on-surface-variant"}`}
+          style={{ transform: btnTransform }}
           onMouseEnter={() => setBtnHovered(true)}
           onMouseLeave={() => setBtnHovered(false)}
           aria-label={copied ? "Copied" : "Copy to clipboard"}
@@ -193,13 +156,8 @@ export default function FontResultCard({
         </button>
         {/* "Copied!" tooltip */}
         <span
-          className="pointer-events-none absolute -top-8 left-1/2 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-semibold text-white"
-          style={{
-            transform: "translateX(-50%)",
-            backgroundColor: "#22c55e",
-            opacity: copied ? 1 : 0,
-            transition: "opacity 0.2s ease-in-out",
-          }}
+          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-semibold text-white bg-[#22c55e] transition-opacity duration-200 ease-in-out"
+          style={{ opacity: copied ? 1 : 0 }}
         >
           Copied!
         </span>

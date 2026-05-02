@@ -2,6 +2,9 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { cursiveUnicodeStyles } from "./cursiveUnicodeStyles";
+import { useFavorites } from "../lib/useFavorites";
+import FavoritesSection from "../components/FavoritesSection";
+import ShareButtons from "../components/ShareButtons";
 
 /* ── Font data types ─────────────────────────────────────────────────── */
 
@@ -44,6 +47,7 @@ export default function CursiveFontGenerator({
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const visibleCards = showAll
     ? fontCards
@@ -127,7 +131,22 @@ export default function CursiveFontGenerator({
       1500,
     );
     const el = document.getElementById(RESULTS_ID);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 900;
+      let start: number | null = null;
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
   };
 
   const handleExploreMore = () => {
@@ -172,61 +191,59 @@ export default function CursiveFontGenerator({
             <button
               onClick={handleGenerate}
               aria-label="Generate cursive fonts from your text"
-              className="absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5"
-              style={{
-                backgroundColor: generateFlash ? "#22c55e" : "#451ebb",
-                transition:
-                  "background-color 300ms ease, transform 100ms ease",
-              }}
+              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
             >
               {generateFlash && (
-                <span
-                  className="material-symbols-outlined text-sm"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  check_circle
-                </span>
+                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
               )}
               {generateFlash ? "Generated!" : "Generate"}
             </button>
           </div>
 
-          {/* Font Size Controls */}
-          <div className="flex items-center justify-end gap-3">
-            <button
-              onClick={decreaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Decrease font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                remove
-              </span>
-            </button>
-            <input
-              type="range"
-              min={MIN_SIZE}
-              max={maxSize}
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              aria-label="Font size"
-              className="font-size-slider w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-            />
-            <button
-              onClick={increaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Increase font size"
-            >
-              <span className="material-symbols-outlined text-base">add</span>
-            </button>
-            <span
-              aria-live="polite"
-              className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right"
-            >
-              {fontSize}px
+          {/* Character Counter + Font Size Slider */}
+          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
+            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+              <span className="font-semibold text-sm">Tt</span>
+              Character Count:{" "}
+              <span className="font-semibold">{text.length}</span>
             </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={decreaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Decrease font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <input
+                type="range"
+                min={MIN_SIZE}
+                max={maxSize}
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                aria-label="Font size"
+                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+              />
+              <button
+                onClick={increaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Increase font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">add</span>
+              </button>
+              <span
+                aria-live="polite"
+                className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right"
+              >
+                {fontSize}px
+              </span>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Favorites Section */}
+      <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
       {/* Ad Slot — hidden, kept in code */}
       <section className="hidden my-14 px-4 md:px-[150px]">
@@ -248,7 +265,7 @@ export default function CursiveFontGenerator({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCards.map((card) => (
             <div key={card.category} className="animate-card-fade-in">
-              <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8">
+              <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                 <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                   {card.category}
                 </strong>
@@ -265,14 +282,14 @@ export default function CursiveFontGenerator({
                       >
                         <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
                           <span
-                            className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed"
+                            className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                             aria-label={`${card.category} – ${font.name} font style`}
                           >
                             {font.name}
                           </span>
                           <div
                             aria-hidden="true"
-                            className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface"
+                            className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
                             style={{
                               fontSize: `${fontSize}px`,
                               fontFamily: `'${font.family}', cursive`,
@@ -281,26 +298,39 @@ export default function CursiveFontGenerator({
                             {displayText}
                           </div>
                         </div>
-                        <button
-                          onClick={() => handleCopy(font.name, styleId)}
-                          aria-label={
-                            isCopied
-                              ? `Copied ${font.name} font name`
-                              : `Copy ${font.name} ${card.category} font name`
-                          }
-                          className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
-                            isCopied
-                              ? "bg-[#22c55e] text-white"
-                              : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
-                          }`}
-                        >
-                          <span aria-hidden="true" className="material-symbols-outlined text-sm">
-                            {isCopied ? "check" : "content_copy"}
-                          </span>
-                          <span className="hidden sm:inline">
-                            {isCopied ? "Copied!" : "Copy"}
-                          </span>
-                        </button>
+                        <div className="flex items-center gap-1 flex-shrink-0">
+                          <ShareButtons text={displayText} />
+                          <button
+                            onClick={() => toggleFavorite({ id: styleId, styleName: font.name, categoryName: card.category, text: displayText })}
+                            className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                              isFavorite(styleId)
+                                ? "text-[#ef4444]"
+                                : "text-outline hover:text-[#ef4444]"
+                            }`}
+                            aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
+                          >
+                            <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                              favorite
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => handleCopy(font.name, styleId)}
+                            aria-label={
+                              isCopied
+                                ? `Copied ${font.name} font name`
+                                : `Copy ${font.name} ${card.category} font name`
+                            }
+                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                              isCopied
+                                ? "bg-[#22c55e] text-white"
+                                : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                            }`}
+                          >
+                            <span aria-hidden="true" className="material-symbols-outlined text-lg">
+                              {isCopied ? "check" : "content_copy"}
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     );
                   })}
@@ -318,39 +348,52 @@ export default function CursiveFontGenerator({
                           className="flex justify-between items-center p-4 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
                         >
                           <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed">
+                            <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high">
                               {style.name}
                             </span>
                             <div
                               aria-hidden="true"
-                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface"
+                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
                               style={{ fontSize: `${fontSize}px` }}
                             >
                               {transformed}
                             </div>
                           </div>
-                          <button
-                            onClick={() =>
-                              handleCopy(transformed, uStyleId)
-                            }
-                            aria-label={
-                              isUCopied
-                                ? `Copied ${style.name} cursive text`
-                                : `Copy ${style.name} cursive text to clipboard`
-                            }
-                            className={`flex-shrink-0 py-2 px-4 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-1.5 ${
-                              isUCopied
-                                ? "bg-[#22c55e] text-white"
-                                : "border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-transparent"
-                            }`}
-                          >
-                            <span aria-hidden="true" className="material-symbols-outlined text-sm">
-                              {isUCopied ? "check" : "content_copy"}
-                            </span>
-                            <span className="hidden sm:inline">
-                              {isUCopied ? "Copied!" : "Copy"}
-                            </span>
-                          </button>
+                          <div className="flex items-center gap-1 flex-shrink-0">
+                            <ShareButtons text={transformed} />
+                            <button
+                              onClick={() => toggleFavorite({ id: uStyleId, styleName: style.name, categoryName: card.category, text: transformed })}
+                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                                isFavorite(uStyleId)
+                                  ? "text-[#ef4444]"
+                                  : "text-outline hover:text-[#ef4444]"
+                              }`}
+                              aria-label={isFavorite(uStyleId) ? "Remove from favorites" : "Add to favorites"}
+                            >
+                              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(uStyleId) ? "'FILL' 1" : "'FILL' 0" }}>
+                                favorite
+                              </span>
+                            </button>
+                            <button
+                              onClick={() =>
+                                handleCopy(transformed, uStyleId)
+                              }
+                              aria-label={
+                                isUCopied
+                                  ? `Copied ${style.name} cursive text`
+                                  : `Copy ${style.name} cursive text to clipboard`
+                              }
+                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                                isUCopied
+                                  ? "bg-[#22c55e] text-white"
+                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                              }`}
+                            >
+                              <span aria-hidden="true" className="material-symbols-outlined text-lg">
+                                {isUCopied ? "check" : "content_copy"}
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       );
                     },
