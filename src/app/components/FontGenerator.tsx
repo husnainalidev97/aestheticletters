@@ -180,7 +180,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             </button>
           </div>
           {/* Character Counter */}
-          <div className="flex items-center justify-end px-1">
+          <div className="flex items-center justify-start px-1">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
               <span className="font-semibold text-sm">Tt</span>
               Character Count:{" "}
