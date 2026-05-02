@@ -128,7 +128,10 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
         );
         break;
       case "discord":
-        copyText(text).then(() => showMsg("Copied! Paste in Discord"));
+        copyText(text).then(() => {
+          showMsg("Copied! Opening Discord...");
+          setTimeout(() => window.open("https://discord.com/channels/@me", "_blank", "noopener,noreferrer"), 800);
+        });
         break;
       case "instagram":
         copyText(text).then(() => {
