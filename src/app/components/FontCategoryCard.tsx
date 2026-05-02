@@ -1,4 +1,5 @@
 import { FontCategory } from "../lib/fontStyles";
+import ShareButtons from "./ShareButtons";
 
 interface FontCategoryCardProps {
   category: FontCategory;
@@ -72,7 +73,8 @@ export default function FontCategoryCard({
                   {converted}
                 </div>
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex items-center gap-1 flex-shrink-0">
+                <ShareButtons text={converted} />
                 {onToggleFavorite && (
                   <button
                     onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted })}
