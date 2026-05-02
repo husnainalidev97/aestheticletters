@@ -453,7 +453,7 @@ export default function InstagramFontCards() {
                         >
                           <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
                             <span
-                              className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed"
+                              className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                               aria-label={`${card.name} – ${style.label} font style`}
                             >
                               {style.label}

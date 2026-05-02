@@ -26,9 +26,7 @@ export default function FontStyleCard({
       ? "p-8 rounded-xl dark-accent-card flex flex-col justify-between overflow-hidden relative min-h-[250px] transition-colors duration-300"
       : "p-8 rounded-xl bg-surface-container-lowest editorial-shadow flex flex-col justify-between transition-all duration-300 hover:bg-surface-container-low min-h-[250px]";
 
-  const badgeClasses = isDark
-    ? "text-[0.65rem] font-bold uppercase tracking-[0.2em] text-primary bg-primary-fixed/60 px-3 py-1 rounded-full mb-6 inline-block"
-    : "text-[0.65rem] font-bold uppercase tracking-[0.2em] text-primary bg-primary-fixed px-3 py-1 rounded-full mb-6 inline-block";
+  const badgeClasses = "text-[0.65rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full mb-6 inline-block";
 
   const textClasses = `${
     isLarge ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"

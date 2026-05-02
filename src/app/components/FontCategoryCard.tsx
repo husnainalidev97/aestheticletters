@@ -56,11 +56,7 @@ export default function FontCategoryCard({
             >
               <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
                 <span
-                  className={`text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit ${
-                    isDark
-                      ? "text-primary bg-primary-fixed/60"
-                      : "text-primary bg-primary-fixed"
-                  }`}
+                  className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                   aria-label={`${category.name} – ${style.name} font style`}
                 >
                   {style.name}

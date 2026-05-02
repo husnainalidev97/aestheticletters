@@ -144,7 +144,7 @@ export default function FontResultCard({
             e.stopPropagation();
             handleCopy();
           }}
-          className={`flex items-center justify-center w-[42px] h-[42px] rounded-full transition-all duration-300 ease-in-out ${copied ? "bg-[#22c55e] text-white" : btnHovered ? "bg-primary-fixed text-primary" : "bg-surface-container text-on-surface-variant"}`}
+          className={`flex items-center justify-center w-[42px] h-[42px] rounded-full transition-all duration-300 ease-in-out ${copied ? "bg-[#22c55e] text-white" : btnHovered ? "bg-surface-container-high text-primary" : "bg-surface-container text-on-surface-variant"}`}
           style={{ transform: btnTransform }}
           onMouseEnter={() => setBtnHovered(true)}
           onMouseLeave={() => setBtnHovered(false)}

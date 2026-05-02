@@ -284,7 +284,7 @@ export default function CursiveFontGenerator({
                       >
                         <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
                           <span
-                            className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed"
+                            className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                             aria-label={`${card.category} – ${font.name} font style`}
                           >
                             {font.name}
@@ -350,7 +350,7 @@ export default function CursiveFontGenerator({
                           className="flex justify-between items-center p-4 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
                         >
                           <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-primary bg-primary-fixed">
+                            <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high">
                               {style.name}
                             </span>
                             <div

@@ -53,7 +53,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
             className="text-left bg-surface-container-lowest p-6 hover:bg-surface-container-high border border-outline-variant/20 hover:border-outline-variant rounded-xl transition-all duration-300 group"
           >
             {/* Category Pill */}
-            <span className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary-fixed rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container-high rounded-full mb-4">
               {card.pill}
             </span>
             {/* Preview Text */}
