@@ -78,15 +78,15 @@ export default function AboutPage() {
               {/* Card 2: Simplicity */}
               <div className="bg-primary p-12 rounded-xl text-on-primary flex flex-col justify-between shadow-lg">
                 <div>
-                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-8">
-                    <span className="material-symbols-outlined text-white text-3xl">
+                  <div className="w-14 h-14 rounded-full bg-on-primary/20 flex items-center justify-center mb-8">
+                    <span className="material-symbols-outlined text-on-primary text-3xl">
                       code
                     </span>
                   </div>
-                  <h2 className="font-headline text-3xl mb-4 text-white">
+                  <h2 className="font-headline text-3xl mb-4 text-on-primary">
                     Intuitive by Nature
                   </h2>
-                  <p className="text-on-primary-container text-lg opacity-90">
+                  <p className="text-on-primary text-lg opacity-90">
                     We believe in tools that work without instructions. Our
                     interface is designed to be accessible and straightforward,
                     removing all the unnecessary clutter so you can focus
