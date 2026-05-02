@@ -3,8 +3,7 @@ import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle =
-  "All Font Generators | Collection of Aesthetic Letter Tools";
+const pageTitle = "All Font Generators & Aesthetic Letter Tools";
 const pageDescription =
   "Pick your favorite style from our collection of easy-to-use font generators. Designed to make your text stand out instantly. Fast, free, and 100% private.";
 const canonicalUrl = "https://www.aestheticletters.com/all-tools";
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

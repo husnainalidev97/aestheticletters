@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle = "Privacy Policy | Aesthetic Letters";
+const pageTitle = "Privacy Policy";
 const pageDescription =
   "Transparency is the foundation of our gallery. Learn how we handle your data with care.";
 const canonicalUrl = "https://www.aestheticletters.com/privacy-policy";

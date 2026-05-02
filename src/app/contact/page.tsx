@@ -3,7 +3,7 @@ import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import ContactEmailCard from "./ContactEmailCard";
 
-const pageTitle = "Contact Us | Aesthetic Letters";
+const pageTitle = "Contact Us";
 const pageDescription =
   "Have a suggestion for a new font style, spotted a bug, or want to collaborate? Email us at hello@aestheticletters.com.";
 const canonicalUrl = "https://www.aestheticletters.com/contact";

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle = "Terms and Services | Aesthetic Letters";
+const pageTitle = "Terms and Services";
 const pageDescription =
   "The simple rules that guide your use of Aesthetic Letters. Please review before using our font generator.";
 const canonicalUrl = "https://www.aestheticletters.com/terms-and-services";

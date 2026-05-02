@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle = "Disclaimer | Aesthetic Letters";
+const pageTitle = "Disclaimer";
 const pageDescription =
   "Important information about the nature and limits of the tools and content provided by Aesthetic Letters.";
 const canonicalUrl = "https://www.aestheticletters.com/disclaimer";

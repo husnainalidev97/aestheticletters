@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

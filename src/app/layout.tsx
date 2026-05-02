@@ -20,7 +20,10 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aestheticletters.com"),
-  title: "Aesthetic Letters | The Digital Curator",
+  title: {
+    default: "Aesthetic Letters | Free Aesthetic Font Generator",
+    template: "%s | Aesthetic Letters",
+  },
   description:
     "The high-performance specimen for digital expression. Curate your social identity with unicode elegance.",
   icons: {

@@ -15,7 +15,7 @@ export default function Footer() {
           Aesthetic Letters
         </span>
         <p className="font-['Manrope'] text-sm text-outline">
-          © 2026 Aesthetic Letters. The Digital Curator.
+          © {new Date().getFullYear()} Aesthetic Letters. The Digital Curator.
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-outline">

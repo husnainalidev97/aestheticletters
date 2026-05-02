@@ -3,7 +3,7 @@ import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 
-const pageTitle = "About Us | Aesthetic Letters";
+const pageTitle = "About Us";
 const pageDescription =
   "Learn about Aesthetic Letters — a small team passionate about design, accessibility, and the power of Unicode.";
 const canonicalUrl = "https://www.aestheticletters.com/about";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
