@@ -382,42 +382,38 @@ export default function InstagramFontCards() {
             </button>
           </div>
           {/* Character Counter + Font Size Slider */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-1">
+          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${input.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
               <span className="font-semibold text-sm">Tt</span>
               Character Count:{" "}
               <span className="font-semibold">{input.length}</span>
             </span>
-            <div className="flex items-center gap-3">
-            <button
-              onClick={decreaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Decrease font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                remove
+            <div className="flex items-center gap-2">
+              <button
+                onClick={decreaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Decrease font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <input
+                type="range"
+                min={MIN_SIZE}
+                max={maxSize}
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+              />
+              <button
+                onClick={increaseSize}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                aria-label="Increase font size"
+              >
+                <span className="material-symbols-outlined text-[18px]">add</span>
+              </button>
+              <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
+                {fontSize}px
               </span>
-            </button>
-            <input
-              type="range"
-              min={MIN_SIZE}
-              max={maxSize}
-              value={fontSize}
-              onChange={(e) => setFontSize(Number(e.target.value))}
-              className="font-size-slider w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-            />
-            <button
-              onClick={increaseSize}
-              className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-              aria-label="Increase font size"
-            >
-              <span className="material-symbols-outlined text-base">
-                add
-              </span>
-            </button>
-            <span className="text-xs text-outline font-body tabular-nums w-10 text-right">
-              {fontSize}px
-            </span>
             </div>
           </div>
         </div>
