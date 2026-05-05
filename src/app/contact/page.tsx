@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -31,8 +31,44 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: pageTitle,
+        description: pageDescription,
+        inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.aestheticletters.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contact",
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <TopNavBar />
       <main id="main-content" className="pt-32 pb-24 px-6">
         <div className="max-w-[640px] mx-auto">

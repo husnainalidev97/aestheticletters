@@ -21,8 +21,18 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aestheticletters.com"),
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   title: {
     default: "Aesthetic Letters | Free Aesthetic Font Generator",
@@ -34,6 +44,7 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
       { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
