@@ -6,6 +6,7 @@ import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
+import HomeGoogleFontsLoader from "./HomeGoogleFontsLoader";
 
 const RESULTS_ID = "font-results";
 
@@ -150,6 +151,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
   return (
     <>
+      <HomeGoogleFontsLoader />
       {/* Hero Section with Input */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
         <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">

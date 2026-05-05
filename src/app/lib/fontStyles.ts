@@ -128,7 +128,8 @@ const boldItalicMap = buildMap(0x1d468, 0x1d482);
 const sansSerifMap = buildMap(0x1d5a0, 0x1d5ba);
 const sansSerifBoldMap = buildMap(0x1d5d4, 0x1d5ee);
 const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
-const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
+// Sans-Serif Bold Italic map retained for potential future use
+// const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
 
 // Enclosed Circle Letters
 const circleMap = buildMap(0x24b6, 0x24d0);
@@ -196,16 +197,16 @@ const softAesthetic: FontCategory = {
     { name: "Whisper Text", transform: (t) => applyMap(t, superscriptMap) },
     { name: "Soft Italic", transform: (t) => applyMap(t, italicMap) },
     { name: "Gentle Bold", transform: (t) => applyMap(t, boldItalicMap) },
-    { name: "Dotted Dream", transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0307"]) },
-    { name: "Breeze Script", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0306"]) },
+    { name: "Dotted Dream", transform: (t) => t, fontFamily: "'Mr Bedfort', cursive" },
+    { name: "Breeze Script", transform: (t) => t, fontFamily: "'Norican', sans-serif" },
     { name: "Ringed Whisper", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u030A"]) },
-    { name: "Tilde Flow", transform: (t) => withCombining(applyMap(t, italicMap), ["\u0303"]) },
+    { name: "Tilde Flow", transform: (t) => t, fontFamily: "'Ballet', cursive" },
     // +5 Pastel styles with small caps + floral symbols
     { name: "Petal Caps", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u273F", "\u273F") },
     { name: "Blossom Script", transform: (t) => withFrame(applyMap(t, scriptMap), "\u2740", "\u2740") },
     { name: "Rose Italic", transform: (t) => withFrame(applyMap(t, italicMap), "\u2741", "\u2741") },
     { name: "Lily Whisper", transform: (t) => withFrame(applyMap(t, superscriptMap), "\u0A94", "\u0A94") },
-    { name: "Daisy Dream", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0307", "\u0323"]) },
+    { name: "Daisy Dream", transform: (t) => t, fontFamily: "'Jim Nightshade', cursive" },
   ],
 };
 
@@ -224,6 +225,11 @@ const darkAesthetic: FontCategory = {
     { name: "Slashed Text", transform: (t) => withCombining(t, ["\u0337"]) },
     { name: "Dark Slash", transform: (t) => withCombining(t, ["\u0338"]) },
     { name: "Double Strike", transform: (t) => withCombining(t, ["\u0336", "\u0334"]) },
+    { name: "Roboto Flex", transform: (t) => t, fontFamily: "'Roboto Flex', sans-serif" },
+    { name: "Cal Sans", transform: (t) => t, fontFamily: "'Cal Sans', sans-serif" },
+    { name: "Noto Sans Anatolian Hieroglyphs", transform: (t) => t, fontFamily: "'Noto Sans Anatolian Hieroglyphs', sans-serif" },
+    { name: "Gruppo", transform: (t) => t, fontFamily: "'Gruppo', sans-serif" },
+    { name: "Nobile", transform: (t) => t, fontFamily: "'Nobile', sans-serif" },
   ],
 };
 
@@ -239,13 +245,13 @@ const gothic: FontCategory = {
     { name: "Dark Medieval", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u0F12", "\u0F12") },
     { name: "Sacred Gothic", transform: (t) => withFrame(applyMap(t, frakturMap), "\u262C", "\u262C") },
     { name: "Noble Script", transform: (t) => withFrame(applyMap(t, doubleStruckMap), "\u300E", "\u300F") },
-    { name: "Aged Fraktur", transform: (t) => withCombining(applyMap(t, frakturMap), ["\u0307", "\u0323"]) },
+    { name: "Aged Fraktur", transform: (t) => t, fontFamily: "'Mea Culpa', cursive" },
     { name: "Bold Gothic Frame", transform: (t) => withFrame(applyMap(t, boldMap), "\u2694", "\u2694") },
     { name: "Ancient Runes", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u16ED", "\u16ED") },
     // +3 Dark/Heavy styles with daggers and crosses
     { name: "Dagger Cross", transform: (t) => withFrame(applyMap(t, frakturMap), "\u2020\u2021", "\u2021\u2020") },
     { name: "Iron Cross", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2719\u271B", "\u271B\u2719") },
-    { name: "Death\u2019s Gate", transform: (t) => withFrame(withCombining(applyMap(t, boldFrakturMap), ["\u0336"]), "\u2620", "\u2620") },
+    { name: "Death\u2019s Gate", transform: (t) => t, fontFamily: "'Pinyon Script', cursive" },
   ],
 };
 
@@ -265,8 +271,8 @@ const vaporwave: FontCategory = {
     { name: "Scan Line", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2584\u2580\u2584\u2580", "\u2580\u2584\u2580\u2584") },
     { name: "Retro Wave", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u300E", "\u300F") },
     // +2 Wide styles with glitch borders
-    { name: "Corrupt Terminal", transform: (t) => withFrame(zalgo(applyMap(t, monospaceMap), 1, 1, 19), "\u2591\u2588", "\u2588\u2591") },
-    { name: "Digital Haze", transform: (t) => withFrame(zalgo(applyMap(t, boldItalicMap), 1, 0, 21), "\u2584\u2588\u2584", "\u2584\u2588\u2584") },
+    { name: "Corrupt Terminal", transform: (t) => t, fontFamily: "'MuseoModerno', sans-serif" },
+    { name: "Digital Haze", transform: (t) => t, fontFamily: "'Gelasio', serif" },
   ],
 };
 
@@ -313,12 +319,12 @@ const cottagecore: FontCategory = {
   styles: [
     { name: "Garden Script", transform: (t) => withFrame(applyMap(t, scriptMap), "\u273F", "\u273F") },
     { name: "Wildflower Bold", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2740", "\u2740") },
-    { name: "Vintage Type", transform: (t) => withCombining(applyMap(t, italicMap), ["\u0323"]) },
+    { name: "Vintage Type", transform: (t) => t, fontFamily: "'Charm', cursive" },
     { name: "Rustic Caps", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u0F04", "\u0F04") },
-    { name: "Pearl Script", transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0325"]) },
+    { name: "Pearl Script", transform: (t) => t, fontFamily: "'Cookie', cursive" },
     { name: "Botanical", transform: (t) => withFrame(applyMap(t, sansSerifMap), "\uA754", "\uA754") },
     { name: "Meadow Bold", transform: (t) => withFrame(applyMap(t, boldMap), "\u2741", "\u2741") },
-    { name: "Old Letter", transform: (t) => withCombining(applyMap(t, italicMap), ["\u0308"]) },
+    { name: "Old Letter", transform: (t) => t, fontFamily: "'Meie Script', cursive" },
     { name: "Pressed Flower", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273E", "\u273E") },
     { name: "Cottage Garden", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\uD83C\uDF3F", "\uD83C\uDF3F") },
   ],
@@ -351,44 +357,59 @@ const layered: FontCategory = {
   name: "Layered",
   styles: [
     {
-      name: "Sparkle Script",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u030A", "\u0324"]),
-    },
-    {
       name: "Sparkle Bold",
-      transform: (t) => withCombining(applyMap(t, sansSerifBoldMap), ["\u0307", "\u0323"]),
+      transform: (t) => t,
+      fontFamily: "'Miss Fajardose', cursive",
     },
     {
       name: "Sparkle Sans",
-      transform: (t) => withCombining(applyMap(t, sansSerifMap), ["\u0308", "\u0325"]),
+      transform: (t) => t,
+      fontFamily: "'Stalemate', cursive",
     },
     {
       name: "Glitch Ultra",
-      transform: (t) => zalgo(applyMap(t, sansSerifBoldMap), 2, 1, 23),
+      transform: (t) => t,
+      fontFamily: "'Alumni Sans Pinstripe', sans-serif",
     },
     {
       name: "Glitch Ultra Heavy",
-      transform: (t) => zalgo(applyMap(t, boldMap), 3, 2, 25),
+      transform: (t) => t,
+      fontFamily: "'Poiret One', cursive",
     },
     {
       name: "Glitch Italic",
-      transform: (t) => zalgo(applyMap(t, sansSerifBoldItalicMap), 2, 1, 27),
+      transform: (t) => t,
+      fontFamily: "'Montserrat Alternates', sans-serif",
     },
     {
       name: "Shadow Bold",
-      transform: (t) => withCombining(applyMap(t, boldMap), ["\u0332", "\u0320"]),
+      transform: (t) => t,
+      fontFamily: "'Exo 2', sans-serif",
     },
     {
       name: "Shadow Italic",
-      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0332", "\u0331"]),
+      transform: (t) => t,
+      fontFamily: "'Rasa', serif",
     },
     {
       name: "Neon Glow",
-      transform: (t) => withCombining(applyMap(t, sansSerifBoldMap), ["\u030A", "\u0330"]),
+      transform: (t) => t,
+      fontFamily: "'Unica One', cursive",
     },
     {
       name: "Crystal Layer",
-      transform: (t) => withCombining(applyMap(t, doubleStruckMap), ["\u030A", "\u0327"]),
+      transform: (t) => t,
+      fontFamily: "'Martel', serif",
+    },
+    {
+      name: "Asap Condensed",
+      transform: (t) => t,
+      fontFamily: "'Asap Condensed', sans-serif",
+    },
+    {
+      name: "Kantumruy Pro",
+      transform: (t) => t,
+      fontFamily: "'Kantumruy Pro', sans-serif",
     },
   ],
 };

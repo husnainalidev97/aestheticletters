@@ -3,17 +3,17 @@
 import { useEffect } from "react";
 
 const GOOGLE_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Lobster&family=Monsieur+La+Doulaise&family=League+Script&family=Fleur+De+Leah&family=Style+Script&family=Grey+Qo&family=Neonderthaw&family=Dynalight&family=WindSong&family=Galada&family=Passions+Conflict&family=Lugrasimo&family=Mrs+Saint+Delafield&family=Cherish&family=Inspiration&family=Imperial+Script&family=Lavishly+Yours&family=Engagement&family=Limelight&family=UnifrakturMaguntia&family=Story+Script&family=Bitcount+Grid+Double&family=Mea+Culpa&family=Unica+One&display=swap";
+  "https://fonts.googleapis.com/css2?family=Charm&family=Cookie&family=Meie+Script&family=Mr+Bedfort&family=Norican&family=Ballet&family=Jim+Nightshade&family=Mea+Culpa&family=Pinyon+Script&family=Miss+Fajardose&family=Stalemate&family=Alumni+Sans+Pinstripe&family=Poiret+One&family=Montserrat+Alternates&family=Exo+2&family=Rasa&family=Unica+One&family=Martel&family=MuseoModerno&family=Gelasio&family=Phudu&family=Roboto+Flex&family=Cal+Sans&family=Noto+Sans+Anatolian+Hieroglyphs&family=Gruppo&family=Nobile&family=Asap+Condensed&family=Kantumruy+Pro&display=swap";
 
 /**
- * Loads the fancy Google Fonts stylesheet after the browser has
+ * Loads the home-page Google Fonts stylesheet after the browser has
  * finished its initial paint and is idle. Preconnects are installed
  * immediately so DNS + TCP + TLS handshakes overlap with idle time
  * and are already done by the time the stylesheet is appended.
  */
-export default function GoogleFontsLoader() {
+export default function HomeGoogleFontsLoader() {
   useEffect(() => {
-    if (document.querySelector('link[data-fancy-fonts="all"]')) return;
+    if (document.querySelector('link[data-home-fonts="all"]')) return;
 
     const preconnects: HTMLLinkElement[] = [];
     const addPreconnect = (href: string, crossOrigin?: string) => {
@@ -22,7 +22,7 @@ export default function GoogleFontsLoader() {
       el.rel = "preconnect";
       el.href = href;
       if (crossOrigin) el.crossOrigin = crossOrigin;
-      el.dataset.fancyFonts = "preconnect";
+      el.dataset.homeFonts = "preconnect";
       document.head.appendChild(el);
       preconnects.push(el);
     };
@@ -34,7 +34,7 @@ export default function GoogleFontsLoader() {
       link = document.createElement("link");
       link.rel = "stylesheet";
       link.href = GOOGLE_FONTS_URL;
-      link.dataset.fancyFonts = "all";
+      link.dataset.homeFonts = "all";
       document.head.appendChild(link);
     };
 

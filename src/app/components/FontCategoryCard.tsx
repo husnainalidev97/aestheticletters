@@ -48,13 +48,13 @@ export default function FontCategoryCard({
           return (
             <div
               key={style.name}
-              className={`flex justify-between items-center p-4 rounded-xl transition-all group ${
+              className={`flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 gap-3 sm:gap-0 rounded-xl transition-all group ${
                 isDark
                   ? "bg-surface-container-lowest/50 hover:bg-surface-container-lowest/70"
                   : "bg-surface hover:bg-surface-container-high"
               }`}
             >
-              <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
+              <div className="flex flex-col gap-1 min-w-0 flex-1 sm:mr-4">
                 <span
                   className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                   aria-label={`${category.name} – ${style.name} font style`}
@@ -69,7 +69,7 @@ export default function FontCategoryCard({
                   {converted}
                 </div>
               </div>
-              <div className="flex items-center gap-1 flex-shrink-0">
+              <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
                 <ShareButtons text={converted} />
                 {onToggleFavorite && (
                   <button
