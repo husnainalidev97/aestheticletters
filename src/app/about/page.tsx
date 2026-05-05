@@ -31,8 +31,44 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: pageTitle,
+        description: pageDescription,
+        inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.aestheticletters.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "About",
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <TopNavBar activePage="about" />
       <main id="main-content" className="pt-[5.5rem]">
         {/* Hero Section */}
