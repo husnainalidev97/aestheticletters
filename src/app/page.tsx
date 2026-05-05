@@ -55,8 +55,21 @@ export default function Home() {
         description:
           "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
         inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-04-19T08:00:00+00:00",
         dateModified: "2026-04-21T00:00:00+00:00",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.aestheticletters.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.aestheticletters.com/",
+          },
+        ],
       },
     ],
   };
