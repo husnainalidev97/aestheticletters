@@ -225,6 +225,11 @@ const darkAesthetic: FontCategory = {
     { name: "Slashed Text", transform: (t) => withCombining(t, ["\u0337"]) },
     { name: "Dark Slash", transform: (t) => withCombining(t, ["\u0338"]) },
     { name: "Double Strike", transform: (t) => withCombining(t, ["\u0336", "\u0334"]) },
+    { name: "Roboto Flex", transform: (t) => t, fontFamily: "'Roboto Flex', sans-serif" },
+    { name: "Cal Sans", transform: (t) => t, fontFamily: "'Cal Sans', sans-serif" },
+    { name: "Noto Sans Anatolian Hieroglyphs", transform: (t) => t, fontFamily: "'Noto Sans Anatolian Hieroglyphs', sans-serif" },
+    { name: "Gruppo", transform: (t) => t, fontFamily: "'Gruppo', sans-serif" },
+    { name: "Nobile", transform: (t) => t, fontFamily: "'Nobile', sans-serif" },
   ],
 };
 
@@ -395,6 +400,16 @@ const layered: FontCategory = {
       name: "Crystal Layer",
       transform: (t) => t,
       fontFamily: "'Martel', serif",
+    },
+    {
+      name: "Asap Condensed",
+      transform: (t) => t,
+      fontFamily: "'Asap Condensed', sans-serif",
+    },
+    {
+      name: "Kantumruy Pro",
+      transform: (t) => t,
+      fontFamily: "'Kantumruy Pro', sans-serif",
     },
   ],
 };
