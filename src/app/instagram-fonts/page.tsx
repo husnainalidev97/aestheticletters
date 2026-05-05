@@ -59,7 +59,7 @@ const faqs = [
       "Yes, you can use these fonts in Stories and Reels. Just create your preferred style and place it into your text wherever you want it to appear.",
   },
   {
-    question: "Why are some Instagram fonts not supported?",
+    question: "Why are Some IG Fonts Not Supported?",
     answer:
       "Some letters may not display properly on certain devices because not all Unicode characters are supported everywhere. To avoid this issue, it is better to choose simple and widely supported font styles. Likewise, you should test your text on a variety of different devices before using it, especially for important sections.",
   },
