@@ -352,10 +352,6 @@ const layered: FontCategory = {
   name: "Layered",
   styles: [
     {
-      name: "Sparkle Script",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u030A", "\u0324"]),
-    },
-    {
       name: "Sparkle Bold",
       transform: (t) => t,
       fontFamily: "'Miss Fajardose', cursive",
