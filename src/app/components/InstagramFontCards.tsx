@@ -445,9 +445,9 @@ export default function InstagramFontCards() {
                         <div
                           key={idx}
                           id={`style-${slugify(style.label)}`}
-                          className="flex justify-between items-center p-4 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
+                          className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 gap-3 sm:gap-0 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
                         >
-                          <div className="flex flex-col gap-1 min-w-0 flex-1 mr-4">
+                          <div className="flex flex-col gap-1 min-w-0 flex-1 sm:mr-4">
                             <span
                               className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                               aria-label={`${card.name} – ${style.label} font style`}
@@ -462,7 +462,7 @@ export default function InstagramFontCards() {
                               {style.text}
                             </div>
                           </div>
-                          <div className="flex items-center gap-1 flex-shrink-0">
+                          <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
                             <ShareButtons text={style.text} />
                             <button
                               onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
