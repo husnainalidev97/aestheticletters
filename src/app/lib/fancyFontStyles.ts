@@ -345,7 +345,7 @@ const ornateBeautiful: FancyFontCategory = {
   styles: [
     { name: "Classic Fraktur", transform: (t) => applyMap(t, frakturMap) },
     { name: "Bold Gothic", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Aged Fraktur", transform: (t) => withCombining(applyMap(t, frakturMap), ["\u0307", "\u0323"]) },
+    { name: "Aged Fraktur", transform: (t) => t, fontFamily: "'Mea Culpa', cursive" },
     { name: "Noble Script", transform: (t) => withFrame(applyMap(t, scriptMap), "\u2766", "\u2767") },
     { name: "Vintage Italic", transform: (t) => withCombining(applyMap(t, italicMap), ["\u0323", "\u0308"]) },
     { name: "Crown Fraktur", transform: (t) => withFrame(applyMap(t, frakturMap), "\u2654", "\u2654") },
@@ -444,7 +444,7 @@ const artisticFonts: FancyFontCategory = {
     { name: "Diamond Luxe", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\uD83D\uDC8E", "\uD83D\uDC8E") },
     { name: "Crown Royal", transform: (t) => withFrame(applyMap(t, boldMap), "\uD83D\uDC51", "") },
     { name: "Galaxy Sparkle", transform: (t) => withFrame(applyMap(t, scriptMap), "\u2728\u2B50", "\u2B50\u2728") },
-    { name: "Neon Glow", transform: (t) => withFrame(applyMap(t, sansSerifBoldItalicMap), "\uD83D\uDD2E", "\uD83D\uDD2E") },
+    { name: "Neon Glow", transform: (t) => t, fontFamily: "'Unica One', cursive" },
     { name: "Pixel Sword", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2694\uFE0F\uD83D\uDD25", "\uD83D\uDD25\u2694\uFE0F") },
     { name: "Ice Crystal", transform: (t) => withFrame(applyMap(t, doubleStruckMap), "\u2744\uFE0F", "\u2744\uFE0F") },
     { name: "Thunder Script", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u26A1\uD83D\uDD25\u26A1", "\u26A1\uD83D\uDD25\u26A1") },
