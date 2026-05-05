@@ -50,6 +50,7 @@ const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
 const boldItalicMap = buildMap(0x1d468, 0x1d482);
 const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
 const boldMap = buildMap(0x1d400, 0x1d41a);
+const sansSerifBoldMap = buildMap(0x1d5d4, 0x1d5ee);
 
 // ── Flourish helpers (Unicode ornamental symbols for word-level decoration) ─
 
@@ -99,15 +100,14 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Playful Script": [
     {
       name: "Bouncy Italic",
-      // Sans-serif italic + breve (Home uses breve only with boldScriptMap)
-      transform: (t) =>
-        withCombining(applyMap(t, sansSerifItalicMap), ["\u0306"]),
+      // Sans-serif italic — clean mobile-safe cursive
+      transform: (t) => applyMap(t, sansSerifItalicMap),
     },
     {
       name: "Sparkle Play",
-      // Sans-serif italic + comma above → airy playful dots
+      // Sans-serif italic + sparkle word flourishes
       transform: (t) =>
-        withCombining(applyMap(t, sansSerifItalicMap), ["\u0313"]),
+        withWordFlourish(applyMap(t, sansSerifItalicMap), FOUR_STAR, FOUR_STAR),
     },
   ],
 
@@ -117,25 +117,20 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Elegant Cursive": [
     {
       name: "Hook Calligraphy",
-      // Bold script + combining hook above → decorative calligraphy
-      transform: (t) =>
-        withCombining(applyMap(t, boldScriptMap), ["\u0309"]),
+      // Bold script — natively cursive, mobile-safe
+      transform: (t) => applyMap(t, boldScriptMap),
     },
     {
       name: "Ogonek Elegance",
-      // Bold script + combining ogonek → elegant trailing tails
+      // Bold script + floral word flourishes for elegance
       transform: (t) =>
-        withCombining(applyMap(t, boldScriptMap), ["\u0328"]),
+        withWordFlourish(applyMap(t, boldScriptMap), FLORAL_HEART, ROTATED_FLORAL),
     },
     {
       name: "Flourished Elegance",
-      // Bold script + hook + star flourishes at word boundaries
+      // Bold script + star flourishes at word boundaries
       transform: (t) =>
-        withWordFlourish(
-          withCombining(applyMap(t, boldScriptMap), ["\u0309"]),
-          FOUR_STAR,
-          FOUR_STAR,
-        ),
+        withWordFlourish(applyMap(t, boldScriptMap), FOUR_STAR, FOUR_STAR),
     },
   ],
 
@@ -144,15 +139,14 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Brush & Marker": [
     {
       name: "Brush Accent",
-      // Bold italic + combining caron → sharp brush strokes
-      transform: (t) =>
-        withCombining(applyMap(t, boldItalicMap), ["\u030C"]),
+      // Bold italic — naturally brush-like, mobile-safe
+      transform: (t) => applyMap(t, boldItalicMap),
     },
     {
       name: "Marker Crown",
-      // Bold + combining circumflex → peaked marker tips
+      // Bold + star crown flourishes per word
       transform: (t) =>
-        withCombining(applyMap(t, boldMap), ["\u0302"]),
+        withWordFlourish(applyMap(t, boldMap), FOUR_STAR, FOUR_STAR),
     },
   ],
 
@@ -177,25 +171,20 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Chunky Fun": [
     {
       name: "Bold Underlined",
-      // Double-struck + combining low line → chunky with baseline
-      transform: (t) =>
-        withCombining(applyMap(t, doubleStruckMap), ["\u0332"]),
+      // Sans-serif bold — heavy professional look, mobile-safe
+      transform: (t) => applyMap(t, sansSerifBoldMap),
     },
     {
       name: "Bold Macron",
-      // Double-struck + combining macron → thick with top bar
+      // Sans-serif bold + line flourishes per word
       transform: (t) =>
-        withCombining(applyMap(t, doubleStruckMap), ["\u0304"]),
+        withWordFlourish(applyMap(t, sansSerifBoldMap), "\u2500", "\u2500"),
     },
     {
       name: "Chunky Flourish",
-      // Double-struck + underline + flower punctuation flourishes
+      // Double-struck + flower punctuation flourishes (no combining marks)
       transform: (t) =>
-        withWordFlourish(
-          withCombining(applyMap(t, doubleStruckMap), ["\u0332"]),
-          FLOWER_PUNCT,
-          FLOWER_PUNCT,
-        ),
+        withWordFlourish(applyMap(t, doubleStruckMap), FLOWER_PUNCT, FLOWER_PUNCT),
     },
   ],
 
@@ -205,15 +194,14 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Retro Vintage": [
     {
       name: "Overline Italic",
-      // Italic + combining overline → vintage top-line signature
-      transform: (t) =>
-        withCombining(applyMap(t, italicMap), ["\u0305"]),
+      // Italic — clean vintage signature look, mobile-safe
+      transform: (t) => applyMap(t, italicMap),
     },
     {
       name: "Classic Overscript",
-      // Italic + combining double overline → heavy retro header
+      // Italic + retro floral flourishes per word
       transform: (t) =>
-        withCombining(applyMap(t, italicMap), ["\u033F"]),
+        withWordFlourish(applyMap(t, italicMap), ROTATED_FLORAL, ROTATED_FLORAL),
     },
   ],
 
@@ -222,9 +210,8 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Cultural Brush": [
     {
       name: "Tilde Brush",
-      // Sans-serif bold italic + combining tilde → flowing cultural brush
-      transform: (t) =>
-        withCombining(applyMap(t, sansSerifBoldItalicMap), ["\u0303"]),
+      // Sans-serif bold italic — flowing brush look, mobile-safe
+      transform: (t) => applyMap(t, sansSerifBoldItalicMap),
     },
     {
       name: "Horn Script",
