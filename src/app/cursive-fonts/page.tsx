@@ -8,7 +8,7 @@ import CursiveFontGenerator from "./CursiveFontGenerator";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Cursive Fonts - Handwritten Text Generator | Copy & Paste",
+  title: { absolute: "Cursive Fonts - Handwritten Text Generator | Copy & Paste" },
   description:
     "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
   alternates: {

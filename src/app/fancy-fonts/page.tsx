@@ -9,7 +9,7 @@ import GoogleFontsLoader from "./GoogleFontsLoader";
 import ShowcaseGrid from "./ShowcaseGrid";
 
 export const metadata: Metadata = {
-  title: "130+ Fancy Fonts \u2013 Copy & Paste for Instagram, Gaming & More",
+  title: { absolute: "130+ Fancy Fonts \u2013 Copy & Paste for Instagram, Gaming & More" },
   description:
     "Tired of plain text? Copy 130+ free fancy fonts for Instagram, WhatsApp, Facebook, or gaming usernames and make your messages stand out immediately.",
   alternates: {
@@ -443,7 +443,7 @@ export default function FancyFontsPage() {
                                 href="/"
                                 className="text-primary underline hover:no-underline"
                               >
-                                Aesthetic Letters home
+                                Aesthetic Letters
                               </Link>{" "}
                               for more ideas.
                             </>

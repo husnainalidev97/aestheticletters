@@ -10,7 +10,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import TrendingFonts from "../components/TrendingFonts";
 
 export const metadata: Metadata = {
-  title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
+  title: { absolute: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts" },
   description:
     "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
   alternates: {
