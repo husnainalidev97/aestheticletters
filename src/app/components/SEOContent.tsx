@@ -204,7 +204,7 @@ export default function SEOContent() {
               6. Kawaii
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
-              Cute and playful styles with soft decorative elements. Great for
+              Playful and cute styles with soft decorative elements. Great for
               fun captions, usernames, and lighthearted content.
             </p>
           </div>
