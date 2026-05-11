@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
-    images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 600, height: 900, alt: "Usage of Cute Fonts" }],
+    images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 1200, height: 630, alt: "Usage of Cute Fonts" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -643,8 +644,8 @@ export default function CuteFontsPage() {
                     </thead>
                     <tbody>
                       {comparisonData.sections.map((section) => (
-                        <>
-                          <tr key={`section-${section.title}`} className="bg-surface-container-low">
+                        <Fragment key={`section-${section.title}`}>
+                          <tr className="bg-surface-container-low">
                             <td colSpan={4} className="p-4 font-headline font-bold text-xs uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/20">
                               {section.title}
                             </td>
@@ -676,7 +677,7 @@ export default function CuteFontsPage() {
                               </tr>
                             );
                           })}
-                        </>
+                        </Fragment>
                       ))}
                     </tbody>
                   </table>
