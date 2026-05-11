@@ -556,47 +556,7 @@ export default function CuteFontsPage() {
                 </p>
               </article>
 
-              {/* Where Can You Use Cute Fonts? */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Where Can You Use Cute Fonts?
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Cute text styles work on many apps and websites. They are popular because they help profiles,
-                  captions, and usernames look more personal and creative.
-                </p>
-                <div className="space-y-6">
-                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                    <h3 className="font-headline font-bold mb-2 text-lg">Instagram &amp; TikTok</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed">
-                      Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
-                      like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles.
-                    </p>
-                  </div>
-                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                    <h3 className="font-headline font-bold mb-2 text-lg">WhatsApp &amp; Facebook</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed">
-                      You can use cute bubble fonts in statuses, group names, comments, and messages. Many people
-                      use them to make birthday wishes or daily updates look more fun.
-                    </p>
-                  </div>
-                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                    <h3 className="font-headline font-bold mb-2 text-lg">Discord &amp; Gaming</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed">
-                      Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
-                      and Discord users combine text with symbols for a unique gaming identity.
-                    </p>
-                  </div>
-                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                    <h3 className="font-headline font-bold mb-2 text-lg">Pinterest &amp; YouTube</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed">
-                      Creative bloggers and beginner designers use pretty text styles for pin titles, channel art,
-                      thumbnails, and short descriptions. These fonts can make content look more noticeable without
-                      complicated editing.
-                    </p>
-                  </div>
-                </div>
-              </article>
+
 
               {/* Comparison Table */}
               <article>
@@ -754,25 +714,40 @@ export default function CuteFontsPage() {
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Cute text styles work on many apps and websites:
+                    Cute text styles work on many apps and websites. They are popular because they help profiles,
+                    captions, and usernames look more personal and creative.
                   </p>
-                  <ul className="space-y-3">
-                    {platforms.map((platform) => (
-                      <li key={platform} className="flex items-start gap-3">
-                        <span
-                          className="material-symbols-outlined text-primary text-base mt-0.5"
-                          style={{ fontVariationSettings: "'FILL' 1" }}
-                          aria-hidden="true"
-                        >
-                          check_circle
-                        </span>
-                        <span className="text-sm text-on-surface-variant">{platform}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    These styles help profiles, captions, and usernames look more personal and creative.
-                  </p>
+                  <div className="space-y-4">
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <h3 className="font-headline font-bold mb-1 text-sm">Instagram &amp; TikTok</h3>
+                      <p className="text-xs text-on-surface-variant leading-relaxed">
+                        Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
+                        like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles.
+                      </p>
+                    </div>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <h3 className="font-headline font-bold mb-1 text-sm">WhatsApp &amp; Facebook</h3>
+                      <p className="text-xs text-on-surface-variant leading-relaxed">
+                        You can use cute bubble fonts in statuses, group names, comments, and messages. Many people
+                        use them to make birthday wishes or daily updates look more fun.
+                      </p>
+                    </div>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <h3 className="font-headline font-bold mb-1 text-sm">Discord &amp; Gaming</h3>
+                      <p className="text-xs text-on-surface-variant leading-relaxed">
+                        Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
+                        and Discord users combine text with symbols for a unique gaming identity.
+                      </p>
+                    </div>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <h3 className="font-headline font-bold mb-1 text-sm">Pinterest &amp; YouTube</h3>
+                      <p className="text-xs text-on-surface-variant leading-relaxed">
+                        Creative bloggers and beginner designers use pretty text styles for pin titles, channel art,
+                        thumbnails, and short descriptions. These fonts can make content look more noticeable without
+                        complicated editing.
+                      </p>
+                    </div>
+                  </div>
                 </>
               }
 
