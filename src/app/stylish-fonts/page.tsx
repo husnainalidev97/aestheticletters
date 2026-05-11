@@ -148,72 +148,125 @@ const platforms = [
 ];
 
 export default function StylishFontsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://www.aestheticletters.com/stylish-fonts#software",
-        name: "Stylish Fonts Generator",
-        operatingSystem: "Windows, macOS, Android, iOS",
-        applicationCategory: "UtilitiesApplication",
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#software",
+      name: "Stylish Fonts Generator",
+      operatingSystem: "Any",
+      applicationCategory: "UtilitiesApplication",
+      browserRequirements: "requires HTML5 support",
+      url: "https://www.aestheticletters.com/stylish-fonts",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.aestheticletters.com/stylish-fonts#webpage",
-        url: "https://www.aestheticletters.com/stylish-fonts",
-        name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
-        description:
-          "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-        breadcrumb: {
-          "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
-        },
-        mainEntity: {
-          "@id": "https://www.aestheticletters.com/stylish-fonts#software",
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#webpage",
+      url: "https://www.aestheticletters.com/stylish-fonts",
+      name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
+      description:
+        "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
+      breadcrumb: {
         "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.aestheticletters.com/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "All Tools",
-            item: "https://www.aestheticletters.com/all-tools",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "Stylish Fonts",
-            item: "https://www.aestheticletters.com/stylish-fonts",
-          },
-        ],
       },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
+      mainEntity: {
+        "@id": "https://www.aestheticletters.com/stylish-fonts#software",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home Page",
+          item: "https://www.aestheticletters.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "All Tools",
+          item: "https://www.aestheticletters.com/all-tools",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Stylish Fonts",
+          item: "https://www.aestheticletters.com/stylish-fonts",
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
           "@type": "Question",
-          name: faq.question,
+          name: "How does a Stylish Font Generator Work?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: faq.answer,
+            text: "A stylish font maker changes normal text into special Unicode-based characters. These characters may appear like different font styles, but in reality, they are just unique symbols that already exist in the Unicode system. Because of this structure, the styled text can be easily copied and used on different platforms without any need for additional software or installation.",
           },
-        })),
-      },
-    ],
-  };
+        },
+        {
+          "@type": "Question",
+          name: "Is this Stylish Text Generator Free to Use?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, you will not be charged for anything. It is designed to be freely accessible, allowing you to create stylish text as many times as you want. There are no extra costs involved, and you don\u2019t need to worry about any paid features or limitations.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use Stylish Typefaces on Instagram and TikTok?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, these cool fonts generally work well on platforms like Instagram and TikTok. There are a variety of ways to use them on your profile, such as your bio, posts, and even comment sections.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Why are Some Stylish Words not Showing Correctly?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Some stylish text styles may not appear properly on every device or application. This usually happens because different platforms have limited support for certain special character sets. Older phones or outdated apps may not recognize some of these symbols.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the Difference Between Cool Fonts and Stylish Fonts?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Both terms are often used interchangeably. Cool fonts focus more on fun and trendy designs, while stylish fonts may include elegant or decorative styles. In practice, most tools offer a mix of both.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use Stylish Characters for Gaming Usernames?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, many gamers use stylish name font styles for usernames in games like Free Fire and PUBG. These fonts help your name stand out in leaderboards and matches.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Are Stylish Fonts safe to use?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, stylish letters created using Unicode are completely safe. They do not contain harmful code or scripts. You are simply copying text characters, not installing anything.",
+          },
+        },
+      ],
+    },
+  ];
 
   return (
     <>
