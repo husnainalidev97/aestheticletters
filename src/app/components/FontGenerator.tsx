@@ -202,6 +202,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 max={maxSize}
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
+                aria-label="Font size"
                 className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
               />
               <button
@@ -223,7 +224,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
       <section className="hidden my-14 px-4 md:px-[150px]">
         <div className="w-full h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
           <div className="bg-surface p-4 rounded-lg text-center shadow-sm">
-            <span className="text-label text-outline uppercase tracking-widest text-[10px] block mb-2">
+            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
               Sponsored Placement
             </span>
             <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />

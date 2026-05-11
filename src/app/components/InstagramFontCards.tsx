@@ -402,6 +402,7 @@ export default function InstagramFontCards() {
                 max={maxSize}
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
+                aria-label="Font size"
                 className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
               />
               <button
@@ -469,7 +470,7 @@ export default function InstagramFontCards() {
                               className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
                                 isFavorite(styleId)
                                   ? "text-[#ef4444]"
-                                  : "text-outline hover:text-[#ef4444]"
+                                  : "text-on-surface-variant hover:text-[#ef4444]"
                               }`}
                               aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
                             >

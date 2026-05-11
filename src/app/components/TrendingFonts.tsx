@@ -164,7 +164,7 @@ export default function TrendingFonts() {
               title="Click to find this style in the generator"
             >
               <div className="flex flex-col gap-1">
-                <span className="text-[0.65rem] uppercase tracking-widest text-outline font-bold">
+                <span className="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold">
                   {font.rank}. {font.label}
                 </span>
                 <div className="text-xl font-body py-2">

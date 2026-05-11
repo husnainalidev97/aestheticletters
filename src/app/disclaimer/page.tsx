@@ -30,8 +30,44 @@ export const metadata: Metadata = {
 };
 
 export default function DisclaimerPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: pageTitle,
+        description: pageDescription,
+        inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.aestheticletters.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Disclaimer",
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem] min-h-screen">
         {/* Hero Header */}
@@ -57,9 +93,9 @@ export default function DisclaimerPage() {
           {/* Sidebar Navigation (Sticky) */}
           <aside className="hidden md:block w-64 flex-shrink-0">
             <div className="sticky top-32 space-y-4">
-              <h3 className="font-headline text-xs font-bold uppercase tracking-widest text-outline mb-6">
+              <h2 className="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6">
                 Navigation
-              </h3>
+              </h2>
               <nav className="flex flex-col gap-3">
                 <a
                   className="text-sm font-semibold text-primary hover:text-primary-container transition-colors"

@@ -9,7 +9,9 @@ type ActivePage =
   | "about"
   | "instagram-fonts"
   | "cursive-fonts"
-  | "fancy-fonts";
+  | "fancy-fonts"
+  | "stylish-fonts"
+  | "cute-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -199,7 +201,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               </Link>
             ))}
             <div className="h-px bg-outline-variant/30 my-2" />
-            <span className="px-6 pt-2 text-xs font-label uppercase tracking-[0.2em] text-outline">
+            <span className="px-6 pt-2 text-xs font-label uppercase tracking-[0.2em] text-on-surface-variant">
               Generators
             </span>
             <Link
@@ -222,6 +224,20 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Fancy Fonts
+            </Link>
+            <Link
+              href="/stylish-fonts"
+              className={mobileLinkClass("stylish-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Stylish Fonts
+            </Link>
+            <Link
+              href="/cute-fonts"
+              className={mobileLinkClass("cute-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Cute Fonts
             </Link>
           </nav>
         </div>

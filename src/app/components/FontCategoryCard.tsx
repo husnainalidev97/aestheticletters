@@ -79,7 +79,7 @@ export default function FontCategoryCard({
                         ? "text-[#ef4444]"
                         : isDark
                           ? "text-on-surface-variant/60 hover:text-[#ef4444]"
-                          : "text-outline hover:text-[#ef4444]"
+                          : "text-on-surface-variant hover:text-[#ef4444]"
                     }`}
                     aria-label={isFavorite?.(styleId) ? "Remove from favorites" : "Add to favorites"}
                   >

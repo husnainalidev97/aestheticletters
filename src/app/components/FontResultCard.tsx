@@ -116,7 +116,7 @@ export default function FontResultCard({
       <div className="flex flex-col gap-2 min-w-0 flex-1 mr-4">
         {/* Style name label — turns purple on card hover */}
         <span
-          className="font-bold text-outline group-hover:text-primary transition-colors duration-300 ease-in-out text-[0.625rem] uppercase tracking-widest"
+          className="font-bold text-on-surface-variant group-hover:text-primary transition-colors duration-300 ease-in-out text-[0.625rem] uppercase tracking-widest"
         >
           {label}
         </span>

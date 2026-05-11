@@ -407,13 +407,13 @@ export default function SEOContent() {
             </caption>
             <thead>
               <tr className="border-b border-outline-variant bg-surface-container-lowest">
-                <th className="py-[15px] px-4 font-headline font-bold text-sm uppercase tracking-widest text-outline leading-relaxed">
+                <th className="py-[15px] px-4 font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant leading-relaxed">
                   Feature
                 </th>
                 <th className="py-[15px] px-4 font-headline font-bold text-sm uppercase tracking-widest text-primary leading-relaxed">
                   Aesthetic Font Generator
                 </th>
-                <th className="py-[15px] px-4 font-headline font-bold text-sm uppercase tracking-widest text-outline leading-relaxed">
+                <th className="py-[15px] px-4 font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant leading-relaxed">
                   Installing Real Fonts
                 </th>
               </tr>
