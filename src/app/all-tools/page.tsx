@@ -71,6 +71,13 @@ const toolCategories: ToolCategory[] = [
     title: "Typography Styles",
     cards: [
       {
+        title: "Stylish Fonts",
+        description:
+          "Cool and creative text styles for bios, gaming names, captions, and everyday use.",
+        icon: "style",
+        href: "/stylish-fonts",
+      },
+      {
         title: "Cursive Fonts",
         description:
           "Flowing cursive and handwriting-style scripts for a refined editorial feel.",
