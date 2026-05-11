@@ -774,30 +774,7 @@ export default function CuteFontsPage() {
                   </p>
                 </>
               }
-              tipsHeading="Tips for Using Cute Fonts"
-              tipsContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using cute text is simple, but keep these tips in mind:
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li>
-                      <strong>1. Keep It Short:</strong> Use shorter text for decorative styles to maintain readability.
-                    </li>
-                    <li>
-                      <strong>2. Test First:</strong> Always preview your text on mobile before posting.
-                    </li>
-                    <li>
-                      <strong>3. Don&apos;t Overdo It:</strong> Avoid mixing many styles in one sentence.
-                    </li>
-                  </ol>
-                  <div className="mt-6 p-4 bg-primary-container/10 rounded-xl">
-                    <p className="text-sm text-on-surface-variant leading-relaxed">
-                      <strong>Pro Tip:</strong> Use softer styles for visual content and bold bubble styles for gaming profiles.
-                    </p>
-                  </div>
-                </>
-              }
+
               showBanner={false}
               bottomImage={{ src: "/usage-cute-fonts.webp", alt: "Usage of Cute Fonts" }}
             />
