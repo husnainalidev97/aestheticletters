@@ -64,7 +64,7 @@ export default function FontCategoryCard({
                 <div
                   aria-hidden="true"
                   className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
-                  style={{ fontSize: `${fontSize}px`, ...(style.fontFamily ? { fontFamily: style.fontFamily } : {}) }}
+                  style={{ fontSize: `${fontSize}px`, fontFamily: style.fontFamily || "'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Sans Symbols 2', 'Noto Sans Symbols', 'Noto Sans', sans-serif" }}
                 >
                   {converted}
                 </div>

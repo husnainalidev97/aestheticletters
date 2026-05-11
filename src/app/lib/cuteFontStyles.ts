@@ -20,23 +20,13 @@ function intersperse(text: string, char: string): string {
   return [...text].map((c) => (c === " " ? c : c + char)).join("");
 }
 
-function scriptMap(text: string): string {
-  const map: Record<string, string> = {
-    A: "\uD835\uDC9C", B: "\u212C", C: "\uD835\uDC9E", D: "\uD835\uDC9F",
-    E: "\u2130", F: "\u2131", G: "\uD835\uDCA2", H: "\u210B",
-    I: "\u2110", J: "\uD835\uDCA5", K: "\uD835\uDCA6", L: "\u2112",
-    M: "\u2133", N: "\uD835\uDCA9", O: "\uD835\uDCAA", P: "\uD835\uDCAB",
-    Q: "\uD835\uDCAC", R: "\u211B", S: "\uD835\uDCAE", T: "\uD835\uDCAF",
-    U: "\uD835\uDCB0", V: "\uD835\uDCB1", W: "\uD835\uDCB2", X: "\uD835\uDCB3",
-    Y: "\uD835\uDCB4", Z: "\uD835\uDCB5",
-    a: "\uD835\uDCB6", b: "\uD835\uDCB7", c: "\uD835\uDCB8", d: "\uD835\uDCB9",
-    e: "\u212F", f: "\uD835\uDCBB", g: "\u210A", h: "\uD835\uDCBD",
-    i: "\uD835\uDCBE", j: "\uD835\uDCBF", k: "\uD835\uDCC0", l: "\uD835\uDCC1",
-    m: "\uD835\uDCC2", n: "\uD835\uDCC3", o: "\uD835\uDCC4", p: "\uD835\uDCC5",
-    q: "\uD835\uDCC6", r: "\uD835\uDCC7", s: "\uD835\uDCC8", t: "\uD835\uDCC9",
-    u: "\uD835\uDCCA", v: "\uD835\uDCCB", w: "\uD835\uDCCC", x: "\uD835\uDCCD",
-    y: "\uD835\uDCCE", z: "\uD835\uDCCF",
-  };
+/** Mathematical Bold Script — U+1D4D0 range, best browser/font support */
+function boldScriptMap(text: string): string {
+  const map: Record<string, string> = {};
+  for (let i = 0; i < 26; i++) {
+    map[String.fromCharCode(65 + i)] = String.fromCodePoint(0x1D4D0 + i);
+    map[String.fromCharCode(97 + i)] = String.fromCodePoint(0x1D4EA + i);
+  }
   return [...text].map((c) => map[c] ?? c).join("");
 }
 
@@ -86,16 +76,16 @@ function bubbleMap(text: string): string {
 const prettyFonts: FontCategory = {
   name: "Pretty Fonts",
   styles: [
-    { name: "Script Elegance", transform: (t) => scriptMap(t) },
-    { name: "Sparkle Script", transform: (t) => withFrame(scriptMap(t), "\u2727", "\u2727") },
-    { name: "Delicate Glow", transform: (t) => intersperse(scriptMap(t), "\u2022") },
-    { name: "Pearl Accent", transform: (t) => withFrame(scriptMap(t), "\u2234", "\u2235") },
-    { name: "Soft Flourish", transform: (t) => withFrame(t, "\u2E2C", "\u2E2D") },
-    { name: "Rose Script", transform: (t) => withFrame(scriptMap(t), "\u273F", "\u273F") },
-    { name: "Diamond Script", transform: (t) => intersperse(scriptMap(t), "\u2666") },
-    { name: "Fine Line", transform: (t) => withCombining(scriptMap(t), ["\u0332"]) },
-    { name: "Whisper Dots", transform: (t) => intersperse(scriptMap(t), "\u00B7") },
-    { name: "Velvet Wrap", transform: (t) => withFrame(scriptMap(t), "\u2765", "\u2765") },
+    { name: "Script Elegance", transform: (t) => boldScriptMap(t) },
+    { name: "Sparkle Script", transform: (t) => withFrame(boldScriptMap(t), "\u2727", "\u2727") },
+    { name: "Delicate Glow", transform: (t) => intersperse(boldScriptMap(t), "\u2022") },
+    { name: "Pearl Accent", transform: (t) => withFrame(boldScriptMap(t), "\u2740", "\u2740") },
+    { name: "Soft Flourish", transform: (t) => withFrame(boldScriptMap(t), "\u2767", "\u2767") },
+    { name: "Rose Script", transform: (t) => withFrame(boldScriptMap(t), "\u273F", "\u273F") },
+    { name: "Diamond Script", transform: (t) => intersperse(boldScriptMap(t), "\u2666") },
+    { name: "Fine Line", transform: (t) => withCombining(boldScriptMap(t), ["\u0332"]) },
+    { name: "Whisper Dots", transform: (t) => intersperse(boldScriptMap(t), "\u00B7") },
+    { name: "Velvet Wrap", transform: (t) => withFrame(boldScriptMap(t), "\u2765", "\u2765") },
   ],
 };
 
@@ -129,8 +119,8 @@ const glitteringStars: FontCategory = {
     { name: "Starfall", transform: (t) => intersperse(smallCapsMap(t), "\u2734") },
     { name: "Galaxy Dust", transform: (t) => withFrame(doubleStruckMap(t), "\u2726\u2727", "\u2727\u2726") },
     { name: "Night Sparkle", transform: (t) => withFrame(smallCapsMap(t), "\u2736\u2737", "\u2737\u2736") },
-    { name: "Stellar Script", transform: (t) => intersperse(scriptMap(t), "\u2606") },
-    { name: "Moonbeam", transform: (t) => withFrame(scriptMap(t), "\u263D", "\u263E") },
+    { name: "Stellar Script", transform: (t) => intersperse(boldScriptMap(t), "\u2606") },
+    { name: "Moonbeam", transform: (t) => withFrame(boldScriptMap(t), "\u263D", "\u263E") },
   ],
 };
 
@@ -157,16 +147,16 @@ const lollipopSwirls: FontCategory = {
 const loveNotes: FontCategory = {
   name: "Love Notes",
   styles: [
-    { name: "Heart Wrap", transform: (t) => withFrame(scriptMap(t), "\u2661", "\u2661") },
-    { name: "Love Script", transform: (t) => intersperse(scriptMap(t), "\u2665") },
-    { name: "Cupid Arrow", transform: (t) => withFrame(scriptMap(t), "\u2763", "\u2763") },
-    { name: "Rose Heart", transform: (t) => withFrame(scriptMap(t), "\u2766", "\u2766") },
-    { name: "Heart Dots", transform: (t) => intersperse(scriptMap(t), "\u2661") },
-    { name: "Georgian Love", transform: (t) => withFrame(scriptMap(t), "\u10E6", "\u10E6") },
-    { name: "Floral Heart", transform: (t) => withFrame(scriptMap(t), "\u2765\u2661", "\u2661\u2765") },
-    { name: "Sweet Whisper", transform: (t) => withCombining(scriptMap(t), ["\u0324"]) },
-    { name: "Soft Kiss", transform: (t) => withFrame(scriptMap(t), "\u2764\uFE0F", "\u2764\uFE0F") },
-    { name: "Valentine", transform: (t) => intersperse(scriptMap(t), "\u2763") },
+    { name: "Heart Wrap", transform: (t) => withFrame(boldScriptMap(t), "\u2661", "\u2661") },
+    { name: "Love Script", transform: (t) => intersperse(boldScriptMap(t), "\u2665") },
+    { name: "Cupid Arrow", transform: (t) => withFrame(boldScriptMap(t), "\u2763", "\u2763") },
+    { name: "Rose Heart", transform: (t) => withFrame(boldScriptMap(t), "\u2766", "\u2766") },
+    { name: "Heart Dots", transform: (t) => intersperse(boldScriptMap(t), "\u2661") },
+    { name: "Georgian Love", transform: (t) => withFrame(boldScriptMap(t), "\u10E6", "\u10E6") },
+    { name: "Floral Heart", transform: (t) => withFrame(boldScriptMap(t), "\u2765\u2661", "\u2661\u2765") },
+    { name: "Sweet Whisper", transform: (t) => withCombining(boldScriptMap(t), ["\u0330"]) },
+    { name: "Soft Kiss", transform: (t) => withFrame(boldScriptMap(t), "\u2764\uFE0F", "\u2764\uFE0F") },
+    { name: "Valentine", transform: (t) => intersperse(boldScriptMap(t), "\u2763") },
   ],
 };
 
@@ -192,16 +182,16 @@ const pixieDust: FontCategory = {
 const ornateBorders: FontCategory = {
   name: "Ornate Borders",
   styles: [
-    { name: "Tibetan Scroll", transform: (t) => withFrame(t, "\u0F3A\u0F3C", "\u0F3D\u0F3B") },
-    { name: "Ornate Wings", transform: (t) => withFrame(t, "\uA9C1", "\uA9C2") },
-    { name: "Vine Curl", transform: (t) => withFrame(t, "\u2E2C\u2E2D", "\u2E2D\u2E2C") },
+    { name: "Tibetan Scroll", transform: (t) => withFrame(t, "\u0F3C", "\u0F3D") },
+    { name: "Ornate Wings", transform: (t) => withFrame(t, "\u2E28", "\u2E29") },
+    { name: "Vine Curl", transform: (t) => withFrame(t, "\u2767\u2740", "\u2740\u2767") },
     { name: "Floral Gate", transform: (t) => withFrame(t, "\u2740\u2741", "\u2741\u2740") },
     { name: "Star Frame", transform: (t) => withFrame(t, "\u2726\u2727\u2726", "\u2726\u2727\u2726") },
     { name: "Heart Wings", transform: (t) => withFrame(t, "\u2661\u00AB", "\u00BB\u2661") },
-    { name: "Arrow Frame", transform: (t) => withFrame(t, "\u2B9E\u2B9E", "\u2B9C\u2B9C") },
+    { name: "Arrow Frame", transform: (t) => withFrame(t, "\u27A4\u27A4", "\u27A4\u27A4") },
     { name: "Crown Border", transform: (t) => withFrame(t, "\u2654", "\u2654") },
     { name: "Diamond Gate", transform: (t) => withFrame(t, "\u2666\u2662", "\u2662\u2666") },
-    { name: "Lotus Frame", transform: (t) => withFrame(t, "\u2740\u2055", "\u2055\u2740") },
+    { name: "Lotus Frame", transform: (t) => withFrame(t, "\u2740\u2741", "\u2741\u2740") },
   ],
 };
 
@@ -225,11 +215,11 @@ const petalAndBloom: FontCategory = {
     { name: "Garden Wrap", transform: (t) => withFrame(t, "\u273F", "\u273F") },
     { name: "Flower Chain", transform: (t) => intersperse(t, "\u2740") },
     { name: "Bloom Frame", transform: (t) => withFrame(t, "\u2740\u273F", "\u273F\u2740") },
-    { name: "Petal Script", transform: (t) => withFrame(scriptMap(t), "\u2741", "\u2741") },
-    { name: "Daisy Ring", transform: (t) => intersperse(scriptMap(t), "\u273F") },
+    { name: "Petal Script", transform: (t) => withFrame(boldScriptMap(t), "\u2741", "\u2741") },
+    { name: "Daisy Ring", transform: (t) => intersperse(boldScriptMap(t), "\u273F") },
     { name: "Rose Garden", transform: (t) => withFrame(t, "\u2743\u2740", "\u2740\u2743") },
     { name: "Spring Dots", transform: (t) => intersperse(t, "\u2022\u273F") },
-    { name: "Leaf Accent", transform: (t) => withFrame(scriptMap(t), "\u2E19", "\u2E19") },
+    { name: "Leaf Accent", transform: (t) => withFrame(boldScriptMap(t), "\u2618", "\u2618") },
     { name: "Blossom Glow", transform: (t) => withFrame(doubleStruckMap(t), "\u273F", "\u273F") },
     { name: "Floral Vine", transform: (t) => withFrame(t, "\u2740\u2741\u273F", "\u273F\u2741\u2740") },
   ],
@@ -241,15 +231,15 @@ const sweetRibbons: FontCategory = {
   name: "Sweet Ribbons",
   styles: [
     { name: "Bow Wrap", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF80", "\uD83C\uDF80") },
-    { name: "Ribbon Wave", transform: (t) => withCombining(bubbleMap(t), ["\uFE33"]) },
+    { name: "Ribbon Wave", transform: (t) => withCombining(bubbleMap(t), ["\u0330"]) },
     { name: "Gift Box", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF81", "\uD83C\uDF81") },
     { name: "Wavy Ribbon", transform: (t) => withFrame(t, "\u3030\uD83C\uDF80", "\uD83C\uDF80\u3030") },
     { name: "Bubble Bow", transform: (t) => intersperse(bubbleMap(t), "\uD83C\uDF80") },
     { name: "Soft Ribbon", transform: (t) => withFrame(bubbleMap(t), "\u2248\u2248", "\u2248\u2248") },
-    { name: "Sweet Frame", transform: (t) => withFrame(bubbleMap(t), "\uFE35\uFE36", "\uFE35\uFE36") },
+    { name: "Sweet Frame", transform: (t) => withFrame(bubbleMap(t), "\u2E28\u2E28", "\u2E29\u2E29") },
     { name: "Candy Wrap", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF6C", "\uD83C\uDF6C") },
-    { name: "Ribbon Curl", transform: (t) => withCombining(bubbleMap(t), ["\u0303"]) },
-    { name: "Pretty Package", transform: (t) => withFrame(bubbleMap(t), "\u2055\uD83C\uDF80\u2055", "\u2055\uD83C\uDF80\u2055") },
+    { name: "Ribbon Curl", transform: (t) => withCombining(bubbleMap(t), ["\u0360"]) },
+    { name: "Pretty Package", transform: (t) => withFrame(bubbleMap(t), "\u2741\uD83C\uDF80\u2741", "\u2741\uD83C\uDF80\u2741") },
   ],
 };
 
