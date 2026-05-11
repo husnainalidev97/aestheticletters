@@ -367,14 +367,72 @@ export default function CuteFontsPage() {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Are These Real Fonts or Unicode Symbols?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. Some preview styles may also use Google Fonts for visual design purposes.",
+          },
         },
-      })),
+        {
+          "@type": "Question",
+          name: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is Cute Font Maker Free to Use?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, you can use the cute font maker without paying anything. There is no signup process, paid plan, or software installation required. Just enter your text, browse the available font styles, and copy your preferred design with one click.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do Cute Fonts Work on IPhone and Android?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most modern iPhone and Android devices support Unicode fonts. However, older devices may not display some symbols correctly. If a style looks broken, try using a simpler cute lettering font instead.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is Kawaii Font?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The term \u201CKawaii\u201D comes from Japanese culture and is commonly used to describe something charming, lovable, or visually cute. A kawaii font usually includes soft shapes, playful letters, hearts, stars, or bubbly designs.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Why do Some Fonts Appear as Boxes on Some Devices?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Some older devices or apps do not support every Unicode symbol. When that happens, the text may appear as empty boxes or missing characters. Using simpler pretty fonts usually improves compatibility across different platforms.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What are the Best Cute Font Styles for Gaming?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
+          },
+        },
+      ],
     },
   ];
 
