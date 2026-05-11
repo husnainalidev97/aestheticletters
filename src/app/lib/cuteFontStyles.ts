@@ -1,0 +1,269 @@
+// ---------------------------------------------------------------------------
+// Cute Font Style Definitions — EXCLUSIVE to /cute-fonts page
+// 10 categories: 4 Google Font + 6 Unicode-based
+// ---------------------------------------------------------------------------
+
+import type { FontCategory } from "./fontStyles";
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function withFrame(text: string, pre: string, suf: string): string {
+  return `${pre} ${text} ${suf}`;
+}
+
+function withCombining(text: string, combining: string[]): string {
+  const suffix = combining.join("");
+  return [...text].map((c) => (c === " " || c === "\u3000" ? c : c + suffix)).join("");
+}
+
+function intersperse(text: string, char: string): string {
+  return [...text].map((c) => (c === " " ? c : c + char)).join("");
+}
+
+function scriptMap(text: string): string {
+  const map: Record<string, string> = {
+    A: "\uD835\uDC9C", B: "\u212C", C: "\uD835\uDC9E", D: "\uD835\uDC9F",
+    E: "\u2130", F: "\u2131", G: "\uD835\uDCA2", H: "\u210B",
+    I: "\u2110", J: "\uD835\uDCA5", K: "\uD835\uDCA6", L: "\u2112",
+    M: "\u2133", N: "\uD835\uDCA9", O: "\uD835\uDCAA", P: "\uD835\uDCAB",
+    Q: "\uD835\uDCAC", R: "\u211B", S: "\uD835\uDCAE", T: "\uD835\uDCAF",
+    U: "\uD835\uDCB0", V: "\uD835\uDCB1", W: "\uD835\uDCB2", X: "\uD835\uDCB3",
+    Y: "\uD835\uDCB4", Z: "\uD835\uDCB5",
+    a: "\uD835\uDCB6", b: "\uD835\uDCB7", c: "\uD835\uDCB8", d: "\uD835\uDCB9",
+    e: "\u212F", f: "\uD835\uDCBB", g: "\u210A", h: "\uD835\uDCBD",
+    i: "\uD835\uDCBE", j: "\uD835\uDCBF", k: "\uD835\uDCC0", l: "\uD835\uDCC1",
+    m: "\uD835\uDCC2", n: "\uD835\uDCC3", o: "\uD835\uDCC4", p: "\uD835\uDCC5",
+    q: "\uD835\uDCC6", r: "\uD835\uDCC7", s: "\uD835\uDCC8", t: "\uD835\uDCC9",
+    u: "\uD835\uDCCA", v: "\uD835\uDCCB", w: "\uD835\uDCCC", x: "\uD835\uDCCD",
+    y: "\uD835\uDCCE", z: "\uD835\uDCCF",
+  };
+  return [...text].map((c) => map[c] ?? c).join("");
+}
+
+function doubleStruckMap(text: string): string {
+  const map: Record<string, string> = {
+    A: "\uD835\uDD38", B: "\uD835\uDD39", C: "\u2102", D: "\uD835\uDD3B",
+    E: "\uD835\uDD3C", F: "\uD835\uDD3D", G: "\uD835\uDD3E", H: "\u210D",
+    I: "\uD835\uDD40", J: "\uD835\uDD41", K: "\uD835\uDD42", L: "\uD835\uDD43",
+    M: "\uD835\uDD44", N: "\u2115", O: "\uD835\uDD46", P: "\u2119",
+    Q: "\u211A", R: "\u211D", S: "\uD835\uDD4A", T: "\uD835\uDD4B",
+    U: "\uD835\uDD4C", V: "\uD835\uDD4D", W: "\uD835\uDD4E", X: "\uD835\uDD4F",
+    Y: "\uD835\uDD50", Z: "\u2124",
+    a: "\uD835\uDD52", b: "\uD835\uDD53", c: "\uD835\uDD54", d: "\uD835\uDD55",
+    e: "\uD835\uDD56", f: "\uD835\uDD57", g: "\uD835\uDD58", h: "\uD835\uDD59",
+    i: "\uD835\uDD5A", j: "\uD835\uDD5B", k: "\uD835\uDD5C", l: "\uD835\uDD5D",
+    m: "\uD835\uDD5E", n: "\uD835\uDD5F", o: "\uD835\uDD60", p: "\uD835\uDD61",
+    q: "\uD835\uDD62", r: "\uD835\uDD63", s: "\uD835\uDD64", t: "\uD835\uDD65",
+    u: "\uD835\uDD66", v: "\uD835\uDD67", w: "\uD835\uDD68", x: "\uD835\uDD69",
+    y: "\uD835\uDD6A", z: "\uD835\uDD6B",
+  };
+  return [...text].map((c) => map[c] ?? c).join("");
+}
+
+function smallCapsMap(text: string): string {
+  const map: Record<string, string> = {
+    a: "\u1D00", b: "\u0299", c: "\u1D04", d: "\u1D05", e: "\u1D07",
+    f: "\uA730", g: "\u0262", h: "\u029C", i: "\u026A", j: "\u1D0A",
+    k: "\u1D0B", l: "\u029F", m: "\u1D0D", n: "\u0274", o: "\u1D0F",
+    p: "\u1D18", q: "\u01EB", r: "\u0280", s: "\u0455", t: "\u1D1B",
+    u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x", y: "\u028F", z: "\u1D22",
+  };
+  return [...text].map((c) => map[c.toLowerCase()] ?? c).join("");
+}
+
+function bubbleMap(text: string): string {
+  return [...text].map((c) => {
+    const code = c.charCodeAt(0);
+    if (code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + code - 65);
+    if (code >= 97 && code <= 122) return String.fromCodePoint(0x24D0 + code - 97);
+    if (code >= 48 && code <= 57) return c === "0" ? "\u24EA" : String.fromCodePoint(0x2460 + code - 49);
+    return c;
+  }).join("");
+}
+
+// ── 1: Pretty Fonts — Unicode transforms ──────────────────────────────────
+
+const prettyFonts: FontCategory = {
+  name: "Pretty Fonts",
+  styles: [
+    { name: "Script Elegance", transform: (t) => scriptMap(t) },
+    { name: "Sparkle Script", transform: (t) => withFrame(scriptMap(t), "\u2727", "\u2727") },
+    { name: "Delicate Glow", transform: (t) => intersperse(scriptMap(t), "\u2022") },
+    { name: "Pearl Accent", transform: (t) => withFrame(scriptMap(t), "\u2234", "\u2235") },
+    { name: "Soft Flourish", transform: (t) => withFrame(t, "\u2E2C", "\u2E2D") },
+    { name: "Rose Script", transform: (t) => withFrame(scriptMap(t), "\u273F", "\u273F") },
+    { name: "Diamond Script", transform: (t) => intersperse(scriptMap(t), "\u2666") },
+    { name: "Fine Line", transform: (t) => withCombining(scriptMap(t), ["\u0332"]) },
+    { name: "Whisper Dots", transform: (t) => intersperse(scriptMap(t), "\u00B7") },
+    { name: "Velvet Wrap", transform: (t) => withFrame(scriptMap(t), "\u2765", "\u2765") },
+  ],
+};
+
+// ── 2: Sweetheart Lettering — Google Fonts ────────────────────────────────
+
+const sweetheartLettering: FontCategory = {
+  name: "Sweetheart Lettering",
+  styles: [
+    { name: "Butterfly Kids", transform: (t) => t, fontFamily: "'Butterfly Kids', cursive" },
+    { name: "Ruge Boogie", transform: (t) => t, fontFamily: "'Ruge Boogie', cursive" },
+    { name: "Puppies Play", transform: (t) => t, fontFamily: "'Puppies Play', cursive" },
+    { name: "Devonshire", transform: (t) => t, fontFamily: "'Devonshire', cursive" },
+    { name: "Fruktur", transform: (t) => t, fontFamily: "'Fruktur', display" },
+    { name: "Petit Formal Script", transform: (t) => t, fontFamily: "'Petit Formal Script', cursive" },
+    { name: "Babylonica", transform: (t) => t, fontFamily: "'Babylonica', cursive" },
+    { name: "Dr Sugiyama", transform: (t) => t, fontFamily: "'Dr Sugiyama', cursive" },
+    { name: "Festive", transform: (t) => t, fontFamily: "'Festive', cursive" },
+  ],
+};
+
+// ── 3: Glittering Stars — Unicode transforms ──────────────────────────────
+
+const glitteringStars: FontCategory = {
+  name: "Glittering Stars",
+  styles: [
+    { name: "Star Dust", transform: (t) => intersperse(smallCapsMap(t), "\u2726") },
+    { name: "Twinkle Caps", transform: (t) => withFrame(smallCapsMap(t), "\u2728", "\u2728") },
+    { name: "Celestial Glow", transform: (t) => intersperse(doubleStruckMap(t), "\u2727") },
+    { name: "Shimmer Wrap", transform: (t) => withFrame(doubleStruckMap(t), "\u2605", "\u2605") },
+    { name: "Comet Trail", transform: (t) => withFrame(smallCapsMap(t), "\u2604", "\u2604") },
+    { name: "Starfall", transform: (t) => intersperse(smallCapsMap(t), "\u2734") },
+    { name: "Galaxy Dust", transform: (t) => withFrame(doubleStruckMap(t), "\u2726\u2727", "\u2727\u2726") },
+    { name: "Night Sparkle", transform: (t) => withFrame(smallCapsMap(t), "\u2736\u2737", "\u2737\u2736") },
+    { name: "Stellar Script", transform: (t) => intersperse(scriptMap(t), "\u2606") },
+    { name: "Moonbeam", transform: (t) => withFrame(scriptMap(t), "\u263D", "\u263E") },
+  ],
+};
+
+// ── 4: Lollipop Swirls — Google Fonts ─────────────────────────────────────
+
+const lollipopSwirls: FontCategory = {
+  name: "Lollipop Swirls",
+  styles: [
+    { name: "DynaPuff", transform: (t) => t, fontFamily: "'DynaPuff', system-ui" },
+    { name: "Molle", transform: (t) => t, fontFamily: "'Molle', cursive" },
+    { name: "Chango", transform: (t) => t, fontFamily: "'Chango', display" },
+    { name: "Spicy Rice", transform: (t) => t, fontFamily: "'Spicy Rice', display" },
+    { name: "Life Savers", transform: (t) => t, fontFamily: "'Life Savers', display" },
+    { name: "Ribeye Marrow", transform: (t) => t, fontFamily: "'Ribeye Marrow', display" },
+    { name: "Combo", transform: (t) => t, fontFamily: "'Combo', display" },
+    { name: "Fascinate Inline", transform: (t) => t, fontFamily: "'Fascinate Inline', display" },
+    { name: "Crafty Girls", transform: (t) => t, fontFamily: "'Crafty Girls', cursive" },
+    { name: "Padyakke Expanded One", transform: (t) => t, fontFamily: "'Padyakke Expanded One', display" },
+  ],
+};
+
+// ── 5: Love Notes — Unicode transforms ────────────────────────────────────
+
+const loveNotes: FontCategory = {
+  name: "Love Notes",
+  styles: [
+    { name: "Heart Wrap", transform: (t) => withFrame(scriptMap(t), "\u2661", "\u2661") },
+    { name: "Love Script", transform: (t) => intersperse(scriptMap(t), "\u2665") },
+    { name: "Cupid Arrow", transform: (t) => withFrame(scriptMap(t), "\u2763", "\u2763") },
+    { name: "Rose Heart", transform: (t) => withFrame(scriptMap(t), "\u2766", "\u2766") },
+    { name: "Heart Dots", transform: (t) => intersperse(scriptMap(t), "\u2661") },
+    { name: "Georgian Love", transform: (t) => withFrame(scriptMap(t), "\u10E6", "\u10E6") },
+    { name: "Floral Heart", transform: (t) => withFrame(scriptMap(t), "\u2765\u2661", "\u2661\u2765") },
+    { name: "Sweet Whisper", transform: (t) => withCombining(scriptMap(t), ["\u0324"]) },
+    { name: "Soft Kiss", transform: (t) => withFrame(scriptMap(t), "\u2764\uFE0F", "\u2764\uFE0F") },
+    { name: "Valentine", transform: (t) => intersperse(scriptMap(t), "\u2763") },
+  ],
+};
+
+// ── 6: Pixie Dust — Google Fonts ──────────────────────────────────────────
+
+const pixieDust: FontCategory = {
+  name: "Pixie Dust",
+  styles: [
+    { name: "Snowburst One", transform: (t) => t, fontFamily: "'Snowburst One', display" },
+    { name: "Raleway Dots", transform: (t) => t, fontFamily: "'Raleway Dots', display" },
+    { name: "Freckle Face", transform: (t) => t, fontFamily: "'Freckle Face', display" },
+    { name: "Elsie Swash Caps", transform: (t) => t, fontFamily: "'Elsie Swash Caps', display" },
+    { name: "Spirax", transform: (t) => t, fontFamily: "'Spirax', display" },
+    { name: "Plaster", transform: (t) => t, fontFamily: "'Plaster', display" },
+    { name: "Monofett", transform: (t) => t, fontFamily: "'Monofett', monospace" },
+    { name: "Warnes", transform: (t) => t, fontFamily: "'Warnes', display" },
+    { name: "Splash", transform: (t) => t, fontFamily: "'Splash', cursive" },
+  ],
+};
+
+// ── 7: Ornate Borders — Unicode transforms ────────────────────────────────
+
+const ornateBorders: FontCategory = {
+  name: "Ornate Borders",
+  styles: [
+    { name: "Tibetan Scroll", transform: (t) => withFrame(t, "\u0F3A\u0F3C", "\u0F3D\u0F3B") },
+    { name: "Ornate Wings", transform: (t) => withFrame(t, "\uA9C1", "\uA9C2") },
+    { name: "Vine Curl", transform: (t) => withFrame(t, "\u2E2C\u2E2D", "\u2E2D\u2E2C") },
+    { name: "Floral Gate", transform: (t) => withFrame(t, "\u2740\u2741", "\u2741\u2740") },
+    { name: "Star Frame", transform: (t) => withFrame(t, "\u2726\u2727\u2726", "\u2726\u2727\u2726") },
+    { name: "Heart Wings", transform: (t) => withFrame(t, "\u2661\u00AB", "\u00BB\u2661") },
+    { name: "Arrow Frame", transform: (t) => withFrame(t, "\u2B9E\u2B9E", "\u2B9C\u2B9C") },
+    { name: "Crown Border", transform: (t) => withFrame(t, "\u2654", "\u2654") },
+    { name: "Diamond Gate", transform: (t) => withFrame(t, "\u2666\u2662", "\u2662\u2666") },
+    { name: "Lotus Frame", transform: (t) => withFrame(t, "\u2740\u2055", "\u2055\u2740") },
+  ],
+};
+
+// ── 8: Bouncy Blossoms — Google Fonts ─────────────────────────────────────
+
+const bouncyBlossoms: FontCategory = {
+  name: "Bouncy Blossoms",
+  styles: [
+    { name: "Fruktur", transform: (t) => t, fontFamily: "'Fruktur', display" },
+    { name: "Faster One", transform: (t) => t, fontFamily: "'Faster One', display" },
+    { name: "Sancreek", transform: (t) => t, fontFamily: "'Sancreek', display" },
+    { name: "Bigelow Rules", transform: (t) => t, fontFamily: "'Bigelow Rules', display" },
+  ],
+};
+
+// ── 9: Petal & Bloom — Unicode transforms ─────────────────────────────────
+
+const petalAndBloom: FontCategory = {
+  name: "Petal & Bloom",
+  styles: [
+    { name: "Garden Wrap", transform: (t) => withFrame(t, "\u273F", "\u273F") },
+    { name: "Flower Chain", transform: (t) => intersperse(t, "\u2740") },
+    { name: "Bloom Frame", transform: (t) => withFrame(t, "\u2740\u273F", "\u273F\u2740") },
+    { name: "Petal Script", transform: (t) => withFrame(scriptMap(t), "\u2741", "\u2741") },
+    { name: "Daisy Ring", transform: (t) => intersperse(scriptMap(t), "\u273F") },
+    { name: "Rose Garden", transform: (t) => withFrame(t, "\u2743\u2740", "\u2740\u2743") },
+    { name: "Spring Dots", transform: (t) => intersperse(t, "\u2022\u273F") },
+    { name: "Leaf Accent", transform: (t) => withFrame(scriptMap(t), "\u2E19", "\u2E19") },
+    { name: "Blossom Glow", transform: (t) => withFrame(doubleStruckMap(t), "\u273F", "\u273F") },
+    { name: "Floral Vine", transform: (t) => withFrame(t, "\u2740\u2741\u273F", "\u273F\u2741\u2740") },
+  ],
+};
+
+// ── 10: Sweet Ribbons — Unicode transforms ────────────────────────────────
+
+const sweetRibbons: FontCategory = {
+  name: "Sweet Ribbons",
+  styles: [
+    { name: "Bow Wrap", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF80", "\uD83C\uDF80") },
+    { name: "Ribbon Wave", transform: (t) => withCombining(bubbleMap(t), ["\uFE33"]) },
+    { name: "Gift Box", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF81", "\uD83C\uDF81") },
+    { name: "Wavy Ribbon", transform: (t) => withFrame(t, "\u3030\uD83C\uDF80", "\uD83C\uDF80\u3030") },
+    { name: "Bubble Bow", transform: (t) => intersperse(bubbleMap(t), "\uD83C\uDF80") },
+    { name: "Soft Ribbon", transform: (t) => withFrame(bubbleMap(t), "\u2248\u2248", "\u2248\u2248") },
+    { name: "Sweet Frame", transform: (t) => withFrame(bubbleMap(t), "\uFE35\uFE36", "\uFE35\uFE36") },
+    { name: "Candy Wrap", transform: (t) => withFrame(bubbleMap(t), "\uD83C\uDF6C", "\uD83C\uDF6C") },
+    { name: "Ribbon Curl", transform: (t) => withCombining(bubbleMap(t), ["\u0303"]) },
+    { name: "Pretty Package", transform: (t) => withFrame(bubbleMap(t), "\u2055\uD83C\uDF80\u2055", "\u2055\uD83C\uDF80\u2055") },
+  ],
+};
+
+// ── Export ─────────────────────────────────────────────────────────────────
+
+export const cuteFontCategories: FontCategory[] = [
+  prettyFonts,
+  sweetheartLettering,
+  glitteringStars,
+  lollipopSwirls,
+  loveNotes,
+  pixieDust,
+  ornateBorders,
+  bouncyBlossoms,
+  petalAndBloom,
+  sweetRibbons,
+];
