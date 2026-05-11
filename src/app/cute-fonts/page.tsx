@@ -587,22 +587,33 @@ export default function CuteFontsPage() {
                               {section.title}
                             </td>
                           </tr>
-                          {section.rows.map((row) => (
-                            <tr key={row.label} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
-                              <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">
-                                {row.label}
-                              </td>
-                              <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                {row.cute}
-                              </td>
-                              <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                {row.pretty}
-                              </td>
-                              <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                {row.aesthetic}
-                              </td>
-                            </tr>
-                          ))}
+                          {section.rows.map((row) => {
+                            const isSpanned = !row.pretty && !row.aesthetic;
+                            return (
+                              <tr key={row.label} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+                                <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">
+                                  {row.label}
+                                </td>
+                                {isSpanned ? (
+                                  <td colSpan={3} className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
+                                    {row.cute}
+                                  </td>
+                                ) : (
+                                  <>
+                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
+                                      {row.cute}
+                                    </td>
+                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
+                                      {row.pretty}
+                                    </td>
+                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
+                                      {row.aesthetic}
+                                    </td>
+                                  </>
+                                )}
+                              </tr>
+                            );
+                          })}
                         </>
                       ))}
                     </tbody>
