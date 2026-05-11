@@ -576,32 +576,27 @@ export default function FancyFontsPage() {
 
         {/* Similar Font Generator */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 leading-tight">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
             Similar Font Generator
           </h2>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-            If you enjoy fancy fonts, you may also like these related generators:
-          </p>
-          <ul className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-            <li>
-              <Link href="/cursive-fonts" className="text-primary underline underline-offset-4">
-                Cursive Font Generator
-              </Link>{" "}
-              — Create flowing, handwritten text styles for elegant bios and captions.
-            </li>
-            <li>
-              <Link href="/" className="text-primary underline underline-offset-4">
-                Aesthetic Font Generator
-              </Link>{" "}
-              — Generate 120+ unique aesthetic styles for social media and gaming.
-            </li>
-            <li>
-              <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">
-                Stylish Font Generator
-              </Link>{" "}
-              — Modern, trendy text designs with bold and decorative characters.
-            </li>
-          </ul>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Cursive Font Generator", href: "/cursive-fonts" },
+                { label: "Aesthetic Font Generator", href: "/" },
+                { label: "Stylish Font Generator", href: "/stylish-fonts" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         {/* Explore Related Fonts */}

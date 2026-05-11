@@ -609,38 +609,28 @@ export default function CursiveFontsPage() {
 
         {/* Similar Font Styles */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 leading-tight">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
             Similar Font Styles
           </h2>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-            If you like cursive fonts, you may also enjoy these related styles:
-          </p>
-          <ul className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-            <li>
-              <Link href="/" className="text-primary underline underline-offset-4">
-                Aesthetic Fonts
-              </Link>{" "}
-              — 120+ unique Unicode styles for bios, captions, and creative content.
-            </li>
-            <li>
-              <Link href="/cute-fonts" className="text-primary underline underline-offset-4">
-                Cute Fonts
-              </Link>{" "}
-              — Soft, playful text with hearts, sparkles, and decorative elements.
-            </li>
-            <li>
-              <Link href="/fancy-fonts" className="text-primary underline underline-offset-4">
-                Fancy Fonts
-              </Link>{" "}
-              — Bold, decorative styles for gaming usernames and standout captions.
-            </li>
-            <li>
-              <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">
-                Stylish Fonts
-              </Link>{" "}
-              — Modern, trendy text designs with unique character combinations.
-            </li>
-          </ul>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Aesthetic Fonts", href: "/" },
+                { label: "Cute Fonts", href: "/cute-fonts" },
+                { label: "Fancy Fonts", href: "/fancy-fonts" },
+                { label: "Stylish Fonts", href: "/stylish-fonts" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         {/* Explore Related Fonts */}
