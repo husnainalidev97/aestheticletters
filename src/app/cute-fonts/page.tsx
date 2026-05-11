@@ -78,19 +78,20 @@ const fontShowcaseStyles = [
   {
     name: "Pretty Fonts",
     description: "A clean and elegant style with soft curves and balanced spacing. It works great for captions, mood boards, and Pinterest posts.",
-    example: "\u2728 Pretty Days \u2728",
+    example: "\uD835\uDD01\uD835\uDCFB\uD835\uDCEE\uD835\uDCF5\uD835\uDCF5\uD835\uDD02 \uD835\uDCDD\uD835\uDCEA\uD835\uDD02\uD835\uDCFC",
     bestFor: "Instagram captions.",
   },
   {
     name: "Sweetheart Lettering",
     description: "This style adds a romantic handwritten feel to text. It looks warm and personal without becoming hard to read.",
-    example: "\u2661 Sweet Memories \u2661",
+    example: "Sweet Memories",
     bestFor: "Love quotes and bios.",
+    fontFamily: "'Butterfly Kids', cursive",
   },
   {
     name: "Glittering Stars",
     description: "Decorative stars and attractive letters create a dreamy appearance. Many teenagers use it for TikTok usernames.",
-    example: "\u2605 Dream Girl \u2605",
+    example: "\u1D05\u2726\u0280\u2726\u1D07\u2726\u1D00\u2726\u1D0D\u2726 \u0262\u2726\u026A\u2726\u0280\u2726\u029F\u2726",
     bestFor: "TikTok profiles.",
   },
   {
@@ -98,11 +99,12 @@ const fontShowcaseStyles = [
     description: "Rounded letters and playful curves make this font cheerful and energetic. It fits colorful social posts well.",
     example: "Candy Vibes",
     bestFor: "Fun captions.",
+    fontFamily: "'DynaPuff', system-ui",
   },
   {
     name: "Love Notes",
     description: "Soft Unicode symbols and smooth lettering give this style a cute diary-like look.",
-    example: "Dear Sunshine",
+    example: "\u2661 \uD835\uDCDD\uD835\uDCEE\uD835\uDCEA\uD835\uDCFB \uD835\uDCE2\uD835\uDCFE\uD835\uDCF7\uD835\uDCFC\uD835\uDCF1\uD835\uDCF2\uD835\uDCF7\uD835\uDCEE \u2661",
     bestFor: "WhatsApp statuses.",
   },
   {
@@ -110,11 +112,12 @@ const fontShowcaseStyles = [
     description: "Light decorative details create a magical and fantasy-inspired appearance.",
     example: "Fairy Dreams",
     bestFor: "Gaming names.",
+    fontFamily: "'Snowburst One', display",
   },
   {
     name: "Ornate Borders",
     description: "This style surrounds text with decorative shapes and elegant edges. It works well for highlighted text.",
-    example: "\u2740 Beautiful Moments \u2740",
+    example: "\u0F3C Beautiful Moments \u0F3D",
     bestFor: "Facebook posts.",
   },
   {
@@ -122,17 +125,18 @@ const fontShowcaseStyles = [
     description: "Rounded letters with lively spacing make this font look playful and youthful.",
     example: "Happy Bloom",
     bestFor: "Teen profiles.",
+    fontFamily: "'Fruktur', display",
   },
   {
     name: "Petal & Bloom",
     description: "A floral-inspired design that feels calm and aesthetic. Many users prefer it for journaling pages.",
-    example: "Bloom Slowly",
+    example: "\u273F Bloom Slowly \u273F",
     bestFor: "Pinterest graphics.",
   },
   {
     name: "Sweet Ribbons",
     description: "Soft decorative lines make text appear smooth and beautiful without looking crowded.",
-    example: "Sweet Energy",
+    example: "\uD83C\uDF80 \u24E2\u24E6\u24D4\u24D4\u24E3 \u24D4\u24DD\u24D4\u24E1\u24D6\u24E8 \uD83C\uDF80",
     bestFor: "YouTube channel names.",
   },
 ];
@@ -670,7 +674,10 @@ export default function CuteFontsPage() {
                       </h3>
                       <p className="text-on-surface-variant text-sm mb-3">{style.description}</p>
                       <p className="text-lg mb-2 break-all">
-                        Example: {style.example}
+                        Example:{" "}
+                        <span style={style.fontFamily ? { fontFamily: style.fontFamily, fontSize: "1.25rem" } : undefined}>
+                          {style.example}
+                        </span>
                       </p>
                       <p className="text-xs text-on-surface-variant">
                         Best Use: {style.bestFor}
