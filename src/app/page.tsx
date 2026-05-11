@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import TopNavBar from "./components/TopNavBar";
 import FontGenerator from "./components/FontGenerator";
 import SEOSection from "./components/SEOSection";
@@ -103,6 +104,34 @@ export default function Home() {
       <main id="main-content" className="pt-[5.5rem]">
         <FontGenerator totalFontStyles={totalFontStyles} />
         <SEOSection />
+
+        {/* Explore More Fonts */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
+            Explore More Fonts
+          </h2>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Fancy Fonts", href: "/fancy-fonts" },
+                { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Cursive Fonts", href: "/cursive-fonts" },
+                { label: "Stylish Fonts", href: "/stylish-fonts" },
+                { label: "Cute Fonts", href: "/cute-fonts" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <FAQSection />
       </main>
       <Footer />
