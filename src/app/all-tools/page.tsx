@@ -72,6 +72,13 @@ const toolCategories: ToolCategory[] = [
         icon: "style",
         href: "/stylish-fonts",
       },
+      {
+        title: "Cute Fonts",
+        description:
+          "Pretty and playful font styles for bios, captions, gaming names, and creative messages.",
+        icon: "favorite",
+        href: "/cute-fonts",
+      },
     ],
   },
   {
