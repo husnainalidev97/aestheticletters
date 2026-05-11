@@ -203,7 +203,7 @@ export default function InstagramFontsPage() {
                       key={item.label}
                       className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
                     >
-                      <span className="text-[0.65rem] uppercase tracking-widest text-outline font-bold">
+                      <span className="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold">
                         {item.label}
                       </span>
                       <div className="text-xl font-body py-2">{item.text}</div>
@@ -416,7 +416,7 @@ export default function InstagramFontsPage() {
                           className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex justify-between items-center gap-4"
                         >
                           <div className="flex flex-col gap-1 min-w-0">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-outline">
+                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-on-surface-variant">
                               {item.label}
                             </span>
                             <span className="text-lg font-body break-all">{item.text}</span>
@@ -452,7 +452,7 @@ export default function InstagramFontsPage() {
                           className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex justify-between items-center gap-4"
                         >
                           <div className="flex flex-col gap-1 min-w-0">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-outline">
+                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-on-surface-variant">
                               {item.label}
                             </span>
                             <span className="text-lg font-body break-all">{item.text}</span>
@@ -484,7 +484,7 @@ export default function InstagramFontsPage() {
                           className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex justify-between items-center gap-4"
                         >
                           <div className="flex flex-col gap-1 min-w-0">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-outline">
+                            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-on-surface-variant">
                               {item.label}
                             </span>
                             <span className="text-lg font-body break-all">{item.text}</span>

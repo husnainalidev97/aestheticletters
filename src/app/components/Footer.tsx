@@ -14,11 +14,11 @@ export default function Footer() {
         <span className="font-headline font-bold text-2xl text-on-background">
           Aesthetic Letters
         </span>
-        <p className="font-['Manrope'] text-sm text-outline">
+        <p className="font-['Manrope'] text-sm text-on-surface-variant">
           © {new Date().getFullYear()} Aesthetic Letters. The Digital Curator.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-outline">
+      <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-on-surface-variant">
         {footerLinks.map((link) => (
           <Link
             key={link.label}

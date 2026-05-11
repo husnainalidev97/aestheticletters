@@ -249,7 +249,7 @@ export default function CursiveFontGenerator({
       <section className="hidden my-14 px-4 md:px-[150px]">
         <div className="w-full h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
           <div className="bg-surface p-4 rounded-lg text-center shadow-sm">
-            <span className="text-label text-outline uppercase tracking-widest text-[10px] block mb-2">
+            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
               Sponsored Placement
             </span>
             <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
@@ -305,7 +305,7 @@ export default function CursiveFontGenerator({
                             className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
                               isFavorite(styleId)
                                 ? "text-[#ef4444]"
-                                : "text-outline hover:text-[#ef4444]"
+                                : "text-on-surface-variant hover:text-[#ef4444]"
                             }`}
                             aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
                           >
@@ -366,7 +366,7 @@ export default function CursiveFontGenerator({
                               className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
                                 isFavorite(uStyleId)
                                   ? "text-[#ef4444]"
-                                  : "text-outline hover:text-[#ef4444]"
+                                  : "text-on-surface-variant hover:text-[#ef4444]"
                               }`}
                               aria-label={isFavorite(uStyleId) ? "Remove from favorites" : "Add to favorites"}
                             >
