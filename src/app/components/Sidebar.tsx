@@ -8,6 +8,7 @@ interface SidebarProps {
   useCasesContent?: ReactNode;
   tipsContent?: ReactNode;
   showBanner?: boolean;
+  showTips?: boolean;
   bottomImage?: { src: string; alt: string };
 }
 
@@ -17,6 +18,7 @@ export default function Sidebar({
   useCasesContent,
   tipsContent,
   showBanner = true,
+  showTips = true,
   bottomImage,
 }: SidebarProps) {
   return (
@@ -32,7 +34,7 @@ export default function Sidebar({
       )}
 
       {/* Common Mistakes to Avoid */}
-      <div className="p-8 bg-surface text-on-surface rounded-2xl border border-primary/20 shadow-sm">
+      {showTips && <div className="p-8 bg-surface text-on-surface rounded-2xl border border-primary/20 shadow-sm">
         <h2 className="font-headline text-2xl font-bold mb-6">
           {tipsHeading}
         </h2>
@@ -73,7 +75,7 @@ export default function Sidebar({
             </div>
           </>
         )}
-      </div>
+      </div>}
 
       {/* Aesthetic Letters Banner */}
       {showBanner && (
