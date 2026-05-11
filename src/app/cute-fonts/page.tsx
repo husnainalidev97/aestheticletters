@@ -781,16 +781,15 @@ export default function CuteFontsPage() {
           </div>
         </section>
 
-        {/* Explore Related Fonts */}
+        {/* Explore Trending Fonts Styles */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Explore Related Fonts
+            Explore Trending Fonts Styles
           </h2>
           <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
             <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
               {[
                 { label: "Aesthetic Fonts", href: "/" },
-                { label: "Fancy Fonts", href: "/fancy-fonts" },
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
                 { label: "Stylish Fonts", href: "/stylish-fonts" },
                 { label: "Instagram Fonts", href: "/instagram-fonts" },
