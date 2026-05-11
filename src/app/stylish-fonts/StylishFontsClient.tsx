@@ -2,11 +2,11 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
-import { fontCategories } from "../lib/fontStyles";
+import { stylishFontCategories } from "../lib/stylishFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
-import HomeGoogleFontsLoader from "../components/HomeGoogleFontsLoader";
+import StylishGoogleFontsLoader from "./StylishGoogleFontsLoader";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -19,7 +19,7 @@ const DEFAULT_TEXT = "Stylish Fonts";
 const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
-const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
+const DARK_CATEGORIES = new Set(["Cool Fonts", "Industrial Block"]);
 
 export default function StylishFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
@@ -37,9 +37,9 @@ export default function StylishFontsClient() {
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
 
-  const visibleCategories: FontCategory[] = showAll
-    ? fontCategories
-    : fontCategories.slice(0, INITIAL_COUNT);
+  const visibleCategories = (showAll
+    ? stylishFontCategories
+    : stylishFontCategories.slice(0, INITIAL_COUNT)) as unknown as FontCategory[];
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -143,7 +143,7 @@ export default function StylishFontsClient() {
 
   return (
     <>
-      <HomeGoogleFontsLoader />
+      <StylishGoogleFontsLoader />
       {/* Generator Block: Input + Button + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-5">
