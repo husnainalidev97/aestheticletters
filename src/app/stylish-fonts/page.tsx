@@ -73,61 +73,65 @@ const fontShowcaseStyles = [
   {
     name: "Urban Vogue",
     description: "A bold and street inspired style with strong character shapes.",
-    example: "T\u029C\u026A\u0455 \u026A\u0455 \u1D1C\u0280\u0299\u1D00\u0274",
+    example: "This is Urban",
     bestFor: "Modern profile bios and standout gaming names.",
+    fontFamily: "'Monoton', display",
   },
   {
     name: "Diamond Glazed",
     description: "Sparkling text style with decorative touches that mimic shine.",
-    example: "T\u0336h\u0336i\u0336s\u0336 \u0336i\u0336s\u0336 \u0336g\u0336l\u0336a\u0336z\u0336e\u0336d\u0336",
+    example: "\u2666 This is Glazed \u2666",
     bestFor: "Eye catching captions and creative posts.",
   },
   {
     name: "Cool Fonts",
     description: "A mix of trendy styles designed for general use.",
-    example: "\uD835\uDCE3\uD835\uDCF1\uD835\uDCEE\uD835\uDCFC \uD835\uDCEE\uD835\uDCFC \uD835\uDCEC\uD835\uDCF8\uD835\uDCF8\uD835\uDCF5",
+    example: "This is Cool",
     bestFor: "Everyday text styling.",
+    fontFamily: "'Rubik Glitch', system-ui",
   },
   {
     name: "Starlight Sparkle",
     description: "Adds star like symbols around text for a magical feel.",
-    example: "\u2728This is sparkle\u2728",
+    example: "\u2728 This is Sparkle \u2728",
     bestFor: "Aesthetic posts and TikTok captions.",
   },
   {
     name: "Signature Glow",
     description: "Looks like handwritten glowing text.",
-    example: "\uD835\uDCAF\uD835\uDCBD\uD835\uDCBE\uD835\uDCC8 \uD835\uDCBE\uD835\uDCC8 \uD835\uDCC8\uD835\uDCBE\uD835\uDCB4\uD835\uDCC3\uD835\uDCB6\uD835\uDCC9\uD835\uDCCA\uD835\uDCC7\uD835\uDCB2",
+    example: "This is Signature",
     bestFor: "Personal branding and influencer bios.",
+    fontFamily: "'Birthstone Bounce', cursive",
   },
   {
     name: "Underlined Flow",
     description: "Smooth text with stylish underline effects.",
-    example: "T\u0332h\u0332i\u0332s\u0332 \u0332i\u0332s\u0332 \u0332f\u0332l\u0332o\u0332w\u0332",
+    example: "T\u0332h\u0332i\u0332s\u0332 i\u0332s\u0332 F\u0332l\u0332o\u0332w\u0332",
     bestFor: "Highlighting important words.",
   },
   {
     name: "Metro Outline",
     description: "Outlined letters with a modern city style vibe.",
-    example: "\uD835\uDD4B\uD835\uDD59\uD835\uDD5A\uD835\uDD64 \uD835\uDD5A\uD835\uDD64 \uD835\uDD60\uD835\uDD66\uD835\uDD65\uD835\uDD5D\uD835\uDD5A\uD835\uDD5F\uD835\uDD56",
+    example: "This is Outline",
     bestFor: "Bold headlines and titles.",
+    fontFamily: "'Codystar', display",
   },
   {
     name: "Wavy Motion",
     description: "Text appears dynamic with wave like curves.",
-    example: "T\u0334h\u0334i\u0334s\u0334 \u0334i\u0334s\u0334 \u0334w\u0334a\u0334v\u0334y\u0334",
+    example: "T\u0334h\u0334i\u0334s\u0334 i\u0334s\u0334 W\u0334a\u0334v\u0334y\u0334",
     bestFor: "Creative storytelling posts.",
   },
   {
     name: "Industrial Block",
     description: "Heavy block style text with strong presence.",
-    example: "\uD83C\uDD43\uD83C\uDD37\uD83C\uDD38\uD83C\uDD42 \uD83C\uDD38\uD83C\uDD42 \uD83C\uDD31\uD83C\uDD3B\uD83C\uDD3E\uD83C\uDD32\uD83C\uDD3A",
+    example: "\u3010This is Block\u3011",
     bestFor: "Gaming and branding.",
   },
   {
     name: "Symbolic Frames",
     description: "Text surrounded by decorative symbols.",
-    example: "\u3010This is framed\u3011",
+    example: "\uA9C1 This is Framed \uA9C2",
     bestFor: "Emphasis and special announcements.",
   },
 ];
@@ -450,8 +454,11 @@ export default function StylishFontsPage() {
                     <div key={style.name} className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                       <h3 className="font-headline font-bold mb-2 text-xl">{style.name}</h3>
                       <p className="text-on-surface-variant text-sm mb-3">{style.description}</p>
-                      <p className="text-lg mb-2 font-mono break-all">
-                        Example: {style.example}
+                      <p className="text-lg mb-2 break-all">
+                        Example:{" "}
+                        <span style={style.fontFamily ? { fontFamily: style.fontFamily, fontSize: "1.25rem" } : undefined}>
+                          {style.example}
+                        </span>
                       </p>
                       <p className="text-xs text-on-surface-variant">
                         {style.name === "Starlight Sparkle" ? (
