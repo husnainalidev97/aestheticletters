@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 600, height: 900, alt: "Usage of Cute Fonts" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/usage-cute-fonts.webp"],
   },
 };
 
