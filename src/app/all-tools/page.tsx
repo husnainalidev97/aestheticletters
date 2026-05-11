@@ -65,11 +65,6 @@ const toolCategories: ToolCategory[] = [
         icon: "brush",
         href: "/fancy-fonts",
       },
-    ],
-  },
-  {
-    title: "Typography Styles",
-    cards: [
       {
         title: "Stylish Fonts",
         description:
@@ -77,6 +72,11 @@ const toolCategories: ToolCategory[] = [
         icon: "style",
         href: "/stylish-fonts",
       },
+    ],
+  },
+  {
+    title: "Typography Styles",
+    cards: [
       {
         title: "Cursive Fonts",
         description:
