@@ -597,7 +597,7 @@ export default function InstagramFontsPage() {
                     </div>
                   ))}
                   <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
-                    For a clean and modern look, many users prefer using stylish fonts in their profiles.
+                    For a clean and modern look, many users prefer using <Link href="/stylish-fonts" className="text-primary hover:underline">stylish fonts</Link> in their profiles.
                   </p>
                 </div>
               }
