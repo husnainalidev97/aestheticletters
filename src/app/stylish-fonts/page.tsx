@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp", width: 1200, height: 630, alt: "how to use the stylish font maker (step by step)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp"],
   },
 };
 
