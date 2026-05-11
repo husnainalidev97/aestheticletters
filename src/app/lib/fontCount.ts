@@ -1,5 +1,7 @@
 import { fontCategories } from "./fontStyles";
 import { fancyFontCategories } from "./fancyFontStyles";
+import { stylishFontCategories } from "./stylishFontStyles";
+import { cuteFontCategories } from "./cuteFontStyles";
 import { cursiveUnicodeStyles } from "../cursive-fonts/cursiveUnicodeStyles";
 
 /**
@@ -15,9 +17,17 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
+  const stylishCount = stylishFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  const cuteCount = cuteFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
   const cursiveCount = Object.values(cursiveUnicodeStyles).reduce(
     (sum, styles) => sum + styles.length,
     0,
   );
-  return homeCount + fancyCount + cursiveCount;
+  return homeCount + fancyCount + stylishCount + cuteCount + cursiveCount;
 }
