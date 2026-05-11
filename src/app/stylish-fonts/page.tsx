@@ -537,38 +537,7 @@ export default function StylishFontsPage() {
                 </p>
               </article>
 
-              {/* Explore More Styles */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Explore More Styles
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Link
-                    href="/"
-                    className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
-                  >
-                    <span className="font-headline font-bold text-primary">Aesthetic Fonts</span>
-                  </Link>
-                  <Link
-                    href="/fancy-fonts"
-                    className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
-                  >
-                    <span className="font-headline font-bold text-primary">Fancy Fonts</span>
-                  </Link>
-                  <Link
-                    href="/cursive-fonts"
-                    className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
-                  >
-                    <span className="font-headline font-bold text-primary">Cursive Fonts</span>
-                  </Link>
-                  <Link
-                    href="/cute-fonts"
-                    className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
-                  >
-                    <span className="font-headline font-bold text-primary">Cute Fonts</span>
-                  </Link>
-                </div>
-              </article>
+
             </div>
 
             {/* Sidebar */}
