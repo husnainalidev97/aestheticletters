@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import FAQAccordion from "../components/FAQAccordion";
@@ -351,16 +350,6 @@ export default function StylishFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
                   This process works on all devices, making it a fast and reliable changer for daily use.
                 </p>
-                <div className="mt-8 rounded-2xl overflow-hidden">
-                  <Image
-                    src="/how-to-use-the-stylish-font-maker-step-by-step.webp"
-                    alt="how to use the stylish font maker (step by step)"
-                    width={1200}
-                    height={800}
-                    loading="lazy"
-                    className="w-full h-auto rounded-2xl"
-                  />
-                </div>
               </article>
 
               {/* Choose the Right Font */}
@@ -636,6 +625,7 @@ export default function StylishFontsPage() {
                 </>
               }
               showBanner={false}
+              bottomImage={{ src: "/how-to-use-the-stylish-font-maker-step-by-step.webp", alt: "how to use the stylish font maker (step by step)" }}
             />
           </div>
         </section>
