@@ -628,32 +628,8 @@ export default function StylishFontsPage() {
                   </p>
                 </>
               }
-              tipsHeading="Common Mistakes to Avoid"
-              tipsContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using stylish text is simple, but avoid these common mistakes:
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li>
-                      <strong>1. Complex Styles:</strong> Using overly complex styles that are hard to read reduces engagement.
-                    </li>
-                    <li>
-                      <strong>2. Unsupported Fonts:</strong> Copying unsupported fonts for important usernames can break your display.
-                    </li>
-                    <li>
-                      <strong>3. Symbol Overuse:</strong> Overusing symbols in one sentence makes content confusing.
-                    </li>
-                  </ol>
-                  <div className="mt-6 p-4 bg-primary-container/10 rounded-xl">
-                    <p className="text-sm text-on-surface-variant leading-relaxed">
-                      <strong>Pro Tip:</strong> Always test your styled text before publishing. Stick to simple styles
-                      for important content, and mix normal text with cool text for better clarity.
-                    </p>
-                  </div>
-                </>
-              }
               showBanner={false}
+              showTips={false}
               bottomImage={{ src: "/how-to-use-the-stylish-font-maker-step-by-step.webp", alt: "how to use the stylish font maker (step by step)" }}
             />
           </div>
