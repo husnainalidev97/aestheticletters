@@ -269,7 +269,7 @@ export default function StylishFontsPage() {
                   font styles versions that you can choose from.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  These styles can include cursive typefaces, bold characters, symbols, and other unique variations
+                  These styles can include <Link href="/cursive-fonts" className="text-primary underline underline-offset-4 hover:no-underline">cursive typefaces</Link>, bold characters, symbols, and other unique variations
                   that look different from regular text. Because of this, many users also refer to it as a cool
                   text generator, especially when creating content for social media.
                 </p>
@@ -370,7 +370,7 @@ export default function StylishFontsPage() {
                         {item.label === "Content Creation" ? (
                           <>
                             {item.description} If you want something more decorative,{" "}
-                            <Link href="/fancy-fonts" className="text-primary underline hover:no-underline">
+                            <Link href="/fancy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                               fancy fonts &amp; typefaces
                             </Link>{" "}
                             are a great choice for standing out.
@@ -404,7 +404,7 @@ export default function StylishFontsPage() {
                         {style.name === "Starlight Sparkle" ? (
                           <>
                             Best for {style.bestFor.replace(".", "")}. If you love this soft magical vibe, explore{" "}
-                            <Link href="/cursive-fonts" className="text-primary underline hover:no-underline">
+                            <Link href="/cute-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                               cute fonts
                             </Link>{" "}
                             for more styles like this.
@@ -562,7 +562,7 @@ export default function StylishFontsPage() {
                     <span className="font-headline font-bold text-primary">Cursive Fonts</span>
                   </Link>
                   <Link
-                    href="/cursive-fonts"
+                    href="/cute-fonts"
                     className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
                   >
                     <span className="font-headline font-bold text-primary">Cute Fonts</span>
