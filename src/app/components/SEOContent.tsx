@@ -465,6 +465,49 @@ export default function SEOContent() {
           </table>
         </div>
       </article>
+
+      {/* Section 6: Explore More Fonts */}
+      <article>
+        <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+          Explore More Fonts
+        </h2>
+        <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+          Looking for something different? Try our other font generators to find
+          the perfect style for your content:
+        </p>
+        <ul className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
+          <li>
+            <Link href="/fancy-fonts" className="text-primary underline underline-offset-4">
+              Fancy Fonts
+            </Link>{" "}
+            — Bold, decorative styles for gaming usernames and creative captions.
+          </li>
+          <li>
+            <Link href="/instagram-fonts" className="text-primary underline underline-offset-4">
+              Instagram Fonts
+            </Link>{" "}
+            — Styles optimized for bios, captions, and social media profiles.
+          </li>
+          <li>
+            <Link href="/cursive-fonts" className="text-primary underline underline-offset-4">
+              Cursive Fonts
+            </Link>{" "}
+            — Flowing, handwritten styles for an elegant and personal touch.
+          </li>
+          <li>
+            <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">
+              Stylish Fonts
+            </Link>{" "}
+            — Modern, trendy text designs for standout usernames and headings.
+          </li>
+          <li>
+            <Link href="/cute-fonts" className="text-primary underline underline-offset-4">
+              Cute Fonts
+            </Link>{" "}
+            — Soft, playful styles with hearts, sparkles, and decorative elements.
+          </li>
+        </ul>
+      </article>
     </div>
   );
 }

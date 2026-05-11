@@ -574,6 +574,36 @@ export default function FancyFontsPage() {
           </div>
         </section>
 
+        {/* Similar Font Generator */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 leading-tight">
+            Similar Font Generator
+          </h2>
+          <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+            If you enjoy fancy fonts, you may also like these related generators:
+          </p>
+          <ul className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
+            <li>
+              <Link href="/cursive-fonts" className="text-primary underline underline-offset-4">
+                Cursive Font Generator
+              </Link>{" "}
+              — Create flowing, handwritten text styles for elegant bios and captions.
+            </li>
+            <li>
+              <Link href="/" className="text-primary underline underline-offset-4">
+                Aesthetic Font Generator
+              </Link>{" "}
+              — Generate 120+ unique aesthetic styles for social media and gaming.
+            </li>
+            <li>
+              <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">
+                Stylish Font Generator
+              </Link>{" "}
+              — Modern, trendy text designs with bold and decorative characters.
+            </li>
+          </ul>
+        </section>
+
         {/* Explore Related Fonts */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
