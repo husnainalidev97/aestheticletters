@@ -90,7 +90,7 @@ export default function FavoritesSection({ favorites, onRemove }: FavoritesSecti
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <button
                       onClick={() => handleCopy(fav.text, fav.id)}
-                      className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${
+                      className={`w-9 flex flex-col items-center justify-center rounded-full transition-all ${
                         isCopied
                           ? "bg-[#22c55e] text-white"
                           : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
@@ -100,15 +100,17 @@ export default function FavoritesSection({ favorites, onRemove }: FavoritesSecti
                       <span className="material-symbols-outlined text-base">
                         {isCopied ? "check" : "content_copy"}
                       </span>
+                      <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                     </button>
                     <button
                       onClick={() => onRemove(fav.id)}
-                      className="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-[#ef4444] hover:bg-error-container transition-all"
+                      className="w-9 flex flex-col items-center justify-center rounded-full text-on-surface-variant hover:text-[#ef4444] hover:bg-error-container transition-all"
                       aria-label="Remove from favorites"
                     >
                       <span className="material-symbols-outlined text-base">
                         delete
                       </span>
+                      <span className="text-[0.55rem] leading-none mt-0.5">Remove</span>
                     </button>
                   </div>
                 </div>

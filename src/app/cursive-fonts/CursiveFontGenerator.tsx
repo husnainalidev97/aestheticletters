@@ -322,7 +322,7 @@ export default function CursiveFontGenerator({
                           <ShareButtons text={displayText} />
                           <button
                             onClick={() => toggleFavorite({ id: styleId, styleName: font.name, categoryName: card.category, text: displayText })}
-                            className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                            className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                               isFavorite(styleId)
                                 ? "text-[#ef4444]"
                                 : "text-on-surface-variant hover:text-[#ef4444]"
@@ -332,6 +332,7 @@ export default function CursiveFontGenerator({
                             <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
                               favorite
                             </span>
+                            <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                           </button>
                           <button
                             onClick={() => handleCopy(font.name, styleId)}
@@ -340,7 +341,7 @@ export default function CursiveFontGenerator({
                                 ? `Copied ${font.name} font name`
                                 : `Copy ${font.name} ${card.category} font name`
                             }
-                            className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                            className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                               isCopied
                                 ? "bg-[#22c55e] text-white"
                                 : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
@@ -349,6 +350,7 @@ export default function CursiveFontGenerator({
                             <span aria-hidden="true" className="material-symbols-outlined text-lg">
                               {isCopied ? "check" : "content_copy"}
                             </span>
+                            <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                           </button>
                         </div>
                       </div>
@@ -383,7 +385,7 @@ export default function CursiveFontGenerator({
                             <ShareButtons text={transformed} />
                             <button
                               onClick={() => toggleFavorite({ id: uStyleId, styleName: style.name, categoryName: card.category, text: transformed })}
-                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                              className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                                 isFavorite(uStyleId)
                                   ? "text-[#ef4444]"
                                   : "text-on-surface-variant hover:text-[#ef4444]"
@@ -393,6 +395,7 @@ export default function CursiveFontGenerator({
                               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(uStyleId) ? "'FILL' 1" : "'FILL' 0" }}>
                                 favorite
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(uStyleId) ? "Saved" : "Save"}</span>
                             </button>
                             <button
                               onClick={() =>
@@ -403,7 +406,7 @@ export default function CursiveFontGenerator({
                                   ? `Copied ${style.name} cursive text`
                                   : `Copy ${style.name} cursive text to clipboard`
                               }
-                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                              className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                                 isUCopied
                                   ? "bg-[#22c55e] text-white"
                                   : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
@@ -412,6 +415,7 @@ export default function CursiveFontGenerator({
                               <span aria-hidden="true" className="material-symbols-outlined text-lg">
                                 {isUCopied ? "check" : "content_copy"}
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isUCopied ? "Done" : "Copy"}</span>
                             </button>
                           </div>
                         </div>

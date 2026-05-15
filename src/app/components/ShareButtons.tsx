@@ -152,10 +152,11 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
     <div className="relative" ref={panelRef}>
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
+        className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
         aria-label="Share this style"
       >
         <span className="material-symbols-outlined text-lg">share</span>
+        <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
       </button>
 
       {isOpen && (

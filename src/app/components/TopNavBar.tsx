@@ -127,7 +127,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className={`p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
+            className={`flex flex-col items-center p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
           >
             <span
               className="material-symbols-outlined text-xl"
@@ -135,6 +135,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             >
               {isDark ? "light_mode" : "dark_mode"}
             </span>
+            <span className="text-[0.55rem] leading-none mt-0.5">{isDark ? "Light" : "Dark"}</span>
           </button>
         </div>
         <div className="flex md:hidden items-center gap-2">
@@ -142,7 +143,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className={`p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
+            className={`flex flex-col items-center p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
           >
             <span
               className="material-symbols-outlined text-xl"
@@ -150,10 +151,11 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             >
               {isDark ? "light_mode" : "dark_mode"}
             </span>
+            <span className="text-[0.55rem] leading-none mt-0.5">{isDark ? "Light" : "Dark"}</span>
           </button>
           <button
             type="button"
-            className="p-3 -m-1 text-primary rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="flex flex-col items-center p-3 -m-1 text-primary rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-nav-drawer"
@@ -162,6 +164,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             <span className="material-symbols-outlined">
               {isOpen ? "close" : "menu"}
             </span>
+            <span className="text-[0.55rem] leading-none mt-0.5">{isOpen ? "Close" : "Menu"}</span>
           </button>
         </div>
       </nav>

@@ -493,7 +493,7 @@ export default function InstagramFontCards() {
                             <ShareButtons text={style.text} />
                             <button
                               onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
-                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                              className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                                 isFavorite(styleId)
                                   ? "text-[#ef4444]"
                                   : "text-on-surface-variant hover:text-[#ef4444]"
@@ -503,10 +503,11 @@ export default function InstagramFontCards() {
                               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
                                 favorite
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                             </button>
                             <button
                               onClick={() => handleCopy(style.text, styleId)}
-                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                              className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                                 isCopied
                                   ? "bg-[#22c55e] text-white"
                                   : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
@@ -516,6 +517,7 @@ export default function InstagramFontCards() {
                               <span className="material-symbols-outlined text-lg">
                                 {isCopied ? "check" : "content_copy"}
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                             </button>
                           </div>
                         </div>
