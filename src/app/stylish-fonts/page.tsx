@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
 import StylishFontsClient from "./StylishFontsClient";
@@ -670,6 +671,7 @@ export default function StylishFontsPage() {
           <FAQAccordion faqs={faqs} />
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );

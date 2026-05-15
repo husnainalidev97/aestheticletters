@@ -10,6 +10,7 @@ import {
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "./FavoritesSection";
 import ShareButtons from "./ShareButtons";
+import CategoryJumpLinks from "./CategoryJumpLinks";
 
 // ── Shorthand builder for engine-driven styles ─────────────────────────────
 
@@ -253,6 +254,27 @@ function slugify(label: string): string {
   return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+const IG_EMOJIS: Record<string, string> = {
+  "Instagram Bio Fonts": "\ud83d\udcdd",
+  "Instagram Caption Fonts": "\ud83d\udcf8",
+  "Minimal Instagram Fonts": "\ud83e\uddd8",
+  "Instagram Script Fonts": "\u270d\ufe0f",
+  "Adorable Instagram Fonts": "\ud83d\udc95",
+  "Decorative Instagram Fonts": "\u2728",
+  "Gothic Instagram Fonts": "\u2694\ufe0f",
+  "High-Impact Instagram Fonts": "\ud83d\udd25",
+  "Instagram Fonts for Name": "\ud83c\udff7\ufe0f",
+  "Instagram Fonts for Business": "\ud83d\udcbc",
+  "Instagram Username Fonts": "\ud83d\udc64",
+  "Instagram Fonts for Girls": "\ud83c\udf38",
+};
+
+const igCategoryLinks = cardDefs.map((card) => ({
+  label: card.name,
+  emoji: IG_EMOJIS[card.name] || "\u2726",
+  id: `cat-${slugify(card.name)}`,
+}));
+
 /* ── Generate all card data from input text ── */
 
 function generateCards(input: string) {
@@ -417,6 +439,10 @@ export default function InstagramFontCards() {
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={igCategoryLinks}
+            onExpandAll={() => setVisibleCount(cards.length)}
+          />
         </div>
       </section>
 
@@ -432,7 +458,7 @@ export default function InstagramFontCards() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {cards.slice(0, visibleCount).map((card) => {
             return (
-              <div key={card.name} className="animate-card-fade-in">
+              <div key={card.name} id={`cat-${slugify(card.name)}`} className="animate-card-fade-in scroll-mt-28">
                 <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                   <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                     {card.name}
@@ -467,7 +493,7 @@ export default function InstagramFontCards() {
                             <ShareButtons text={style.text} />
                             <button
                               onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
-                              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                              className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                                 isFavorite(styleId)
                                   ? "text-[#ef4444]"
                                   : "text-on-surface-variant hover:text-[#ef4444]"
@@ -477,10 +503,11 @@ export default function InstagramFontCards() {
                               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
                                 favorite
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                             </button>
                             <button
                               onClick={() => handleCopy(style.text, styleId)}
-                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                              className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                                 isCopied
                                   ? "bg-[#22c55e] text-white"
                                   : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
@@ -490,6 +517,7 @@ export default function InstagramFontCards() {
                               <span className="material-symbols-outlined text-lg">
                                 {isCopied ? "check" : "content_copy"}
                               </span>
+                              <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                             </button>
                           </div>
                         </div>

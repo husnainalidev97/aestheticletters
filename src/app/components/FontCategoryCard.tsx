@@ -74,7 +74,7 @@ export default function FontCategoryCard({
                 {onToggleFavorite && (
                   <button
                     onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted })}
-                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                       isFavorite?.(styleId)
                         ? "text-[#ef4444]"
                         : isDark
@@ -86,11 +86,12 @@ export default function FontCategoryCard({
                     <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
                       favorite
                     </span>
+                    <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite?.(styleId) ? "Saved" : "Save"}</span>
                   </button>
                 )}
                 <button
                   onClick={() => onCopy(converted, styleId)}
-                  className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all flex items-center justify-center ${
+                  className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                     isCopied
                       ? "bg-[#22c55e] text-white"
                       : isDark
@@ -102,6 +103,7 @@ export default function FontCategoryCard({
                   <span className="material-symbols-outlined text-lg">
                     {isCopied ? "check" : "content_copy"}
                   </span>
+                  <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                 </button>
               </div>
             </div>

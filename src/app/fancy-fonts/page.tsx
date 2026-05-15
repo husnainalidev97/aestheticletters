@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 import FancyFontsClient from "./FancyFontsClient";
 import FAQAccordion from "../components/FAQAccordion";
 import GoogleFontsLoader from "./GoogleFontsLoader";
@@ -607,6 +608,7 @@ export default function FancyFontsPage() {
           <FAQAccordion faqs={faqs} />
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );

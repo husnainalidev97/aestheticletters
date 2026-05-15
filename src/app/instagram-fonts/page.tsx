@@ -4,6 +4,7 @@ import TopNavBar from "../components/TopNavBar";
 import HeroSection from "../components/HeroSection";
 import InstagramFontCards from "../components/InstagramFontCards";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 import Sidebar from "../components/Sidebar";
 import CopyButton from "../components/CopyButton";
 import FAQAccordion from "../components/FAQAccordion";
@@ -637,6 +638,7 @@ export default function InstagramFontsPage() {
           <FAQAccordion faqs={faqs} />
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );

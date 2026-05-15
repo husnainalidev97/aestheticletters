@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
 import CuteFontsClient from "./CuteFontsClient";
@@ -792,6 +793,7 @@ export default function CuteFontsPage() {
           <FAQAccordion faqs={faqs} />
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );
