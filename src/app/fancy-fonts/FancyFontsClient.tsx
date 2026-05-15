@@ -6,6 +6,7 @@ import { fancyFontCategories } from "../lib/fancyFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
+import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -16,6 +17,27 @@ const DEFAULT_TEXT = "Fancy Fonts";
 
 /** Priority 1 — rendered on first paint. */
 const INITIAL_COUNT = 4;
+
+const FANCY_EMOJIS: Record<string, string> = {
+  "Bold Artistic Styles": "💪",
+  "Fancy Line Effects": "✨",
+  "Monospace & Typewriter": "⌨️",
+  "Symbol\u2011Enhanced Fonts": "🔮",
+  "Dynamic Text Styles": "🚀",
+  "Block & Frame Fonts": "🟦",
+  "Ornate & Beautiful Fonts": "👑",
+  "Minimal Fancy Texts": "🧘",
+  "Mirror & Reverse Fonts": "🪞",
+  "Curve & Flow Styles": "🌊",
+  "Decorative Dot & Marks": "🎨",
+  "Artistic Fonts": "🎭",
+};
+
+const fancyCategoryLinks = (fancyFontCategories as unknown as { name: string }[]).map((cat) => ({
+  label: cat.name,
+  emoji: FANCY_EMOJIS[cat.name] || "✦",
+  id: `cat-${slugify(cat.name)}`,
+}));
 
 export default function FancyFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
@@ -198,6 +220,10 @@ export default function FancyFontsClient() {
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={fancyCategoryLinks}
+            onExpandAll={() => setShowAll(true)}
+          />
         </div>
       </section>
 
@@ -211,7 +237,7 @@ export default function FancyFontsClient() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
-            <div key={category.name} className="animate-card-fade-in">
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
                 text={activeText}

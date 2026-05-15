@@ -5,6 +5,7 @@ import { cursiveUnicodeStyles } from "./cursiveUnicodeStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import ShareButtons from "../components/ShareButtons";
+import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 
 /* ── Font data types ─────────────────────────────────────────────────── */
 
@@ -28,6 +29,17 @@ const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
 const INITIAL_COUNT = 4;
+
+const CURSIVE_EMOJIS: Record<string, string> = {
+  "Handwriting Cursive": "✍️",
+  "Playful Script": "🎭",
+  "Elegant Cursive": "👑",
+  "Brush & Marker": "🖌️",
+  "School & Guides": "📝",
+  "Chunky Fun": "💪",
+  "Retro Vintage": "🎶",
+  "Cultural Brush": "🌏",
+};
 
 /* ── Component ───────────────────────────────────────────────────────── */
 
@@ -239,6 +251,14 @@ export default function CursiveFontGenerator({
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={fontCards.map((card) => ({
+              label: card.category,
+              emoji: CURSIVE_EMOJIS[card.category] || "✦",
+              id: `cat-${slugify(card.category)}`,
+            }))}
+            onExpandAll={() => setShowAll(true)}
+          />
         </div>
       </section>
 
@@ -264,7 +284,7 @@ export default function CursiveFontGenerator({
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCards.map((card) => (
-            <div key={card.category} className="animate-card-fade-in">
+            <div key={card.category} id={`cat-${slugify(card.category)}`} className="animate-card-fade-in scroll-mt-28">
               <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                 <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                   {card.category}

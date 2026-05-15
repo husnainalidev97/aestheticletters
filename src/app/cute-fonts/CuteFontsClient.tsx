@@ -7,6 +7,7 @@ import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import CuteGoogleFontsLoader from "./CuteGoogleFontsLoader";
+import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -20,6 +21,25 @@ const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Ornate Borders", "Glittering Stars"]);
+
+const CUTE_EMOJIS: Record<string, string> = {
+  "Pretty Fonts": "🌸",
+  "Sweetheart Lettering": "💕",
+  "Glittering Stars": "✨",
+  "Lollipop Swirls": "🍭",
+  "Love Notes": "💌",
+  "Pixie Dust": "🧚",
+  "Ornate Borders": "🎨",
+  "Bouncy Blossoms": "🌻",
+  "Petal & Bloom": "🌺",
+  "Sweet Ribbons": "🎀",
+};
+
+const cuteCategoryLinks = (cuteFontCategories as unknown as { name: string }[]).map((cat) => ({
+  label: cat.name,
+  emoji: CUTE_EMOJIS[cat.name] || "✦",
+  id: `cat-${slugify(cat.name)}`,
+}));
 
 export default function CuteFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
@@ -200,6 +220,10 @@ export default function CuteFontsClient() {
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={cuteCategoryLinks}
+            onExpandAll={() => setShowAll(true)}
+          />
         </div>
       </section>
 
@@ -213,7 +237,7 @@ export default function CuteFontsClient() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
-            <div key={category.name} className="animate-card-fade-in">
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
                 text={activeText}

@@ -7,6 +7,7 @@ import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
 import HomeGoogleFontsLoader from "./HomeGoogleFontsLoader";
+import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
 
 const RESULTS_ID = "font-results";
 
@@ -21,6 +22,25 @@ const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
+
+const CATEGORY_EMOJIS: Record<string, string> = {
+  "Cottagecore": "🌿",
+  "Y2K": "💿",
+  "Soft Aesthetic": "🌸",
+  "Dark Aesthetic": "🖤",
+  "Gothic": "⚔️",
+  "Layered": "✨",
+  "Text Decorators": "🎨",
+  "Kawaii": "💕",
+  "Glitch": "👾",
+  "Vaporwave": "🌊",
+};
+
+const homeCategoryLinks = fontCategories.map((cat) => ({
+  label: cat.name,
+  emoji: CATEGORY_EMOJIS[cat.name] || "✦",
+  id: `cat-${slugify(cat.name)}`,
+}));
 
 interface FontGeneratorProps {
   totalFontStyles: number;
@@ -217,6 +237,10 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={homeCategoryLinks}
+            onExpandAll={() => setShowAll(true)}
+          />
         </div>
       </section>
 
@@ -262,7 +286,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
-            <div key={category.name} className="animate-card-fade-in">
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
                 text={displayText}

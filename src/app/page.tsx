@@ -5,6 +5,7 @@ import FontGenerator from "./components/FontGenerator";
 import SEOSection from "./components/SEOSection";
 import FAQSection, { homeFaqs } from "./components/FAQSection";
 import Footer from "./components/Footer";
+import BackToTopButton from "./components/BackToTopButton";
 import { getTotalFontStyleCount } from "./lib/fontCount";
 
 export const metadata: Metadata = {
@@ -134,6 +135,7 @@ export default function Home() {
 
         <FAQSection />
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );

@@ -7,6 +7,7 @@ import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import StylishGoogleFontsLoader from "./StylishGoogleFontsLoader";
+import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -20,6 +21,25 @@ const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Cool Fonts", "Industrial Block"]);
+
+const STYLISH_EMOJIS: Record<string, string> = {
+  "Urban Vogue": "👓",
+  "Diamond Glazed": "💎",
+  "Cool Fonts": "😎",
+  "Starlight Sparkle": "⭐",
+  "Signature Glow": "✍️",
+  "Underlined Flow": "📝",
+  "Metro Outline": "🏙️",
+  "Wavy Motion": "🌊",
+  "Industrial Block": "🏭",
+  "Symbolic Frames": "🖼️",
+};
+
+const stylishCategoryLinks = (stylishFontCategories as unknown as { name: string }[]).map((cat) => ({
+  label: cat.name,
+  emoji: STYLISH_EMOJIS[cat.name] || "✦",
+  id: `cat-${slugify(cat.name)}`,
+}));
 
 export default function StylishFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
@@ -200,6 +220,10 @@ export default function StylishFontsClient() {
               </span>
             </div>
           </div>
+          <CategoryJumpLinks
+            categories={stylishCategoryLinks}
+            onExpandAll={() => setShowAll(true)}
+          />
         </div>
       </section>
 
@@ -213,7 +237,7 @@ export default function StylishFontsClient() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category) => (
-            <div key={category.name} className="animate-card-fade-in">
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
                 text={activeText}
