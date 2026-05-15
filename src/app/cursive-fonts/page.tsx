@@ -6,6 +6,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import CursiveGoogleFontsLoader from "./CursiveGoogleFontsLoader";
 import CursiveFontGenerator from "./CursiveFontGenerator";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Cursive Fonts - Handwritten Text Generator | Copy & Paste" },
@@ -641,6 +642,7 @@ export default function CursiveFontsPage() {
           <FAQAccordion faqs={faqs} />
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );
