@@ -11,7 +11,8 @@ type ActivePage =
   | "cursive-fonts"
   | "fancy-fonts"
   | "stylish-fonts"
-  | "cute-fonts";
+  | "cute-fonts"
+  | "halloween-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;

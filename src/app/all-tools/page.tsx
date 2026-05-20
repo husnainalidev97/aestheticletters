@@ -79,6 +79,13 @@ const toolCategories: ToolCategory[] = [
         icon: "favorite",
         href: "/cute-fonts",
       },
+      {
+        title: "Halloween Fonts",
+        description:
+          "90+ spooky, gothic, and creepy font styles for Halloween-themed content, party invites, and horror designs.",
+        icon: "skull",
+        href: "/halloween-fonts",
+      },
     ],
   },
   {

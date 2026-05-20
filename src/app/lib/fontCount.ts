@@ -2,6 +2,7 @@ import { fontCategories } from "./fontStyles";
 import { fancyFontCategories } from "./fancyFontStyles";
 import { stylishFontCategories } from "./stylishFontStyles";
 import { cuteFontCategories } from "./cuteFontStyles";
+import { halloweenFontCategories } from "./halloweenFontStyles";
 import { cursiveUnicodeStyles } from "../cursive-fonts/cursiveUnicodeStyles";
 
 // Instagram font cards are in a "use client" component and cannot be imported
@@ -29,9 +30,13 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
+  const halloweenCount = halloweenFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
   const cursiveCount = Object.values(cursiveUnicodeStyles).reduce(
     (sum, styles) => sum + styles.length,
     0,
   );
-  return homeCount + fancyCount + stylishCount + cuteCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT;
+  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT;
 }
