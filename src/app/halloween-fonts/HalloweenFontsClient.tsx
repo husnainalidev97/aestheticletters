@@ -20,19 +20,19 @@ const DEFAULT_TEXT = "Halloween Fonts";
 const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
-const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Skull Gothic", "Glitch Decay", "Dark Ritual"]);
+const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Blood Drip", "Cursed Script", "Skull Gothic", "Dark Ritual"]);
 
 const HALLOWEEN_EMOJIS: Record<string, string> = {
   "Graveyard Gothic": "\u26B0\uFE0F",
-  "Skull Gothic": "\u2620\uFE0F",
-  "Dark Ritual": "\uD83D\uDD6F\uFE0F",
   "Blood Drip": "\uD83E\uDE78",
-  "Bat Wing": "\uD83E\uDD87",
   "Cursed Script": "\uD83D\uDD2E",
-  "Witch Spell": "\uD83E\uDDD9",
   "Pumpkin Hollow": "\uD83C\uDF83",
   "Ghost Whisper": "\uD83D\uDC7B",
-  "Glitch Decay": "\u26A1",
+  "Witch Spell": "\uD83E\uDDD9",
+  "Skull Gothic": "\u2620\uFE0F",
+  "Moonlight Cursive": "\uD83C\uDF19",
+  "Dark Ritual": "\uD83D\uDD6F\uFE0F",
+  "Bat Wing": "\uD83E\uDD87",
 };
 
 const halloweenCategoryLinks = (halloweenFontCategories as unknown as { name: string }[]).map((cat) => ({

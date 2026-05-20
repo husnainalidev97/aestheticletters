@@ -3,7 +3,18 @@
 import { useEffect } from "react";
 
 const GOOGLE_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=Creepster&family=Eater&family=Jolly+Lodger&family=Bungee+Shade&family=Lacquer&family=Fruktur&family=Metal+Mania&family=Ewert&family=UnifrakturMaguntia&family=MedievalSharp&family=Henny+Penny&family=Flavors&family=Griffy&family=Emblema+One&family=Spirax&family=Warnes&family=Pirata+One&display=swap";
+  "https://fonts.googleapis.com/css2?" +
+  "family=Mystery+Quest&family=Grenze+Gotisch&family=Ruslan+Display&family=New+Rocker&family=Road+Rage" +
+  "&family=Eater&family=Rubik+Wet+Paint&family=Nosifer&family=Rubik+Puddles" +
+  "&family=Rubik+Distressed&family=Rubik+Beastly&family=Stick" +
+  "&family=Creepster&family=Emilys+Candy&family=Henny+Penny&family=Jolly+Lodger&family=Irish+Grover" +
+  "&family=Flavors&family=Are+You+Serious&family=Shadows+Into+Light" +
+  "&family=Rubik+Gemstones&family=Ceviche+One&family=Tillana&family=Bahiana" +
+  "&family=Butcherman&family=Asset&family=Rubik+Burned&family=Bangers" +
+  "&family=Meddon&family=Purple+Purse" +
+  "&family=Kablammo&family=Trade+Winds&family=Underdog&family=Sancreek&family=Manufacturing+Consent" +
+  "&family=Barriecito&family=Barrio&family=Asimovian" +
+  "&display=swap";
 
 export default function HalloweenGoogleFontsLoader() {
   useEffect(() => {

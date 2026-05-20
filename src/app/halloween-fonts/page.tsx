@@ -126,10 +126,11 @@ const fontShowcaseStyles = [
     bestFor: "Instagram captions and bios.",
   },
   {
-    name: "Glitch Decay",
-    description: "Text appears corrupted and digitally broken. A standout choice for Discord server names and gaming.",
-    example: "Haunted",
-    bestFor: "Discord servers and gaming usernames.",
+    name: "Moonlight Cursive",
+    description: "Smooth flowing script with a nighttime mystery feeling. A top pick for Halloween wedding invitations and stylish bios.",
+    example: "Moonlight",
+    bestFor: "Wedding invitations and stylish Instagram bios.",
+    fontFamily: "'Meddon', cursive",
   },
   {
     name: "Blood Drip",
