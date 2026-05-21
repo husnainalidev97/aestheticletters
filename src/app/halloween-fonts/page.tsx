@@ -70,77 +70,6 @@ const faqs = [
   },
 ];
 
-const fontShowcaseStyles = [
-  {
-    name: "Creepster",
-    description: "Rounded cartoon horror, great for kids' Halloween content and playful designs.",
-    example: "Trick or Treat",
-    bestFor: "Kids' Halloween content and party invitations.",
-    fontFamily: "'Creepster', display",
-  },
-  {
-    name: "Nosifer",
-    description: "Dripping horror lettering; the go-to drip halloween font for party posters and social graphics.",
-    example: "Blood Moon",
-    bestFor: "Party posters and horror social media.",
-    fontFamily: "'Nosifer', display",
-  },
-  {
-    name: "Metal Mania",
-    description: "Sharp, heavy metal-inspired; ideal for gaming channels and dark branding.",
-    example: "Dark Throne",
-    bestFor: "Gaming channels and metal aesthetics.",
-    fontFamily: "'Metal Mania', display",
-  },
-  {
-    name: "UnifrakturMaguntia",
-    description: "Authentic gothic blackletter; premium choice for graveyard and gothic themes.",
-    example: "Gothic Night",
-    bestFor: "Gothic themes and Spirit Halloween-inspired designs.",
-    fontFamily: "'UnifrakturMaguntia', display",
-  },
-  {
-    name: "Butcherman",
-    description: "Distressed fairground horror; stands out on event banners and merchandise.",
-    example: "Haunted Fair",
-    bestFor: "Event banners and merchandise.",
-    fontFamily: "'Butcherman', display",
-  },
-  {
-    name: "Henny Penny",
-    description: "Playful storybook spooky; works beautifully for happy halloween font contexts like school projects.",
-    example: "Happy Halloween",
-    bestFor: "School projects and family events.",
-    fontFamily: "'Henny Penny', display",
-  },
-  {
-    name: "Graveyard Gothic",
-    description: "Heavy blackletter inspired by cemetery headstones and haunted castles. Best for horror branding.",
-    example: "\uD835\uDD8E\uD835\uDD97\uD835\uDD8A\uD835\uDD9B\uD835\uDD8A\uD835\uDD9E\uD835\uDD86\uD835\uDD97\uD835\uDD89 \uD835\uDD8C\uD835\uDD94\uD835\uDD99\uD835\uDD8D\uD835\uDD8E\uD835\uDD88",
-    bestFor: "Horror branding and dark thumbnails.",
-  },
-  {
-    name: "Ghost Whisper",
-    description: "Soft faded lettering with a floating quality. Clean and readable while still feeling seasonal.",
-    example: "\uD83D\uDC7B \uD835\uDD38\uD835\uDD56\uD835\uDD64\uD835\uDD65\uD835\uDD59\uD835\uDD56\uD835\uDD65\uD835\uDD5A\uD835\uDD54 \uD835\uDD43\uD835\uDD56\uD835\uDD65\uD835\uDD65\uD835\uDD56\uD835\uDD63\uD835\uDD64 \uD83D\uDC7B",
-    bestFor: "Instagram captions and bios.",
-  },
-  {
-    name: "Moonlight Cursive",
-    description: "Smooth flowing script with a nighttime mystery feeling. A top pick for Halloween wedding invitations and stylish bios.",
-    example: "Moonlight",
-    bestFor: "Wedding invitations and stylish Instagram bios.",
-    fontFamily: "'Meddon', cursive",
-  },
-  {
-    name: "Blood Drip",
-    description: "The most iconic horror font copy-paste style. Letters appear to drip like blood from a horror film.",
-    example: "Nightmare",
-    bestFor: "Halloween party invites and scary social posts.",
-    fontFamily: "'Nosifer', display",
-  },
-];
-
 const useCaseTable = [
   { useCase: "Instagram bio or caption", style: "Ghost Whisper, Cursed Script" },
   { useCase: "TikTok username or caption", style: "Blood Drip, Bat Wing, Glitch Decay" },
@@ -707,26 +636,32 @@ export default function HalloweenFontsPage() {
                   individual image glyphs rather than editable font paths, which means you cannot resize them for
                   cutting without quality loss.
                 </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  For Cricut projects specifically, the workflow is different from social media use. Here the download
+                  step becomes necessary but you can still use this generator as your starting point to identify which
+                  font style you want, then download only that font for cutting.
+                </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Here is what works best by project type:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
                     { name: "Vinyl stickers and window decals", desc: "Bold, high-contrast fonts like Metal Mania or Butcherman. Avoid thin serifs that lose detail when cut small." },
-                    { name: "T-shirt heat transfer", desc: "Nosifer or Creepster at large sizes work excellently. Keep letter spacing slightly wider than default." },
+                    { name: "T-shirt heat transfer", desc: "Nosifer or Creepster at large sizes work excellently. Keep letter spacing slightly wider than default to prevent cuts from overlapping." },
                     { name: "Pumpkin labels and party banners", desc: "Henny Penny or Carved Pumpkin-inspired styles for festive, readable results." },
                     { name: "Mug and tumbler decals", desc: "Simple gothic styles at medium weight. Avoid Blood Drip styles for small decals since the drip detail disappears below about 0.5 inches." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong>: {s.desc}</span>
+                      <span><strong>{s.name}</strong> - {s.desc}</span>
                     </li>
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   <strong>Recommended Cricut workflow:</strong> browse the Halloween font styles in this generator to
                   find the look you want, note the font name, then download that specific .ttf file from Google Fonts.
-                  Install it on your computer and access it through Cricut Design Space&apos;s system fonts list.
+                  Install it on your computer and access it through Cricut Design Space&apos;s system fonts list. This
+                  gives you fully editable, clean-cutting letterforms every time.
                 </p>
               </article>
 
@@ -786,115 +721,13 @@ export default function HalloweenFontsPage() {
                 </p>
               </article>
 
-              {/* Top 10 Best Halloween Font Styles */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 10 Best Halloween Font Styles: Unicode &amp; Google Fonts Both
-                </h2>
-                <div className="space-y-6">
-                  {fontShowcaseStyles.map((style, idx) => (
-                    <div key={style.name} className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-2 text-xl">
-                        {idx + 1}. {style.name}
-                      </h3>
-                      <p className="text-on-surface-variant text-sm mb-3">{style.description}</p>
-                      <p className="text-lg mb-2 break-all">
-                        Example:{" "}
-                        <span style={style.fontFamily ? { fontFamily: style.fontFamily, fontSize: "1.25rem" } : undefined}>
-                          {style.example}
-                        </span>
-                      </p>
-                      <p className="text-xs text-on-surface-variant">
-                        Best Use: {style.bestFor}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </article>
 
             </div>
 
             {/* Sidebar */}
             <Sidebar
-              useCasesHeading="Where Can You Use Halloween Fonts?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Spooky text styles work on most apps and websites. They are especially popular during the
-                    Halloween season for making profiles, captions, and usernames feel festive and creative.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">Instagram &amp; TikTok</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Gothic and cursive spooky fonts are widely used in bios, reels captions, and usernames.
-                        Ghost Whisper and Blood Drip styles are favorites for seasonal content.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">Discord &amp; Gaming</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Gamers use spooky fonts for server names, role titles, and usernames. Skull Gothic and
-                        Glitch Decay are community favorites for horror-themed gaming servers.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">WhatsApp &amp; Messaging</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        All major messaging platforms support Unicode. Using Cursed Script or Ghost Whisper in
-                        Halloween group chats adds festive flair without overwhelming the conversation.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">YouTube &amp; Streaming</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Spooky text styles work great in channel descriptions, community posts, and stream chat.
-                        For thumbnails, download the .ttf for full design control in Canva or Photoshop.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              }
-
-              tipsHeading="05 Common Mistakes to Avoid with Halloween Fonts"
-              tipsContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using spooky text is fun, but avoid these common mistakes:
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li>
-                      <strong>1. Too Many Styles:</strong> Mixing multiple horror styles in one caption makes text
-                      look cluttered and confusing.
-                    </li>
-                    <li>
-                      <strong>2. Hard-to-Read Styles:</strong> Heavy blackletter and zalgo text reduce engagement
-                      when used in captions or bios.
-                    </li>
-                    <li>
-                      <strong>3. Wrong Audience:</strong> Extreme horror fonts on family-friendly content can feel
-                      inappropriate.
-                    </li>
-                    <li>
-                      <strong>4. Platform Compatibility:</strong> Some Unicode styles render differently on Discord
-                      vs mobile browsers. Always preview first.
-                    </li>
-                    <li>
-                      <strong>5. Year-Round Usage:</strong> Halloween fonts in non-seasonal contexts look like a
-                      design mistake rather than a creative choice.
-                    </li>
-                  </ol>
-                  <div className="mt-6 p-4 bg-primary-container/10 rounded-xl">
-                    <p className="text-sm text-on-surface-variant leading-relaxed">
-                      <strong>Pro Tip:</strong> Use spooky styles for headlines and short text only. For body text,
-                      stick to readable fonts and let the styled headlines create the Halloween atmosphere.
-                    </p>
-                  </div>
-                </>
-              }
-
               showBanner={false}
-              showTips={true}
+              showTips={false}
             />
           </div>
         </section>
