@@ -36,27 +36,27 @@ const faqs = [
   {
     question: "Do Halloween fonts work on Samsung Galaxy or older Android phones?",
     answer:
-      "Modern Samsung devices (Android 8+) handle Unicode Halloween fonts without issues. The problem is Android 6 or older — decorative Unicode characters show as empty boxes on those devices. Stick to simpler styles like Ghost Whisper if your audience includes older phone users, and always test by sending the styled text to a second device before posting publicly.",
+      "Modern Samsung devices (Android 8+) handle Unicode Halloween fonts without issues. The problem is Android 6 or older: decorative Unicode characters show as empty boxes on those devices. Stick to simpler styles like Ghost Whisper if your audience includes older phone users, and always test by sending the styled text to a second device before posting publicly.",
   },
   {
     question: "Which Halloween font is most readable on mobile screens?",
     answer:
-      "Ghost Whisper and Moonlight Cursive are the safest choices — both stay legible at small screen sizes. Avoid Blood Drip and heavy blackletter styles like Graveyard Gothic for captions; their fine details merge into visual noise below 16px. Quick test: paste your styled text into your phone's notes app and read it at arm's length. If it takes more than two seconds, switch styles.",
+      "Ghost Whisper and Moonlight Cursive are the safest choices; both stay legible at small screen sizes. Avoid Blood Drip and heavy blackletter styles like Graveyard Gothic for captions; their fine details merge into visual noise below 16px. Quick test: paste your styled text into your phone's notes app and read it at arm's length. If it takes more than two seconds, switch styles.",
   },
   {
-    question: "Can I use these fonts commercially — on merchandise, Etsy listings, or client work?",
+    question: "Can I use these fonts commercially, on merchandise, Etsy listings, or client work?",
     answer:
-      "Unicode copy-paste styles have no font license attached, so yes — use them freely in any commercial context. For downloaded font files, Google Fonts are covered by the Open Font License which permits commercial use including merchandise and client work at no extra cost. Paid fonts from Creative Market or DaFont vary by designer — always check the individual license page before selling anything using those files.",
+      "Unicode copy-paste styles have no font license attached, so yes, use them freely in any commercial context. For downloaded font files, Google Fonts are covered by the Open Font License which permits commercial use including merchandise and client work at no extra cost. Paid fonts from Creative Market or DaFont vary by designer; always check the individual license page before selling anything using those files.",
   },
   {
     question: "Which games strip or block Unicode characters in usernames?",
     answer:
-      "Discord and Steam support Unicode reliably. Roblox strips most Unicode entirely — styled usernames revert to plain text. Fortnite on PS5 and Xbox inherits console username limits with minimal Unicode support. Minecraft Java Edition is inconsistent depending on launcher and resource pack. Mobile games are the least reliable overall. Always test your styled username in the name field and check the preview before confirming.",
+      "Discord and Steam support Unicode reliably. Roblox strips most Unicode entirely; styled usernames revert to plain text. Fortnite on PS5 and Xbox inherits console username limits with minimal Unicode support. Minecraft Java Edition is inconsistent depending on launcher and resource pack. Mobile games are the least reliable overall. Always test your styled username in the name field and check the preview before confirming.",
   },
   {
     question: "Can I use spooky fonts in Notion, Google Docs, or Microsoft Word?",
     answer:
-      "Notion handles Unicode paste cleanly; it is the most reliable of the three. Google Docs works well on screen but always run a print preview before printing, as rendering can shift. Microsoft Word is the trickiest — autocorrect can silently replace unusual characters with plain letters. Fix this by pasting your text, then pressing Ctrl+Z once followed by Ctrl+Y, which locks the characters before autocorrect processes them.",
+      "Notion handles Unicode paste cleanly; it is the most reliable of the three. Google Docs works well on screen but always run a print preview before printing, as rendering can shift. Microsoft Word is the trickiest: autocorrect can silently replace unusual characters with plain letters. Fix this by pasting your text, then pressing Ctrl+Z once followed by Ctrl+Y, which locks the characters before autocorrect processes them.",
   },
   {
     question: "What is the best scary font for printed invitations or physical signage?",
@@ -80,35 +80,35 @@ const fontShowcaseStyles = [
   },
   {
     name: "Nosifer",
-    description: "Dripping horror lettering — the go-to drip halloween font for party posters and social graphics.",
+    description: "Dripping horror lettering; the go-to drip halloween font for party posters and social graphics.",
     example: "Blood Moon",
     bestFor: "Party posters and horror social media.",
     fontFamily: "'Nosifer', display",
   },
   {
     name: "Metal Mania",
-    description: "Sharp, heavy metal-inspired — ideal for gaming channels and dark branding.",
+    description: "Sharp, heavy metal-inspired; ideal for gaming channels and dark branding.",
     example: "Dark Throne",
     bestFor: "Gaming channels and metal aesthetics.",
     fontFamily: "'Metal Mania', display",
   },
   {
     name: "UnifrakturMaguntia",
-    description: "Authentic gothic blackletter — premium choice for graveyard and gothic themes.",
+    description: "Authentic gothic blackletter; premium choice for graveyard and gothic themes.",
     example: "Gothic Night",
     bestFor: "Gothic themes and Spirit Halloween-inspired designs.",
     fontFamily: "'UnifrakturMaguntia', display",
   },
   {
     name: "Butcherman",
-    description: "Distressed fairground horror — stands out on event banners and merchandise.",
+    description: "Distressed fairground horror; stands out on event banners and merchandise.",
     example: "Haunted Fair",
     bestFor: "Event banners and merchandise.",
     fontFamily: "'Butcherman', display",
   },
   {
     name: "Henny Penny",
-    description: "Playful storybook spooky — works beautifully for happy halloween font contexts like school projects.",
+    description: "Playful storybook spooky; works beautifully for happy halloween font contexts like school projects.",
     example: "Happy Halloween",
     bestFor: "School projects and family events.",
     fontFamily: "'Henny Penny', display",
@@ -249,7 +249,7 @@ export default function HalloweenFontsPage() {
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
           <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Halloween Fonts &mdash; Copy &amp; Paste Spooky Text Styles
+            Halloween Fonts: Copy &amp; Paste Spooky Text Styles
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
             Generate spooky Halloween fonts, creepy text styles, and scary copy-paste text instantly for Instagram,
@@ -274,7 +274,7 @@ export default function HalloweenFontsPage() {
                   into something that genuinely feels like Halloween.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This guide covers everything you need to know &mdash; from how creepy text generators actually work,
+                  This guide covers everything you need to know. From how creepy text generators actually work,
                   to the best font styles for every platform, to real font names you can use in Canva, Cricut, and
                   Google Fonts. By the end, you will be able to pick, generate, and use the perfect spooky text style
                   for any project.
@@ -287,8 +287,8 @@ export default function HalloweenFontsPage() {
                   What Are Halloween Fonts?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  A halloween font is any decorative typeface or styled text designed to evoke the mood of Halloween
-                  &mdash; think dripping blood, crumbling gothic stone, ghostly whispers, or jagged horror-movie lettering.
+                  A halloween font is any decorative typeface or styled text designed to evoke the mood of Halloween;
+                  think dripping blood, crumbling gothic stone, ghostly whispers, or jagged horror-movie lettering.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   These styles range from playfully spooky (perfect for school events and kids&apos; parties) to
@@ -319,7 +319,7 @@ export default function HalloweenFontsPage() {
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   Most people who search for <em>creepy halloween fonts copy and paste</em> are looking for the second
-                  type &mdash; styled Unicode text, which can be dropped anywhere online without downloading anything.
+                  type: styled Unicode text, which can be dropped anywhere online without downloading anything.
                   That is exactly what a font converter produces.
                 </p>
               </article>
@@ -338,12 +338,12 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   When you type a word into a spooky text generator, the tool swaps each letter for its Unicode
                   equivalent in a particular style. The result looks like a custom font but is actually just a string
-                  of special characters &mdash; which is why it copies and pastes anywhere that supports Unicode text rendering.
+                  of special characters. This is why it copies and pastes anywhere that supports Unicode text rendering.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Why does this matter? Because Unicode is supported natively by iOS, Android, Windows, macOS, and
                   virtually every major social platform. Your output will display correctly on Instagram, TikTok,
-                  Discord, YouTube, WhatsApp, Telegram, Facebook, Twitter/X, and Twitch &mdash; without installing a
+                  Discord, YouTube, WhatsApp, Telegram, Facebook, Twitter/X, and Twitch, without installing a
                   single font file.
                 </p>
                 <div className="mt-4 p-4 bg-primary-container/10 rounded-xl">
@@ -362,7 +362,7 @@ export default function HalloweenFontsPage() {
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Here is something most font guides will not tell you: many well-known Google Fonts are available as
-                  instant copy-paste styles directly inside this generator &mdash; no download, no installation, no
+                  instant copy-paste styles directly inside this generator. No download, no installation, no
                   design software required.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -382,11 +382,11 @@ export default function HalloweenFontsPage() {
                       {[
                         { name: "Creepster", desc: "Rounded cartoon horror, great for kids' Halloween content and playful designs" },
                         { name: "Nosifer", desc: "Dripping horror lettering, the go-to drip halloween font for party posters and social graphics" },
-                        { name: "Eater", desc: "Scratchy, unsettling strokes — suits atmospheric horror storytelling" },
-                        { name: "Metal Mania", desc: "Sharp, heavy metal-inspired — ideal for gaming channels and dark branding" },
-                        { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter — premium choice for graveyard and gothic themes" },
-                        { name: "Butcherman", desc: "Distressed fairground horror — stands out on event banners and merchandise" },
-                        { name: "Henny Penny", desc: "Playful storybook spooky — works beautifully for happy halloween font contexts like school projects" },
+                        { name: "Eater", desc: "Scratchy, unsettling strokes; suits atmospheric horror storytelling" },
+                        { name: "Metal Mania", desc: "Sharp, heavy metal-inspired; ideal for gaming channels and dark branding" },
+                        { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter; premium choice for graveyard and gothic themes" },
+                        { name: "Butcherman", desc: "Distressed fairground horror; stands out on event banners and merchandise" },
+                        { name: "Henny Penny", desc: "Playful storybook spooky; works beautifully for happy halloween font contexts like school projects" },
                       ].map((font) => (
                         <tr key={font.name} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
                           <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{font.name}</td>
@@ -406,10 +406,10 @@ export default function HalloweenFontsPage() {
               {/* Spirit Halloween Font */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Spirit Halloween Font &mdash; What Font Do They Use?
+                  Spirit Halloween Font: What Font Do They Use?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  One of the most searched font names in October is the Spirit Halloween font &mdash; the typical
+                  One of the most searched font names in October is the Spirit Halloween font. It is the typical
                   lettering used by the iconic seasonal retail chain. Spirit Halloween uses a customized version of a
                   condensed gothic serif style, closely resembling fonts like Bleeding Cowboys or a modified Blackletter
                   with sharp angular serifs.
@@ -419,9 +419,9 @@ export default function HalloweenFontsPage() {
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "UnifrakturMaguntia (Google Fonts) — closest free match for the gothic weight",
-                    "Nosifer — if you want the drip effect layered over a similar style",
-                    "Metal Mania — for a slightly more modern, condensed interpretation",
+                    "UnifrakturMaguntia (Google Fonts): closest free match for the gothic weight",
+                    "Nosifer: if you want the drip effect layered over a similar style",
+                    "Metal Mania: for a slightly more modern, condensed interpretation",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
@@ -462,7 +462,7 @@ export default function HalloweenFontsPage() {
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> &mdash; {s.desc}</span>
+                      <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
                 </ul>
@@ -470,8 +470,8 @@ export default function HalloweenFontsPage() {
                 {/* Mystical and Witch-Themed Styles */}
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Mystical and Witch-Themed Styles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Less aggressive than horror styles, these lean into the magical and mysterious side of Halloween
-                  &mdash; think witches, potions, moonlit forests, and ancient spells.
+                  Less aggressive than horror styles, these lean into the magical and mysterious side of Halloween;
+                  think witches, potions, moonlit forests, and ancient spells.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -481,7 +481,7 @@ export default function HalloweenFontsPage() {
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> &mdash; {s.desc}</span>
+                      <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
                 </ul>
@@ -490,7 +490,7 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Playful and Festive Styles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Not every halloween font needs to be scary. These styles capture the fun, candy-and-costumes side of
-                  the holiday &mdash; appropriate for families, schools, and brands that want seasonal cheer without the horror.
+                  the holiday. These are appropriate for families, schools, and brands that want seasonal cheer without the horror.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -501,7 +501,7 @@ export default function HalloweenFontsPage() {
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> &mdash; {s.desc}</span>
+                      <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
                 </ul>
@@ -509,7 +509,7 @@ export default function HalloweenFontsPage() {
                 {/* Glitch and Digital Horror Styles */}
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Glitch and Digital Horror Styles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  These styles bring horror into a digital context &mdash; corruption, distortion, and glitch aesthetics
+                  These styles bring horror into a digital context: corruption, distortion, and glitch aesthetics
                   that feel unsettling in a contemporary way. Popular with gamers, streamers, and online creators.
                 </p>
                 <ul className="space-y-3 mb-8">
@@ -520,7 +520,7 @@ export default function HalloweenFontsPage() {
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> &mdash; {s.desc}</span>
+                      <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
                 </ul>
@@ -539,7 +539,7 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Spooky fonts for Instagram bio sections and captions work best when they remain readable on a mobile
-                  screen. Avoid extremely dense gothic styles for captions &mdash; they can reduce readability and hurt
+                  screen. Avoid extremely dense gothic styles for captions; they can reduce readability and hurt
                   engagement. Gothic and cursive styles work better in bios, where users are likely to slow down and
                   read carefully. For bio styling outside of Halloween season, our{" "}
                   <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
@@ -623,7 +623,7 @@ export default function HalloweenFontsPage() {
                   Halloween Fonts in Canva: A Practical Workflow
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Canva is the tool most people reach for when creating Halloween graphics &mdash; and the good news
+                  Canva is the tool most people reach for when creating Halloween graphics, and the good news
                   is that you have more options than most guides suggest, including Google Fonts as copy-paste, which
                   most people do not know about.
                 </p>
@@ -652,7 +652,7 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only When You Need Advanced Design Control</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   There are specific situations where a downloaded .ttf font file genuinely gives you more than the
-                  copy-paste version can &mdash; mainly when you need precise kerning control, custom stroke effects,
+                  copy-paste version can, mainly when you need precise kerning control, custom stroke effects,
                   or colour gradients applied directly to letterforms. In those cases, download your chosen font
                   (Creepster, Nosifer, etc.) from Google Fonts as a .ttf file and upload it via Canva&apos;s Brand Kit.
                   But treat this as the step you take when the copy-paste version does not give you the design control
@@ -683,7 +683,7 @@ export default function HalloweenFontsPage() {
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> &mdash; {s.desc}</span>
+                      <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
                 </ul>
@@ -730,8 +730,8 @@ export default function HalloweenFontsPage() {
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Avoid gothic or drip styles in body text — they are headline fonts only. Anything longer than a title or short tagline becomes unreadable.",
-                    "Skip extreme horror styles for family audiences — a Blood Drip font on a school event flyer will alarm parents regardless of the content.",
+                    "Avoid gothic or drip styles in body text; they are headline fonts only. Anything longer than a title or short tagline becomes unreadable.",
+                    "Skip extreme horror styles for family audiences. A Blood Drip font on a school event flyer will alarm parents regardless of the content.",
                     "Do not use low-readability Unicode styles for accessibility sensitive content. Complex Unicode characters are often not read correctly by screen readers.",
                     "Resist using spooky fonts year-round for seasonal branding. The impact comes from context. A halloween font in July just looks like a design mistake.",
                   ].map((tip) => (
@@ -753,7 +753,7 @@ export default function HalloweenFontsPage() {
               {/* Top 10 Best Halloween Font Styles */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 10 Best Halloween Font Styles &mdash; Unicode &amp; Google Fonts Both
+                  Top 10 Best Halloween Font Styles: Unicode &amp; Google Fonts Both
                 </h2>
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
