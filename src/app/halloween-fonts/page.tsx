@@ -409,7 +409,7 @@ export default function HalloweenFontsPage() {
                   Spirit Halloween Font: What Font Do They Use?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  One of the most searched font names in October is the Spirit Halloween font. It is the typical
+                  One of the most searched font names is the Spirit Halloween font in October, the typical
                   lettering used by the iconic seasonal retail chain. Spirit Halloween uses a customized version of a
                   condensed gothic serif style, closely resembling fonts like Bleeding Cowboys or a modified Blackletter
                   with sharp angular serifs.
@@ -539,9 +539,16 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Spooky fonts for Instagram bio sections and captions work best when they remain readable on a mobile
-                  screen. Avoid extremely dense gothic styles for captions; they can reduce readability and hurt
-                  engagement. Gothic and cursive styles work better in bios, where users are likely to slow down and
-                  read carefully. For bio styling outside of Halloween season, our{" "}
+                  screen. Avoid extremely dense gothic styles for captions they can reduce readability and hurt
+                  engagement.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Gothic and cursive styles work better in bios, where users are likely to slow down and
+                  read carefully. During October, using seasonal typography in your highlight covers and story headers
+                  can significantly lift profile aesthetics.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  For bio styling outside of Halloween season, our{" "}
                   <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                     Instagram fonts generator
                   </Link>{" "}
@@ -551,7 +558,10 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A halloween text for TikTok performs best when it is bold and short. Since most viewers watch on small
-                  screens, overly decorative text in captions becomes unreadable quickly. Ghost Whisper, Bat Wing, and
+                  screens, overly decorative text in captions becomes unreadable quickly.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Ghost Whisper, Bat Wing, and
                   Blood Drip styles tend to work well because they retain character even at small sizes. Profile names
                   benefit from gothic or glitch styles that look distinctive in the feed.
                 </p>
@@ -560,7 +570,10 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Gaming communities have embraced spooky fonts for Discord use more than almost any other platform.
                   Server names, role titles, channel headers, and usernames are all fair game. Skull Gothic and Glitch
-                  Decay styles are community favorites. One important note: always test your chosen Unicode style inside
+                  Decay styles are community favorites.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  One important note: always test your chosen Unicode style inside
                   the app before finalizing it; some characters render differently in Discord&apos;s font stack compared
                   to mobile browsers.
                 </p>
@@ -568,9 +581,16 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">YouTube and Streaming</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For Twitch and YouTube, copy-paste spooky text styles work well in channel descriptions, community
-                  posts, about sections, and stream chat. For thumbnails and stream overlays, use the Google Fonts
-                  styles from Aesthetic Letters as copy-paste text in thumbnail tools, or download the .ttf file for
-                  full sizing and color control in Photoshop or Canva&apos;s advanced design mode.
+                  posts, about sections, and stream chat, anywhere text is typed and displayed as-is.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  For thumbnails and stream overlays, you have two good options: use the Google Fonts styles from
+                  the Aesthetic Letters as copy-paste text in thumbnail tools that support it, or download the .ttf
+                  file for full sizing and color control in software like Photoshop or Canva&apos;s advanced design mode.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Either way, start with the copy-paste version, it works for more thumbnail builders than most
+                  people expect.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">WhatsApp, Telegram, and Messaging Apps</h3>
@@ -631,8 +651,11 @@ export default function HalloweenFontsPage() {
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 1: Try Copy-Paste Styles First (Including Google Fonts)</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Before you touch Canva&apos;s font upload feature, generate your halloween text from this tool. This
-                  includes both Unicode styles and real Google Fonts available as instant copy-paste. Simply paste the
-                  generated text directly into a Canva text box. This approach works excellently for:
+                  includes both Unicode styles and real Google Fonts available as instant copy-paste, no downloading,
+                  no uploading, no Brand Kit setup needed.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Simply paste the generated text directly into a Canva text box. This approach works excellently for:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
@@ -648,15 +671,28 @@ export default function HalloweenFontsPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  This is the fastest workflow for most Halloween Canva projects, and it covers the majority of use
+                  cases. Google Font styles from the generator paste cleanly and render correctly in Canva without
+                  any file management.
+                </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only When You Need Advanced Design Control</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   There are specific situations where a downloaded .ttf font file genuinely gives you more than the
                   copy-paste version can, mainly when you need precise kerning control, custom stroke effects,
-                  or colour gradients applied directly to letterforms. In those cases, download your chosen font
+                  or colour gradients applied directly to letterforms in Canva&apos;s element editor.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  In those cases, download your chosen font
                   (Creepster, Nosifer, etc.) from Google Fonts as a .ttf file and upload it via Canva&apos;s Brand Kit.
                   But treat this as the step you take when the copy-paste version does not give you the design control
                   you need, not as the default starting point.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  The most efficient Halloween Canva workflow: generate and paste your text style from the Aesthetic
+                  Letters first. If you need more control over the letterforms for a complex print-ready design, then
+                  download the font file as your second step.
                 </p>
               </article>
 
