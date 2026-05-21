@@ -284,54 +284,6 @@ export default function HalloweenFontsPage() {
                 </div>
               </article>
 
-              {/* Popular Halloween Font Names */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Popular Halloween Font Names (Real Typefaces)
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Here is something most font guides will not tell you: many well-known Google Fonts are available as
-                  instant copy-paste styles directly inside this generator. No download, no installation, no
-                  design software required.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  You can try them right now and paste the result into Instagram, TikTok, Discord, or anywhere else in
-                  seconds. These are among the most popular halloween font names, and for most users, the copy-paste
-                  version from the generator will be all they ever need:
-                </p>
-                <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-surface-container-lowest">
-                        <th className="p-4 text-left font-headline font-bold text-on-background border-b border-outline-variant/20">Font Name</th>
-                        <th className="p-4 text-left font-headline font-bold text-on-background border-b border-outline-variant/20">Style &amp; Best Use</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        { name: "Creepster", desc: "Rounded cartoon horror, great for kids' Halloween content and playful designs" },
-                        { name: "Nosifer", desc: "Dripping horror lettering, the go-to drip halloween font for party posters and social graphics" },
-                        { name: "Eater", desc: "Scratchy, unsettling strokes; suits atmospheric horror storytelling" },
-                        { name: "Metal Mania", desc: "Sharp, heavy metal-inspired; ideal for gaming channels and dark branding" },
-                        { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter; premium choice for graveyard and gothic themes" },
-                        { name: "Butcherman", desc: "Distressed fairground horror; stands out on event banners and merchandise" },
-                        { name: "Henny Penny", desc: "Playful storybook spooky; works beautifully for happy halloween font contexts like school projects" },
-                      ].map((font) => (
-                        <tr key={font.name} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
-                          <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{font.name}</td>
-                          <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">{font.desc}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
-                  All of the above are available in this tool as free spooky fonts copy paste styles. Some of these
-                  styles are also available as installable fonts on Google Fonts and can be imported into Canva using
-                  the Brand Kit feature. These styles are also suitable for Cricut Design Space uploads.
-                </p>
-              </article>
-
               {/* Spirit Halloween Font */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -726,6 +678,35 @@ export default function HalloweenFontsPage() {
 
             {/* Sidebar */}
             <Sidebar
+              useCasesHeading="Popular Halloween Font Names (Real Typefaces)"
+              useCasesContent={
+                <>
+                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
+                    Many well-known Google Fonts are available as instant copy-paste styles directly inside this
+                    generator. No download, no installation, no design software required.
+                  </p>
+                  <div className="space-y-3">
+                    {[
+                      { name: "Creepster", desc: "Rounded cartoon horror, great for kids' Halloween content" },
+                      { name: "Nosifer", desc: "Dripping horror lettering, the go-to drip font for posters" },
+                      { name: "Eater", desc: "Scratchy, unsettling strokes; atmospheric horror" },
+                      { name: "Metal Mania", desc: "Sharp, heavy metal-inspired; gaming and dark branding" },
+                      { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter; graveyard themes" },
+                      { name: "Butcherman", desc: "Distressed fairground horror; event banners" },
+                      { name: "Henny Penny", desc: "Playful storybook spooky; school projects" },
+                    ].map((font) => (
+                      <div key={font.name} className="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                        <p className="font-headline font-bold text-sm mb-0.5">{font.name}</p>
+                        <p className="text-xs text-on-surface-variant leading-relaxed">{font.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
+                    All of the above are available as free spooky fonts copy paste styles. Some can also be imported
+                    into Canva via Brand Kit or uploaded to Cricut Design Space.
+                  </p>
+                </>
+              }
               showBanner={false}
               showTips={false}
             />
