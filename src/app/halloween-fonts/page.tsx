@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "Which Halloween font is most readable on mobile screens?",
     answer:
-      "Ghost Whisper and Moonlight Cursive are the safest choices; both stay legible at small screen sizes. Avoid Blood Drip and heavy blackletter styles like Graveyard Gothic for captions; their fine details merge into visual noise below 16px. Quick test: paste your styled text into your phone's notes app and read it at arm's length. If it takes more than two seconds, switch styles.",
+      "Ghost Whisper and Moonlight Cursive are the safest choices both stay legible at small screen sizes. Avoid Blood Drip and heavy blackletter styles like Graveyard Gothic for captions; their fine details merge into visual noise below 16px.\n\nQuick test: paste your styled text into your phone's notes app and read it at arm's length. If it takes more than two seconds, switch styles.",
   },
   {
     question: "Can I use these fonts commercially, on merchandise, Etsy listings, or client work?",
