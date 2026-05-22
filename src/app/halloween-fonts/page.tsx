@@ -72,15 +72,15 @@ const faqs = [
 
 const useCaseTable = [
   { useCase: "Instagram bio or caption", style: "Ghost Whisper, Cursed Script" },
-  { useCase: "TikTok username or caption", style: "Blood Drip, Bat Wing, Glitch Decay" },
-  { useCase: "Discord server or username", style: "Skull Gothic, Glitch Decay, Dark Ritual" },
-  { useCase: "YouTube thumbnail", style: "Nosifer (download), Metal Mania (download)" },
+  { useCase: "TikTok username or caption", style: "Blood Drip, Bat Wing, Ghost Whisper" },
+  { useCase: "Discord server or username", style: "Skull Gothic, Dark Ritual, Cursed Script" },
+  { useCase: "YouTube thumbnail", style: "Nosifer (download), Butcherman (download)" },
   { useCase: "Halloween party invitation", style: "Nosifer, Butcherman, Blood Drip" },
   { useCase: "School project", style: "Creepster, Henny Penny, Pumpkin Hollow" },
-  { useCase: "Cricut craft / vinyl", style: "Metal Mania, Butcherman, UnifrakturMaguntia" },
-  { useCase: "Horror branding / merch", style: "UnifrakturMaguntia, Dark Ritual" },
+  { useCase: "Cricut craft / vinyl", style: "Butcherman, Creepster, Nosifer" },
+  { useCase: "Horror branding / merch", style: "Graveyard Gothic, Dark Ritual" },
   { useCase: "Family-friendly event", style: "Henny Penny, Pumpkin Hollow, Ghost Whisper" },
-  { useCase: "Gaming channel identity", style: "Metal Mania, Skull Gothic, Glitch Decay" },
+  { useCase: "Gaming channel identity", style: "Skull Gothic, Bat Wing, Dark Ritual" },
 ];
 
 const symbolsTable = [
@@ -427,8 +427,7 @@ export default function HalloweenFontsPage() {
                   {[
                     { name: "Pumpkin Hollow", desc: "inspired by jack-o'-lantern carvings. Playful and instantly recognizable as festive. Best for school projects and fun Halloween graphics." },
                     { name: "Ghost Whisper", desc: "soft faded lettering with a floating quality. Clean and readable while still feeling seasonal. Top choice for Instagram captions." },
-                    { name: "Candy Corn Bounce", desc: "rounded bubbly shapes with a lighthearted feel. Ideal for kids' party content and happy halloween font contexts." },
-                    { name: "Pumpkin Patch", desc: "warm and rounded, evoking autumn harvest vibes alongside Halloween. Works well for family event invitations." },
+
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
@@ -445,9 +444,9 @@ export default function HalloweenFontsPage() {
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
-                    { name: "Glitch Decay", desc: "text appears corrupted and digitally broken. A standout choice for Discord server names and gaming usernames." },
-                    { name: "Static Horror", desc: "resembles distorted TV static overlaid on text. Perfect for YouTube thumbnails and horror gaming content." },
-                    { name: "Corrupted Matrix", desc: "combines encryption-like characters with horror decay. Best for tech-horror aesthetics and streaming branding." },
+                    { name: "Zalgo Text", desc: "text appears corrupted with stacking marks above and below. A standout choice for Discord server names and gaming usernames." },
+                    { name: "Gore Overflow", desc: "heavy downward distortion that makes text look like it is melting. Perfect for YouTube thumbnails and horror gaming content." },
+                    { name: "Blood Rain", desc: "combines icon decoration with strikethrough effects for a bleeding digital look. Best for tech-horror aesthetics and streaming branding." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
