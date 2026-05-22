@@ -193,9 +193,7 @@ const softAesthetic: FontCategory = {
   styles: [
     { name: "Dreamy Script", transform: (t) => applyMap(t, scriptMap) },
     { name: "Elegant Cursive", transform: (t) => applyMap(t, boldScriptMap) },
-    { name: "Petit Caps", transform: (t) => applyMap(t, smallCapsMap) },
     { name: "Whisper Text", transform: (t) => applyMap(t, superscriptMap) },
-    { name: "Soft Italic", transform: (t) => applyMap(t, italicMap) },
     { name: "Gentle Bold", transform: (t) => applyMap(t, boldItalicMap) },
     { name: "Dotted Dream", transform: (t) => t, fontFamily: "'Mr Bedfort', cursive" },
     { name: "Breeze Script", transform: (t) => t, fontFamily: "'Norican', sans-serif" },
@@ -224,12 +222,10 @@ const darkAesthetic: FontCategory = {
     { name: "Tilde Overlay", transform: (t) => withCombining(t, ["\u0334"]) },
     { name: "Slashed Text", transform: (t) => withCombining(t, ["\u0337"]) },
     { name: "Dark Slash", transform: (t) => withCombining(t, ["\u0338"]) },
-    { name: "Double Strike", transform: (t) => withCombining(t, ["\u0336", "\u0334"]) },
-    { name: "Roboto Flex", transform: (t) => t, fontFamily: "'Roboto Flex', sans-serif" },
     { name: "Cal Sans", transform: (t) => t, fontFamily: "'Cal Sans', sans-serif" },
     { name: "Noto Sans Anatolian Hieroglyphs", transform: (t) => t, fontFamily: "'Noto Sans Anatolian Hieroglyphs', sans-serif" },
     { name: "Gruppo", transform: (t) => t, fontFamily: "'Gruppo', sans-serif" },
-    { name: "Nobile", transform: (t) => t, fontFamily: "'Nobile', sans-serif" },
+
   ],
 };
 
@@ -240,7 +236,6 @@ const gothic: FontCategory = {
   styles: [
     { name: "Old English", transform: (t) => applyMap(t, frakturMap) },
     { name: "Medieval Bold", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Royal Double", transform: (t) => applyMap(t, doubleStruckMap) },
     { name: "Ornate Fraktur", transform: (t) => withFrame(applyMap(t, frakturMap), "\u17C1", "\u17C2") },
     { name: "Dark Medieval", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u0F12", "\u0F12") },
     { name: "Sacred Gothic", transform: (t) => withFrame(applyMap(t, frakturMap), "\u262C", "\u262C") },
@@ -264,15 +259,13 @@ const vaporwave: FontCategory = {
     { name: "Terminal", transform: (t) => applyMap(t, monospaceMap) },
     { name: "Neon Bold", transform: (t) => applyMap(t, boldMap) },
     { name: "Retro Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
-    { name: "Classic Italic", transform: (t) => applyMap(t, italicMap) },
     { name: "Pixel Fade", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2591\u2592\u2593", "\u2593\u2592\u2591") },
     { name: "Dense Block", transform: (t) => withFrame(applyMap(t, monospaceMap), "\u2593\u2593\u2593", "\u2593\u2593\u2593") },
     { name: "Solid Neon", transform: (t) => withFrame(applyMap(t, boldMap), "\u2588\u2593\u2592\u2591", "\u2591\u2592\u2593\u2588") },
     { name: "Scan Line", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2584\u2580\u2584\u2580", "\u2580\u2584\u2580\u2584") },
     { name: "Retro Wave", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u300E", "\u300F") },
     // +2 Wide styles with glitch borders
-    { name: "Corrupt Terminal", transform: (t) => t, fontFamily: "'MuseoModerno', sans-serif" },
-    { name: "Digital Haze", transform: (t) => t, fontFamily: "'Gelasio', serif" },
+
   ],
 };
 
@@ -401,16 +394,7 @@ const layered: FontCategory = {
       transform: (t) => t,
       fontFamily: "'Martel', serif",
     },
-    {
-      name: "Asap Condensed",
-      transform: (t) => t,
-      fontFamily: "'Asap Condensed', sans-serif",
-    },
-    {
-      name: "Kantumruy Pro",
-      transform: (t) => t,
-      fontFamily: "'Kantumruy Pro', sans-serif",
-    },
+
   ],
 };
 
