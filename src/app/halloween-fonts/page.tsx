@@ -155,64 +155,14 @@ export default function HalloweenFontsPage() {
       {
         "@type": "FAQPage",
         "@id": "https://www.aestheticletters.com/halloween-fonts#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Do Halloween fonts work on Samsung Galaxy or older Android phones?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Modern Samsung devices (Android 8+) handle Unicode Halloween fonts without issues. The problem is Android 6 or older: decorative Unicode characters show as empty boxes on those devices. Stick to simpler styles like Ghost Whisper if your audience includes older phone users, and always test by sending the styled text to a second device before posting publicly.",
-            },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer.replace(/\n\n/g, " "),
           },
-          {
-            "@type": "Question",
-            name: "Which Halloween font is most readable on mobile screens?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Ghost Whisper and Moonlight Cursive are the safest choices both stay legible at small screen sizes. Avoid Blood Drip and heavy blackletter styles like Graveyard Gothic for captions; their fine details merge into visual noise below 16px. Quick test: paste your styled text into your phone\u2019s notes app and read it at arm\u2019s length. If it takes more than two seconds, switch styles.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I use these fonts commercially, on merchandise, Etsy listings, or client work?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Unicode copy-paste styles have no font license attached, so yes, use them freely in any commercial context. For downloaded font files, Google Fonts are covered by the Open Font License which permits commercial use including merchandise and client work at no extra cost. Paid fonts from Creative Market or DaFont vary by designer; always check the individual license page before selling anything using those files.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Which games strip or block Unicode characters in usernames?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Discord and Steam support Unicode reliably. Roblox strips most Unicode entirely; styled usernames revert to plain text. Fortnite on PS5 and Xbox inherits console username limits with minimal Unicode support. Minecraft Java Edition is inconsistent depending on launcher and resource pack. Mobile games are the least reliable overall. Always test your styled username in the name field and check the preview before confirming.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I use spooky fonts in Notion, Google Docs, or Microsoft Word?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Notion handles Unicode paste cleanly; it is the most reliable of the three. Google Docs works well on screen but always run a print preview before printing, as rendering can shift. Microsoft Word is the trickiest: autocorrect can silently replace unusual characters with plain letters. Fix this by pasting your text, then pressing Ctrl+Z once followed by Ctrl+Y, which locks the characters before autocorrect processes them.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the best scary font for printed invitations or physical signage?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Never use Unicode copy-paste styles for print; they revert to plain text or boxes when processed by print software. Download a font file instead. For invitations, Nosifer and Butcherman both hold well at print resolution. For signage read from a distance, UnifrakturMaguntia has the strongest visual impact. One critical step: always embed fonts when exporting to PDF. In Canva, the PDF Print download option handles this automatically.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What font does Spirit Halloween use?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Spirit Halloween uses a proprietary custom gothic typeface for its brand identity. The closest free alternatives are UnifrakturMaguntia for the gothic weight and Bleeding Cowboys (available on DaFont) for the condensed angular feel. The good news: UnifrakturMaguntia is available as an instant copy-paste style in this tool, so you can test how it looks in your content before deciding whether to download the file. For digital content and social media, the copy-paste version works perfectly. For print, merchandise, or vinyl cutting, download the .ttf from Google Fonts and use it in your design software.",
-            },
-          },
-        ],
+        })),
       },
     ],
   };
