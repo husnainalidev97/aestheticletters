@@ -9,7 +9,7 @@ interface FontCategoryCardProps {
   onCopy: (text: string, id: string) => void;
   isDark?: boolean;
   isFavorite?: (id: string) => boolean;
-  onToggleFavorite?: (item: { id: string; styleName: string; categoryName: string; text: string }) => void;
+  onToggleFavorite?: (item: { id: string; styleName: string; categoryName: string; text: string; fontFamily?: string }) => void;
 }
 
 export default function FontCategoryCard({
@@ -73,7 +73,7 @@ export default function FontCategoryCard({
                 <ShareButtons text={converted} />
                 {onToggleFavorite && (
                   <button
-                    onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted })}
+                    onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted, fontFamily: style.fontFamily })}
                     className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                       isFavorite?.(styleId)
                         ? "text-[#ef4444]"

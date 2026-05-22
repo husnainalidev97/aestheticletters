@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-05-11T00:00:00Z");
+  const lastModified = new Date("2026-05-22T00:00:00Z");
 
   return [
     {
@@ -38,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cute-fonts`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/halloween-fonts`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,

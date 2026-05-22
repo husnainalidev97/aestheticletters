@@ -9,6 +9,7 @@ export interface FavoriteItem {
   styleName: string;
   categoryName: string;
   text: string;
+  fontFamily?: string;
 }
 
 const listeners = new Set<() => void>();

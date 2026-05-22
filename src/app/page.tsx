@@ -119,6 +119,7 @@ export default function Home() {
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
                 { label: "Stylish Fonts", href: "/stylish-fonts" },
                 { label: "Cute Fonts", href: "/cute-fonts" },
+                { label: "Halloween Fonts", href: "/halloween-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link

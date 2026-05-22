@@ -83,7 +83,10 @@ export default function FavoritesSection({ favorites, onRemove }: FavoritesSecti
                     <span className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-primary">
                       {fav.categoryName} &middot; {fav.styleName}
                     </span>
-                    <div className="font-body text-on-surface dark-preview-text text-sm break-all overflow-hidden">
+                    <div
+                      className="font-body text-on-surface dark-preview-text text-sm break-all overflow-hidden"
+                      style={fav.fontFamily ? { fontFamily: fav.fontFamily } : undefined}
+                    >
                       {fav.text}
                     </div>
                   </div>
