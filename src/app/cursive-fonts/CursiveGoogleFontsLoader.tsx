@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 
-const FONT_FAMILIES = [
+/** Fonts needed for the first 4 visible categories (initial paint). */
+const INITIAL_FONTS = [
   "Playwrite+Ireland",
   "Caveat",
   "Shadows+Into+Light",
@@ -27,6 +28,10 @@ const FONT_FAMILIES = [
   "Lacquer",
   "Vibur",
   "Sedgwick+Ave+Display",
+];
+
+/** Fonts for categories 5-8 (loaded on "Explore More" or after delay). */
+const DEFERRED_FONTS = [
   "Playwrite+Peru",
   "Playwrite+VN+Guides",
   "Homemade+Apple",
@@ -49,24 +54,26 @@ const FONT_FAMILIES = [
   "Solitreo",
 ];
 
-const GOOGLE_FONTS_URL =
-  "https://fonts.googleapis.com/css2?" +
-  FONT_FAMILIES.map((f) => `family=${f}`).join("&") +
-  "&display=swap";
+function buildUrl(families: string[]): string {
+  return (
+    "https://fonts.googleapis.com/css2?" +
+    families.map((f) => `family=${f}`).join("&") +
+    "&display=swap"
+  );
+}
 
 /**
- * Loads the cursive Google Fonts stylesheet after the browser has
- * finished its initial paint and is idle. This yields the main thread
- * during hydration so LCP isn't delayed by the ~40-family CSS request
- * and the subsequent style recalculation it triggers.
+ * Loads cursive Google Fonts in two batches:
+ * 1. Initial batch (24 fonts for first 4 categories) — loaded on idle.
+ * 2. Deferred batch (20 fonts for remaining categories) — loaded when
+ *    the user clicks "Explore More" or after a 4s timeout, whichever
+ *    comes first. This prevents the massive style-recalc storm that
+ *    was tanking desktop TBT.
  */
 export default function CursiveGoogleFontsLoader() {
   useEffect(() => {
-    if (document.querySelector('link[data-cursive-fonts="all"]')) return;
+    if (document.querySelector('link[data-cursive-fonts="initial"]')) return;
 
-    // Warm up the Google Fonts connections in parallel with idle time
-    // so the DNS + TCP + TLS handshakes are already done by the time
-    // `load()` appends the stylesheet link.
     const preconnects: HTMLLinkElement[] = [];
     const addPreconnect = (href: string, crossOrigin?: string) => {
       if (document.querySelector(`link[rel="preconnect"][href="${href}"]`)) return;
@@ -81,13 +88,24 @@ export default function CursiveGoogleFontsLoader() {
     addPreconnect("https://fonts.googleapis.com");
     addPreconnect("https://fonts.gstatic.com", "anonymous");
 
-    let link: HTMLLinkElement | null = null;
-    const load = () => {
-      link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = GOOGLE_FONTS_URL;
-      link.dataset.cursiveFonts = "all";
-      document.head.appendChild(link);
+    let initialLink: HTMLLinkElement | null = null;
+    let deferredLink: HTMLLinkElement | null = null;
+
+    const loadInitial = () => {
+      initialLink = document.createElement("link");
+      initialLink.rel = "stylesheet";
+      initialLink.href = buildUrl(INITIAL_FONTS);
+      initialLink.dataset.cursiveFonts = "initial";
+      document.head.appendChild(initialLink);
+    };
+
+    const loadDeferred = () => {
+      if (document.querySelector('link[data-cursive-fonts="deferred"]')) return;
+      deferredLink = document.createElement("link");
+      deferredLink.rel = "stylesheet";
+      deferredLink.href = buildUrl(DEFERRED_FONTS);
+      deferredLink.dataset.cursiveFonts = "deferred";
+      document.head.appendChild(deferredLink);
     };
 
     const win = window as typeof window & {
@@ -98,21 +116,34 @@ export default function CursiveGoogleFontsLoader() {
       cancelIdleCallback?: (handle: number) => void;
     };
 
+    // Load initial batch on idle
     let idleHandle: number | null = null;
     let timeoutHandle: number | null = null;
 
     if (typeof win.requestIdleCallback === "function") {
-      idleHandle = win.requestIdleCallback(load, { timeout: 1500 });
+      idleHandle = win.requestIdleCallback(loadInitial, { timeout: 1500 });
     } else {
-      timeoutHandle = window.setTimeout(load, 200);
+      timeoutHandle = window.setTimeout(loadInitial, 200);
     }
+
+    // Load deferred batch on "Explore More" click or after 4s
+    let deferredTimeout: number | null = null;
+    const onExploreMore = () => {
+      loadDeferred();
+      if (deferredTimeout !== null) window.clearTimeout(deferredTimeout);
+    };
+    window.addEventListener("cursive-explore-more", onExploreMore);
+    deferredTimeout = window.setTimeout(loadDeferred, 4000);
 
     return () => {
       if (idleHandle !== null && typeof win.cancelIdleCallback === "function") {
         win.cancelIdleCallback(idleHandle);
       }
       if (timeoutHandle !== null) window.clearTimeout(timeoutHandle);
-      if (link && link.parentNode) link.parentNode.removeChild(link);
+      if (deferredTimeout !== null) window.clearTimeout(deferredTimeout);
+      window.removeEventListener("cursive-explore-more", onExploreMore);
+      if (initialLink && initialLink.parentNode) initialLink.parentNode.removeChild(initialLink);
+      if (deferredLink && deferredLink.parentNode) deferredLink.parentNode.removeChild(deferredLink);
       for (const el of preconnects) {
         if (el.parentNode) el.parentNode.removeChild(el);
       }

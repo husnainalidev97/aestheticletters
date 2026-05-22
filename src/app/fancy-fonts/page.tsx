@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FancyFontsClient from "./FancyFontsClient";
 import FAQAccordion from "../components/FAQAccordion";
-import GoogleFontsLoader from "./GoogleFontsLoader";
 import ShowcaseGrid from "./ShowcaseGrid";
 
 export const metadata: Metadata = {
@@ -315,8 +314,6 @@ export default function FancyFontsPage() {
 
   return (
     <>
-      {/* Google Fonts — loaded asynchronously to avoid blocking LCP */}
-      <GoogleFontsLoader />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

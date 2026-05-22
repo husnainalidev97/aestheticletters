@@ -107,6 +107,7 @@ export default function StylishFontsClient() {
 
   const handleExploreMore = useCallback(() => {
     setIsLoadingMore(true);
+    window.dispatchEvent(new Event("stylish-explore-more"));
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
       setShowAll(true);
