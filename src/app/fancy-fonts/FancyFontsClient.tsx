@@ -7,6 +7,7 @@ import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
+import GoogleFontsLoader from "./GoogleFontsLoader";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -162,6 +163,9 @@ export default function FancyFontsClient() {
 
   return (
     <>
+      {/* Google Fonts — deferred to avoid blocking LCP */}
+      <GoogleFontsLoader />
+
       {/* Generator Block: Input + Button + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-5">

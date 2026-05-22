@@ -107,6 +107,7 @@ export default function CuteFontsClient() {
 
   const handleExploreMore = useCallback(() => {
     setIsLoadingMore(true);
+    window.dispatchEvent(new Event("cute-explore-more"));
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
       setShowAll(true);

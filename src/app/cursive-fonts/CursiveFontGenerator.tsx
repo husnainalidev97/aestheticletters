@@ -163,6 +163,7 @@ export default function CursiveFontGenerator({
 
   const handleExploreMore = () => {
     setIsLoadingMore(true);
+    window.dispatchEvent(new Event("cursive-explore-more"));
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
       setShowAll(true);
