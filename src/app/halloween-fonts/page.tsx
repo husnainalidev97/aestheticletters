@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/hawlloeen-fonts-generator-featured-image.webp", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
-    images: ["/og-image.jpg"],
+    images: ["/hawlloeen-fonts-generator-featured-image.webp"],
   },
 };
 
