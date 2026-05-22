@@ -431,7 +431,7 @@ export default function CursiveFontsPage() {
                       try our{" "}
                       <Link
                         href="/instagram-fonts"
-                        className="text-primary font-bold hover:opacity-80 transition-all"
+                        className="text-primary font-bold underline hover:opacity-80 transition-all"
                       >
                         instagram font generator
                       </Link>{" "}
@@ -507,7 +507,7 @@ export default function CursiveFontsPage() {
                   a step further with your styling, check out{" "}
                   <Link
                     href="/fancy-fonts"
-                    className="text-primary font-bold hover:opacity-80 transition-all"
+                    className="text-primary font-bold underline hover:opacity-80 transition-all"
                   >
                     fancy font generator
                   </Link>{" "}
@@ -545,7 +545,7 @@ export default function CursiveFontsPage() {
                   styles,{" "}
                   <Link
                     href="/"
-                    className="text-primary font-bold hover:opacity-80 transition-all"
+                    className="text-primary font-bold underline hover:opacity-80 transition-all"
                   >
                     aesthetic fonts
                   </Link>{" "}
