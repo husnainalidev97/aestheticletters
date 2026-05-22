@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
-import StylishFontsClient from "./StylishFontsClient";
+import StylishFontsClient from "./StylishFontsClientLazy";
 
 export const metadata: Metadata = {
   title: { absolute: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free" },

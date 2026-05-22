@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
-import HalloweenFontsClient from "./HalloweenFontsClient";
+import HalloweenFontsClient from "./HalloweenFontsClientLazy";
 
 export const metadata: Metadata = {
   title: { absolute: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)" },

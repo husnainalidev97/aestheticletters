@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
-import CuteFontsClient from "./CuteFontsClient";
+import CuteFontsClient from "./CuteFontsClientLazy";
 
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },

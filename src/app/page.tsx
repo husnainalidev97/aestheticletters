@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "./components/TopNavBar";
-import FontGenerator from "./components/FontGenerator";
+import FontGenerator from "./components/FontGeneratorLazy";
 import SEOSection from "./components/SEOSection";
 import FAQSection, { homeFaqs } from "./components/FAQSection";
 import Footer from "./components/Footer";
@@ -119,7 +119,6 @@ export default function Home() {
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
                 { label: "Stylish Fonts", href: "/stylish-fonts" },
                 { label: "Cute Fonts", href: "/cute-fonts" },
-                { label: "Halloween Fonts", href: "/halloween-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link

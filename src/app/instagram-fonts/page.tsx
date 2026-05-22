@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import HeroSection from "../components/HeroSection";
-import InstagramFontCards from "../components/InstagramFontCards";
+import InstagramFontCards from "../components/InstagramFontCardsLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import Sidebar from "../components/Sidebar";

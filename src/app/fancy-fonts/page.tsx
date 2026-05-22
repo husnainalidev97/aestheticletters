@@ -4,7 +4,7 @@ import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
-import FancyFontsClient from "./FancyFontsClient";
+import FancyFontsClient from "./FancyFontsClientLazy";
 import FAQAccordion from "../components/FAQAccordion";
 import ShowcaseGrid from "./ShowcaseGrid";
 
