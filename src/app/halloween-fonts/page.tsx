@@ -8,9 +8,9 @@ import Sidebar from "../components/Sidebar";
 import HalloweenFontsClient from "./HalloweenFontsClient";
 
 export const metadata: Metadata = {
-  title: { absolute: "Halloween Fonts - Copy & Paste (90+ Spooky & Creepy Styles)" },
+  title: { absolute: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)" },
   description:
-    "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 90+ styles including Gothic, cursed, and drip text.",
+    "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
   alternates: {
     canonical: "https://www.aestheticletters.com/halloween-fonts",
   },
@@ -18,16 +18,16 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "website",
     url: "https://www.aestheticletters.com/halloween-fonts",
-    title: "Halloween Fonts - Copy & Paste (90+ Spooky & Creepy Styles)",
+    title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
-      "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 90+ styles including Gothic, cursed, and drip text.",
+      "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Halloween Fonts - Copy & Paste (90+ Spooky & Creepy Styles)",
+    title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
-      "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 90+ styles including Gothic, cursed, and drip text.",
+      "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
     images: ["/og-image.jpg"],
   },
 };
@@ -118,9 +118,9 @@ export default function HalloweenFontsPage() {
       "@type": "WebPage",
       "@id": "https://www.aestheticletters.com/halloween-fonts#webpage",
       url: "https://www.aestheticletters.com/halloween-fonts",
-      name: "Halloween Fonts - Copy & Paste (90+ Spooky & Creepy Styles)",
+      name: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
       description:
-        "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 90+ styles including Gothic, cursed, and drip text.",
+        "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
       breadcrumb: {
         "@id": "https://www.aestheticletters.com/halloween-fonts#breadcrumb",
       },
@@ -316,10 +316,10 @@ export default function HalloweenFontsPage() {
                 </p>
               </article>
 
-              {/* 90+ Halloween Font Styles Explained */}
+              {/* 75+ Halloween Font Styles Explained */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  90+ Halloween Font Styles Explained
+                  75+ Halloween Font Styles Explained
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Different moods call for different spooky typography. Here is how to think about the major style
