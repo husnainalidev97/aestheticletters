@@ -1,12 +1,21 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
-import CuteFontsClient from "./CuteFontsClient";
+
+const CuteFontsClient = dynamic(() => import("./CuteFontsClient"), {
+  ssr: false,
+  loading: () => (
+    <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
+      <div className="w-full max-w-3xl mx-auto h-[280px] rounded-xl bg-surface-container-low animate-pulse" />
+    </section>
+  ),
+});
 
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
