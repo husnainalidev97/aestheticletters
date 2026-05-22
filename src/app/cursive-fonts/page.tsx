@@ -292,11 +292,26 @@ export default function CursiveFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* Preconnect to Google Fonts origins — server-rendered for early discovery */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       {/* Google Fonts — loaded asynchronously to avoid blocking LCP */}
       <CursiveGoogleFontsLoader />
       <TopNavBar activePage="cursive-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
-        {/* Dynamic Cursive Font Generator — hero input, size controls, live results */}
+        {/* Server-rendered hero for fast LCP — no JS needed for initial paint */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-0 text-center">
+          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">
+            Cursive Fonts - Handwritten Text Generator
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+            Creating handwritten or cursive text takes time and effort. Use this
+            tool to generate cursive fonts instantly and get a clean handwritten
+            look in seconds.
+          </p>
+        </section>
+
+        {/* Dynamic Cursive Font Generator — input, size controls, live results */}
         <CursiveFontGenerator fontCards={fontCards} />
 
         {/* SEO Content Section */}
