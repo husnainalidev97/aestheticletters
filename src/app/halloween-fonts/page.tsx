@@ -182,7 +182,7 @@ export default function HalloweenFontsPage() {
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
             Generate spooky Halloween fonts, creepy text styles, and scary copy-paste text instantly for Instagram,
-            TikTok, Discord, gaming, and Halloween-themed designs.
+            TikTok, Discord, Gaming, and Halloween-themed designs.
           </p>
         </section>
 
@@ -424,7 +424,11 @@ export default function HalloweenFontsPage() {
                   engagement.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Gothic and cursive styles work better in bios, where users are likely to slow down and
+                  Gothic and{" "}
+                  <Link href="/cursive-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                    cursive styles
+                  </Link>{" "}
+                  work better in bios, where users are likely to slow down and
                   read carefully. During October, using seasonal typography in your highlight covers and story headers
                   can significantly lift profile aesthetics.
                 </p>
@@ -466,7 +470,11 @@ export default function HalloweenFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For thumbnails and stream overlays, you have two good options: use the Google Fonts styles from
-                  the Aesthetic Letters as copy-paste text in thumbnail tools that support it, or download the .ttf
+                  the{" "}
+                  <Link href="/" className="text-primary underline underline-offset-4 hover:no-underline">
+                    Aesthetic Letters
+                  </Link>{" "}
+                  as copy-paste text in thumbnail tools that support it, or download the .ttf
                   file for full sizing and color control in software like Photoshop or Canva&apos;s advanced design mode.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
