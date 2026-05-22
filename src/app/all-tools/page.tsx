@@ -79,13 +79,6 @@ const toolCategories: ToolCategory[] = [
         icon: "favorite",
         href: "/cute-fonts",
       },
-      {
-        title: "Halloween Fonts",
-        description:
-          "90+ spooky, gothic, and creepy font styles for Halloween-themed content, party invites, and horror designs.",
-        icon: "skull",
-        href: "/halloween-fonts",
-      },
     ],
   },
   {
@@ -97,6 +90,18 @@ const toolCategories: ToolCategory[] = [
           "Flowing cursive and handwriting-style scripts for a refined editorial feel.",
         icon: "draw",
         href: "/cursive-fonts",
+      },
+    ],
+  },
+  {
+    title: "Seasonal",
+    cards: [
+      {
+        title: "Halloween Fonts",
+        description:
+          "75+ spooky, gothic, and creepy font styles for Halloween-themed content, party invites, and horror designs.",
+        icon: "skull",
+        href: "/halloween-fonts",
       },
     ],
   },
