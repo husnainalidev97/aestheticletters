@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 
-/** Fonts needed for the first 4 visible categories (initial paint). */
-const INITIAL_FONTS = [
+/** Fonts for the first 3 visible categories (above the fold). */
+const CRITICAL_FONTS = [
   "Playwrite+Ireland",
   "Caveat",
   "Shadows+Into+Light",
@@ -22,16 +22,16 @@ const INITIAL_FONTS = [
   "Sue+Ellen+Francisco",
   "Mr+De+Haviland",
   "Mr+Dafoe",
+];
+
+/** Fonts for categories 4-8 (loaded on "Explore More" or after delay). */
+const DEFERRED_FONTS = [
   "Permanent+Marker",
   "Caveat+Brush",
   "Nanum+Brush+Script",
   "Lacquer",
   "Vibur",
   "Sedgwick+Ave+Display",
-];
-
-/** Fonts for categories 5-8 (loaded on "Explore More" or after delay). */
-const DEFERRED_FONTS = [
   "Playwrite+Peru",
   "Playwrite+VN+Guides",
   "Homemade+Apple",
@@ -64,39 +64,24 @@ function buildUrl(families: string[]): string {
 
 /**
  * Loads cursive Google Fonts in two batches:
- * 1. Initial batch (24 fonts for first 4 categories) — loaded on idle.
- * 2. Deferred batch (20 fonts for remaining categories) — loaded when
+ * 1. Critical batch (18 fonts for first 3 categories) — loaded on idle.
+ * 2. Deferred batch (26 fonts for remaining categories) — loaded when
  *    the user clicks "Explore More" or after a 4s timeout, whichever
- *    comes first. This prevents the massive style-recalc storm that
- *    was tanking desktop TBT.
+ *    comes first.
  */
 export default function CursiveGoogleFontsLoader() {
   useEffect(() => {
-    if (document.querySelector('link[data-cursive-fonts="initial"]')) return;
+    if (document.querySelector('link[data-cursive-fonts="critical"]')) return;
 
-    const preconnects: HTMLLinkElement[] = [];
-    const addPreconnect = (href: string, crossOrigin?: string) => {
-      if (document.querySelector(`link[rel="preconnect"][href="${href}"]`)) return;
-      const el = document.createElement("link");
-      el.rel = "preconnect";
-      el.href = href;
-      if (crossOrigin) el.crossOrigin = crossOrigin;
-      el.dataset.cursiveFonts = "preconnect";
-      document.head.appendChild(el);
-      preconnects.push(el);
-    };
-    addPreconnect("https://fonts.googleapis.com");
-    addPreconnect("https://fonts.gstatic.com", "anonymous");
-
-    let initialLink: HTMLLinkElement | null = null;
+    let criticalLink: HTMLLinkElement | null = null;
     let deferredLink: HTMLLinkElement | null = null;
 
-    const loadInitial = () => {
-      initialLink = document.createElement("link");
-      initialLink.rel = "stylesheet";
-      initialLink.href = buildUrl(INITIAL_FONTS);
-      initialLink.dataset.cursiveFonts = "initial";
-      document.head.appendChild(initialLink);
+    const loadCritical = () => {
+      criticalLink = document.createElement("link");
+      criticalLink.rel = "stylesheet";
+      criticalLink.href = buildUrl(CRITICAL_FONTS);
+      criticalLink.dataset.cursiveFonts = "critical";
+      document.head.appendChild(criticalLink);
     };
 
     const loadDeferred = () => {
@@ -116,17 +101,15 @@ export default function CursiveGoogleFontsLoader() {
       cancelIdleCallback?: (handle: number) => void;
     };
 
-    // Load initial batch on idle
     let idleHandle: number | null = null;
     let timeoutHandle: number | null = null;
 
     if (typeof win.requestIdleCallback === "function") {
-      idleHandle = win.requestIdleCallback(loadInitial, { timeout: 1500 });
+      idleHandle = win.requestIdleCallback(loadCritical, { timeout: 1500 });
     } else {
-      timeoutHandle = window.setTimeout(loadInitial, 200);
+      timeoutHandle = window.setTimeout(loadCritical, 200);
     }
 
-    // Load deferred batch on "Explore More" click or after 4s
     let deferredTimeout: number | null = null;
     const onExploreMore = () => {
       loadDeferred();
@@ -142,11 +125,8 @@ export default function CursiveGoogleFontsLoader() {
       if (timeoutHandle !== null) window.clearTimeout(timeoutHandle);
       if (deferredTimeout !== null) window.clearTimeout(deferredTimeout);
       window.removeEventListener("cursive-explore-more", onExploreMore);
-      if (initialLink && initialLink.parentNode) initialLink.parentNode.removeChild(initialLink);
+      if (criticalLink && criticalLink.parentNode) criticalLink.parentNode.removeChild(criticalLink);
       if (deferredLink && deferredLink.parentNode) deferredLink.parentNode.removeChild(deferredLink);
-      for (const el of preconnects) {
-        if (el.parentNode) el.parentNode.removeChild(el);
-      }
     };
   }, []);
 

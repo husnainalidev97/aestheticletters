@@ -28,7 +28,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 3;
 
 const CURSIVE_EMOJIS: Record<string, string> = {
   "Handwriting Cursive": "✍️",
@@ -178,18 +178,8 @@ export default function CursiveFontGenerator({
 
   return (
     <>
-      {/* Hero Section with Input */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-        <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">
-          Cursive Fonts - Handwritten Text Generator
-        </h1>
-        <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-          Creating handwritten or cursive text takes time and effort. Use this
-          tool to generate cursive fonts instantly and get a clean handwritten
-          look in seconds.
-        </p>
-
-        {/* Generator Block: Input + Button + Size Controls */}
+      {/* Generator Block: Input + Button + Size Controls */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16 text-center">
         <div className="relative w-full max-w-3xl mx-auto space-y-5">
           {/* Input with Generate button */}
           <div className="relative">
@@ -285,7 +275,12 @@ export default function CursiveFontGenerator({
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCards.map((card) => (
-            <div key={card.category} id={`cat-${slugify(card.category)}`} className="animate-card-fade-in scroll-mt-28">
+            <div
+              key={card.category}
+              id={`cat-${slugify(card.category)}`}
+              className="animate-card-fade-in scroll-mt-28"
+              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 500px" }}
+            >
               <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                 <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                   {card.category}
@@ -310,9 +305,10 @@ export default function CursiveFontGenerator({
                           </span>
                           <div
                             aria-hidden="true"
-                            className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
+                            className="font-body break-all overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text min-h-[1.5em]"
                             style={{
                               fontSize: `${fontSize}px`,
+                              lineHeight: 1.5,
                               fontFamily: `'${font.family}', cursive`,
                             }}
                           >
@@ -376,8 +372,8 @@ export default function CursiveFontGenerator({
                             </span>
                             <div
                               aria-hidden="true"
-                              className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
-                              style={{ fontSize: `${fontSize}px` }}
+                              className="font-body break-all overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text min-h-[1.5em]"
+                              style={{ fontSize: `${fontSize}px`, lineHeight: 1.5 }}
                             >
                               {transformed}
                             </div>
