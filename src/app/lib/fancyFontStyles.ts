@@ -224,7 +224,6 @@ function mirrorOnly(text: string): string {
 const boldArtisticStyles: FancyFontCategory = {
   name: "Bold Artistic Styles",
   styles: [
-    { name: "Royal Calligraphy", transform: (t) => applyMap(t, boldScriptMap) },
     { name: "Italic Artisan", transform: (t) => applyMap(t, boldItalicMap) },
     { name: "Dotted Calligraphy", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u00B7", "\u00B7"), fontFamily: "'Georgia', serif" },
     { name: "Ringed Bold Art", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u25CB", "\u25CB"), fontFamily: "'Segoe UI', sans-serif" },
@@ -267,7 +266,6 @@ const monospaceTypewriter: FancyFontCategory = {
   styles: [
     { name: "Hollow Letters", transform: (t) => applyMap(t, doubleStruckMap) },
     { name: "Wide Vaporwave", transform: (t) => applyMap(t, fullwidthMap) },
-    { name: "Terminal Code", transform: (t) => applyMap(t, monospaceMap) },
     { name: "Bracket Code", transform: (t) => withFrame(applyMap(t, monospaceMap), "\u300C", "\u300D") },
     { name: "Pipe Frame", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2503", "\u2503") },
     { name: "Hollow Dotted", transform: (t) => withFrame(applyMap(t, doubleStruckMap), "\u2022", "\u2022"), fontFamily: "'Georgia', serif" },
@@ -368,10 +366,8 @@ const minimalFancyTexts: FancyFontCategory = {
     { name: "Subscript", transform: (t) => applyMap(t, subscriptMap) },
     { name: "Dotted Caps", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0307"]) },
     { name: "Subtle Underline", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0332"]) },
-    { name: "Light Italic", transform: (t) => applyMap(t, italicMap) },
     { name: "Thin Script", transform: (t) => applyMap(t, scriptMap) },
     { name: "Airy Superscript", transform: (t) => withFrame(applyMap(t, superscriptMap), "\u00B7", "\u00B7") },
-    { name: "Clean Mono", transform: (t) => applyMap(t, monospaceMap) },
     { name: "Delicate Ring", transform: (t) => withCombining(applyMap(t, superscriptMap), ["\u030A"]) },
     { name: "Inspiration", transform: (t) => t, fontFamily: "'Inspiration', cursive" },
   ],
@@ -400,7 +396,6 @@ const mirrorReverse: FancyFontCategory = {
 const curveFlowStyles: FancyFontCategory = {
   name: "Curve & Flow Styles",
   styles: [
-    { name: "Flowing Script", transform: (t) => applyMap(t, scriptMap) },
     { name: "Smooth Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
     { name: "Wavy Tilde", transform: (t) => withFrame(applyMap(t, scriptMap), "~", "~"), fontFamily: "'Georgia', serif" },
     { name: "Breeze Italic", transform: (t) => withFrame(applyMap(t, italicMap), "\u2248", "\u2248"), fontFamily: "'Georgia', serif" },

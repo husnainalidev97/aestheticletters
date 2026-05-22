@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const GOOGLE_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Charm&family=Cookie&family=Meie+Script&family=Mr+Bedfort&family=Norican&family=Ballet&family=Jim+Nightshade&family=Mea+Culpa&family=Pinyon+Script&family=Miss+Fajardose&family=Stalemate&family=Alumni+Sans+Pinstripe&family=Poiret+One&family=Montserrat+Alternates&family=Exo+2&family=Rasa&family=Unica+One&family=Martel&family=MuseoModerno&family=Gelasio&family=Phudu&family=Roboto+Flex&family=Cal+Sans&family=Noto+Sans+Anatolian+Hieroglyphs&family=Gruppo&family=Nobile&family=Asap+Condensed&family=Kantumruy+Pro&display=swap";
+  "https://fonts.googleapis.com/css2?family=Charm&family=Cookie&family=Meie+Script&family=Mr+Bedfort&family=Norican&family=Ballet&family=Jim+Nightshade&family=Mea+Culpa&family=Pinyon+Script&family=Miss+Fajardose&family=Stalemate&family=Alumni+Sans+Pinstripe&family=Poiret+One&family=Montserrat+Alternates&family=Exo+2&family=Rasa&family=Unica+One&family=Martel&family=Phudu&family=Cal+Sans&family=Noto+Sans+Anatolian+Hieroglyphs&family=Gruppo&display=swap";
 
 /**
  * Loads the home-page Google Fonts stylesheet after the browser has
