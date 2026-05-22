@@ -766,7 +766,7 @@ export default function HalloweenFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/hawlloeen-fonts-generator-featured-image.webp", alt: "hawlloeen fonts generator featured image" }}
+              bottomImage={{ src: "/hawlloeen-fonts-generator-featured-image.webp", alt: "halloween fonts generator featured image" }}
             />
           </div>
         </section>
