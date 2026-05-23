@@ -110,7 +110,7 @@ export default function FacebookSymbolsCard() {
   return (
     <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
       <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
-        FB Symbols
+        Facebook Symbols
       </strong>
       <div className="space-y-6">
         {SYMBOL_CATEGORIES.map((cat) => (

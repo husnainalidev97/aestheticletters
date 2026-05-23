@@ -26,10 +26,10 @@ const DARK_CATEGORIES = new Set<string>([]);
 const FACEBOOK_EMOJIS: Record<string, string> = {
   "Fonts for Posts": "📝",
   "Comment Fonts": "💬",
-  "Bio Fonts": "👤",
-  "Caption Fonts": "📸",
-  "Fancy FB Fonts": "✨",
-  "FB Symbols": "🔣",
+  "FB Bio Fonts": "👤",
+  "FB Caption Fonts": "📸",
+  "Creative FB Fonts": "✨",
+  "Facebook Symbols": "🔣",
 };
 
 const facebookCategoryLinks = [
@@ -38,7 +38,7 @@ const facebookCategoryLinks = [
     emoji: FACEBOOK_EMOJIS[cat.name] || "📘",
     id: `cat-${slugify(cat.name)}`,
   })),
-  { label: "FB Symbols", emoji: "🔣", id: "cat-fb-symbols" },
+  { label: "Facebook Symbols", emoji: "🔣", id: "cat-facebook-symbols" },
 ];
 
 export default function FacebookFontsClient() {
@@ -252,7 +252,7 @@ export default function FacebookFontsClient() {
           ))}
           {/* FB Symbols Card — always visible */}
           {(showAll || facebookFontCategories.length <= INITIAL_COUNT) && (
-            <div id="cat-fb-symbols" className="animate-card-fade-in scroll-mt-28 md:col-span-2">
+            <div id="cat-facebook-symbols" className="animate-card-fade-in scroll-mt-28 md:col-span-2">
               <FacebookSymbolsCard />
             </div>
           )}

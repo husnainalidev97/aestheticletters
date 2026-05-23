@@ -228,7 +228,7 @@ const commentCard: FontCategory = {
 // ── Card 3: Facebook Bio Fonts ─────────────────────────────────────────────
 
 const bioCard: FontCategory = {
-  name: "Bio Fonts",
+  name: "FB Bio Fonts",
   styles: [
     { name: "Cursive Script", transform: (t) => apply(t, CURSIVE_SCRIPT) },
     { name: "Bold Cursive Script", transform: (t) => apply(t, BOLD_CURSIVE) },
@@ -242,7 +242,7 @@ const bioCard: FontCategory = {
 // ── Card 4: Facebook Caption Fonts ─────────────────────────────────────────
 
 const captionCard: FontCategory = {
-  name: "Caption Fonts",
+  name: "FB Caption Fonts",
   styles: [
     { name: "Cursive Script", transform: (t) => apply(t, CURSIVE_SCRIPT) },
     { name: "Bold Italic", transform: (t) => apply(t, BOLD_ITALIC) },
@@ -256,7 +256,7 @@ const captionCard: FontCategory = {
 // ── Card 5: Creative FB Fonts ──────────────────────────────────────────────
 
 const creativeCard: FontCategory = {
-  name: "Fancy FB Fonts",
+  name: "Creative FB Fonts",
   styles: [
     { name: "Bold Script", transform: (t) => apply(t, BOLD_CURSIVE) },
     { name: "Bold Gothic", transform: (t) => apply(t, BOLD_GOTHIC) },
