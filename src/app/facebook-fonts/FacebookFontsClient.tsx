@@ -8,6 +8,7 @@ import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import FacebookGoogleFontsLoader from "./FacebookGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
+import FacebookSymbolsCard from "./FacebookSymbolsCard";
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -22,13 +23,23 @@ const INITIAL_COUNT = 4;
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set<string>([]);
 
-const FACEBOOK_EMOJIS: Record<string, string> = {};
+const FACEBOOK_EMOJIS: Record<string, string> = {
+  "Fonts for Posts": "📝",
+  "Comment Fonts": "💬",
+  "Bio Fonts": "👤",
+  "Caption Fonts": "📸",
+  "Fancy FB Fonts": "✨",
+  "FB Symbols": "🔣",
+};
 
-const facebookCategoryLinks = (facebookFontCategories as unknown as { name: string }[]).map((cat) => ({
-  label: cat.name,
-  emoji: FACEBOOK_EMOJIS[cat.name] || "📘",
-  id: `cat-${slugify(cat.name)}`,
-}));
+const facebookCategoryLinks = [
+  ...(facebookFontCategories as unknown as { name: string }[]).map((cat) => ({
+    label: cat.name,
+    emoji: FACEBOOK_EMOJIS[cat.name] || "📘",
+    id: `cat-${slugify(cat.name)}`,
+  })),
+  { label: "FB Symbols", emoji: "🔣", id: "cat-fb-symbols" },
+];
 
 export default function FacebookFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
@@ -239,6 +250,12 @@ export default function FacebookFontsClient() {
               />
             </div>
           ))}
+          {/* FB Symbols Card — always visible */}
+          {(showAll || facebookFontCategories.length <= INITIAL_COUNT) && (
+            <div id="cat-fb-symbols" className="animate-card-fade-in scroll-mt-28 md:col-span-2">
+              <FacebookSymbolsCard />
+            </div>
+          )}
         </div>
 
         {!showAll && facebookFontCategories.length > INITIAL_COUNT && (
