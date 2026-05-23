@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
 
 export const metadata: Metadata = {
-  title: { absolute: "Facebook Fonts - Copy & Paste 90+ Styles for Posts and Bio" },
+  title: { absolute: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio" },
   description:
     "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   alternates: {
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "website",
     url: "https://www.aestheticletters.com/facebook-fonts",
-    title: "Facebook Fonts - Copy & Paste 90+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
     description:
       "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Facebook Fonts - Copy & Paste 90+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
     description:
       "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   },
@@ -97,7 +97,7 @@ export default function FacebookFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/facebook-fonts#webpage",
         url: "https://www.aestheticletters.com/facebook-fonts",
-        name: "Facebook Fonts - Copy & Paste 90+ Styles for Posts and Bio",
+        name: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
         description:
           "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
         breadcrumb: {
@@ -209,7 +209,7 @@ export default function FacebookFontsPage() {
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Enter any word, sentence, or caption. Every facebook font style updates instantly, no waiting,
-                  no page reload. Scroll through 90+ styles, spot the one that fits, and hit Copy. Then open facebook
+                  no page reload. Scroll through 50+ styles, spot the one that fits, and hit Copy. Then open facebook
                   and paste it anywhere, like in your post, bio, comment, group name, or Marketplace listing.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -222,7 +222,7 @@ export default function FacebookFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {[
                     "Type your word, sentence, or caption in the input box",
-                    "Browse through 90+ font styles and pick yours",
+                    "Browse through 50+ font styles and pick yours",
                     "Hit Copy; then paste directly into Facebook",
                   ].map((item, i) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
@@ -427,10 +427,7 @@ export default function FacebookFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
-                    Instagram bio
-                  </Link>{" "}
-                  supports Unicode fonts fully — this is where modern fonts became popular first. However, Instagram
+                  Instagram bio supports Unicode fonts fully — this is where modern fonts became popular first. However, Instagram
                   captions technically support Unicode but the algorithm behavior is different. Some creators report
                   that heavy Unicode use in captions slightly reduces reach. Bold and simple styles are safest. Avoid
                   Zalgo or heavily decorated styles in captions.
