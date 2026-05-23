@@ -37,6 +37,24 @@ function withCombining(text: string, mark: string): string {
   return [...text].map((c) => c + mark).join("");
 }
 
+function wrap(text: string, left: string, right: string): string {
+  return `${left} ${text} ${right}`;
+}
+
+function separateWords(text: string, sep: string): string {
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length <= 1) return `${sep} ${text} ${sep}`;
+  return words.join(` ${sep} `);
+}
+
+function applyAndWrap(text: string, map: Record<string, string>, left: string, right: string): string {
+  return wrap(apply(text, map), left, right);
+}
+
+function applyAndSeparate(text: string, map: Record<string, string>, sep: string): string {
+  return separateWords(apply(text, map), sep);
+}
+
 // ── Character Maps ─────────────────────────────────────────────────────────
 
 // Bold: U+1D400 / U+1D41A, digits U+1D7CE
@@ -207,6 +225,10 @@ const postsCard: FontCategory = {
     { name: "Sans-Serif Bold Italic", transform: (t) => apply(t, SS_BOLD_ITALIC) },
     { name: "Sans-Serif Italic", transform: (t) => apply(t, SS_ITALIC) },
     { name: "Double-Struck", transform: (t) => apply(t, { ...DOUBLE_STRUCK, ...DOUBLE_STRUCK_DIGITS }) },
+    { name: "✦ Bold Stars", transform: (t) => applyAndWrap(t, { ...SS_BOLD, ...SS_BOLD_DIGITS }, "✦", "✦") },
+    { name: "★ Bold Highlight", transform: (t) => applyAndSeparate(t, { ...BOLD, ...BOLD_DIGITS }, "★") },
+    { name: "➤ Arrow Bold", transform: (t) => `➤ ${apply(t, { ...SS_BOLD, ...SS_BOLD_DIGITS })}` },
+    { name: "◆ Diamond Italic", transform: (t) => applyAndWrap(t, BOLD_ITALIC, "◆", "◆") },
   ],
 };
 
@@ -222,6 +244,9 @@ const commentCard: FontCategory = {
     { name: "Strikethrough", transform: (t) => withCombining(t, "\u0336") },
     { name: "Underline", transform: (t) => withCombining(t, "\u0332") },
     { name: "Gothic", transform: (t) => apply(t, GOTHIC) },
+    { name: "✧ Sparkle Gothic", transform: (t) => applyAndWrap(t, GOTHIC, "✧", "✧") },
+    { name: "⚡ Bold Flash", transform: (t) => applyAndWrap(t, { ...SS_BOLD, ...SS_BOLD_DIGITS }, "⚡", "⚡") },
+    { name: "● Bullet Bold", transform: (t) => `● ${apply(t, { ...BOLD, ...BOLD_DIGITS })}` },
   ],
 };
 
@@ -236,6 +261,10 @@ const bioCard: FontCategory = {
     { name: "Italic", transform: (t) => apply(t, ITALIC) },
     { name: "Bold", transform: (t) => apply(t, { ...BOLD, ...BOLD_DIGITS }) },
     { name: "Monospace", transform: (t) => apply(t, { ...MONOSPACE, ...MONOSPACE_DIGITS }) },
+    { name: "꧁ Ornate Cursive ꧂", transform: (t) => applyAndWrap(t, CURSIVE_SCRIPT, "꧁", "꧂") },
+    { name: "❤ Heart Script", transform: (t) => applyAndWrap(t, BOLD_CURSIVE, "❤", "❤") },
+    { name: "✦ Star Small Caps", transform: (t) => applyAndWrap(t, SMALL_CAPS, "✦", "✦") },
+    { name: "༺ Elegant Bold ༻", transform: (t) => applyAndWrap(t, { ...BOLD, ...BOLD_DIGITS }, "༺", "༻") },
   ],
 };
 
@@ -250,6 +279,9 @@ const captionCard: FontCategory = {
     { name: "Fullwidth", transform: (t) => apply(t, FULLWIDTH) },
     { name: "Small Text", transform: (t) => apply(t, SUPERSCRIPT) },
     { name: "Sans-Serif Bold", transform: (t) => apply(t, { ...SS_BOLD, ...SS_BOLD_DIGITS }) },
+    { name: "✿ Floral Cursive", transform: (t) => applyAndWrap(t, CURSIVE_SCRIPT, "✿", "✿") },
+    { name: "⋆ Star Italic", transform: (t) => applyAndSeparate(t, ITALIC, "⋆") },
+    { name: "» Arrow Caption", transform: (t) => `» ${apply(t, { ...SS_BOLD, ...SS_BOLD_DIGITS })} «` },
   ],
 };
 
@@ -265,6 +297,12 @@ const creativeCard: FontCategory = {
     { name: "Mirror Text", transform: mirrorText },
     { name: "Monospace", transform: (t) => apply(t, { ...MONOSPACE, ...MONOSPACE_DIGITS }) },
     { name: "Wide Spaced Bold", transform: wideSpacedBold },
+    { name: "꧁ Royal Gothic ꧂", transform: (t) => applyAndWrap(t, BOLD_GOTHIC, "꧁", "꧂") },
+    { name: "✮ Star Outline", transform: (t) => applyAndSeparate(t, { ...DOUBLE_STRUCK, ...DOUBLE_STRUCK_DIGITS }, "✮") },
+    { name: "❮ Bracket Script ❯", transform: (t) => applyAndWrap(t, BOLD_CURSIVE, "❮", "❯") },
+    { name: "《 Asian Bold 》", transform: (t) => applyAndWrap(t, { ...SS_BOLD, ...SS_BOLD_DIGITS }, "《", "》") },
+    { name: "♥ Heart Gothic", transform: (t) => applyAndWrap(t, GOTHIC, "♥", "♥") },
+    { name: "⟨ Angle Mono ⟩", transform: (t) => applyAndWrap(t, { ...MONOSPACE, ...MONOSPACE_DIGITS }, "⟨", "⟩") },
   ],
 };
 
