@@ -671,6 +671,31 @@ export default function FacebookFontsPage() {
           </div>
         </section>
 
+        {/* Similar Text Generator */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
+            Similar Text Generator
+          </h2>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Aesthetic Fonts Generator", href: "/" },
+                { label: "Instagram Fonts Generator", href: "/instagram-fonts" },
+                { label: "Cursive Fonts Generator", href: "/cursive-fonts" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
