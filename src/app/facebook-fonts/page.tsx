@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
 
 export const metadata: Metadata = {
-  title: { absolute: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio" },
+  title: { absolute: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio" },
   description:
     "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   alternates: {
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "website",
     url: "https://www.aestheticletters.com/facebook-fonts",
-    title: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
     description:
       "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
     description:
       "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
   },
@@ -97,7 +97,7 @@ export default function FacebookFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/facebook-fonts#webpage",
         url: "https://www.aestheticletters.com/facebook-fonts",
-        name: "Facebook Fonts - Copy & Paste 50+ Styles for Posts and Bio",
+        name: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
         description:
           "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
         breadcrumb: {
@@ -174,7 +174,7 @@ export default function FacebookFontsPage() {
             Facebook Fonts — Copy &amp; Paste Unique Text Styles
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-            Facebook has no built-in font changer. This free Facebook Fonts Generator converts your text into 50+
+            Facebook has no built-in font changer. This free Facebook Fonts Generator converts your text into 40+
             Unicode font styles and provides 150+ symbols you can copy and paste into Facebook posts, bios, comments,
             and usernames, or use separately in your text and profiles.
           </p>
@@ -209,7 +209,7 @@ export default function FacebookFontsPage() {
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Enter any word, sentence, or caption. Every facebook font style updates instantly, no waiting,
-                  no page reload. Scroll through 50+ styles, spot the one that fits, and hit Copy. Then open facebook
+                  no page reload. Scroll through 40+ styles, spot the one that fits, and hit Copy. Then open facebook
                   and paste it anywhere, like in your post, bio, comment, group name, or Marketplace listing.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -222,7 +222,7 @@ export default function FacebookFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {[
                     "Type your word, sentence, or caption in the input box",
-                    "Browse through 50+ font styles and pick yours",
+                    "Browse through 40+ font styles and pick yours",
                     "Hit Copy; then paste directly into Facebook",
                   ].map((item, i) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
