@@ -273,7 +273,7 @@ export default function FacebookFontsPage() {
                   {[
                     { name: "Your Real Profile Name", desc: "Facebook enforces a real name policy. Symbols and Unicode characters in your actual name field will get flagged or rejected." },
                     { name: "Facebook Page Name", desc: "The same rule applies. Page names are reviewed against naming policies. Keep your page name plain." },
-                    { name: "Facebook Ad Headlines", desc: "Facebook's ad system scans copy for policy violations. Heavy use of Unicode in ad headlines often triggers rejection." },
+                    { name: "Facebook Ad Headlines", desc: "Facebook's ad system scans copy for policy violations. Heavy use of Unicode in ad headlines often triggers rejection. There is a separate section below specifically about fonts in ads." },
                     { name: "Marketplace Titles", desc: "Formatted characters in a listing title may not index properly in Facebook's internal search. Use plain text for the title, styled text for the description body." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
@@ -414,20 +414,20 @@ export default function FacebookFontsPage() {
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Same Unicode characters. Three completely different platforms. The results are not identical. Each
-                  platform handles styled text differently — knowing those differences saves you from pasting something
+                  platform handles styled text differently knowing those differences saves you from pasting something
                   that looks broken, gets flagged, or quietly kills your reach.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Facebook</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Unicode creative text works across almost every facebook surface — posts, bios, comments, Marketplace,
+                  Unicode creative text works across almost every facebook surface posts, bios, comments, Marketplace,
                   groups. The platform is the most flexible of the three for styled typography. Bold and semi-bold
                   styles perform best for posts. Script styles work well for bios and captions.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Instagram bio supports Unicode fonts fully — this is where modern fonts became popular first. However, Instagram
+                  Instagram bio supports Unicode fonts fully this is where modern fonts became popular first. However, Instagram
                   captions technically support Unicode but the algorithm behavior is different. Some creators report
                   that heavy Unicode use in captions slightly reduces reach. Bold and simple styles are safest. Avoid
                   Zalgo or heavily decorated styles in captions.
