@@ -571,14 +571,13 @@ export default function FacebookFontsPage() {
                   ))}
                 </ul>
 
-                <div className="p-4 bg-primary-container/10 rounded-xl">
-                  <p className="text-sm text-on-surface-variant leading-relaxed">
-                    <strong>The Smart Approach:</strong> Use unicode fb fonts in your organic facebook posts and page
-                    bio freely. For ads, use Unicode styling only for one or two words maximum — a bold product name
-                    or a key phrase — and keep everything else plain. Before you put real money behind any ad, run it
-                    on a minimal spend first to confirm it clears review cleanly.
-                  </p>
-                </div>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">The Smart Approach:</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Use unicode fb fonts in your organic facebook posts and page
+                  bio freely. For ads, use Unicode styling only for one or two words maximum, a bold product name,
+                  or a key phrase and keep everything else plain. Before you put real money behind any ad, run it
+                  on a minimal spend first to confirm it clears review cleanly.
+                </p>
               </article>
 
               {/* What Font Does Facebook Actually Use? */}
