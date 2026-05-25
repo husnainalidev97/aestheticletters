@@ -345,7 +345,7 @@ export default function FacebookFontsPage() {
                   A full paragraph in bubble text becomes hard to read fast.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  If you want something softer and more playful beyond bubble text, our <a href="https://www.aestheticletters.com/cute-fonts" className="text-primary underline">cute fonts</a> collection has rounded and decorative styles that work beautifully in personal posts, birthday messages, and lighthearted captions.
+                  If you want something softer and more playful beyond bubble text, our <Link href="/cute-fonts" className="text-primary underline">cute fonts</Link> collection has rounded and decorative styles that work beautifully in personal posts, birthday messages, and lighthearted captions.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   <strong>Works great for:</strong> Entertainment pages, humor accounts, casual personal use.
@@ -400,7 +400,7 @@ export default function FacebookFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Instagram bio supports Unicode fonts fully and this is where <a href="https://www.aestheticletters.com/instagram-fonts" className="text-primary underline">Instagram fonts</a> first went mainstream on social media. However, Instagram
+                  Instagram bio supports Unicode fonts fully and this is where <Link href="/instagram-fonts" className="text-primary underline">Instagram fonts</Link> first went mainstream on social media. However, Instagram
                   captions technically support Unicode but the algorithm behavior is different. Some creators report
                   that heavy Unicode use in captions slightly reduces reach. Bold and simple styles are safest. Avoid
                   Zalgo or heavily decorated styles in captions.
@@ -477,7 +477,7 @@ export default function FacebookFontsPage() {
                   ].map((s, idx) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> — {s.desc}{idx === 3 && <> If you want to explore the full range of styles that create that look, browse our <a href="https://www.aestheticletters.com/" className="text-primary underline">aesthetic fonts</a> collection.</>}</span>
+                      <span><strong>{s.name}</strong> — {s.desc}{idx === 3 && <> If you want to explore the full range of styles that create that look, browse our <Link href="/" className="text-primary underline">aesthetic fonts</Link> collection.</>}</span>
                     </li>
                   ))}
                 </ul>
