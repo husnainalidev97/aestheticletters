@@ -12,7 +12,8 @@ type ActivePage =
   | "fancy-fonts"
   | "stylish-fonts"
   | "cute-fonts"
-  | "halloween-fonts";
+  | "halloween-fonts"
+  | "facebook-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;

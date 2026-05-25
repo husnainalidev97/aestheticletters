@@ -53,6 +53,13 @@ const toolCategories: ToolCategory[] = [
         icon: "camera",
         href: "/instagram-fonts",
       },
+      {
+        title: "Facebook Fonts",
+        description:
+          "Unique fonts for Facebook bios, posts, and comments. Copy and paste instantly.",
+        icon: "facebook",
+        href: "/facebook-fonts",
+      },
     ],
   },
   {
@@ -105,6 +112,7 @@ const toolCategories: ToolCategory[] = [
       },
     ],
   },
+
 ];
 
 export default function AllToolsPage() {
