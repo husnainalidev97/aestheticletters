@@ -8,9 +8,9 @@ import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
 
 export const metadata: Metadata = {
-  title: { absolute: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio" },
+  title: { absolute: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols" },
   description:
-    "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
+    "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
   alternates: {
     canonical: "https://www.aestheticletters.com/facebook-fonts",
   },
@@ -18,15 +18,15 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "website",
     url: "https://www.aestheticletters.com/facebook-fonts",
-    title: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
-      "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
+      "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
+    title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
-      "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
+      "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
   },
 };
 
@@ -97,9 +97,9 @@ export default function FacebookFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/facebook-fonts#webpage",
         url: "https://www.aestheticletters.com/facebook-fonts",
-        name: "Facebook Fonts - Copy & Paste 40+ Styles for Posts and Bio",
+        name: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
         description:
-          "Use our Facebook fonts generator to create custom text for posts, bio, and comments. Pick a style, copy it, paste it into Facebook. Free and works on mobile.",
+          "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/facebook-fonts#breadcrumb",
         },
