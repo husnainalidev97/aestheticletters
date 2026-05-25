@@ -224,10 +224,10 @@ export default function FacebookFontsPage() {
                     "Type your word, sentence, or caption in the input box",
                     "Browse through 40+ font styles and pick yours",
                     "Hit Copy; then paste directly into Facebook",
-                  ].map((item, i) => (
+                  ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{i + 1}.</strong> {item}</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
