@@ -97,14 +97,13 @@ export default function FacebookFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/facebook-fonts#webpage",
         url: "https://www.aestheticletters.com/facebook-fonts",
-        name: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
+        name: "Facebook Fonts — Copy & Paste Unique Text Styles",
+        headline: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
         description:
           "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
+        inLanguage: "en-US",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/facebook-fonts#breadcrumb",
-        },
-        mainEntity: {
-          "@id": "https://www.aestheticletters.com/facebook-fonts#software",
         },
       },
       {
@@ -112,9 +111,9 @@ export default function FacebookFontsPage() {
         "@id": "https://www.aestheticletters.com/facebook-fonts#software",
         name: "Facebook Fonts Generator",
         url: "https://www.aestheticletters.com/facebook-fonts",
-        applicationCategory: "WebApplication",
+        applicationCategory: "UtilitiesApplication",
         operatingSystem: "All",
-        browserRequirements: "Requires JavaScript. Requires HTML5.",
+        browserRequirements: "Requires HTML5 support",
         offers: {
           "@type": "Offer",
           price: "0",
