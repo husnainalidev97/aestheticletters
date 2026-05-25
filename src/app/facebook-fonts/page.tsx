@@ -284,44 +284,6 @@ export default function FacebookFontsPage() {
                 </ul>
               </article>
 
-              {/* Why Your Facebook Posts Look Invisible */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Why Your Facebook Posts Look Invisible (And How Fonts Fix That)
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Facebook&apos;s News Feed shows every post in the same plain text. Same size. Same weight. Same typeface.
-                  Whether you spent five minutes writing something meaningful or five seconds typing nothing, it all
-                  looks identical.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  That is the problem. When everything looks the same, nothing gets read.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Unique facebook text font breaks that pattern. A bold opening line, a cursive caption under a photo,
-                  or a decorated header in a long post gives the eye somewhere to land. It signals: this one is
-                  different, this one is worth stopping for.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  This is why marketers, content creators, and even regular users have been using fb font generators
-                  for years. Not to look fancy; to get seen. The real benefits:
-                </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    "Posts get read — Bold styled headers in your first line increase the chance someone stops scrolling.",
-                    "Bios make impressions — A styled profile intro looks intentional and memorable.",
-                    "Listings get clicks — On the Marketplace, styled product descriptions look more professional than plain text.",
-                    "Comments stand out — In a thread of hundreds, a uniquely formatted comment draws attention.",
-                    "Branding becomes consistent — Using the same font style across your posts and captions creates a recognizable look without any design skills.",
-                  ].map((tip) => (
-                    <li key={tip} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      {tip}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-
               {/* Font Style Guide */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -652,31 +614,40 @@ export default function FacebookFontsPage() {
 
             {/* Sidebar */}
             <Sidebar
-              useCasesHeading="Facebook Font Style Quick Guide"
+              useCasesHeading="Why Your Facebook Posts Look Invisible (And How Fonts Fix That)"
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Match the right font style to the right Facebook surface for maximum impact.
+                    Facebook&apos;s News Feed shows every post in the same plain text. Same size. Same weight. Same typeface.
+                    Whether you spent five minutes writing something meaningful or five seconds typing nothing, it all
+                    looks identical.
+                  </p>
+                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
+                    That is the problem. When everything looks the same, nothing gets read.
+                  </p>
+                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
+                    Unique facebook text font breaks that pattern. A bold opening line, a cursive caption under a photo,
+                    or a decorated header in a long post gives the eye somewhere to land. It signals: this one is
+                    different, this one is worth stopping for.
+                  </p>
+                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
+                    This is why marketers, content creators, and even regular users have been using fb font generators
+                    for years. Not to look fancy; to get seen. The real benefits:
                   </p>
                   <div className="space-y-3">
                     {[
-                      { name: "Bold", desc: "Posts, announcements, CTAs, Marketplace descriptions" },
-                      { name: "Cursive & Script", desc: "Bios, personal profiles, photo captions" },
-                      { name: "Bubble & Square", desc: "Fun posts, birthday wishes, humor content" },
-                      { name: "Gothic & Fraktur", desc: "Music pages, art accounts, creative branding" },
-                      { name: "Small Caps", desc: "Professional bios, business descriptions, clean aesthetics" },
-                      { name: "Monospace", desc: "Tech-related content, developer pages, code aesthetics" },
-                    ].map((font) => (
-                      <div key={font.name} className="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                        <p className="font-headline font-bold text-sm mb-0.5">{font.name}</p>
-                        <p className="text-xs text-on-surface-variant leading-relaxed">{font.desc}</p>
-                      </div>
+                      "Posts get read — Bold styled headers in your first line increase the chance someone stops scrolling.",
+                      "Bios make impressions — A styled profile intro looks intentional and memorable.",
+                      "Listings get clicks — On the Marketplace, styled product descriptions look more professional than plain text.",
+                      "Comments stand out — In a thread of hundreds, a uniquely formatted comment draws attention.",
+                      "Branding becomes consistent — Using the same font style across your posts and captions creates a recognizable look without any design skills.",
+                    ].map((tip) => (
+                      <p key={tip} className="flex items-start gap-2 text-xs text-on-surface-variant leading-relaxed">
+                        <span className="material-symbols-outlined text-primary text-xs mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        {tip}
+                      </p>
                     ))}
                   </div>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    All styles are free to use. Copy and paste directly into any Facebook text field — no app or
-                    extension needed.
-                  </p>
                 </>
               }
               showBanner={false}
