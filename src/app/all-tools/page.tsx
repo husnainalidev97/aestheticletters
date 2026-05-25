@@ -56,7 +56,7 @@ const toolCategories: ToolCategory[] = [
       {
         title: "Facebook Fonts",
         description:
-          "Stylish fonts for Facebook bios, posts, and comments. Copy and paste instantly.",
+          "Unique fonts for Facebook bios, posts, and comments. Copy and paste instantly.",
         icon: "facebook",
         href: "/facebook-fonts",
       },
