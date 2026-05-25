@@ -344,6 +344,9 @@ export default function FacebookFontsPage() {
                   These characters are loud by design. Use them sparingly in one or two words, not full paragraphs.
                   A full paragraph in bubble text becomes hard to read fast.
                 </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  If you want something softer and more playful beyond bubble text, our <a href="https://www.aestheticletters.com/cute-fonts" className="text-primary underline">cute fonts</a> collection has rounded and decorative styles that work beautifully in personal posts, birthday messages, and lighthearted captions.
+                </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   <strong>Works great for:</strong> Entertainment pages, humor accounts, casual personal use.
                 </p>
@@ -397,7 +400,7 @@ export default function FacebookFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Instagram bio supports Unicode fonts fully this is where modern fonts became popular first. However, Instagram
+                  Instagram bio supports Unicode fonts fully and this is where <a href="https://www.aestheticletters.com/instagram-fonts" className="text-primary underline">Instagram fonts</a> first went mainstream on social media. However, Instagram
                   captions technically support Unicode but the algorithm behavior is different. Some creators report
                   that heavy Unicode use in captions slightly reduces reach. Bold and simple styles are safest. Avoid
                   Zalgo or heavily decorated styles in captions.
@@ -470,11 +473,11 @@ export default function FacebookFontsPage() {
                     { name: "E-commerce & Marketplace Sellers", desc: "Product listings that use heavy text for the product name and structured descriptions with styled subheadings get more saves and messages. When 50 people are selling the same item, presentation is the only differentiator." },
                     { name: "Content Creators & Influencers", desc: "Consistent use of a specific fb font style across all your posts and captions creates brand recognition without a logo or color palette. Your audience starts associating that typography with your voice." },
                     { name: "Group Admins & Community Managers", desc: "Pinned announcements, group rules, and event posts written with bold styled headings are significantly easier to scan. Members read them. Plain text rule posts get ignored." },
-                    { name: "Coaches, Consultants & Personal Brands", desc: "A well-styled facebook bio using clean small caps or refined script font signals intentionality. It looks like a personal brand, not a personal account." },
-                  ].map((s) => (
+                    { name: "Coaches, Consultants & Personal Brands", desc: "A well-styled Facebook bio using clean small caps or refined script font signals intentionality. It looks like a personal brand, not a personal account." },
+                  ].map((s, idx) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{s.name}</strong> — {s.desc}</span>
+                      <span><strong>{s.name}</strong> — {s.desc}{idx === 3 && <> If you want to explore the full range of styles that create that look, browse our <a href="https://www.aestheticletters.com/" className="text-primary underline">aesthetic fonts</a> collection.</>}</span>
                     </li>
                   ))}
                 </ul>
