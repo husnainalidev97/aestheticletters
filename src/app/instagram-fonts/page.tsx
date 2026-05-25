@@ -546,7 +546,7 @@ export default function InstagramFontsPage() {
                   ))}
                   <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
                     Additionally, these letters can also be used on Facebook.
-                    You can test them easily using our facebook fonts.
+                    You can test them easily using our <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
                   </p>
                 </div>
               }
