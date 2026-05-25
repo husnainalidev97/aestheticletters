@@ -600,8 +600,8 @@ export default function FacebookFontsPage() {
                   it looks clean in Arabic, Hindi, Chinese, and Latin scripts equally.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  On your specific device, facebook may also fall back to your system font — San Francisco on Apple
-                  devices, Roboto on Android, Segoe UI on Windows — which is why Facebook can look slightly different
+                  On your specific device, facebook may also fall back to your system font, San Francisco on Apple
+                  devices, Roboto on Android, Segoe UI on Windows which is why Facebook can look slightly different
                   depending on what you&apos;re reading it on.
                 </p>
 
