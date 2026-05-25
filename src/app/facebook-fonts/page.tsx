@@ -21,12 +21,21 @@ export const metadata: Metadata = {
     title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
       "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
+    images: [
+      {
+        url: "https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp",
+        width: 800,
+        height: 1200,
+        alt: "facebook fonts generator with unique fonts for posts comments and bios",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
       "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
+    images: ["https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp"],
   },
 };
 
