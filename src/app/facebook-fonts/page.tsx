@@ -474,7 +474,7 @@ export default function FacebookFontsPage() {
                   fewest restrictions on organic content, and the largest audience for businesses and personal brands.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  If you manage both Facebook and Instagram, your bio styling works identically on both — one style,
+                  If you manage both Facebook and Instagram, your bio styling works identically on both, one style,
                   two platforms covered. For posts, stick to bold and semi-bold Unicode styles that perform safely on
                   both without any algorithm risk.
                 </p>
