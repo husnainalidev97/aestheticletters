@@ -64,7 +64,7 @@ const faqs = [
   {
     question: "Can I use these fonts in Facebook Ads?",
     answer:
-      "With caution. Subtle bold Unicode styles can work, but heavy decorative styles will likely get your ad rejected. Use Unicode styling only for one or two words maximum in ads — a bold product name or a key phrase — and keep everything else plain. Before you put real money behind any ad, run it on a minimal spend first to confirm it clears review cleanly.",
+      "With caution. See the dedicated section above on Facebook Fonts That Work in Ads for the full breakdown. Short answer: subtle bold Unicode styles can work, heavy decorative styles will likely get your ad rejected.",
   },
 ];
 
