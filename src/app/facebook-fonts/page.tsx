@@ -532,11 +532,8 @@ export default function FacebookFontsPage() {
                   An ad that opens with a fully formatted bold Unicode headline has a higher chance of being flagged,
                   rejected, or getting reduced delivery even if the content itself is perfectly fine.
                 </p>
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
-                  However — not all styled text gets rejected
-                </h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  There is a difference between heavy decorative Unicode
+                  <strong>However — not all styled text gets rejected.</strong> There is a difference between heavy decorative Unicode
                   (Fraktur, Zalgo, Bubble text) and subtle Unicode (mathematical bold, sans-serif bold). The subtle
                   styles often pass review because they look close to standard text. The highly decorative ones almost
                   always cause problems.
