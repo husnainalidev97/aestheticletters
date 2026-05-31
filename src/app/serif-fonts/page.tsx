@@ -6,6 +6,7 @@ import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
 import SerifFontsClient from "./SerifFontsClientLazy";
+import SerifShowcaseGrid from "./SerifShowcaseGrid";
 
 export const metadata: Metadata = {
   title: { absolute: "Serif Fonts Generator - Copy and Paste Serif Text Styles" },
@@ -88,6 +89,51 @@ const faqs = [
     answer:
       "Traditional serif fonts work directly in Google Docs and Microsoft Word. Unicode serif text can also be pasted into many documents, although appearance may vary depending on font support.",
   },
+];
+
+const showcaseCards = [
+  // 1. Transitional
+  { name: "Lora", pill: "Transitional", fontFamily: "Lora", description: "Balanced serif with calligraphic roots. Strong readability for editorial content.", tags: ["Blogs", "Articles"] },
+  { name: "Libre Baskerville", pill: "Transitional", fontFamily: "Libre Baskerville", description: "Optimized for body text on screen. Classic transitional proportions.", tags: ["Body Text", "Web"] },
+  { name: "Merriweather", pill: "Transitional", fontFamily: "Merriweather", description: "Designed for screens with large x-height and sturdy serifs.", tags: ["Readability", "Web"] },
+  { name: "Source Serif 4", pill: "Transitional", fontFamily: "Source Serif 4", description: "Adobe's open-source serif. Clean and highly legible.", tags: ["Documents", "Editorial"] },
+  { name: "Crimson Pro", pill: "Transitional", fontFamily: "Crimson Pro", description: "Book-inspired serif with refined proportions.", tags: ["Publishing", "Print"] },
+  // 2. Old Style
+  { name: "EB Garamond", pill: "Old Style", fontFamily: "EB Garamond", description: "Revival of Claude Garamont's classic renaissance typeface.", tags: ["Classic", "Books"] },
+  { name: "Cormorant Garamond", pill: "Old Style", fontFamily: "Cormorant Garamond", description: "Display serif with elegant Garamond influence.", tags: ["Headlines", "Luxury"] },
+  { name: "Cardo", pill: "Old Style", fontFamily: "Cardo", description: "Scholarly serif designed for academic and multilingual text.", tags: ["Academic", "Research"] },
+  { name: "Fraunces", pill: "Old Style", fontFamily: "Fraunces", description: "Soft, expressive old-style serif with variable axes.", tags: ["Branding", "Creative"] },
+  { name: "Spectral", pill: "Old Style", fontFamily: "Spectral", description: "Google's first serif designed for productive reading on screens.", tags: ["Long-Form", "Screens"] },
+  // 3. Slab
+  { name: "Roboto Slab", pill: "Slab", fontFamily: "Roboto Slab", description: "Slab version of Roboto. Bold and geometric.", tags: ["Headlines", "UI"] },
+  { name: "Bitter", pill: "Slab", fontFamily: "Bitter", description: "Designed for comfortable reading on screens. Strong slab serifs.", tags: ["Web", "Reading"] },
+  { name: "Zilla Slab", pill: "Slab", fontFamily: "Zilla Slab", description: "Mozilla's slab serif. Bold, modern, and confident.", tags: ["Branding", "Tech"] },
+  { name: "Crete Round", pill: "Slab", fontFamily: "Crete Round", description: "Warm slab serif with slightly rounded edges.", tags: ["Friendly", "Web"] },
+  { name: "Josefin Slab", pill: "Slab", fontFamily: "Josefin Slab", description: "Geometric slab with vintage character.", tags: ["Retro", "Display"] },
+  // 4. Modern
+  { name: "Old Standard TT", pill: "Modern", fontFamily: "Old Standard TT", description: "Revives 19th-century Modern style with high contrast.", tags: ["Formal", "Print"] },
+  { name: "GFS Didot", pill: "Modern", fontFamily: "GFS Didot", description: "Greek Font Society's Didot. Dramatic hairline contrast.", tags: ["Luxury", "Fashion"] },
+  { name: "Oranienbaum", pill: "Modern", fontFamily: "Oranienbaum", description: "Modern serif with sharp, refined details.", tags: ["Editorial", "Elegant"] },
+  { name: "Italiana", pill: "Modern", fontFamily: "Italiana", description: "Inspired by Italian calligraphy with modern lines.", tags: ["Fashion", "Display"] },
+  // 5. Humanist
+  { name: "Faustina", pill: "Humanist", fontFamily: "Faustina", description: "Warm and readable with calligraphic undertones.", tags: ["Newspapers", "Web"] },
+  { name: "Noto Serif", pill: "Humanist", fontFamily: "Noto Serif", description: "Google's universal serif. Supports 800+ languages.", tags: ["Multilingual", "Universal"] },
+  { name: "Gentium Plus", pill: "Humanist", fontFamily: "Gentium Plus", description: "Gentle, flowing strokes for extended reading.", tags: ["Books", "Academic"] },
+  { name: "Tinos", pill: "Humanist", fontFamily: "Tinos", description: "Metrically compatible with Times New Roman.", tags: ["Documents", "Compatibility"] },
+  // 6. Scotch
+  { name: "Bodoni Moda", pill: "Scotch", fontFamily: "Bodoni Moda", description: "Modern Bodoni with high contrast. Fashion-forward.", tags: ["Fashion", "Luxury"] },
+  { name: "DM Serif Display", pill: "Scotch", fontFamily: "DM Serif Display", description: "Display serif with sharp, transitional details.", tags: ["Headlines", "Display"] },
+  { name: "DM Serif Text", pill: "Scotch", fontFamily: "DM Serif Text", description: "Text companion to DM Serif Display for body copy.", tags: ["Body Text", "Print"] },
+  // 7. Didone
+  { name: "Playfair Display", pill: "Didone", fontFamily: "Playfair Display", description: "High-contrast display serif. Popular in luxury branding.", tags: ["Luxury", "Fashion"] },
+  { name: "Cormorant", pill: "Didone", fontFamily: "Cormorant", description: "Large family with Garamond-inspired elegance.", tags: ["Editorial", "Creative"] },
+  { name: "Gloock", pill: "Didone", fontFamily: "Gloock", description: "Display serif with extreme contrast and character.", tags: ["Headlines", "Branding"] },
+  { name: "Yeseva One", pill: "Didone", fontFamily: "Yeseva One", description: "Decorative serif with feminine personality.", tags: ["Creative", "Display"] },
+  // 8. Fatface
+  { name: "Abril Fatface", pill: "Fatface", fontFamily: "Abril Fatface", description: "Ultra-bold with dramatic contrast. Maximum visual impact.", tags: ["Headlines", "Posters"] },
+  { name: "Rozha One", pill: "Fatface", fontFamily: "Rozha One", description: "Heavy serif for impactful headlines.", tags: ["Display", "Bold"] },
+  { name: "Righteous", pill: "Fatface", fontFamily: "Righteous", description: "Bold, rounded display with retro character.", tags: ["Retro", "Fun"] },
+  { name: "Ultra", pill: "Fatface", fontFamily: "Ultra", description: "Maximum weight serif for attention-grabbing text.", tags: ["Headlines", "Impact"] },
 ];
 
 const serifVsSansSerif = [
@@ -600,6 +646,14 @@ export default function SerifFontsPage() {
               showBanner={false}
             />
           </div>
+        </section>
+
+        {/* Font Showcase Grid */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+          <h2 className="font-headline text-4xl font-bold mb-12 leading-tight text-center">
+            34 Serif Font Types — Browse All 8 Categories
+          </h2>
+          <SerifShowcaseGrid cards={showcaseCards} />
         </section>
 
         {/* Explore More Fonts */}

@@ -23,7 +23,12 @@ const INITIAL_COUNT = 4;
 const DARK_CATEGORIES = new Set<string>([]);
 
 const SERIF_EMOJIS: Record<string, string> = {
-  "Classic Serif": "📜",
+  "Classic Serif Styles": "📜",
+  "Script & Calligraphy": "✍️",
+  "Mathematical & Decorative": "🔢",
+  "Small Caps & Width": "🔤",
+  "Combining Effects": "✨",
+  "Enclosed Styles": "🔵",
 };
 
 const serifCategoryLinks = (serifFontCategories as unknown as { name: string }[]).map((cat) => ({

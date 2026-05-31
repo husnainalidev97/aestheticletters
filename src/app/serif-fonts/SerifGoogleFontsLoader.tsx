@@ -2,9 +2,11 @@
 
 import { useEffect } from "react";
 
-/** Google Fonts URLs will be added once font categories are defined. */
-const CRITICAL_FONTS_URL = "";
-const DEFERRED_FONTS_URL = "";
+const CRITICAL_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Lora&family=Libre+Baskerville&family=Merriweather&family=Source+Serif+4&family=Crimson+Pro&family=EB+Garamond&family=Cormorant+Garamond&family=Cardo&family=Fraunces&family=Spectral&family=Roboto+Slab&family=Bitter&family=Zilla+Slab&family=Crete+Round&family=Josefin+Slab&family=Old+Standard+TT&family=Playfair+Display&family=Abril+Fatface&display=swap";
+
+const DEFERRED_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=GFS+Didot&family=Oranienbaum&family=Italiana&family=Faustina&family=Noto+Serif&family=Gentium+Plus&family=Tinos&family=Bodoni+Moda&family=DM+Serif+Display&family=DM+Serif+Text&family=Cormorant&family=Gloock&family=Yeseva+One&family=Rozha+One&family=Righteous&family=Ultra&display=swap";
 
 function injectLink(href: string, tag: string): HTMLLinkElement {
   const link = document.createElement("link");
