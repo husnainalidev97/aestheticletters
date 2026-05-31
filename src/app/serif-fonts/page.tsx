@@ -6,7 +6,6 @@ import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
 import SerifFontsClient from "./SerifFontsClientLazy";
-import SerifShowcaseGrid from "./SerifShowcaseGrid";
 
 export const metadata: Metadata = {
   title: { absolute: "Serif Fonts Generator - Copy and Paste Serif Text Styles" },
@@ -89,51 +88,6 @@ const faqs = [
     answer:
       "Traditional serif fonts work directly in Google Docs and Microsoft Word. Unicode serif text can also be pasted into many documents, although appearance may vary depending on font support.",
   },
-];
-
-const showcaseCards = [
-  // 1. Transitional
-  { name: "Lora", pill: "Transitional", fontFamily: "Lora", description: "Balanced serif with calligraphic roots. Strong readability for editorial content.", tags: ["Blogs", "Articles"] },
-  { name: "Libre Baskerville", pill: "Transitional", fontFamily: "Libre Baskerville", description: "Optimized for body text on screen. Classic transitional proportions.", tags: ["Body Text", "Web"] },
-  { name: "Merriweather", pill: "Transitional", fontFamily: "Merriweather", description: "Designed for screens with large x-height and sturdy serifs.", tags: ["Readability", "Web"] },
-  { name: "Source Serif 4", pill: "Transitional", fontFamily: "Source Serif 4", description: "Adobe's open-source serif. Clean and highly legible.", tags: ["Documents", "Editorial"] },
-  { name: "Crimson Pro", pill: "Transitional", fontFamily: "Crimson Pro", description: "Book-inspired serif with refined proportions.", tags: ["Publishing", "Print"] },
-  // 2. Old Style
-  { name: "EB Garamond", pill: "Old Style", fontFamily: "EB Garamond", description: "Revival of Claude Garamont's classic renaissance typeface.", tags: ["Classic", "Books"] },
-  { name: "Cormorant Garamond", pill: "Old Style", fontFamily: "Cormorant Garamond", description: "Display serif with elegant Garamond influence.", tags: ["Headlines", "Luxury"] },
-  { name: "Cardo", pill: "Old Style", fontFamily: "Cardo", description: "Scholarly serif designed for academic and multilingual text.", tags: ["Academic", "Research"] },
-  { name: "Fraunces", pill: "Old Style", fontFamily: "Fraunces", description: "Soft, expressive old-style serif with variable axes.", tags: ["Branding", "Creative"] },
-  { name: "Spectral", pill: "Old Style", fontFamily: "Spectral", description: "Google's first serif designed for productive reading on screens.", tags: ["Long-Form", "Screens"] },
-  // 3. Slab
-  { name: "Roboto Slab", pill: "Slab", fontFamily: "Roboto Slab", description: "Slab version of Roboto. Bold and geometric.", tags: ["Headlines", "UI"] },
-  { name: "Bitter", pill: "Slab", fontFamily: "Bitter", description: "Designed for comfortable reading on screens. Strong slab serifs.", tags: ["Web", "Reading"] },
-  { name: "Zilla Slab", pill: "Slab", fontFamily: "Zilla Slab", description: "Mozilla's slab serif. Bold, modern, and confident.", tags: ["Branding", "Tech"] },
-  { name: "Crete Round", pill: "Slab", fontFamily: "Crete Round", description: "Warm slab serif with slightly rounded edges.", tags: ["Friendly", "Web"] },
-  { name: "Josefin Slab", pill: "Slab", fontFamily: "Josefin Slab", description: "Geometric slab with vintage character.", tags: ["Retro", "Display"] },
-  // 4. Modern
-  { name: "Old Standard TT", pill: "Modern", fontFamily: "Old Standard TT", description: "Revives 19th-century Modern style with high contrast.", tags: ["Formal", "Print"] },
-  { name: "GFS Didot", pill: "Modern", fontFamily: "GFS Didot", description: "Greek Font Society's Didot. Dramatic hairline contrast.", tags: ["Luxury", "Fashion"] },
-  { name: "Oranienbaum", pill: "Modern", fontFamily: "Oranienbaum", description: "Modern serif with sharp, refined details.", tags: ["Editorial", "Elegant"] },
-  { name: "Italiana", pill: "Modern", fontFamily: "Italiana", description: "Inspired by Italian calligraphy with modern lines.", tags: ["Fashion", "Display"] },
-  // 5. Humanist
-  { name: "Faustina", pill: "Humanist", fontFamily: "Faustina", description: "Warm and readable with calligraphic undertones.", tags: ["Newspapers", "Web"] },
-  { name: "Noto Serif", pill: "Humanist", fontFamily: "Noto Serif", description: "Google's universal serif. Supports 800+ languages.", tags: ["Multilingual", "Universal"] },
-  { name: "Gentium Plus", pill: "Humanist", fontFamily: "Gentium Plus", description: "Gentle, flowing strokes for extended reading.", tags: ["Books", "Academic"] },
-  { name: "Tinos", pill: "Humanist", fontFamily: "Tinos", description: "Metrically compatible with Times New Roman.", tags: ["Documents", "Compatibility"] },
-  // 6. Scotch
-  { name: "Bodoni Moda", pill: "Scotch", fontFamily: "Bodoni Moda", description: "Modern Bodoni with high contrast. Fashion-forward.", tags: ["Fashion", "Luxury"] },
-  { name: "DM Serif Display", pill: "Scotch", fontFamily: "DM Serif Display", description: "Display serif with sharp, transitional details.", tags: ["Headlines", "Display"] },
-  { name: "DM Serif Text", pill: "Scotch", fontFamily: "DM Serif Text", description: "Text companion to DM Serif Display for body copy.", tags: ["Body Text", "Print"] },
-  // 7. Didone
-  { name: "Playfair Display", pill: "Didone", fontFamily: "Playfair Display", description: "High-contrast display serif. Popular in luxury branding.", tags: ["Luxury", "Fashion"] },
-  { name: "Cormorant", pill: "Didone", fontFamily: "Cormorant", description: "Large family with Garamond-inspired elegance.", tags: ["Editorial", "Creative"] },
-  { name: "Gloock", pill: "Didone", fontFamily: "Gloock", description: "Display serif with extreme contrast and character.", tags: ["Headlines", "Branding"] },
-  { name: "Yeseva One", pill: "Didone", fontFamily: "Yeseva One", description: "Decorative serif with feminine personality.", tags: ["Creative", "Display"] },
-  // 8. Fatface
-  { name: "Abril Fatface", pill: "Fatface", fontFamily: "Abril Fatface", description: "Ultra-bold with dramatic contrast. Maximum visual impact.", tags: ["Headlines", "Posters"] },
-  { name: "Rozha One", pill: "Fatface", fontFamily: "Rozha One", description: "Heavy serif for impactful headlines.", tags: ["Display", "Bold"] },
-  { name: "Righteous", pill: "Fatface", fontFamily: "Righteous", description: "Bold, rounded display with retro character.", tags: ["Retro", "Fun"] },
-  { name: "Ultra", pill: "Fatface", fontFamily: "Ultra", description: "Maximum weight serif for attention-grabbing text.", tags: ["Headlines", "Impact"] },
 ];
 
 const serifVsSansSerif = [
@@ -532,31 +486,6 @@ export default function SerifFontsPage() {
                 </p>
               </article>
 
-              {/* Where to Use Serif Typefaces Online? */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Where to Use Serif Typefaces Online?
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Serif type fonts work well in many online environments.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    { name: "Social Media Bios", desc: <>Many users add serif text to make their profiles more unique. For a full collection of styles made specifically for Instagram, visit our <Link href="/instagram-fonts" className="text-primary underline">instagram fonts generator</Link>.</> },
-                    { name: "Usernames", desc: "A serif username can appear more stylish and memorable." },
-                    { name: "Discord Profiles", desc: <>Creative typography helps profiles stand out in communities. See all compatible styles on our <Link href="/" className="text-primary underline">discord fonts generator</Link> page.</> },
-                    { name: "Content Creators", desc: "Creators often use decorative text for branding purposes." },
-                    { name: "Digital Portfolios", desc: "Serif styles can contribute to a professional presentation." },
-                    { name: "Personal Branding", desc: "Elegant serif fonts can help create a polished online identity." },
-                  ].map((item) => (
-                    <li key={item.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span><strong>{item.name}</strong> — {item.desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-
               {/* Serif vs Sans-Serif Table */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -605,83 +534,7 @@ export default function SerifFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar
-              useCasesHeading="Where to Use Serif Fonts?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Serif fonts are versatile and work well across many contexts:
-                  </p>
-                  <div className="space-y-3">
-                    {[
-                      "Social media bios and usernames — make your profile look refined and unique.",
-                      "Blog headers and article titles — add authority and elegance.",
-                      "Business branding — communicate trust and professionalism.",
-                      "Creative projects — posters, invitations, and digital art.",
-                      "Gaming usernames — stand out with decorative serif styles.",
-                    ].map((tip) => (
-                      <p key={tip} className="flex items-start gap-2 text-xs text-on-surface-variant leading-relaxed">
-                        <span className="material-symbols-outlined text-primary text-xs mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                        {tip}
-                      </p>
-                    ))}
-                  </div>
-                </>
-              }
-              tipsHeading="Tips for Using Serif Fonts Effectively"
-              tipsContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Get the most out of serif typography with these practical tips:
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li><strong>1. Match the Context:</strong> Use classic serifs for professional content and decorative serifs for creative projects.</li>
-                    <li><strong>2. Avoid Overuse:</strong> Too many decorative styles in one text block reduce readability.</li>
-                    <li><strong>3. Test Across Devices:</strong> Some unicode characters render differently on different operating systems.</li>
-                    <li><strong>4. Keep It Readable:</strong> Choose styles that are easy to read, especially for longer text.</li>
-                    <li><strong>5. Pair Wisely:</strong> Serif fonts pair well with sans-serif fonts for contrast in design projects.</li>
-                  </ol>
-                </>
-              }
-              showBanner={false}
-            />
-          </div>
-        </section>
-
-        {/* Font Showcase Grid */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
-          <h2 className="font-headline text-4xl font-bold mb-12 leading-tight text-center">
-            34 Serif Font Types — Browse All 8 Categories
-          </h2>
-          <SerifShowcaseGrid cards={showcaseCards} />
-        </section>
-
-        {/* Explore More Fonts */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Similar Text Generator
-          </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Aesthetic Fonts Generator", href: "/" },
-                { label: "Fancy Fonts Generator", href: "/fancy-fonts" },
-                { label: "Instagram Fonts Generator", href: "/instagram-fonts" },
-                { label: "Cursive Fonts Generator", href: "/cursive-fonts" },
-                { label: "Stylish Fonts Generator", href: "/stylish-fonts" },
-                { label: "Cute Fonts Generator", href: "/cute-fonts" },
-                { label: "Facebook Fonts Generator", href: "/facebook-fonts" },
-              ].map((tool) => (
-                <li key={tool.href}>
-                  <Link
-                    href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                  >
-                    {tool.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+<Sidebar showBanner={false} />
           </div>
         </section>
 
