@@ -504,7 +504,6 @@ export default function SerifFontsPage() {
             {/* Sidebar */}
 <Sidebar
               showBanner={false}
-              showTips={false}
               useCasesHeading="How to Use a Serif Font Generator?"
               useCasesContent={
                 <>
@@ -530,6 +529,40 @@ export default function SerifFontsPage() {
                       </ul>
                     </li>
                   </ol>
+                </>
+              }
+              tipsHeading="Where to Use Serif Typefaces Online?"
+              tipsContent={
+                <>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Serif type fonts work well in many online environments.
+                  </p>
+                  <div className="space-y-4 text-sm leading-relaxed">
+                    <div>
+                      <p className="font-bold text-on-surface">Social Media Bios</p>
+                      <p className="text-on-surface-variant">Many users add serif text to make their profiles more unique. For a full collection of styles made specifically for Instagram, visit our <Link href="/instagram-fonts" className="text-primary underline">instagram fonts generator</Link>.</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-surface">Usernames</p>
+                      <p className="text-on-surface-variant">A serif username can appear more stylish and memorable.</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-surface">Discord Profiles</p>
+                      <p className="text-on-surface-variant">Creative typography helps profiles stand out in communities. See all compatible styles on our <Link href="/" className="text-primary underline">discord fonts generator</Link> page.</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-surface">Content Creators</p>
+                      <p className="text-on-surface-variant">Creators often use decorative text for branding purposes.</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-surface">Digital Portfolios</p>
+                      <p className="text-on-surface-variant">Serif styles can contribute to a professional presentation.</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-surface">Personal Branding</p>
+                      <p className="text-on-surface-variant">Elegant serif fonts can help create a polished online identity.</p>
+                    </div>
+                  </div>
                 </>
               }
             />
