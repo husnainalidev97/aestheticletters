@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import FAQAccordion from "../components/FAQAccordion";
+import Breadcrumb from "../components/Breadcrumb";
 import CursiveGoogleFontsLoader from "./CursiveGoogleFontsLoader";
 import CursiveFontGenerator from "./CursiveFontGeneratorLazy";
 import Footer from "../components/Footer";
@@ -299,6 +300,13 @@ export default function CursiveFontsPage() {
       <CursiveGoogleFontsLoader />
       <TopNavBar activePage="cursive-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "All Tools", href: "/all-tools" },
+            { label: "Cursive Fonts", href: "/cursive-fonts" },
+          ]}
+        />
         {/* Server-rendered hero for fast LCP — no JS needed for initial paint */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-0 text-center">
           <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">
