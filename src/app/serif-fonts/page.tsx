@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/serif-fonts-og.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
-    images: ["/og-image.jpg"],
+    images: ["/serif-fonts-og.jpg"],
   },
 };
 
@@ -111,6 +111,7 @@ export default function SerifFontsPage() {
         name: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
         description: "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
         headline: "Serif Fonts Generator \u2014 Copy & Paste Serif Text",
+        inLanguage: "en",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/serif-fonts#breadcrumb",
         },
