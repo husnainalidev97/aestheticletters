@@ -4,6 +4,7 @@ import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import FAQAccordion from "../components/FAQAccordion";
+import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
 
@@ -176,6 +177,13 @@ export default function FacebookFontsPage() {
       />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "All Tools", href: "/all-tools" },
+            { label: "Facebook Fonts", href: "/facebook-fonts" },
+          ]}
+        />
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
           <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">

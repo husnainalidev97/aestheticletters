@@ -8,6 +8,7 @@ import BackToTopButton from "../components/BackToTopButton";
 import Sidebar from "../components/Sidebar";
 import CopyButton from "../components/CopyButton";
 import FAQAccordion from "../components/FAQAccordion";
+import Breadcrumb from "../components/Breadcrumb";
 import TrendingFonts from "../components/TrendingFonts";
 
 export const metadata: Metadata = {
@@ -153,6 +154,13 @@ export default function InstagramFontsPage() {
       />
       <TopNavBar activePage="instagram-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "All Tools", href: "/all-tools" },
+            { label: "Instagram Fonts", href: "/instagram-fonts" },
+          ]}
+        />
         <HeroSection
           title="Instagram Fonts"
           description="Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles."
