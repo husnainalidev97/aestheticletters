@@ -23,12 +23,14 @@ const INITIAL_COUNT = 4;
 const DARK_CATEGORIES = new Set<string>([]);
 
 const SERIF_EMOJIS: Record<string, string> = {
-  "Classic Serif Styles": "📜",
-  "Script & Calligraphy": "✍️",
-  "Mathematical & Decorative": "🔢",
-  "Small Caps & Width": "🔤",
-  "Combining Effects": "✨",
-  "Enclosed Styles": "🔵",
+  "Transitional": "📖",
+  "Old Style": "📜",
+  "Slab": "🧱",
+  "Modern": "✨",
+  "Humanist": "✍️",
+  "Scotch": "🏛️",
+  "Didone": "💎",
+  "Fatface": "💪",
 };
 
 const serifCategoryLinks = (serifFontCategories as unknown as { name: string }[]).map((cat) => ({
