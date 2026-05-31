@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
-import { serifFontCategories } from "../lib/serifFontStyles";
+import { serifUnicodeCategories, serifFontCategories } from "../lib/serifFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
@@ -16,13 +16,26 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 const DEFAULT_TEXT = "Serif Fonts";
 
-/** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+/** Show all Unicode categories on first paint (only 7). */
+const UNICODE_INITIAL_COUNT = 7;
+
+/** Priority 1 — Google Font cards rendered on first paint. */
+const GOOGLE_INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set<string>([]);
 
-const SERIF_EMOJIS: Record<string, string> = {
+const UNICODE_EMOJIS: Record<string, string> = {
+  "Classic Serif": "📜",
+  "Script & Calligraphy": "✍️",
+  "Gothic & Blackletter": "🖤",
+  "Mathematical & Double Struck": "🔢",
+  "Small Caps & Width": "🔤",
+  "Underline & Strikethrough": "✨",
+  "Enclosed & Shaped": "🔵",
+};
+
+const GOOGLE_EMOJIS: Record<string, string> = {
   "Transitional": "📖",
   "Old Style": "📜",
   "Slab": "🧱",
@@ -33,16 +46,19 @@ const SERIF_EMOJIS: Record<string, string> = {
   "Fatface": "💪",
 };
 
-const serifCategoryLinks = (serifFontCategories as unknown as { name: string }[]).map((cat) => ({
+const allCategories = [...serifUnicodeCategories, ...serifFontCategories];
+const allEmojis = { ...UNICODE_EMOJIS, ...GOOGLE_EMOJIS };
+
+const allCategoryLinks = allCategories.map((cat) => ({
   label: cat.name,
-  emoji: SERIF_EMOJIS[cat.name] || "✦",
+  emoji: allEmojis[cat.name] || "✦",
   id: `cat-${slugify(cat.name)}`,
 }));
 
 export default function SerifFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
-  const [showAll, setShowAll] = useState(false);
+  const [showAllGoogle, setShowAllGoogle] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -55,9 +71,11 @@ export default function SerifFontsClient() {
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
 
-  const visibleCategories: FontCategory[] = showAll
+  const visibleUnicode: FontCategory[] = serifUnicodeCategories.slice(0, UNICODE_INITIAL_COUNT);
+
+  const visibleGoogle: FontCategory[] = showAllGoogle
     ? serifFontCategories
-    : serifFontCategories.slice(0, INITIAL_COUNT);
+    : serifFontCategories.slice(0, GOOGLE_INITIAL_COUNT);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -107,7 +125,7 @@ export default function SerifFontsClient() {
     setIsLoadingMore(true);
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
-      setShowAll(true);
+      setShowAllGoogle(true);
       setIsLoadingMore(false);
     }, 300);
   }, []);
@@ -219,8 +237,8 @@ export default function SerifFontsClient() {
             </div>
           </div>
           <CategoryJumpLinks
-            categories={serifCategoryLinks}
-            onExpandAll={() => setShowAll(true)}
+            categories={allCategoryLinks}
+            onExpandAll={() => setShowAllGoogle(true)}
           />
         </div>
       </section>
@@ -228,13 +246,39 @@ export default function SerifFontsClient() {
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Font Category Cards */}
+      {/* Unicode Serif Styles — Copy & Paste */}
       <section
         id="serif-font-results"
-        className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
+        className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-12 scroll-mt-[5.5rem]"
       >
+        <h2 className="font-headline text-2xl font-bold mb-8 text-on-background">
+          Unicode Serif Styles — Copy & Paste
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleCategories.map((category) => (
+          {visibleUnicode.map((category) => (
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
+              <FontCategoryCard
+                category={category}
+                text={activeText}
+                fontSize={fontSize}
+                copiedId={copiedId}
+                onCopy={handleCopy}
+                isDark={DARK_CATEGORIES.has(category.name)}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Google Font Categories — Serif Font Types */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24">
+        <h2 className="font-headline text-2xl font-bold mb-8 text-on-background">
+          Serif Font Types — Browse 8 Categories
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {visibleGoogle.map((category) => (
             <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
@@ -250,7 +294,7 @@ export default function SerifFontsClient() {
           ))}
         </div>
 
-        {!showAll && serifFontCategories.length > INITIAL_COUNT && (
+        {!showAllGoogle && serifFontCategories.length > GOOGLE_INITIAL_COUNT && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
