@@ -516,11 +516,20 @@ export default function SerifFontsPage() {
                     <li><strong>2. Browse the Styles:</strong> The generator instantly creates multiple serif style variations.</li>
                     <li><strong>3. Choose a Style:</strong> Select the serif typeface that matches your purpose.</li>
                     <li><strong>4. Copy the Result:</strong> Click or tap the copy button.</li>
-                    <li><strong>5. Paste Anywhere:</strong> Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.</li>
+                    <li>
+                      <strong>5. Paste Anywhere:</strong> Paste the text into supported platforms such as:
+                      <ul className="mt-2 space-y-1 list-disc list-inside">
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>X (Twitter)</li>
+                        <li>Discord</li>
+                        <li>TikTok</li>
+                        <li>YouTube</li>
+                        <li>WhatsApp</li>
+                        <li>Telegram</li>
+                      </ul>
+                    </li>
                   </ol>
-                  <p className="text-sm text-on-surface-variant mt-4 leading-relaxed">
-                    No account, download, or installation is required.
-                  </p>
                 </>
               }
             />
