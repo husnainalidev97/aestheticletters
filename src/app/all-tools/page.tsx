@@ -98,6 +98,13 @@ const toolCategories: ToolCategory[] = [
         icon: "draw",
         href: "/cursive-fonts",
       },
+      {
+        title: "Serif Fonts",
+        description:
+          "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types.",
+        icon: "text_fields",
+        href: "/serif-fonts",
+      },
     ],
   },
   {
