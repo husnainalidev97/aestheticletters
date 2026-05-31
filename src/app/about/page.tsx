@@ -219,7 +219,7 @@ export default function AboutPage() {
               {
                 icon: "public",
                 title: "Looking Ahead",
-                text: "We continue to refine our toolset, adding more sophisticated styles while maintaining our commitment to a fast, ad-free environment.",
+                text: "We continue to refine our toolset, adding more sophisticated styles while maintaining our commitment to a fast, user-friendly experience.",
               },
             ].map((step) => (
               <div
