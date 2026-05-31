@@ -531,6 +531,7 @@ export default function SerifFontsPage() {
                   </ol>
                 </>
               }
+              bottomImage={{ src: "/serif-fonts-explained-visually.webp", alt: "serif fonts explained visually" }}
               tipsHeading="Where to Use Serif Typefaces Online?"
               tipsContent={
                 <>
