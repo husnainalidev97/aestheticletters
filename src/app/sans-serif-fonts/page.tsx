@@ -579,51 +579,6 @@ export default function SansSerifFontsPage() {
                 </p>
               </article>
 
-              {/* Free Sans Serif Fonts (Google Fonts) */}
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Free Sans Serif Fonts (Google Fonts)
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  All of the free fonts in this list are available in this tool. They are completely free to use on websites, apps, and personal or commercial projects.
-                </p>
-
-                <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">Top 10 Free Sans Serif Fonts on Google Fonts</h3>
-                {[
-                  { name: "1. Inter", desc: "Made specifically for screens. Tall x height. Excellent for UI and interfaces. The most used font in product design in 2025\u20132026." },
-                  { name: "2. Open Sans", desc: "Versatile, easy on the eyes, and perfectly neutral in tone. One of the most downloaded fonts in the world. Works great for body text, blogs, and accessible content." },
-                  { name: "3. Roboto", desc: "Google\u2019s own font for Android. A mix of humanist and mechanical styles. Perfect for dashboards, apps, and any Google related project." },
-                  { name: "4. Poppins", desc: "A popular geometric sans serif with a modern look. Bold and distinctive letters. Supports Latin and Devanagari scripts. Great for headings." },
-                  { name: "5. Montserrat", desc: "Inspired by the urban typography of Buenos Aires. Available in 18 weights. A top choice for posters, headlines, and strong visual statements." },
-                  { name: "6. Lato", desc: 'Polish for "summer." Has a warm structure with subtle curves. One of the most popular fonts for email newsletters and reports.' },
-                  { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, existing feel. Works beautifully for websites and apps." },
-                  { name: "8. Work Sans", desc: "Optimized for screen use from the ground up. Slightly condensed, which makes it excellent for dense layouts and editorial design." },
-                  { name: "9. Source Sans Pro", desc: "Adobe\u2019s contribution to the open source font world. Very orderly and legible. Great for forms, reports, and long form digital content." },
-                  { name: "10. IBM Plex Sans", desc: "IBM\u2019s custom typeface. Has a corporate feel but with subtle humanist details. A strong choice for tech companies and SaaS products." },
-                ].map((font) => (
-                  <div key={font.name} className="mb-6">
-                    <h4 className="font-headline text-xl font-bold mb-2 leading-tight">{font.name}</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">{font.desc}</p>
-                  </div>
-                ))}
-
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight mt-10">Licensing Information</h3>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Every font in the Google Fonts library is covered by the SIL Open Font License (OFL). This means:
-                </p>
-                <ul className="space-y-3 mb-6">
-                  {["Free for personal use", "Free for commercial use", "Can be used on websites and apps", "Can be modified and shared", "Packaging and reselling the font file on its own is not permitted"].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
-                  You do not need to credit the font designer when using Google Fonts in a commercial project. Any modified version you create must carry the same OFL terms as the original.
-                </p>
-              </article>
-
               {/* Sans Serif Font Pairing Guide */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -700,7 +655,54 @@ export default function SansSerifFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar showBanner={false} showTips={false} bottomImage={{ src: "/sans-serif-fonts-explained.webp", alt: "sans serif fonts explained" }} />
+            <Sidebar
+              showBanner={false}
+              showTips={false}
+              useCasesHeading="Free Sans Serif Fonts (Google Fonts)"
+              useCasesContent={
+                <>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    All of the free fonts in this list are available in this tool. They are completely free to use on websites, apps, and personal or commercial projects.
+                  </p>
+
+                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Top 10 Free Sans Serif Fonts on Google Fonts</h3>
+                  {[
+                    { name: "1. Inter", desc: "Made specifically for screens. Tall x height. Excellent for UI and interfaces. The most used font in product design in 2025\u20132026." },
+                    { name: "2. Open Sans", desc: "Versatile, easy on the eyes, and perfectly neutral in tone. One of the most downloaded fonts in the world. Works great for body text, blogs, and accessible content." },
+                    { name: "3. Roboto", desc: "Google\u2019s own font for Android. A mix of humanist and mechanical styles. Perfect for dashboards, apps, and any Google related project." },
+                    { name: "4. Poppins", desc: "A popular geometric sans serif with a modern look. Bold and distinctive letters. Supports Latin and Devanagari scripts. Great for headings." },
+                    { name: "5. Montserrat", desc: "Inspired by the urban typography of Buenos Aires. Available in 18 weights. A top choice for posters, headlines, and strong visual statements." },
+                    { name: "6. Lato", desc: 'Polish for "summer." Has a warm structure with subtle curves. One of the most popular fonts for email newsletters and reports.' },
+                    { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, existing feel. Works beautifully for websites and apps." },
+                    { name: "8. Work Sans", desc: "Optimized for screen use from the ground up. Slightly condensed, which makes it excellent for dense layouts and editorial design." },
+                    { name: "9. Source Sans Pro", desc: "Adobe\u2019s contribution to the open source font world. Very orderly and legible. Great for forms, reports, and long form digital content." },
+                    { name: "10. IBM Plex Sans", desc: "IBM\u2019s custom typeface. Has a corporate feel but with subtle humanist details. A strong choice for tech companies and SaaS products." },
+                  ].map((font) => (
+                    <div key={font.name} className="mb-4">
+                      <h4 className="font-headline text-sm font-bold mb-1 leading-tight">{font.name}</h4>
+                      <p className="text-sm text-on-surface-variant leading-relaxed">{font.desc}</p>
+                    </div>
+                  ))}
+
+                  <h3 className="font-headline text-lg font-bold mb-3 leading-tight mt-6">Licensing Information</h3>
+                  <p className="text-sm text-on-surface-variant mb-3 leading-relaxed">
+                    Every font in the Google Fonts library is covered by the SIL Open Font License (OFL). This means:
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    {["Free for personal use", "Free for commercial use", "Can be used on websites and apps", "Can be modified and shared", "Packaging and reselling the font file on its own is not permitted"].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-on-surface-variant text-sm">
+                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    You do not need to credit the font designer when using Google Fonts in a commercial project. Any modified version you create must carry the same OFL terms as the original.
+                  </p>
+                </>
+              }
+              bottomImage={{ src: "/sans-serif-fonts-explained.webp", alt: "sans serif fonts explained" }}
+            />
           </div>
         </section>
 
