@@ -531,7 +531,7 @@ export default function SansSerifFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok Captions and Profiles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  On TikTok, your bio and username both support unicode based text styles. A stylized username looks much more intentional and branded than plain text. It helps your profile look more professional at first look.
+                  On TikTok, your bio and username both support unicode-based text styles. A stylized username looks much more intentional and branded than plain text. It helps your profile look more professional at first look. You can also explore dedicated TikTok font styles if you want something more platform-specific.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Discord Usernames and Server Names</h3>
