@@ -516,7 +516,7 @@ export default function SansSerifFontsPage() {
                   Non Serif Typefaces for Social Media
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  One of the most popular uses of a sans serif font generator is creating stylish text for social media. Unicode based non serif styles copy and paste directly into any platform, no app download needed.
+                  One of the most popular uses of a sans serif font generator is creating <Link href="/stylish-fonts" className="text-primary underline">stylish text</Link> for social media. Unicode based non serif styles copy and paste directly into any platform, no app download needed.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Instagram Bios</h3>
