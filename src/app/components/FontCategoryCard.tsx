@@ -68,6 +68,15 @@ export default function FontCategoryCard({
                 >
                   {converted}
                 </div>
+                {style.fontFamily && (
+                  <div
+                    aria-hidden="true"
+                    className="text-on-surface-variant/50 tracking-wide mt-1"
+                    style={{ fontSize: "11px", fontFamily: style.fontFamily }}
+                  >
+                    Aa Bb Gg Rr Ss 0123
+                  </div>
+                )}
               </div>
               <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
                 <ShareButtons text={converted} />

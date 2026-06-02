@@ -343,7 +343,7 @@ export default function SerifFontsPage() {
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  This is why serif lettering remains popular despite the growth of modern sans-serif typography.
+                  This is why serif lettering remains popular despite the growth of modern <Link href="/sans-serif-fonts" className="text-primary underline">sans-serif typography</Link>.
                 </p>
               </article>
 
@@ -573,6 +573,31 @@ export default function SerifFontsPage() {
                 </>
               }
             />
+          </div>
+        </section>
+
+        {/* Explore Related Fonts */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
+            Explore Related Fonts
+          </h2>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
+                { label: "Cursive Fonts", href: "/cursive-fonts" },
+                { label: "Aesthetic Fonts", href: "/" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

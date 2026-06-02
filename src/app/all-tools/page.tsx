@@ -105,6 +105,13 @@ const toolCategories: ToolCategory[] = [
         icon: "text_fields",
         href: "/serif-fonts",
       },
+      {
+        title: "Sans Serif Fonts",
+        description:
+          "Generate sans serif fonts you can copy and paste. Explore clean, modern unicode styles and popular sans-serif font types.",
+        icon: "font_download",
+        href: "/sans-serif-fonts",
+      },
     ],
   },
   {
