@@ -112,12 +112,12 @@ export default function Sidebar({
 
       {/* Optional bottom image */}
       {bottomImage && (
-        <div className="w-full rounded-2xl overflow-hidden border border-outline-variant/40 shadow-sm">
+        <div className="w-full rounded-2xl overflow-hidden shadow-lg">
           <Image
             src={bottomImage.src}
             alt={bottomImage.alt}
-            width={600}
-            height={900}
+            width={864}
+            height={1821}
             className="w-full h-auto rounded-2xl"
             priority={false}
           />
