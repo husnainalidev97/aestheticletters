@@ -2,8 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
-import { sansSerifUnicodeCategories, sansSerifFontCategories } from "../lib/sansSerifFontStyles";
-import type { FontCategory } from "../lib/fontStyles";
+import { sansSerifFontCategories } from "../lib/sansSerifFontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import SansSerifGoogleFontsLoader from "./SansSerifGoogleFontsLoader";
@@ -16,25 +15,13 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 const DEFAULT_TEXT = "Sans Serif Fonts";
 
-/** Show all Unicode categories on first paint. */
-const UNICODE_INITIAL_COUNT = 6;
-
 /** Priority 1 — Google Font cards rendered on first paint. */
 const GOOGLE_INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set<string>([]);
 
-const UNICODE_EMOJIS: Record<string, string> = {
-  "Clean Sans-Serif": "🔤",
-  "Script & Calligraphy": "✍️",
-  "Mathematical & Double Struck": "🔢",
-  "Small Caps & Width": "🔠",
-  "Underline & Strikethrough": "✨",
-  "Enclosed & Shaped": "🔵",
-};
-
-const GOOGLE_EMOJIS: Record<string, string> = {
+const CATEGORY_EMOJIS: Record<string, string> = {
   "Humanist Sans": "✍️",
   "Geometric": "📐",
   "Neo-Grotesque": "✨",
@@ -44,12 +31,9 @@ const GOOGLE_EMOJIS: Record<string, string> = {
   "Glyphic": "🏛️",
 };
 
-const allCategories = [...sansSerifUnicodeCategories, ...sansSerifFontCategories];
-const allEmojis = { ...UNICODE_EMOJIS, ...GOOGLE_EMOJIS };
-
-const allCategoryLinks = allCategories.map((cat) => ({
+const allCategoryLinks = sansSerifFontCategories.map((cat) => ({
   label: cat.name,
-  emoji: allEmojis[cat.name] || "✦",
+  emoji: CATEGORY_EMOJIS[cat.name] || "✦",
   id: `cat-${slugify(cat.name)}`,
 }));
 
@@ -69,9 +53,7 @@ export default function SansSerifFontsClient() {
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
 
-  const visibleUnicode: FontCategory[] = sansSerifUnicodeCategories.slice(0, UNICODE_INITIAL_COUNT);
-
-  const visibleGoogle: FontCategory[] = showAllGoogle
+  const visibleGoogle = showAllGoogle
     ? sansSerifFontCategories
     : sansSerifFontCategories.slice(0, GOOGLE_INITIAL_COUNT);
 
@@ -244,36 +226,13 @@ export default function SansSerifFontsClient() {
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Unicode Sans-Serif Styles — Copy & Paste */}
+      {/* Sans-Serif Font Types — 7 Categories */}
       <section
         id="sans-serif-font-results"
-        className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-12 scroll-mt-[5.5rem]"
+        className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         <h2 className="font-headline text-2xl font-bold mb-8 text-on-background">
-          Unicode Sans-Serif Styles — Copy & Paste
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleUnicode.map((category) => (
-            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
-              <FontCategoryCard
-                category={category}
-                text={activeText}
-                fontSize={fontSize}
-                copiedId={copiedId}
-                onCopy={handleCopy}
-                isDark={DARK_CATEGORIES.has(category.name)}
-                isFavorite={isFavorite}
-                onToggleFavorite={toggleFavorite}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Google Font Categories — Sans-Serif Font Types */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24">
-        <h2 className="font-headline text-2xl font-bold mb-8 text-on-background">
-          Sans-Serif Font Types — Browse 8 Categories
+          Sans-Serif Font Types — Browse 7 Categories
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleGoogle.map((category) => (
