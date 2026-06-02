@@ -13,7 +13,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
-const DEFAULT_TEXT = "Sans Serif Fonts";
+const DEFAULT_TEXT = "Hamburgefontsiv";
 
 /** Priority 1 — Google Font cards rendered on first paint. */
 const GOOGLE_INITIAL_COUNT = 4;
