@@ -224,7 +224,7 @@ export default function SansSerifFontsPage() {
             name: "What does \"sans serif\" mean?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "A serif is the small finishing stroke you see at the tip of a letter. \"Sans\" is simply the French word for \"without.\" Put them together and the meaning is clear a typeface that skips those finishing details entirely. So sans serif simply means \"without those decorative strokes.\" Sans fonts\u200B have clean, straight letter endings with no extra decoration.",
+              text: "A serif is the small finishing stroke you see at the tip of a letter. \"Sans\" is simply the French word for \"without.\" Put them together and the meaning is clear a typeface that skips those finishing details entirely. So sans serif simply means \"without those decorative strokes.\" Sans fonts have clean, straight letter endings with no extra decoration.",
             },
           },
           {
@@ -232,12 +232,12 @@ export default function SansSerifFontsPage() {
             name: "Are sans serif fonts better for screens?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, in most cases. These fonts display more clearly on digital screens, especially on mobile devices and lower-resolution monitors. Their clean strokes stay sharp at small sizes. That is why most apps, websites, and user interfaces use sans-serif typeface font\u200B as their primary text style.",
+              text: "Yes, in most cases. These fonts display more clearly on digital screens, especially on mobile devices and lower-resolution monitors. Their clean strokes stay sharp at small sizes. That is why most apps, websites, and user interfaces use sans-serif typeface font as their primary text style.",
             },
           },
           {
             "@type": "Question",
-            name: "What is the most popular sans serif text\u200B?",
+            name: "What is the most popular sans serif text?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "Helvetica is widely considered the most famous non serif typeface in the world. It has been used in countless logos, signs, and brand identities since the 1950s. For digital and web design today, Inter has become the most popular choice, especially for UI and app design. On the web, Roboto and Open Sans are among the most downloaded fonts.",
@@ -269,7 +269,7 @@ export default function SansSerifFontsPage() {
           },
           {
             "@type": "Question",
-            name: "Which Sans-Serif Typeface Font\u200B is best for logos?",
+            name: "Which Sans-Serif Typeface Font is best for logos?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "For logos, the best fonts are usually geometric or neo-grotesque styles. Futura, Gotham, Montserrat, and Poppins are popular choices. Futura has been used by Volkswagen, IKEA, and Louis Vuitton. Gotham became a cultural landmark when it defined the visual identity of Obama\u2019s presidential run. For a more modern feel, DM Sans and Manrope work beautifully in logo design.",
@@ -753,7 +753,7 @@ export default function SansSerifFontsPage() {
                     { name: "4. Poppins", desc: "A popular geometric sans serif with a modern look. Bold and distinctive letters. Supports Latin and Devanagari scripts. Great for headings." },
                     { name: "5. Montserrat", desc: "Inspired by the urban typography of Buenos Aires. Available in 18 weights. A top choice for posters, headlines, and strong visual statements." },
                     { name: "6. Lato", desc: 'Polish for "summer." Has a warm structure with subtle curves. One of the most popular fonts for email newsletters and reports.' },
-                    { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, existing feel. Works beautifully for websites and apps." },
+                    { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, exciting feel. Works beautifully for websites and apps." },
                     { name: "8. Work Sans", desc: "Optimized for screen use from the ground up. Slightly condensed, which makes it excellent for dense layouts and editorial design." },
                     { name: "9. Source Sans Pro", desc: "Adobe\u2019s contribution to the open source font world. Very orderly and legible. Great for forms, reports, and long form digital content." },
                     { name: "10. IBM Plex Sans", desc: "IBM\u2019s custom typeface. Has a corporate feel but with subtle humanist details. A strong choice for tech companies and SaaS products." },
