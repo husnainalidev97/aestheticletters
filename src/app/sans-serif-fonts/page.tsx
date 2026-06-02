@@ -666,33 +666,6 @@ export default function SansSerifFontsPage() {
             {/* Sidebar */}
             <Sidebar
               showBanner={false}
-              useCasesHeading="How to Use a Sans Serif Font Generator?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using the tool is simple.
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li><strong>1. Enter Your Text:</strong> Start by adding the text you want to convert into the text field provided by the generator.</li>
-                    <li><strong>2. Browse the Styles:</strong> The generator instantly creates multiple sans serif style variations.</li>
-                    <li><strong>3. Choose a Style:</strong> Select the sans serif typeface that matches your purpose.</li>
-                    <li><strong>4. Copy the Result:</strong> Click or tap the copy button.</li>
-                    <li>
-                      <strong>5. Paste Anywhere:</strong> Paste the text into supported platforms such as:
-                      <ul className="mt-2 space-y-1 list-disc list-inside">
-                        <li>Instagram</li>
-                        <li>Facebook</li>
-                        <li>X (Twitter)</li>
-                        <li>Discord</li>
-                        <li>TikTok</li>
-                        <li>YouTube</li>
-                        <li>WhatsApp</li>
-                        <li>Telegram</li>
-                      </ul>
-                    </li>
-                  </ol>
-                </>
-              }
               tipsHeading="Where to Use Sans Serif Typefaces Online?"
               tipsContent={
                 <>
