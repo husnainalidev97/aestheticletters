@@ -700,7 +700,7 @@ export default function SansSerifFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar showBanner={false} showTips={false} />
+            <Sidebar showBanner={false} showTips={false} bottomImage={{ src: "/sans-serif-fonts-explained.webp", alt: "sans serif fonts explained" }} />
           </div>
         </section>
 
