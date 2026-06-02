@@ -791,6 +791,31 @@ export default function SansSerifFontsPage() {
           </h2>
           <FAQAccordion faqs={faqs} />
         </section>
+
+        {/* Check Similar Font Generator */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
+            Check Similar Font Generator
+          </h2>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Serif Font Generator", href: "/serif-fonts" },
+                { label: "Cursive Font Generator", href: "/cursive-fonts" },
+                { label: "Aesthetic Font Generator", href: "/" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
       <BackToTopButton />
       <Footer />
