@@ -159,7 +159,7 @@ export default function SansSerifFontsClient() {
 
   return (
     <>
-      <SansSerifGoogleFontsLoader />
+      <SansSerifGoogleFontsLoader loadDeferred={showAllGoogle} />
       {/* Generator Block: Input + Button + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-5">
