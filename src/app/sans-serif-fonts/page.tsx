@@ -327,6 +327,42 @@ export default function SansSerifFontsPage() {
                 </p>
               </article>
 
+              {/* How to Use Sans Serif Text Generator */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  How to Use Sans Serif Text Generator?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm text-center">
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary font-headline text-2xl font-bold">1</span>
+                    </div>
+                    <h3 className="font-headline text-xl font-bold mb-2">Type Your Text</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed">
+                      Enter any word, sentence, or phrase into the text field above. The generator works with any language or character input.
+                    </p>
+                  </div>
+                  <div className="p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm text-center">
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary font-headline text-2xl font-bold">2</span>
+                    </div>
+                    <h3 className="font-headline text-xl font-bold mb-2">Browse the Styles</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed">
+                      Scroll through dozens of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.
+                    </p>
+                  </div>
+                  <div className="p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm text-center">
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary font-headline text-2xl font-bold">3</span>
+                    </div>
+                    <h3 className="font-headline text-xl font-bold mb-2">Copy &amp; Paste</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed">
+                      Click the copy button on any style you like. The text is copied to your clipboard instantly, ready to paste into Instagram, TikTok, Discord, or anywhere else.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
               {/* 4 Types of Sans Serif Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
