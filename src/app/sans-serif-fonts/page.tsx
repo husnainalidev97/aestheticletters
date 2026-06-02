@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar";
 import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 
 export const metadata: Metadata = {
-  title: { absolute: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)" },
+  title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
   description:
     "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "website",
     url: "https://www.aestheticletters.com/sans-serif-fonts",
-    title: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
       "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
       "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   },
@@ -164,7 +164,7 @@ export default function SansSerifFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#webpage",
         url: "https://www.aestheticletters.com/sans-serif-fonts",
-        name: "Sans Serif Font Generator \u2014 Free Copy & Paste Tool (2026)",
+        name: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
         description: "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
         isPartOf: {
           "@type": "WebSite",
