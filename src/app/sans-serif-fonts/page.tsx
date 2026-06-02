@@ -664,7 +664,7 @@ export default function SansSerifFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar showBanner={false} />
+            <Sidebar showBanner={false} showTips={false} />
           </div>
         </section>
 
