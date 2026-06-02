@@ -11,7 +11,7 @@ import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)" },
   description:
-    "Generate 70+ sans serif font styles instantly. Copy and paste for Instagram, TikTok, Discord, and more. Learn about Grotesque, Geometric, Humanist, and Neo grotesque fonts. Free tool.",
+    "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
     canonical: "https://www.aestheticletters.com/sans-serif-fonts",
   },
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/sans-serif-fonts",
     title: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)",
     description:
-      "Generate 70+ sans serif font styles instantly. Copy and paste for Instagram, TikTok, Discord, and more. Learn about Grotesque, Geometric, Humanist, and Neo grotesque fonts. Free tool.",
+      "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)",
     description:
-      "Generate 70+ sans serif font styles instantly. Copy and paste for Instagram, TikTok, Discord, and more. Learn about Grotesque, Geometric, Humanist, and Neo grotesque fonts. Free tool.",
+      "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   },
 };
 
@@ -165,7 +165,7 @@ export default function SansSerifFontsPage() {
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#webpage",
         url: "https://www.aestheticletters.com/sans-serif-fonts",
         name: "Sans Serif Font Generator: Free Copy & Paste Tool (2026)",
-        description: "Generate 70+ sans serif font styles instantly. Copy and paste for Instagram, TikTok, Discord, and more.",
+        description: "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
         headline: "Sans Serif Fonts Generator: Free Copy & Paste Tool",
         inLanguage: "en",
         breadcrumb: {
