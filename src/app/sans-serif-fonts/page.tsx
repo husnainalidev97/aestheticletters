@@ -664,43 +664,7 @@ export default function SansSerifFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar
-              showBanner={false}
-              tipsHeading="Where to Use Sans Serif Typefaces Online?"
-              tipsContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Sans serif type fonts work well in many online environments.
-                  </p>
-                  <div className="space-y-4 text-sm leading-relaxed">
-                    <div>
-                      <p className="font-bold text-on-surface">Social Media Bios</p>
-                      <p className="text-on-surface-variant">Many users add sans serif text to make their profiles more unique and modern. For a full collection of styles made specifically for Instagram, visit our <Link href="/instagram-fonts" className="text-primary underline">instagram fonts generator</Link>.</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Usernames</p>
-                      <p className="text-on-surface-variant">A sans serif username can appear clean and contemporary.</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Discord Profiles</p>
-                      <p className="text-on-surface-variant">Creative typography helps profiles stand out in communities.</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Content Creators</p>
-                      <p className="text-on-surface-variant">Creators often use decorative text for branding purposes.</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Digital Portfolios</p>
-                      <p className="text-on-surface-variant">Sans serif styles can contribute to a modern, professional presentation.</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Personal Branding</p>
-                      <p className="text-on-surface-variant">Clean sans serif fonts can help create a polished online identity.</p>
-                    </div>
-                  </div>
-                </>
-              }
-            />
+            <Sidebar showBanner={false} />
           </div>
         </section>
 
