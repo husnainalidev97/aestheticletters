@@ -163,7 +163,7 @@ export const sansSerifUnicodeCategories: FontCategory[] = [
   },
 ];
 
-// -- Google Font Categories (7 categories, 88 fonts) -----------------------
+// -- Google Font Categories (7 categories, 73 fonts) -----------------------
 
 export const sansSerifFontCategories: FontCategory[] = [
   {
@@ -173,8 +173,6 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Open Sans", transform: (t) => t, fontFamily: "'Open Sans', sans-serif" },
       { name: "Lato", transform: (t) => t, fontFamily: "'Lato', sans-serif" },
       { name: "Source Sans 3", transform: (t) => t, fontFamily: "'Source Sans 3', sans-serif" },
-      { name: "Fira Sans", transform: (t) => t, fontFamily: "'Fira Sans', sans-serif" },
-      { name: "Noto Sans", transform: (t) => t, fontFamily: "'Noto Sans', sans-serif" },
       { name: "Cabin", transform: (t) => t, fontFamily: "'Cabin', sans-serif" },
       { name: "Ubuntu", transform: (t) => t, fontFamily: "'Ubuntu', sans-serif" },
       { name: "Mukta", transform: (t) => t, fontFamily: "'Mukta', sans-serif" },
@@ -185,7 +183,6 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Hind", transform: (t) => t, fontFamily: "'Hind', sans-serif" },
       { name: "Overpass", transform: (t) => t, fontFamily: "'Overpass', sans-serif" },
       { name: "Red Hat Display", transform: (t) => t, fontFamily: "'Red Hat Display', sans-serif" },
-      { name: "Barlow", transform: (t) => t, fontFamily: "'Barlow', sans-serif" },
       { name: "Asap", transform: (t) => t, fontFamily: "'Asap', sans-serif" },
       { name: "Thasadith", transform: (t) => t, fontFamily: "'Thasadith', sans-serif" },
       { name: "Ysabeau", transform: (t) => t, fontFamily: "'Ysabeau', sans-serif" },
@@ -200,11 +197,7 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Raleway", transform: (t) => t, fontFamily: "'Raleway', sans-serif" },
       { name: "DM Sans", transform: (t) => t, fontFamily: "'DM Sans', sans-serif" },
       { name: "Josefin Sans", transform: (t) => t, fontFamily: "'Josefin Sans', sans-serif" },
-      { name: "Nunito Sans", transform: (t) => t, fontFamily: "'Nunito Sans', sans-serif" },
       { name: "Manrope", transform: (t) => t, fontFamily: "'Manrope', sans-serif" },
-      { name: "Figtree", transform: (t) => t, fontFamily: "'Figtree', sans-serif" },
-      { name: "Outfit", transform: (t) => t, fontFamily: "'Outfit', sans-serif" },
-      { name: "Plus Jakarta Sans", transform: (t) => t, fontFamily: "'Plus Jakarta Sans', sans-serif" },
       { name: "Funnel Sans", transform: (t) => t, fontFamily: "'Funnel Sans', sans-serif" },
       { name: "Geom", transform: (t) => t, fontFamily: "'Geom', sans-serif" },
       { name: "Sora", transform: (t) => t, fontFamily: "'Sora', sans-serif" },
@@ -229,7 +222,6 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Epilogue", transform: (t) => t, fontFamily: "'Epilogue', sans-serif" },
       { name: "Archivo", transform: (t) => t, fontFamily: "'Archivo', sans-serif" },
       { name: "Familjen Grotesk", transform: (t) => t, fontFamily: "'Familjen Grotesk', sans-serif" },
-      { name: "Schibsted Grotesk", transform: (t) => t, fontFamily: "'Schibsted Grotesk', sans-serif" },
       { name: "Hanken Grotesk", transform: (t) => t, fontFamily: "'Hanken Grotesk', sans-serif" },
       { name: "Onest", transform: (t) => t, fontFamily: "'Onest', sans-serif" },
       { name: "Albert Sans", transform: (t) => t, fontFamily: "'Albert Sans', sans-serif" },
@@ -239,8 +231,6 @@ export const sansSerifFontCategories: FontCategory[] = [
     name: "Rounded",
     styles: [
       { name: "Nunito", transform: (t) => t, fontFamily: "'Nunito', sans-serif" },
-      { name: "Comfortaa", transform: (t) => t, fontFamily: "'Comfortaa', sans-serif" },
-      { name: "Quicksand", transform: (t) => t, fontFamily: "'Quicksand', sans-serif" },
       { name: "Rubik", transform: (t) => t, fontFamily: "'Rubik', sans-serif" },
       { name: "Fredoka", transform: (t) => t, fontFamily: "'Fredoka', sans-serif" },
       { name: "Phudu", transform: (t) => t, fontFamily: "'Phudu', sans-serif" },
@@ -263,15 +253,11 @@ export const sansSerifFontCategories: FontCategory[] = [
     styles: [
       { name: "Work Sans", transform: (t) => t, fontFamily: "'Work Sans', sans-serif" },
       { name: "Chivo", transform: (t) => t, fontFamily: "'Chivo', sans-serif" },
-      { name: "Oswald", transform: (t) => t, fontFamily: "'Oswald', sans-serif" },
       { name: "Abel", transform: (t) => t, fontFamily: "'Abel', sans-serif" },
       { name: "Libre Franklin", transform: (t) => t, fontFamily: "'Libre Franklin', sans-serif" },
       { name: "Yanone Kaffeesatz", transform: (t) => t, fontFamily: "'Yanone Kaffeesatz', sans-serif" },
       { name: "Titillium Web", transform: (t) => t, fontFamily: "'Titillium Web', sans-serif" },
-      { name: "Fjalla One", transform: (t) => t, fontFamily: "'Fjalla One', sans-serif" },
-      { name: "Teko", transform: (t) => t, fontFamily: "'Teko', sans-serif" },
       { name: "Heebo", transform: (t) => t, fontFamily: "'Heebo', sans-serif" },
-      { name: "Pathway Gothic One", transform: (t) => t, fontFamily: "'Pathway Gothic One', sans-serif" },
       { name: "IBM Plex Sans", transform: (t) => t, fontFamily: "'IBM Plex Sans', sans-serif" },
     ],
   },
@@ -281,7 +267,6 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Faculty Glyphic", transform: (t) => t, fontFamily: "'Faculty Glyphic', sans-serif" },
       { name: "Aboreto", transform: (t) => t, fontFamily: "'Aboreto', sans-serif" },
       { name: "Marcellus", transform: (t) => t, fontFamily: "'Marcellus', sans-serif" },
-      { name: "Cinzel", transform: (t) => t, fontFamily: "'Cinzel', sans-serif" },
     ],
   },
 ];
