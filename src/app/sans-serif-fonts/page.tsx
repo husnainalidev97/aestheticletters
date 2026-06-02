@@ -299,9 +299,9 @@ export default function SansSerifFontsPage() {
 
               {/* Sans Serif vs Serif: Quick Comparison */}
               <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                <h3 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Sans Serif vs Serif: Quick Comparison
-                </h2>
+                </h3>
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
                     <thead>
