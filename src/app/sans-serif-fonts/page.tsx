@@ -7,6 +7,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import SansSerifFontsClient from "./SansSerifFontsClientLazy";
+import SansSerifFontsHead from "./SansSerifFontsHead";
 
 export const metadata: Metadata = {
   title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
@@ -306,6 +307,7 @@ export default function SansSerifFontsPage() {
 
   return (
     <>
+      <SansSerifFontsHead />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

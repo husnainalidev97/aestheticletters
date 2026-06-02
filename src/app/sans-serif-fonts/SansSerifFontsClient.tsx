@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, useTransition } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { sansSerifFontCategories } from "../lib/sansSerifFontStyles";
 import { useFavorites } from "../lib/useFavorites";
@@ -15,8 +15,8 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 const DEFAULT_TEXT = "Hamburgefontsiv";
 
-/** Priority 1 — Google Font cards rendered on first paint. */
-const GOOGLE_INITIAL_COUNT = 4;
+/** Priority 1 — Google Font cards rendered on first paint (reduced from 4 to lower initial DOM + TBT). */
+const GOOGLE_INITIAL_COUNT = 3;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set<string>([]);
@@ -42,6 +42,7 @@ export default function SansSerifFontsClient() {
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [showAllGoogle, setShowAllGoogle] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [, startTransition] = useTransition();
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
@@ -105,10 +106,12 @@ export default function SansSerifFontsClient() {
     setIsLoadingMore(true);
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
-      setShowAllGoogle(true);
-      setIsLoadingMore(false);
-    }, 300);
-  }, []);
+      startTransition(() => {
+        setShowAllGoogle(true);
+        setIsLoadingMore(false);
+      });
+    }, 150);
+  }, [startTransition]);
 
   const handleCopy = useCallback((text: string, id: string) => {
     const onSuccess = () => {
