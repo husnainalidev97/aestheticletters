@@ -249,6 +249,14 @@ export const sansSerifFontCategories: FontCategory[] = [
     ],
   },
   {
+    name: "Glyphic",
+    styles: [
+      { name: "Faculty Glyphic", transform: (t) => t, fontFamily: "'Faculty Glyphic', sans-serif" },
+      { name: "Aboreto", transform: (t) => t, fontFamily: "'Aboreto', sans-serif" },
+      { name: "Marcellus", transform: (t) => t, fontFamily: "'Marcellus', sans-serif" },
+    ],
+  },
+  {
     name: "Grotesque",
     styles: [
       { name: "Work Sans", transform: (t) => t, fontFamily: "'Work Sans', sans-serif" },
@@ -259,14 +267,6 @@ export const sansSerifFontCategories: FontCategory[] = [
       { name: "Titillium Web", transform: (t) => t, fontFamily: "'Titillium Web', sans-serif" },
       { name: "Heebo", transform: (t) => t, fontFamily: "'Heebo', sans-serif" },
       { name: "IBM Plex Sans", transform: (t) => t, fontFamily: "'IBM Plex Sans', sans-serif" },
-    ],
-  },
-  {
-    name: "Glyphic",
-    styles: [
-      { name: "Faculty Glyphic", transform: (t) => t, fontFamily: "'Faculty Glyphic', sans-serif" },
-      { name: "Aboreto", transform: (t) => t, fontFamily: "'Aboreto', sans-serif" },
-      { name: "Marcellus", transform: (t) => t, fontFamily: "'Marcellus', sans-serif" },
     ],
   },
 ];
