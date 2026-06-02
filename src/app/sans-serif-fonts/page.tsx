@@ -22,12 +22,14 @@ export const metadata: Metadata = {
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
       "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-explained.webp", width: 864, height: 1821, alt: "sans serif fonts explained" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
       "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: ["https://www.aestheticletters.com/sans-serif-fonts-explained.webp"],
   },
 };
 
