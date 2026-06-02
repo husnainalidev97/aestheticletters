@@ -2,11 +2,13 @@
 
 import { useEffect } from "react";
 
+// Batch 1 — Humanist Sans + Geometric (first two categories, loaded immediately)
 const CRITICAL_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Comfortaa&family=Josefin+Sans&family=Roboto&family=Open+Sans&family=Lato&family=Inter&family=Nunito&family=Source+Sans+3&family=PT+Sans&family=Cabin&family=DM+Sans&family=Work+Sans&family=Barlow&family=Outfit&family=Manrope&display=swap";
+  "https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&family=Lato&family=Source+Sans+3&family=Fira+Sans&family=Noto+Sans&family=Cabin&family=Ubuntu&family=Mukta&family=Oxygen&family=PT+Sans&family=Mulish&family=Be+Vietnam+Pro&family=Hind&family=Overpass&family=Red+Hat+Display&family=Barlow&family=Asap&family=Thasadith&family=Ysabeau&family=Instrument+Sans&family=Poppins&family=Montserrat&family=Raleway&family=DM+Sans&family=Josefin+Sans&family=Nunito+Sans&family=Manrope&family=Figtree&family=Outfit&family=Plus+Jakarta+Sans&family=Funnel+Sans&family=Geom&family=Sora&family=Unbounded&family=Jost&family=Urbanist&family=Lexend&family=Exo+2&family=Encode+Sans&family=Varela+Round&family=M+PLUS+1p&family=Cantarell&display=swap";
 
+// Batch 2 — Neo-Grotesque + Rounded + Superellipse + Grotesque + Glyphic (deferred)
 const DEFERRED_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Quicksand&family=Varela+Round&family=Rubik&family=Nunito+Sans&family=Oswald&family=Bebas+Neue&family=Anton&family=Kanit&family=IBM+Plex+Sans&family=Figtree&family=Albert+Sans&family=Sora&family=Roboto+Condensed&family=Barlow+Condensed&family=Saira+Condensed&family=Pathway+Gothic+One&display=swap";
+  "https://fonts.googleapis.com/css2?family=Roboto&family=Arimo&family=Public+Sans&family=Noto+Sans+Display&family=Epilogue&family=Archivo&family=Familjen+Grotesk&family=Schibsted+Grotesk&family=Hanken+Grotesk&family=Onest&family=Albert+Sans&family=Nunito&family=Comfortaa&family=Quicksand&family=Rubik&family=Fredoka&family=Phudu&family=M+PLUS+Rounded+1c&family=Baloo+2&family=Rethink+Sans&family=Grandstander&family=Space+Grotesk&family=Bricolage+Grotesque&family=BIZ+UDPGothic&family=Work+Sans&family=Chivo&family=Oswald&family=Abel&family=Libre+Franklin&family=Yanone+Kaffeesatz&family=Titillium+Web&family=Fjalla+One&family=Teko&family=Heebo&family=Pathway+Gothic+One&family=IBM+Plex+Sans&family=Faculty+Glyphic&family=Aboreto&family=Marcellus&family=Cinzel&display=swap";
 
 function injectLink(href: string, tag: string): HTMLLinkElement {
   const link = document.createElement("link");

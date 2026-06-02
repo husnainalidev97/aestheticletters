@@ -35,14 +35,13 @@ const UNICODE_EMOJIS: Record<string, string> = {
 };
 
 const GOOGLE_EMOJIS: Record<string, string> = {
+  "Humanist Sans": "✍️",
   "Geometric": "📐",
-  "Grotesque": "📖",
-  "Humanist": "✍️",
   "Neo-Grotesque": "✨",
   "Rounded": "🔵",
-  "Display": "💪",
-  "Minimalist": "💎",
-  "Condensed": "📏",
+  "Superellipse": "🔷",
+  "Grotesque": "📖",
+  "Glyphic": "🏛️",
 };
 
 const allCategories = [...sansSerifUnicodeCategories, ...sansSerifFontCategories];
