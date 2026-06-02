@@ -465,7 +465,7 @@ export default function SansSerifFontsPage() {
                     desc: "Neo grotesque fonts are an upgraded version of the original grotesque style. They became popular in the mid 1900s and are cleaner and more neutral than their older relatives.",
                     detail: "Helvetica is the most famous neo grotesque font in the world. It is used everywhere from subway signs to corporate logos. Univers is another classic. These fonts feel very organized and professional.",
                     bestFor: "Corporate branding, digital interfaces, neutral layouts, and international signage.",
-                    examples: ["Helvetica", "Univers", "Noto Sans Display", "Zalando Sans", "Albert Sans"],
+                    examples: ["Helvetica", "Univers", "Noto Sans Display", "Archivo", "Albert Sans"],
                   },
                   {
                     title: "3. Geometric",
