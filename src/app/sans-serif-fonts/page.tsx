@@ -264,7 +264,7 @@ export default function SansSerifFontsPage() {
                   What Are Sans Serif Fonts?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Sans serif fonts are letterforms with clean, unadorned endings: no extra strokes, no decorative details, just the pure shape of each character. Break the term down and it tells its own story. &ldquo;Sans&rdquo; is a French word for &ldquo;without,&rdquo; making the full phrase a straightforward description: a font style that carries no serifs.
+                  Sans serif fonts are letterforms with clean, plain endings: no extra strokes, no decorative details, just the pure shape of each character. Break the term down and it tells its own story. &ldquo;Sans&rdquo; is a French word for &ldquo;without,&rdquo; making the full phrase a straightforward description: a font style that carries no serifs.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   In simple words, <Link href="/serif-fonts" className="text-primary underline">serif fonts</Link> have little feet or tails on letters. Non serif fonts are clean and straight with no extra strokes at all.
