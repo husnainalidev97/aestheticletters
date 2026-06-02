@@ -784,14 +784,6 @@ export default function SansSerifFontsPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
-          <h2 className="font-headline text-4xl font-bold mb-16 text-center">
-            Frequently Asked Questions
-          </h2>
-          <FAQAccordion faqs={faqs} />
-        </section>
-
         {/* Check Similar Font Generator */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
@@ -815,6 +807,14 @@ export default function SansSerifFontsPage() {
               ))}
             </ul>
           </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+          <h2 className="font-headline text-4xl font-bold mb-16 text-center">
+            Frequently Asked Questions
+          </h2>
+          <FAQAccordion faqs={faqs} />
         </section>
       </main>
       <BackToTopButton />
