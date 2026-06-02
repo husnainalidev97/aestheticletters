@@ -343,7 +343,7 @@ export default function SerifFontsPage() {
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  This is why serif lettering remains popular despite the growth of modern sans-serif typography.
+                  This is why serif lettering remains popular despite the growth of modern <Link href="/sans-serif-fonts" className="text-primary underline">sans-serif typography</Link>.
                 </p>
               </article>
 

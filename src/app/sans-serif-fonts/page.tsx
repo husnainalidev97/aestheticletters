@@ -11,7 +11,7 @@ import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
   description:
-    "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
     canonical: "https://www.aestheticletters.com/sans-serif-fonts",
   },
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/sans-serif-fonts",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+      "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-explained.webp", width: 864, height: 1821, alt: "sans serif fonts explained" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+      "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: ["https://www.aestheticletters.com/sans-serif-fonts-explained.webp"],
   },
 };
@@ -167,7 +167,7 @@ export default function SansSerifFontsPage() {
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#webpage",
         url: "https://www.aestheticletters.com/sans-serif-fonts",
         name: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
-        description: "Create modern text with 70+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
+        description: "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://www.aestheticletters.com/#website",
@@ -189,7 +189,7 @@ export default function SansSerifFontsPage() {
           price: "0",
           priceCurrency: "USD",
         },
-        description: "A free online copy and paste tool that generates 70+ stylish sans serif font styles instantly for Instagram, Facebook, branding, and web design projects.",
+        description: "A free online copy and paste tool that generates 60+ stylish sans serif font styles instantly for Instagram, Facebook, branding, and web design projects.",
       },
       {
         "@type": "BreadcrumbList",
@@ -325,7 +325,7 @@ export default function SansSerifFontsPage() {
             Sans Serif Fonts Generator: Free Copy &amp; Paste Tool
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-            Type anything into the sans serif fonts generator below to instantly get 70+ non serif styles you can copy and paste straight into your bio, caption, or username.
+            Type anything into the sans serif fonts generator below to instantly get 60+ non serif styles you can copy and paste straight into your bio, caption, or username.
           </p>
         </section>
 
