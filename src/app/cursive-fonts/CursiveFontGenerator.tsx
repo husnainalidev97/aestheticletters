@@ -332,11 +332,11 @@ export default function CursiveFontGenerator({
                             <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                           </button>
                           <button
-                            onClick={() => handleCopy(font.name, styleId)}
+                            onClick={() => handleCopy(displayText, styleId)}
                             aria-label={
                               isCopied
-                                ? `Copied ${font.name} font name`
-                                : `Copy ${font.name} ${card.category} font name`
+                                ? `Copied ${font.name} styled text`
+                                : `Copy ${font.name} ${card.category} styled text`
                             }
                             className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                               isCopied
