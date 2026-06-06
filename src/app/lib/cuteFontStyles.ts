@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // Cute Font Style Definitions — EXCLUSIVE to /cute-fonts page
-// 10 categories: 4 Google Font + 6 Unicode-based
+// 6 categories: all Unicode-based
 // ---------------------------------------------------------------------------
 
 import type { FontCategory } from "./fontStyles";
@@ -89,24 +89,7 @@ const prettyFonts: FontCategory = {
   ],
 };
 
-// ── 2: Sweetheart Lettering — Google Fonts ────────────────────────────────
-
-const sweetheartLettering: FontCategory = {
-  name: "Sweetheart Lettering",
-  styles: [
-    { name: "Butterfly Kids", transform: (t) => t, fontFamily: "'Butterfly Kids', cursive" },
-    { name: "Ruge Boogie", transform: (t) => t, fontFamily: "'Ruge Boogie', cursive" },
-    { name: "Puppies Play", transform: (t) => t, fontFamily: "'Puppies Play', cursive" },
-    { name: "Devonshire", transform: (t) => t, fontFamily: "'Devonshire', cursive" },
-    { name: "Fruktur", transform: (t) => t, fontFamily: "'Fruktur', display" },
-    { name: "Petit Formal Script", transform: (t) => t, fontFamily: "'Petit Formal Script', cursive" },
-    { name: "Babylonica", transform: (t) => t, fontFamily: "'Babylonica', cursive" },
-    { name: "Dr Sugiyama", transform: (t) => t, fontFamily: "'Dr Sugiyama', cursive" },
-    { name: "Festive", transform: (t) => t, fontFamily: "'Festive', cursive" },
-  ],
-};
-
-// ── 3: Glittering Stars — Unicode transforms ──────────────────────────────
+// ── 2: Glittering Stars — Unicode transforms ──────────────────────────────
 
 const glitteringStars: FontCategory = {
   name: "Glittering Stars",
@@ -124,25 +107,7 @@ const glitteringStars: FontCategory = {
   ],
 };
 
-// ── 4: Lollipop Swirls — Google Fonts ─────────────────────────────────────
-
-const lollipopSwirls: FontCategory = {
-  name: "Lollipop Swirls",
-  styles: [
-    { name: "DynaPuff", transform: (t) => t, fontFamily: "'DynaPuff', system-ui" },
-    { name: "Molle", transform: (t) => t, fontFamily: "'Molle', cursive" },
-    { name: "Chango", transform: (t) => t, fontFamily: "'Chango', display" },
-    { name: "Spicy Rice", transform: (t) => t, fontFamily: "'Spicy Rice', display" },
-    { name: "Life Savers", transform: (t) => t, fontFamily: "'Life Savers', display" },
-    { name: "Ribeye Marrow", transform: (t) => t, fontFamily: "'Ribeye Marrow', display" },
-    { name: "Combo", transform: (t) => t, fontFamily: "'Combo', display" },
-    { name: "Fascinate Inline", transform: (t) => t, fontFamily: "'Fascinate Inline', display" },
-    { name: "Crafty Girls", transform: (t) => t, fontFamily: "'Crafty Girls', cursive" },
-    { name: "Padyakke Expanded One", transform: (t) => t, fontFamily: "'Padyakke Expanded One', display" },
-  ],
-};
-
-// ── 5: Love Notes — Unicode transforms ────────────────────────────────────
+// ── 3: Love Notes — Unicode transforms ────────────────────────────────────
 
 const loveNotes: FontCategory = {
   name: "Love Notes",
@@ -160,24 +125,7 @@ const loveNotes: FontCategory = {
   ],
 };
 
-// ── 6: Pixie Dust — Google Fonts ──────────────────────────────────────────
-
-const pixieDust: FontCategory = {
-  name: "Pixie Dust",
-  styles: [
-    { name: "Snowburst One", transform: (t) => t, fontFamily: "'Snowburst One', display" },
-    { name: "Raleway Dots", transform: (t) => t, fontFamily: "'Raleway Dots', display" },
-    { name: "Freckle Face", transform: (t) => t, fontFamily: "'Freckle Face', display" },
-    { name: "Elsie Swash Caps", transform: (t) => t, fontFamily: "'Elsie Swash Caps', display" },
-    { name: "Spirax", transform: (t) => t, fontFamily: "'Spirax', display" },
-    { name: "Plaster", transform: (t) => t, fontFamily: "'Plaster', display" },
-    { name: "Monofett", transform: (t) => t, fontFamily: "'Monofett', monospace" },
-    { name: "Warnes", transform: (t) => t, fontFamily: "'Warnes', display" },
-    { name: "Splash", transform: (t) => t, fontFamily: "'Splash', cursive" },
-  ],
-};
-
-// ── 7: Ornate Borders — Unicode transforms ────────────────────────────────
+// ── 4: Ornate Borders — Unicode transforms ────────────────────────────────
 
 const ornateBorders: FontCategory = {
   name: "Ornate Borders",
@@ -195,19 +143,7 @@ const ornateBorders: FontCategory = {
   ],
 };
 
-// ── 8: Bouncy Blossoms — Google Fonts ─────────────────────────────────────
-
-const bouncyBlossoms: FontCategory = {
-  name: "Bouncy Blossoms",
-  styles: [
-    { name: "Fruktur", transform: (t) => t, fontFamily: "'Fruktur', display" },
-    { name: "Faster One", transform: (t) => t, fontFamily: "'Faster One', display" },
-    { name: "Sancreek", transform: (t) => t, fontFamily: "'Sancreek', display" },
-    { name: "Bigelow Rules", transform: (t) => t, fontFamily: "'Bigelow Rules', display" },
-  ],
-};
-
-// ── 9: Petal & Bloom — Unicode transforms ─────────────────────────────────
+// ── 5: Petal & Bloom — Unicode transforms ─────────────────────────────────
 
 const petalAndBloom: FontCategory = {
   name: "Petal & Bloom",
@@ -225,7 +161,7 @@ const petalAndBloom: FontCategory = {
   ],
 };
 
-// ── 10: Sweet Ribbons — Unicode transforms ────────────────────────────────
+// ── 6: Sweet Ribbons — Unicode transforms ────────────────────────────────
 
 const sweetRibbons: FontCategory = {
   name: "Sweet Ribbons",
@@ -247,13 +183,9 @@ const sweetRibbons: FontCategory = {
 
 export const cuteFontCategories: FontCategory[] = [
   prettyFonts,
-  sweetheartLettering,
   glitteringStars,
-  lollipopSwirls,
   loveNotes,
-  pixieDust,
   ornateBorders,
-  bouncyBlossoms,
   petalAndBloom,
   sweetRibbons,
 ];

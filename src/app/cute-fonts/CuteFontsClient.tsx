@@ -6,7 +6,6 @@ import { cuteFontCategories } from "../lib/cuteFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
-import CuteGoogleFontsLoader from "./CuteGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 
 const MIN_SIZE = 14;
@@ -24,13 +23,9 @@ const DARK_CATEGORIES = new Set(["Ornate Borders", "Glittering Stars"]);
 
 const CUTE_EMOJIS: Record<string, string> = {
   "Pretty Fonts": "🌸",
-  "Sweetheart Lettering": "💕",
   "Glittering Stars": "✨",
-  "Lollipop Swirls": "🍭",
   "Love Notes": "💌",
-  "Pixie Dust": "🧚",
   "Ornate Borders": "🎨",
-  "Bouncy Blossoms": "🌻",
   "Petal & Bloom": "🌺",
   "Sweet Ribbons": "🎀",
 };
@@ -139,7 +134,6 @@ export default function CuteFontsClient() {
 
   return (
     <>
-      <CuteGoogleFontsLoader />
       {/* Generator Block: Input + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
