@@ -77,7 +77,7 @@ const faqs = [
   },
 ];
 
-const fontShowcaseStyles = [
+const fontShowcaseStyles: { name: string; description: string; example: string; bestFor: string; fontFamily?: string }[] = [
   {
     name: "Pretty Fonts",
     description: "A clean and elegant style with soft curves and balanced spacing. It works great for captions, mood boards, and Pinterest posts.",
