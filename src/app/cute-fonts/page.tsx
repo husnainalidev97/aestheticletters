@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
@@ -8,6 +7,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import CuteFontsClient from "./CuteFontsClientLazy";
+import ComparisonAccordion from "./ComparisonAccordion";
 
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
@@ -508,7 +508,7 @@ export default function CuteFontsPage() {
                     "Petal & Bloom", "Sweet Ribbons",
                   ].map((style) => (
                     <li key={style} className="flex items-center gap-2 text-on-surface-variant">
-                      <span className="material-symbols-outlined text-primary text-base" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {style}
                     </li>
                   ))}
@@ -547,11 +547,11 @@ export default function CuteFontsPage() {
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                    <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     Copy-and-paste text styles for social media
                   </li>
                   <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                    <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     Real font previews for designs and creative projects
                   </li>
                 </ul>
@@ -577,76 +577,11 @@ export default function CuteFontsPage() {
                   often focus on clean, and modern text designs. The guide below makes it easier to understand
                   which style matches your personality, content, or social media vibe best.
                 </p>
-                <div className="overflow-x-auto rounded-xl border border-outline-variant/20">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-surface-container-lowest">
-                        <th className="p-4 text-left font-headline font-bold text-on-background border-b border-outline-variant/20 min-w-[140px]">
-                          {comparisonData.headers[0]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#e91e9c" }}>
-                          {comparisonData.headers[1]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#7c4dff" }}>
-                          {comparisonData.headers[2]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#00897b" }}>
-                          {comparisonData.headers[3]}
-                        </th>
-                      </tr>
-                      <tr className="bg-surface-container-lowest">
-                        <th className="px-4 pb-3 text-left text-xs text-on-surface-variant border-b border-outline-variant/20" />
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#e91e9c" }}>
-                          {comparisonData.subHeaders[1]}
-                        </th>
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#7c4dff" }}>
-                          {comparisonData.subHeaders[2]}
-                        </th>
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#00897b" }}>
-                          {comparisonData.subHeaders[3]}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {comparisonData.sections.map((section) => (
-                        <Fragment key={`section-${section.title}`}>
-                          <tr className="bg-surface-container-low">
-                            <td colSpan={4} className="p-4 font-headline font-bold text-xs uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/20">
-                              {section.title}
-                            </td>
-                          </tr>
-                          {section.rows.map((row) => {
-                            const isSpanned = !row.pretty && !row.aesthetic;
-                            return (
-                              <tr key={row.label} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
-                                <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">
-                                  {row.label}
-                                </td>
-                                {isSpanned ? (
-                                  <td colSpan={3} className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                    {row.cute}
-                                  </td>
-                                ) : (
-                                  <>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.cute}
-                                    </td>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.pretty}
-                                    </td>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.aesthetic}
-                                    </td>
-                                  </>
-                                )}
-                              </tr>
-                            );
-                          })}
-                        </Fragment>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                <ComparisonAccordion
+                  sections={comparisonData.sections}
+                  headers={comparisonData.headers}
+                  subHeaders={comparisonData.subHeaders}
+                />
               </article>
 
               {/* Tips for Using Cute Letter Fonts */}
@@ -671,7 +606,7 @@ export default function CuteFontsPage() {
                     "Use bold bubble styles for gaming profiles",
                   ].map((tip) => (
                     <li key={tip} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {tip}
                     </li>
                   ))}

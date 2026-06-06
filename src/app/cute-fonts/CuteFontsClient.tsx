@@ -166,7 +166,7 @@ export default function CuteFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Decrease font size"
               >
-                <span className="material-symbols-outlined text-[18px]">remove</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <input
                 type="range"
@@ -182,7 +182,7 @@ export default function CuteFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Increase font size"
               >
-                <span className="material-symbols-outlined text-[18px]">add</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
                 {fontSize}px
@@ -236,9 +236,7 @@ export default function CuteFontsClient() {
               ) : (
                 <span className="flex items-center gap-2">
                   Explore More Styles
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
-                  </span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}
             </button>
@@ -252,12 +250,7 @@ export default function CuteFontsClient() {
           key={copyCount}
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            check_circle
-          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           Style Copied to Clipboard
         </div>
       )}
