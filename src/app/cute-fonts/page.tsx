@@ -87,7 +87,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Sweetheart Lettering",
     description: "This style adds a romantic handwritten feel to text. It looks warm and personal without becoming hard to read.",
-    example: "Sweet Memories",
+    example: "\uD835\uDC46\uD835\uDC64\uD835\uDC52\uD835\uDC52\uD835\uDC61 \uD835\uDC40\uD835\uDC52\uD835\uDC5A\uD835\uDC5C\uD835\uDC5F\uD835\uDC56\uD835\uDC52\uD835\uDC60",
     bestFor: "Love quotes and bios.",
   },
   {
@@ -99,7 +99,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Lollipop Swirls",
     description: "Rounded letters and playful curves make this font cheerful and energetic. It fits colorful social posts well.",
-    example: "Candy Vibes",
+    example: "\uD835\uDDA2\uD835\uDDB6\uD835\uDDC7\uD835\uDDB9\uD835\uDDCE \uD835\uDDB5\uD835\uDDC2\uD835\uDDB7\uD835\uDDBE\uD835\uDDCC",
     bestFor: "Fun captions.",
   },
   {
@@ -111,7 +111,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Pixie Dust",
     description: "Light decorative details create a magical and fantasy-inspired appearance.",
-    example: "Fairy Dreams",
+    example: "\u1DA0\u1D43\u2071\u02B3\u02B8 \u1D30\u02B3\u1D49\u1D43\u1D50\u02E2",
     bestFor: "Gaming names.",
   },
   {
@@ -123,7 +123,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Bouncy Blossoms",
     description: "Rounded letters with lively spacing make this font look playful and youthful.",
-    example: "Happy Bloom",
+    example: "\uD83C\uDF3B \uD835\uDE77\uD835\uDE8A\uD835\uDE99\uD835\uDE99\uD835\uDEA2 \uD835\uDE71\uD835\uDE95\uD835\uDE98\uD835\uDE98\uD835\uDE96 \uD83C\uDF3B",
     bestFor: "Teen profiles.",
   },
   {
