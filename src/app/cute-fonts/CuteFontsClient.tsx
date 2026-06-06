@@ -49,10 +49,10 @@ export default function CuteFontsClient() {
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
-  const [generateFlash, setGenerateFlash] = useState(false);
+
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
@@ -77,32 +77,7 @@ export default function CuteFontsClient() {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
-      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
     };
-  }, []);
-
-  const handleGenerate = useCallback(() => {
-    setGenerateFlash(true);
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
-
-    const el = document.getElementById("cute-font-results");
-    if (el) {
-      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      const duration = 900;
-      let start: number | null = null;
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = ts - start;
-        const t = Math.min(elapsed / duration, 1);
-        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        window.scrollTo(0, startY + distance * ease);
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
   }, []);
 
   const handleExploreMore = useCallback(() => {
@@ -165,26 +140,17 @@ export default function CuteFontsClient() {
   return (
     <>
       <CuteGoogleFontsLoader />
-      {/* Generator Block: Input + Button + Slider */}
+      {/* Generator Block: Input + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
             <textarea
               aria-label="Enter text to transform into cute fonts"
-              className="w-full min-h-[56px] md:min-h-[120px] p-4 pr-28 md:p-8 md:pr-36 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[56px] md:min-h-[120px] p-4 md:p-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            <button
-              onClick={handleGenerate}
-              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
-            >
-              {generateFlash && (
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              )}
-              {generateFlash ? "Generated!" : "Generate"}
-            </button>
           </div>
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
             <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
