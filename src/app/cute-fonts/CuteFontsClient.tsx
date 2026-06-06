@@ -166,12 +166,12 @@ export default function CuteFontsClient() {
     <>
       <CuteGoogleFontsLoader />
       {/* Generator Block: Input + Button + Slider */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
-        <div className="relative w-full max-w-3xl mx-auto space-y-5">
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
+        <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
             <textarea
               aria-label="Enter text to transform into cute fonts"
-              className="w-full min-h-[120px] p-8 pr-36 text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[56px] md:min-h-[120px] p-4 pr-28 md:p-8 md:pr-36 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
