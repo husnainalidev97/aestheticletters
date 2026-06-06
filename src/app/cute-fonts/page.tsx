@@ -455,11 +455,11 @@ export default function CuteFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-24 md:pb-16 text-center">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-4 pb-2 md:pt-24 md:pb-16 text-center">
           <h1 className="font-headline text-2xl md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-6">
             Cute Fonts Generator &mdash; Copy and Paste Pretty Fonts Instantly
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-12 text-sm md:text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-12 text-sm md:text-lg hidden md:block">
             Cute Fonts Generator turns plain text into stylish designs using 90+ pretty font styles and symbols.
             Use them for bios, captions, usernames, and messages. Explore styles and copy your favorite.
           </p>

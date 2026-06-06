@@ -49,10 +49,9 @@ export default function CuteFontsClient() {
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
-  const [generateFlash, setGenerateFlash] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
@@ -77,32 +76,7 @@ export default function CuteFontsClient() {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
-      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
     };
-  }, []);
-
-  const handleGenerate = useCallback(() => {
-    setGenerateFlash(true);
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
-
-    const el = document.getElementById("cute-font-results");
-    if (el) {
-      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      const duration = 900;
-      let start: number | null = null;
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = ts - start;
-        const t = Math.min(elapsed / duration, 1);
-        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        window.scrollTo(0, startY + distance * ease);
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
   }, []);
 
   const handleExploreMore = useCallback(() => {
@@ -165,73 +139,72 @@ export default function CuteFontsClient() {
   return (
     <>
       <CuteGoogleFontsLoader />
-      {/* Generator Block: Input + Button + Slider */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
-        <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
-          <div className="relative">
-            <textarea
+      {/* Input Row — compact, no Generate button */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-3 md:pb-8">
+        <div className="relative w-full max-w-3xl mx-auto">
+          <div className="relative flex items-center gap-2">
+            <input
+              type="text"
               aria-label="Enter text to transform into cute fonts"
-              className="w-full min-h-[56px] md:min-h-[120px] p-4 pr-28 md:p-8 md:pr-36 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="flex-1 h-12 md:h-14 px-4 md:px-6 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all shadow-sm outline-none"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
             <button
-              onClick={handleGenerate}
-              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
+              onClick={() => setShowSettings((v) => !v)}
+              className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-all"
+              aria-label="Toggle font size settings"
+              aria-expanded={showSettings}
             >
-              {generateFlash && (
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              )}
-              {generateFlash ? "Generated!" : "Generate"}
+              <span className="material-symbols-outlined text-[20px]">tune</span>
             </button>
           </div>
-          <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
-              <span className="font-semibold text-sm">Tt</span>
-              Character Count:{" "}
-              <span className="font-semibold">{inputText.length}</span>
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={decreaseSize}
-                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-                aria-label="Decrease font size"
-              >
-                <span className="material-symbols-outlined text-[18px]">remove</span>
-              </button>
-              <input
-                type="range"
-                min={MIN_SIZE}
-                max={maxSize}
-                value={fontSize}
-                onChange={(e) => setFontSize(Number(e.target.value))}
-                aria-label="Adjust font preview size"
-                className="font-size-slider flex-1 sm:w-40 md:w-48 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
-              />
-              <button
-                onClick={increaseSize}
-                className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
-                aria-label="Increase font size"
-              >
-                <span className="material-symbols-outlined text-[18px]">add</span>
-              </button>
-              <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
-                {fontSize}px
+
+          {/* Collapsible settings panel */}
+          {showSettings && (
+            <div className="mt-2 rounded-xl bg-surface-container-low p-3 flex items-center justify-between gap-3 animate-card-fade-in">
+              <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+                <span className="font-semibold text-sm">Tt</span>
+                <span className="font-semibold">{inputText.length}</span>
               </span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={decreaseSize}
+                  className="w-7 h-7 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                  aria-label="Decrease font size"
+                >
+                  <span className="material-symbols-outlined text-[16px]">remove</span>
+                </button>
+                <input
+                  type="range"
+                  min={MIN_SIZE}
+                  max={maxSize}
+                  value={fontSize}
+                  onChange={(e) => setFontSize(Number(e.target.value))}
+                  aria-label="Adjust font preview size"
+                  className="font-size-slider w-24 sm:w-32 md:w-40 h-1.5 appearance-none rounded-full bg-outline-variant/40 cursor-pointer"
+                />
+                <button
+                  onClick={increaseSize}
+                  className="w-7 h-7 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
+                  aria-label="Increase font size"
+                >
+                  <span className="material-symbols-outlined text-[16px]">add</span>
+                </button>
+                <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
+                  {fontSize}px
+                </span>
+              </div>
             </div>
-          </div>
-          <CategoryJumpLinks
-            categories={cuteCategoryLinks}
-            onExpandAll={() => setShowAll(true)}
-          />
+          )}
         </div>
       </section>
 
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Font Category Cards */}
+      {/* Font Category Cards — immediately below input */}
       <section
         id="cute-font-results"
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
@@ -252,6 +225,16 @@ export default function CuteFontsClient() {
             </div>
           ))}
         </div>
+
+        {/* Category Jump Links — below first batch of results */}
+        {!showAll && (
+          <div className="mt-8">
+            <CategoryJumpLinks
+              categories={cuteCategoryLinks}
+              onExpandAll={() => setShowAll(true)}
+            />
+          </div>
+        )}
 
         {!showAll && (
           <div className="flex justify-center mt-16">
