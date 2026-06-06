@@ -144,9 +144,12 @@ export default function CuteFontsClient() {
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
+            <span className="absolute left-4 md:left-8 top-4 md:top-8 text-on-surface-variant/60 pointer-events-none">
+              <span className="material-symbols-outlined text-[20px] md:text-[24px]">edit</span>
+            </span>
             <textarea
               aria-label="Enter text to transform into cute fonts"
-              className="w-full min-h-[56px] md:min-h-[120px] p-4 md:p-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[56px] md:min-h-[120px] pl-11 md:pl-16 pr-4 md:pr-8 py-4 md:py-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
