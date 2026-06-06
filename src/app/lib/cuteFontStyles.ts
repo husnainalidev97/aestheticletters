@@ -249,7 +249,6 @@ const sweetheartLettering: FontCategory = {
     { name: "Script Blossom", transform: (t) => withFrame(scriptMap(t), "\uD83C\uDF38", "\uD83C\uDF38") },
     { name: "Italic Ribbon", transform: (t) => withFrame(italicMap(t), "\uD83C\uDF80", "\uD83C\uDF80") },
     { name: "Italic Butterfly", transform: (t) => withFrame(italicMap(t), "\uD83E\uDD8B", "\uD83E\uDD8B") },
-    { name: "Script Diary", transform: (t) => withCombining(scriptMap(t), ["\u0308"]) },
     { name: "Italic Moonlight", transform: (t) => withFrame(italicMap(t), "\u263D", "\u263E") },
   ],
 };
