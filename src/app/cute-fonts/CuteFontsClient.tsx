@@ -23,9 +23,13 @@ const DARK_CATEGORIES = new Set(["Ornate Borders", "Glittering Stars"]);
 
 const CUTE_EMOJIS: Record<string, string> = {
   "Pretty Fonts": "🌸",
+  "Sweetheart Lettering": "💕",
   "Glittering Stars": "✨",
+  "Lollipop Swirls": "🍭",
   "Love Notes": "💌",
+  "Pixie Dust": "🧚",
   "Ornate Borders": "🎨",
+  "Bouncy Blossoms": "🌻",
   "Petal & Bloom": "🌺",
   "Sweet Ribbons": "🎀",
 };

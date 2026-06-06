@@ -12,7 +12,7 @@ import CuteFontsClient from "./CuteFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
   description:
-    "Generate cute fonts instantly with 60+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
+    "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
   alternates: {
     canonical: "https://www.aestheticletters.com/cute-fonts",
   },
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/cute-fonts",
     title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
     description:
-      "Generate cute fonts instantly with 60+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
+      "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 1200, height: 630, alt: "Usage of Cute Fonts" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
     description:
-      "Generate cute fonts instantly with 60+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
+      "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: ["https://www.aestheticletters.com/usage-cute-fonts.webp"],
   },
 };
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "What are the Best Cute Font Styles for Gaming?",
     answer:
-      "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Glittering Stars and Sweet Ribbons work especially well for Free Fire, Discord, and casual gaming profiles.",
+      "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
   },
 ];
 
@@ -85,10 +85,22 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
     bestFor: "Instagram captions.",
   },
   {
+    name: "Sweetheart Lettering",
+    description: "This style adds a romantic handwritten feel to text. It looks warm and personal without becoming hard to read.",
+    example: "Sweet Memories",
+    bestFor: "Love quotes and bios.",
+  },
+  {
     name: "Glittering Stars",
     description: "Decorative stars and attractive letters create a dreamy appearance. Many teenagers use it for TikTok usernames.",
     example: "\u1D05\u2726\u0280\u2726\u1D07\u2726\u1D00\u2726\u1D0D\u2726 \u0262\u2726\u026A\u2726\u0280\u2726\u029F\u2726",
     bestFor: "TikTok profiles.",
+  },
+  {
+    name: "Lollipop Swirls",
+    description: "Rounded letters and playful curves make this font cheerful and energetic. It fits colorful social posts well.",
+    example: "Candy Vibes",
+    bestFor: "Fun captions.",
   },
   {
     name: "Love Notes",
@@ -97,10 +109,22 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
     bestFor: "WhatsApp statuses.",
   },
   {
+    name: "Pixie Dust",
+    description: "Light decorative details create a magical and fantasy-inspired appearance.",
+    example: "Fairy Dreams",
+    bestFor: "Gaming names.",
+  },
+  {
     name: "Ornate Borders",
     description: "This style surrounds text with decorative shapes and elegant edges. It works well for highlighted text.",
     example: "\u0F3C Beautiful Moments \u0F3D",
     bestFor: "Facebook posts.",
+  },
+  {
+    name: "Bouncy Blossoms",
+    description: "Rounded letters with lively spacing make this font look playful and youthful.",
+    example: "Happy Bloom",
+    bestFor: "Teen profiles.",
   },
   {
     name: "Petal & Bloom",
@@ -160,7 +184,7 @@ const comparisonData = {
         },
         {
           label: "Font examples (real fonts)",
-          cute: "Gochi Hand, Indie Flower, Pacifico, Comic Neue",
+          cute: "Gochi Hand, Butterfly Kids, Indie Flower, Pacifico",
           pretty: "Dancing Script, Playlist Script, Renitah, Cormorant Garamond",
           aesthetic: "Helvetica, Bebas Neue, Futura, Montserrat (used minimally)",
         },
@@ -306,7 +330,7 @@ export default function CuteFontsPage() {
       url: "https://www.aestheticletters.com/cute-fonts",
       name: "Cute Fonts Generator \u2013 Copy & Paste Pretty Fonts Instantly",
       description:
-        "Generate cute fonts instantly with 60+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
+        "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
       breadcrumb: {
         "@id": "https://www.aestheticletters.com/cute-fonts#breadcrumb",
       },
@@ -404,7 +428,7 @@ export default function CuteFontsPage() {
           name: "What are the Best Cute Font Styles for Gaming?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Glittering Stars and Sweet Ribbons work especially well for Free Fire, Discord, and casual gaming profiles.",
+            text: "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
           },
         },
       ],
@@ -432,7 +456,7 @@ export default function CuteFontsPage() {
             Cute Fonts Generator &mdash; Copy and Paste Pretty Fonts Instantly
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-12 text-sm md:text-lg">
-            Cute Fonts Generator turns plain text into stylish designs using 60+ pretty font styles and symbols.
+            Cute Fonts Generator turns plain text into stylish designs using 90+ pretty font styles and symbols.
             Use them for bios, captions, usernames, and messages. Explore styles and copy your favorite.
           </p>
         </section>
@@ -453,7 +477,7 @@ export default function CuteFontsPage() {
                   for Instagram bios, TikTok captions, gaming names, and more without downloading anything.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This free generator includes 60+ styles made with Unicode characters. Enter
+                  This free generator includes 90+ styles made with Unicode characters. Enter
                   your words into the box, browse through a variety of cute text styles, and instantly copy your
                   favorite design for social media, chats, or usernames. Give our free tool a try and see how
                   quickly it changes simple text into something more creative.
@@ -479,8 +503,8 @@ export default function CuteFontsPage() {
                 </p>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                   {[
-                    "Pretty Fonts", "Glittering Stars",
-                    "Love Notes", "Ornate Borders",
+                    "Pretty Fonts", "Sweetheart Lettering", "Glittering Stars", "Lollipop Swirls",
+                    "Love Notes", "Pixie Dust", "Ornate Borders", "Bouncy Blossoms",
                     "Petal & Bloom", "Sweet Ribbons",
                   ].map((style) => (
                     <li key={style} className="flex items-center gap-2 text-on-surface-variant">
@@ -664,7 +688,7 @@ export default function CuteFontsPage() {
               {/* Top 10 Best Cute & Pretty Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 6 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
+                  Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
