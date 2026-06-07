@@ -42,12 +42,7 @@ export default function FAQAccordion({
               <span className="font-headline font-bold text-lg">
                 {faq.question}
               </span>
-              <span
-                className="material-symbols-outlined transition-transform duration-300"
-                style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-              >
-                expand_more
-              </span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-300" style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}><polyline points="6 9 12 15 18 9" /></svg>
             </button>
             <div
               id={panelId}
