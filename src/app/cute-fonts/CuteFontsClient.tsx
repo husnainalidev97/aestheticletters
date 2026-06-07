@@ -139,7 +139,7 @@ export default function CuteFontsClient() {
   return (
     <>
       {/* Generator Block: Input + Slider */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-16">
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-8">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
             <svg className="absolute left-4 md:left-8 top-4 md:top-8 w-5 h-5 md:w-6 md:h-6 text-on-surface-variant/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
