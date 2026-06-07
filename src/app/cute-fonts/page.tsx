@@ -601,7 +601,7 @@ export default function CuteFontsPage() {
               {/* Top 10 Best Cute & Pretty Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 10 Best Cute &amp; Pretty Unicode Font Styles
+                  Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
