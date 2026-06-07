@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Are These Real Fonts or Unicode Symbols?",
     answer:
-      "Most styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. Some preview styles may also use Google Fonts for visual design purposes.",
+      "All styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text.",
   },
   {
     question: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
@@ -56,9 +56,9 @@ const faqs = [
       "Most modern iPhone and Android devices support Unicode fonts. However, older devices may not display some symbols correctly. If a style looks broken, try using a simpler cute lettering font instead.",
   },
   {
-    question: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
+    question: "What Are Unicode Cute Letters?",
     answer:
-      "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. Our hybrid approach combines both for more creative flexibility.",
+      "Unicode cute letters are created using special text characters, which means they work across social media apps, usernames, chats, and bios through simple copy and paste. Every style in this generator is unicode based, so you can copy and use them anywhere without extra software.",
   },
   {
     question: "What is Kawaii Font?",
@@ -372,7 +372,7 @@ export default function CuteFontsPage() {
           name: "Are These Real Fonts or Unicode Symbols?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Most styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. Some preview styles may also use Google Fonts for visual design purposes.",
+            text: "All styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text.",
           },
         },
         {
@@ -401,10 +401,10 @@ export default function CuteFontsPage() {
         },
         {
           "@type": "Question",
-          name: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
+          name: "What Are Unicode Cute Letters?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews.",
+            text: "Unicode cute letters are created using special text characters, which means they work across social media apps, usernames, chats, and bios through simple copy and paste. Every style in this generator is unicode based, so you can copy and use them anywhere without extra software.",
           },
         },
         {
@@ -477,10 +477,7 @@ export default function CuteFontsPage() {
                   for Instagram bios, TikTok captions, gaming names, and more without downloading anything.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This free generator includes 90+ styles made with Unicode characters. Enter
-                  your words into the box, browse through a variety of cute text styles, and instantly copy your
-                  favorite design for social media, chats, or usernames. Give our free tool a try and see how
-                  quickly it changes simple text into something more creative.
+                  This free generator includes 90+ styles made with Unicode characters. Enter your words into the box, browse through a variety of cute text styles, and instantly copy your favorite design for social media, chats, or usernames. Give our free tool a try and see how quickly it changes simple text into something more creative.
                 </p>
               </article>
 
@@ -526,38 +523,19 @@ export default function CuteFontsPage() {
               {/* How do Cute Letters Work? */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  How do Cute Letters Work? (Unicode + Google Fonts Explained)
+                  How do Cute Letters Work? (Unicode Explained)
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This pretty font generator uses a hybrid system that combines Unicode characters and Google Fonts.
-                  That means you get more variety compared to basic font tools that only change letters into symbols.
+                  This pretty font generator uses unicode characters to create all font styles. That means you get more variety compared to basic font tools that only change letters into symbols.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Unicode styles replace normal letters with special text symbols that already exist inside many
-                  devices and apps. This allows users to create cute fonts copy paste text that works on Instagram,
-                  WhatsApp, TikTok, Discord, Pinterest and many gaming platforms.
+                  Unicode styles replace normal letters with special text symbols that already exist inside many devices and apps. This allows users to create cute fonts copy paste text that works on Instagram, WhatsApp, TikTok, Discord, Pinterest and many gaming platforms.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Google Fonts work differently. They are actual font files used mainly for graphics, previews,
-                  banners, or websites. By combining both systems, our cute text generator gives users more
-                  creative choices in one place.
+                  Every style in this cute text generator is unicode based. That means you can copy any style and paste it directly into social media bios, captions, usernames, and messages without any extra steps or software.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  This setup also helps people who want both:
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Copy-and-paste text styles for social media
-                  </li>
-                  <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Real font previews for designs and creative projects
-                  </li>
-                </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Because of their soft and decorative appearance, many people also refer to these styles as soft
-                  or pretty letters.
+                  Because of their soft and decorative appearance, many people also refer to these styles as soft or pretty letters.
                 </p>
               </article>
 
@@ -623,7 +601,7 @@ export default function CuteFontsPage() {
               {/* Top 10 Best Cute & Pretty Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
+                  Top 10 Best Cute &amp; Pretty Unicode Font Styles
                 </h2>
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
