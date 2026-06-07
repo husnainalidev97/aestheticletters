@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Are These Real Fonts or Unicode Symbols?",
     answer:
-      "All styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text.",
+      "All styles inside this cute font generator use unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. You can copy any style and paste it directly into Instagram, TikTok, Discord, WhatsApp, and most other platforms.",
   },
   {
     question: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
@@ -56,9 +56,9 @@ const faqs = [
       "Most modern iPhone and Android devices support Unicode fonts. However, older devices may not display some symbols correctly. If a style looks broken, try using a simpler cute lettering font instead.",
   },
   {
-    question: "What Are Unicode Cute Letters?",
+    question: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
     answer:
-      "Unicode cute letters are created using special text characters, which means they work across social media apps, usernames, chats, and bios through simple copy and paste. Every style in this generator is unicode based, so you can copy and use them anywhere without extra software.",
+      "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. All styles in our cute font generator use Unicode, so every style you copy will paste correctly on Instagram, Pinterest, Discord, and other platforms.",
   },
   {
     question: "What is Kawaii Font?",
@@ -372,7 +372,7 @@ export default function CuteFontsPage() {
           name: "Are These Real Fonts or Unicode Symbols?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "All styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text.",
+            text: "All styles inside this cute font generator use unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. You can copy any style and paste it directly into Instagram, TikTok, Discord, WhatsApp, and most other platforms.",
           },
         },
         {
@@ -401,10 +401,10 @@ export default function CuteFontsPage() {
         },
         {
           "@type": "Question",
-          name: "What Are Unicode Cute Letters?",
+          name: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Unicode cute letters are created using special text characters, which means they work across social media apps, usernames, chats, and bios through simple copy and paste. Every style in this generator is unicode based, so you can copy and use them anywhere without extra software.",
+            text: "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. All styles in our cute font generator use Unicode, so every style you copy will paste correctly on Instagram, Pinterest, Discord, and other platforms.",
           },
         },
         {
