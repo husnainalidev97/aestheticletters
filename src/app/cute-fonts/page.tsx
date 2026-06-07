@@ -380,7 +380,7 @@ export default function CuteFontsPage() {
           name: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more.",
+            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
           },
         },
         {
@@ -393,7 +393,7 @@ export default function CuteFontsPage() {
         },
         {
           "@type": "Question",
-          name: "Do Cute Fonts Work on IPhone and Android?",
+          name: "Do Cute Fonts Work on iPhone and Android?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Most modern iPhone and Android devices support Unicode fonts. However, older devices may not display some symbols correctly. If a style looks broken, try using a simpler cute lettering font instead.",
@@ -412,7 +412,7 @@ export default function CuteFontsPage() {
           name: "What is Kawaii Font?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The term \u201CKawaii\u201D comes from Japanese culture and is commonly used to describe something charming, lovable, or visually cute. A kawaii font usually includes soft shapes, playful letters, hearts, stars, or bubbly designs.",
+            text: "The term \u201CKawaii\u201D comes from Japanese culture and is commonly used to describe something charming, lovable, or visually cute. A kawaii font usually includes soft shapes, playful letters, hearts, stars, or bubbly designs. These styles are very popular among anime fans, social media creators, and aesthetic content pages.",
           },
         },
         {
