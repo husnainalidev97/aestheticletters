@@ -101,7 +101,7 @@ export default function Sidebar({
       {/* Security Feature */}
       <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
         <h3 className="font-headline font-bold text-primary mb-4 flex items-center gap-2">
-          <span className="material-symbols-outlined">verified_user</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" /></svg>
           Client-Side Security
         </h3>
         <p className="text-sm text-on-surface-variant leading-relaxed">

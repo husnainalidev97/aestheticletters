@@ -92,9 +92,7 @@ export default function FontCategoryCard({
                     }`}
                     aria-label={isFavorite?.(styleId) ? "Remove from favorites" : "Add to favorites"}
                   >
-                    <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1" : "'FILL' 0" }}>
-                      favorite
-                    </span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill={isFavorite?.(styleId) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
                     <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite?.(styleId) ? "Saved" : "Save"}</span>
                   </button>
                 )}
@@ -109,9 +107,11 @@ export default function FontCategoryCard({
                   }`}
                   aria-label={isCopied ? "Copied" : "Copy to clipboard"}
                 >
-                  <span className="material-symbols-outlined text-lg">
-                    {isCopied ? "check" : "content_copy"}
-                  </span>
+                  {isCopied ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                  )}
                   <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                 </button>
               </div>
@@ -121,9 +121,7 @@ export default function FontCategoryCard({
       </div>
       {isDark && (
         <div className="absolute -right-4 -bottom-4 opacity-[0.07] text-primary">
-          <span className="material-symbols-outlined text-[8rem]">
-            auto_awesome
-          </span>
+          <svg width="128" height="128" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
         </div>
       )}
     </div>

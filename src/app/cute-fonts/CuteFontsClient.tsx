@@ -230,8 +230,8 @@ export default function CuteFontsClient() {
             >
               {isLoadingMore ? (
                 <span className="flex items-center gap-2">
-                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                  Loading...
+                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" aria-hidden="true" />
+                  <span>Loading…</span>
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
