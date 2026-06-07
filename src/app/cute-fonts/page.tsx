@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
@@ -8,6 +7,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import CuteFontsClient from "./CuteFontsClientLazy";
+import ComparisonAccordion from "./ComparisonAccordion";
 
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Are These Real Fonts or Unicode Symbols?",
     answer:
-      "Most styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. Some preview styles may also use Google Fonts for visual design purposes.",
+      "All styles inside this cute font generator use unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. You can copy any style and paste it directly into Instagram, TikTok, Discord, WhatsApp, and most other platforms.",
   },
   {
     question: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
@@ -58,7 +58,7 @@ const faqs = [
   {
     question: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
     answer:
-      "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. Our hybrid approach combines both for more creative flexibility.",
+      "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. All styles in our cute font generator use Unicode, so every style you copy will paste correctly on Instagram, Pinterest, Discord, and other platforms.",
   },
   {
     question: "What is Kawaii Font?",
@@ -77,19 +77,18 @@ const faqs = [
   },
 ];
 
-const fontShowcaseStyles = [
+const fontShowcaseStyles: { name: string; description: string; example: string; bestFor: string; fontFamily?: string }[] = [
   {
     name: "Pretty Fonts",
     description: "A clean and elegant style with soft curves and balanced spacing. It works great for captions, mood boards, and Pinterest posts.",
-    example: "\uD835\uDD01\uD835\uDCFB\uD835\uDCEE\uD835\uDCF5\uD835\uDCF5\uD835\uDD02 \uD835\uDCDD\uD835\uDCEA\uD835\uDD02\uD835\uDCFC",
+    example: "\uD835\uDCDF\uD835\uDCFB\uD835\uDCEE\uD835\uDCFD\uD835\uDCFD\uD835\uDD02 \uD835\uDCD3\uD835\uDCEA\uD835\uDD02\uD835\uDCFC",
     bestFor: "Instagram captions.",
   },
   {
     name: "Sweetheart Lettering",
     description: "This style adds a romantic handwritten feel to text. It looks warm and personal without becoming hard to read.",
-    example: "Sweet Memories",
+    example: "\uD835\uDC46\uD835\uDC64\uD835\uDC52\uD835\uDC52\uD835\uDC61 \uD835\uDC40\uD835\uDC52\uD835\uDC5A\uD835\uDC5C\uD835\uDC5F\uD835\uDC56\uD835\uDC52\uD835\uDC60",
     bestFor: "Love quotes and bios.",
-    fontFamily: "'Butterfly Kids', cursive",
   },
   {
     name: "Glittering Stars",
@@ -100,9 +99,8 @@ const fontShowcaseStyles = [
   {
     name: "Lollipop Swirls",
     description: "Rounded letters and playful curves make this font cheerful and energetic. It fits colorful social posts well.",
-    example: "Candy Vibes",
+    example: "\uD835\uDDA2\uD835\uDDBA\uD835\uDDC7\uD835\uDDBD\uD835\uDDD2 \uD835\uDDB5\uD835\uDDC2\uD835\uDDBB\uD835\uDDBE\uD835\uDDCC",
     bestFor: "Fun captions.",
-    fontFamily: "'DynaPuff', system-ui",
   },
   {
     name: "Love Notes",
@@ -113,9 +111,8 @@ const fontShowcaseStyles = [
   {
     name: "Pixie Dust",
     description: "Light decorative details create a magical and fantasy-inspired appearance.",
-    example: "Fairy Dreams",
+    example: "\u1DA0\u1D43\u2071\u02B3\u02B8 \u1D30\u02B3\u1D49\u1D43\u1D50\u02E2",
     bestFor: "Gaming names.",
-    fontFamily: "'Snowburst One', display",
   },
   {
     name: "Ornate Borders",
@@ -126,9 +123,8 @@ const fontShowcaseStyles = [
   {
     name: "Bouncy Blossoms",
     description: "Rounded letters with lively spacing make this font look playful and youthful.",
-    example: "Happy Bloom",
+    example: "\uD83C\uDF3B \uD835\uDE77\uD835\uDE8A\uD835\uDE99\uD835\uDE99\uD835\uDEA2 \uD835\uDE71\uD835\uDE95\uD835\uDE98\uD835\uDE98\uD835\uDE96 \uD83C\uDF3B",
     bestFor: "Teen profiles.",
-    fontFamily: "'Fruktur', display",
   },
   {
     name: "Petal & Bloom",
@@ -376,7 +372,7 @@ export default function CuteFontsPage() {
           name: "Are These Real Fonts or Unicode Symbols?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Most styles inside this cute font generator use Unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. Some preview styles may also use Google Fonts for visual design purposes.",
+            text: "All styles inside this cute font generator use unicode characters. These are special text symbols that look different from normal letters but still work as copy-and-paste text. You can copy any style and paste it directly into Instagram, TikTok, Discord, WhatsApp, and most other platforms.",
           },
         },
         {
@@ -384,7 +380,7 @@ export default function CuteFontsPage() {
           name: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more.",
+            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
           },
         },
         {
@@ -397,7 +393,7 @@ export default function CuteFontsPage() {
         },
         {
           "@type": "Question",
-          name: "Do Cute Fonts Work on IPhone and Android?",
+          name: "Do Cute Fonts Work on iPhone and Android?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Most modern iPhone and Android devices support Unicode fonts. However, older devices may not display some symbols correctly. If a style looks broken, try using a simpler cute lettering font instead.",
@@ -408,7 +404,7 @@ export default function CuteFontsPage() {
           name: "What is the Difference Between Unicode Cute Letters and Google Fonts?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews.",
+            text: "Unicode cute letters are created using special text characters, which means they usually work across social media apps, usernames, chats, and bios through simple copy and paste. Google Fonts are actual font files mainly used for websites, graphics, or visual previews. All styles in our cute font generator use Unicode, so every style you copy will paste correctly on Instagram, Pinterest, Discord, and other platforms.",
           },
         },
         {
@@ -416,7 +412,7 @@ export default function CuteFontsPage() {
           name: "What is Kawaii Font?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The term \u201CKawaii\u201D comes from Japanese culture and is commonly used to describe something charming, lovable, or visually cute. A kawaii font usually includes soft shapes, playful letters, hearts, stars, or bubbly designs.",
+            text: "The term \u201CKawaii\u201D comes from Japanese culture and is commonly used to describe something charming, lovable, or visually cute. A kawaii font usually includes soft shapes, playful letters, hearts, stars, or bubbly designs. These styles are very popular among anime fans, social media creators, and aesthetic content pages.",
           },
         },
         {
@@ -455,11 +451,11 @@ export default function CuteFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Cute Fonts Generator &mdash; Copy and Paste Pretty Fonts Instantly
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Cute Fonts Generator turns plain text into stylish designs using 90+ pretty font styles and symbols.
             Use them for bios, captions, usernames, and messages. Explore styles and copy your favorite.
           </p>
@@ -481,10 +477,7 @@ export default function CuteFontsPage() {
                   for Instagram bios, TikTok captions, gaming names, and more without downloading anything.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This free generator includes 90+ styles made with Unicode characters and Google Fonts. Enter
-                  your words into the box, browse through a variety of cute text styles, and instantly copy your
-                  favorite design for social media, chats, or usernames. Give our free tool a try and see how
-                  quickly it changes simple text into something more creative.
+                  This free generator includes 90+ styles made with Unicode characters. Enter your words into the box, browse through a variety of cute text styles, and instantly copy your favorite design for social media, chats, or usernames. Give our free tool a try and see how quickly it changes simple text into something more creative.
                 </p>
               </article>
 
@@ -512,7 +505,7 @@ export default function CuteFontsPage() {
                     "Petal & Bloom", "Sweet Ribbons",
                   ].map((style) => (
                     <li key={style} className="flex items-center gap-2 text-on-surface-variant">
-                      <span className="material-symbols-outlined text-primary text-base" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {style}
                     </li>
                   ))}
@@ -530,38 +523,19 @@ export default function CuteFontsPage() {
               {/* How do Cute Letters Work? */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  How do Cute Letters Work? (Unicode + Google Fonts Explained)
+                  How do Cute Letters Work? (Unicode Explained)
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This pretty font generator uses a hybrid system that combines Unicode characters and Google Fonts.
-                  That means you get more variety compared to basic font tools that only change letters into symbols.
+                  This pretty font generator uses unicode characters to create all font styles. That means you get more variety compared to basic font tools that only change letters into symbols.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Unicode styles replace normal letters with special text symbols that already exist inside many
-                  devices and apps. This allows users to create cute fonts copy paste text that works on Instagram,
-                  WhatsApp, TikTok, Discord, Pinterest and many gaming platforms.
+                  Unicode styles replace normal letters with special text symbols that already exist inside many devices and apps. This allows users to create cute fonts copy paste text that works on Instagram, WhatsApp, TikTok, Discord, Pinterest and many gaming platforms.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Google Fonts work differently. They are actual font files used mainly for graphics, previews,
-                  banners, or websites. By combining both systems, our cute text generator gives users more
-                  creative choices in one place.
+                  Every style in this cute text generator is unicode based. That means you can copy any style and paste it directly into social media bios, captions, usernames, and messages without any extra steps or software.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  This setup also helps people who want both:
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                    Copy-and-paste text styles for social media
-                  </li>
-                  <li className="flex items-start gap-2 text-on-surface-variant text-lg">
-                    <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                    Real font previews for designs and creative projects
-                  </li>
-                </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Because of their soft and decorative appearance, many people also refer to these styles as soft
-                  or pretty letters.
+                  Because of their soft and decorative appearance, many people also refer to these styles as soft or pretty letters.
                 </p>
               </article>
 
@@ -581,76 +555,11 @@ export default function CuteFontsPage() {
                   often focus on clean, and modern text designs. The guide below makes it easier to understand
                   which style matches your personality, content, or social media vibe best.
                 </p>
-                <div className="overflow-x-auto rounded-xl border border-outline-variant/20">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-surface-container-lowest">
-                        <th className="p-4 text-left font-headline font-bold text-on-background border-b border-outline-variant/20 min-w-[140px]">
-                          {comparisonData.headers[0]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#e91e9c" }}>
-                          {comparisonData.headers[1]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#7c4dff" }}>
-                          {comparisonData.headers[2]}
-                        </th>
-                        <th className="p-4 text-left font-headline font-bold border-b border-outline-variant/20 min-w-[200px]" style={{ color: "#00897b" }}>
-                          {comparisonData.headers[3]}
-                        </th>
-                      </tr>
-                      <tr className="bg-surface-container-lowest">
-                        <th className="px-4 pb-3 text-left text-xs text-on-surface-variant border-b border-outline-variant/20" />
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#e91e9c" }}>
-                          {comparisonData.subHeaders[1]}
-                        </th>
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#7c4dff" }}>
-                          {comparisonData.subHeaders[2]}
-                        </th>
-                        <th className="px-4 pb-3 text-left text-xs border-b border-outline-variant/20" style={{ color: "#00897b" }}>
-                          {comparisonData.subHeaders[3]}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {comparisonData.sections.map((section) => (
-                        <Fragment key={`section-${section.title}`}>
-                          <tr className="bg-surface-container-low">
-                            <td colSpan={4} className="p-4 font-headline font-bold text-xs uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/20">
-                              {section.title}
-                            </td>
-                          </tr>
-                          {section.rows.map((row) => {
-                            const isSpanned = !row.pretty && !row.aesthetic;
-                            return (
-                              <tr key={row.label} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
-                                <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">
-                                  {row.label}
-                                </td>
-                                {isSpanned ? (
-                                  <td colSpan={3} className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                    {row.cute}
-                                  </td>
-                                ) : (
-                                  <>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.cute}
-                                    </td>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.pretty}
-                                    </td>
-                                    <td className="p-4 text-on-surface-variant border-b border-outline-variant/10 align-top">
-                                      {row.aesthetic}
-                                    </td>
-                                  </>
-                                )}
-                              </tr>
-                            );
-                          })}
-                        </Fragment>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                <ComparisonAccordion
+                  sections={comparisonData.sections}
+                  headers={comparisonData.headers}
+                  subHeaders={comparisonData.subHeaders}
+                />
               </article>
 
               {/* Tips for Using Cute Letter Fonts */}
@@ -675,7 +584,7 @@ export default function CuteFontsPage() {
                     "Use bold bubble styles for gaming profiles",
                   ].map((tip) => (
                     <li key={tip} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {tip}
                     </li>
                   ))}
@@ -692,7 +601,7 @@ export default function CuteFontsPage() {
               {/* Top 10 Best Cute & Pretty Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode &amp; Google Fonts Both
+                  Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
