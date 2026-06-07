@@ -81,7 +81,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Pretty Fonts",
     description: "A clean and elegant style with soft curves and balanced spacing. It works great for captions, mood boards, and Pinterest posts.",
-    example: "\uD835\uDD01\uD835\uDCFB\uD835\uDCEE\uD835\uDCF5\uD835\uDCF5\uD835\uDD02 \uD835\uDCDD\uD835\uDCEA\uD835\uDD02\uD835\uDCFC",
+    example: "\uD835\uDCDF\uD835\uDCFB\uD835\uDCEE\uD835\uDCFD\uD835\uDCFD\uD835\uDD02 \uD835\uDCD3\uD835\uDCEA\uD835\uDD02\uD835\uDCFC",
     bestFor: "Instagram captions.",
   },
   {
@@ -99,7 +99,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   {
     name: "Lollipop Swirls",
     description: "Rounded letters and playful curves make this font cheerful and energetic. It fits colorful social posts well.",
-    example: "\uD835\uDDA2\uD835\uDDB6\uD835\uDDC7\uD835\uDDB9\uD835\uDDCE \uD835\uDDB5\uD835\uDDC2\uD835\uDDB7\uD835\uDDBE\uD835\uDDCC",
+    example: "\uD835\uDDA2\uD835\uDDBA\uD835\uDDC7\uD835\uDDBD\uD835\uDDD2 \uD835\uDDB5\uD835\uDDC2\uD835\uDDBB\uD835\uDDBE\uD835\uDDCC",
     bestFor: "Fun captions.",
   },
   {
