@@ -43,7 +43,7 @@ const faqs = [
   {
     question: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
     answer:
-      "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
+      "Yes, all cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
   },
   {
     question: "Is Cute Font Maker Free to Use?",
@@ -380,7 +380,7 @@ export default function CuteFontsPage() {
           name: "Do Cute Text Styles Work on Instagram, TikTok, Discord?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, most cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
+            text: "Yes, all cute text styles are supported on Instagram, TikTok, Discord, Facebook, and WhatsApp. They can be added to profile bios, display names, post captions, chat messages, and more. Some apps may not support certain decorative symbols, so it\u2019s best to preview your styled text before publishing it.",
           },
         },
         {
