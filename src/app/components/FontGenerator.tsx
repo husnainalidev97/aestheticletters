@@ -46,7 +46,7 @@ interface FontGeneratorProps {
 }
 
 export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
-  const [text, setText] = useState("Aesthetic Fonts");
+  const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -125,7 +125,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
     }
   }, [fallbackCopy]);
 
-  const displayText = text || "Aesthetic Fonts";
+  const displayText = text || "Type or Paste your text here";
 
   const handleExploreMore = () => {
     setIsLoadingMore(true);
