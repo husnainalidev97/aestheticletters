@@ -103,7 +103,6 @@ const cardDefs: CardDef[] = [
       { label: "Feather Stroke", gen: (T) => v("script", null, { prefix: "─", suffix: "─" })(T) },
       { label: "Wax Seal", gen: (T) => v("bold-script", null, { prefix: "◆", suffix: "◆" })(T) },
       { label: "Vintage Nib", gen: (T) => v("script", null, { prefix: "◇", suffix: "◇" })(T) },
-      { label: "Nile Script", gen: (T) => v("bold-script", null, "hieroglyph")(T) },
       { label: "Velvet Stroke", gen: (T) => v("script", null, { prefix: "~", suffix: "~" })(T) },
       { label: "Sparkle Script", gen: (T) => v("script", null, "sparkle")(T) },
     ],
