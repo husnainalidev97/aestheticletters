@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
-import HeroSection from "../components/HeroSection";
+
 import InstagramFontCards from "../components/InstagramFontCardsLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -161,11 +161,14 @@ export default function InstagramFontsPage() {
             { label: "Instagram Fonts", href: "/instagram-fonts" },
           ]}
         />
-        <HeroSection
-          title="Instagram Fonts"
-          description="Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles."
-          showInput={false}
-        />
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Instagram Fonts
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles.
+          </p>
+        </section>
         <InstagramFontCards />
 
         {/* SEO Content Section */}
