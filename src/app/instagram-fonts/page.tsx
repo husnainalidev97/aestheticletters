@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
-import HeroSection from "../components/HeroSection";
+
 import InstagramFontCards from "../components/InstagramFontCardsLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -161,11 +161,16 @@ export default function InstagramFontsPage() {
             { label: "Instagram Fonts", href: "/instagram-fonts" },
           ]}
         />
-        <HeroSection
-          title="Instagram Fonts"
-          description="Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles."
-          showInput={false}
-        />
+        {/* Hero Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Instagram Fonts &mdash; 110+ Stylish Copy &amp; Paste Fonts
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles.
+          </p>
+        </section>
+
         <InstagramFontCards />
 
         {/* SEO Content Section */}
@@ -349,9 +354,7 @@ export default function InstagramFontsPage() {
                             key={point}
                             className="flex items-center gap-3 text-on-surface-variant"
                           >
-                            <span className="material-symbols-outlined text-primary text-sm">
-                              check_circle
-                            </span>
+                            <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                             <span>{point}</span>
                           </li>
                         ))}
@@ -379,9 +382,7 @@ export default function InstagramFontsPage() {
                       key={item}
                       className="flex items-center gap-3 text-on-surface-variant"
                     >
-                      <span className="material-symbols-outlined text-primary text-sm">
-                        warning
-                      </span>
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /></svg>
                       <span>{item}</span>
                     </li>
                   ))}
