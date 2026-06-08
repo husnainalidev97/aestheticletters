@@ -6,7 +6,6 @@ import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
-import HomeGoogleFontsLoader from "./HomeGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
 
 const RESULTS_ID = "font-results";
@@ -52,11 +51,11 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
-  const [generateFlash, setGenerateFlash] = useState(false);
+
   const [showAll, setShowAll] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
@@ -81,7 +80,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
+
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     };
   }, []);
@@ -128,30 +127,6 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
   const displayText = text || "Aesthetic Fonts";
 
-  const handleGenerate = () => {
-    setGenerateFlash(true);
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
-
-    const el = document.getElementById(RESULTS_ID);
-    if (el) {
-      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      const duration = 900;
-      let start: number | null = null;
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = ts - start;
-        const t = Math.min(elapsed / duration, 1);
-        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        window.scrollTo(0, startY + distance * ease);
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
-  };
-
   const handleExploreMore = () => {
     setIsLoadingMore(true);
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
@@ -171,35 +146,24 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
   return (
     <>
-      <HomeGoogleFontsLoader />
-      {/* Hero Section with Input */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-        <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">
+      {/* Compact header + generator tool — tool-first layout */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+        <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight text-on-background mb-2 md:mb-3">
           Aesthetic Fonts
         </h1>
-        <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+        <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 text-sm md:text-lg">
           Give your words a fresh and modern look with over 120 aesthetic
           fonts, perfect for quotes, creative posts, and visual storytelling.
         </p>
-        {/* Generator Block: Input + Button + Slider */}
+        {/* Generator Block: Input + Slider */}
         <div className="relative w-full max-w-3xl mx-auto space-y-5">
-          {/* Input with Generate button */}
           <div className="relative">
             <textarea
-              className="w-full min-h-[120px] p-8 pr-36 text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[120px] p-8 text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
               placeholder="Type or paste your text here..."
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
-            <button
-              onClick={handleGenerate}
-              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
-            >
-              {generateFlash && (
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              )}
-              {generateFlash ? "Generated!" : "Generate"}
-            </button>
           </div>
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
@@ -214,7 +178,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Decrease font size"
               >
-                <span className="material-symbols-outlined text-[18px]">remove</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <input
                 type="range"
@@ -230,7 +194,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Increase font size"
               >
-                <span className="material-symbols-outlined text-[18px]">add</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
                 {fontSize}px
@@ -274,12 +238,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               background: "linear-gradient(135deg, #9b6dd7 0%, #e888b0 100%)",
             }}
           >
-            <span
-              className="material-symbols-outlined text-base transition-transform duration-300 group-hover:rotate-12"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              auto_awesome
-            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform duration-300 group-hover:rotate-12" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
             Explore {totalFontStyles}+ Font Styles
           </Link>
         </div>
@@ -317,9 +276,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               ) : (
                 <span className="flex items-center gap-2">
                   Explore More Styles
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
-                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}
             </button>
@@ -333,12 +290,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
           key={copyCount}
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            check_circle
-          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
           Style Copied to Clipboard
         </div>
       )}
