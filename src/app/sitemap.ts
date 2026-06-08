@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-06-06T00:00:00Z");
+  const lastModified = new Date("2026-06-08T00:00:00Z");
 
   return [
     {
