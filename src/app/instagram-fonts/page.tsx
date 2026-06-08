@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
-import HeroSection from "../components/HeroSection";
+
 import InstagramFontCards from "../components/InstagramFontCardsLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -161,11 +161,14 @@ export default function InstagramFontsPage() {
             { label: "Instagram Fonts", href: "/instagram-fonts" },
           ]}
         />
-        <HeroSection
-          title="Instagram Fonts"
-          description="Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles."
-          showInput={false}
-        />
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Instagram Fonts
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles.
+          </p>
+        </section>
         <InstagramFontCards />
 
         {/* SEO Content Section */}
@@ -281,6 +284,57 @@ export default function InstagramFontsPage() {
                 </div>
               </article>
 
+              {/* Where Instagram Letters Can Be Used */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Instagram Letters Can Be Used?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  These typefaces work in different places within IG.
+                </p>
+                <div className="space-y-4 mb-6">
+                  {[
+                    {
+                      title: "Username & Name",
+                      desc: "Use a unique insta name font to stand out in search and follower lists.",
+                    },
+                    {
+                      title: "Bio",
+                      desc: "A clean instagram bio font helps you make a strong first impression.",
+                    },
+                    {
+                      title: "Captions",
+                      desc: "Use styled ig text to make posts more engaging.",
+                    },
+                    {
+                      title: "Comments",
+                      desc: "Stand out in conversations with creative replies.",
+                    },
+                    {
+                      title: "Stories & Reels",
+                      desc: "Use instagram story fonts to make content visually attractive.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
+                    >
+                      <h3 className="font-headline font-bold text-lg mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-on-surface-variant leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Additionally, these letters can also be used on Facebook.
+                  You can test them easily using our{" "}
+                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
+                </p>
+              </article>
+
               {/* Different Fonts for Instagram */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -349,9 +403,7 @@ export default function InstagramFontsPage() {
                             key={point}
                             className="flex items-center gap-3 text-on-surface-variant"
                           >
-                            <span className="material-symbols-outlined text-primary text-sm">
-                              check_circle
-                            </span>
+                            <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                             <span>{point}</span>
                           </li>
                         ))}
@@ -359,6 +411,58 @@ export default function InstagramFontsPage() {
                     </div>
                   ))}
                 </div>
+              </article>
+
+              {/* Best Instagram Text Strategy */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Best Instagram Text Strategy (Most People Ignore This)
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Using typefaces is easy, but using them correctly makes a big difference.
+                </p>
+                <div className="space-y-6 mb-6">
+                  {[
+                    {
+                      step: "1",
+                      title: "Keep It Readable",
+                      desc: "Do not use hard-to-read styles in long text.",
+                    },
+                    {
+                      step: "2",
+                      title: "Mix Normal + Styled Text",
+                      desc: "Use normal text with one styled word for better clarity.",
+                    },
+                    {
+                      step: "3",
+                      title: "Maintain a Uniform Look",
+                      desc: "Stick to a couple of signature styles to help your audience recognize your brand instantly.",
+                    },
+                    {
+                      step: "4",
+                      title: "Match Your Profile Type",
+                      desc: "Personal accounts → creative letters. Business accounts → clean and minimal typefaces.",
+                    },
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-sm">
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="font-headline font-bold text-lg mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-on-surface-variant leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  For a clean and modern look, many users prefer using{" "}
+                  <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">stylish fonts</Link> in their profiles.
+                </p>
               </article>
 
               {/* IG Username Font Limitations */}
@@ -379,9 +483,7 @@ export default function InstagramFontsPage() {
                       key={item}
                       className="flex items-center gap-3 text-on-surface-variant"
                     >
-                      <span className="material-symbols-outlined text-primary text-sm">
-                        warning
-                      </span>
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -510,106 +612,8 @@ export default function InstagramFontsPage() {
             {/* Sidebar */}
             <Sidebar
               showBanner={false}
+              showTips={false}
               bottomImage={{ src: "/instagram-fonts-generator-explained.webp", alt: "instagram fonts generator explained" }}
-              useCasesHeading="Where Instagram Letters Can Be Used?"
-              tipsHeading="Best Instagram Text Strategy (Most People Ignore This)"
-              useCasesContent={
-                <div className="space-y-4">
-                  <p className="text-xs text-on-surface-variant leading-relaxed mb-2">
-                    These typefaces work in different places within IG.
-                  </p>
-                  {[
-                    {
-                      title: "Username & Name",
-                      desc: "Use a unique insta name font to stand out in search and follower lists.",
-                    },
-                    {
-                      title: "Bio",
-                      desc: "A clean instagram bio font helps you make a strong first impression.",
-                    },
-                    {
-                      title: "Captions",
-                      desc: "Use styled ig text to make posts more engaging.",
-                    },
-                    {
-                      title: "Comments",
-                      desc: "Stand out in conversations with creative replies.",
-                    },
-                    {
-                      title: "Stories & Reels",
-                      desc: "Use instagram story fonts to make content visually attractive.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="p-4 bg-surface-container rounded-xl border border-outline-variant/10"
-                    >
-                      <h3 className="font-headline font-bold text-primary text-sm mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                  <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
-                    Additionally, these letters can also be used on Facebook.
-                    You can test them easily using our <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
-                  </p>
-                </div>
-              }
-              tipsContent={
-                <div className="space-y-6">
-                  <p className="text-xs text-on-surface-variant leading-relaxed mb-2">
-                    Using typefaces is easy, but using them correctly makes a big difference.
-                  </p>
-                  {[
-                    {
-                      step: "1",
-                      title: "Keep It Readable",
-                      desc: "Do not use hard-to-read styles in long text.",
-                    },
-                    {
-                      step: "2",
-                      title: "Mix Normal + Styled Text",
-                      desc: "Use normal text with one styled word for better clarity.",
-                    },
-                    {
-                      step: "3",
-                      title: "Maintain a Uniform Look",
-                      desc: "Stick to a couple of signature styles to help your audience recognize your brand instantly.",
-                    },
-                    {
-                      step: "4",
-                      title: "Match Your Profile Type",
-                      desc: (
-                        <>
-                          Personal accounts → creative letters
-                          <br />
-                          Business accounts → clean and minimal typefaces
-                        </>
-                      ),
-                    },
-                  ].map((item) => (
-                    <div key={item.step} className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-sm">
-                        {item.step}
-                      </div>
-                      <div>
-                        <h3 className="font-headline font-bold text-sm mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-xs text-on-surface-variant leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                  <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
-                    For a clean and modern look, many users prefer using <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">stylish fonts</Link> in their profiles.
-                  </p>
-                </div>
-              }
             />
           </div>
         </section>
@@ -624,6 +628,8 @@ export default function InstagramFontsPage() {
               {[
                 { label: "Cursive Font Generator", href: "/cursive-fonts" },
                 { label: "Fancy Text Generator", href: "/fancy-fonts" },
+                { label: "Facebook Font Generator", href: "/facebook-fonts" },
+                { label: "Aesthetic Font Generator", href: "/" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
