@@ -296,7 +296,7 @@ const STEP = 2;
 const INITIAL_VISIBLE_CARDS = 4;
 
 export default function InstagramFontCards() {
-  const [input, setInput] = useState("Alice Wander");
+  const [input, setInput] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [copiedId, setCopiedId] = useState<string | null>(null);
