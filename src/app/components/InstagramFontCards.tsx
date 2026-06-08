@@ -76,7 +76,24 @@ const cardDefs: CardDef[] = [
       { label: "Engrave Italic", gen: (T) => v("bold-italic", null, { prefix: "▪", suffix: "▪" })(T) },
     ],
   },
-  /* ═══ 3. Minimal Instagram Fonts ═══ */
+  /* ═══ 3. Instagram Fonts for Girls ═══ */
+  {
+    name: "Instagram Fonts for Girls",
+    description: "Floral & heart decorations with Dingbat styling",
+    styles: [
+      { label: "Blossom Script", gen: (T) => v("script", null, "blossom")(T) },
+      { label: "Heart Italic", gen: (T) => v("italic", null, "heart-outline")(T) },
+      { label: "Petal Sans", gen: (T) => v("sans", null, "florette")(T) },
+      { label: "Rose Bold", gen: (T) => v("bold-script", null, "flower")(T) },
+      { label: "Coquette Ribbon", gen: (T) => v("plain", null, "coquette")(T) },
+      { label: "Tulip Script", gen: (T) => v("script", null, "dingbat-flower")(T) },
+      { label: "Lavender Thin", gen: (T) => v("italic", null, "sparkle", "thin")(T) },
+      { label: "Petal Italic", gen: (T) => v("italic", null, "flower")(T) },
+      { label: "Heart Dingbat", gen: (T) => v("bold-script", null, "heart-excl")(T) },
+      { label: "Ribbon Sans", gen: (T) => v("sans", null, "heart-arrow")(T) },
+    ],
+  },
+  /* ═══ 4. Minimal Instagram Fonts ═══ */
   {
     name: "Minimal Instagram Fonts",
     description: "Hair & thin spaces for maximum editorial elegance",
@@ -224,23 +241,6 @@ const cardDefs: CardDef[] = [
       { label: "Handle Script", gen: (T) => v("script", null, { prefix: "✧", suffix: "✧" })(T) },
       { label: "Pipe Username", gen: (T) => v("bold-italic", null, "double-pipe")(T) },
       { label: "Lenticular User", gen: (T) => v("monospace", null, "lenticular")(T) },
-    ],
-  },
-  /* ═══ 12. Instagram Fonts for Girls ═══ */
-  {
-    name: "Instagram Fonts for Girls",
-    description: "Floral & heart decorations with Dingbat styling",
-    styles: [
-      { label: "Blossom Script", gen: (T) => v("script", null, "blossom")(T) },
-      { label: "Heart Italic", gen: (T) => v("italic", null, "heart-outline")(T) },
-      { label: "Petal Sans", gen: (T) => v("sans", null, "florette")(T) },
-      { label: "Rose Bold", gen: (T) => v("bold-script", null, "flower")(T) },
-      { label: "Coquette Ribbon", gen: (T) => v("plain", null, "coquette")(T) },
-      { label: "Tulip Script", gen: (T) => v("script", null, "dingbat-flower")(T) },
-      { label: "Lavender Thin", gen: (T) => v("italic", null, "sparkle", "thin")(T) },
-      { label: "Petal Italic", gen: (T) => v("italic", null, "flower")(T) },
-      { label: "Heart Dingbat", gen: (T) => v("bold-script", null, "heart-excl")(T) },
-      { label: "Ribbon Sans", gen: (T) => v("sans", null, "heart-arrow")(T) },
     ],
   },
 ];

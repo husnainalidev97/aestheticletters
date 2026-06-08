@@ -620,6 +620,7 @@ export default function InstagramFontsPage() {
               {[
                 { label: "Cursive Font Generator", href: "/cursive-fonts" },
                 { label: "Fancy Text Generator", href: "/fancy-fonts" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
