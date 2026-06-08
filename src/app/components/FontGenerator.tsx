@@ -125,7 +125,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
     }
   }, [fallbackCopy]);
 
-  const displayText = text || "Type or Paste your text here";
+  const displayText = text || "Aesthetic Fonts";
 
   const handleExploreMore = () => {
     setIsLoadingMore(true);
