@@ -161,12 +161,12 @@ export default function InstagramFontsPage() {
             { label: "Instagram Fonts", href: "/instagram-fonts" },
           ]}
         />
-        <InstagramFontCards />
         <HeroSection
           title="Instagram Fonts"
           description="Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles."
           showInput={false}
         />
+        <InstagramFontCards />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
