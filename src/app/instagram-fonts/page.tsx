@@ -362,6 +362,58 @@ export default function InstagramFontsPage() {
                 </div>
               </article>
 
+              {/* Best Instagram Text Strategy */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Best Instagram Text Strategy (Most People Ignore This)
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Using typefaces is easy, but using them correctly makes a big difference.
+                </p>
+                <div className="space-y-6 mb-6">
+                  {[
+                    {
+                      step: "1",
+                      title: "Keep It Readable",
+                      desc: "Do not use hard-to-read styles in long text.",
+                    },
+                    {
+                      step: "2",
+                      title: "Mix Normal + Styled Text",
+                      desc: "Use normal text with one styled word for better clarity.",
+                    },
+                    {
+                      step: "3",
+                      title: "Maintain a Uniform Look",
+                      desc: "Stick to a couple of signature styles to help your audience recognize your brand instantly.",
+                    },
+                    {
+                      step: "4",
+                      title: "Match Your Profile Type",
+                      desc: "Personal accounts → creative letters. Business accounts → clean and minimal typefaces.",
+                    },
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-sm">
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="font-headline font-bold text-lg mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-on-surface-variant leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  For a clean and modern look, many users prefer using{" "}
+                  <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">stylish fonts</Link> in their profiles.
+                </p>
+              </article>
+
               {/* IG Username Font Limitations */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -509,9 +561,9 @@ export default function InstagramFontsPage() {
             {/* Sidebar */}
             <Sidebar
               showBanner={false}
+              showTips={false}
               bottomImage={{ src: "/instagram-fonts-generator-explained.webp", alt: "instagram fonts generator explained" }}
               useCasesHeading="Where Instagram Letters Can Be Used?"
-              tipsHeading="Best Instagram Text Strategy (Most People Ignore This)"
               useCasesContent={
                 <div className="space-y-4">
                   <p className="text-xs text-on-surface-variant leading-relaxed mb-2">
@@ -554,58 +606,6 @@ export default function InstagramFontsPage() {
                   <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
                     Additionally, these letters can also be used on Facebook.
                     You can test them easily using our <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
-                  </p>
-                </div>
-              }
-              tipsContent={
-                <div className="space-y-6">
-                  <p className="text-xs text-on-surface-variant leading-relaxed mb-2">
-                    Using typefaces is easy, but using them correctly makes a big difference.
-                  </p>
-                  {[
-                    {
-                      step: "1",
-                      title: "Keep It Readable",
-                      desc: "Do not use hard-to-read styles in long text.",
-                    },
-                    {
-                      step: "2",
-                      title: "Mix Normal + Styled Text",
-                      desc: "Use normal text with one styled word for better clarity.",
-                    },
-                    {
-                      step: "3",
-                      title: "Maintain a Uniform Look",
-                      desc: "Stick to a couple of signature styles to help your audience recognize your brand instantly.",
-                    },
-                    {
-                      step: "4",
-                      title: "Match Your Profile Type",
-                      desc: (
-                        <>
-                          Personal accounts → creative letters
-                          <br />
-                          Business accounts → clean and minimal typefaces
-                        </>
-                      ),
-                    },
-                  ].map((item) => (
-                    <div key={item.step} className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-sm">
-                        {item.step}
-                      </div>
-                      <div>
-                        <h3 className="font-headline font-bold text-sm mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-xs text-on-surface-variant leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                  <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
-                    For a clean and modern look, many users prefer using <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">stylish fonts</Link> in their profiles.
                   </p>
                 </div>
               }
