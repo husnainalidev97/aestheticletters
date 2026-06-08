@@ -284,6 +284,57 @@ export default function InstagramFontsPage() {
                 </div>
               </article>
 
+              {/* Where Instagram Letters Can Be Used */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Instagram Letters Can Be Used?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  These typefaces work in different places within IG.
+                </p>
+                <div className="space-y-4 mb-6">
+                  {[
+                    {
+                      title: "Username & Name",
+                      desc: "Use a unique insta name font to stand out in search and follower lists.",
+                    },
+                    {
+                      title: "Bio",
+                      desc: "A clean instagram bio font helps you make a strong first impression.",
+                    },
+                    {
+                      title: "Captions",
+                      desc: "Use styled ig text to make posts more engaging.",
+                    },
+                    {
+                      title: "Comments",
+                      desc: "Stand out in conversations with creative replies.",
+                    },
+                    {
+                      title: "Stories & Reels",
+                      desc: "Use instagram story fonts to make content visually attractive.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
+                    >
+                      <h3 className="font-headline font-bold text-lg mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-on-surface-variant leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Additionally, these letters can also be used on Facebook.
+                  You can test them easily using our{" "}
+                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
+                </p>
+              </article>
+
               {/* Different Fonts for Instagram */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -563,52 +614,6 @@ export default function InstagramFontsPage() {
               showBanner={false}
               showTips={false}
               bottomImage={{ src: "/instagram-fonts-generator-explained.webp", alt: "instagram fonts generator explained" }}
-              useCasesHeading="Where Instagram Letters Can Be Used?"
-              useCasesContent={
-                <div className="space-y-4">
-                  <p className="text-xs text-on-surface-variant leading-relaxed mb-2">
-                    These typefaces work in different places within IG.
-                  </p>
-                  {[
-                    {
-                      title: "Username & Name",
-                      desc: "Use a unique insta name font to stand out in search and follower lists.",
-                    },
-                    {
-                      title: "Bio",
-                      desc: "A clean instagram bio font helps you make a strong first impression.",
-                    },
-                    {
-                      title: "Captions",
-                      desc: "Use styled ig text to make posts more engaging.",
-                    },
-                    {
-                      title: "Comments",
-                      desc: "Stand out in conversations with creative replies.",
-                    },
-                    {
-                      title: "Stories & Reels",
-                      desc: "Use instagram story fonts to make content visually attractive.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="p-4 bg-surface-container rounded-xl border border-outline-variant/10"
-                    >
-                      <h3 className="font-headline font-bold text-primary text-sm mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                  <p className="text-xs text-on-surface-variant leading-relaxed mt-2">
-                    Additionally, these letters can also be used on Facebook.
-                    You can test them easily using our <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
-                  </p>
-                </div>
-              }
             />
           </div>
         </section>
