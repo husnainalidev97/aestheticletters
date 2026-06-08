@@ -272,11 +272,12 @@ const igCategoryLinks = cardDefs.map((card) => ({
   id: `cat-${slugify(card.name)}`,
 }));
 
-/* ── Generate all card data from input text ── */
+/* ── Generate card data from input text (supports partial generation) ── */
 
-function generateCards(input: string) {
+function generateCards(input: string, count?: number) {
   const T = input || "Alice Wander";
-  return cardDefs.map((card) => ({
+  const defs = count !== undefined ? cardDefs.slice(0, count) : cardDefs;
+  return defs.map((card) => ({
     name: card.name,
     description: card.description,
     styles: card.styles.map((s) => ({
@@ -302,8 +303,14 @@ export default function InstagramFontCards() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_CARDS);
+  const [allLoaded, setAllLoaded] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const cards = useMemo(() => generateCards(input), [input]);
+
+  // Only generate visible cards initially to reduce TBT
+  const cards = useMemo(
+    () => generateCards(input, allLoaded ? undefined : visibleCount),
+    [input, allLoaded, visibleCount],
+  );
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
 
   // Cap max font size on mobile screens
@@ -328,10 +335,13 @@ export default function InstagramFontCards() {
 
   // Expand all cards when triggered by TrendingFonts scroll-to-style
   useEffect(() => {
-    const handler = () => setVisibleCount(cards.length);
+    const handler = () => {
+      setAllLoaded(true);
+      setVisibleCount(cardDefs.length);
+    };
     window.addEventListener("ig-expand-cards", handler);
     return () => window.removeEventListener("ig-expand-cards", handler);
-  }, [cards.length]);
+  }, []);
 
   const handleCopy = useCallback((converted: string, id: string) => {
     copyToClipboard(converted, () => {
@@ -407,7 +417,7 @@ export default function InstagramFontCards() {
           </div>
           <CategoryJumpLinks
             categories={igCategoryLinks}
-            onExpandAll={() => setVisibleCount(cards.length)}
+            onExpandAll={() => { setAllLoaded(true); setVisibleCount(cardDefs.length); }}
           />
         </div>
       </section>
@@ -499,13 +509,13 @@ export default function InstagramFontCards() {
             );
           })}
         </div>
-        {visibleCount < cards.length && (
+        {!allLoaded && (
           <div className="flex justify-center mt-16">
             <button
-              onClick={() => setVisibleCount(cards.length)}
+              onClick={() => { setAllLoaded(true); setVisibleCount(cardDefs.length); }}
               className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2"
             >
-              Load All {cards.length - visibleCount} Remaining Styles
+              Load All {cardDefs.length - visibleCount} Remaining Styles
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
           </div>
