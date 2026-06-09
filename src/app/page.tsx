@@ -17,12 +17,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/",
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
     images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
+    publishedTime: "2026-04-19T08:00:00+00:00",
+    modifiedTime: "2026-06-08T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
