@@ -69,6 +69,7 @@ function FontCategoryCard({
                   ? "bg-surface-container-lowest/50 hover:bg-surface-container-lowest/70"
                   : "bg-surface hover:bg-surface-container-high"
               }`}
+              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 120px" }}
             >
               <div className="flex flex-col gap-1 min-w-0">
                 <span

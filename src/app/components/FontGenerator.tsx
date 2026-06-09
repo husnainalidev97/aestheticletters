@@ -149,6 +149,9 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
   const displayText = text || "Aesthetic Fonts";
 
+  const handlePreview = useCallback((t: string) => setPreviewText(t), []);
+  const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
+
   const handleExploreMore = () => {
     setIsLoadingMore(true);
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
@@ -291,8 +294,8 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 isDark={DARK_CATEGORIES.has(category.name)}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
-                onPreview={(t) => setPreviewText(t)}
-                onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
+                onPreview={handlePreview}
+                onDownload={handleDownload}
               />
             </div>
           ))}

@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Tool pages — updated with Text History, Platform Preview, Download as Image */
-  const toolsModified = new Date("2026-06-08T00:00:00Z");
+  /* Tool pages — updated with performance optimizations (SSR, memoization, content-visibility) */
+  const toolsModified = new Date("2026-06-09T00:00:00Z");
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
