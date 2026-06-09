@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 
 const FontGenerator = dynamic(() => import("./FontGenerator"), {
-  ssr: false,
   loading: () => (
     <div className="min-h-[600px] md:min-h-[900px]">
       {/* Header + Generator skeleton */}
@@ -27,7 +26,7 @@ const FontGenerator = dynamic(() => import("./FontGenerator"), {
       {/* Font cards grid skeleton */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1, 2, 3, 4].map((i) => (
+          {[1, 2, 3].map((i) => (
             <div key={i} className="h-[280px] rounded-xl bg-surface-container-low animate-pulse" />
           ))}
         </div>
