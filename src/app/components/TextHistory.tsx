@@ -74,7 +74,8 @@ export default function TextHistory({ onSelect }: TextHistoryProps) {
       {open && (
         <div
           ref={panelRef}
-          className="absolute right-0 top-full mt-2 w-72 sm:w-80 max-h-80 overflow-y-auto bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/20 z-50 animate-card-fade-in"
+          className="fixed left-3 right-3 sm:absolute sm:left-auto sm:right-0 top-auto sm:top-full mt-2 sm:w-80 max-h-72 overflow-y-auto bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/20 z-50 animate-card-fade-in"
+          style={{ maxWidth: "calc(100vw - 1.5rem)" }}
           role="menu"
         >
           <div className="sticky top-0 bg-surface-container-lowest px-4 py-3 border-b border-outline-variant/10 flex items-center justify-between">
