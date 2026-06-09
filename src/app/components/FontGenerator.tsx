@@ -1,12 +1,17 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
 import { fontCategories } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
+import { useTextHistory } from "../lib/useTextHistory";
 import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
+import TextHistory from "./TextHistory";
+
+const PlatformPreview = lazy(() => import("./PlatformPreview"));
+const DownloadImage = lazy(() => import("./DownloadImage"));
 
 const RESULTS_ID = "font-results";
 
@@ -58,6 +63,14 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
 
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
+  const { addEntry } = useTextHistory();
+
+  // Modal states for Preview & Download
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+
+  // Debounce ref for text history
+  const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const visibleCategories = showAll
     ? fontCategories
@@ -76,12 +89,21 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
     return () => mql.removeEventListener("change", handler);
   }, []);
 
+  // Save text to history (debounced 1.5s after last keystroke)
+  useEffect(() => {
+    if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
+    if (text.trim().length >= 2) {
+      historyTimerRef.current = setTimeout(() => addEntry(text), 1500);
+    }
+    return () => { if (historyTimerRef.current) clearTimeout(historyTimerRef.current); };
+  }, [text, addEntry]);
+
   // Clean up pending timers on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
+      if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
 
@@ -172,11 +194,14 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
           </div>
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
-              <span className="font-semibold text-sm">Tt</span>
-              Character Count:{" "}
-              <span className="font-semibold">{text.length}</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+                <span className="font-semibold text-sm">Tt</span>
+                Character Count:{" "}
+                <span className="font-semibold">{text.length}</span>
+              </span>
+              <TextHistory onSelect={(t) => setText(t)} />
+            </div>
             <div className="flex items-center gap-2">
               <span className="text-xs text-on-surface-variant font-body font-medium hidden sm:inline">Size</span>
               <button
@@ -261,6 +286,8 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 isDark={DARK_CATEGORIES.has(category.name)}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
+                onPreview={(t) => setPreviewText(t)}
+                onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
               />
             </div>
           ))}
@@ -299,6 +326,24 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
           Style Copied to Clipboard
         </div>
+      )}
+
+      {/* Platform Preview Modal — code-split */}
+      {previewText && (
+        <Suspense fallback={null}>
+          <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+        </Suspense>
+      )}
+
+      {/* Download as Image Modal — code-split */}
+      {downloadInfo && (
+        <Suspense fallback={null}>
+          <DownloadImage
+            text={downloadInfo.text}
+            styleName={downloadInfo.styleName}
+            onClose={() => setDownloadInfo(null)}
+          />
+        </Suspense>
       )}
     </>
   );
