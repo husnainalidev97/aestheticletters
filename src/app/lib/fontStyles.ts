@@ -299,7 +299,7 @@ const kawaii: FontCategory = {
     { name: "Heart Bubbles", transform: (t) => withFrame(applyMap(t, circleMap), "\u2661", "\u2661") },
     { name: "Flower Text", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273F", "\u273F") },
     { name: "Sparkle Text", transform: (t) => withFrame(applyMap(t, sansSerifBoldMap), "\u02DA\u2727", "\u2727\u02DA") },
-    { name: "Cozy Wrap", transform: (t) => withFrame(applyMap(t, boldMap), "\uA4F0", "\uA4F1") },
+    { name: "Cozy Wrap", transform: (t) => withFrame(applyMap(t, boldMap), "\u300E", "\u300F") },
     { name: "Tiny Sweet", transform: (t) => withFrame(applyMap(t, superscriptMap), "\u2665", "\u2665") },
     { name: "Kawaii Wave", transform: (t) => withFrame(applyMap(t, sansSerifItalicMap), "\u30FD(\u2661\u203F\u2661)\u30CE", "") },
   ],
