@@ -165,6 +165,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             <textarea
               className="w-full min-h-[56px] md:min-h-[120px] pl-11 md:pl-16 pr-4 md:pr-8 py-4 md:py-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none placeholder:text-on-surface-variant/50"
               placeholder="Type or paste your text here..."
+              aria-label="Enter text to transform into aesthetic font styles"
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
@@ -177,6 +178,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
               <span className="font-semibold">{text.length}</span>
             </span>
             <div className="flex items-center gap-2">
+              <span className="text-xs text-on-surface-variant font-body font-medium hidden sm:inline">Size</span>
               <button
                 onClick={decreaseSize}
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
@@ -279,7 +281,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  Explore More Styles
+                  Show {fontCategories.length - INITIAL_COUNT} More Categories
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}

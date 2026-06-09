@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/og-image.jpg"],
   },
 };
 
@@ -59,7 +59,7 @@ export default function Home() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-04-19T08:00:00+00:00",
-        dateModified: "2026-04-21T00:00:00+00:00",
+        dateModified: "2026-06-08T00:00:00+00:00",
       },
       {
         "@type": "BreadcrumbList",

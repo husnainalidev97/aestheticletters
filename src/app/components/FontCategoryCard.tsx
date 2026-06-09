@@ -98,12 +98,12 @@ export default function FontCategoryCard({
                 )}
                 <button
                   onClick={() => onCopy(converted, styleId)}
-                  className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
+                  className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all duration-200 flex flex-col items-center justify-center ${
                     isCopied
-                      ? "bg-[#22c55e] text-white"
+                      ? "bg-[#22c55e] text-white scale-110"
                       : isDark
-                        ? "text-primary hover:bg-primary hover:text-on-primary"
-                        : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                        ? "text-primary hover:bg-primary hover:text-on-primary active:scale-95"
+                        : "text-on-surface-variant hover:bg-primary hover:text-on-primary active:scale-95"
                   }`}
                   aria-label={isCopied ? "Copied" : "Copy to clipboard"}
                 >
