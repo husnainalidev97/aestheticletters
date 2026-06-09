@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import { copyToClipboard } from "../lib/clipboard";
 import {
   renderVariation,
@@ -8,9 +8,14 @@ import {
   type SpacingMode,
 } from "../lib/fontEngine";
 import { useFavorites } from "../lib/useFavorites";
+import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "./FavoritesSection";
 import ShareButtons from "./ShareButtons";
 import CategoryJumpLinks from "./CategoryJumpLinks";
+import TextHistory from "./TextHistory";
+
+const PlatformPreview = lazy(() => import("./PlatformPreview"));
+const DownloadImage = lazy(() => import("./DownloadImage"));
 
 // ── Shorthand builder for engine-driven styles ─────────────────────────────
 
@@ -312,6 +317,10 @@ export default function InstagramFontCards() {
     [input, allLoaded, visibleCount],
   );
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
+  const { addEntry } = useTextHistory();
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+  const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -326,10 +335,19 @@ export default function InstagramFontCards() {
     return () => mql.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
+    if (input.trim().length >= 2) {
+      historyTimerRef.current = setTimeout(() => addEntry(input), 1500);
+    }
+    return () => { if (historyTimerRef.current) clearTimeout(historyTimerRef.current); };
+  }, [input, addEntry]);
+
   // Clean up pending timers on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
+      if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
 
@@ -381,11 +399,14 @@ export default function InstagramFontCards() {
           </div>
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${input.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
-              <span className="font-semibold text-sm">Tt</span>
-              Character Count:{" "}
-              <span className="font-semibold">{input.length}</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${input.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+                <span className="font-semibold text-sm">Tt</span>
+                Character Count:{" "}
+                <span className="font-semibold">{input.length}</span>
+              </span>
+              <TextHistory onSelect={(t) => setInput(t)} />
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={decreaseSize}
@@ -466,6 +487,22 @@ export default function InstagramFontCards() {
                             </div>
                           </div>
                           <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
+                            <button
+                              onClick={() => setPreviewText(style.text)}
+                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                              aria-label="Preview on platform"
+                            >
+                              <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                              <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
+                            </button>
+                            <button
+                              onClick={() => setDownloadInfo({ text: style.text, styleName: style.label })}
+                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                              aria-label="Download as image"
+                            >
+                              <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
+                              <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
+                            </button>
                             <ShareButtons text={style.text} />
                             <button
                               onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
@@ -531,6 +568,17 @@ export default function InstagramFontCards() {
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
           Style Copied to Clipboard
         </div>
+      )}
+
+      {previewText && (
+        <Suspense fallback={null}>
+          <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+        </Suspense>
+      )}
+      {downloadInfo && (
+        <Suspense fallback={null}>
+          <DownloadImage text={downloadInfo.text} styleName={downloadInfo.styleName} onClose={() => setDownloadInfo(null)} />
+        </Suspense>
       )}
     </>
   );

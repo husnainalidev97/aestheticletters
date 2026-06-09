@@ -1,12 +1,17 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, useTransition } from "react";
+import { useState, useCallback, useRef, useEffect, useTransition, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { sansSerifFontCategories } from "../lib/sansSerifFontStyles";
 import { useFavorites } from "../lib/useFavorites";
+import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
 import SansSerifGoogleFontsLoader from "./SansSerifGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
+import TextHistory from "../components/TextHistory";
+
+const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
+const DownloadImage = lazy(() => import("../components/DownloadImage"));
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -51,6 +56,10 @@ export default function SansSerifFontsClient() {
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
+  const { addEntry } = useTextHistory();
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+  const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
 
@@ -71,10 +80,19 @@ export default function SansSerifFontsClient() {
   }, []);
 
   useEffect(() => {
+    if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
+    if (inputText.trim().length >= 2) {
+      historyTimerRef.current = setTimeout(() => addEntry(inputText), 1500);
+    }
+    return () => { if (historyTimerRef.current) clearTimeout(historyTimerRef.current); };
+  }, [inputText, addEntry]);
+
+  useEffect(() => {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
       if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
+      if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
 
@@ -185,11 +203,14 @@ export default function SansSerifFontsClient() {
             </button>
           </div>
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
-              <span className="font-semibold text-sm">Tt</span>
-              Character Count:{" "}
-              <span className="font-semibold">{inputText.length}</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${inputText.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+                <span className="font-semibold text-sm">Tt</span>
+                Character Count:{" "}
+                <span className="font-semibold">{inputText.length}</span>
+              </span>
+              <TextHistory onSelect={(t) => setInputText(t)} />
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={decreaseSize}
@@ -249,6 +270,8 @@ export default function SansSerifFontsClient() {
                 isDark={DARK_CATEGORIES.has(category.name)}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
+                onPreview={(t) => setPreviewText(t)}
+                onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
               />
             </div>
           ))}
@@ -293,6 +316,17 @@ export default function SansSerifFontsClient() {
           </span>
           Style Copied to Clipboard
         </div>
+      )}
+
+      {previewText && (
+        <Suspense fallback={null}>
+          <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+        </Suspense>
+      )}
+      {downloadInfo && (
+        <Suspense fallback={null}>
+          <DownloadImage text={downloadInfo.text} styleName={downloadInfo.styleName} onClose={() => setDownloadInfo(null)} />
+        </Suspense>
       )}
     </>
   );
