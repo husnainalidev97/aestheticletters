@@ -352,7 +352,7 @@ export default function SEOContent() {
           </div>
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
             <h3 className="font-headline font-bold text-base mb-1">
-              Advanced Gaming (Steam, Fortnite, &amp; PUBG)
+              Advanced Gaming (Steam, Fortnite, &amp; Oblivion)
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Stand out in the lobby with{" "}
@@ -363,7 +363,7 @@ export default function SEOContent() {
           </div>
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
             <h3 className="font-headline font-bold text-base mb-1">
-              Messaging Apps (Telegram &amp; Signal)
+              Messaging Apps (Wechat &amp; Signal)
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Level up your <strong>Channel names</strong>, customize{" "}

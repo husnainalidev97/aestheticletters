@@ -129,6 +129,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             className={`flex flex-col items-center p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
           >
             {isDark ? (
@@ -144,6 +145,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             className={`flex flex-col items-center p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary${showGlow ? " animate-theme-glow" : ""}`}
           >
             {isDark ? (

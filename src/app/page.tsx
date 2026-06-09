@@ -17,19 +17,21 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/",
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
+    publishedTime: "2026-04-19T08:00:00+00:00",
+    modifiedTime: "2026-06-08T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/og-image.jpg"],
   },
 };
 
@@ -59,7 +61,7 @@ export default function Home() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-04-19T08:00:00+00:00",
-        dateModified: "2026-04-21T00:00:00+00:00",
+        dateModified: "2026-06-08T00:00:00+00:00",
       },
       {
         "@type": "BreadcrumbList",
@@ -72,6 +74,35 @@ export default function Home() {
             item: "https://www.aestheticletters.com/",
           },
         ],
+      },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How Does This Aesthetic Text Generator Work?",
+    description:
+      "Using an aesthetic generator is very simple. Neither design expertise nor technical knowledge is required. Just follow these quick steps to create free aesthetic font styles instantly.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type Your Text",
+        text: "Fill out the input box with your text. The tool instantly creates multiple styles as you type.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Choose Your Style",
+        text: "Scroll through different special aesthetic fonts like soft, dark, or decorative text and pick the one you like.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy & Paste",
+        text: "By tapping on a style, you can copy it instantly, then paste it anywhere like Instagram bios, comments, chats, or even as unique usernames in games.",
       },
     ],
   };
@@ -100,6 +131,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">

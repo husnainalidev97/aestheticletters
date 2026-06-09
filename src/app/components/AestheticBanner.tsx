@@ -1,19 +1,41 @@
+"use client";
+
+import { useRef, useEffect, useState } from "react";
+
 export default function AestheticBanner() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full min-h-[280px] rounded-2xl overflow-hidden bg-gradient-to-br from-primary via-primary-container to-primary">
+    <div
+      ref={ref}
+      className="relative w-full aspect-[16/9] md:aspect-auto md:h-full min-h-[280px] rounded-2xl overflow-hidden bg-gradient-to-br from-primary via-primary-container to-primary"
+      style={{ ["--banner-play" as string]: visible ? "running" : "paused" }}
+    >
       {/* Soft radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(202,190,255,0.25)_0%,transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(93,63,211,0.4)_0%,transparent_50%)]" />
 
-      {/* Floating symbols */}
-      <span className="absolute top-[12%] left-[10%] text-2xl text-on-primary/30 animate-float-slow select-none">✧</span>
-      <span className="absolute top-[20%] right-[14%] text-3xl text-on-primary/25 animate-float-medium select-none">✨</span>
-      <span className="absolute bottom-[18%] left-[18%] text-xl text-on-primary/20 animate-float-medium select-none">♡</span>
-      <span className="absolute top-[55%] right-[8%] text-lg text-on-primary/30 animate-float-slow select-none">✧</span>
-      <span className="absolute top-[8%] right-[40%] text-sm text-on-primary/20 animate-float-fast select-none">✦</span>
-      <span className="absolute bottom-[10%] right-[28%] text-2xl text-on-primary/25 animate-float-slow select-none">♡</span>
-      <span className="absolute bottom-[35%] left-[6%] text-sm text-on-primary/15 animate-float-fast select-none">✨</span>
-      <span className="absolute top-[40%] left-[45%] text-xs text-on-primary/20 animate-float-medium select-none">✧</span>
+      {/* Floating symbols — paused when off-screen via CSS variable */}
+      <span className="absolute top-[12%] left-[10%] text-2xl text-on-primary/30 animate-float-slow select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✧</span>
+      <span className="absolute top-[20%] right-[14%] text-3xl text-on-primary/25 animate-float-medium select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✨</span>
+      <span className="absolute bottom-[18%] left-[18%] text-xl text-on-primary/20 animate-float-medium select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>♡</span>
+      <span className="absolute top-[55%] right-[8%] text-lg text-on-primary/30 animate-float-slow select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✧</span>
+      <span className="absolute top-[8%] right-[40%] text-sm text-on-primary/20 animate-float-fast select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✦</span>
+      <span className="absolute bottom-[10%] right-[28%] text-2xl text-on-primary/25 animate-float-slow select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>♡</span>
+      <span className="absolute bottom-[35%] left-[6%] text-sm text-on-primary/15 animate-float-fast select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✨</span>
+      <span className="absolute top-[40%] left-[45%] text-xs text-on-primary/20 animate-float-medium select-none" style={{ animationPlayState: "var(--banner-play)" as string }}>✧</span>
 
       {/* Center text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">

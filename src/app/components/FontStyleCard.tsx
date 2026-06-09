@@ -52,16 +52,16 @@ export default function FontStyleCard({
         </div>
       </div>
       {isDark && (
-        <div className="absolute -right-4 -bottom-4 opacity-10">
-          <span className="material-symbols-outlined text-[6rem]">
-            auto_awesome
-          </span>
+        <div className="absolute -right-4 -bottom-4 opacity-10 pointer-events-none">
+          <svg width="96" height="96" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
         </div>
       )}
       <button onClick={onCopy} className={buttonClasses}>
-        <span className="material-symbols-outlined text-sm">
-          {isCopied ? "check" : "content_copy"}
-        </span>
+        {isCopied ? (
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+        ) : (
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+        )}
         <span className="sr-only">{isCopied ? "Copied!" : "Copy Style"}</span>
       </button>
     </div>

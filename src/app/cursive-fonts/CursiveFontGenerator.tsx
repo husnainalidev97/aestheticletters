@@ -1,11 +1,16 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import { cursiveUnicodeStyles } from "./cursiveUnicodeStyles";
 import { useFavorites } from "../lib/useFavorites";
+import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
 import ShareButtons from "../components/ShareButtons";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
+import TextHistory from "../components/TextHistory";
+
+const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
+const DownloadImage = lazy(() => import("../components/DownloadImage"));
 
 /* ── Font data types ─────────────────────────────────────────────────── */
 
@@ -60,6 +65,10 @@ export default function CursiveFontGenerator({
   const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
+  const { addEntry } = useTextHistory();
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+  const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const visibleCards = showAll
     ? fontCards
@@ -78,12 +87,21 @@ export default function CursiveFontGenerator({
     return () => mql.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
+    if (text.trim().length >= 2) {
+      historyTimerRef.current = setTimeout(() => addEntry(text), 1500);
+    }
+    return () => { if (historyTimerRef.current) clearTimeout(historyTimerRef.current); };
+  }, [text, addEntry]);
+
   /* Clean up pending timers on unmount */
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
+      if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
 
@@ -205,11 +223,14 @@ export default function CursiveFontGenerator({
 
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
-              <span className="font-semibold text-sm">Tt</span>
-              Character Count:{" "}
-              <span className="font-semibold">{text.length}</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
+                <span className="font-semibold text-sm">Tt</span>
+                Character Count:{" "}
+                <span className="font-semibold">{text.length}</span>
+              </span>
+              <TextHistory onSelect={(t) => setText(t)} />
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={decreaseSize}
@@ -316,6 +337,24 @@ export default function CursiveFontGenerator({
                           </div>
                         </div>
                         <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
+                          <button
+                            onClick={() => setPreviewText(displayText)}
+                            className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                            aria-label="Preview on platform"
+                            title="Preview on platform"
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+                            <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
+                          </button>
+                          <button
+                            onClick={() => setDownloadInfo({ text: displayText, styleName: font.name })}
+                            className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                            aria-label="Download as image"
+                            title="Download as image"
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                            <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
+                          </button>
                           <ShareButtons text={displayText} />
                           <button
                             onClick={() => toggleFavorite({ id: styleId, styleName: font.name, categoryName: card.category, text: displayText })}
@@ -379,6 +418,24 @@ export default function CursiveFontGenerator({
                             </div>
                           </div>
                           <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
+                            <button
+                              onClick={() => setPreviewText(transformed)}
+                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                              aria-label="Preview on platform"
+                              title="Preview on platform"
+                            >
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+                              <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
+                            </button>
+                            <button
+                              onClick={() => setDownloadInfo({ text: transformed, styleName: style.name })}
+                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
+                              aria-label="Download as image"
+                              title="Download as image"
+                            >
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                              <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
+                            </button>
                             <ShareButtons text={transformed} />
                             <button
                               onClick={() => toggleFavorite({ id: uStyleId, styleName: style.name, categoryName: card.category, text: transformed })}
@@ -469,6 +526,17 @@ export default function CursiveFontGenerator({
             ? "Text Copied to Clipboard"
             : "Font Name Copied to Clipboard"}
         </div>
+      )}
+
+      {previewText && (
+        <Suspense fallback={null}>
+          <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+        </Suspense>
+      )}
+      {downloadInfo && (
+        <Suspense fallback={null}>
+          <DownloadImage text={downloadInfo.text} styleName={downloadInfo.styleName} onClose={() => setDownloadInfo(null)} />
+        </Suspense>
       )}
     </>
   );

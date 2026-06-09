@@ -45,24 +45,24 @@ export default function Sidebar({
             </p>
             <ol className="space-y-4 text-sm leading-relaxed">
               <li>
-                <strong>1. Too Many Styles:</strong> A sentence that contains too
+                <strong>Too Many Styles:</strong> A sentence that contains too
                 many styles can look cluttered and confusing.
               </li>
               <li>
-                <strong>2. Hard-to-Read Styles:</strong> The use of hard-to-read
+                <strong>Hard-to-Read Styles:</strong> The use of hard-to-read
                 styles reduces engagement and readability.
               </li>
               <li>
-                <strong>3. Overuse in Long Text:</strong> Overusing decorative text
+                <strong>Overuse in Long Text:</strong> Overusing decorative text
                 in long paragraphs makes content difficult to follow.
               </li>
               <li>
-                <strong>4. Platform Compatibility:</strong> Ignoring platform
+                <strong>Platform Compatibility:</strong> Ignoring platform
                 compatibility (Instagram, Facebook, WhatsApp, TikTok, YouTube,
                 Gaming usernames) can result in broken text.
               </li>
               <li>
-                <strong>5. Tone Mismatch:</strong> Copying styles that don&apos;t
+                <strong>Tone Mismatch:</strong> Copying styles that don&apos;t
                 match your content tone can feel out of place.
               </li>
             </ol>
@@ -91,6 +91,7 @@ export default function Sidebar({
               alt="Aesthetic Fonts"
               width={1200}
               height={630}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
               className="w-full h-auto rounded-2xl"
               priority={false}
             />
