@@ -78,7 +78,7 @@ export default function FontCategoryCard({
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
+              <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center relative z-10">
                 <ShareButtons text={converted} />
                 {onToggleFavorite && (
                   <button
