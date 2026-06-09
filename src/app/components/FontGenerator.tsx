@@ -22,7 +22,7 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 3;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
@@ -275,8 +275,13 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleCategories.map((category) => (
-            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
+          {visibleCategories.map((category, index) => (
+            <div
+              key={category.name}
+              id={`cat-${slugify(category.name)}`}
+              className="animate-card-fade-in scroll-mt-28"
+              style={index >= 2 ? { contentVisibility: "auto", containIntrinsicSize: "auto 600px" } : undefined}
+            >
               <FontCategoryCard
                 category={category}
                 text={displayText}

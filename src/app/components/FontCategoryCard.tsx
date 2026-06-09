@@ -1,3 +1,6 @@
+"use client";
+
+import { memo, useMemo } from "react";
 import { FontCategory } from "../lib/fontStyles";
 import ShareButtons from "./ShareButtons";
 
@@ -14,7 +17,7 @@ interface FontCategoryCardProps {
   onDownload?: (text: string, styleName: string) => void;
 }
 
-export default function FontCategoryCard({
+function FontCategoryCard({
   category,
   text,
   fontSize,
@@ -27,6 +30,17 @@ export default function FontCategoryCard({
   onDownload,
 }: FontCategoryCardProps) {
   const title = category.name;
+
+  // Memoize all transform results — only recompute when text or styles change
+  const transformedStyles = useMemo(
+    () =>
+      category.styles.map((style) => ({
+        style,
+        converted: style.transform(text),
+        styleId: `${category.name}-${style.name}`,
+      })),
+    [category, text],
+  );
 
   return (
     <div
@@ -44,9 +58,7 @@ export default function FontCategoryCard({
         {title}
       </strong>
       <div className="space-y-3">
-        {category.styles.map((style) => {
-          const converted = style.transform(text);
-          const styleId = `${category.name}-${style.name}`;
+        {transformedStyles.map(({ style, converted, styleId }) => {
           const isCopied = copiedId === styleId;
 
           return (
@@ -161,3 +173,5 @@ export default function FontCategoryCard({
     </div>
   );
 }
+
+export default memo(FontCategoryCard);
