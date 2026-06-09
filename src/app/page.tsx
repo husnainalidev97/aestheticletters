@@ -76,6 +76,35 @@ export default function Home() {
     ],
   };
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How Does This Aesthetic Text Generator Work?",
+    description:
+      "Using an aesthetic generator is very simple. Neither design expertise nor technical knowledge is required. Just follow these quick steps to create free aesthetic font styles instantly.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type Your Text",
+        text: "Fill out the input box with your text. The tool instantly creates multiple styles as you type.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Choose Your Style",
+        text: "Scroll through different special aesthetic fonts like soft, dark, or decorative text and pick the one you like.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy & Paste",
+        text: "By tapping on a style, you can copy it instantly, then paste it anywhere like Instagram bios, comments, chats, or even as unique usernames in games.",
+      },
+    ],
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -100,6 +129,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
