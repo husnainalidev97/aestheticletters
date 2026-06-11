@@ -194,6 +194,44 @@ export default function FacebookFontsPage() {
           },
         ],
       },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#font-categories",
+        name: "Facebook Font Style Categories",
+        numberOfItems: 5,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Fonts for Posts",
+            description: "Bold, italic, sans-serif, and decorated styles for Facebook posts and timeline updates.",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Comment Fonts",
+            description: "Bubble, square, strikethrough, underline, and gothic styles for Facebook comments.",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "FB Bio Fonts",
+            description: "Cursive, script, small caps, and monospace styles for Facebook bios and profiles.",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: "FB Caption Fonts",
+            description: "Fullwidth, small text, floral, and arrow styles for Facebook photo captions.",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: "Creative FB Fonts",
+            description: "Bold script, gothic, upside down, mirror, and wide-spaced styles for creative Facebook posts.",
+          },
+        ],
+      },
     ],
   };
 
@@ -203,6 +241,12 @@ export default function FacebookFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary focus:text-sm focus:font-medium focus:shadow-lg"
+      >
+        Skip to content
+      </a>
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb

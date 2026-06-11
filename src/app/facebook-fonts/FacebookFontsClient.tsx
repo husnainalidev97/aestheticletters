@@ -220,6 +220,8 @@ export default function FacebookFontsClient() {
       {/* Font Category Cards */}
       <section
         id="facebook-font-results"
+        aria-live="polite"
+        aria-label="Font style results"
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
