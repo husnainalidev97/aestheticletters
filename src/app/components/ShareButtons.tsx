@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 
 interface ShareButtonsProps {
   text: string;
@@ -88,9 +89,12 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
   const btnRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
+  const mountedRef = useRef(false);
 
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
       if (toastTimer.current) clearTimeout(toastTimer.current);
     };
   }, []);
@@ -165,16 +169,14 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
       <button
         ref={btnRef}
         onClick={() => {
-          setIsOpen((v) => {
-            if (!v && btnRef.current) {
-              const rect = btnRef.current.getBoundingClientRect();
-              setDropdownPos({
-                top: rect.bottom + 4,
-                left: Math.max(8, rect.right - 220),
-              });
-            }
-            return !v;
-          });
+          if (!isOpen && btnRef.current) {
+            const rect = btnRef.current.getBoundingClientRect();
+            setDropdownPos({
+              top: rect.bottom + 4,
+              left: Math.max(8, rect.right - 220),
+            });
+          }
+          setIsOpen((v) => !v);
         }}
         className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
         aria-label="Share this style"
@@ -183,7 +185,7 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
         <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
       </button>
 
-      {isOpen && dropdownPos && (
+      {isOpen && dropdownPos && typeof document !== 'undefined' && createPortal(
         <div
           ref={dropdownRef}
           className="fixed z-[9999] flex items-center gap-1 px-2 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 shadow-lg animate-card-fade-in"
@@ -200,7 +202,8 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
               {p.icon}
             </button>
           ))}
-        </div>
+        </div>,
+        document.body
       )}
 
       {toast && (
