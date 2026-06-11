@@ -718,6 +718,7 @@ export default function FacebookFontsPage() {
                 { label: "Aesthetic Fonts Generator", href: "/" },
                 { label: "Instagram Fonts Generator", href: "/instagram-fonts" },
                 { label: "Cursive Fonts Generator", href: "/cursive-fonts" },
+                { label: "Cute Fonts Generator", href: "/cute-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
