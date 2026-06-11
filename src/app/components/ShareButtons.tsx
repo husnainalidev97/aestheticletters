@@ -85,6 +85,9 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
 
   useEffect(() => {
     return () => {
@@ -95,12 +98,21 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
   useEffect(() => {
     if (!isOpen) return;
     const handler = (e: MouseEvent) => {
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        panelRef.current && !panelRef.current.contains(target) &&
+        dropdownRef.current && !dropdownRef.current.contains(target)
+      ) {
         setIsOpen(false);
       }
     };
+    const scrollHandler = () => setIsOpen(false);
     document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    window.addEventListener("scroll", scrollHandler, true);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      window.removeEventListener("scroll", scrollHandler, true);
+    };
   }, [isOpen]);
 
   const handleShare = useCallback((platform: Platform) => {
@@ -151,7 +163,19 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
   return (
     <div className="relative" ref={panelRef}>
       <button
-        onClick={() => setIsOpen((v) => !v)}
+        ref={btnRef}
+        onClick={() => {
+          setIsOpen((v) => {
+            if (!v && btnRef.current) {
+              const rect = btnRef.current.getBoundingClientRect();
+              setDropdownPos({
+                top: rect.bottom + 4,
+                left: Math.max(8, rect.right - 220),
+              });
+            }
+            return !v;
+          });
+        }}
         className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
         aria-label="Share this style"
       >
@@ -159,8 +183,12 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
         <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
       </button>
 
-      {isOpen && (
-        <div className="absolute right-0 top-full mt-1 z-30 flex items-center gap-1 px-2 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 shadow-lg animate-card-fade-in">
+      {isOpen && dropdownPos && (
+        <div
+          ref={dropdownRef}
+          className="fixed z-[9999] flex items-center gap-1 px-2 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 shadow-lg animate-card-fade-in"
+          style={{ top: dropdownPos.top, left: dropdownPos.left }}
+        >
           {PLATFORM_META.map((p) => (
             <button
               key={p.key}
