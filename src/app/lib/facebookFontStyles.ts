@@ -256,7 +256,6 @@ const bioCard: FontCategory = {
   name: "FB Bio Fonts",
   styles: [
     { name: "Cursive Script", transform: (t) => apply(t, CURSIVE_SCRIPT) },
-    { name: "Bold Cursive Script", transform: (t) => apply(t, BOLD_CURSIVE) },
     { name: "Small Caps", transform: (t) => apply(t, SMALL_CAPS) },
     { name: "Monospace", transform: (t) => apply(t, { ...MONOSPACE, ...MONOSPACE_DIGITS }) },
     { name: "꧁ Ornate Cursive ꧂", transform: (t) => applyAndWrap(t, CURSIVE_SCRIPT, "꧁", "꧂") },

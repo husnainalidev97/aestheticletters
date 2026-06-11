@@ -7,9 +7,18 @@ interface PlatformPreviewProps {
   onClose: () => void;
 }
 
-type Platform = "instagram" | "whatsapp" | "twitter" | "discord";
+type Platform = "facebook" | "instagram" | "whatsapp" | "twitter" | "discord";
 
 const platforms: { id: Platform; label: string; icon: React.ReactNode }[] = [
+  {
+    id: "facebook",
+    label: "Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+  },
   {
     id: "instagram",
     label: "Instagram",
@@ -47,6 +56,39 @@ const platforms: { id: Platform; label: string; icon: React.ReactNode }[] = [
     ),
   },
 ];
+
+function FacebookPreview({ text }: { text: string }) {
+  return (
+    <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-4 py-3">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700" />
+        <div className="flex-1 min-w-0">
+          <p className="text-[14px] font-semibold text-gray-900">Your Name</p>
+          <p className="text-[12px] text-gray-500">Just now · 🌐</p>
+        </div>
+      </div>
+      {/* Post content */}
+      <div className="px-4 pb-3">
+        <p className="text-[15px] text-gray-900 break-all whitespace-pre-wrap leading-relaxed">
+          {text}
+        </p>
+      </div>
+      {/* Engagement bar */}
+      <div className="px-4 py-2 border-t border-gray-100 flex items-center gap-4">
+        <span className="text-[12px] text-gray-500">👍 12</span>
+        <span className="text-[12px] text-gray-500">💬 3 Comments</span>
+        <span className="text-[12px] text-gray-500 ml-auto">↗ Share</span>
+      </div>
+      {/* Action buttons */}
+      <div className="flex border-t border-gray-100">
+        <button className="flex-1 py-2.5 text-[13px] font-medium text-gray-600 text-center">👍 Like</button>
+        <button className="flex-1 py-2.5 text-[13px] font-medium text-gray-600 text-center">💬 Comment</button>
+        <button className="flex-1 py-2.5 text-[13px] font-medium text-gray-600 text-center">↗ Share</button>
+      </div>
+    </div>
+  );
+}
 
 function InstagramPreview({ text }: { text: string }) {
   return (
@@ -163,7 +205,7 @@ function DiscordPreview({ text }: { text: string }) {
 }
 
 export default function PlatformPreview({ text, onClose }: PlatformPreviewProps) {
-  const [active, setActive] = useState<Platform>("instagram");
+  const [active, setActive] = useState<Platform>("facebook");
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" onClick={onClose}>
@@ -214,6 +256,7 @@ export default function PlatformPreview({ text, onClose }: PlatformPreviewProps)
         <div className="p-5">
           {/* Phone frame */}
           <div className="rounded-2xl border-[3px] border-gray-800 overflow-hidden shadow-inner bg-gray-50">
+            {active === "facebook" && <FacebookPreview text={text} />}
             {active === "instagram" && <InstagramPreview text={text} />}
             {active === "whatsapp" && <WhatsAppPreview text={text} />}
             {active === "twitter" && <TwitterPreview text={text} />}

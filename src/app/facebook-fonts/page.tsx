@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp",
-        width: 800,
-        height: 1200,
+        width: 1200,
+        height: 630,
         alt: "facebook fonts generator with unique fonts for posts comments and bios",
       },
     ],
@@ -137,7 +137,7 @@ export default function FacebookFontsPage() {
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home Page",
+            name: "Home",
             item: "https://www.aestheticletters.com/",
           },
           {
@@ -166,6 +166,72 @@ export default function FacebookFontsPage() {
           },
         })),
       },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#howto",
+        name: "How to Use This Facebook Font Generator",
+        description:
+          "Generate stylish Unicode text for Facebook posts, bios, and comments in three simple steps.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Enter your text",
+            text: "Type your word, sentence, or caption in the input box at the top of the page.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Pick a font style",
+            text: "Browse through 40+ font styles that update instantly and pick the one you like.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and paste",
+            text: "Hit the Copy button, then paste the styled text directly into Facebook.",
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#font-categories",
+        name: "Facebook Font Style Categories",
+        numberOfItems: 5,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Fonts for Posts",
+            description: "Bold, italic, sans-serif, and decorated styles for Facebook posts and timeline updates.",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Comment Fonts",
+            description: "Bubble, square, strikethrough, underline, and gothic styles for Facebook comments.",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "FB Bio Fonts",
+            description: "Cursive, script, small caps, and monospace styles for Facebook bios and profiles.",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: "FB Caption Fonts",
+            description: "Fullwidth, small text, floral, and arrow styles for Facebook photo captions.",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: "Creative FB Fonts",
+            description: "Bold script, gothic, upside down, mirror, and wide-spaced styles for creative Facebook posts.",
+          },
+        ],
+      },
     ],
   };
 
@@ -175,6 +241,12 @@ export default function FacebookFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary focus:text-sm focus:font-medium focus:shadow-lg"
+      >
+        Skip to content
+      </a>
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
@@ -185,11 +257,11 @@ export default function FacebookFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Facebook Fonts — Copy &amp; Paste Unique Text Styles
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Facebook has no built-in font changer. This free Facebook Fonts Generator converts your text into 40+
             Unicode font styles and provides 150+ symbols you can copy and paste into Facebook posts, bios, comments,
             and usernames, or use separately in your text and profiles.
@@ -242,7 +314,7 @@ export default function FacebookFontsPage() {
                     "Hit Copy; then paste directly into Facebook",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -275,7 +347,7 @@ export default function FacebookFontsPage() {
                     { name: "Facebook Messenger", desc: "Yes, these characters paste into Messenger too. Great for highlighting in important conversations." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> — {s.desc}</span>
                     </li>
                   ))}
@@ -293,7 +365,7 @@ export default function FacebookFontsPage() {
                     { name: "Marketplace Titles", desc: "Formatted characters in a listing title may not index properly in Facebook's internal search. Use plain text for the title, styled text for the description body." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> — {s.desc}</span>
                     </li>
                   ))}
@@ -484,7 +556,7 @@ export default function FacebookFontsPage() {
                     { name: "Coaches, Consultants & Personal Brands", desc: "A well-styled Facebook bio using clean small caps or refined script font signals intentionality. It looks like a personal brand, not a personal account." },
                   ].map((s, idx) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> — {s.desc}{idx === 3 && <> If you want to explore the full range of styles that create that look, browse our <Link href="/" className="text-primary underline">aesthetic fonts</Link> collection.</>}</span>
                     </li>
                   ))}
@@ -528,7 +600,7 @@ export default function FacebookFontsPage() {
                     "Small Caps — Subtle enough to usually pass, adds a premium feel",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {item}
                     </li>
                   ))}
@@ -543,7 +615,7 @@ export default function FacebookFontsPage() {
                     "Full paragraphs in any Unicode style — Even mild styles get flagged when overused",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {item}
                     </li>
                   ))}
@@ -622,7 +694,7 @@ export default function FacebookFontsPage() {
                     { name: "Montserrat", desc: "Clean, geometric, widely used in social media design." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> — {s.desc}</span>
                     </li>
                   ))}
@@ -662,7 +734,7 @@ export default function FacebookFontsPage() {
                       "Branding becomes consistent — Using the same font style across your posts and captions creates a recognizable look without any design skills.",
                     ].map((tip) => (
                       <p key={tip} className="flex items-start gap-2 text-xs text-on-surface-variant leading-relaxed">
-                        <span className="material-symbols-outlined text-primary text-xs mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="text-primary flex-shrink-0 mt-0.5" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                         {tip}
                       </p>
                     ))}
@@ -690,6 +762,7 @@ export default function FacebookFontsPage() {
                 { label: "Aesthetic Fonts Generator", href: "/" },
                 { label: "Instagram Fonts Generator", href: "/instagram-fonts" },
                 { label: "Cursive Fonts Generator", href: "/cursive-fonts" },
+                { label: "Cute Fonts Generator", href: "/cute-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link

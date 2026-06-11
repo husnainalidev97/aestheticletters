@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import ShareButtons from "../components/ShareButtons";
+
+const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
+const DownloadImage = lazy(() => import("../components/DownloadImage"));
 
 interface ShowcaseCard {
   name: string;
@@ -14,6 +17,8 @@ interface ShowcaseCard {
 export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
 
   useEffect(() => {
     return () => {
@@ -40,6 +45,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
   }, []);
 
   return (
+    <>
     <div
       className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
       style={{ gap: "10px" }}
@@ -69,6 +75,24 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
                 {card.name}
               </h3>
               <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setPreviewText(card.preview)}
+                  className="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all"
+                  aria-label="Preview on platform"
+                  title="Preview on platform"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDownloadInfo({ text: card.preview, styleName: card.name })}
+                  className="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all"
+                  aria-label="Download as image"
+                  title="Download as image"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                </button>
                 <ShareButtons text={card.preview} />
                 <button
                   type="button"
@@ -80,9 +104,11 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
                   }`}
                   aria-label={isCopied ? "Copied" : "Copy to clipboard"}
                 >
-                  <span className="material-symbols-outlined text-base">
-                    {isCopied ? "check" : "content_copy"}
-                  </span>
+                  {isCopied ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                  )}
                 </button>
               </div>
             </div>
@@ -110,6 +136,20 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
         );
       })}
     </div>
+
+    {/* Platform Preview Modal */}
+    {previewText && (
+      <Suspense fallback={null}>
+        <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+      </Suspense>
+    )}
+    {/* Download as Image Modal */}
+    {downloadInfo && (
+      <Suspense fallback={null}>
+        <DownloadImage text={downloadInfo.text} styleName={downloadInfo.styleName} onClose={() => setDownloadInfo(null)} />
+      </Suspense>
+    )}
+    </>
   );
 }
 
