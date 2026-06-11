@@ -137,7 +137,7 @@ export default function FacebookFontsPage() {
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home Page",
+            name: "Home",
             item: "https://www.aestheticletters.com/",
           },
           {
