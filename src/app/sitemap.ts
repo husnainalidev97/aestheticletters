@@ -4,7 +4,7 @@ const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   /* Tool pages — updated with performance optimizations (SSR, memoization, content-visibility) */
-  const toolsModified = new Date("2026-06-09T00:00:00Z");
+  const toolsModified = new Date("2026-06-10T00:00:00Z");
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
