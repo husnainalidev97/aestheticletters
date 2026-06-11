@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp",
-        width: 800,
-        height: 1200,
+        width: 1200,
+        height: 630,
         alt: "facebook fonts generator with unique fonts for posts comments and bios",
       },
     ],
@@ -165,6 +165,34 @@ export default function FacebookFontsPage() {
             text: faq.answer.replace(/\n\n/g, " "),
           },
         })),
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#howto",
+        name: "How to Use This Facebook Font Generator",
+        description:
+          "Generate stylish Unicode text for Facebook posts, bios, and comments in three simple steps.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Enter your text",
+            text: "Type your word, sentence, or caption in the input box at the top of the page.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Pick a font style",
+            text: "Browse through 40+ font styles that update instantly and pick the one you like.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and paste",
+            text: "Hit the Copy button, then paste the styled text directly into Facebook.",
+          },
+        ],
       },
     ],
   };
