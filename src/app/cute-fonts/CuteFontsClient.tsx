@@ -1,12 +1,15 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { cuteFontCategories } from "../lib/cuteFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import FavoritesSection from "../components/FavoritesSection";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
+
+const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
+const DownloadImage = lazy(() => import("../components/DownloadImage"));
 
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
@@ -48,6 +51,8 @@ export default function CuteFontsClient() {
   const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
+  const [previewText, setPreviewText] = useState<string | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
 
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -216,6 +221,8 @@ export default function CuteFontsClient() {
                 isDark={DARK_CATEGORIES.has(category.name)}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
+                onPreview={(t) => setPreviewText(t)}
+                onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
               />
             </div>
           ))}
@@ -253,6 +260,19 @@ export default function CuteFontsClient() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           Style Copied to Clipboard
         </div>
+      )}
+
+      {/* Platform Preview Modal */}
+      {previewText && (
+        <Suspense fallback={null}>
+          <PlatformPreview text={previewText} onClose={() => setPreviewText(null)} />
+        </Suspense>
+      )}
+      {/* Download as Image Modal */}
+      {downloadInfo && (
+        <Suspense fallback={null}>
+          <DownloadImage text={downloadInfo.text} styleName={downloadInfo.styleName} onClose={() => setDownloadInfo(null)} />
+        </Suspense>
       )}
     </>
   );
