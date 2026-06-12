@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, useDeferredValue, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { serifUnicodeCategories } from "../lib/serifFontStyles";
 import { useFavorites } from "../lib/useFavorites";
@@ -53,6 +53,7 @@ export default function SerifFontsClient() {
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
+  const deferredText = useDeferredValue(activeText);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -202,11 +203,16 @@ export default function SerifFontsClient() {
           Unicode Serif Styles — Copy & Paste
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {serifUnicodeCategories.map((category) => (
-            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
+          {serifUnicodeCategories.map((category, index) => (
+            <div
+              key={category.name}
+              id={`cat-${slugify(category.name)}`}
+              className="animate-card-fade-in scroll-mt-28"
+              style={index >= 2 ? { contentVisibility: "auto", containIntrinsicSize: "auto 500px" } : undefined}
+            >
               <FontCategoryCard
                 category={category}
-                text={activeText}
+                text={deferredText}
                 fontSize={fontSize}
                 copiedId={copiedId}
                 onCopy={handleCopy}
