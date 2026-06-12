@@ -65,7 +65,7 @@ export default function SerifFontsClient() {
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [showAllGoogle, setShowAllGoogle] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [inputText, setInputText] = useState(DEFAULT_TEXT);
+  const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
