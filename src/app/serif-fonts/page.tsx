@@ -259,6 +259,25 @@ export default function SerifFontsPage() {
                 </ul>
               </article>
 
+              {/* How to Use a Serif Font Generator? */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  How to Use a Serif Font Generator?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Using the tool is simple.
+                </p>
+                <ol className="space-y-4 text-on-surface-variant text-lg leading-relaxed list-decimal list-inside mb-6">
+                  <li><strong>Enter Your Text:</strong> Start by adding the text you want to convert into the text field provided by the generator.</li>
+                  <li><strong>Browse the Styles:</strong> The generator instantly creates multiple serif style variations.</li>
+                  <li><strong>Choose a Style:</strong> Select the serif typeface that matches your purpose.</li>
+                  <li><strong>Copy the Result:</strong> Click or tap the copy button.</li>
+                  <li>
+                    <strong>Paste Anywhere:</strong> Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.
+                  </li>
+                </ol>
+              </article>
+
               {/* Unicode Serif Text vs Traditional Serif Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -507,33 +526,6 @@ export default function SerifFontsPage() {
             {/* Sidebar */}
 <Sidebar
               showBanner={false}
-              useCasesHeading="How to Use a Serif Font Generator?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using the tool is simple.
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li><strong>1. Enter Your Text:</strong> Start by adding the text you want to convert into the text field provided by the generator.</li>
-                    <li><strong>2. Browse the Styles:</strong> The generator instantly creates multiple serif style variations.</li>
-                    <li><strong>3. Choose a Style:</strong> Select the serif typeface that matches your purpose.</li>
-                    <li><strong>4. Copy the Result:</strong> Click or tap the copy button.</li>
-                    <li>
-                      <strong>5. Paste Anywhere:</strong> Paste the text into supported platforms such as:
-                      <ul className="mt-2 space-y-1 list-disc list-inside">
-                        <li>Instagram</li>
-                        <li>Facebook</li>
-                        <li>X (Twitter)</li>
-                        <li>Discord</li>
-                        <li>TikTok</li>
-                        <li>YouTube</li>
-                        <li>WhatsApp</li>
-                        <li>Telegram</li>
-                      </ul>
-                    </li>
-                  </ol>
-                </>
-              }
               bottomImage={{ src: "/serif-fonts-explained-visually.webp", alt: "serif fonts explained visually" }}
               tipsHeading="Where to Use Serif Typefaces Online?"
               tipsContent={
