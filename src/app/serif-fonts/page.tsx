@@ -352,6 +352,9 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   8 Serif Font Styles for Inspiration &amp; Design Projects
                 </h2>
+                <p className="text-on-surface-variant leading-relaxed text-base mb-8 italic border-l-4 border-primary/30 pl-4">
+                  The following font examples are traditional Google Fonts used for design reference only. For copy-paste ready text, use the Unicode styles in the generator above.
+                </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Serif typefaces cover a wide range of styles, and each category has its own visual characteristics.
                   Over time, designers created several categories that serve different purposes.
