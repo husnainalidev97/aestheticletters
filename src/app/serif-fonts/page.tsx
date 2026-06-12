@@ -190,7 +190,7 @@ export default function SerifFontsPage() {
             Serif Fonts Generator — Copy &amp; Paste Serif Text
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
-            Generate serif fonts in 40+ copy and paste styles, explore classic and modern typefaces,
+            Generate serif fonts in 12+ copy and paste styles, explore classic and modern typefaces,
             and find the right look for profiles, posts, and creative projects.
           </p>
         </section>
