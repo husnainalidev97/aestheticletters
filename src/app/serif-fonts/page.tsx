@@ -243,7 +243,7 @@ export default function SerifFontsPage() {
         <SerifFontsClient />
 
         {/* SEO Content Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 3000px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
