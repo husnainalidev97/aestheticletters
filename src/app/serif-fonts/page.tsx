@@ -646,7 +646,10 @@ export default function SerifFontsPage() {
               {[
                 { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
-                { label: "Aesthetic Fonts", href: "/" },
+                { label: "Stylish Fonts", href: "/stylish-fonts" },
+                { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Fancy Fonts", href: "/fancy-fonts" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
