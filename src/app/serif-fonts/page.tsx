@@ -17,19 +17,21 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/serif-fonts",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
-    images: [{ url: "/serif-fonts-og.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/serif-fonts-og.jpg", width: 1200, height: 630, alt: "Serif Fonts Generator" }],
+    publishedTime: "2026-05-10T08:00:00+00:00",
+    modifiedTime: "2026-06-12T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
-    images: ["/serif-fonts-og.jpg"],
+    images: ["https://www.aestheticletters.com/serif-fonts-og.jpg"],
   },
 };
 
@@ -121,6 +123,9 @@ export default function SerifFontsPage() {
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/serif-fonts#breadcrumb",
         },
+        mainEntity: {
+          "@id": "https://www.aestheticletters.com/serif-fonts#softwareapp",
+        },
       },
       {
         "@type": "SoftwareApplication",
@@ -162,6 +167,7 @@ export default function SerifFontsPage() {
       {
         "@type": "FAQPage",
         "@id": "https://www.aestheticletters.com/serif-fonts#faq",
+        inLanguage: "en",
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -174,6 +180,7 @@ export default function SerifFontsPage() {
       {
         "@type": "HowTo",
         "@id": "https://www.aestheticletters.com/serif-fonts#howto",
+        inLanguage: "en",
         name: "How to Use a Serif Font Generator?",
         step: [
           {
@@ -296,18 +303,50 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use a Serif Font Generator?
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Using the tool is simple.
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Using the tool is simple:
                 </p>
-                <ol className="space-y-4 text-on-surface-variant text-lg leading-relaxed list-decimal list-inside mb-6">
-                  <li><strong>Enter Your Text:</strong> Start by adding the text you want to convert into the text field provided by the generator.</li>
-                  <li><strong>Browse the Styles:</strong> The generator instantly creates multiple serif style variations.</li>
-                  <li><strong>Choose a Style:</strong> Select the serif typeface that matches your purpose.</li>
-                  <li><strong>Copy the Result:</strong> Click or tap the copy button.</li>
-                  <li>
-                    <strong>Paste Anywhere:</strong> Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.
-                  </li>
-                </ol>
+                <div className="space-y-8">
+                  {[
+                    {
+                      step: "1",
+                      title: "Enter Your Text",
+                      desc: "Start by adding the text you want to convert into the text field provided by the generator.",
+                    },
+                    {
+                      step: "2",
+                      title: "Browse the Styles",
+                      desc: "The generator instantly creates multiple serif style variations.",
+                    },
+                    {
+                      step: "3",
+                      title: "Choose a Style",
+                      desc: "Select the serif typeface that matches your purpose.",
+                    },
+                    {
+                      step: "4",
+                      title: "Copy the Result",
+                      desc: "Click or tap the copy button.",
+                    },
+                    {
+                      step: "5",
+                      title: "Paste Anywhere",
+                      desc: "Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.",
+                    },
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-6">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-xl font-bold mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-on-surface-variant">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </article>
 
               {/* Unicode Serif Text vs Traditional Serif Fonts */}
