@@ -171,6 +171,38 @@ export default function SerifFontsPage() {
           },
         })),
       },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.aestheticletters.com/serif-fonts#howto",
+        name: "How to Use a Serif Font Generator?",
+        step: [
+          {
+            "@type": "HowToStep",
+            name: "Enter Your Text",
+            text: "Start by adding the text you want to convert into the text field provided by the generator.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Browse the Styles",
+            text: "The generator instantly creates multiple serif style variations.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Choose a Style",
+            text: "Select the serif typeface that matches your purpose.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Copy the Result",
+            text: "Click or tap the copy button.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Paste Anywhere",
+            text: "Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.",
+          },
+        ],
+      },
     ],
   };
 
