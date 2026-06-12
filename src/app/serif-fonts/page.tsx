@@ -11,25 +11,27 @@ import SerifFontsClient from "./SerifFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Serif Fonts Generator - Copy and Paste Serif Text Styles" },
   description:
-    "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+    "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
   alternates: {
     canonical: "https://www.aestheticletters.com/serif-fonts",
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/serif-fonts",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
-      "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
-    images: [{ url: "/serif-fonts-og.jpg", width: 1200, height: 630 }],
+      "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
+    images: [{ url: "https://www.aestheticletters.com/serif-fonts-og.jpg", width: 1200, height: 630, alt: "Serif Fonts Generator" }],
+    publishedTime: "2026-05-10T08:00:00+00:00",
+    modifiedTime: "2026-06-12T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
-      "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
-    images: ["/serif-fonts-og.jpg"],
+      "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
+    images: ["https://www.aestheticletters.com/serif-fonts-og.jpg"],
   },
 };
 
@@ -89,6 +91,11 @@ const faqs = [
     answer:
       "Traditional serif fonts work directly in Google Docs and Microsoft Word. Unicode serif text can also be pasted into many documents, although appearance may vary depending on font support.",
   },
+  {
+    question: "Can I copy and paste Google Fonts?",
+    answer:
+      "Google Fonts are traditional font files that require installation and cannot be copied and pasted into social media. For copy-paste text, use the Unicode styles in this generator.",
+  },
 ];
 
 const serifVsSansSerif = [
@@ -110,11 +117,14 @@ export default function SerifFontsPage() {
         "@id": "https://www.aestheticletters.com/serif-fonts#webpage",
         url: "https://www.aestheticletters.com/serif-fonts",
         name: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
-        description: "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+        description: "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
         headline: "Serif Fonts Generator \u2014 Copy & Paste Serif Text",
         inLanguage: "en",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/serif-fonts#breadcrumb",
+        },
+        mainEntity: {
+          "@id": "https://www.aestheticletters.com/serif-fonts#softwareapp",
         },
       },
       {
@@ -157,6 +167,7 @@ export default function SerifFontsPage() {
       {
         "@type": "FAQPage",
         "@id": "https://www.aestheticletters.com/serif-fonts#faq",
+        inLanguage: "en",
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -165,6 +176,39 @@ export default function SerifFontsPage() {
             text: faq.answer,
           },
         })),
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.aestheticletters.com/serif-fonts#howto",
+        inLanguage: "en",
+        name: "How to Use a Serif Font Generator?",
+        step: [
+          {
+            "@type": "HowToStep",
+            name: "Enter Your Text",
+            text: "Start by adding the text you want to convert into the text field provided by the generator.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Browse the Styles",
+            text: "The generator instantly creates multiple serif style variations.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Choose a Style",
+            text: "Select the serif typeface that matches your purpose.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Copy the Result",
+            text: "Click or tap the copy button.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Paste Anywhere",
+            text: "Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.",
+          },
+        ],
       },
     ],
   };
@@ -185,12 +229,12 @@ export default function SerifFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Serif Fonts Generator — Copy &amp; Paste Serif Text
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-            Generate serif fonts in 40+ copy and paste styles, explore classic and modern typefaces,
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Generate serif fonts in 12+ copy and paste styles, explore classic and modern typefaces,
             and find the right look for profiles, posts, and creative projects.
           </p>
         </section>
@@ -214,20 +258,9 @@ export default function SerifFontsPage() {
                   This serif text generator helps you create serif-style text that can be copied and pasted into social
                   media profiles, usernames, messages, and other online platforms.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  This tool includes two types of serif styles:
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  This tool includes 12+ Unicode serif typefaces that can be copied and pasted instantly into social media profiles, usernames, bios, and messaging apps.
                 </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    "12+ Unicode serif typefaces that can be copied and pasted instantly.",
-                    "30+ Google serif fonts organized into 8 major serif categories for inspiration and design projects.",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </article>
 
               {/* What is a Serif Font Generator? */}
@@ -258,11 +291,62 @@ export default function SerifFontsPage() {
                     "Decorative text in posts and comments",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
+              </article>
+
+              {/* How to Use a Serif Font Generator? */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  How to Use a Serif Font Generator?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Using the tool is simple:
+                </p>
+                <div className="space-y-8">
+                  {[
+                    {
+                      step: "1",
+                      title: "Enter Your Text",
+                      desc: "Start by adding the text you want to convert into the text field provided by the generator.",
+                    },
+                    {
+                      step: "2",
+                      title: "Browse the Styles",
+                      desc: "The generator instantly creates multiple serif style variations.",
+                    },
+                    {
+                      step: "3",
+                      title: "Choose a Style",
+                      desc: "Select the serif typeface that matches your purpose.",
+                    },
+                    {
+                      step: "4",
+                      title: "Copy the Result",
+                      desc: "Click or tap the copy button.",
+                    },
+                    {
+                      step: "5",
+                      title: "Paste Anywhere",
+                      desc: "Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.",
+                    },
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-6">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-xl font-bold mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-on-surface-variant">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </article>
 
               {/* Unicode Serif Text vs Traditional Serif Fonts */}
@@ -283,7 +367,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-8">
                   {["Easy copy and paste", "No installation required", "Works on many social platforms", "Great for bios and usernames"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -297,7 +381,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {["Better typography control", "Suitable for branding and print design", "Available in multiple weights and styles", "Ideal for professional design projects"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -337,7 +421,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {["Trust", "Tradition", "Authority", "Professionalism", "Class"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -347,11 +431,14 @@ export default function SerifFontsPage() {
                 </p>
               </article>
 
-              {/* 8 Types of Serif Fonts Explained */}
+              {/* 8 Serif Font Styles for Inspiration & Design Projects */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  8 Types of Serif Fonts Explained
+                  8 Serif Font Styles for Inspiration &amp; Design Projects
                 </h2>
+                <p className="text-on-surface-variant leading-relaxed text-base mb-8 italic border-l-4 border-primary/30 pl-4">
+                  The following font examples are traditional Google Fonts used for design reference only. For copy-paste ready text, use the Unicode styles in the generator above.
+                </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Serif typefaces cover a wide range of styles, and each category has its own visual characteristics.
                   Over time, designers created several categories that serve different purposes.
@@ -414,7 +501,7 @@ export default function SerifFontsPage() {
                     <ul className="space-y-2 mb-4">
                       {cat.examples.map((ex) => (
                         <li key={ex} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                          <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                          <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                           <span>{ex}</span>
                         </li>
                       ))}
@@ -510,33 +597,6 @@ export default function SerifFontsPage() {
             {/* Sidebar */}
 <Sidebar
               showBanner={false}
-              useCasesHeading="How to Use a Serif Font Generator?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Using the tool is simple.
-                  </p>
-                  <ol className="space-y-4 text-sm leading-relaxed">
-                    <li><strong>1. Enter Your Text:</strong> Start by adding the text you want to convert into the text field provided by the generator.</li>
-                    <li><strong>2. Browse the Styles:</strong> The generator instantly creates multiple serif style variations.</li>
-                    <li><strong>3. Choose a Style:</strong> Select the serif typeface that matches your purpose.</li>
-                    <li><strong>4. Copy the Result:</strong> Click or tap the copy button.</li>
-                    <li>
-                      <strong>5. Paste Anywhere:</strong> Paste the text into supported platforms such as:
-                      <ul className="mt-2 space-y-1 list-disc list-inside">
-                        <li>Instagram</li>
-                        <li>Facebook</li>
-                        <li>X (Twitter)</li>
-                        <li>Discord</li>
-                        <li>TikTok</li>
-                        <li>YouTube</li>
-                        <li>WhatsApp</li>
-                        <li>Telegram</li>
-                      </ul>
-                    </li>
-                  </ol>
-                </>
-              }
               bottomImage={{ src: "/serif-fonts-explained-visually.webp", alt: "serif fonts explained visually" }}
               tipsHeading="Where to Use Serif Typefaces Online?"
               tipsContent={
@@ -545,28 +605,28 @@ export default function SerifFontsPage() {
                     Serif type fonts work well in many online environments.
                   </p>
                   <div className="space-y-4 text-sm leading-relaxed">
-                    <div>
-                      <p className="font-bold text-on-surface">Social Media Bios</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Social Media Bios</p>
                       <p className="text-on-surface-variant">Many users add serif text to make their profiles more unique. For a full collection of styles made specifically for Instagram, visit our <Link href="/instagram-fonts" className="text-primary underline">instagram fonts generator</Link>.</p>
                     </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Usernames</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Usernames</p>
                       <p className="text-on-surface-variant">A serif username can appear more stylish and memorable.</p>
                     </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Discord Profiles</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Discord Profiles</p>
                       <p className="text-on-surface-variant">Creative typography helps profiles stand out in communities. See all compatible styles on our discord fonts generator page.</p>
                     </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Content Creators</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Content Creators</p>
                       <p className="text-on-surface-variant">Creators often use decorative text for branding purposes.</p>
                     </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Digital Portfolios</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Digital Portfolios</p>
                       <p className="text-on-surface-variant">Serif styles can contribute to a professional presentation.</p>
                     </div>
-                    <div>
-                      <p className="font-bold text-on-surface">Personal Branding</p>
+                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <p className="font-bold text-on-surface mb-1">Personal Branding</p>
                       <p className="text-on-surface-variant">Elegant serif fonts can help create a polished online identity.</p>
                     </div>
                   </div>
@@ -586,7 +646,10 @@ export default function SerifFontsPage() {
               {[
                 { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
-                { label: "Aesthetic Fonts", href: "/" },
+                { label: "Stylish Fonts", href: "/stylish-fonts" },
+                { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Fancy Fonts", href: "/fancy-fonts" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link

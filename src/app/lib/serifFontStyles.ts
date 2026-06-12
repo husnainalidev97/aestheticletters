@@ -131,41 +131,41 @@ export const serifUnicodeCategories: FontCategory[] = [
     ],
   },
   {
-    name: "Script & Calligraphy",
+    name: "Elegant & Cursive",
     styles: [
       { name: "Script Serif", transform: (t) => apply(t, scriptSerifMap) },
       { name: "Bold Script Serif", transform: (t) => apply(t, boldScriptSerifMap) },
     ],
   },
   {
-    name: "Gothic & Blackletter",
+    name: "Gothic Serif",
     styles: [
       { name: "Fraktur", transform: (t) => apply(t, frakturMap) },
       { name: "Bold Fraktur", transform: (t) => apply(t, boldFrakturMap) },
     ],
   },
   {
-    name: "Mathematical & Double Struck",
+    name: "Double Struck",
     styles: [
       { name: "Double Struck", transform: (t) => apply(t, doubleStruckMap) },
     ],
   },
   {
-    name: "Small Caps & Width",
+    name: "Small Caps",
     styles: [
       { name: "Small Caps", transform: (t) => apply(t, smallCapsLookup) },
       { name: "Wide Serif", transform: (t) => apply(t, wideSerifMap) },
     ],
   },
   {
-    name: "Underline & Strikethrough",
+    name: "Strikethrough Styles",
     styles: [
       { name: "Bold Serif Underline", transform: (t) => withCombining(apply(t, boldSerifMap), "\u0332") },
       { name: "Italic Serif Strikethrough", transform: (t) => withCombining(apply(t, italicSerifMap), "\u0336") },
     ],
   },
   {
-    name: "Enclosed & Shaped",
+    name: "Boxed & Circled",
     styles: [
       { name: "Circled", transform: (t) => apply(t, circledMap) },
       { name: "Negative Circled", transform: (t) => apply(t, negativeCircledMap) },
