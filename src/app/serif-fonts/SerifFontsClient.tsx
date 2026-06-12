@@ -25,12 +25,12 @@ const DARK_CATEGORIES = new Set<string>([]);
 
 const UNICODE_EMOJIS: Record<string, string> = {
   "Classic Serif": "📜",
-  "Script & Calligraphy": "✍️",
-  "Gothic & Blackletter": "🖤",
-  "Mathematical & Double Struck": "🔢",
-  "Small Caps & Width": "🔤",
-  "Underline & Strikethrough": "✨",
-  "Enclosed & Shaped": "🔵",
+  "Elegant & Cursive": "✍️",
+  "Gothic Serif": "🖤",
+  "Double Struck": "🔢",
+  "Small Caps": "🔤",
+  "Strikethrough Styles": "✨",
+  "Boxed & Circled": "🔵",
 };
 
 const unicodeCategoryLinks = serifUnicodeCategories.map((cat) => ({
