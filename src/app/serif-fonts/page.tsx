@@ -214,20 +214,9 @@ export default function SerifFontsPage() {
                   This serif text generator helps you create serif-style text that can be copied and pasted into social
                   media profiles, usernames, messages, and other online platforms.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  This tool includes two types of serif styles:
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  This tool includes 12+ Unicode serif typefaces that can be copied and pasted instantly into social media profiles, usernames, bios, and messaging apps.
                 </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    "12+ Unicode serif typefaces that can be copied and pasted instantly.",
-                    "30+ Google serif fonts organized into 8 major serif categories for inspiration and design projects.",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </article>
 
               {/* What is a Serif Font Generator? */}
