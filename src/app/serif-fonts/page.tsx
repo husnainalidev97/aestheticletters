@@ -185,11 +185,11 @@ export default function SerifFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Serif Fonts Generator — Copy &amp; Paste Serif Text
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Generate serif fonts in 40+ copy and paste styles, explore classic and modern typefaces,
             and find the right look for profiles, posts, and creative projects.
           </p>
@@ -223,7 +223,7 @@ export default function SerifFontsPage() {
                     "30+ Google serif fonts organized into 8 major serif categories for inspiration and design projects.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -258,7 +258,7 @@ export default function SerifFontsPage() {
                     "Decorative text in posts and comments",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -283,7 +283,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-8">
                   {["Easy copy and paste", "No installation required", "Works on many social platforms", "Great for bios and usernames"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -297,7 +297,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {["Better typography control", "Suitable for branding and print design", "Available in multiple weights and styles", "Ideal for professional design projects"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -337,7 +337,7 @@ export default function SerifFontsPage() {
                 <ul className="space-y-3 mb-6">
                   {["Trust", "Tradition", "Authority", "Professionalism", "Class"].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -414,7 +414,7 @@ export default function SerifFontsPage() {
                     <ul className="space-y-2 mb-4">
                       {cat.examples.map((ex) => (
                         <li key={ex} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                          <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                          <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                           <span>{ex}</span>
                         </li>
                       ))}
