@@ -11,7 +11,7 @@ import SerifFontsClient from "./SerifFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Serif Fonts Generator - Copy and Paste Serif Text Styles" },
   description:
-    "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+    "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
   alternates: {
     canonical: "https://www.aestheticletters.com/serif-fonts",
   },
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/serif-fonts",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
-      "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+      "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: [{ url: "/serif-fonts-og.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
     description:
-      "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+      "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: ["/serif-fonts-og.jpg"],
   },
 };
@@ -89,6 +89,11 @@ const faqs = [
     answer:
       "Traditional serif fonts work directly in Google Docs and Microsoft Word. Unicode serif text can also be pasted into many documents, although appearance may vary depending on font support.",
   },
+  {
+    question: "Can I copy and paste Google Fonts?",
+    answer:
+      "Google Fonts are traditional font files that require installation and cannot be copied and pasted into social media. For copy-paste text, use the Unicode styles in this generator.",
+  },
 ];
 
 const serifVsSansSerif = [
@@ -110,7 +115,7 @@ export default function SerifFontsPage() {
         "@id": "https://www.aestheticletters.com/serif-fonts#webpage",
         url: "https://www.aestheticletters.com/serif-fonts",
         name: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
-        description: "Convert text into serif fonts you can copy and paste. Explore 15 unicode styles and 34 serif font types, including Slab, Didone, Modern, and Old Style.",
+        description: "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
         headline: "Serif Fonts Generator \u2014 Copy & Paste Serif Text",
         inLanguage: "en",
         breadcrumb: {
