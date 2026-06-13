@@ -421,21 +421,6 @@ export default function FancyFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Due to their Unicode character encoding, these fonts can be
                   copied and pasted without requiring any additional software.
-                  You can also explore{" "}
-                  <Link
-                    href="/cute-fonts"
-                    className="text-primary underline hover:no-underline"
-                  >
-                    cute fonts
-                  </Link>{" "}
-                  for softer styles or{" "}
-                  <Link
-                    href="/stylish-fonts"
-                    className="text-primary underline hover:no-underline"
-                  >
-                    stylish fonts
-                  </Link>{" "}
-                  for bolder, modern looks.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
@@ -506,18 +491,6 @@ export default function FancyFontsPage() {
                                 className="text-primary underline hover:no-underline"
                               >
                                 Aesthetic Letters
-                              </Link>,{" "}
-                              <Link
-                                href="/facebook-fonts"
-                                className="text-primary underline hover:no-underline"
-                              >
-                                Facebook fonts
-                              </Link>, or{" "}
-                              <Link
-                                href="/cute-fonts"
-                                className="text-primary underline hover:no-underline"
-                              >
-                                cute fonts
                               </Link>{" "}
                               for more ideas.
                             </>
