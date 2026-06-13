@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.aestheticletters.com/fancy-fonts-tool-features.webp",
-        width: 1200,
-        height: 630,
+        width: 941,
+        height: 1672,
         alt: "fancy fonts features explained",
       },
     ],
@@ -310,6 +310,39 @@ export default function FancyFontsPage() {
           },
         })),
       },
+      {
+        "@type": "HowTo",
+        name: "How to Use the Fancy Font Generator",
+        description:
+          "Follow these quick steps to create free fancy font styles instantly using our generator.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Type Your Text",
+            text: "Write any text in the generator to get started. The tool will instantly create multiple styled versions for you.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Choose a Style",
+            text: "Scroll through the list and pick a design that matches your vibe or platform.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and Paste",
+            text: "Once you have copied the style, make sure to paste it anywhere, such as social media or chats.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 4,
+            name: "Explore More Options",
+            text: "If you want variety, try different styles or visit Aesthetic Letters for more ideas.",
+          },
+        ],
+      },
     ],
   };
 
@@ -386,13 +419,7 @@ export default function FancyFontsPage() {
                       key={item}
                       className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex items-center gap-3"
                     >
-                      <span
-                        className="material-symbols-outlined text-primary text-base"
-                        style={{ fontVariationSettings: "'FILL' 1" }}
-                        aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span className="font-medium text-on-surface-variant">
                         {item}
                       </span>
@@ -478,13 +505,7 @@ export default function FancyFontsPage() {
                 <ul className="space-y-4">
                   {platforms.map((platform) => (
                     <li key={platform.name} className="flex items-start gap-3">
-                      <span
-                        className="material-symbols-outlined text-primary text-base mt-0.5"
-                        style={{ fontVariationSettings: "'FILL' 1" }}
-                        aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <div>
                         <span className="font-medium">{platform.name}</span>
                         <p className="text-sm text-on-surface-variant mt-1">
@@ -512,9 +533,7 @@ export default function FancyFontsPage() {
               {/* Security Feature */}
               <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
                 <h3 className="font-headline font-bold text-primary mb-4 flex items-center gap-2">
-                  <span className="material-symbols-outlined">
-                    verified_user
-                  </span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                   Client-Side Security
                 </h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
