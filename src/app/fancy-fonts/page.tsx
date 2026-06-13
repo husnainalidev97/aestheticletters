@@ -638,12 +638,12 @@ export default function FancyFontsPage() {
           <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
             <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
               {[
-                { label: "Cute Fonts", href: "/cute-fonts" },
-                { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Cute Font Generator", href: "/cute-fonts" },
+                { label: "Instagram Font Generator", href: "/instagram-fonts" },
                 { label: "Cursive Font Generator", href: "/cursive-fonts" },
                 { label: "Stylish Font Generator", href: "/stylish-fonts" },
                 { label: "Aesthetic Font Generator", href: "/" },
-                { label: "Facebook Fonts", href: "/facebook-fonts" },
+                { label: "Facebook Font Generator", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
