@@ -10,6 +10,7 @@ const canonicalUrl = "https://www.aestheticletters.com/terms-and-services";
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  robots: { index: false, follow: true },
   alternates: {
     canonical: canonicalUrl,
   },
