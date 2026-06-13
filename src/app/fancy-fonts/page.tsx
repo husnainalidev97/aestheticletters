@@ -389,6 +389,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
                   What are Fancy Fonts &amp; Typefaces?
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/fancy-fonts-og.webp"
+                    alt="Fancy Fonts Copy and Paste — 130+ free fancy font styles visually explained with bold, script, monospace, fraktur, and small caps examples"
+                    width={1730}
+                    height={909}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Fancy fonts are stylized text formats that make normal writing
                   look more modern, creative, and eye-catching. Instead of
