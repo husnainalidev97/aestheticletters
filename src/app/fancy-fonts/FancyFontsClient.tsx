@@ -160,6 +160,7 @@ export default function FancyFontsClient() {
               <path d="m15 5 4 4" />
             </svg>
             <textarea
+              id="fancy-fonts-input"
               aria-label="Enter text to transform into fancy fonts"
               className="w-full min-h-[56px] md:min-h-[120px] pl-11 md:pl-16 pr-4 md:pr-8 py-4 md:py-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none placeholder:text-on-surface-variant/50"
               placeholder="Type or paste your text here..."
@@ -247,17 +248,19 @@ export default function FancyFontsClient() {
               disabled={isLoadingMore}
               className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2 disabled:opacity-70"
             >
-              {isLoadingMore ? (
-                <span className="flex items-center gap-2">
-                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                  Loading...
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  Explore More Styles
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                </span>
-              )}
+              <span aria-live="polite">
+                {isLoadingMore ? (
+                  <span className="flex items-center gap-2">
+                    <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                    Loading...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    Explore More Styles
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  </span>
+                )}
+              </span>
             </button>
           </div>
         )}

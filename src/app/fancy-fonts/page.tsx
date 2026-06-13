@@ -25,10 +25,10 @@ export const metadata: Metadata = {
       "Transform your text into elegant styles instantly. 100% private, browser-based, and compatible with all social media platforms.",
     images: [
       {
-        url: "https://www.aestheticletters.com/fancy-fonts-tool-features.webp",
-        width: 941,
-        height: 1672,
-        alt: "fancy fonts features explained",
+        url: "https://www.aestheticletters.com/fancy-fonts-og.webp",
+        width: 1730,
+        height: 909,
+        alt: "Fancy Fonts Copy and Paste — 130+ free fancy font styles",
       },
     ],
   },
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
       "Copy and paste unique aesthetic fonts for your social media profiles.",
     images: [
       {
-        url: "https://www.aestheticletters.com/fancy-fonts-tool-features.webp",
-        alt: "fancy fonts features explained",
+        url: "https://www.aestheticletters.com/fancy-fonts-og.webp",
+        alt: "Fancy Fonts Copy and Paste — 130+ free fancy font styles",
       },
     ],
   },
@@ -251,8 +251,12 @@ export default function FancyFontsPage() {
         "@type": "SoftwareApplication",
         "@id": "https://www.aestheticletters.com/fancy-fonts#software",
         name: "Fancy Fonts Generator",
-        operatingSystem: "Windows, macOS, Android, iOS",
+        operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
+        browserRequirements: "requires HTML5 support",
+        url: "https://www.aestheticletters.com/fancy-fonts",
+        description:
+          "Transform your text into 130+ elegant fancy font styles instantly. Copy and paste stylish Unicode text for Instagram, WhatsApp, Facebook, gaming usernames, and more.",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -376,13 +380,13 @@ export default function FancyFontsPage() {
         <FancyFontsClient />
 
         {/* SEO Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* Section 1: What are Fancy Fonts */}
               <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
                   What are Fancy Fonts &amp; Typefaces?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -407,6 +411,21 @@ export default function FancyFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Due to their Unicode character encoding, these fonts can be
                   copied and pasted without requiring any additional software.
+                  You can also explore{" "}
+                  <Link
+                    href="/cute-fonts"
+                    className="text-primary underline hover:no-underline"
+                  >
+                    cute fonts
+                  </Link>{" "}
+                  for softer styles or{" "}
+                  <Link
+                    href="/stylish-fonts"
+                    className="text-primary underline hover:no-underline"
+                  >
+                    stylish fonts
+                  </Link>{" "}
+                  for bolder, modern looks.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
@@ -430,7 +449,7 @@ export default function FancyFontsPage() {
 
               {/* Section 2: How to Use */}
               <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
                   How to Use the Fancy Font Generator?
                 </h2>
                 <div className="space-y-8">
@@ -477,6 +496,18 @@ export default function FancyFontsPage() {
                                 className="text-primary underline hover:no-underline"
                               >
                                 Aesthetic Letters
+                              </Link>,{" "}
+                              <Link
+                                href="/facebook-fonts"
+                                className="text-primary underline hover:no-underline"
+                              >
+                                Facebook fonts
+                              </Link>, or{" "}
+                              <Link
+                                href="/cute-fonts"
+                                className="text-primary underline hover:no-underline"
+                              >
+                                cute fonts
                               </Link>{" "}
                               for more ideas.
                             </>
@@ -495,7 +526,7 @@ export default function FancyFontsPage() {
             <aside className="lg:col-span-4 space-y-12">
               {/* Where Can You Use Fancy Fonts */}
               <div className="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm">
-                <h2 className="font-headline text-2xl font-bold mb-6">
+                <h2 className="font-headline text-xl md:text-2xl font-bold mb-6">
                   Where Can You Use Fancy Fonts?
                 </h2>
                 <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
@@ -546,19 +577,19 @@ export default function FancyFontsPage() {
         </section>
 
         {/* Most Popular Fancy Font Styles Showcase */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
-          <h2 className="font-headline text-4xl font-bold mb-12 leading-tight text-center">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-12 leading-tight text-center">
             Most Popular Fancy Font Styles to Copy and Paste
           </h2>
           <ShowcaseGrid cards={showcaseCards} />
         </section>
 
         {/* 6 Reasons Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
           <div className="flex flex-col md:flex-row items-start gap-10">
             {/* Left — Text List */}
             <div className="flex-1 min-w-0">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+              <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
                 6 Reasons Our Fancy Text Generator Stands Above the Rest
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
@@ -590,8 +621,8 @@ export default function FancyFontsPage() {
               <Image
                 src="/fancy-fonts-tool-features.webp"
                 alt="fancy fonts features explained"
-                width={400}
-                height={800}
+                width={941}
+                height={1672}
                 loading="lazy"
                 className="w-full h-auto object-contain"
               />
@@ -601,15 +632,18 @@ export default function FancyFontsPage() {
 
         {/* Similar Font Generator */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 text-center leading-tight">
             Similar Font Generator
           </h2>
           <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
             <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
               {[
+                { label: "Cute Fonts", href: "/cute-fonts" },
+                { label: "Instagram Fonts", href: "/instagram-fonts" },
                 { label: "Cursive Font Generator", href: "/cursive-fonts" },
-                { label: "Aesthetic Font Generator", href: "/" },
                 { label: "Stylish Font Generator", href: "/stylish-fonts" },
+                { label: "Aesthetic Font Generator", href: "/" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
@@ -625,8 +659,8 @@ export default function FancyFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
-          <h2 className="font-headline text-4xl font-bold mb-16 text-center">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={faqs} />
