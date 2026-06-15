@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
-import ShareButtons from "../components/ShareButtons";
 
+const ShareButtons = lazy(() => import("../components/ShareButtons"));
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
+
+const SharePlaceholder = () => (
+  <div className="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>
+  </div>
+);
 
 interface ShowcaseCard {
   name: string;
@@ -93,7 +99,9 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                 </button>
-                <ShareButtons text={card.preview} />
+                <Suspense fallback={<SharePlaceholder />}>
+                  <ShareButtons text={card.preview} />
+                </Suspense>
                 <button
                   type="button"
                   onClick={() => handleCopy(card.preview, index)}
