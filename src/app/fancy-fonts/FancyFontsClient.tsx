@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, useDeferredValue, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { fancyFontCategories } from "../lib/fancyFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
@@ -21,7 +21,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 4;
 
 const FANCY_EMOJIS: Record<string, string> = {
   "Bold Artistic Styles": "💪",
@@ -59,8 +59,7 @@ export default function FancyFontsClient() {
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const deferredInput = useDeferredValue(inputText);
-  const activeText = deferredInput.trim() || "Fancy Fonts";
+  const activeText = inputText.trim() || "Fancy Fonts";
 
   const visibleCategories = (showAll
     ? fancyFontCategories
