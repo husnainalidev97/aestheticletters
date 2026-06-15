@@ -124,11 +124,11 @@ const parenthesizedText: StylishFontCategory = {
     { name: "Paren Reversed", transform: (t) => reverse(applyCharMap(t, parenthesizedMap)) },
     { name: "Paren Mirror", transform: (t) => mirror(applyCharMap(t, parenthesizedMap), " \u2022 ") },
     { name: "Paren Alternate", transform: (t) => alternate(t, (c) => parenthesizedMap[c.toLowerCase()] ?? c, (c) => c) },
-    { name: "Paren Progressive", transform: (t) => progressive(applyCharMap(t, parenthesizedMap), "\u0323", 3) },
+    { name: "Paren Progressive", transform: (t) => progressive(applyCharMap(t, parenthesizedMap), "\u2727", 3) },
     { name: "Paren Cycle", transform: (t) => cycleSeparator(applyCharMap(t, parenthesizedMap), ["\u2022", "\u25E6", "\u2023"]) },
     { name: "Paren Boxed", transform: (t) => wrapEach(applyCharMap(t, parenthesizedMap), "[", "]") },
     { name: "Paren + Stars", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u2729", "\u2729") },
-    { name: "Paren Underlined", transform: (t) => withCombining(applyCharMap(t, parenthesizedMap), ["\u0332"]) },
+    { name: "Paren Dashes", transform: (t) => cycleSeparator(applyCharMap(t, parenthesizedMap), ["\u2013", "\u2014"]) },
     { name: "Paren Crown", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\uD83D\uDC51", "\uD83D\uDC51") },
   ],
 };
@@ -200,7 +200,7 @@ const chessGames: StylishFontCategory = {
     { name: "Queen Reversed", transform: (t) => withFrame(reverse(t), "\u265B\u265B", "\u265B\u265B") },
     { name: "Pawn March", transform: (t) => withFrame(intersperse(t, "\u265F"), "\u265A", "\u265A") },
     { name: "Castle Wall", transform: (t) => withFrame(t, "\u265C\u265C\u265C", "\u265C\u265C\u265C") },
-    { name: "Game Layer", transform: (t) => withCombining(t, ["\u20E3"]) },
+    { name: "Game Shield", transform: (t) => wrapEach(t, "\u2694", "\u2694") },
     { name: "Checkmate", transform: (t) => withFrame(cycleSeparator(t, ["\u265A", "\u265F"]), "\u2654", "\u2654") },
   ],
 };
