@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp", width: 1200, height: 630, alt: "how to use the stylish font maker (step by step)" }],
+    images: [{ url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp", width: 1734, height: 907, alt: "stylish fonts generator explained with different styles and show features which are completely free" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: ["https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp"],
+    images: ["https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"],
   },
 };
 
@@ -73,11 +74,10 @@ const faqs = [
 
 const fontShowcaseStyles = [
   {
-    name: "Urban Vogue",
-    description: "A bold and street inspired style with strong character shapes.",
-    example: "This is Urban",
-    bestFor: "Modern profile bios and standout gaming names.",
-    fontFamily: "'Monoton', display",
+    name: "Parenthesized Text",
+    description: "Letters enclosed in parentheses for a unique labelled look.",
+    example: "\u249D\u24A3\u24A4\u24A8 \u24A4\u24A8 \u249F\u24A0\u24A7\u24A0\u24A9",
+    bestFor: "Subtle emphasis and annotation style bios.",
   },
   {
     name: "Diamond Glazed",
@@ -86,11 +86,10 @@ const fontShowcaseStyles = [
     bestFor: "Eye catching captions and creative posts.",
   },
   {
-    name: "Cool Fonts",
-    description: "A mix of trendy styles designed for general use.",
-    example: "This is Cool",
-    bestFor: "Everyday text styling.",
-    fontFamily: "'Rubik Glitch', system-ui",
+    name: "Musical & Card Suits",
+    description: "Music notes and playing card symbols around your text.",
+    example: "\u266A\u266B This is Music \u266B\u266A",
+    bestFor: "Music lovers and gamers.",
   },
   {
     name: "Starlight Sparkle",
@@ -99,11 +98,10 @@ const fontShowcaseStyles = [
     bestFor: "Aesthetic posts and TikTok captions.",
   },
   {
-    name: "Signature Glow",
-    description: "Looks like handwritten glowing text.",
-    example: "This is Signature",
-    bestFor: "Personal branding and influencer bios.",
-    fontFamily: "'Birthstone Bounce', cursive",
+    name: "Chess & Games",
+    description: "Chess pieces and dice symbols give a strategic bold look.",
+    example: "\u265A\u265B This is Chess \u265B\u265A",
+    bestFor: "Gaming profiles and competitive bios.",
   },
   {
     name: "Underlined Flow",
@@ -112,11 +110,10 @@ const fontShowcaseStyles = [
     bestFor: "Highlighting important words.",
   },
   {
-    name: "Metro Outline",
-    description: "Outlined letters with a modern city style vibe.",
-    example: "This is Outline",
-    bestFor: "Bold headlines and titles.",
-    fontFamily: "'Codystar', display",
+    name: "Currency & Braille",
+    description: "Transform letters into currency symbols or braille dot patterns.",
+    example: "\u20B3\u20BF\u20B5\u0110\u0246\u20A3",
+    bestFor: "Unique bios and creative typography.",
   },
   {
     name: "Wavy Motion",
@@ -125,16 +122,16 @@ const fontShowcaseStyles = [
     bestFor: "Creative storytelling posts.",
   },
   {
-    name: "Industrial Block",
-    description: "Heavy block style text with strong presence.",
-    example: "\u3010This is Block\u3011",
-    bestFor: "Gaming and branding.",
+    name: "Runic & Ancient",
+    description: "Ancient rune and small caps alphabets for a mystical look.",
+    example: "\u16BA\u16D6\u16DA\u16DA\u16A9",
+    bestFor: "Fantasy gaming and mythical bios.",
   },
   {
-    name: "Symbolic Frames",
-    description: "Text surrounded by decorative symbols.",
-    example: "\uA9C1 This is Framed \uA9C2",
-    bestFor: "Emphasis and special announcements.",
+    name: "Box & Block Art",
+    description: "Structural block and bracket frames around your text.",
+    example: "\u3010This is Framed\u3011",
+    bestFor: "Bold headlines and gaming usernames.",
   },
 ];
 
@@ -154,125 +151,165 @@ const platforms = [
 ];
 
 export default function StylishFontsPage() {
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "@id": "https://www.aestheticletters.com/stylish-fonts#software",
-      name: "Stylish Fonts Generator",
-      operatingSystem: "Any",
-      applicationCategory: "UtilitiesApplication",
-      browserRequirements: "requires HTML5 support",
-      url: "https://www.aestheticletters.com/stylish-fonts",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://www.aestheticletters.com/stylish-fonts#webpage",
-      url: "https://www.aestheticletters.com/stylish-fonts",
-      name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
-      description:
-        "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-      breadcrumb: {
-        "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
-      },
-      mainEntity: {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
         "@id": "https://www.aestheticletters.com/stylish-fonts#software",
+        name: "Stylish Fonts Generator",
+        description:
+          "Transform plain text into 100+ unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
+        operatingSystem: "Any",
+        applicationCategory: "UtilitiesApplication",
+        browserRequirements: "requires HTML5 support",
+        url: "https://www.aestheticletters.com/stylish-fonts",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
       },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home Page",
-          item: "https://www.aestheticletters.com/",
+      {
+        "@type": "WebPage",
+        "@id": "https://www.aestheticletters.com/stylish-fonts#webpage",
+        url: "https://www.aestheticletters.com/stylish-fonts",
+        name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
+        description:
+          "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
+        breadcrumb: {
+          "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
         },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "All Tools",
-          item: "https://www.aestheticletters.com/all-tools",
+        mainEntity: {
+          "@id": "https://www.aestheticletters.com/stylish-fonts#software",
         },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Stylish Fonts",
-          item: "https://www.aestheticletters.com/stylish-fonts",
-        },
-      ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How does a Stylish Font Generator Work?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A stylish font maker changes normal text into special Unicode-based characters. These characters may appear like different font styles, but in reality, they are just unique symbols that already exist in the Unicode system. Because of this structure, the styled text can be easily copied and used on different platforms without any need for additional software or installation.",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home Page",
+            item: "https://www.aestheticletters.com/",
           },
-        },
-        {
-          "@type": "Question",
-          name: "Is this Stylish Text Generator Free to Use?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, you will not be charged for anything. It is designed to be freely accessible, allowing you to create stylish text as many times as you want. There are no extra costs involved, and you don\u2019t need to worry about any paid features or limitations.",
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "All Tools",
+            item: "https://www.aestheticletters.com/all-tools",
           },
-        },
-        {
-          "@type": "Question",
-          name: "Can I use Stylish Typefaces on Instagram and TikTok?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, these cool fonts generally work well on platforms like Instagram and TikTok. There are a variety of ways to use them on your profile, such as your bio, posts, and even comment sections.",
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Stylish Fonts",
+            item: "https://www.aestheticletters.com/stylish-fonts",
           },
-        },
-        {
-          "@type": "Question",
-          name: "Why are Some Stylish Words not Showing Correctly?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Some stylish text styles may not appear properly on every device or application. This usually happens because different platforms have limited support for certain special character sets. Older phones or outdated apps may not recognize some of these symbols.",
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How does a Stylish Font Generator Work?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A stylish font maker changes normal text into special Unicode-based characters. These characters may appear like different font styles, but in reality, they are just unique symbols that already exist in the Unicode system. Because of this structure, the styled text can be easily copied and used on different platforms without any need for additional software or installation.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "What is the Difference Between Cool Fonts and Stylish Fonts?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Both terms are often used interchangeably. Cool fonts focus more on fun and trendy designs, while stylish fonts may include elegant or decorative styles. In practice, most tools offer a mix of both.",
+          {
+            "@type": "Question",
+            name: "Is this Stylish Text Generator Free to Use?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, you will not be charged for anything. It is designed to be freely accessible, allowing you to create stylish text as many times as you want. There are no extra costs involved, and you don\u2019t need to worry about any paid features or limitations.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "Can I use Stylish Characters for Gaming Usernames?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, many gamers use stylish name font styles for usernames in games like Free Fire and PUBG. These fonts help your name stand out in leaderboards and matches.",
+          {
+            "@type": "Question",
+            name: "Can I use Stylish Typefaces on Instagram and TikTok?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, these cool fonts generally work well on platforms like Instagram and TikTok. There are a variety of ways to use them on your profile, such as your bio, posts, and even comment sections.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "Are Stylish Fonts safe to use?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, stylish letters created using Unicode are completely safe. They do not contain harmful code or scripts. You are simply copying text characters, not installing anything.",
+          {
+            "@type": "Question",
+            name: "Why are Some Stylish Words not Showing Correctly?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Some stylish text styles may not appear properly on every device or application. This usually happens because different platforms have limited support for certain special character sets. Older phones or outdated apps may not recognize some of these symbols.",
+            },
           },
-        },
-      ],
-    },
-  ];
+          {
+            "@type": "Question",
+            name: "What is the Difference Between Cool Fonts and Stylish Fonts?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Both terms are often used interchangeably. Cool fonts focus more on fun and trendy designs, while stylish fonts may include elegant or decorative styles. In practice, most tools offer a mix of both.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I use Stylish Characters for Gaming Usernames?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, many gamers use stylish name font styles for usernames in games like Free Fire and PUBG. These fonts help your name stand out in leaderboards and matches.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Are Stylish Fonts safe to use?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, stylish letters created using Unicode are completely safe. They do not contain harmful code or scripts. You are simply copying text characters, not installing anything.",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "HowTo",
+        name: "How to Use the Stylish Font Maker (Step by Step)",
+        description:
+          "Using a stylish font converter is very easy. Follow these simple steps to create free stylish font styles instantly.",
+        totalTime: "PT30S",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Enter Your Text",
+            text: "Enter your text in the input box. The tool instantly creates multiple styles as you type.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Preview Styles",
+            text: "Instantly view multiple cool stylish fonts and scroll through all available styles.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Find Your Favorite",
+            text: "Browse through different stylish text options and pick the one that fits your needs.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 4,
+            name: "Copy It",
+            text: "Click on any style to copy it instantly to your clipboard.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 5,
+            name: "Paste Anywhere",
+            text: "Paste your stylish text anywhere you like \u2014 social media, gaming, messaging apps, and more.",
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
@@ -290,11 +327,11 @@ export default function StylishFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Stylish Fonts &mdash; Copy and Paste Cool Text Styles
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Stylish Fonts Generator &mdash; Copy and Paste Cool Text Styles
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Stylish Fonts Generator lets you transform plain text into unique styled versions instantly.
             Use it to create decorative text for bios, names, and captions online.
           </p>
@@ -328,6 +365,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Stylish Font Generator?
                 </h2>
+                <Image
+                  src="/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"
+                  alt="stylish fonts generator explained with different styles and show features which are completely free"
+                  width={1734}
+                  height={907}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
                   and creative text styles. It works directly in your browser, so there is no need to install any
@@ -400,15 +445,15 @@ export default function StylishFontsPage() {
                   <h3 className="font-headline font-bold text-primary mb-3 text-lg">Pro Tips</h3>
                   <ul className="space-y-2 text-on-surface-variant text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Try short phrases for better readability
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Use different styles for testing before final use
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Combine symbols with text for unique results
                     </li>
                   </ul>
@@ -465,7 +510,7 @@ export default function StylishFontsPage() {
                       <p className="text-on-surface-variant text-sm mb-3">{style.description}</p>
                       <p className="text-lg mb-2 break-all">
                         Example:{" "}
-                        <span style={style.fontFamily ? { fontFamily: style.fontFamily, fontSize: "1.25rem" } : undefined}>
+                        <span>
                           {style.example}
                         </span>
                       </p>
@@ -507,8 +552,8 @@ export default function StylishFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   While many generators depend only on Unicode transformations, this tool also improves the experience
-                  by adding a preview layer. It blends Unicode-based styles with Google font previews, helping you see
-                  a more accurate representation before copying.
+                  by adding a preview layer. It shows you a clear visual representation of each style before copying,
+                  helping you pick the perfect one.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   This approach not only gives you ready-to-use text but also makes it easier to select cool typefaces
@@ -529,15 +574,15 @@ export default function StylishFontsPage() {
                     <h3 className="font-headline font-bold text-lg mb-4">Common Mistakes</h3>
                     <ul className="space-y-3 text-sm text-on-surface-variant">
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Using overly complex styles that are hard to read
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Copying unsupported fonts for important usernames
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Overusing symbols in one sentence
                       </li>
                     </ul>
@@ -546,15 +591,15 @@ export default function StylishFontsPage() {
                     <h3 className="font-headline font-bold text-lg mb-4">Helpful Tips</h3>
                     <ul className="space-y-3 text-sm text-on-surface-variant">
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Always test before publishing
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Use simple styles for important content
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Mix normal and cool text for better clarity
                       </li>
                     </ul>
@@ -586,13 +631,7 @@ export default function StylishFontsPage() {
                       key={feature}
                       className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex items-center gap-3"
                     >
-                      <span
-                        className="material-symbols-outlined text-primary text-base"
-                        style={{ fontVariationSettings: "'FILL' 1" }}
-                        aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       <span className="font-medium text-on-surface-variant text-sm">
                         {feature}
                       </span>
@@ -620,13 +659,7 @@ export default function StylishFontsPage() {
                   <ul className="space-y-3">
                     {platforms.map((platform) => (
                       <li key={platform} className="flex items-start gap-3">
-                        <span
-                          className="material-symbols-outlined text-primary text-base mt-0.5"
-                          style={{ fontVariationSettings: "'FILL' 1" }}
-                          aria-hidden="true"
-                        >
-                          check_circle
-                        </span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         <span className="text-sm text-on-surface-variant">{platform}</span>
                       </li>
                     ))}
@@ -657,6 +690,7 @@ export default function StylishFontsPage() {
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
                 { label: "Cute Fonts", href: "/cute-fonts" },
                 { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
