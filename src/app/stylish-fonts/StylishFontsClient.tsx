@@ -7,7 +7,6 @@ import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
-import StylishGoogleFontsLoader from "./StylishGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
 
@@ -51,13 +50,13 @@ export default function StylishFontsClient() {
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
   const [showAll, setShowAll] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [inputText, setInputText] = useState(DEFAULT_TEXT);
+  const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
-  const [generateFlash, setGenerateFlash] = useState(false);
+
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
   const [previewText, setPreviewText] = useState<string | null>(null);
@@ -94,38 +93,13 @@ export default function StylishFontsClient() {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
-      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
       if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
 
-  const handleGenerate = useCallback(() => {
-    setGenerateFlash(true);
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
-
-    const el = document.getElementById("stylish-font-results");
-    if (el) {
-      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      const duration = 900;
-      let start: number | null = null;
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = ts - start;
-        const t = Math.min(elapsed / duration, 1);
-        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        window.scrollTo(0, startY + distance * ease);
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
-  }, []);
 
   const handleExploreMore = useCallback(() => {
     setIsLoadingMore(true);
-    window.dispatchEvent(new Event("stylish-explore-more"));
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
       setShowAll(true);
@@ -182,27 +156,21 @@ export default function StylishFontsClient() {
 
   return (
     <>
-      <StylishGoogleFontsLoader />
-      {/* Generator Block: Input + Button + Slider */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
-        <div className="relative w-full max-w-3xl mx-auto space-y-5">
+      {/* Generator Block: Input + Slider */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-8">
+        <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
+            <svg className="absolute left-4 md:left-8 top-4 md:top-8 w-5 h-5 md:w-6 md:h-6 text-on-surface-variant/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
             <textarea
               aria-label="Enter text to transform into stylish fonts"
-              className="w-full min-h-[120px] p-8 pr-36 text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[56px] md:min-h-[120px] pl-11 md:pl-16 pr-4 md:pr-8 py-4 md:py-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none placeholder:text-on-surface-variant/50"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            <button
-              onClick={handleGenerate}
-              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
-            >
-              {generateFlash && (
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              )}
-              {generateFlash ? "Generated!" : "Generate"}
-            </button>
           </div>
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
             <div className="flex items-center gap-2">
@@ -219,7 +187,7 @@ export default function StylishFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Decrease font size"
               >
-                <span className="material-symbols-outlined text-[18px]">remove</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <input
                 type="range"
@@ -235,7 +203,7 @@ export default function StylishFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Increase font size"
               >
-                <span className="material-symbols-outlined text-[18px]">add</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
                 {fontSize}px
@@ -291,9 +259,7 @@ export default function StylishFontsClient() {
               ) : (
                 <span className="flex items-center gap-2">
                   Explore More Styles
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
-                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}
             </button>
@@ -307,12 +273,7 @@ export default function StylishFontsClient() {
           key={copyCount}
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            check_circle
-          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
           Style Copied to Clipboard
         </div>
       )}

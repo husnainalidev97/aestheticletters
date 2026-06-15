@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp", width: 1200, height: 630, alt: "how to use the stylish font maker (step by step)" }],
+    images: [{ url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp", width: 1024, height: 1536, alt: "how to use the stylish font maker (step by step)" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -77,7 +77,6 @@ const fontShowcaseStyles = [
     description: "A bold and street inspired style with strong character shapes.",
     example: "This is Urban",
     bestFor: "Modern profile bios and standout gaming names.",
-    fontFamily: "'Monoton', display",
   },
   {
     name: "Diamond Glazed",
@@ -90,7 +89,6 @@ const fontShowcaseStyles = [
     description: "A mix of trendy styles designed for general use.",
     example: "This is Cool",
     bestFor: "Everyday text styling.",
-    fontFamily: "'Rubik Glitch', system-ui",
   },
   {
     name: "Starlight Sparkle",
@@ -103,7 +101,6 @@ const fontShowcaseStyles = [
     description: "Looks like handwritten glowing text.",
     example: "This is Signature",
     bestFor: "Personal branding and influencer bios.",
-    fontFamily: "'Birthstone Bounce', cursive",
   },
   {
     name: "Underlined Flow",
@@ -116,7 +113,6 @@ const fontShowcaseStyles = [
     description: "Outlined letters with a modern city style vibe.",
     example: "This is Outline",
     bestFor: "Bold headlines and titles.",
-    fontFamily: "'Codystar', display",
   },
   {
     name: "Wavy Motion",
@@ -274,11 +270,56 @@ export default function StylishFontsPage() {
     },
   ];
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Use the Stylish Font Maker (Step by Step)",
+    description:
+      "Using a stylish font converter is very easy. Follow these simple steps to create free stylish font styles instantly.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Enter Your Text",
+        text: "Enter your text in the input box. The tool instantly creates multiple styles as you type.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Preview Styles",
+        text: "Instantly view multiple cool stylish fonts and scroll through all available styles.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Find Your Favorite",
+        text: "Browse through different stylish text options and pick the one that fits your needs.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "Copy It",
+        text: "Click on any style to copy it instantly to your clipboard.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 5,
+        name: "Paste Anywhere",
+        text: "Paste your stylish text anywhere you like — social media, gaming, messaging apps, and more.",
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
@@ -290,11 +331,11 @@ export default function StylishFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Stylish Fonts &mdash; Copy and Paste Cool Text Styles
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Stylish Fonts Generator lets you transform plain text into unique styled versions instantly.
             Use it to create decorative text for bios, names, and captions online.
           </p>
@@ -400,15 +441,15 @@ export default function StylishFontsPage() {
                   <h3 className="font-headline font-bold text-primary mb-3 text-lg">Pro Tips</h3>
                   <ul className="space-y-2 text-on-surface-variant text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Try short phrases for better readability
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Use different styles for testing before final use
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       Combine symbols with text for unique results
                     </li>
                   </ul>
@@ -465,7 +506,7 @@ export default function StylishFontsPage() {
                       <p className="text-on-surface-variant text-sm mb-3">{style.description}</p>
                       <p className="text-lg mb-2 break-all">
                         Example:{" "}
-                        <span style={style.fontFamily ? { fontFamily: style.fontFamily, fontSize: "1.25rem" } : undefined}>
+                        <span>
                           {style.example}
                         </span>
                       </p>
@@ -507,8 +548,8 @@ export default function StylishFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   While many generators depend only on Unicode transformations, this tool also improves the experience
-                  by adding a preview layer. It blends Unicode-based styles with Google font previews, helping you see
-                  a more accurate representation before copying.
+                  by adding a preview layer. It shows you a clear visual representation of each style before copying,
+                  helping you pick the perfect one.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   This approach not only gives you ready-to-use text but also makes it easier to select cool typefaces
@@ -529,15 +570,15 @@ export default function StylishFontsPage() {
                     <h3 className="font-headline font-bold text-lg mb-4">Common Mistakes</h3>
                     <ul className="space-y-3 text-sm text-on-surface-variant">
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Using overly complex styles that are hard to read
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Copying unsupported fonts for important usernames
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-error text-base mt-0.5" aria-hidden="true">close</span>
+                        <svg className="w-4 h-4 text-error mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
                         Overusing symbols in one sentence
                       </li>
                     </ul>
@@ -546,15 +587,15 @@ export default function StylishFontsPage() {
                     <h3 className="font-headline font-bold text-lg mb-4">Helpful Tips</h3>
                     <ul className="space-y-3 text-sm text-on-surface-variant">
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Always test before publishing
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Use simple styles for important content
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         Mix normal and cool text for better clarity
                       </li>
                     </ul>
@@ -586,13 +627,7 @@ export default function StylishFontsPage() {
                       key={feature}
                       className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10 flex items-center gap-3"
                     >
-                      <span
-                        className="material-symbols-outlined text-primary text-base"
-                        style={{ fontVariationSettings: "'FILL' 1" }}
-                        aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                       <span className="font-medium text-on-surface-variant text-sm">
                         {feature}
                       </span>
@@ -620,13 +655,7 @@ export default function StylishFontsPage() {
                   <ul className="space-y-3">
                     {platforms.map((platform) => (
                       <li key={platform} className="flex items-start gap-3">
-                        <span
-                          className="material-symbols-outlined text-primary text-base mt-0.5"
-                          style={{ fontVariationSettings: "'FILL' 1" }}
-                          aria-hidden="true"
-                        >
-                          check_circle
-                        </span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
                         <span className="text-sm text-on-surface-variant">{platform}</span>
                       </li>
                     ))}
