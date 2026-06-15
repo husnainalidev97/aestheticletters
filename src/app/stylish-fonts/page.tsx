@@ -334,7 +334,7 @@ export default function StylishFontsPage() {
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
-            Stylish Fonts &mdash; Copy and Paste Cool Text Styles
+            Stylish Fonts Generator &mdash; Copy and Paste Cool Text Styles
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Stylish Fonts Generator lets you transform plain text into unique styled versions instantly.
