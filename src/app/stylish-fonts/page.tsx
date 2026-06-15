@@ -688,6 +688,7 @@ export default function StylishFontsPage() {
                 { label: "Cursive Fonts", href: "/cursive-fonts" },
                 { label: "Cute Fonts", href: "/cute-fonts" },
                 { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Facebook Fonts", href: "/facebook-fonts" },
               ].map((tool) => (
                 <li key={tool.href}>
                   <Link
