@@ -8,7 +8,6 @@ import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
-import GoogleFontsLoader from "./GoogleFontsLoader";
 import TextHistory from "../components/TextHistory";
 
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
@@ -19,7 +18,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
-const DEFAULT_TEXT = "Fancy Fonts";
+const DEFAULT_TEXT = "";
 
 /** Priority 1 — rendered on first paint. */
 const INITIAL_COUNT = 4;
@@ -52,18 +51,15 @@ export default function FancyFontsClient() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [inputText, setInputText] = useState(DEFAULT_TEXT);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [generateFlash, setGenerateFlash] = useState(false);
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
   const [previewText, setPreviewText] = useState<string | null>(null);
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // The text to transform — use default when input is empty
-  const activeText = inputText.trim() || DEFAULT_TEXT;
+  const activeText = inputText.trim() || "Fancy Fonts";
 
   const visibleCategories = (showAll
     ? fancyFontCategories
@@ -90,38 +86,12 @@ export default function FancyFontsClient() {
     return () => { if (historyTimerRef.current) clearTimeout(historyTimerRef.current); };
   }, [inputText, addEntry]);
 
-  // Clean up pending timers on unmount
   useEffect(() => {
     return () => {
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
-      if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
       if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
-  }, []);
-
-  const handleCurate = useCallback(() => {
-    setGenerateFlash(true);
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    generateTimerRef.current = setTimeout(() => setGenerateFlash(false), 1500);
-
-    const el = document.getElementById("fancy-font-results");
-    if (el) {
-      const targetY = el.getBoundingClientRect().top + window.scrollY - 88;
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      const duration = 900;
-      let start: number | null = null;
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = ts - start;
-        const t = Math.min(elapsed / duration, 1);
-        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        window.scrollTo(0, startY + distance * ease);
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
   }, []);
 
   const handleExploreMore = useCallback(() => {
@@ -181,30 +151,22 @@ export default function FancyFontsClient() {
 
   return (
     <>
-      {/* Google Fonts — deferred to avoid blocking LCP */}
-      <GoogleFontsLoader />
-
-      {/* Generator Block: Input + Button + Slider */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-16">
-        <div className="relative w-full max-w-3xl mx-auto space-y-5">
-          {/* Input with Curate button */}
+      {/* Generator Block: Input + Slider */}
+      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-8">
+        <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           <div className="relative">
+            <svg className="absolute left-4 md:left-8 top-4 md:top-8 w-5 h-5 md:w-6 md:h-6 text-on-surface-variant/60 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
             <textarea
+              id="fancy-fonts-input"
               aria-label="Enter text to transform into fancy fonts"
-              className="w-full min-h-[120px] p-8 pr-36 text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none"
+              className="w-full min-h-[56px] md:min-h-[120px] pl-11 md:pl-16 pr-4 md:pr-8 py-4 md:py-8 text-base md:text-xl font-body bg-surface-container-low border-none rounded-xl focus-visible:ring-2 focus-visible:ring-primary/40 focus:bg-surface-container-high transition-all resize-none shadow-sm outline-none placeholder:text-on-surface-variant/50"
               placeholder="Type or paste your text here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            <button
-              onClick={handleCurate}
-              className={`absolute right-4 bottom-4 px-6 py-2.5 font-body font-semibold text-sm rounded-lg active:scale-95 shadow-sm text-white flex items-center gap-1.5 transition-all duration-300 ${generateFlash ? "bg-[#22c55e]" : "bg-primary"}`}
-            >
-              {generateFlash && (
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              )}
-              {generateFlash ? "Generated!" : "Generate"}
-            </button>
           </div>
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
@@ -222,7 +184,7 @@ export default function FancyFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Decrease font size"
               >
-                <span className="material-symbols-outlined text-[18px]">remove</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <input
                 type="range"
@@ -238,7 +200,7 @@ export default function FancyFontsClient() {
                 className="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all select-none"
                 aria-label="Increase font size"
               >
-                <span className="material-symbols-outlined text-[18px]">add</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
               </button>
               <span className="text-xs text-on-surface-variant font-body tabular-nums w-10 text-right">
                 {fontSize}px
@@ -286,19 +248,19 @@ export default function FancyFontsClient() {
               disabled={isLoadingMore}
               className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2 disabled:opacity-70"
             >
-              {isLoadingMore ? (
-                <span className="flex items-center gap-2">
-                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                  Loading...
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  Explore More Styles
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
+              <span aria-live="polite">
+                {isLoadingMore ? (
+                  <span className="flex items-center gap-2">
+                    <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                    Loading...
                   </span>
-                </span>
-              )}
+                ) : (
+                  <span className="flex items-center gap-2">
+                    Explore More Styles
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  </span>
+                )}
+              </span>
             </button>
           </div>
         )}
