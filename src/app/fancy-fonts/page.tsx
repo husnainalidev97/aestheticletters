@@ -78,6 +78,21 @@ const faqs = [
     answer:
       'Yes, screen readers used by visually impaired people often read each fancy character by its technical name instead of the actual letter, so a simple word like "hello" can sound completely unrecognizable. Because of this, it is best to use fancy styles only for decorative things like bios and usernames and avoid them anywhere the message really needs to be understood.',
   },
+  {
+    question: "Can I use fancy typefaces in Roblox, PUBG, or Free Fire?",
+    answer:
+      "Yes, these games support unicode characters in usernames, clan tags, and profile names. Bold, Gothic, and Blackletter styles are the most popular choices for gaming profiles because they create a strong visual identity. Simply generate the style you want, copy it, and paste it directly into the username or name field inside the game.",
+  },
+  {
+    question: "Do fancy letter fonts work in WhatsApp status and messages?",
+    answer:
+      "Yes, WhatsApp fully supports unicode, so styled text pastes cleanly into messages, status updates, group names, and contact names. For messages and group chats, subtle styles like small caps or minimal bold tend to look more natural than heavy decorative options. For status updates and display names, bolder and more expressive styles work well.",
+  },
+  {
+    question: "Do fancy styles affect social media reach or website SEO?",
+    answer:
+      "For social media, fancy fonts do not directly affect how the algorithm distributes your content. However, a styled bio or username can improve the impression your profile makes on new visitors, which indirectly supports follower growth. Your website is a different story. Crawlers index text as language, and unicode styled characters do not group into recognizable words the way plain text does. Any page content written in fancy styles effectively becomes invisible to search engines, which quietly damages your rankings without any obvious warning sign.",
+  },
 ];
 
 const platforms = [
