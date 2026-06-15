@@ -122,16 +122,16 @@ const fontShowcaseStyles = [
     bestFor: "Creative storytelling posts.",
   },
   {
-    name: "Industrial Block",
-    description: "Heavy block style text with strong presence.",
-    example: "\u3010This is Block\u3011",
-    bestFor: "Gaming and branding.",
+    name: "Runic & Ancient",
+    description: "Ancient rune and small caps alphabets for a mystical look.",
+    example: "\u16BA\u16D6\u16DA\u16DA\u16A9",
+    bestFor: "Fantasy gaming and mythical bios.",
   },
   {
-    name: "Symbolic Frames",
-    description: "Text surrounded by decorative symbols.",
-    example: "\uA9C1 This is Framed \uA9C2",
-    bestFor: "Emphasis and special announcements.",
+    name: "Box & Block Art",
+    description: "Structural block and bracket frames around your text.",
+    example: "\u3010This is Framed\u3011",
+    bestFor: "Bold headlines and gaming usernames.",
   },
 ];
 
