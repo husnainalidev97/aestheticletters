@@ -1,12 +1,11 @@
 // ---------------------------------------------------------------------------
 // Stylish Font Style Definitions — EXCLUSIVE to /stylish-fonts page
-// 10 categories: 5 Google Font + 5 Unicode-based
+// 10 categories — all Unicode-based
 // ---------------------------------------------------------------------------
 
 export interface StylishFontStyle {
   name: string;
   transform: (text: string) => string;
-  fontFamily?: string;
 }
 
 export interface StylishFontCategory {
@@ -29,21 +28,49 @@ function intersperse(text: string, char: string): string {
   return [...text].map((c) => (c === " " ? c : c + char)).join("");
 }
 
-// ── 1: Urban Vogue — Google Fonts ─────────────────────────────────────────
+function applyCharMap(text: string, map: Record<string, string>): string {
+  return [...text].map((c) => map[c] ?? map[c.toLowerCase()] ?? c).join("");
+}
 
-const urbanVogue: StylishFontCategory = {
-  name: "Urban Vogue",
+// ── Character Maps ────────────────────────────────────────────────────────
+
+const parenthesizedMap: Record<string, string> = {};
+for (let i = 0; i < 26; i++) {
+  parenthesizedMap[String.fromCharCode(97 + i)] = String.fromCodePoint(0x249C + i);
+  parenthesizedMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x249C + i);
+}
+
+const brailleMap: Record<string, string> = {
+  a: "\u2801", b: "\u2803", c: "\u2809", d: "\u2819", e: "\u2811",
+  f: "\u280B", g: "\u281B", h: "\u2813", i: "\u280A", j: "\u281A",
+  k: "\u2805", l: "\u2807", m: "\u280D", n: "\u281D", o: "\u2815",
+  p: "\u280F", q: "\u281F", r: "\u2817", s: "\u280E", t: "\u281E",
+  u: "\u2825", v: "\u2827", w: "\u283A", x: "\u282D", y: "\u283D", z: "\u2835",
+};
+
+const currencyMap: Record<string, string> = {
+  a: "\u20B3", b: "\u20BF", c: "\u20B5", d: "\u0110", e: "\u0246",
+  f: "\u20A3", g: "\u20B2", h: "\u0126", i: "\u0197", j: "\u0248",
+  k: "\u20AD", l: "\u0141", m: "\u20A5", n: "\u20A6", o: "\u00D8",
+  p: "\u20B1", q: "Q", r: "\u20B6", s: "\u20B4", t: "\u20AE",
+  u: "\u0244", v: "V", w: "\u20A9", x: "\u04BE", y: "\u024E", z: "\u2C6B",
+};
+
+// ── 1: Parenthesized Text — Unicode enclosed letters ──────────────────────
+
+const parenthesizedText: StylishFontCategory = {
+  name: "Parenthesized Text",
   styles: [
-    { name: "Monoton", transform: (t) => t, fontFamily: "'Monoton', display" },
-    { name: "Cossette Titre", transform: (t) => t, fontFamily: "'Cossette Titre', serif" },
-    { name: "Akronim", transform: (t) => t, fontFamily: "'Akronim', display" },
-    { name: "Syne Tactile", transform: (t) => t, fontFamily: "'Syne Tactile', display" },
-    { name: "Tac One", transform: (t) => t, fontFamily: "'Tac One', sans-serif" },
-    { name: "Single Day", transform: (t) => t, fontFamily: "'Single Day', display" },
-    { name: "Trade Winds", transform: (t) => t, fontFamily: "'Trade Winds', display" },
-    { name: "Ole", transform: (t) => t, fontFamily: "'Ole', cursive" },
-    { name: "Mountains of Christmas", transform: (t) => t, fontFamily: "'Mountains of Christmas', display" },
-    { name: "Joti One", transform: (t) => t, fontFamily: "'Joti One', display" },
+    { name: "Parenthesized", transform: (t) => applyCharMap(t, parenthesizedMap) },
+    { name: "Paren + Stars", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u2729", "\u2729") },
+    { name: "Paren + Hearts", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u2661", "\u2661") },
+    { name: "Paren Sparkle", transform: (t) => intersperse(applyCharMap(t, parenthesizedMap), "\u2728") },
+    { name: "Paren Dots", transform: (t) => intersperse(applyCharMap(t, parenthesizedMap), "\u00B7") },
+    { name: "Paren Diamond", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u25C6", "\u25C6") },
+    { name: "Paren Brackets", transform: (t) => `\u3010${applyCharMap(t, parenthesizedMap)}\u3011` },
+    { name: "Paren Arrow", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u27A4", "\u27A4") },
+    { name: "Paren Wave", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u223C\u223C", "\u223C\u223C") },
+    { name: "Paren Crown", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\uD83D\uDC51", "\uD83D\uDC51") },
   ],
 };
 
@@ -65,23 +92,21 @@ const diamondGlazed: StylishFontCategory = {
   ],
 };
 
-// ── 3: Cool Fonts — Google Fonts ──────────────────────────────────────────
+// ── 3: Musical & Card Suits — Unicode decorative transforms ───────────────
 
-const coolFonts: StylishFontCategory = {
-  name: "Cool Fonts",
+const musicalCardSuits: StylishFontCategory = {
+  name: "Musical & Card Suits",
   styles: [
-    { name: "Rubik Glitch", transform: (t) => t, fontFamily: "'Rubik Glitch', system-ui" },
-    { name: "Rubik Burned", transform: (t) => t, fontFamily: "'Rubik Burned', system-ui" },
-    { name: "Rubik Spray Paint", transform: (t) => t, fontFamily: "'Rubik Spray Paint', system-ui" },
-    { name: "Creepster", transform: (t) => t, fontFamily: "'Creepster', display" },
-    { name: "Eater", transform: (t) => t, fontFamily: "'Eater', display" },
-    { name: "Metal Mania", transform: (t) => t, fontFamily: "'Metal Mania', display" },
-    { name: "Vampiro One", transform: (t) => t, fontFamily: "'Vampiro One', display" },
-    { name: "Kablammo", transform: (t) => t, fontFamily: "'Kablammo', display" },
-    { name: "Rubik Bubbles", transform: (t) => t, fontFamily: "'Rubik Bubbles', system-ui" },
-    { name: "Rubik Puddles", transform: (t) => t, fontFamily: "'Rubik Puddles', system-ui" },
-    { name: "Rubik Wet Paint", transform: (t) => t, fontFamily: "'Rubik Wet Paint', system-ui" },
-    { name: "Moo Lah Lah", transform: (t) => t, fontFamily: "'Moo Lah Lah', display" },
+    { name: "Musical Wrap", transform: (t) => withFrame(t, "\u266A\u266B", "\u266B\u266A") },
+    { name: "Note Chain", transform: (t) => intersperse(t, "\u266A") },
+    { name: "Double Notes", transform: (t) => withFrame(t, "\u266B\u266C", "\u266C\u266B") },
+    { name: "Melody Flow", transform: (t) => withFrame(intersperse(t, "\u266D"), "\u266A", "\u266A") },
+    { name: "Spade Wrap", transform: (t) => withFrame(t, "\u2660", "\u2660") },
+    { name: "Club Frame", transform: (t) => withFrame(t, "\u2663", "\u2663") },
+    { name: "Heart Suit", transform: (t) => withFrame(t, "\u2665", "\u2665") },
+    { name: "Diamond Suit", transform: (t) => withFrame(t, "\u2666", "\u2666") },
+    { name: "Full Deck", transform: (t) => withFrame(t, "\u2660\u2663\u2665\u2666", "\u2666\u2665\u2663\u2660") },
+    { name: "Card Scatter", transform: (t) => intersperse(t, "\u2660\u2665") },
   ],
 };
 
@@ -103,19 +128,21 @@ const starlightSparkle: StylishFontCategory = {
   ],
 };
 
-// ── 5: Signature Glow — Google Fonts ──────────────────────────────────────
+// ── 5: Chess & Games — Unicode game piece transforms ──────────────────────
 
-const signatureGlow: StylishFontCategory = {
-  name: "Signature Glow",
+const chessGames: StylishFontCategory = {
+  name: "Chess & Games",
   styles: [
-    { name: "Birthstone Bounce", transform: (t) => t, fontFamily: "'Birthstone Bounce', cursive" },
-    { name: "Qwitcher Grypen", transform: (t) => t, fontFamily: "'Qwitcher Grypen', cursive" },
-    { name: "Ingrid Darling", transform: (t) => t, fontFamily: "'Ingrid Darling', cursive" },
-    { name: "Princess Sofia", transform: (t) => t, fontFamily: "'Princess Sofia', cursive" },
-    { name: "Twinkle Star", transform: (t) => t, fontFamily: "'Twinkle Star', cursive" },
-    { name: "Condiment", transform: (t) => t, fontFamily: "'Condiment', cursive" },
-    { name: "Oregano", transform: (t) => t, fontFamily: "'Oregano', cursive" },
-    { name: "Bonbon", transform: (t) => t, fontFamily: "'Bonbon', cursive" },
+    { name: "King Guard", transform: (t) => withFrame(t, "\u265A", "\u265A") },
+    { name: "Queen Crown", transform: (t) => withFrame(t, "\u265B", "\u265B") },
+    { name: "Rook Tower", transform: (t) => withFrame(t, "\u265C", "\u265C") },
+    { name: "Knight Steed", transform: (t) => withFrame(t, "\u265E", "\u265E") },
+    { name: "Bishop Cross", transform: (t) => withFrame(t, "\u265D", "\u265D") },
+    { name: "Pawn March", transform: (t) => intersperse(t, "\u265F") },
+    { name: "Chess Board", transform: (t) => withFrame(t, "\u265A\u265B\u265C", "\u265C\u265B\u265A") },
+    { name: "Dice Roll", transform: (t) => withFrame(t, "\u2680\u2681\u2682", "\u2683\u2684\u2685") },
+    { name: "Dice Dots", transform: (t) => intersperse(t, "\u2680") },
+    { name: "Game Pieces", transform: (t) => withFrame(t, "\u265A\u2680\u265E", "\u265E\u2680\u265A") },
   ],
 };
 
@@ -137,19 +164,21 @@ const underlinedFlow: StylishFontCategory = {
   ],
 };
 
-// ── 7: Metro Outline — Google Fonts ───────────────────────────────────────
+// ── 7: Currency & Braille — Unicode alphabet transforms ───────────────────
 
-const metroOutline: StylishFontCategory = {
-  name: "Metro Outline",
+const currencyBraille: StylishFontCategory = {
+  name: "Currency & Braille",
   styles: [
-    { name: "Codystar", transform: (t) => t, fontFamily: "'Codystar', display" },
-    { name: "Rubik Microbe", transform: (t) => t, fontFamily: "'Rubik Microbe', system-ui" },
-    { name: "Rubik Storm", transform: (t) => t, fontFamily: "'Rubik Storm', system-ui" },
-    { name: "Metamorphous", transform: (t) => t, fontFamily: "'Metamorphous', display" },
-    { name: "Chokokutai", transform: (t) => t, fontFamily: "'Chokokutai', display" },
-    { name: "Henny Penny", transform: (t) => t, fontFamily: "'Henny Penny', display" },
-    { name: "Jolly Lodger", transform: (t) => t, fontFamily: "'Jolly Lodger', display" },
-    { name: "Shizuru", transform: (t) => t, fontFamily: "'Shizuru', display" },
+    { name: "Currency Style", transform: (t) => applyCharMap(t, currencyMap) },
+    { name: "Currency + Frame", transform: (t) => withFrame(applyCharMap(t, currencyMap), "\u20AC", "\u20AC") },
+    { name: "Currency Sparkle", transform: (t) => intersperse(applyCharMap(t, currencyMap), "\u2728") },
+    { name: "Money Flow", transform: (t) => withFrame(applyCharMap(t, currencyMap), "\u20B0\u20B0", "\u20B0\u20B0") },
+    { name: "Braille Code", transform: (t) => applyCharMap(t, brailleMap) },
+    { name: "Braille + Stars", transform: (t) => withFrame(applyCharMap(t, brailleMap), "\u2605", "\u2605") },
+    { name: "Braille Dots", transform: (t) => intersperse(applyCharMap(t, brailleMap), "\u2022") },
+    { name: "Braille Frame", transform: (t) => withFrame(applyCharMap(t, brailleMap), "\u2800\u28FF", "\u28FF\u2800") },
+    { name: "Braille Diamond", transform: (t) => withFrame(applyCharMap(t, brailleMap), "\u25C6", "\u25C6") },
+    { name: "Crypto Chain", transform: (t) => withFrame(applyCharMap(t, currencyMap), "\u20BF\u26D3", "\u26D3\u20BF") },
   ],
 };
 
@@ -210,13 +239,13 @@ const symbolicFrames: StylishFontCategory = {
 // ── Export ─────────────────────────────────────────────────────────────────
 
 export const stylishFontCategories: StylishFontCategory[] = [
-  urbanVogue,
+  parenthesizedText,
   diamondGlazed,
-  coolFonts,
+  musicalCardSuits,
   starlightSparkle,
-  signatureGlow,
+  chessGames,
   underlinedFlow,
-  metroOutline,
+  currencyBraille,
   wavyMotion,
   industrialBlock,
   symbolicFrames,

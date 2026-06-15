@@ -74,10 +74,10 @@ const faqs = [
 
 const fontShowcaseStyles = [
   {
-    name: "Urban Vogue",
-    description: "A bold and street inspired style with strong character shapes.",
-    example: "This is Urban",
-    bestFor: "Modern profile bios and standout gaming names.",
+    name: "Parenthesized Text",
+    description: "Letters enclosed in parentheses for a unique labelled look.",
+    example: "\u249D\u24A3\u24A4\u24A8 \u24A4\u24A8 \u249F\u24A0\u24A7\u24A0\u24A9",
+    bestFor: "Subtle emphasis and annotation style bios.",
   },
   {
     name: "Diamond Glazed",
@@ -86,10 +86,10 @@ const fontShowcaseStyles = [
     bestFor: "Eye catching captions and creative posts.",
   },
   {
-    name: "Cool Fonts",
-    description: "A mix of trendy styles designed for general use.",
-    example: "This is Cool",
-    bestFor: "Everyday text styling.",
+    name: "Musical & Card Suits",
+    description: "Music notes and playing card symbols around your text.",
+    example: "\u266A\u266B This is Music \u266B\u266A",
+    bestFor: "Music lovers and gamers.",
   },
   {
     name: "Starlight Sparkle",
@@ -98,10 +98,10 @@ const fontShowcaseStyles = [
     bestFor: "Aesthetic posts and TikTok captions.",
   },
   {
-    name: "Signature Glow",
-    description: "Looks like handwritten glowing text.",
-    example: "This is Signature",
-    bestFor: "Personal branding and influencer bios.",
+    name: "Chess & Games",
+    description: "Chess pieces and dice symbols give a strategic bold look.",
+    example: "\u265A\u265B This is Chess \u265B\u265A",
+    bestFor: "Gaming profiles and competitive bios.",
   },
   {
     name: "Underlined Flow",
@@ -110,10 +110,10 @@ const fontShowcaseStyles = [
     bestFor: "Highlighting important words.",
   },
   {
-    name: "Metro Outline",
-    description: "Outlined letters with a modern city style vibe.",
-    example: "This is Outline",
-    bestFor: "Bold headlines and titles.",
+    name: "Currency & Braille",
+    description: "Transform letters into currency symbols or braille dot patterns.",
+    example: "\u20B3\u20BF\u20B5\u0110\u0246\u20A3",
+    bestFor: "Unique bios and creative typography.",
   },
   {
     name: "Wavy Motion",
