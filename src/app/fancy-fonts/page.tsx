@@ -507,43 +507,6 @@ export default function FancyFontsPage() {
 
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-12">
-              {/* Where Can You Use Fancy Fonts */}
-              <div className="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm">
-                <h2 className="font-headline text-xl md:text-2xl font-bold mb-6">
-                  Where Can You Use Fancy Fonts?
-                </h2>
-                <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                  You can use fancy letter fonts on many websites and apps to
-                  make your text look cooler and easier to notice.
-                </p>
-                <ul className="space-y-4">
-                  {platforms.map((platform) => (
-                    <li key={platform.name} className="flex items-start gap-3">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <div>
-                        <span className="font-medium">{platform.name}</span>
-                        <p className="text-sm text-on-surface-variant mt-1">
-                          {platform.name === "Instagram" ? (
-                            <>
-                              Perfect for bios, captions, highlights, and comments to spice up your profile and look more attractive and unique. If you use Instagram, our{" "}
-                              <Link
-                                href="/instagram-fonts"
-                                className="text-primary underline hover:no-underline"
-                              >
-                                Instagram fonts generator
-                              </Link>{" "}
-                              helps you copy and paste unique text directly into any part of your profile.
-                            </>
-                          ) : (
-                            platform.description
-                          )}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               {/* Security Feature */}
               <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
                 <h3 className="font-headline font-bold text-primary mb-4 flex items-center gap-2">
@@ -643,6 +606,48 @@ export default function FancyFontsPage() {
                 audience skews broader and readability matters more.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Where Can You Use Fancy Fonts */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-6 leading-tight">
+            Where Can You Use Fancy Fonts?
+          </h2>
+          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
+            You can use fancy letter fonts on many websites and apps to make
+            your text look cooler and easier to notice.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {platforms.map((platform) => (
+              <div
+                key={platform.name}
+                className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <h3 className="font-headline font-bold text-on-surface">
+                    {platform.name}
+                  </h3>
+                </div>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  {platform.name === "Instagram" ? (
+                    <>
+                      Perfect for bios, captions, highlights, and comments to spice up your profile and look more attractive and unique. If you use Instagram, our{" "}
+                      <Link
+                        href="/instagram-fonts"
+                        className="text-primary underline hover:no-underline"
+                      >
+                        Instagram fonts generator
+                      </Link>{" "}
+                      helps you copy and paste unique text directly into any part of your profile.
+                    </>
+                  ) : (
+                    platform.description
+                  )}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
