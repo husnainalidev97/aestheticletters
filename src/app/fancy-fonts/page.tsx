@@ -651,6 +651,94 @@ export default function FancyFontsPage() {
           </div>
         </section>
 
+        {/* Why Fancy Typefaces Work on Every Platform */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
+            Why Fancy Typefaces Work on Every Platform?
+          </h2>
+          <div className="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+            <p>
+              Most people assume styled text works like a downloaded font,
+              something the receiving app needs to load before it can display
+              correctly. Fancy fonts work in a completely different way.
+            </p>
+            <p>
+              Every style in this generator is built from unicode characters.
+              Unicode is a universal text standard that every modern device,
+              operating system, and app already supports natively. When you type
+              in a regular font and copy a styled version like 𝓗𝓮𝓵𝓵𝓸 or 𝗛𝗲𝗹𝗹𝗼,
+              the style is not applied on top of the text; it is baked into the
+              characters themselves.
+            </p>
+            <p>
+              This means the person receiving your text does not need any
+              special software, app, or font installed on their device.
+              Instagram, Discord, WhatsApp, TikTok, Facebook, and virtually
+              every other platform read these characters exactly the same way
+              they read plain text. The styled version simply displays as it was
+              copied. No plugins, no downloads, no compatibility issues.
+            </p>
+          </div>
+        </section>
+
+        {/* Tips for Using Fancy Fonts Effectively */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
+            Tips for Using Fancy Fonts Effectively
+          </h2>
+          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
+            Styled text works best when it is used with intention. A few simple
+            habits will make your output look sharper and more deliberate.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                Match the Style to Your Tone
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed">
+                A playful bubble font in a serious announcement looks
+                mismatched. A gothic username on a cheerful cooking profile
+                creates the wrong impression. Pick styles that feel consistent
+                with what you are actually saying.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                Test on Mobile Before Posting
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed">
+                Some styles render slightly smaller on phone screens than they
+                appear on desktop. Copy your styled text, paste it into your
+                phone&apos;s notes app, and check that it reads clearly at
+                normal size before putting it live.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                Use Styled Text for Hooks, Not Full Paragraphs
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed">
+                Readability drops quickly when an entire block of text is
+                styled. One styled line in a bio or the opening of a caption
+                creates impact. Three styled paragraphs in a row creates
+                friction.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                Respect the Accessibility Tradeoff
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed">
+                Screen readers read each unicode character by its technical name
+                rather than the letter it represents. This makes heavily styled
+                text difficult for visually impaired users to follow. Save fancy
+                styles for display contexts like usernames and bios where
+                decoration is the primary purpose.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 6 Reasons Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
           <div className="flex flex-col md:flex-row items-start gap-10">
