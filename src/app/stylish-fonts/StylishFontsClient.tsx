@@ -23,20 +23,19 @@ const DEFAULT_TEXT = "Stylish Fonts";
 /** Priority 1 — rendered on first paint. */
 const INITIAL_COUNT = 4;
 
-/** Categories that receive the dark card treatment. */
-const DARK_CATEGORIES = new Set(["Cool Fonts", "Industrial Block"]);
+
 
 const STYLISH_EMOJIS: Record<string, string> = {
-  "Urban Vogue": "👓",
+  "Parenthesized Text": "🔤",
   "Diamond Glazed": "💎",
-  "Cool Fonts": "😎",
+  "Musical & Card Suits": "🎵",
   "Starlight Sparkle": "⭐",
-  "Signature Glow": "✍️",
+  "Chess & Games": "♟️",
   "Underlined Flow": "📝",
-  "Metro Outline": "🏙️",
+  "Currency & Braille": "💰",
   "Wavy Motion": "🌊",
-  "Industrial Block": "🏭",
-  "Symbolic Frames": "🖼️",
+  "Runic & Ancient": "🪨",
+  "Box & Block Art": "🧱",
 };
 
 const stylishCategoryLinks = (stylishFontCategories as unknown as { name: string }[]).map((cat) => ({
@@ -234,7 +233,7 @@ export default function StylishFontsClient() {
                 fontSize={fontSize}
                 copiedId={copiedId}
                 onCopy={handleCopy}
-                isDark={DARK_CATEGORIES.has(category.name)}
+                isDark={false}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
@@ -271,6 +270,8 @@ export default function StylishFontsClient() {
       {copiedId && (
         <div
           key={copyCount}
+          role="status"
+          aria-live="polite"
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
