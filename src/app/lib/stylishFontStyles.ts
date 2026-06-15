@@ -335,15 +335,26 @@ const boxBlockArt: StylishFontCategory = {
 
 // ── Export ─────────────────────────────────────────────────────────────────
 
-export const stylishFontCategories: StylishFontCategory[] = [
+/** First 4 categories — rendered immediately on page load. */
+export const stylishInitialCategories: StylishFontCategory[] = [
   parenthesizedText,
   diamondGlazed,
   musicalCardSuits,
   starlightSparkle,
+];
+
+/** Remaining 6 categories — loaded on "Explore More" click. */
+export const stylishDeferredCategories: StylishFontCategory[] = [
   chessGames,
   underlinedFlow,
   currencyBraille,
   wavyMotion,
   runicAncient,
   boxBlockArt,
+];
+
+/** All 10 categories combined. */
+export const stylishFontCategories: StylishFontCategory[] = [
+  ...stylishInitialCategories,
+  ...stylishDeferredCategories,
 ];

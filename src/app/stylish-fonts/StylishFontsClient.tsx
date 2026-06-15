@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, useDeferredValue, useTransition, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
-import { stylishFontCategories } from "../lib/stylishFontStyles";
+import { stylishFontCategories, stylishInitialCategories, stylishDeferredCategories } from "../lib/stylishFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
@@ -45,7 +45,7 @@ const stylishCategoryLinks = (stylishFontCategories as unknown as { name: string
 export default function StylishFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
-  const [showAll, setShowAll] = useState(false);
+  const [deferredCategories, setDeferredCategories] = useState<FontCategory[]>([]);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -61,10 +61,13 @@ export default function StylishFontsClient() {
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
+  const deferredText = useDeferredValue(activeText);
+  const [isPending, startTransition] = useTransition();
 
+  const showAll = deferredCategories.length > 0;
   const visibleCategories = (showAll
-    ? stylishFontCategories
-    : stylishFontCategories.slice(0, INITIAL_COUNT)) as unknown as FontCategory[];
+    ? [...stylishInitialCategories, ...deferredCategories]
+    : stylishInitialCategories) as unknown as FontCategory[];
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -99,10 +102,12 @@ export default function StylishFontsClient() {
     setIsLoadingMore(true);
     if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     loadMoreTimerRef.current = setTimeout(() => {
-      setShowAll(true);
-      setIsLoadingMore(false);
-    }, 300);
-  }, []);
+      startTransition(() => {
+        setDeferredCategories(stylishDeferredCategories as unknown as FontCategory[]);
+        setIsLoadingMore(false);
+      });
+    }, 100);
+  }, [startTransition]);
 
   const handleCopy = useCallback((text: string, id: string) => {
     const onSuccess = () => {
@@ -209,7 +214,7 @@ export default function StylishFontsClient() {
           </div>
           <CategoryJumpLinks
             categories={stylishCategoryLinks}
-            onExpandAll={() => setShowAll(true)}
+            onExpandAll={() => startTransition(() => setDeferredCategories(stylishDeferredCategories as unknown as FontCategory[]))}
           />
         </div>
       </section>
@@ -222,12 +227,17 @@ export default function StylishFontsClient() {
         id="stylish-font-results"
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleCategories.map((category) => (
-            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-opacity duration-200 ${isPending ? "opacity-80" : ""}`}>
+          {visibleCategories.map((category, idx) => (
+            <div
+              key={category.name}
+              id={`cat-${slugify(category.name)}`}
+              className="animate-card-fade-in scroll-mt-28"
+              style={idx >= INITIAL_COUNT ? { contentVisibility: "auto", containIntrinsicSize: "auto 600px" } : undefined}
+            >
               <FontCategoryCard
                 category={category}
-                text={activeText}
+                text={deferredText}
                 fontSize={fontSize}
                 copiedId={copiedId}
                 onCopy={handleCopy}
