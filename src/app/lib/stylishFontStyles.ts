@@ -115,6 +115,44 @@ const smallCapsMap: Record<string, string> = {
   u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x", y: "\u028F", z: "\u1D22",
 };
 
+const cherokeeMap: Record<string, string> = {
+  a: "\u13A0", b: "\u13F4", c: "\u13D3", d: "\u13A7", e: "\u13AC",
+  f: "\u13A9", g: "\u13A6", h: "\u13AF", i: "\u13A2", j: "\u13AB",
+  k: "\u13E6", l: "\u13B6", m: "\u13B7", n: "\u13C0", o: "\u13A4",
+  p: "\u13C6", q: "\u13C8", r: "\u13D2", s: "\u13CD", t: "\u13D4",
+  u: "\u13CA", v: "\u13CB", w: "\u13D9", x: "\u13DE", y: "\u13A5", z: "\u13E3",
+};
+
+const katakanaMap: Record<string, string> = {
+  a: "\u30A2", b: "\u30D0", c: "\u30C1", d: "\u30C0", e: "\u30A8",
+  f: "\u30D5", g: "\u30B0", h: "\u30CF", i: "\u30A4", j: "\u30B8",
+  k: "\u30AB", l: "\u30E9", m: "\u30DE", n: "\u30CA", o: "\u30AA",
+  p: "\u30D1", q: "\u30AF", r: "\u30EB", s: "\u30B5", t: "\u30BF",
+  u: "\u30A6", v: "\u30F4", w: "\u30EF", x: "\u30C3", y: "\u30E4", z: "\u30BC",
+};
+
+const mathOperatorMap: Record<string, string> = {
+  a: "\u2200", b: "\u2229", c: "\u2282", d: "\u2202", e: "\u2203",
+  f: "\u0192", g: "\u2207", h: "\u210F", i: "\u222B", j: "\u2321",
+  k: "\u2234", l: "\u2113", m: "\u2218", n: "\u2115", o: "\u2205",
+  p: "\u220F", q: "\u211A", r: "\u211D", s: "\u2211", t: "\u22A4",
+  u: "\u222A", v: "\u2228", w: "\u2240", x: "\u2297", y: "\u2144", z: "\u2124",
+};
+
+const zodiacSymbols = ["\u2648", "\u2649", "\u264A", "\u264B", "\u264C", "\u264D", "\u264E", "\u264F", "\u2650", "\u2651", "\u2652", "\u2653"];
+
+const weatherSymbols = ["\u2600", "\u2601", "\u2602", "\u2603", "\u2744", "\u26C5", "\u26A1", "\u2604"];
+
+const miscSymbols = ["\u262E", "\u262F", "\u2638", "\u2721", "\u269B", "\u2694", "\u2696", "\u269C", "\u2660", "\u2665"];
+
+const tengwarMap: Record<string, string> = {
+  a: "\u10D0", b: "\u10D1", c: "\u10D2", d: "\u10D3", e: "\u10D4",
+  f: "\u10D5", g: "\u10D6", h: "\u10D7", i: "\u10D8", j: "\u10D9",
+  k: "\u10DA", l: "\u10DB", m: "\u10DC", n: "\u10DD", o: "\u10DE",
+  p: "\u10DF", q: "\u10E0", r: "\u10E1", s: "\u10E2", t: "\u10E3",
+  u: "\u10E4", v: "\u10E5", w: "\u10E6", x: "\u10E7", y: "\u10E8", z: "\u10E9",
+};
+
 // ── 1: Parenthesized Text — character map + diverse combos ────────────────
 
 const parenthesizedText: StylishFontCategory = {
@@ -122,9 +160,9 @@ const parenthesizedText: StylishFontCategory = {
   styles: [
     { name: "Paren Letters", transform: (t) => applyCharMap(t, parenthesizedMap) },
     { name: "Paren Reversed", transform: (t) => reverse(applyCharMap(t, parenthesizedMap)) },
-    { name: "Paren Mirror", transform: (t) => mirror(applyCharMap(t, parenthesizedMap), " \u2022 ") },
+    { name: "Cherokee Script", transform: (t) => applyCharMap(t, cherokeeMap) },
     { name: "Paren Alternate", transform: (t) => alternate(t, (c) => parenthesizedMap[c.toLowerCase()] ?? c, (c) => c) },
-    { name: "Paren Progressive", transform: (t) => progressive(applyCharMap(t, parenthesizedMap), "\u2727", 3) },
+    { name: "Cherokee Reversed", transform: (t) => reverse(applyCharMap(t, cherokeeMap)) },
     { name: "Paren Cycle", transform: (t) => cycleSeparator(applyCharMap(t, parenthesizedMap), ["\u2022", "\u25E6", "\u2023"]) },
     { name: "Paren Boxed", transform: (t) => wrapEach(applyCharMap(t, parenthesizedMap), "[", "]") },
     { name: "Paren + Stars", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u2729", "\u2729") },
@@ -139,15 +177,15 @@ const diamondGlazed: StylishFontCategory = {
   name: "Diamond Glazed",
   styles: [
     { name: "Diamond Alternate", transform: (t) => alternate(t, (c) => c + "\u2666", (c) => c + "\u2662") },
-    { name: "Diamond Progressive", transform: (t) => progressive(t, "\u2666", 4) },
+    { name: "Katakana Style", transform: (t) => applyCharMap(t, katakanaMap) },
     { name: "Diamond Cycle", transform: (t) => cycleSeparator(t, ["\u2666", "\u2662", "\u25C6", "\u25C7"]) },
-    { name: "Diamond Each", transform: (t) => wrapEach(t, "\u2662", "\u2662") },
+    { name: "Katakana Frame", transform: (t) => withFrame(applyCharMap(t, katakanaMap), "\u300C", "\u300D") },
     { name: "Diamond Mirror", transform: (t) => mirror(t, " \u2666\u2662\u2666 ") },
     { name: "Diamond Reversed", transform: (t) => withFrame(reverse(t), "\u25C6\u25C7", "\u25C7\u25C6") },
     { name: "Diamond Underline", transform: (t) => withCombining(t, ["\u0324", "\u0332"]) },
     { name: "Gem Shower", transform: (t) => withFrame(intersperse(t, "\u2662"), "\u2666\u2666", "\u2666\u2666") },
     { name: "Crystal Frame", transform: (t) => withFrame(t, "\u2B25\u2666\u2B25", "\u2B25\u2666\u2B25") },
-    { name: "Diamond Cascade", transform: (t) => withFrame(cycleSeparator(t, ["\u25C7", "\u25C6"]), "\u2666", "\u2666") },
+    { name: "Katakana Reversed", transform: (t) => reverse(applyCharMap(t, katakanaMap)) },
   ],
 };
 
@@ -159,13 +197,13 @@ const musicalCardSuits: StylishFontCategory = {
     { name: "Melody Cycle", transform: (t) => cycleSeparator(t, ["\u266A", "\u266B", "\u266C", "\u266D"]) },
     { name: "Card Alternate", transform: (t) => alternate(t, (c) => c + "\u2660", (c) => c + "\u2665") },
     { name: "Suite Cycle", transform: (t) => cycleSeparator(t, ["\u2660", "\u2663", "\u2665", "\u2666"]) },
-    { name: "Note Wrap Each", transform: (t) => wrapEach(t, "\u266A", "\u266A") },
+    { name: "Zodiac Cycle", transform: (t) => cycleSeparator(t, zodiacSymbols) },
     { name: "Music Mirror", transform: (t) => mirror(t, " \u266B\u266C\u266B ") },
-    { name: "Spade Progressive", transform: (t) => progressive(t, "\u2660", 3) },
+    { name: "Zodiac Frame", transform: (t) => withFrame(t, "\u2648\u2649\u264A", "\u2651\u2652\u2653") },
     { name: "Card Reversed", transform: (t) => withFrame(reverse(t), "\u2660\u2663", "\u2665\u2666") },
     { name: "Full Deck", transform: (t) => withFrame(t, "\u2660\u2663\u2665\u2666", "\u2666\u2665\u2663\u2660") },
     { name: "Rhythm Dots", transform: (t) => withCombining(t, ["\u0307", "\u0323"]) },
-    { name: "Treble Frame", transform: (t) => withFrame(cycleSeparator(t, ["\u266A", "\u266B"]), "\uD83C\uDFB5", "\uD83C\uDFB5") },
+    { name: "Weather Cycle", transform: (t) => cycleSeparator(t, weatherSymbols) },
   ],
 };
 
@@ -174,15 +212,15 @@ const musicalCardSuits: StylishFontCategory = {
 const starlightSparkle: StylishFontCategory = {
   name: "Starlight Sparkle",
   styles: [
-    { name: "Sparkle Progressive", transform: (t) => progressive(t, "\u2728", 3) },
+    { name: "Weather Frame", transform: (t) => withFrame(t, "\u2600\u2601\u2602", "\u2602\u2601\u2600") },
     { name: "Star Alternate", transform: (t) => alternate(t, (c) => c + "\u2605", (c) => c + "\u2606") },
     { name: "Starry Cycle", transform: (t) => cycleSeparator(t, ["\u2605", "\u2606", "\u2726", "\u2727", "\u2728"]) },
-    { name: "Twinkle Each", transform: (t) => wrapEach(t, "\u2727", "\u2727") },
+    { name: "Misc Symbol Cycle", transform: (t) => cycleSeparator(t, miscSymbols) },
     { name: "Star Mirror", transform: (t) => mirror(t, " \u2605\u2606\u2605 ") },
     { name: "Celestial Frame", transform: (t) => withFrame(t, "\u2726\u2727\u2726", "\u2726\u2727\u2726") },
     { name: "Stardust Layer", transform: (t) => withCombining(t, ["\u0308", "\u030A"]) },
     { name: "Nova Glow", transform: (t) => withFrame(alternate(t, (c) => c + "\u2605", (c) => c), "\u2B50", "\u2B50") },
-    { name: "Cosmic Trail", transform: (t) => withFrame(intersperse(t, "\u2606"), "\u2605\u2605", "\u2605\u2605") },
+    { name: "Math Operators", transform: (t) => applyCharMap(t, mathOperatorMap) },
     { name: "Shimmering", transform: (t) => withFrame(withCombining(t, ["\u0489"]), "\u269D\u2728", "\u2728\u269D") },
   ],
 };
@@ -196,11 +234,11 @@ const chessGames: StylishFontCategory = {
     { name: "Piece Alternate", transform: (t) => alternate(t, (c) => c + "\u265A", (c) => c + "\u265F") },
     { name: "Dice Progressive", transform: (t) => cycleSeparator(t, ["\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685"]) },
     { name: "Knight Mirror", transform: (t) => mirror(t, " \u265E\u265E ") },
-    { name: "King Boxed", transform: (t) => wrapEach(t, "\u265A", "\u265A") },
+    { name: "Math Reversed", transform: (t) => reverse(applyCharMap(t, mathOperatorMap)) },
     { name: "Queen Reversed", transform: (t) => withFrame(reverse(t), "\u265B\u265B", "\u265B\u265B") },
     { name: "Pawn March", transform: (t) => withFrame(intersperse(t, "\u265F"), "\u265A", "\u265A") },
     { name: "Castle Wall", transform: (t) => withFrame(t, "\u265C\u265C\u265C", "\u265C\u265C\u265C") },
-    { name: "Game Shield", transform: (t) => wrapEach(t, "\u2694", "\u2694") },
+    { name: "Tengwar Script", transform: (t) => applyCharMap(t, tengwarMap) },
     { name: "Checkmate", transform: (t) => withFrame(cycleSeparator(t, ["\u265A", "\u265F"]), "\u2654", "\u2654") },
   ],
 };
@@ -286,7 +324,7 @@ const boxBlockArt: StylishFontCategory = {
     { name: "Tortoise Shell", transform: (t) => `\u3014${t}\u3015` },
     { name: "Double Angle", transform: (t) => `\u300A${t}\u300B` },
     { name: "White Corner", transform: (t) => `\u300E${t}\u300F` },
-    { name: "Block Each", transform: (t) => wrapEach(t, "\u2588", "\u2588") },
+    { name: "Tengwar Reversed", transform: (t) => reverse(applyCharMap(t, tengwarMap)) },
     { name: "Shade Alternate", transform: (t) => alternate(t, (c) => "\u2591" + c, (c) => "\u2593" + c) },
     { name: "Column Frame", transform: (t) => `\u2551 ${t} \u2551` },
     { name: "Box Mirror", transform: (t) => mirror(t, " \u2503 ") },
