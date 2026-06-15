@@ -23,8 +23,6 @@ const DEFAULT_TEXT = "Stylish Fonts";
 /** Priority 1 — rendered on first paint. */
 const INITIAL_COUNT = 4;
 
-
-
 const STYLISH_EMOJIS: Record<string, string> = {
   "Parenthesized Text": "🔤",
   "Diamond Glazed": "💎",

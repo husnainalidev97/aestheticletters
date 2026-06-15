@@ -158,6 +158,8 @@ export default function StylishFontsPage() {
         "@type": "SoftwareApplication",
         "@id": "https://www.aestheticletters.com/stylish-fonts#software",
         name: "Stylish Fonts Generator",
+        description:
+          "Transform plain text into 100+ unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
