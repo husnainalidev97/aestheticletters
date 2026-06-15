@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp", width: 1024, height: 1536, alt: "how to use the stylish font maker (step by step)" }],
+    images: [{ url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp", width: 1734, height: 907, alt: "stylish fonts generator explained with different styles and show features which are completely free" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: ["https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp"],
+    images: ["https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"],
   },
 };
 
@@ -369,6 +370,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Stylish Font Generator?
                 </h2>
+                <Image
+                  src="/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"
+                  alt="stylish fonts generator explained with different styles and show features which are completely free"
+                  width={1734}
+                  height={907}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
                   and creative text styles. It works directly in your browser, so there is no need to install any
