@@ -567,6 +567,85 @@ export default function FancyFontsPage() {
           <ShowcaseGrid cards={showcaseCards} />
         </section>
 
+        {/* Which Fancy Font Style Should You Use? */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-6 leading-tight">
+            Which Fancy Font Style Should You Use?
+          </h2>
+          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
+            With 130+ styles available, picking the right one can feel
+            overwhelming. The good news is that different platforms have
+            different sweet spots. Here is a quick guide to help you match the
+            style to where you plan to use it.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                For Instagram Bios and Captions
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-4">
+                Script and curve styles work best for Instagram bios because
+                they feel personal and polished without looking overdone. For
+                captions, bold italic styles perform better since they create
+                contrast in a scrolling feed and pull attention to the first
+                line.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                Captions carry a message. When the style competes with the
+                words, readers skim past both. Save decorative choices for
+                display elements like your username or bio where the visual
+                impression matters more than the sentence itself.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                For Gaming Usernames and Discord
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-4">
+                Gothic, Blackletter, and bold styles are the most popular
+                choices for gaming usernames because they look strong and
+                memorable at a glance. On Discord, symbol-enhanced and
+                double-struck styles work well for server nicknames.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                The key rule for gaming is legibility; a username that looks
+                impressive but cannot be read quickly loses its impact in a
+                fast-paced match or server.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                For WhatsApp and TikTok
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-4">
+                On WhatsApp, subtle styles like small caps or minimal bold work
+                better than heavy decoration. In a chat context, overly styled
+                text can feel hard to read or look out of place.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                Use one styled word or phrase rather than an entire sentence. On
+                TikTok, high-energy italic and aesthetic styles match the
+                platform&apos;s visual tone well, especially in bios and pinned
+                captions where first impressions matter most.
+              </p>
+            </div>
+            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+              <h3 className="font-headline text-xl font-bold mb-3">
+                For Twitter and Facebook
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-4">
+                Twitter rewards brevity, so one styled word or a styled username
+                creates enough visual contrast without cluttering a short post.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                For Facebook posts and profile intros, clean script or bold
+                styles land better than gothic or symbol-heavy options since the
+                audience skews broader and readability matters more.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 6 Reasons Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
           <div className="flex flex-col md:flex-row items-start gap-10">
