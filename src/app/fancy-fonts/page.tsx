@@ -379,14 +379,14 @@ export default function FancyFontsPage() {
         {/* Interactive: Input + Slider + Font Cards */}
         <FancyFontsClient />
 
-        {/* SEO Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
+        {/* SEO Content Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
-              {/* Section 1: What are Fancy Fonts */}
+              {/* What are Fancy Fonts */}
               <article>
-                <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What are Fancy Fonts &amp; Typefaces?
                 </h2>
                 <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
@@ -406,7 +406,7 @@ export default function FancyFontsPage() {
                   decorative styles like{" "}
                   <Link
                     href="/cursive-fonts"
-                    className="text-primary underline hover:no-underline"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
                   >
                     cursive fonts
                   </Link>{" "}
@@ -442,9 +442,9 @@ export default function FancyFontsPage() {
                 </div>
               </article>
 
-              {/* Section 2: How to Use */}
+              {/* How to Use */}
               <article>
-                <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use the Fancy Font Generator?
                 </h2>
                 <div className="space-y-8">
@@ -488,7 +488,7 @@ export default function FancyFontsPage() {
                               If you want variety, try different styles or visit{" "}
                               <Link
                                 href="/"
-                                className="text-primary underline hover:no-underline"
+                                className="text-primary underline underline-offset-4 hover:no-underline"
                               >
                                 Aesthetic Letters
                               </Link>{" "}
@@ -497,6 +497,188 @@ export default function FancyFontsPage() {
                           ) : (
                             item.description
                           )}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              {/* Which Fancy Font Style Should You Use? */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Which Fancy Font Style Should You Use?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  With 130+ styles available, picking the right one can feel
+                  overwhelming. The good news is that different platforms have
+                  different sweet spots. Here is a quick guide to help you match
+                  the style to where you plan to use it.
+                </p>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For Instagram Bios and Captions</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Script and curve styles work best for Instagram bios because
+                  they feel personal and polished without looking overdone. For
+                  captions, bold italic styles perform better since they create
+                  contrast in a scrolling feed and pull attention to the first
+                  line.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Captions carry a message. When the style competes with the
+                  words, readers skim past both. Save decorative choices for
+                  display elements like your username or bio where the visual
+                  impression matters more than the sentence itself.
+                </p>
+
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For Gaming Usernames and Discord</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Gothic, Blackletter, and bold styles are the most popular
+                  choices for gaming usernames because they look strong and
+                  memorable at a glance. On Discord, symbol-enhanced and
+                  double-struck styles work well for server nicknames.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  The key rule for gaming is legibility; a username that looks
+                  impressive but cannot be read quickly loses its impact in a
+                  fast-paced match or server.
+                </p>
+
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For WhatsApp and TikTok</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  On WhatsApp, subtle styles like small caps or minimal bold work
+                  better than heavy decoration. In a chat context, overly styled
+                  text can feel hard to read or look out of place.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Use one styled word or phrase rather than an entire sentence. On
+                  TikTok, high-energy italic and aesthetic styles match the
+                  platform&apos;s visual tone well, especially in bios and pinned
+                  captions where first impressions matter most.
+                </p>
+
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For Twitter and Facebook</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Twitter rewards brevity, so one styled word or a styled username
+                  creates enough visual contrast without cluttering a short post.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  For Facebook posts and profile intros, clean script or bold
+                  styles land better than gothic or symbol-heavy options since the
+                  audience skews broader and readability matters more.
+                </p>
+              </article>
+
+              {/* Where Can You Use Fancy Fonts */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Can You Use Fancy Fonts?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  You can use fancy letter fonts on many websites and apps to make
+                  your text look cooler and easier to notice.
+                </p>
+                <ul className="space-y-4">
+                  {platforms.map((platform) => (
+                    <li key={platform.name} className="flex items-start gap-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      <div>
+                        <span className="font-medium">{platform.name}</span>
+                        <p className="text-on-surface-variant mt-1">
+                          {platform.name === "Instagram" ? (
+                            <>
+                              Perfect for bios, captions, highlights, and comments to spice up your profile and look more attractive and unique. If you use Instagram, our{" "}
+                              <Link
+                                href="/instagram-fonts"
+                                className="text-primary underline underline-offset-4 hover:no-underline"
+                              >
+                                Instagram fonts generator
+                              </Link>{" "}
+                              helps you copy and paste unique text directly into any part of your profile.
+                            </>
+                          ) : (
+                            platform.description
+                          )}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              {/* Why Fancy Typefaces Work on Every Platform */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Why Fancy Typefaces Work on Every Platform?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Most people assume styled text works like a downloaded font,
+                  something the receiving app needs to load before it can display
+                  correctly. Fancy fonts work in a completely different way.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Every style in this generator is built from unicode characters.
+                  Unicode is a universal text standard that every modern device,
+                  operating system, and app already supports natively. When you type
+                  in a regular font and copy a styled version like 𝓗𝓮𝓵𝓵𝓸 or 𝗛𝗲𝗹𝗹𝗼,
+                  the style is not applied on top of the text; it is baked into the
+                  characters themselves.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  This means the person receiving your text does not need any
+                  special software, app, or font installed on their device.
+                  Instagram, Discord, WhatsApp, TikTok, Facebook, and virtually
+                  every other platform read these characters exactly the same way
+                  they read plain text. The styled version simply displays as it was
+                  copied. No plugins, no downloads, no compatibility issues.
+                </p>
+              </article>
+
+              {/* Tips for Using Fancy Fonts Effectively */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Tips for Using Fancy Fonts Effectively
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Styled text works best when it is used with intention. A few simple
+                  habits will make your output look sharper and more deliberate.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "Match the style energy to your content tone. A playful bubble font in a serious announcement looks mismatched. A gothic username on a cheerful cooking profile creates the wrong impression. Pick styles that feel consistent with what you are actually saying.",
+                    "Test on mobile before posting. Some styles render slightly smaller on phone screens than they appear on desktop. Copy your styled text, paste it into your phone\u2019s notes app, and check that it reads clearly at normal size before putting it live.",
+                    "Use styled text for bios and hooks, not full paragraphs. Readability drops quickly when an entire block of text is styled. One styled line in a bio or the opening of a caption creates impact. Three styled paragraphs in a row creates friction.",
+                    "Respect the accessibility tradeoff. Screen readers read each unicode character by its technical name rather than the letter it represents. This makes heavily styled text difficult for visually impaired users to follow. Save fancy styles for display contexts like usernames and bios where decoration is the primary purpose.",
+                  ].map((tip) => (
+                    <li key={tip.slice(0, 30)} className="flex items-start gap-2 text-on-surface-variant text-lg">
+                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              {/* 6 Reasons */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  6 Reasons Our Fancy Text Generator Stands Above the Rest
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Our fancy font creator is carefully designed to provide a
+                  seamless and creative experience. Here is why it is
+                  exceptional:
+                </p>
+                <div className="space-y-8">
+                  {reasons.map((reason, index) => (
+                    <div key={reason.title} className="flex gap-6">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-xl font-bold mb-2">
+                          {reason.title}
+                        </h3>
+                        <p className="text-on-surface-variant">
+                          {reason.description}
                         </p>
                       </div>
                     </div>
@@ -518,271 +700,28 @@ export default function FancyFontsPage() {
                   your browser. We never store or track the text you type.
                 </p>
               </div>
+
+              {/* Infographic */}
+              <div className="rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                <Image
+                  src="/fancy-fonts-tool-features.webp"
+                  alt="fancy fonts features explained"
+                  width={941}
+                  height={1672}
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
+              </div>
             </aside>
           </div>
         </section>
 
         {/* Most Popular Fancy Font Styles Showcase */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-12 leading-tight text-center">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+          <h2 className="font-headline text-4xl font-bold mb-12 leading-tight text-center">
             Most Popular Fancy Font Styles to Copy and Paste
           </h2>
           <ShowcaseGrid cards={showcaseCards} />
-        </section>
-
-        {/* Which Fancy Font Style Should You Use? */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-6 leading-tight">
-            Which Fancy Font Style Should You Use?
-          </h2>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
-            With 130+ styles available, picking the right one can feel
-            overwhelming. The good news is that different platforms have
-            different sweet spots. Here is a quick guide to help you match the
-            style to where you plan to use it.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                For Instagram Bios and Captions
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">
-                Script and curve styles work best for Instagram bios because
-                they feel personal and polished without looking overdone. For
-                captions, bold italic styles perform better since they create
-                contrast in a scrolling feed and pull attention to the first
-                line.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed">
-                Captions carry a message. When the style competes with the
-                words, readers skim past both. Save decorative choices for
-                display elements like your username or bio where the visual
-                impression matters more than the sentence itself.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                For Gaming Usernames and Discord
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">
-                Gothic, Blackletter, and bold styles are the most popular
-                choices for gaming usernames because they look strong and
-                memorable at a glance. On Discord, symbol-enhanced and
-                double-struck styles work well for server nicknames.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed">
-                The key rule for gaming is legibility; a username that looks
-                impressive but cannot be read quickly loses its impact in a
-                fast-paced match or server.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                For WhatsApp and TikTok
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">
-                On WhatsApp, subtle styles like small caps or minimal bold work
-                better than heavy decoration. In a chat context, overly styled
-                text can feel hard to read or look out of place.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed">
-                Use one styled word or phrase rather than an entire sentence. On
-                TikTok, high-energy italic and aesthetic styles match the
-                platform&apos;s visual tone well, especially in bios and pinned
-                captions where first impressions matter most.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                For Twitter and Facebook
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">
-                Twitter rewards brevity, so one styled word or a styled username
-                creates enough visual contrast without cluttering a short post.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed">
-                For Facebook posts and profile intros, clean script or bold
-                styles land better than gothic or symbol-heavy options since the
-                audience skews broader and readability matters more.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Where Can You Use Fancy Fonts */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-6 leading-tight">
-            Where Can You Use Fancy Fonts?
-          </h2>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
-            You can use fancy letter fonts on many websites and apps to make
-            your text look cooler and easier to notice.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {platforms.map((platform) => (
-              <div
-                key={platform.name}
-                className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                  <h3 className="font-headline font-bold text-on-surface">
-                    {platform.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  {platform.name === "Instagram" ? (
-                    <>
-                      Perfect for bios, captions, highlights, and comments to spice up your profile and look more attractive and unique. If you use Instagram, our{" "}
-                      <Link
-                        href="/instagram-fonts"
-                        className="text-primary underline hover:no-underline"
-                      >
-                        Instagram fonts generator
-                      </Link>{" "}
-                      helps you copy and paste unique text directly into any part of your profile.
-                    </>
-                  ) : (
-                    platform.description
-                  )}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Why Fancy Typefaces Work on Every Platform */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 bg-surface-container-low">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
-            Why Fancy Typefaces Work on Every Platform?
-          </h2>
-          <div className="space-y-6 text-on-surface-variant leading-relaxed text-lg">
-            <p>
-              Most people assume styled text works like a downloaded font,
-              something the receiving app needs to load before it can display
-              correctly. Fancy fonts work in a completely different way.
-            </p>
-            <p>
-              Every style in this generator is built from unicode characters.
-              Unicode is a universal text standard that every modern device,
-              operating system, and app already supports natively. When you type
-              in a regular font and copy a styled version like 𝓗𝓮𝓵𝓵𝓸 or 𝗛𝗲𝗹𝗹𝗼,
-              the style is not applied on top of the text; it is baked into the
-              characters themselves.
-            </p>
-            <p>
-              This means the person receiving your text does not need any
-              special software, app, or font installed on their device.
-              Instagram, Discord, WhatsApp, TikTok, Facebook, and virtually
-              every other platform read these characters exactly the same way
-              they read plain text. The styled version simply displays as it was
-              copied. No plugins, no downloads, no compatibility issues.
-            </p>
-          </div>
-        </section>
-
-        {/* Tips for Using Fancy Fonts Effectively */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
-            Tips for Using Fancy Fonts Effectively
-          </h2>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
-            Styled text works best when it is used with intention. A few simple
-            habits will make your output look sharper and more deliberate.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                Match the Style to Your Tone
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed">
-                A playful bubble font in a serious announcement looks
-                mismatched. A gothic username on a cheerful cooking profile
-                creates the wrong impression. Pick styles that feel consistent
-                with what you are actually saying.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                Test on Mobile Before Posting
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed">
-                Some styles render slightly smaller on phone screens than they
-                appear on desktop. Copy your styled text, paste it into your
-                phone&apos;s notes app, and check that it reads clearly at
-                normal size before putting it live.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                Use Styled Text for Hooks, Not Full Paragraphs
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed">
-                Readability drops quickly when an entire block of text is
-                styled. One styled line in a bio or the opening of a caption
-                creates impact. Three styled paragraphs in a row creates
-                friction.
-              </p>
-            </div>
-            <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-              <h3 className="font-headline text-xl font-bold mb-3">
-                Respect the Accessibility Tradeoff
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed">
-                Screen readers read each unicode character by its technical name
-                rather than the letter it represents. This makes heavily styled
-                text difficult for visually impaired users to follow. Save fancy
-                styles for display contexts like usernames and bios where
-                decoration is the primary purpose.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 6 Reasons Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <div className="flex flex-col md:flex-row items-start gap-10">
-            {/* Left — Text List */}
-            <div className="flex-1 min-w-0">
-              <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 leading-tight">
-                6 Reasons Our Fancy Text Generator Stands Above the Rest
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                Our fancy font creator is carefully designed to provide a
-                seamless and creative experience. Here is why it is
-                exceptional:
-              </p>
-              <div className="space-y-8">
-                {reasons.map((reason, index) => (
-                  <div key={reason.title} className="flex gap-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <h3 className="font-headline text-xl font-bold mb-2">
-                        {reason.title}
-                      </h3>
-                      <p className="text-on-surface-variant">
-                        {reason.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — Sticky Infographic */}
-            <div className="w-full mt-5 md:mt-0 md:w-[380px] md:flex-shrink-0 md:sticky md:top-5 self-start">
-              <Image
-                src="/fancy-fonts-tool-features.webp"
-                alt="fancy fonts features explained"
-                width={941}
-                height={1672}
-                loading="lazy"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
         </section>
 
         {/* Similar Font Generator */}
