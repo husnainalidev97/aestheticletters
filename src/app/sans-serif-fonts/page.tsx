@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -304,6 +305,14 @@ export default function SansSerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Sans Serif Fonts?
                 </h2>
+                <Image
+                  src="/sans-serif-fonts-generator-og.webp"
+                  alt="Sans Serif Fonts Generator by Aesthetic Letters showing 20+ free sans serif text styles you can copy and paste instantly"
+                  width={1731}
+                  height={909}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Sans serif fonts are letterforms with clean, plain endings: no extra strokes, no decorative details, just the pure shape of each character. Break the term down and it tells its own story. &ldquo;Sans&rdquo; is a French word for &ldquo;without,&rdquo; making the full phrase a straightforward description: a font style that carries no serifs.
                 </p>
