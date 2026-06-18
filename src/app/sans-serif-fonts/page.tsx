@@ -697,46 +697,25 @@ export default function SansSerifFontsPage() {
             <Sidebar
               showBanner={false}
               showTips={false}
-              useCasesHeading="Free Sans Serif Fonts (Google Fonts)"
+              useCasesHeading="Unicode Sans Serif Styles in This Generator"
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    All of the free fonts in this list are available in this tool. They are completely free to use on websites, apps, and personal or commercial projects.
+                    This generator uses real Unicode characters, not font files. Type your text above and copy any of ten styles straight into Instagram, TikTok, Discord, or anywhere else. No app, no installation, no extra steps.
                   </p>
 
-                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Top 10 Free Sans Serif Fonts on Google Fonts</h3>
-                  {[
-                    { name: "1. Inter", desc: "Made specifically for screens. Tall x height. Excellent for UI and interfaces. The most used font in product design in 2025\u20132026." },
-                    { name: "2. Open Sans", desc: "Versatile, easy on the eyes, and perfectly neutral in tone. One of the most downloaded fonts in the world. Works great for body text, blogs, and accessible content." },
-                    { name: "3. Roboto", desc: "Google\u2019s own font for Android. A mix of humanist and mechanical styles. Perfect for dashboards, apps, and any Google related project." },
-                    { name: "4. Poppins", desc: "A popular geometric sans serif with a modern look. Bold and distinctive letters. Supports Latin and Devanagari scripts. Great for headings." },
-                    { name: "5. Montserrat", desc: "Inspired by the urban typography of Buenos Aires. Available in 18 weights. A top choice for posters, headlines, and strong visual statements." },
-                    { name: "6. Lato", desc: 'Polish for "summer." Has a warm structure with subtle curves. One of the most popular fonts for email newsletters and reports.' },
-                    { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, exciting feel. Works beautifully for websites and apps." },
-                    { name: "8. Work Sans", desc: "Optimized for screen use from the ground up. Slightly condensed, which makes it excellent for dense layouts and editorial design." },
-                    { name: "9. Source Sans Pro", desc: "Adobe\u2019s contribution to the open source font world. Very orderly and legible. Great for forms, reports, and long form digital content." },
-                    { name: "10. IBM Plex Sans", desc: "IBM\u2019s custom typeface. Has a corporate feel but with subtle humanist details. A strong choice for tech companies and SaaS products." },
-                  ].map((font) => (
-                    <div key={font.name} className="mb-4">
-                      <h4 className="font-headline text-sm font-bold mb-1 leading-tight">{font.name}</h4>
-                      <p className="text-sm text-on-surface-variant leading-relaxed">{font.desc}</p>
-                    </div>
-                  ))}
-
-                  <h3 className="font-headline text-lg font-bold mb-3 leading-tight mt-6">Licensing Information</h3>
-                  <p className="text-sm text-on-surface-variant mb-3 leading-relaxed">
-                    Every font in the Google Fonts library is covered by the SIL Open Font License (OFL). This means:
+                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Clean Sans Serif</h3>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern.
                   </p>
-                  <ul className="space-y-2 mb-4">
-                    {["Free for personal use", "Free for commercial use", "Can be used on websites and apps", "Can be modified and shared", "Packaging and reselling the font file on its own is not permitted"].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-on-surface-variant text-sm">
-                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Decorated Sans Serif</h3>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Five more styles add an accent on top of that clean look: Underline, Strikethrough, Overline, Dotted, and Wavy. These work well for highlighting one word in a caption or making a username or bio stand out.
+                  </p>
+
                   <p className="text-sm text-on-surface-variant leading-relaxed">
-                    You do not need to credit the font designer when using Google Fonts in a commercial project. Any modified version you create must carry the same OFL terms as the original.
+                    All ten are text, not images. They keep their style wherever you paste them. The four clean styles and Monospace have the widest support across devices. The decorated styles may not render perfectly on a few older Android phones, so it is worth previewing before you post somewhere important.
                   </p>
                 </>
               }
