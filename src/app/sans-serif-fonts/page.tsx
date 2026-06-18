@@ -219,88 +219,43 @@ export default function SansSerifFontsPage() {
       {
         "@type": "FAQPage",
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What does \"sans serif\" mean?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A serif is the small finishing stroke you see at the tip of a letter. \"Sans\" is simply the French word for \"without.\" Put them together and the meaning is clear a typeface that skips those finishing details entirely. So sans serif simply means \"without those decorative strokes.\" Sans fonts have clean, straight letter endings with no extra decoration.",
-            },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
           },
-          {
-            "@type": "Question",
-            name: "Are sans serif fonts better for screens?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes, in most cases. These fonts display more clearly on digital screens, especially on mobile devices and lower-resolution monitors. Their clean strokes stay sharp at small sizes. That is why most apps, websites, and user interfaces use sans-serif typeface font as their primary text style.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the most popular sans serif text?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Helvetica is widely considered the most famous non serif typeface in the world. It has been used in countless logos, signs, and brand identities since the 1950s. For digital and web design today, Inter has become the most popular choice, especially for UI and app design. On the web, Roboto and Open Sans are among the most downloaded fonts.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Helvetica a sans serif font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Helvetica is a neo-grotesque non serif font, designed in Switzerland in 1957. It is one of the most recognized typefaces ever created and has no serifs at all. It is known for its neutral, clean, and highly intelligible appearance. Many global brands and even the New York City subway system use Helvetica.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What are the 4 types of non serif fonts?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "The four main types are: Grotesque (the original, sturdy style from the 1800s), Neo-grotesque (a cleaner and more neutral version, like Helvetica), Geometric (built from circles and straight lines, like Futura and Poppins), and Humanist (warm and calligraphy-inspired, like Inter and Open Sans). Each type has a different personality and best use case.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I use Google Fonts for commercial projects?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Every font in the Google Fonts collection is licensed under the SIL Open Font License (OFL), which allows free use in commercial projects. You can use them on client websites, apps, printed materials, and paid products without paying any licensing fees. The only restriction is that you cannot sell a Google Font as a standalone font file.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Which Sans-Serif Typeface Font is best for logos?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "For logos, the best fonts are usually geometric or neo-grotesque styles. Futura, Gotham, Montserrat, and Poppins are popular choices. Futura has been used by Volkswagen, IKEA, and Louis Vuitton. Gotham became a cultural landmark when it defined the visual identity of Obama\u2019s presidential run. For a more modern feel, DM Sans and Manrope work beautifully in logo design.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Times New Roman a Non Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. Times New Roman was commissioned in 1931 specifically for The Times of London. It is a full serif typeface every letter carries visible finishing strokes at its terminals, which is the defining feature of the serif category. It is one of the most recognizable serif fonts in the world and is widely used in academic documents and formal writing.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Arial a Sans Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Arial is a san serif font. Specifically, it is a neo-grotesque non-serif designed in 1982. Arial was built to match Helvetica\u2019s character spacing exactly, giving designers a freely available substitute with identical proportions. It is one of the most common fonts in the world because it comes pre-installed on almost every Windows computer. Arial has no decorative serifs and is clean and easy to read on screen.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Calibri a Sans Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Calibri is a humanist non serif typeface. Dutch type designer Lucas de Groot created it, and became the default Microsoft Office font in 2007, replacing Times New Roman. Calibri has soft, rounded letter forms and is very easy to read on screen. It is a friendly and approachable font that works well in documents, presentations, and reports.",
-            },
-          },
-        ],
+        })),
+      },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Use Sans Serif Text Generator?",
+    description:
+      "Generate stylish sans serif font text in three simple steps. No design skills or software needed — just type, browse, and copy.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type Your Text",
+        text: "Enter any word, sentence, or phrase into the text field above. The generator works with any language or character input.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Browse the Styles",
+        text: "Scroll through dozens of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy & Paste",
+        text: "Click the copy button on any style you like. The text is copied to your clipboard instantly, ready to paste into Instagram, TikTok, Discord, or anywhere else.",
       },
     ],
   };
@@ -311,6 +266,10 @@ export default function SansSerifFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
