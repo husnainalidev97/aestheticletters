@@ -322,11 +322,11 @@ export default function SansSerifFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Sans Serif Fonts Generator - Free Copy &amp; Paste Tool
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Sans Serif Fonts Generator &mdash; Free Copy &amp; Paste Tool
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Type anything into the sans serif fonts generator below to instantly get 60+ non serif styles you can copy and paste straight into your bio, caption, or username.
           </p>
         </section>
@@ -493,7 +493,7 @@ export default function SansSerifFontsPage() {
                     <ul className="space-y-2 mb-4">
                       {cat.examples.map((ex) => (
                         <li key={ex} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                          <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                          <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                           <span>{ex}</span>
                         </li>
                       ))}
@@ -728,7 +728,7 @@ export default function SansSerifFontsPage() {
                     "Match the mood. A geometric font and a humanist font have different personalities. Make sure both match your brand or project\u2019s tone.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -773,7 +773,7 @@ export default function SansSerifFontsPage() {
                   <ul className="space-y-2 mb-4">
                     {["Free for personal use", "Free for commercial use", "Can be used on websites and apps", "Can be modified and shared", "Packaging and reselling the font file on its own is not permitted"].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-on-surface-variant text-sm">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                         <span>{item}</span>
                       </li>
                     ))}
