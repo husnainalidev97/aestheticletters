@@ -24,11 +24,7 @@ const DARK_CATEGORIES = new Set<string>([]);
 
 const CATEGORY_EMOJIS: Record<string, string> = {
   "Clean Sans-Serif": "✍️",
-  "Script & Calligraphy": "📜",
-  "Mathematical & Monospace": "🔢",
-  "Small Caps & Width": "🔤",
-  "Decorated Sans": "✨",
-  "Enclosed & Shaped": "🔵",
+  "Decorated Sans-Serif": "✨",
 };
 
 const allCategoryLinks = sansSerifUnicodeCategories.map((cat) => ({
