@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, useTransition, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
-import { sansSerifFontCategories } from "../lib/sansSerifFontStyles";
+import { sansSerifUnicodeCategories } from "../lib/sansSerifFontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
-import SansSerifGoogleFontsLoader from "./SansSerifGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
 
@@ -20,23 +19,19 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 const DEFAULT_TEXT = "Sans Serif Fonts";
 
-/** Priority 1 — Google Font cards rendered on first paint (reduced from 4 to lower initial DOM + TBT). */
-const GOOGLE_INITIAL_COUNT = 3;
-
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set<string>([]);
 
 const CATEGORY_EMOJIS: Record<string, string> = {
-  "Humanist Sans": "✍️",
-  "Geometric": "📐",
-  "Neo-Grotesque": "✨",
-  "Rounded": "🔵",
-  "Superellipse": "🔷",
-  "Grotesque": "📖",
-  "Glyphic": "🏛️",
+  "Clean Sans-Serif": "✍️",
+  "Script & Calligraphy": "📜",
+  "Mathematical & Monospace": "🔢",
+  "Small Caps & Width": "🔤",
+  "Decorated Sans": "✨",
+  "Enclosed & Shaped": "🔵",
 };
 
-const allCategoryLinks = sansSerifFontCategories.map((cat) => ({
+const allCategoryLinks = sansSerifUnicodeCategories.map((cat) => ({
   label: cat.name,
   emoji: CATEGORY_EMOJIS[cat.name] || "✦",
   id: `cat-${slugify(cat.name)}`,
@@ -45,14 +40,10 @@ const allCategoryLinks = sansSerifFontCategories.map((cat) => ({
 export default function SansSerifFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
-  const [showAllGoogle, setShowAllGoogle] = useState(false);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [, startTransition] = useTransition();
   const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
-  const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
@@ -62,10 +53,6 @@ export default function SansSerifFontsClient() {
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
-
-  const visibleGoogle = showAllGoogle
-    ? sansSerifFontCategories
-    : sansSerifFontCategories.slice(0, GOOGLE_INITIAL_COUNT);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -89,24 +76,10 @@ export default function SansSerifFontsClient() {
 
   useEffect(() => {
     return () => {
-      if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
       if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
   }, []);
-
-
-
-  const handleExploreMore = useCallback(() => {
-    setIsLoadingMore(true);
-    if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
-    loadMoreTimerRef.current = setTimeout(() => {
-      startTransition(() => {
-        setShowAllGoogle(true);
-        setIsLoadingMore(false);
-      });
-    }, 150);
-  }, [startTransition]);
 
   const handleCopy = useCallback((text: string, id: string) => {
     const onSuccess = () => {
@@ -157,7 +130,6 @@ export default function SansSerifFontsClient() {
 
   return (
     <>
-      <SansSerifGoogleFontsLoader loadDeferred={showAllGoogle} />
       {/* Generator Block: Input + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-8">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
@@ -212,26 +184,23 @@ export default function SansSerifFontsClient() {
               </span>
             </div>
           </div>
-          <CategoryJumpLinks
-            categories={allCategoryLinks}
-            onExpandAll={() => setShowAllGoogle(true)}
-          />
+          <CategoryJumpLinks categories={allCategoryLinks} />
         </div>
       </section>
 
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Sans-Serif Font Types — 7 Categories */}
+      {/* Sans-Serif Unicode Styles */}
       <section
         id="sans-serif-font-results"
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         <h2 className="font-headline text-2xl font-bold mb-8 text-on-background">
-          Sans-Serif Font Types — Browse 7 Categories
+          Sans-Serif Text Styles — Copy &amp; Paste
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleGoogle.map((category) => (
+          {sansSerifUnicodeCategories.map((category) => (
             <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
@@ -248,28 +217,6 @@ export default function SansSerifFontsClient() {
             </div>
           ))}
         </div>
-
-        {!showAllGoogle && sansSerifFontCategories.length > GOOGLE_INITIAL_COUNT && (
-          <div className="flex justify-center mt-16">
-            <button
-              onClick={handleExploreMore}
-              disabled={isLoadingMore}
-              className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2 disabled:opacity-70"
-            >
-              {isLoadingMore ? (
-                <span className="flex items-center gap-2">
-                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                  Loading...
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  Explore More Styles
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                </span>
-              )}
-            </button>
-          </div>
-        )}
       </section>
 
       {/* Copied Toast */}

@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // Sans-Serif Font Style Definitions — EXCLUSIVE to /sans-serif-fonts page
-// 6 Unicode categories (15 copy-paste styles) + 7 Google Font categories (88 fonts)
+// 7 Unicode categories (22 copy-paste styles)
 // ---------------------------------------------------------------------------
 
 import type { FontCategory } from "./fontStyles";
@@ -114,7 +114,26 @@ for (let i = 0; i < 26; i++) {
   squaredMap[String.fromCharCode(97 + i)] = ch;
 }
 
-// -- Unicode Sans-Serif Categories (15 copy-paste styles) -------------------
+// Negative Squared — U+1F170, uppercase only
+const negativeSquaredMap: Record<string, string> = {};
+for (let i = 0; i < 26; i++) {
+  const ch = String.fromCodePoint(0x1f170 + i);
+  negativeSquaredMap[String.fromCharCode(65 + i)] = ch;
+  negativeSquaredMap[String.fromCharCode(97 + i)] = ch;
+}
+
+// Monospace — U+1D670/U+1D68A, digits U+1D7F6
+const monospaceMap = { ...buildMap(0x1d670, 0x1d68a), ...buildDigitMap(0x1d7f6) };
+
+// Parenthesized — U+249C lowercase only
+const parenthesizedMap: Record<string, string> = {};
+for (let i = 0; i < 26; i++) {
+  const ch = String.fromCodePoint(0x249c + i);
+  parenthesizedMap[String.fromCharCode(65 + i)] = ch;
+  parenthesizedMap[String.fromCharCode(97 + i)] = ch;
+}
+
+// -- Unicode Sans-Serif Categories (22 copy-paste styles) -------------------
 
 export const sansSerifUnicodeCategories: FontCategory[] = [
   {
@@ -134,9 +153,10 @@ export const sansSerifUnicodeCategories: FontCategory[] = [
     ],
   },
   {
-    name: "Mathematical & Double Struck",
+    name: "Mathematical & Monospace",
     styles: [
       { name: "Double Struck", transform: (t) => apply(t, doubleStruckMap) },
+      { name: "Monospace", transform: (t) => apply(t, monospaceMap) },
     ],
   },
   {
@@ -147,10 +167,13 @@ export const sansSerifUnicodeCategories: FontCategory[] = [
     ],
   },
   {
-    name: "Underline & Strikethrough",
+    name: "Decorated Sans",
     styles: [
       { name: "Bold Sans Underline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0332") },
       { name: "Italic Sans Strikethrough", transform: (t) => withCombining(apply(t, italicSansSerifMap), "\u0336") },
+      { name: "Sans Overline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0305") },
+      { name: "Sans Dotted", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0307") },
+      { name: "Sans Wavy", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0303") },
     ],
   },
   {
@@ -159,114 +182,8 @@ export const sansSerifUnicodeCategories: FontCategory[] = [
       { name: "Circled", transform: (t) => apply(t, circledMap) },
       { name: "Negative Circled", transform: (t) => apply(t, negativeCircledMap) },
       { name: "Squared", transform: (t) => apply(t, squaredMap) },
-    ],
-  },
-];
-
-// -- Google Font Categories (7 categories, 73 fonts) -----------------------
-
-export const sansSerifFontCategories: FontCategory[] = [
-  {
-    name: "Humanist Sans",
-    styles: [
-      { name: "Inter", transform: (t) => t, fontFamily: "'Inter', sans-serif" },
-      { name: "Open Sans", transform: (t) => t, fontFamily: "'Open Sans', sans-serif" },
-      { name: "Lato", transform: (t) => t, fontFamily: "'Lato', sans-serif" },
-      { name: "Source Sans 3", transform: (t) => t, fontFamily: "'Source Sans 3', sans-serif" },
-      { name: "Cabin", transform: (t) => t, fontFamily: "'Cabin', sans-serif" },
-      { name: "Ubuntu", transform: (t) => t, fontFamily: "'Ubuntu', sans-serif" },
-      { name: "Mukta", transform: (t) => t, fontFamily: "'Mukta', sans-serif" },
-      { name: "Oxygen", transform: (t) => t, fontFamily: "'Oxygen', sans-serif" },
-      { name: "PT Sans", transform: (t) => t, fontFamily: "'PT Sans', sans-serif" },
-      { name: "Mulish", transform: (t) => t, fontFamily: "'Mulish', sans-serif" },
-      { name: "Be Vietnam Pro", transform: (t) => t, fontFamily: "'Be Vietnam Pro', sans-serif" },
-      { name: "Hind", transform: (t) => t, fontFamily: "'Hind', sans-serif" },
-      { name: "Overpass", transform: (t) => t, fontFamily: "'Overpass', sans-serif" },
-      { name: "Red Hat Display", transform: (t) => t, fontFamily: "'Red Hat Display', sans-serif" },
-      { name: "Asap", transform: (t) => t, fontFamily: "'Asap', sans-serif" },
-      { name: "Thasadith", transform: (t) => t, fontFamily: "'Thasadith', sans-serif" },
-      { name: "Ysabeau", transform: (t) => t, fontFamily: "'Ysabeau', sans-serif" },
-      { name: "Instrument Sans", transform: (t) => t, fontFamily: "'Instrument Sans', sans-serif" },
-    ],
-  },
-  {
-    name: "Geometric",
-    styles: [
-      { name: "Poppins", transform: (t) => t, fontFamily: "'Poppins', sans-serif" },
-      { name: "Montserrat", transform: (t) => t, fontFamily: "'Montserrat', sans-serif" },
-      { name: "Raleway", transform: (t) => t, fontFamily: "'Raleway', sans-serif" },
-      { name: "DM Sans", transform: (t) => t, fontFamily: "'DM Sans', sans-serif" },
-      { name: "Josefin Sans", transform: (t) => t, fontFamily: "'Josefin Sans', sans-serif" },
-      { name: "Manrope", transform: (t) => t, fontFamily: "'Manrope', sans-serif" },
-      { name: "Funnel Sans", transform: (t) => t, fontFamily: "'Funnel Sans', sans-serif" },
-      { name: "Geom", transform: (t) => t, fontFamily: "'Geom', sans-serif" },
-      { name: "Sora", transform: (t) => t, fontFamily: "'Sora', sans-serif" },
-      { name: "Unbounded", transform: (t) => t, fontFamily: "'Unbounded', sans-serif" },
-      { name: "Jost", transform: (t) => t, fontFamily: "'Jost', sans-serif" },
-      { name: "Urbanist", transform: (t) => t, fontFamily: "'Urbanist', sans-serif" },
-      { name: "Lexend", transform: (t) => t, fontFamily: "'Lexend', sans-serif" },
-      { name: "Exo 2", transform: (t) => t, fontFamily: "'Exo 2', sans-serif" },
-      { name: "Encode Sans", transform: (t) => t, fontFamily: "'Encode Sans', sans-serif" },
-      { name: "Varela Round", transform: (t) => t, fontFamily: "'Varela Round', sans-serif" },
-      { name: "M PLUS 1p", transform: (t) => t, fontFamily: "'M PLUS 1p', sans-serif" },
-      { name: "Cantarell", transform: (t) => t, fontFamily: "'Cantarell', sans-serif" },
-    ],
-  },
-  {
-    name: "Neo-Grotesque",
-    styles: [
-      { name: "Roboto", transform: (t) => t, fontFamily: "'Roboto', sans-serif" },
-      { name: "Arimo", transform: (t) => t, fontFamily: "'Arimo', sans-serif" },
-      { name: "Public Sans", transform: (t) => t, fontFamily: "'Public Sans', sans-serif" },
-      { name: "Noto Sans Display", transform: (t) => t, fontFamily: "'Noto Sans Display', sans-serif" },
-      { name: "Epilogue", transform: (t) => t, fontFamily: "'Epilogue', sans-serif" },
-      { name: "Archivo", transform: (t) => t, fontFamily: "'Archivo', sans-serif" },
-      { name: "Familjen Grotesk", transform: (t) => t, fontFamily: "'Familjen Grotesk', sans-serif" },
-      { name: "Hanken Grotesk", transform: (t) => t, fontFamily: "'Hanken Grotesk', sans-serif" },
-      { name: "Onest", transform: (t) => t, fontFamily: "'Onest', sans-serif" },
-      { name: "Albert Sans", transform: (t) => t, fontFamily: "'Albert Sans', sans-serif" },
-    ],
-  },
-  {
-    name: "Rounded",
-    styles: [
-      { name: "Nunito", transform: (t) => t, fontFamily: "'Nunito', sans-serif" },
-      { name: "Rubik", transform: (t) => t, fontFamily: "'Rubik', sans-serif" },
-      { name: "Fredoka", transform: (t) => t, fontFamily: "'Fredoka', sans-serif" },
-      { name: "Phudu", transform: (t) => t, fontFamily: "'Phudu', sans-serif" },
-      { name: "M PLUS Rounded 1c", transform: (t) => t, fontFamily: "'M PLUS Rounded 1c', sans-serif" },
-      { name: "Baloo 2", transform: (t) => t, fontFamily: "'Baloo 2', sans-serif" },
-      { name: "Rethink Sans", transform: (t) => t, fontFamily: "'Rethink Sans', sans-serif" },
-      { name: "Grandstander", transform: (t) => t, fontFamily: "'Grandstander', sans-serif" },
-    ],
-  },
-  {
-    name: "Superellipse",
-    styles: [
-      { name: "Space Grotesk", transform: (t) => t, fontFamily: "'Space Grotesk', sans-serif" },
-      { name: "Bricolage Grotesque", transform: (t) => t, fontFamily: "'Bricolage Grotesque', sans-serif" },
-      { name: "BIZ UDPGothic", transform: (t) => t, fontFamily: "'BIZ UDPGothic', sans-serif" },
-    ],
-  },
-  {
-    name: "Glyphic",
-    styles: [
-      { name: "Faculty Glyphic", transform: (t) => t, fontFamily: "'Faculty Glyphic', sans-serif" },
-      { name: "Aboreto", transform: (t) => t, fontFamily: "'Aboreto', sans-serif" },
-      { name: "Marcellus", transform: (t) => t, fontFamily: "'Marcellus', sans-serif" },
-    ],
-  },
-  {
-    name: "Grotesque",
-    styles: [
-      { name: "Work Sans", transform: (t) => t, fontFamily: "'Work Sans', sans-serif" },
-      { name: "Chivo", transform: (t) => t, fontFamily: "'Chivo', sans-serif" },
-      { name: "Abel", transform: (t) => t, fontFamily: "'Abel', sans-serif" },
-      { name: "Libre Franklin", transform: (t) => t, fontFamily: "'Libre Franklin', sans-serif" },
-      { name: "Yanone Kaffeesatz", transform: (t) => t, fontFamily: "'Yanone Kaffeesatz', sans-serif" },
-      { name: "Titillium Web", transform: (t) => t, fontFamily: "'Titillium Web', sans-serif" },
-      { name: "Heebo", transform: (t) => t, fontFamily: "'Heebo', sans-serif" },
-      { name: "IBM Plex Sans", transform: (t) => t, fontFamily: "'IBM Plex Sans', sans-serif" },
+      { name: "Negative Squared", transform: (t) => apply(t, negativeSquaredMap) },
+      { name: "Parenthesized", transform: (t) => apply(t, parenthesizedMap) },
     ],
   },
 ];
