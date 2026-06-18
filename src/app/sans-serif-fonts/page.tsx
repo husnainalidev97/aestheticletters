@@ -106,32 +106,22 @@ const keyCharacteristics = [
   { feature: "Modern feel", description: "Projects clarity, neutrality, and simplicity" },
 ];
 
-const top25Fonts = [
+const top15Fonts = [
   { rank: 1, font: "Inter", type: "Humanist", bestFor: "UI, apps, websites", cost: "Free" },
   { rank: 2, font: "Open Sans", type: "Humanist", bestFor: "Body text, blogs, emails", cost: "Free" },
   { rank: 3, font: "Roboto", type: "Humanist", bestFor: "Android apps, dashboards", cost: "Free" },
   { rank: 4, font: "Poppins", type: "Geometric", bestFor: "Headings, logos", cost: "Free" },
   { rank: 5, font: "Montserrat", type: "Geometric", bestFor: "Posters, headlines", cost: "Free" },
   { rank: 6, font: "Lato", type: "Humanist", bestFor: "Reports, emails", cost: "Free" },
-  { rank: 7, font: "DM Sans", type: "Geometric", bestFor: "Modern websites, apps", cost: "Free" },
-  { rank: 8, font: "Work Sans", type: "Grotesque", bestFor: "Headlines, editorial", cost: "Free" },
-  { rank: 9, font: "Source Sans Pro", type: "Humanist", bestFor: "Forms, long text", cost: "Free" },
-  { rank: 10, font: "IBM Plex Sans", type: "Neo grotesque", bestFor: "Tech sites, corporate", cost: "Free" },
-  { rank: 11, font: "Raleway", type: "Geometric", bestFor: "Elegant headlines", cost: "Free" },
-  { rank: 12, font: "Nunito", type: "Geometric", bestFor: "Friendly UI, mobile", cost: "Free" },
-  { rank: 13, font: "Manrope", type: "Geometric", bestFor: "Modern UI, tech", cost: "Free" },
-  { rank: 14, font: "Space Grotesk", type: "Grotesque", bestFor: "Data, technical design", cost: "Free" },
-  { rank: 15, font: "Public Sans", type: "Neo grotesque", bestFor: "Government, trusted content", cost: "Free" },
-  { rank: 16, font: "Cabin", type: "Humanist", bestFor: "Friendly tone, web text", cost: "Free" },
-  { rank: 17, font: "Ubuntu", type: "Humanist", bestFor: "Screen text, apps", cost: "Free" },
-  { rank: 18, font: "Be Vietnam Pro", type: "Humanist", bestFor: "Multilingual, global sites", cost: "Free" },
-  { rank: 19, font: "Epilogue", type: "Neo grotesque", bestFor: "Digital interfaces", cost: "Free" },
-  { rank: 20, font: "Abel", type: "Grotesque", bestFor: "Condensed headlines", cost: "Free" },
-  { rank: 21, font: "Helvetica", type: "Neo grotesque", bestFor: "Corporate branding", cost: "Premium" },
-  { rank: 22, font: "Futura", type: "Geometric", bestFor: "Logos, brand identity", cost: "Premium" },
-  { rank: 23, font: "Proxima Nova", type: "Geometric, Humanist", bestFor: "Magazine, web design", cost: "Premium" },
-  { rank: 24, font: "Gotham", type: "Geometric", bestFor: "Advertising, editorial", cost: "Premium" },
-  { rank: 25, font: "Circular", type: "Geometric", bestFor: "Brand identity (Spotify, Airbnb)", cost: "Premium" },
+  { rank: 7, font: "Work Sans", type: "Grotesque", bestFor: "Headlines, editorial", cost: "Free" },
+  { rank: 8, font: "IBM Plex Sans", type: "Neo grotesque", bestFor: "Tech sites, corporate", cost: "Free" },
+  { rank: 9, font: "Space Grotesk", type: "Grotesque", bestFor: "Data, technical design", cost: "Free" },
+  { rank: 10, font: "Public Sans", type: "Neo grotesque", bestFor: "Government, trusted content", cost: "Free" },
+  { rank: 11, font: "Helvetica", type: "Neo grotesque", bestFor: "Corporate branding", cost: "Premium" },
+  { rank: 12, font: "Futura", type: "Geometric", bestFor: "Logos, brand identity", cost: "Premium" },
+  { rank: 13, font: "Proxima Nova", type: "Geometric, Humanist", bestFor: "Magazine, web design", cost: "Premium" },
+  { rank: 14, font: "Gotham", type: "Geometric", bestFor: "Advertising, editorial", cost: "Premium" },
+  { rank: 15, font: "Circular", type: "Geometric", bestFor: "Brand identity (Spotify, Airbnb)", cost: "Premium" },
 ];
 
 const readabilityTable = [
@@ -469,13 +459,13 @@ export default function SansSerifFontsPage() {
                 ))}
               </article>
 
-              {/* Top 25 Best Non Serif Fonts */}
+              {/* Top 15 Sans Serif Fonts to Know */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 25 Best Non Serif Fonts (Free + Premium)
+                  Top 15 Sans Serif Fonts to Know (Free + Premium)
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are the most popular and most useful sans serif fonts available today. This list covers both free Google Fonts and premium options.
+                  Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
@@ -489,7 +479,7 @@ export default function SansSerifFontsPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {top25Fonts.map((row) => (
+                      {top15Fonts.map((row) => (
                         <tr key={row.rank} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
                           <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{row.rank}</td>
                           <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{row.font}</td>
@@ -502,7 +492,7 @@ export default function SansSerifFontsPage() {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  All free fonts listed above are available in this sans serif font generator as a copy and paste option at no cost. Premium fonts can be purchased directly from their type foundries.
+                  The free fonts above are real font files, built for websites, apps, and design software like Canva or Figma. They are not the same as the Unicode styles in the generator above. Those styles are text characters, and they paste correctly into Instagram bios, Discord usernames, and TikTok captions. Premium fonts can be purchased directly from their type foundries.
                 </p>
               </article>
 
