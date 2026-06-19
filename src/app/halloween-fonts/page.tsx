@@ -184,11 +184,11 @@ export default function HalloweenFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Halloween Fonts: Copy &amp; Paste Spooky Text Styles
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Halloween Fonts - Copy &amp; Paste Spooky Text Styles
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Generate spooky Halloween fonts, creepy text styles, and scary copy-paste text instantly for Instagram,
             TikTok, Discord, Gaming, and Halloween-themed designs.
           </p>
@@ -313,7 +313,7 @@ export default function HalloweenFontsPage() {
                     "Metal Mania: for a slightly more modern, condensed interpretation",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {item}
                     </li>
                   ))}
@@ -350,7 +350,7 @@ export default function HalloweenFontsPage() {
                     { name: "Bat Wing", desc: "thin sharp lettering evoking vampire/bat imagery. Works especially well for TikTok usernames and gaming identities." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -369,7 +369,7 @@ export default function HalloweenFontsPage() {
                     { name: "Moonlight Cursive", desc: "smooth flowing script with a nighttime mystery feeling. A top pick for Halloween wedding invitations and stylish Instagram bios." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -388,7 +388,7 @@ export default function HalloweenFontsPage() {
 
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -407,7 +407,7 @@ export default function HalloweenFontsPage() {
                     { name: "Blood Rain", desc: "combines icon decoration with strikethrough effects for a bleeding digital look. Best for tech-horror aesthetics and streaming branding." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -562,7 +562,7 @@ export default function HalloweenFontsPage() {
                     "Social media post captions and quote cards",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {item}
                     </li>
                   ))}
@@ -619,7 +619,7 @@ export default function HalloweenFontsPage() {
                     { name: "Mug and tumbler decals", desc: "Simple gothic styles at medium weight. Avoid Blood Drip styles for small decals since the drip detail disappears below about 0.5 inches." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> - {s.desc}</span>
                     </li>
                   ))}
@@ -674,7 +674,7 @@ export default function HalloweenFontsPage() {
                     "Resist using spooky fonts year-round for seasonal branding. The impact comes from context. A halloween font in July just looks like a design mistake.",
                   ].map((tip) => (
                     <li key={tip} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {tip}
                     </li>
                   ))}
