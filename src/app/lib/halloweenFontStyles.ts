@@ -84,17 +84,8 @@ const FRAKTUR = buildMap(0x1d504, 0x1d51e, {
 // Bold Fraktur — Graveyard Gothic only
 const BOLD_FRAKTUR = buildMap(0x1d56c, 0x1d586);
 
-// Bold — Skull Gothic + Pumpkin Hollow (icon-decorated)
+// Bold — Pumpkin Hollow only (icon-decorated)
 const BOLD = buildMap(0x1d400, 0x1d41a);
-
-// Italic — Ghost Whisper only
-const ITALIC = buildMap(0x1d434, 0x1d44e, { h: "\u210E" });
-
-// Bold Italic — Witch Spell only
-const BOLD_ITALIC = buildMap(0x1d468, 0x1d482);
-
-// Bold Script — Cursed Script only
-const BOLD_SCRIPT = buildMap(0x1d4d0, 0x1d4ea);
 
 // Script — Moonlight Cursive only
 const MATH_SCRIPT = buildMap(0x1d49c, 0x1d4b6, {
@@ -108,15 +99,6 @@ const DOUBLE_STRUCK = buildMap(0x1d538, 0x1d552, {
   C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119",
   Q: "\u211A", R: "\u211D", Z: "\u2124",
 });
-
-// Monospace — Skull Gothic only
-const MONOSPACE = buildMap(0x1d670, 0x1d68a);
-
-// Sans-Serif Bold — Bat Wing only
-const SS_BOLD = buildMap(0x1d5d4, 0x1d5ee);
-
-// Sans-Serif Bold Italic — Bat Wing only
-const SS_BOLD_ITALIC = buildMap(0x1d63c, 0x1d656);
 
 // Futhark Runes — Dark Ritual only
 const FUTHARK: Record<string, string> = {};
@@ -184,12 +166,12 @@ const bloodDrip: FontCategory = {
 };
 
 // ── 3: Cursed Script ─────────────────────────────────────────────────────
-// Base alphabet: BOLD_SCRIPT (exclusive to this category)
+// No base alphabets — pure combining marks
 
 const cursedScript: FontCategory = {
   name: "Cursed Script",
   styles: [
-    { name: "Cursed Calligraphy", transform: (t) => withCombining(apply(t, BOLD_SCRIPT), ["\u0334"]) },
+    { name: "Cursed Calligraphy", transform: (t) => withCombining(t, ["\u0334", "\u0308", "\u0323"]) },
     { name: "Possessed Cursed", transform: (t) => withCombining(t, ["\u0336", "\u0329", "\u0323"]) },
     { name: "Zalgo Light", transform: (t) => zalgo(t, 2, 0, 0) },
     { name: "Zalgo Heavy", transform: (t) => zalgo(t, 7, 7, 7) },
@@ -217,12 +199,12 @@ const pumpkinHollow: FontCategory = {
 };
 
 // ── 5: Ghost Whisper ─────────────────────────────────────────────────────
-// Base alphabet: ITALIC (exclusive to this category)
+// No base alphabets — pure combining marks
 
 const ghostWhisper: FontCategory = {
   name: "Ghost Whisper",
   styles: [
-    { name: "Ghostly Italic", transform: (t) => withCombining(apply(t, ITALIC), ["\u0303"]) },
+    { name: "Ghostly Italic", transform: (t) => withCombining(t, ["\u0303", "\u0320"]) },
     { name: "Spectral Haze", transform: (t) => withCombining(t, ["\u0305", "\u0303", "\u0330"]) },
     { name: "Apparition", transform: (t) => zalgo(t, 3, 0, 43) },
     { name: "Whisper Fade", transform: (t) => withCombining(t, ["\u0334", "\u0304"]) },
@@ -234,12 +216,12 @@ const ghostWhisper: FontCategory = {
 };
 
 // ── 6: Witch Spell ──────────────────────────────────────────────────────
-// Base alphabets: BOLD_ITALIC, DOUBLE_STRUCK (exclusive to this category)
+// Base alphabet: DOUBLE_STRUCK (exclusive to this category)
 
 const witchSpell: FontCategory = {
   name: "Witch Spell",
   styles: [
-    { name: "Wicked Italic", transform: (t) => withCombining(apply(t, BOLD_ITALIC), ["\u0303", "\u0330"]) },
+    { name: "Wicked Italic", transform: (t) => withCombining(t, ["\u0303", "\u0330", "\u0337"]) },
     { name: "Arcane Double", transform: (t) => withCombining(apply(t, DOUBLE_STRUCK), ["\u20F0"]) },
     { name: "Hex Circle", transform: (t) => withCombining(t, ["\u0307", "\u030A", "\u0323"]) },
     { name: "Star Occult", transform: (t) => withCombining(t, ["\u20F0"]) },
@@ -251,13 +233,13 @@ const witchSpell: FontCategory = {
 };
 
 // ── 7: Skull Gothic ─────────────────────────────────────────────────────
-// Base alphabets: BOLD, MONOSPACE (exclusive to this category)
+// No base alphabets — pure combining marks and icon styles
 
 const skullGothic: FontCategory = {
   name: "Skull Gothic",
   styles: [
-    { name: "Skull Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0338", "\u0329"]) },
-    { name: "Ossuary Mono", transform: (t) => withCombining(apply(t, MONOSPACE), ["\u0334"]) },
+    { name: "Skull Bold", transform: (t) => withCombining(t, ["\u0336", "\u0325", "\u0323"]) },
+    { name: "Ossuary Mono", transform: (t) => withCombining(t, ["\u0334", "\u0332", "\u030D"]) },
     { name: "Necro Slash", transform: (t) => withCombining(t, ["\u0337", "\u0336", "\u0329"]) },
     { name: "Skull Bones", transform: (t) => withCombining(t, ["\u033D", "\u0329", "\u0333"]) },
     { name: "\u2620 Skull & Bones \u2620", transform: (t) => decorate(withCombining(t, ["\u0334", "\u0323"]), "\u2620") },
@@ -301,13 +283,13 @@ const darkRitual: FontCategory = {
 };
 
 // ── 10: Bat Wing ────────────────────────────────────────────────────────
-// Base alphabets: SS_BOLD, SS_BOLD_ITALIC (exclusive to this category)
+// No base alphabets — pure combining marks and icon styles
 
 const batWing: FontCategory = {
   name: "Bat Wing",
   styles: [
-    { name: "Nocturnal Bold", transform: (t) => withCombining(apply(t, SS_BOLD), ["\u030D", "\u0323"]) },
-    { name: "Vampire Italic", transform: (t) => withCombining(apply(t, SS_BOLD_ITALIC), ["\u0338"]) },
+    { name: "Nocturnal Bold", transform: (t) => withCombining(t, ["\u0305", "\u0338", "\u0323"]) },
+    { name: "Vampire Italic", transform: (t) => withCombining(t, ["\u0338", "\u0303", "\u0331"]) },
     { name: "Bat Screech Zalgo", transform: (t) => zalgo(t, 3, 3, 53) },
     { name: "Fang Strike", transform: (t) => withCombining(t, ["\u030D", "\u0338"]) },
     { name: "\uD83E\uDD87 Bat Wing \uD83E\uDD87", transform: (t) => decorate(withCombining(t, ["\u030D", "\u0323"]), "\uD83E\uDD87") },
