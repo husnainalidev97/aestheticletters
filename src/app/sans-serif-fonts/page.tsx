@@ -595,6 +595,11 @@ export default function SansSerifFontsPage() {
                   A bold or spaced out sans serif style makes your Instagram bio look polished and professional. Clean text stands out better in the small bio space. You can easily create these styles using an <Link href="/instagram-fonts" className="text-primary underline">instagram font generator</Link>. Many influencers and brand accounts use stylized non serif text to create a distinctive look.
                 </p>
 
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Facebook Bios and Posts</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  A clean sans serif style works well for Facebook page names, post highlights, and profile bios. The simple letterforms stay readable in a feed full of other content. You can build these styles with a <Link href="/facebook-fonts" className="text-primary underline">facebook font generator</Link> if you want options made specifically for that platform.
+                </p>
+
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">X (Twitter) Usernames and Tweets</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words.
