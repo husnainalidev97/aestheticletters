@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -223,6 +224,14 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Halloween Fonts?
                 </h2>
+                <Image
+                  src="/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp"
+                  alt="Halloween Fonts Generator - 77 spooky, gothic, and creepy copy-paste text styles with blood drip, zalgo, skull, and cursed script effects"
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A halloween font is any decorative typeface or styled text designed to evoke the mood of Halloween;
                   think dripping blood, crumbling gothic stone, ghostly whispers, or jagged horror-movie lettering.
