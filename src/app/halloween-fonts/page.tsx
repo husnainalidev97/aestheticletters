@@ -689,18 +689,20 @@ export default function HalloweenFontsPage() {
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Many well-known Google Fonts are available as instant copy-paste styles directly inside this
-                    generator. No download, no installation, no design software required.
+                    If you have come across these font names while searching for Halloween fonts, here is a quick look
+                    at each one and where to find it. These are real font files you can download for free from Google
+                    Fonts (fonts.google.com). They live outside this tool, completely separate from the Unicode styles
+                    you see here.
                   </p>
                   <div className="space-y-3">
                     {[
-                      { name: "Creepster", desc: "Rounded cartoon horror, great for kids' Halloween content" },
-                      { name: "Nosifer", desc: "Dripping horror lettering, the go-to drip font for posters" },
-                      { name: "Eater", desc: "Scratchy, unsettling strokes; atmospheric horror" },
-                      { name: "Metal Mania", desc: "Sharp, heavy metal-inspired; gaming and dark branding" },
-                      { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter; graveyard themes" },
-                      { name: "Butcherman", desc: "Distressed fairground horror; event banners" },
-                      { name: "Henny Penny", desc: "Playful storybook spooky; school projects" },
+                      { name: "Creepster", desc: "Rounded, cartoon horror look that works well for kids' parties and school projects." },
+                      { name: "Nosifer", desc: "The classic dripping font people reach for when making horror posters." },
+                      { name: "Eater", desc: "Scratchy, rough edge that feels old and a little unsettling." },
+                      { name: "Metal Mania", desc: "Sharp and bold, a popular pick for gaming graphics and darker branding." },
+                      { name: "UnifrakturMaguntia", desc: "True gothic blackletter style, often used for graveyard or cemetery themes." },
+                      { name: "Butcherman", desc: "Worn, carnival horror feel that suits event banners and flyers." },
+                      { name: "Henny Penny", desc: "Playful and storybook-like, a nice fit for younger audiences and school events." },
                     ].map((font) => (
                       <div key={font.name} className="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                         <p className="font-headline font-bold text-sm mb-0.5">{font.name}</p>
@@ -709,8 +711,9 @@ export default function HalloweenFontsPage() {
                     ))}
                   </div>
                   <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    All of the above are available as free spooky fonts copy paste styles. Some can also be imported
-                    into Canva via Brand Kit or uploaded to Cricut Design Space.
+                    If you like these looks but do not want to download anything, this tool has Unicode styles that
+                    bring a similar feel. Graveyard Gothic, Blood Drip, and Skull Gothic are good places to start,
+                    and they are ready to copy and paste right away.
                   </p>
                 </>
               }
