@@ -236,7 +236,7 @@ export default function SansSerifFontsPage() {
         "@type": "HowToStep",
         position: 2,
         name: "Browse the Styles",
-        text: "Scroll through dozens of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.",
+        text: "Scroll through multiples of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.",
       },
       {
         "@type": "HowToStep",
@@ -383,7 +383,7 @@ export default function SansSerifFontsPage() {
                     </div>
                     <h3 className="font-headline text-xl font-bold mb-2">Browse the Styles</h3>
                     <p className="text-on-surface-variant text-sm leading-relaxed">
-                      Scroll through dozens of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.
+                      Scroll through multiples of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.
                     </p>
                   </div>
                   <div className="p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm text-center">
