@@ -13,7 +13,7 @@ import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 export const metadata: Metadata = {
   title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
   description:
-    "Create modern text with 10 sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
     canonical: "https://www.aestheticletters.com/sans-serif-fonts",
   },
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/sans-serif-fonts",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 10 sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
-    images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-explained.webp", width: 864, height: 1821, alt: "sans serif fonts explained" }],
+      "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp", width: 1200, height: 630, alt: "Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 10 sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
-    images: ["https://www.aestheticletters.com/sans-serif-fonts-explained.webp"],
+      "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: ["https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp"],
   },
 };
 
@@ -155,7 +155,7 @@ export default function SansSerifFontsPage() {
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#webpage",
         url: "https://www.aestheticletters.com/sans-serif-fonts",
         name: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
-        description: "Create modern text with 10 sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
+        description: "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://www.aestheticletters.com/#website",
@@ -213,6 +213,18 @@ export default function SansSerifFontsPage() {
             "@type": "Answer",
             text: faq.answer,
           },
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.aestheticletters.com/sans-serif-fonts#top15",
+        name: "Top 15 Sans Serif Fonts to Know",
+        numberOfItems: 15,
+        itemListElement: top15Fonts.map((font) => ({
+          "@type": "ListItem",
+          position: font.rank,
+          name: font.font,
+          description: `${font.type} sans serif font \u2014 best for ${font.bestFor} (${font.cost})`,
         })),
       },
     ],
@@ -293,8 +305,8 @@ export default function SansSerifFontsPage() {
                 <Image
                   src="/sans-serif-fonts-generator-og.webp"
                   alt="Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly"
-                  width={1731}
-                  height={909}
+                  width={1200}
+                  height={630}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />

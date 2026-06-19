@@ -120,6 +120,7 @@ export default function Sidebar({
             width={864}
             height={1821}
             className="w-full h-auto rounded-2xl"
+            loading="lazy"
             priority={false}
           />
         </div>
