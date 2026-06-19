@@ -307,29 +307,19 @@ export default function HalloweenFontsPage() {
                   Spirit Halloween Font: What Font Do They Use?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  One of the most searched font names is the Spirit Halloween font in October, the typical
-                  lettering used by the iconic seasonal retail chain. Spirit Halloween uses a customized version of a
-                  condensed gothic serif style, closely resembling fonts like Bleeding Cowboys or a modified Blackletter
-                  with sharp angular serifs.
+                  Every October, people search for the Spirit Halloween font, the bold lettering used by the popular
+                  seasonal store. The exact font is made just for that brand, so it is not sold or shared anywhere.
+                  But you can get very close to the same look.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  While the exact brand text is proprietary, you can recreate a similar look using this tool:
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  In this tool, Graveyard Gothic gives you the closest match. It has the same heavy, cracked stone
+                  feel as the store&apos;s signs and bags. Copy it, paste it, and use it right away on your invites,
+                  posts, or any other seasonal design.
                 </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    "UnifrakturMaguntia (Google Fonts): closest free match for the gothic weight",
-                    "Nosifer: if you want the drip effect layered over a similar style",
-                    "Metal Mania: for a slightly more modern, condensed interpretation",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  If you are designing Spirit Halloween-inspired seasonal content, combining one of these with a dark
-                  red or black color palette on a textured background gets very close to the original feel.
+                  If you want the real downloadable font file for print or design software, UnifrakturMaguntia is a
+                  free option on Google Fonts (fonts.google.com). It is not part of this tool, but it pairs well with
+                  a dark red or black background if you want a closer match to the original brand look.
                 </p>
               </article>
 
