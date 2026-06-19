@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -7,12 +8,12 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import SansSerifFontsClient from "./SansSerifFontsClientLazy";
-import SansSerifFontsHead from "./SansSerifFontsHead";
+
 
 export const metadata: Metadata = {
   title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
   description:
-    "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
     canonical: "https://www.aestheticletters.com/sans-serif-fonts",
   },
@@ -22,15 +23,15 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/sans-serif-fonts",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
-    images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-explained.webp", width: 864, height: 1821, alt: "sans serif fonts explained" }],
+      "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp", width: 1200, height: 630, alt: "Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
     description:
-      "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
-    images: ["https://www.aestheticletters.com/sans-serif-fonts-explained.webp"],
+      "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
+    images: ["https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp"],
   },
 };
 
@@ -60,11 +61,7 @@ const faqs = [
     answer:
       "The four main types are: Grotesque (the original, sturdy style from the 1800s), Neo grotesque (a cleaner and more neutral version, like Helvetica), Geometric (built from circles and straight lines, like Futura and Poppins), and Humanist (warm and calligraphy inspired, like Inter and Open Sans). Each type has a different personality and best use case.",
   },
-  {
-    question: "Can I use Google Fonts for commercial projects?",
-    answer:
-      "Yes. Every font in the Google Fonts collection is licensed under the SIL Open Font License (OFL), which allows free use in commercial projects. You can use them on client websites, apps, printed materials, and paid products without paying any licensing fees. The only restriction is that you cannot sell a Google Font as a standalone font file.",
-  },
+
   {
     question: "Which sans serif typeface font is best for logos?",
     answer:
@@ -105,32 +102,22 @@ const keyCharacteristics = [
   { feature: "Modern feel", description: "Projects clarity, neutrality, and simplicity" },
 ];
 
-const top25Fonts = [
+const top15Fonts = [
   { rank: 1, font: "Inter", type: "Humanist", bestFor: "UI, apps, websites", cost: "Free" },
   { rank: 2, font: "Open Sans", type: "Humanist", bestFor: "Body text, blogs, emails", cost: "Free" },
   { rank: 3, font: "Roboto", type: "Humanist", bestFor: "Android apps, dashboards", cost: "Free" },
   { rank: 4, font: "Poppins", type: "Geometric", bestFor: "Headings, logos", cost: "Free" },
   { rank: 5, font: "Montserrat", type: "Geometric", bestFor: "Posters, headlines", cost: "Free" },
   { rank: 6, font: "Lato", type: "Humanist", bestFor: "Reports, emails", cost: "Free" },
-  { rank: 7, font: "DM Sans", type: "Geometric", bestFor: "Modern websites, apps", cost: "Free" },
-  { rank: 8, font: "Work Sans", type: "Grotesque", bestFor: "Headlines, editorial", cost: "Free" },
-  { rank: 9, font: "Source Sans Pro", type: "Humanist", bestFor: "Forms, long text", cost: "Free" },
-  { rank: 10, font: "IBM Plex Sans", type: "Neo grotesque", bestFor: "Tech sites, corporate", cost: "Free" },
-  { rank: 11, font: "Raleway", type: "Geometric", bestFor: "Elegant headlines", cost: "Free" },
-  { rank: 12, font: "Nunito", type: "Geometric", bestFor: "Friendly UI, mobile", cost: "Free" },
-  { rank: 13, font: "Manrope", type: "Geometric", bestFor: "Modern UI, tech", cost: "Free" },
-  { rank: 14, font: "Space Grotesk", type: "Grotesque", bestFor: "Data, technical design", cost: "Free" },
-  { rank: 15, font: "Public Sans", type: "Neo grotesque", bestFor: "Government, trusted content", cost: "Free" },
-  { rank: 16, font: "Cabin", type: "Humanist", bestFor: "Friendly tone, web text", cost: "Free" },
-  { rank: 17, font: "Ubuntu", type: "Humanist", bestFor: "Screen text, apps", cost: "Free" },
-  { rank: 18, font: "Be Vietnam Pro", type: "Humanist", bestFor: "Multilingual, global sites", cost: "Free" },
-  { rank: 19, font: "Epilogue", type: "Neo grotesque", bestFor: "Digital interfaces", cost: "Free" },
-  { rank: 20, font: "Abel", type: "Grotesque", bestFor: "Condensed headlines", cost: "Free" },
-  { rank: 21, font: "Helvetica", type: "Neo grotesque", bestFor: "Corporate branding", cost: "Premium" },
-  { rank: 22, font: "Futura", type: "Geometric", bestFor: "Logos, brand identity", cost: "Premium" },
-  { rank: 23, font: "Proxima Nova", type: "Geometric, Humanist", bestFor: "Magazine, web design", cost: "Premium" },
-  { rank: 24, font: "Gotham", type: "Geometric", bestFor: "Advertising, editorial", cost: "Premium" },
-  { rank: 25, font: "Circular", type: "Geometric", bestFor: "Brand identity (Spotify, Airbnb)", cost: "Premium" },
+  { rank: 7, font: "Work Sans", type: "Grotesque", bestFor: "Headlines, editorial", cost: "Free" },
+  { rank: 8, font: "IBM Plex Sans", type: "Neo grotesque", bestFor: "Tech sites, corporate", cost: "Free" },
+  { rank: 9, font: "Space Grotesk", type: "Grotesque", bestFor: "Data, technical design", cost: "Free" },
+  { rank: 10, font: "Public Sans", type: "Neo grotesque", bestFor: "Government, trusted content", cost: "Free" },
+  { rank: 11, font: "Helvetica", type: "Neo grotesque", bestFor: "Corporate branding", cost: "Premium" },
+  { rank: 12, font: "Futura", type: "Geometric", bestFor: "Logos, brand identity", cost: "Premium" },
+  { rank: 13, font: "Proxima Nova", type: "Geometric, Humanist", bestFor: "Magazine, web design", cost: "Premium" },
+  { rank: 14, font: "Gotham", type: "Geometric", bestFor: "Advertising, editorial", cost: "Premium" },
+  { rank: 15, font: "Circular", type: "Geometric", bestFor: "Brand identity (Spotify, Airbnb)", cost: "Premium" },
 ];
 
 const readabilityTable = [
@@ -168,7 +155,7 @@ export default function SansSerifFontsPage() {
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#webpage",
         url: "https://www.aestheticletters.com/sans-serif-fonts",
         name: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
-        description: "Create modern text with 60+ sans serif fonts style. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
+        description: "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It\u2019s free, try now!",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://www.aestheticletters.com/#website",
@@ -190,7 +177,7 @@ export default function SansSerifFontsPage() {
           price: "0",
           priceCurrency: "USD",
         },
-        description: "A free online copy and paste tool that generates 60+ stylish sans serif font styles instantly for Instagram, Facebook, branding, and web design projects.",
+        description: "A free online copy and paste tool that generates 10 stylish sans serif font styles instantly for Instagram, Facebook, branding, and web design projects.",
       },
       {
         "@type": "BreadcrumbList",
@@ -219,98 +206,68 @@ export default function SansSerifFontsPage() {
       {
         "@type": "FAQPage",
         "@id": "https://www.aestheticletters.com/sans-serif-fonts#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What does \"sans serif\" mean?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A serif is the small finishing stroke you see at the tip of a letter. \"Sans\" is simply the French word for \"without.\" Put them together and the meaning is clear a typeface that skips those finishing details entirely. So sans serif simply means \"without those decorative strokes.\" Sans fonts have clean, straight letter endings with no extra decoration.",
-            },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
           },
-          {
-            "@type": "Question",
-            name: "Are sans serif fonts better for screens?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes, in most cases. These fonts display more clearly on digital screens, especially on mobile devices and lower-resolution monitors. Their clean strokes stay sharp at small sizes. That is why most apps, websites, and user interfaces use sans-serif typeface font as their primary text style.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the most popular sans serif text?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Helvetica is widely considered the most famous non serif typeface in the world. It has been used in countless logos, signs, and brand identities since the 1950s. For digital and web design today, Inter has become the most popular choice, especially for UI and app design. On the web, Roboto and Open Sans are among the most downloaded fonts.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Helvetica a sans serif font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Helvetica is a neo-grotesque non serif font, designed in Switzerland in 1957. It is one of the most recognized typefaces ever created and has no serifs at all. It is known for its neutral, clean, and highly intelligible appearance. Many global brands and even the New York City subway system use Helvetica.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What are the 4 types of non serif fonts?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "The four main types are: Grotesque (the original, sturdy style from the 1800s), Neo-grotesque (a cleaner and more neutral version, like Helvetica), Geometric (built from circles and straight lines, like Futura and Poppins), and Humanist (warm and calligraphy-inspired, like Inter and Open Sans). Each type has a different personality and best use case.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I use Google Fonts for commercial projects?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Every font in the Google Fonts collection is licensed under the SIL Open Font License (OFL), which allows free use in commercial projects. You can use them on client websites, apps, printed materials, and paid products without paying any licensing fees. The only restriction is that you cannot sell a Google Font as a standalone font file.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Which Sans-Serif Typeface Font is best for logos?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "For logos, the best fonts are usually geometric or neo-grotesque styles. Futura, Gotham, Montserrat, and Poppins are popular choices. Futura has been used by Volkswagen, IKEA, and Louis Vuitton. Gotham became a cultural landmark when it defined the visual identity of Obama\u2019s presidential run. For a more modern feel, DM Sans and Manrope work beautifully in logo design.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Times New Roman a Non Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. Times New Roman was commissioned in 1931 specifically for The Times of London. It is a full serif typeface every letter carries visible finishing strokes at its terminals, which is the defining feature of the serif category. It is one of the most recognizable serif fonts in the world and is widely used in academic documents and formal writing.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Arial a Sans Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Arial is a san serif font. Specifically, it is a neo-grotesque non-serif designed in 1982. Arial was built to match Helvetica\u2019s character spacing exactly, giving designers a freely available substitute with identical proportions. It is one of the most common fonts in the world because it comes pre-installed on almost every Windows computer. Arial has no decorative serifs and is clean and easy to read on screen.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Is Calibri a Sans Serif Font?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Calibri is a humanist non serif typeface. Dutch type designer Lucas de Groot created it, and became the default Microsoft Office font in 2007, replacing Times New Roman. Calibri has soft, rounded letter forms and is very easy to read on screen. It is a friendly and approachable font that works well in documents, presentations, and reports.",
-            },
-          },
-        ],
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.aestheticletters.com/sans-serif-fonts#top15",
+        name: "Top 15 Sans Serif Fonts to Know",
+        numberOfItems: 15,
+        itemListElement: top15Fonts.map((font) => ({
+          "@type": "ListItem",
+          position: font.rank,
+          name: font.font,
+          description: `${font.type} sans serif font \u2014 best for ${font.bestFor} (${font.cost})`,
+        })),
+      },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Use Sans Serif Text Generator?",
+    description:
+      "Generate stylish sans serif font text in three simple steps. No design skills or software needed — just type, browse, and copy.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type Your Text",
+        text: "Enter any word, sentence, or phrase into the text field above. The generator works with any language or character input.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Browse the Styles",
+        text: "Scroll through multiples of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy & Paste",
+        text: "Click the copy button on any style you like. The text is copied to your clipboard instantly, ready to paste into Instagram, TikTok, Discord, or anywhere else.",
       },
     ],
   };
 
   return (
     <>
-      <SansSerifFontsHead />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
@@ -322,12 +279,12 @@ export default function SansSerifFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Sans Serif Fonts Generator - Free Copy &amp; Paste Tool
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Sans Serif Fonts Generator &mdash; Free Copy &amp; Paste Tool
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-            Type anything into the sans serif fonts generator below to instantly get 60+ non serif styles you can copy and paste straight into your bio, caption, or username.
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Type anything into the sans serif fonts generator below to instantly get 10 non serif styles you can copy and paste straight into your bio, caption, or username.
           </p>
         </section>
 
@@ -345,6 +302,14 @@ export default function SansSerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Sans Serif Fonts?
                 </h2>
+                <Image
+                  src="/sans-serif-fonts-generator-og.webp"
+                  alt="Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly"
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Sans serif fonts are letterforms with clean, plain endings: no extra strokes, no decorative details, just the pure shape of each character. Break the term down and it tells its own story. &ldquo;Sans&rdquo; is a French word for &ldquo;without,&rdquo; making the full phrase a straightforward description: a font style that carries no serifs.
                 </p>
@@ -430,7 +395,7 @@ export default function SansSerifFontsPage() {
                     </div>
                     <h3 className="font-headline text-xl font-bold mb-2">Browse the Styles</h3>
                     <p className="text-on-surface-variant text-sm leading-relaxed">
-                      Scroll through dozens of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.
+                      Scroll through multiples of sans serif font styles generated instantly. Each card shows your text in a different typeface so you can compare them side by side.
                     </p>
                   </div>
                   <div className="p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm text-center">
@@ -493,7 +458,7 @@ export default function SansSerifFontsPage() {
                     <ul className="space-y-2 mb-4">
                       {cat.examples.map((ex) => (
                         <li key={ex} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                          <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                          <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                           <span>{ex}</span>
                         </li>
                       ))}
@@ -502,13 +467,13 @@ export default function SansSerifFontsPage() {
                 ))}
               </article>
 
-              {/* Top 25 Best Non Serif Fonts */}
+              {/* Top 15 Sans Serif Fonts to Know */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 25 Best Non Serif Fonts (Free + Premium)
+                  Top 15 Sans Serif Fonts to Know (Free + Premium)
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are the most popular and most useful sans serif fonts available today. This list covers both free Google Fonts and premium options.
+                  Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
@@ -522,7 +487,7 @@ export default function SansSerifFontsPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {top25Fonts.map((row) => (
+                      {top15Fonts.map((row) => (
                         <tr key={row.rank} className="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
                           <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{row.rank}</td>
                           <td className="p-4 font-medium text-on-background border-b border-outline-variant/10 align-top">{row.font}</td>
@@ -535,7 +500,7 @@ export default function SansSerifFontsPage() {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  All free fonts listed above are available in this sans serif font generator as a copy and paste option at no cost. Premium fonts can be purchased directly from their type foundries.
+                  The free fonts above are real font files, built for websites, apps, and design software like Canva or Figma. They are not the same as the Unicode styles in the generator above. Those styles are text characters, and they paste correctly into Instagram bios, Discord usernames, and TikTok captions. Premium fonts can be purchased directly from their type foundries.
                 </p>
               </article>
 
@@ -642,6 +607,11 @@ export default function SansSerifFontsPage() {
                   A bold or spaced out sans serif style makes your Instagram bio look polished and professional. Clean text stands out better in the small bio space. You can easily create these styles using an <Link href="/instagram-fonts" className="text-primary underline">instagram font generator</Link>. Many influencers and brand accounts use stylized non serif text to create a distinctive look.
                 </p>
 
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Facebook Bios and Posts</h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  A clean sans serif style works well for Facebook page names, post highlights, and profile bios. The simple letterforms stay readable in a feed full of other content. You can build these styles with a <Link href="/facebook-fonts" className="text-primary underline">facebook font generator</Link> if you want options made specifically for that platform.
+                </p>
+
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">X (Twitter) Usernames and Tweets</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words.
@@ -728,7 +698,7 @@ export default function SansSerifFontsPage() {
                     "Match the mood. A geometric font and a humanist font have different personalities. Make sure both match your brand or project\u2019s tone.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -740,46 +710,25 @@ export default function SansSerifFontsPage() {
             <Sidebar
               showBanner={false}
               showTips={false}
-              useCasesHeading="Free Sans Serif Fonts (Google Fonts)"
+              useCasesHeading="Unicode Sans Serif Styles in This Generator"
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    All of the free fonts in this list are available in this tool. They are completely free to use on websites, apps, and personal or commercial projects.
+                    This generator uses real Unicode characters, not font files. Type your text above and copy any of ten styles straight into Instagram, TikTok, Discord, or anywhere else. No app, no installation, no extra steps.
                   </p>
 
-                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Top 10 Free Sans Serif Fonts on Google Fonts</h3>
-                  {[
-                    { name: "1. Inter", desc: "Made specifically for screens. Tall x height. Excellent for UI and interfaces. The most used font in product design in 2025\u20132026." },
-                    { name: "2. Open Sans", desc: "Versatile, easy on the eyes, and perfectly neutral in tone. One of the most downloaded fonts in the world. Works great for body text, blogs, and accessible content." },
-                    { name: "3. Roboto", desc: "Google\u2019s own font for Android. A mix of humanist and mechanical styles. Perfect for dashboards, apps, and any Google related project." },
-                    { name: "4. Poppins", desc: "A popular geometric sans serif with a modern look. Bold and distinctive letters. Supports Latin and Devanagari scripts. Great for headings." },
-                    { name: "5. Montserrat", desc: "Inspired by the urban typography of Buenos Aires. Available in 18 weights. A top choice for posters, headlines, and strong visual statements." },
-                    { name: "6. Lato", desc: 'Polish for "summer." Has a warm structure with subtle curves. One of the most popular fonts for email newsletters and reports.' },
-                    { name: "7. DM Sans", desc: "A modern alternative to Montserrat. Soft rounded terminals give it a friendly, exciting feel. Works beautifully for websites and apps." },
-                    { name: "8. Work Sans", desc: "Optimized for screen use from the ground up. Slightly condensed, which makes it excellent for dense layouts and editorial design." },
-                    { name: "9. Source Sans Pro", desc: "Adobe\u2019s contribution to the open source font world. Very orderly and legible. Great for forms, reports, and long form digital content." },
-                    { name: "10. IBM Plex Sans", desc: "IBM\u2019s custom typeface. Has a corporate feel but with subtle humanist details. A strong choice for tech companies and SaaS products." },
-                  ].map((font) => (
-                    <div key={font.name} className="mb-4">
-                      <h4 className="font-headline text-sm font-bold mb-1 leading-tight">{font.name}</h4>
-                      <p className="text-sm text-on-surface-variant leading-relaxed">{font.desc}</p>
-                    </div>
-                  ))}
-
-                  <h3 className="font-headline text-lg font-bold mb-3 leading-tight mt-6">Licensing Information</h3>
-                  <p className="text-sm text-on-surface-variant mb-3 leading-relaxed">
-                    Every font in the Google Fonts library is covered by the SIL Open Font License (OFL). This means:
+                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Clean Sans Serif</h3>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern.
                   </p>
-                  <ul className="space-y-2 mb-4">
-                    {["Free for personal use", "Free for commercial use", "Can be used on websites and apps", "Can be modified and shared", "Packaging and reselling the font file on its own is not permitted"].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-on-surface-variant text-sm">
-                        <span className="material-symbols-outlined text-primary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Decorated Sans Serif</h3>
+                  <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    Five more styles add an accent on top of that clean look: Underline, Strikethrough, Overline, Dotted, and Wavy. These work well for highlighting one word in a caption or making a username or bio stand out.
+                  </p>
+
                   <p className="text-sm text-on-surface-variant leading-relaxed">
-                    You do not need to credit the font designer when using Google Fonts in a commercial project. Any modified version you create must carry the same OFL terms as the original.
+                    All ten are text, not images. They keep their style wherever you paste them. The four clean styles and Monospace have the widest support across devices. The decorated styles may not render perfectly on a few older Android phones, so it is worth previewing before you post somewhere important.
                   </p>
                 </>
               }
