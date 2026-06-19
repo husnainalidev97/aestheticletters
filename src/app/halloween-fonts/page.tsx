@@ -471,21 +471,17 @@ export default function HalloweenFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">YouTube and Streaming</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For Twitch and YouTube, copy-paste spooky text styles work well in channel descriptions, community
-                  posts, about sections, and stream chat, anywhere text is typed and displayed as-is.
+                  Copy and paste Halloween text works well anywhere typed text shows up, like channel descriptions,
+                  community posts, and stream chat.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For thumbnails and stream overlays, you have two good options: use the Google Fonts styles from
-                  the{" "}
-                  <Link href="/" className="text-primary underline underline-offset-4 hover:no-underline">
-                    Aesthetic Letters
-                  </Link>{" "}
-                  as copy-paste text in thumbnail tools that support it, or download the .ttf
-                  file for full sizing and color control in software like Photoshop or Canva&apos;s advanced design mode.
+                  For thumbnails or overlays where you need a fixed background image, a downloaded font gives more
+                  control over size and color. You can grab a free Halloween font from Google Fonts (fonts.google.com)
+                  and use it in Photoshop or Canva.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Either way, start with the copy-paste version, it works for more thumbnail builders than most
-                  people expect.
+                  Try the pasted style first. It works in more thumbnail tools than people expect, and you only need
+                  a downloaded font for advanced overlay work.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">WhatsApp, Telegram, and Messaging Apps</h3>
