@@ -538,27 +538,23 @@ export default function HalloweenFontsPage() {
                   Halloween Fonts in Canva: A Practical Workflow
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Canva is the tool most people reach for when creating Halloween graphics, and the good news
-                  is that you have more options than most guides suggest, including Google Fonts as copy-paste, which
-                  most people do not know about.
+                  Canva is the easiest place to use your Halloween text once you have it ready. Here is the simple
+                  way to do it.
                 </p>
 
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 1: Try Copy-Paste Styles First (Including Google Fonts)</h3>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 1: Copy and Paste First</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Before you touch Canva&apos;s font upload feature, generate your halloween text from this tool. This
-                  includes both Unicode styles and real Google Fonts available as instant copy-paste, no downloading,
-                  no uploading, no Brand Kit setup needed.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Simply paste the generated text directly into a Canva text box. This approach works excellently for:
+                  Generate your Halloween text in this tool, then copy it. Open Canva, click on a text box, and paste
+                  your styled text straight in. No upload, no font install, no Brand Kit setup needed.
+                  This works great for:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Instagram Story overlays and Reel cover text",
+                    "Instagram Story overlays and Reel covers",
                     "YouTube thumbnail headers",
-                    "Party invitation titles and event graphics",
-                    "Presentation slide headings",
-                    "Social media post captions and quote cards",
+                    "Party invitation titles",
+                    "Presentation slide titles",
+                    "Captions and quote cards",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -567,27 +563,18 @@ export default function HalloweenFontsPage() {
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This is the fastest workflow for most Halloween Canva projects, and it covers the majority of use
-                  cases. Google Font styles from the generator paste cleanly and render correctly in Canva without
-                  any file management.
+                  This one step covers most Halloween design needs and takes only a few seconds.
                 </p>
 
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only When You Need Advanced Design Control</h3>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only If You Need More Control</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  There are specific situations where a downloaded .ttf font file genuinely gives you more than the
-                  copy-paste version can, mainly when you need precise kerning control, custom stroke effects,
-                  or colour gradients applied directly to letterforms in Canva&apos;s element editor.
+                  Some advanced Canva tools, like custom stroke effects or color gradients on letters, only work with
+                  a real font file, not pasted text. If you need that level of control, you can download a font like
+                  Creepster or Nosifer for free from Google Fonts (fonts.google.com) and add it through Canva&apos;s
+                  Brand Kit.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  In those cases, download your chosen font
-                  (Creepster, Nosifer, etc.) from Google Fonts as a .ttf file and upload it via Canva&apos;s Brand Kit.
-                  But treat this as the step you take when the copy-paste version does not give you the design control
-                  you need, not as the default starting point.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  The most efficient Halloween Canva workflow: generate and paste your text style from the Aesthetic
-                  Letters first. If you need more control over the letterforms for a complex print-ready design, then
-                  download the font file as your second step.
+                  Start with copy and paste. Only move to a downloaded font if your design truly needs it.
                 </p>
               </article>
 
