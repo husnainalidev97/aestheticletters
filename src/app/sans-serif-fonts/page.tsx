@@ -61,11 +61,7 @@ const faqs = [
     answer:
       "The four main types are: Grotesque (the original, sturdy style from the 1800s), Neo grotesque (a cleaner and more neutral version, like Helvetica), Geometric (built from circles and straight lines, like Futura and Poppins), and Humanist (warm and calligraphy inspired, like Inter and Open Sans). Each type has a different personality and best use case.",
   },
-  {
-    question: "Can I use Google Fonts for commercial projects?",
-    answer:
-      "Yes. Every font in the Google Fonts collection is licensed under the SIL Open Font License (OFL), which allows free use in commercial projects. You can use them on client websites, apps, printed materials, and paid products without paying any licensing fees. The only restriction is that you cannot sell a Google Font as a standalone font file.",
-  },
+
   {
     question: "Which sans serif typeface font is best for logos?",
     answer:
