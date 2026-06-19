@@ -58,7 +58,7 @@ const faqs = [
   {
     question: "Can I use spooky fonts in Notion, Google Docs, or Microsoft Word?",
     answer:
-      "Notion handles Unicode paste cleanly; it is the most reliable of the three. Google Docs works well on screen but always run a print preview before printing, as rendering can shift. Microsoft Word is the trickiest: autocorrect can silently replace unusual characters with plain letters. Fix this by pasting your text, then pressing Ctrl+Z once followed by Ctrl+Y, which locks the characters before autocorrect processes them.",
+      "Notion handles pasted Unicode text the best out of the three platforms. It just works, with no extra steps needed. Google Docs also shows it correctly on screen. Just check print preview first, since printing can sometimes shift how the text looks. Microsoft Word is the trickiest one. Its autocorrect feature can quietly swap unusual characters back to plain letters without telling you. To stop this, paste your text, then press Ctrl+Z once followed by Ctrl+Y right away. This locks the characters in place before autocorrect gets a chance to touch them.",
   },
   {
     question: "What is the best scary font for printed invitations or physical signage?",
