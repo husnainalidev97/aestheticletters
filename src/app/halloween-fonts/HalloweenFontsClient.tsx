@@ -7,7 +7,6 @@ import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
-import HalloweenGoogleFontsLoader from "./HalloweenGoogleFontsLoader";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
 
@@ -154,7 +153,6 @@ export default function HalloweenFontsClient() {
 
   return (
     <>
-      <HalloweenGoogleFontsLoader />
       {/* Generator Block: Input + Slider */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-6 md:pb-8">
         <div className="relative w-full max-w-3xl mx-auto space-y-3 md:space-y-5">

@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // Halloween Font Style Definitions — EXCLUSIVE to /halloween-fonts page
-// 10 categories · Google Fonts (shown first) + unique Unicode styles
+// 10 categories · Pure Unicode styles (no Google Fonts)
 // Each base alphabet appears in ONE card only; icon-decorated styles added
 // ---------------------------------------------------------------------------
 
@@ -64,28 +64,67 @@ function zalgo(text: string, above: number, below: number, seed = 0): string {
 
 // ── Icon / Symbol Helpers ──────────────────────────────────────────────────
 
-/** Wrap transformed text with a prefix and suffix icon. */
 function decorate(text: string, icon: string): string {
   return `${icon} ${text} ${icon}`;
 }
 
-/** Place a separator icon between each word; falls back to prefix/suffix for single words. */
 function decorateWords(text: string, icon: string): string {
   const words = text.split(/\s+/).filter(Boolean);
   if (words.length <= 1) return `${icon} ${text} ${icon}`;
   return words.join(` ${icon} `);
 }
 
-// ── Character Maps (each used in ONE card only) ────────────────────────────
+// ── Character Maps ─────────────────────────────────────────────────────────
 
-// Card 8 — Moonlight Cursive
+// Fraktur (gothic blackletter)
+const FRAKTUR = buildMap(0x1d504, 0x1d51e, {
+  C: "\u212D", H: "\u210C", I: "\u2111", R: "\u211C", Z: "\u2128",
+});
+
+// Bold Fraktur
+const BOLD_FRAKTUR = buildMap(0x1d56c, 0x1d586);
+
+// Bold
+const BOLD = buildMap(0x1d400, 0x1d41a);
+
+// Italic
+const ITALIC = buildMap(0x1d434, 0x1d44e, { h: "\u210E" });
+
+// Bold Italic
+const BOLD_ITALIC = buildMap(0x1d468, 0x1d482);
+
+// Bold Script
+const BOLD_SCRIPT = buildMap(0x1d4d0, 0x1d4ea);
+
+// Script
 const MATH_SCRIPT = buildMap(0x1d49c, 0x1d4b6, {
   B: "\u212C", E: "\u2130", F: "\u2131", H: "\u210B",
   I: "\u2110", L: "\u2112", M: "\u2133", R: "\u211B",
   e: "\u212F", g: "\u210A", o: "\u2134",
 });
 
-// Card 4 — Pumpkin Hollow
+// Double-Struck
+const DOUBLE_STRUCK = buildMap(0x1d538, 0x1d552, {
+  C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119",
+  Q: "\u211A", R: "\u211D", Z: "\u2124",
+});
+
+// Monospace
+const MONOSPACE = buildMap(0x1d670, 0x1d68a);
+
+// Fullwidth
+const FULLWIDTH = buildMap(0xff21, 0xff41, { " ": "\u3000" });
+
+// Circled
+const CIRCLED = buildMap(0x24b6, 0x24d0);
+
+// Sans-Serif Bold
+const SS_BOLD = buildMap(0x1d5d4, 0x1d5ee);
+
+// Sans-Serif Bold Italic
+const SS_BOLD_ITALIC = buildMap(0x1d63c, 0x1d656);
+
+// Superscript
 const SUPERSCRIPT: Record<string, string> = {
   a: "\u1D43", b: "\u1D47", c: "\u1D9C", d: "\u1D48", e: "\u1D49",
   f: "\u1DA0", g: "\u1D4D", h: "\u02B0", i: "\u2071", j: "\u02B2",
@@ -104,7 +143,7 @@ function superscript(text: string): string {
   return [...text].map((c) => SUPERSCRIPT[c] ?? c).join("");
 }
 
-// Card 9 — Dark Ritual
+// Futhark Runes
 const FUTHARK: Record<string, string> = {};
 const futharkLower: Record<string, string> = {
   a: "\u16A8", b: "\u16D2", c: "\u16B2", d: "\u16DE", e: "\u16D6",
@@ -120,37 +159,48 @@ for (let i = 0; i < 26; i++) {
   FUTHARK[String.fromCharCode(65 + i)] = futharkLower[lower];
 }
 
+// Ogham (ancient Celtic script)
+const OGHAM: Record<string, string> = {
+  a: "\u1681", b: "\u1682", c: "\u1683", d: "\u1684", e: "\u1685",
+  f: "\u1686", g: "\u1687", h: "\u1688", i: "\u1689", j: "\u1683",
+  k: "\u168A", l: "\u168B", m: "\u168C", n: "\u168D", o: "\u168E",
+  p: "\u168F", q: "\u1690", r: "\u1691", s: "\u1692", t: "\u1693",
+  u: "\u1694", v: "\u1686", w: "\u1695", x: "\u1683", y: "\u1694",
+  z: "\u1692",
+};
+for (let i = 0; i < 26; i++) {
+  const upper = String.fromCharCode(65 + i);
+  const lower = String.fromCharCode(97 + i);
+  OGHAM[upper] = OGHAM[lower];
+}
+
 // ── 1: Graveyard Gothic ──────────────────────────────────────────────────
 
 const graveyardGothic: FontCategory = {
   name: "Graveyard Gothic",
   styles: [
-    // Google Fonts
-    { name: "Mystery Quest", transform: (t) => t, fontFamily: "'Mystery Quest', cursive" },
-    { name: "Grenze Gotisch", transform: (t) => t, fontFamily: "'Grenze Gotisch', serif" },
-    { name: "Ruslan Display", transform: (t) => t, fontFamily: "'Ruslan Display', cursive" },
-    { name: "New Rocker", transform: (t) => t, fontFamily: "'New Rocker', cursive" },
-    { name: "Road Rage", transform: (t) => t, fontFamily: "'Road Rage', cursive" },
-    // Unicode
+    { name: "Gothic Fraktur", transform: (t) => apply(t, FRAKTUR) },
+    { name: "Bold Fraktur", transform: (t) => apply(t, BOLD_FRAKTUR) },
+    { name: "Tombstone Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0333"]) },
+    { name: "Crypt Inscription", transform: (t) => apply(t, FULLWIDTH) },
+    { name: "Haunted Monospace", transform: (t) => withCombining(apply(t, MONOSPACE), ["\u0336"]) },
     { name: "Cursed Graveyard", transform: (t) => withCombining(t, ["\u0334", "\u0325"]) },
     { name: "Graveyard Zalgo", transform: (t) => zalgo(t, 3, 3, 17) },
-    { name: "⚰ Tombstone Text ⚰", transform: (t) => decorate(withCombining(t, ["\u032A", "\u0329"]), "\u26B0") },
-    { name: "✞ Cemetery Gothic ✞", transform: (t) => decorate(t, "\u271E") },
-    { name: "☠ Bone Yard ☠", transform: (t) => decorateWords(t, "\u2620") },
+    { name: "\u26B0 Tombstone Text \u26B0", transform: (t) => decorate(withCombining(t, ["\u032A", "\u0329"]), "\u26B0") },
+    { name: "\u271E Cemetery Gothic \u271E", transform: (t) => decorate(t, "\u271E") },
+    { name: "\u2620 Bone Yard \u2620", transform: (t) => decorateWords(t, "\u2620") },
   ],
 };
 
-// ── 2: Blood Drip  (base: none — pure combining + icons) ─────────────────
+// ── 2: Blood Drip ─────────────────────────────────────────────────────────
 
 const bloodDrip: FontCategory = {
   name: "Blood Drip",
   styles: [
-    // Google Fonts
-    { name: "Eater", transform: (t) => t, fontFamily: "'Eater', cursive" },
-    { name: "Rubik Wet Paint", transform: (t) => t, fontFamily: "'Rubik Wet Paint', cursive" },
-    { name: "Nosifer", transform: (t) => t, fontFamily: "'Nosifer', cursive" },
-    { name: "Rubik Puddles", transform: (t) => t, fontFamily: "'Rubik Puddles', cursive" },
-    // Unicode — blood-drip combining stacks
+    { name: "Bleeding Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0323", "\u0332"]) },
+    { name: "Crimson Italic", transform: (t) => withCombining(apply(t, ITALIC), ["\u0331"]) },
+    { name: "Hemoglobin Script", transform: (t) => withCombining(apply(t, BOLD_ITALIC), ["\u0333", "\u0323"]) },
+    { name: "Blood Splatter", transform: (t) => zalgo(t, 1, 5, 41) },
     { name: "Blood Drip Light", transform: (t) => withCombining(t, ["\u0322", "\u0323"]) },
     { name: "Gore Overflow", transform: (t) => zalgo(t, 0, 7, 5) },
     { name: "Zalgo Full Chaos", transform: (t) => zalgo(t, 5, 5, 11) },
@@ -163,11 +213,9 @@ const bloodDrip: FontCategory = {
 const cursedScript: FontCategory = {
   name: "Cursed Script",
   styles: [
-    // Google Fonts
-    { name: "Rubik Distressed", transform: (t) => t, fontFamily: "'Rubik Distressed', cursive" },
-    { name: "Rubik Beastly", transform: (t) => t, fontFamily: "'Rubik Beastly', cursive" },
-    { name: "Stick", transform: (t) => t, fontFamily: "'Stick', sans-serif" },
-    // Unicode — Zalgo corruption levels + cursed styles
+    { name: "Cursed Calligraphy", transform: (t) => withCombining(apply(t, BOLD_SCRIPT), ["\u0334"]) },
+    { name: "Hex Script", transform: (t) => withCombining(apply(t, MATH_SCRIPT), ["\u0335"]) },
+    { name: "Dark Inscription", transform: (t) => withCombining(apply(t, BOLD_ITALIC), ["\u0338"]) },
     { name: "Possessed Cursed", transform: (t) => withCombining(t, ["\u0336", "\u0329", "\u0323"]) },
     { name: "Zalgo Light", transform: (t) => zalgo(t, 2, 0, 0) },
     { name: "Zalgo Heavy", transform: (t) => zalgo(t, 7, 7, 7) },
@@ -177,18 +225,16 @@ const cursedScript: FontCategory = {
   ],
 };
 
-// ── 4: Pumpkin Hollow  (base: SUPERSCRIPT) ────────────────────────────────
+// ── 4: Pumpkin Hollow ─────────────────────────────────────────────────────
 
 const pumpkinHollow: FontCategory = {
   name: "Pumpkin Hollow",
   styles: [
-    // Google Fonts
-    { name: "Creepster", transform: (t) => t, fontFamily: "'Creepster', cursive" },
-    { name: "Emilys Candy", transform: (t) => t, fontFamily: "'Emilys Candy', cursive" },
-    { name: "Henny Penny", transform: (t) => t, fontFamily: "'Henny Penny', cursive" },
-    { name: "Jolly Lodger", transform: (t) => t, fontFamily: "'Jolly Lodger', cursive" },
-    { name: "Irish Grover", transform: (t) => t, fontFamily: "'Irish Grover', cursive" },
-    // Unicode — festive-spooky transforms
+    { name: "Circled Pumpkin", transform: (t) => apply(t, CIRCLED) },
+    { name: "Pumpkin Bold", transform: (t) => apply(t, SS_BOLD) },
+    { name: "Harvest Double", transform: (t) => apply(t, DOUBLE_STRUCK) },
+    { name: "Jack-o-Lantern", transform: (t) => decorate(apply(t, BOLD), "\uD83C\uDF83") },
+    { name: "Candy Corn Bold", transform: (t) => withCombining(apply(t, SS_BOLD_ITALIC), ["\u0307"]) },
     { name: "Superscript Tiny", transform: (t) => superscript(t) },
     { name: "\uD83C\uDF83 Pumpkin Glow \uD83C\uDF83", transform: (t) => decorate(withCombining(t, ["\u030A", "\u0307"]), "\uD83C\uDF83") },
     { name: "\uD83C\uDF6C Candy Drip \uD83C\uDF6C", transform: (t) => decorate(withCombining(t, ["\u0307", "\u0306"]), "\uD83C\uDF6C") },
@@ -201,11 +247,9 @@ const pumpkinHollow: FontCategory = {
 const ghostWhisper: FontCategory = {
   name: "Ghost Whisper",
   styles: [
-    // Google Fonts
-    { name: "Flavors", transform: (t) => t, fontFamily: "'Flavors', cursive" },
-    { name: "Are You Serious", transform: (t) => t, fontFamily: "'Are You Serious', cursive" },
-    { name: "Shadows Into Light", transform: (t) => t, fontFamily: "'Shadows Into Light', cursive" },
-    // Unicode — ghostly ethereal transforms
+    { name: "Ethereal Script", transform: (t) => withCombining(apply(t, MATH_SCRIPT), ["\u0304"]) },
+    { name: "Phantom Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0305", "\u0334"]) },
+    { name: "Ghostly Italic", transform: (t) => withCombining(apply(t, ITALIC), ["\u0303"]) },
     { name: "Whisper Fade", transform: (t) => withCombining(t, ["\u0334", "\u0304"]) },
     { name: "Spirit Zalgo", transform: (t) => zalgo(t, 2, 1, 29) },
     { name: "\uD83D\uDC7B Ghost Float \uD83D\uDC7B", transform: (t) => decorate(withCombining(t, ["\u0305", "\u0303"]), "\uD83D\uDC7B") },
@@ -219,12 +263,10 @@ const ghostWhisper: FontCategory = {
 const witchSpell: FontCategory = {
   name: "Witch Spell",
   styles: [
-    // Google Fonts
-    { name: "Rubik Gemstones", transform: (t) => t, fontFamily: "'Rubik Gemstones', cursive" },
-    { name: "Ceviche One", transform: (t) => t, fontFamily: "'Ceviche One', cursive" },
-    { name: "Tillana", transform: (t) => t, fontFamily: "'Tillana', cursive" },
-    { name: "Bahiana", transform: (t) => t, fontFamily: "'Bahiana', cursive" },
-    // Unicode — magical spell transforms
+    { name: "Enchanted Script", transform: (t) => withCombining(apply(t, BOLD_SCRIPT), ["\u0302"]) },
+    { name: "Arcane Double", transform: (t) => withCombining(apply(t, DOUBLE_STRUCK), ["\u20F0"]) },
+    { name: "Hex Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0307", "\u0323"]) },
+    { name: "Wicked Italic", transform: (t) => withCombining(apply(t, BOLD_ITALIC), ["\u0303", "\u0330"]) },
     { name: "Star Occult", transform: (t) => withCombining(t, ["\u20F0"]) },
     { name: "Potion Zalgo", transform: (t) => zalgo(t, 2, 2, 31) },
     { name: "\uD83D\uDD2E Crystal Spell \uD83D\uDD2E", transform: (t) => decorate(withCombining(t, ["\u0302", "\u0307"]), "\uD83D\uDD2E") },
@@ -237,12 +279,10 @@ const witchSpell: FontCategory = {
 const skullGothic: FontCategory = {
   name: "Skull Gothic",
   styles: [
-    // Google Fonts
-    { name: "Butcherman", transform: (t) => t, fontFamily: "'Butcherman', cursive" },
-    { name: "Asset", transform: (t) => t, fontFamily: "'Asset', cursive" },
-    { name: "Rubik Burned", transform: (t) => t, fontFamily: "'Rubik Burned', cursive" },
-    { name: "Bangers", transform: (t) => t, fontFamily: "'Bangers', cursive" },
-    // Unicode — skull/bone themed transforms
+    { name: "Death Fraktur", transform: (t) => withCombining(apply(t, FRAKTUR), ["\u0333"]) },
+    { name: "Skull Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0338", "\u0329"]) },
+    { name: "Ossuary Mono", transform: (t) => withCombining(apply(t, MONOSPACE), ["\u0334"]) },
+    { name: "Bone Italic", transform: (t) => withCombining(apply(t, ITALIC), ["\u033D", "\u0323"]) },
     { name: "Skull Bones", transform: (t) => withCombining(t, ["\u033D", "\u0329", "\u0333"]) },
     { name: "\u2620 Skull & Bones \u2620", transform: (t) => decorate(withCombining(t, ["\u0334", "\u0323"]), "\u2620") },
     { name: "\uD83D\uDDE1 Death Strike \uD83D\uDDE1", transform: (t) => decorate(withCombining(t, ["\u0336", "\u032A"]), "\uD83D\uDDE1") },
@@ -250,15 +290,13 @@ const skullGothic: FontCategory = {
   ],
 };
 
-// ── 8: Moonlight Cursive  (base: MATH_SCRIPT) ────────────────────────────
+// ── 8: Moonlight Cursive ─────────────────────────────────────────────────
 
 const moonlightCursive: FontCategory = {
   name: "Moonlight Cursive",
   styles: [
-    // Google Fonts
-    { name: "Meddon", transform: (t) => t, fontFamily: "'Meddon', cursive" },
-    { name: "Purple Purse", transform: (t) => t, fontFamily: "'Purple Purse', cursive" },
-    // Unicode — dark cursive/script transforms
+    { name: "Bold Moonlight", transform: (t) => withCombining(apply(t, BOLD_SCRIPT), ["\u0304"]) },
+    { name: "Midnight Italic", transform: (t) => withCombining(apply(t, ITALIC), ["\u0304", "\u0330"]) },
     { name: "Moonlight Script", transform: (t) => apply(t, MATH_SCRIPT) },
     { name: "\uD83C\uDF19 Moonbeam \uD83C\uDF19", transform: (t) => decorate(withCombining(t, ["\u0304", "\u030A"]), "\uD83C\uDF19") },
     { name: "\uD83E\uDD87 Night Flight \uD83E\uDD87", transform: (t) => decorate(withCombining(t, ["\u0303", "\u0305"]), "\uD83E\uDD87") },
@@ -267,18 +305,16 @@ const moonlightCursive: FontCategory = {
   ],
 };
 
-// ── 9: Dark Ritual  (base: FUTHARK) ──────────────────────────────────────
+// ── 9: Dark Ritual ──────────────────────────────────────────────────────
 
 const darkRitual: FontCategory = {
   name: "Dark Ritual",
   styles: [
-    // Google Fonts
-    { name: "Kablammo", transform: (t) => t, fontFamily: "'Kablammo', cursive" },
-    { name: "Trade Winds", transform: (t) => t, fontFamily: "'Trade Winds', cursive" },
-    { name: "Underdog", transform: (t) => t, fontFamily: "'Underdog', cursive" },
-    { name: "Sancreek", transform: (t) => t, fontFamily: "'Sancreek', cursive" },
-    { name: "Manufacturing Consent", transform: (t) => t, fontFamily: "'Manufacturing Consent', cursive" },
-    // Unicode — ancient/occult transforms
+    { name: "Ritual Fraktur", transform: (t) => withCombining(apply(t, BOLD_FRAKTUR), ["\u0329"]) },
+    { name: "Occult Bold", transform: (t) => withCombining(apply(t, BOLD), ["\u0336", "\u0323"]) },
+    { name: "Dark Double", transform: (t) => withCombining(apply(t, DOUBLE_STRUCK), ["\u0334"]) },
+    { name: "Ogham Runes", transform: (t) => apply(t, OGHAM) },
+    { name: "Coven Mono", transform: (t) => withCombining(apply(t, MONOSPACE), ["\u0338", "\u0323"]) },
     { name: "Elder Futhark Runes", transform: (t) => apply(t, FUTHARK) },
     { name: "\u2671 Ritual Cross \u2671", transform: (t) => decorate(withCombining(t, ["\u0316", "\u0317", "\u0323"]), "\u2671") },
     { name: "\u2625 Ankh Seal \u2625", transform: (t) => decorate(withCombining(t, ["\u0302", "\u0329", "\u032A"]), "\u2625") },
@@ -286,16 +322,14 @@ const darkRitual: FontCategory = {
   ],
 };
 
-// ── 10: Bat Wing  (base: none — combining + icons) ──────────────────────
+// ── 10: Bat Wing ────────────────────────────────────────────────────────
 
 const batWing: FontCategory = {
   name: "Bat Wing",
   styles: [
-    // Google Fonts
-    { name: "Barriecito", transform: (t) => t, fontFamily: "'Barriecito', cursive" },
-    { name: "Barrio", transform: (t) => t, fontFamily: "'Barrio', cursive" },
-    { name: "Asimovian", transform: (t) => t, fontFamily: "'Asimovian', cursive" },
-    // Unicode — vampire/bat themed transforms
+    { name: "Nocturnal Bold", transform: (t) => withCombining(apply(t, SS_BOLD), ["\u030D", "\u0323"]) },
+    { name: "Vampire Italic", transform: (t) => withCombining(apply(t, SS_BOLD_ITALIC), ["\u0338"]) },
+    { name: "Dark Wing", transform: (t) => withCombining(apply(t, FULLWIDTH), ["\u0335"]) },
     { name: "Bat Screech Zalgo", transform: (t) => zalgo(t, 3, 3, 53) },
     { name: "Fang Strike", transform: (t) => withCombining(t, ["\u030D", "\u0338"]) },
     { name: "\uD83E\uDD87 Bat Wing \uD83E\uDD87", transform: (t) => decorate(withCombining(t, ["\u030D", "\u0323"]), "\uD83E\uDD87") },
