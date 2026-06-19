@@ -580,25 +580,37 @@ export default function HalloweenFontsPage() {
                   Creepy Fonts on Cricut: What Actually Works
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Cricut users run into a specific challenge that most font guides skip over: Unicode copy-paste text
-                  does not cut cleanly in Cricut Design Space. The Design Space application treats Unicode symbols as
-                  individual image glyphs rather than editable font paths, which means you cannot resize them for
-                  cutting without quality loss.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For Cricut projects specifically, the workflow is different from social media use. Here the download
-                  step becomes necessary but you can still use this generator as your starting point to identify which
-                  font style you want, then download only that font for cutting.
+                  Cricut works differently than social media, and most guides skip this part. Unicode text does not
+                  cut well inside Cricut Design Space. The app treats each styled character like a tiny picture instead
+                  of a true letter shape, so stretching or shrinking it for cutting often turns out blurry or rough
+                  around the edges.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Here is what works best by project type:
+                  Because of this, Cricut work calls for a real font file, not pasted text. Here is the easiest way
+                  to handle it:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    { name: "Vinyl stickers and window decals", desc: "Bold, high-contrast fonts like Metal Mania or Butcherman. Avoid thin serifs that lose detail when cut small." },
-                    { name: "T-shirt heat transfer", desc: "Nosifer or Creepster at large sizes work excellently. Keep letter spacing slightly wider than default to prevent cuts from overlapping." },
-                    { name: "Pumpkin labels and party banners", desc: "Henny Penny or Carved Pumpkin-inspired styles for festive, readable results." },
-                    { name: "Mug and tumbler decals", desc: "Simple gothic styles at medium weight. Avoid Blood Drip styles for small decals since the drip detail disappears below about 0.5 inches." },
+                    "Use this tool to try a few Halloween styles and pick the look you like best.",
+                    "Write down the name of a real font that matches that look.",
+                    "Visit Google Fonts (fonts.google.com) and grab that font for free.",
+                    "Add it to your computer. It will then appear inside Cricut Design Space under your system fonts.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Here is what tends to work well for each kind of project:
+                </p>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    { name: "Window clings and vinyl decals", desc: "A bold font such as Metal Mania or Butcherman holds its shape during cutting. Thin or delicate letters often lose their detail at small sizes, so skip those." },
+                    { name: "Shirts using heat transfer", desc: "Nosifer or Creepster look great at a bigger size. Adding slightly more space between letters helps stop the cut edges from touching each other." },
+                    { name: "Pumpkin labels or party banners", desc: "Something playful like Henny Penny keeps the design fun and still easy to read from a few feet away." },
+                    { name: "Mugs and tumbler decals", desc: "Keep things simple. A plain gothic font at medium weight is your safest choice. Skip anything with a heavy drip effect, since that fine detail tends to vanish once the decal gets small." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
                       <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -607,10 +619,8 @@ export default function HalloweenFontsPage() {
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  <strong>Recommended Cricut workflow:</strong> browse the Halloween font styles in this generator to
-                  find the look you want, note the font name, then download that specific .ttf file from Google Fonts.
-                  Install it on your computer and access it through Cricut Design Space&apos;s system fonts list. This
-                  gives you fully editable, clean-cutting letterforms every time.
+                  This is really the one spot on this page where downloading a real font makes more sense than
+                  relying on pasted text.
                 </p>
               </article>
 
