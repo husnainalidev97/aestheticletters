@@ -9,6 +9,7 @@ import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
+import { copyToClipboard } from "../lib/clipboard";
 
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
@@ -21,7 +22,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "Halloween Fonts";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 2;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Blood Drip", "Cursed Script", "Skull Gothic", "Dark Ritual"]);
@@ -112,35 +113,7 @@ export default function HalloweenFontsClient() {
       copyTimerRef.current = setTimeout(() => setCopiedId(null), 2000);
     };
 
-    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-      navigator.clipboard.writeText(text).then(onSuccess).catch(() => {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "fixed";
-        textarea.style.left = "-9999px";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        try { document.execCommand("copy"); } catch { /* silent */ }
-        document.body.removeChild(textarea);
-        onSuccess();
-      });
-    } else {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.setAttribute("readonly", "");
-      textarea.style.position = "fixed";
-      textarea.style.left = "-9999px";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.focus();
-      textarea.select();
-      try { document.execCommand("copy"); } catch { /* silent */ }
-      document.body.removeChild(textarea);
-      onSuccess();
-    }
+    copyToClipboard(text, onSuccess);
   }, []);
 
   const decreaseSize = () => {
@@ -236,6 +209,7 @@ export default function HalloweenFontsClient() {
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
                 onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
+                initialVisibleStyles={3}
               />
             </div>
           ))}
