@@ -27,8 +27,9 @@ function getSnapshot(): FavoriteItem[] {
   return cache!;
 }
 
+const EMPTY_FAVORITES: FavoriteItem[] = [];
 function getServerSnapshot(): FavoriteItem[] {
-  return [];
+  return EMPTY_FAVORITES;
 }
 
 function persist(next: FavoriteItem[]) {

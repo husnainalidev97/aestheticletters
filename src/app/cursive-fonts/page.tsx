@@ -23,9 +23,10 @@ export const metadata: Metadata = {
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
       {
-        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
-        width: 896,
-        height: 1200,
+        url: "https://www.aestheticletters.com/cursive-fonts-og.webp",
+        width: 1200,
+        height: 624,
+        alt: "Cursive Fonts Generator by Aesthetic Letters — copy and paste handwritten text styles",
       },
     ],
     siteName: "Aesthetic Letters",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
-      "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+      "https://www.aestheticletters.com/cursive-fonts-og.webp",
     ],
   },
 };
@@ -77,39 +78,39 @@ const faqs = [
 
 const topFonts = [
   {
-    name: "Caveat",
+    name: "Cursive Script",
     description:
-      "A clean and simple cursive font. Great for everyday use and easy to read.",
+      "A flowing script style with connected letters. Great for elegant captions and bios.",
   },
   {
-    name: "Shadows Into Light",
+    name: "Bold Script",
     description:
-      "A light handwritten font that works well for captions and casual writing.",
+      "A heavier cursive look that stands out. Perfect for headings and strong statements.",
   },
   {
-    name: "Playwrite Ireland",
+    name: "Flourished Handwriting",
     description:
-      "An elegant style that feels slightly formal and neat.",
+      "Decorated with floral accents around each word. Ideal for quotes and invitations.",
   },
   {
-    name: "Italianno",
+    name: "Royal Script",
     description:
-      "Smooth and stylish. A good choice for invitations and creative designs.",
+      "An ornate calligraphy style with classic ornamental brackets. Great for formal designs.",
   },
   {
-    name: "Permanent Marker",
+    name: "Brush Stroke",
     description:
-      "A bold cursive font that looks strong and noticeable.",
+      "A bold italic style that mimics marker pen writing. Eye-catching for social media.",
   },
   {
-    name: "Indie Flower",
+    name: "Sparkle Script",
     description:
-      "A friendly and relaxed handwritten style, perfect for informal use.",
+      "Italic text wrapped with star decorations. Fun and playful for creative posts.",
   },
   {
-    name: "Rancho",
+    name: "Classic Italic",
     description:
-      "A classic script font with a slightly vintage feel.",
+      "A clean italic style with a vintage feel. Versatile and works everywhere.",
   },
 ];
 
@@ -188,6 +189,33 @@ export default function CursiveFontsPage() {
             text: faq.answer,
           },
         })),
+      },
+      {
+        "@type": "HowTo",
+        name: "How to Use This Cursive Text Generator in Seconds",
+        description:
+          "Using this cursive font generator is very simple. There is no need for technical knowledge. Just follow these quick steps to create cursive text instantly.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Type Your Word",
+            text: "Simply type or paste your words into the generator box above. It can be a name, caption, quote, or anything you want to convert.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Choose a Cursive Style",
+            text: "You will see multiple handwritten font styles, including simple cursive, bold cursive, and signature-style. Decide which one best suits your needs.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and Paste Anywhere",
+            text: "Once you like a style, copy the text and paste it anywhere. It works on Instagram, Facebook, WhatsApp, and many other platforms.",
+          },
+        ],
       },
     ],
   };
@@ -442,10 +470,10 @@ export default function CursiveFontsPage() {
               {/* Top 7 Handwritten Fonts */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 7 Handwritten Fonts That Work Everywhere
+                  Top 7 Cursive Styles That Work Everywhere
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are some of the best script typefaces that are simple,
+                  Here are some of the best cursive text styles that are simple,
                   readable, and widely used:
                 </p>
                 <div className="space-y-6">
