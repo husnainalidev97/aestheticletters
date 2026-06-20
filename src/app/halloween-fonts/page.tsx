@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -57,7 +58,7 @@ const faqs = [
   {
     question: "Can I use spooky fonts in Notion, Google Docs, or Microsoft Word?",
     answer:
-      "Notion handles Unicode paste cleanly; it is the most reliable of the three. Google Docs works well on screen but always run a print preview before printing, as rendering can shift. Microsoft Word is the trickiest: autocorrect can silently replace unusual characters with plain letters. Fix this by pasting your text, then pressing Ctrl+Z once followed by Ctrl+Y, which locks the characters before autocorrect processes them.",
+      "Notion handles pasted Unicode text the best out of the three platforms. It just works, with no extra steps needed.\n\nGoogle Docs also shows it correctly on screen. Just check print preview first, since printing can sometimes shift how the text looks.\n\nMicrosoft Word is the trickiest one. Its autocorrect feature can quietly swap unusual characters back to plain letters without telling you. To stop this, paste your text, then press Ctrl+Z once followed by Ctrl+Y right away. This locks the characters in place before autocorrect gets a chance to touch them.",
   },
   {
     question: "What is the best scary font for printed invitations or physical signage?",
@@ -184,11 +185,11 @@ export default function HalloweenFontsPage() {
           ]}
         />
         {/* Hero Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-16 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight leading-tight text-on-background mb-6">
-            Halloween Fonts: Copy &amp; Paste Spooky Text Styles
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Halloween Fonts - Copy &amp; Paste Spooky Text Styles
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Generate spooky Halloween fonts, creepy text styles, and scary copy-paste text instantly for Instagram,
             TikTok, Discord, Gaming, and Halloween-themed designs.
           </p>
@@ -223,6 +224,14 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Halloween Fonts?
                 </h2>
+                <Image
+                  src="/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp"
+                  alt="Halloween Fonts Generator - 75+ spooky, gothic, and creepy copy-paste text styles with blood drip, zalgo, skull, and cursed script effects"
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A halloween font is any decorative typeface or styled text designed to evoke the mood of Halloween;
                   think dripping blood, crumbling gothic stone, ghostly whispers, or jagged horror-movie lettering.
@@ -298,29 +307,19 @@ export default function HalloweenFontsPage() {
                   Spirit Halloween Font: What Font Do They Use?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  One of the most searched font names is the Spirit Halloween font in October, the typical
-                  lettering used by the iconic seasonal retail chain. Spirit Halloween uses a customized version of a
-                  condensed gothic serif style, closely resembling fonts like Bleeding Cowboys or a modified Blackletter
-                  with sharp angular serifs.
+                  Every October, people search for the Spirit Halloween font, the bold lettering used by the popular
+                  seasonal store. The exact font is made just for that brand, so it is not sold or shared anywhere.
+                  But you can get very close to the same look.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  While the exact brand text is proprietary, you can recreate a similar look using this tool:
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  In this tool, Graveyard Gothic gives you the closest match. It has the same heavy, cracked stone
+                  feel as the store&apos;s signs and bags. Copy it, paste it, and use it right away on your invites,
+                  posts, or any other seasonal design.
                 </p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    "UnifrakturMaguntia (Google Fonts): closest free match for the gothic weight",
-                    "Nosifer: if you want the drip effect layered over a similar style",
-                    "Metal Mania: for a slightly more modern, condensed interpretation",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  If you are designing Spirit Halloween-inspired seasonal content, combining one of these with a dark
-                  red or black color palette on a textured background gets very close to the original feel.
+                  If you want the real downloadable font file for print or design software, UnifrakturMaguntia is a
+                  free option on Google Fonts. It is not part of this tool, but it pairs well with
+                  a dark red or black background if you want a closer match to the original brand look.
                 </p>
               </article>
 
@@ -350,7 +349,7 @@ export default function HalloweenFontsPage() {
                     { name: "Bat Wing", desc: "thin sharp lettering evoking vampire/bat imagery. Works especially well for TikTok usernames and gaming identities." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -369,7 +368,7 @@ export default function HalloweenFontsPage() {
                     { name: "Moonlight Cursive", desc: "smooth flowing script with a nighttime mystery feeling. A top pick for Halloween wedding invitations and stylish Instagram bios." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -388,7 +387,7 @@ export default function HalloweenFontsPage() {
 
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -407,7 +406,7 @@ export default function HalloweenFontsPage() {
                     { name: "Blood Rain", desc: "combines icon decoration with strikethrough effects for a bleeding digital look. Best for tech-horror aesthetics and streaming branding." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong>: {s.desc}</span>
                     </li>
                   ))}
@@ -472,21 +471,17 @@ export default function HalloweenFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">YouTube and Streaming</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For Twitch and YouTube, copy-paste spooky text styles work well in channel descriptions, community
-                  posts, about sections, and stream chat, anywhere text is typed and displayed as-is.
+                  Copy and paste Halloween text works well anywhere typed text shows up, like channel descriptions,
+                  community posts, and stream chat.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For thumbnails and stream overlays, you have two good options: use the Google Fonts styles from
-                  the{" "}
-                  <Link href="/" className="text-primary underline underline-offset-4 hover:no-underline">
-                    Aesthetic Letters
-                  </Link>{" "}
-                  as copy-paste text in thumbnail tools that support it, or download the .ttf
-                  file for full sizing and color control in software like Photoshop or Canva&apos;s advanced design mode.
+                  For thumbnails or overlays where you need a fixed background image, a downloaded font gives more
+                  control over size and color. This works well in design software like Photoshop or Canva, where you
+                  can adjust the size, color, and spacing exactly how you want.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Either way, start with the copy-paste version, it works for more thumbnail builders than most
-                  people expect.
+                  Try the pasted style first. It works in more thumbnail tools than people expect, and you only need
+                  a downloaded font for advanced overlay work.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">WhatsApp, Telegram, and Messaging Apps</h3>
@@ -539,56 +534,43 @@ export default function HalloweenFontsPage() {
                   Halloween Fonts in Canva: A Practical Workflow
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Canva is the tool most people reach for when creating Halloween graphics, and the good news
-                  is that you have more options than most guides suggest, including Google Fonts as copy-paste, which
-                  most people do not know about.
+                  Canva is the easiest place to use your Halloween text once you have it ready. Here is the simple
+                  way to do it.
                 </p>
 
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 1: Try Copy-Paste Styles First (Including Google Fonts)</h3>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 1: Copy and Paste First</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Before you touch Canva&apos;s font upload feature, generate your halloween text from this tool. This
-                  includes both Unicode styles and real Google Fonts available as instant copy-paste, no downloading,
-                  no uploading, no Brand Kit setup needed.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Simply paste the generated text directly into a Canva text box. This approach works excellently for:
+                  Generate your Halloween text in this tool, then copy it. Open Canva, click on a text box, and paste
+                  your styled text straight in. No upload, no font install, no Brand Kit setup needed.
+                  This works great for:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "Instagram Story overlays and Reel cover text",
+                    "Instagram Story overlays and Reel covers",
                     "YouTube thumbnail headers",
-                    "Party invitation titles and event graphics",
-                    "Presentation slide headings",
-                    "Social media post captions and quote cards",
+                    "Party invitation titles",
+                    "Presentation slide titles",
+                    "Captions and quote cards",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {item}
                     </li>
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This is the fastest workflow for most Halloween Canva projects, and it covers the majority of use
-                  cases. Google Font styles from the generator paste cleanly and render correctly in Canva without
-                  any file management.
+                  This one step covers most Halloween design needs and takes only a few seconds.
                 </p>
 
-                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only When You Need Advanced Design Control</h3>
+                <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Step 2: Download Only If You Need More Control</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  There are specific situations where a downloaded .ttf font file genuinely gives you more than the
-                  copy-paste version can, mainly when you need precise kerning control, custom stroke effects,
-                  or colour gradients applied directly to letterforms in Canva&apos;s element editor.
+                  Some advanced Canva tools, like custom stroke effects or color gradients on letters, only work with
+                  a real font file, not pasted text. If you need that level of control, you can download a font like
+                  Creepster or Nosifer for free from Google Fonts and add it through Canva&apos;s
+                  Brand Kit.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  In those cases, download your chosen font
-                  (Creepster, Nosifer, etc.) from Google Fonts as a .ttf file and upload it via Canva&apos;s Brand Kit.
-                  But treat this as the step you take when the copy-paste version does not give you the design control
-                  you need, not as the default starting point.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  The most efficient Halloween Canva workflow: generate and paste your text style from the Aesthetic
-                  Letters first. If you need more control over the letterforms for a complex print-ready design, then
-                  download the font file as your second step.
+                  Start with copy and paste. Only move to a downloaded font if your design truly needs it.
                 </p>
               </article>
 
@@ -598,37 +580,47 @@ export default function HalloweenFontsPage() {
                   Creepy Fonts on Cricut: What Actually Works
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Cricut users run into a specific challenge that most font guides skip over: Unicode copy-paste text
-                  does not cut cleanly in Cricut Design Space. The Design Space application treats Unicode symbols as
-                  individual image glyphs rather than editable font paths, which means you cannot resize them for
-                  cutting without quality loss.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  For Cricut projects specifically, the workflow is different from social media use. Here the download
-                  step becomes necessary but you can still use this generator as your starting point to identify which
-                  font style you want, then download only that font for cutting.
+                  Cricut works differently than social media, and most guides skip this part. Unicode text does not
+                  cut well inside Cricut Design Space. The app treats each styled character like a tiny picture instead
+                  of a true letter shape, so stretching or shrinking it for cutting often turns out blurry or rough
+                  around the edges.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Here is what works best by project type:
+                  Because of this, Cricut work calls for a real font file, not pasted text. Here is the easiest way
+                  to handle it:
                 </p>
                 <ul className="space-y-3 mb-6">
                   {[
-                    { name: "Vinyl stickers and window decals", desc: "Bold, high-contrast fonts like Metal Mania or Butcherman. Avoid thin serifs that lose detail when cut small." },
-                    { name: "T-shirt heat transfer", desc: "Nosifer or Creepster at large sizes work excellently. Keep letter spacing slightly wider than default to prevent cuts from overlapping." },
-                    { name: "Pumpkin labels and party banners", desc: "Henny Penny or Carved Pumpkin-inspired styles for festive, readable results." },
-                    { name: "Mug and tumbler decals", desc: "Simple gothic styles at medium weight. Avoid Blood Drip styles for small decals since the drip detail disappears below about 0.5 inches." },
+                    "Use this tool to try a few Halloween styles and pick the look you like best.",
+                    "Write down the name of a real font that matches that look.",
+                    "Visit Google Fonts and grab that font for free.",
+                    "Add it to your computer. It will then appear inside Cricut Design Space under your system fonts.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                  Here is what tends to work well for each kind of project:
+                </p>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    { name: "Window clings and vinyl decals", desc: "A bold font such as Metal Mania or Butcherman holds its shape during cutting. Thin or delicate letters often lose their detail at small sizes, so skip those." },
+                    { name: "Shirts using heat transfer", desc: "Nosifer or Creepster look great at a bigger size. Adding slightly more space between letters helps stop the cut edges from touching each other." },
+                    { name: "Pumpkin labels or party banners", desc: "Something playful like Henny Penny keeps the design fun and still easy to read from a few feet away." },
+                    { name: "Mugs and tumbler decals", desc: "Keep things simple. A plain gothic font at medium weight is your safest choice. Skip anything with a heavy drip effect, since that fine detail tends to vanish once the decal gets small." },
                   ].map((s) => (
                     <li key={s.name} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       <span><strong>{s.name}</strong> - {s.desc}</span>
                     </li>
                   ))}
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  <strong>Recommended Cricut workflow:</strong> browse the Halloween font styles in this generator to
-                  find the look you want, note the font name, then download that specific .ttf file from Google Fonts.
-                  Install it on your computer and access it through Cricut Design Space&apos;s system fonts list. This
-                  gives you fully editable, clean-cutting letterforms every time.
+                  This is really the one spot on this page where downloading a real font makes more sense than
+                  relying on pasted text.
                 </p>
               </article>
 
@@ -674,7 +666,7 @@ export default function HalloweenFontsPage() {
                     "Resist using spooky fonts year-round for seasonal branding. The impact comes from context. A halloween font in July just looks like a design mistake.",
                   ].map((tip) => (
                     <li key={tip} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <span className="material-symbols-outlined text-primary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">check_circle</span>
+                      <svg className="w-4 h-4 text-primary mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                       {tip}
                     </li>
                   ))}
@@ -697,18 +689,20 @@ export default function HalloweenFontsPage() {
               useCasesContent={
                 <>
                   <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Many well-known Google Fonts are available as instant copy-paste styles directly inside this
-                    generator. No download, no installation, no design software required.
+                    If you have come across these font names while searching for Halloween fonts, here is a quick look
+                    at each one and where to find it. These are real font files you can download for free from{" "}
+                    <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 hover:no-underline">Google Fonts</a>.
+                    They live outside this tool, completely separate from the Unicode styles you see here.
                   </p>
                   <div className="space-y-3">
                     {[
-                      { name: "Creepster", desc: "Rounded cartoon horror, great for kids' Halloween content" },
-                      { name: "Nosifer", desc: "Dripping horror lettering, the go-to drip font for posters" },
-                      { name: "Eater", desc: "Scratchy, unsettling strokes; atmospheric horror" },
-                      { name: "Metal Mania", desc: "Sharp, heavy metal-inspired; gaming and dark branding" },
-                      { name: "UnifrakturMaguntia", desc: "Authentic gothic blackletter; graveyard themes" },
-                      { name: "Butcherman", desc: "Distressed fairground horror; event banners" },
-                      { name: "Henny Penny", desc: "Playful storybook spooky; school projects" },
+                      { name: "Creepster", desc: "Rounded, cartoon horror look that works well for kids' parties and school projects." },
+                      { name: "Nosifer", desc: "The classic dripping font people reach for when making horror posters." },
+                      { name: "Eater", desc: "Scratchy, rough edge that feels old and a little unsettling." },
+                      { name: "Metal Mania", desc: "Sharp and bold, a popular pick for gaming graphics and darker branding." },
+                      { name: "UnifrakturMaguntia", desc: "True gothic blackletter style, often used for graveyard or cemetery themes." },
+                      { name: "Butcherman", desc: "Worn, carnival horror feel that suits event banners and flyers." },
+                      { name: "Henny Penny", desc: "Playful and storybook-like, a nice fit for younger audiences and school events." },
                     ].map((font) => (
                       <div key={font.name} className="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                         <p className="font-headline font-bold text-sm mb-0.5">{font.name}</p>
@@ -717,8 +711,9 @@ export default function HalloweenFontsPage() {
                     ))}
                   </div>
                   <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    All of the above are available as free spooky fonts copy paste styles. Some can also be imported
-                    into Canva via Brand Kit or uploaded to Cricut Design Space.
+                    If you like these looks but do not want to download anything, this tool has Unicode styles that
+                    bring a similar feel. Graveyard Gothic, Blood Drip, and Skull Gothic are good places to start,
+                    and they are ready to copy and paste right away.
                   </p>
                 </>
               }

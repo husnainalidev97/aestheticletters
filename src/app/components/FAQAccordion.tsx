@@ -54,8 +54,10 @@ export default function FAQAccordion({
               }}
             >
               <div className="overflow-hidden">
-                <div className="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                  {faq.answer}
+                <div className="px-8 pb-8 text-on-surface-variant leading-relaxed space-y-4">
+                  {faq.answer.split("\n\n").map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
                 </div>
               </div>
             </div>
