@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// Exclusive Unicode Cursive Transforms for the Cursive Fonts page
-// These do NOT duplicate any transforms from fontStyles.ts (Home/Fancy pages)
+// Unicode Cursive / Handwritten / Script Transforms for the Cursive Fonts page
+// All styles are pure Unicode — no Google Fonts dependency
 // ---------------------------------------------------------------------------
 
 export interface UnicodeStyle {
@@ -8,7 +8,7 @@ export interface UnicodeStyle {
   transform: (text: string) => string;
 }
 
-// ── Helpers (same signatures as fontStyles.ts, used in unique combos) ─────
+// ── Helpers ─────────────────────────────────────────────────────────────────
 
 function buildMap(
   upperStart: number,
@@ -33,190 +33,278 @@ function withCombining(text: string, combining: string[]): string {
   return [...text].map((c) => (c === " " ? c : c + suffix)).join("");
 }
 
-// ── Character Maps (reused in UNIQUE combinations not found on Home page) ─
+function withWordFlourish(text: string, start: string, end: string): string {
+  const words = text.split(" ");
+  return words.map((w) => (w.length === 0 ? w : `${start}${w}${end}`)).join(" ");
+}
+
+function withFrame(text: string, left: string, right: string): string {
+  return `${left} ${text} ${right}`;
+}
+
+// ── Character Maps ──────────────────────────────────────────────────────────
+
+const scriptMap = buildMap(0x1d49c, 0x1d4b6, {
+  B: "\u212C", E: "\u2130", F: "\u2131",
+  H: "\u210B", I: "\u2110", L: "\u2112",
+  M: "\u2133", R: "\u211B",
+  e: "\u212F", g: "\u210A", o: "\u2134",
+});
 
 const boldScriptMap = buildMap(0x1d4d0, 0x1d4ea);
 const italicMap = buildMap(0x1d434, 0x1d44e, { h: "\u210E" });
-const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
-  C: "\u2102",
-  H: "\u210D",
-  N: "\u2115",
-  P: "\u2119",
-  Q: "\u211A",
-  R: "\u211D",
-  Z: "\u2124",
-});
-const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
 const boldItalicMap = buildMap(0x1d468, 0x1d482);
-const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
 const boldMap = buildMap(0x1d400, 0x1d41a);
+const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
 const sansSerifBoldMap = buildMap(0x1d5d4, 0x1d5ee);
+const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
+const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
+  C: "\u2102", H: "\u210D", N: "\u2115",
+  P: "\u2119", Q: "\u211A", R: "\u211D", Z: "\u2124",
+});
 
-// ── Flourish helpers (Unicode ornamental symbols for word-level decoration) ─
+// ── Decorative Symbols ──────────────────────────────────────────────────────
 
-const FLORAL_HEART = "\u2766"; // ❦
-const ROTATED_FLORAL = "\u2767"; // ❧
-const FOUR_STAR = "\u2726"; // ✦
-const FLOWER_PUNCT = "\u2055"; // ⁕
+const FLORAL_HEART = "\u2766";
+const ROTATED_FLORAL = "\u2767";
+const FOUR_STAR = "\u2726";
+const FLOWER_PUNCT = "\u2055";
+const HEART = "\u2661";
+const STAR = "\u22C6";
+const DIAMOND = "\u25C7";
+const SPARKLE = "\u2727";
+const BULLET_FLOWER = "\u2740";
+const JP_LEFT = "\u300E";
+const JP_RIGHT = "\u300F";
 
-function withWordFlourish(
-  text: string,
-  start: string,
-  end: string,
-): string {
-  const words = text.split(" ");
-  return words
-    .map((w) => (w.length === 0 ? w : `${start}${w}${end}`))
-    .join(" ");
-}
+// ── Transforms per category ─────────────────────────────────────────────────
 
-// ── Transforms per card (every combo verified unique vs fontStyles.ts) ────
+export const cursiveCategories = [
+  "Handwriting Cursive",
+  "Playful Script",
+  "Elegant Cursive",
+  "Brush & Marker",
+  "School & Guides",
+  "Chunky Fun",
+  "Retro Vintage",
+  "Cultural Brush",
+] as const;
 
 export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
-  // ── Handwriting Cursive ──
-  // User: "Combining Macrons or Low Lines for connected script look"
-  // Home uses \u0332 only with boldMap/italicMap, never on plain text alone
+
   "Handwriting Cursive": [
     {
-      name: "Connected Underline",
-      // Plain text + combining low line → continuous baseline connection
-      transform: (t) => withCombining(t, ["\u0332"]),
+      name: "Cursive Script",
+      transform: (t) => applyMap(t, scriptMap),
     },
     {
-      name: "Macron Script",
-      // Plain text + combining macron above → smooth top line
+      name: "Connected Baseline",
+      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0332"]),
+    },
+    {
+      name: "Smooth Overline",
       transform: (t) => withCombining(t, ["\u0304"]),
     },
     {
       name: "Flourished Handwriting",
-      // Plain text + macron + word-level floral flourishes
-      transform: (t) =>
-        withWordFlourish(withCombining(t, ["\u0304"]), FLORAL_HEART, ROTATED_FLORAL),
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), FLORAL_HEART, ROTATED_FLORAL),
+    },
+    {
+      name: "Soft Cursive",
+      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0303"]),
+    },
+    {
+      name: "Dotted Writing",
+      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0323"]),
     },
   ],
 
-  // ── Playful Script ──
-  // Bouncy, fun feel using sans-serif italic (not combined this way on Home)
   "Playful Script": [
     {
       name: "Bouncy Italic",
-      // Sans-serif italic — clean mobile-safe cursive
       transform: (t) => applyMap(t, sansSerifItalicMap),
     },
     {
-      name: "Sparkle Play",
-      // Sans-serif italic + sparkle word flourishes
-      transform: (t) =>
-        withWordFlourish(applyMap(t, sansSerifItalicMap), FOUR_STAR, FOUR_STAR),
+      name: "Sparkle Script",
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifItalicMap), FOUR_STAR, FOUR_STAR),
+    },
+    {
+      name: "Star Bounce",
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), STAR, STAR),
+    },
+    {
+      name: "Bubbly Cursive",
+      transform: (t) => withFrame(applyMap(t, boldScriptMap), JP_LEFT, JP_RIGHT),
+    },
+    {
+      name: "Playful Waves",
+      transform: (t) => withCombining(applyMap(t, sansSerifItalicMap), ["\u0303"]),
+    },
+    {
+      name: "Candy Script",
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), BULLET_FLOWER, BULLET_FLOWER),
     },
   ],
 
-  // ── Elegant Cursive ──
-  // User: "Script Bold or Hook Above for calligraphy feel"
-  // Home uses boldScriptMap but never with hook above or ogonek
   "Elegant Cursive": [
     {
-      name: "Hook Calligraphy",
-      // Bold script — natively cursive, mobile-safe
+      name: "Calligraphy",
       transform: (t) => applyMap(t, boldScriptMap),
     },
     {
-      name: "Ogonek Elegance",
-      // Bold script + floral word flourishes for elegance
-      transform: (t) =>
-        withWordFlourish(applyMap(t, boldScriptMap), FLORAL_HEART, ROTATED_FLORAL),
+      name: "Royal Script",
+      transform: (t) => withFrame(applyMap(t, boldScriptMap), "\uA9C1", "\uA9C2"),
     },
     {
-      name: "Flourished Elegance",
-      // Bold script + star flourishes at word boundaries
-      transform: (t) =>
-        withWordFlourish(applyMap(t, boldScriptMap), FOUR_STAR, FOUR_STAR),
+      name: "Flourished Calligraphy",
+      transform: (t) => withWordFlourish(applyMap(t, boldScriptMap), FLORAL_HEART, ROTATED_FLORAL),
+    },
+    {
+      name: "Diamond Elegance",
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), DIAMOND, DIAMOND),
+    },
+    {
+      name: "Regal Cursive",
+      transform: (t) => withFrame(applyMap(t, boldItalicMap), SPARKLE, SPARKLE),
+    },
+    {
+      name: "Gilded Script",
+      transform: (t) => withWordFlourish(applyMap(t, boldScriptMap), FOUR_STAR, FOUR_STAR),
     },
   ],
 
-  // ── Brush & Marker ──
-  // Bold italic + caron and bold + circumflex — not used on Home page
   "Brush & Marker": [
     {
-      name: "Brush Accent",
-      // Bold italic — naturally brush-like, mobile-safe
+      name: "Brush Stroke",
       transform: (t) => applyMap(t, boldItalicMap),
     },
     {
-      name: "Marker Crown",
-      // Bold + star crown flourishes per word
-      transform: (t) =>
-        withWordFlourish(applyMap(t, boldMap), FOUR_STAR, FOUR_STAR),
+      name: "Heavy Brush",
+      transform: (t) => applyMap(t, sansSerifBoldItalicMap),
+    },
+    {
+      name: "Brush Underline",
+      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]),
+    },
+    {
+      name: "Marker Bold",
+      transform: (t) => withWordFlourish(applyMap(t, boldMap), FOUR_STAR, FOUR_STAR),
+    },
+    {
+      name: "Paint Splash",
+      transform: (t) => withWordFlourish(applyMap(t, boldItalicMap), BULLET_FLOWER, BULLET_FLOWER),
+    },
+    {
+      name: "Ink Flow",
+      transform: (t) => withCombining(applyMap(t, sansSerifBoldItalicMap), ["\u0304"]),
     },
   ],
 
-  // ── School & Guides ──
-  // User: "Cursive with Underline or Dot Above to mimic worksheets"
   "School & Guides": [
     {
       name: "Dotted Guide",
-      // Plain text + dot above + underline → worksheet-style dotted with baseline
       transform: (t) => withCombining(t, ["\u0307", "\u0332"]),
     },
     {
       name: "Double Baseline",
-      // Plain text + double low line → heavy practice-line guides
       transform: (t) => withCombining(t, ["\u0333"]),
+    },
+    {
+      name: "Practice Cursive",
+      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0332"]),
+    },
+    {
+      name: "Worksheet Style",
+      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0307"]),
+    },
+    {
+      name: "Guideline Writing",
+      transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]),
+    },
+    {
+      name: "Ruled Script",
+      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0333"]),
     },
   ],
 
-  // ── Chunky Fun ──
-  // User: "Double-Struck variant that isn't standard — bold and handwritten"
-  // Home uses doubleStruckMap plain + with ring/cedilla. These combos are new.
   "Chunky Fun": [
     {
-      name: "Bold Underlined",
-      // Sans-serif bold — heavy professional look, mobile-safe
+      name: "Bold Block",
       transform: (t) => applyMap(t, sansSerifBoldMap),
     },
     {
-      name: "Bold Macron",
-      // Sans-serif bold + line flourishes per word
-      transform: (t) =>
-        withWordFlourish(applyMap(t, sansSerifBoldMap), "\u2500", "\u2500"),
+      name: "Chunky Lined",
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifBoldMap), "\u2500", "\u2500"),
     },
     {
-      name: "Chunky Flourish",
-      // Double-struck + flower punctuation flourishes (no combining marks)
-      transform: (t) =>
-        withWordFlourish(applyMap(t, doubleStruckMap), FLOWER_PUNCT, FLOWER_PUNCT),
+      name: "Fun Double-Struck",
+      transform: (t) => withWordFlourish(applyMap(t, doubleStruckMap), FLOWER_PUNCT, FLOWER_PUNCT),
+    },
+    {
+      name: "Block Star",
+      transform: (t) => withWordFlourish(applyMap(t, boldMap), STAR, STAR),
+    },
+    {
+      name: "Heavy Accent",
+      transform: (t) => withCombining(applyMap(t, sansSerifBoldMap), ["\u0306"]),
+    },
+    {
+      name: "Chunky Hearts",
+      transform: (t) => withWordFlourish(applyMap(t, doubleStruckMap), HEART, HEART),
     },
   ],
 
-  // ── Retro Vintage ──
-  // User: "Italic with Combining Overline to mimic old-school signatures"
-  // Home uses italicMap but never with overline or double overline
   "Retro Vintage": [
     {
-      name: "Overline Italic",
-      // Italic — clean vintage signature look, mobile-safe
+      name: "Classic Italic",
       transform: (t) => applyMap(t, italicMap),
     },
     {
-      name: "Classic Overscript",
-      // Italic + retro floral flourishes per word
-      transform: (t) =>
-        withWordFlourish(applyMap(t, italicMap), ROTATED_FLORAL, ROTATED_FLORAL),
+      name: "Vintage Flourish",
+      transform: (t) => withWordFlourish(applyMap(t, italicMap), ROTATED_FLORAL, ROTATED_FLORAL),
+    },
+    {
+      name: "Old Script",
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), ROTATED_FLORAL, ROTATED_FLORAL),
+    },
+    {
+      name: "Signature Line",
+      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0304"]),
+    },
+    {
+      name: "Retro Stars",
+      transform: (t) => withWordFlourish(applyMap(t, italicMap), SPARKLE, SPARKLE),
+    },
+    {
+      name: "Antique Cursive",
+      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0305"]),
     },
   ],
 
-  // ── Cultural Brush ──
-  // Sans-serif bold italic + tilde (Home uses tilde only with italicMap)
   "Cultural Brush": [
     {
-      name: "Tilde Brush",
-      // Sans-serif bold italic — flowing brush look, mobile-safe
-      transform: (t) => applyMap(t, sansSerifBoldItalicMap),
+      name: "Flowing Brush",
+      transform: (t) => withCombining(applyMap(t, sansSerifBoldItalicMap), ["\u0303"]),
     },
     {
       name: "Horn Script",
-      // Plain text + combining horn → unique decorative hooks
       transform: (t) => withCombining(t, ["\u031B"]),
+    },
+    {
+      name: "Eastern Script",
+      transform: (t) => withFrame(applyMap(t, scriptMap), JP_LEFT, JP_RIGHT),
+    },
+    {
+      name: "Tibetan Flow",
+      transform: (t) => withFrame(applyMap(t, scriptMap), "\u0F3C", "\u0F3D"),
+    },
+    {
+      name: "Ink Calligraphy",
+      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0304"]),
+    },
+    {
+      name: "Global Pen",
+      transform: (t) => withCombining(applyMap(t, sansSerifItalicMap), ["\u030A"]),
     },
   ],
 };

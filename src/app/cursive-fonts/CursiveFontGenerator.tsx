@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
-import { cursiveUnicodeStyles } from "./cursiveUnicodeStyles";
+import { cursiveUnicodeStyles, cursiveCategories } from "./cursiveUnicodeStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
@@ -11,19 +11,6 @@ import TextHistory from "../components/TextHistory";
 
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
-
-/* ── Font data types ─────────────────────────────────────────────────── */
-
-interface FontEntry {
-  name: string;
-  family: string;
-}
-
-interface FontCard {
-  category: string;
-  pill: string;
-  fonts: FontEntry[];
-}
 
 /* ── Constants ───────────────────────────────────────────────────────── */
 
@@ -48,11 +35,7 @@ const CURSIVE_EMOJIS: Record<string, string> = {
 
 /* ── Component ───────────────────────────────────────────────────────── */
 
-export default function CursiveFontGenerator({
-  fontCards,
-}: {
-  fontCards: FontCard[];
-}) {
+export default function CursiveFontGenerator() {
   const [inputText, setInputText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -68,9 +51,10 @@ export default function CursiveFontGenerator({
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const visibleCards = showAll
-    ? fontCards
-    : fontCards.slice(0, INITIAL_COUNT);
+  const categories = cursiveCategories as unknown as string[];
+  const visibleCategories = showAll
+    ? categories
+    : categories.slice(0, INITIAL_COUNT);
 
   const activeText = inputText.trim() || "Cursive Fonts";
 
@@ -228,10 +212,10 @@ export default function CursiveFontGenerator({
             </div>
           </div>
           <CategoryJumpLinks
-            categories={fontCards.map((card) => ({
-              label: card.category,
-              emoji: CURSIVE_EMOJIS[card.category] || "\u2726",
-              id: `cat-${slugify(card.category)}`,
+            categories={categories.map((cat) => ({
+              label: cat,
+              emoji: CURSIVE_EMOJIS[cat] || "\u2726",
+              id: `cat-${slugify(cat)}`,
             }))}
             onExpandAll={() => setShowAll(true)}
           />
@@ -253,56 +237,49 @@ export default function CursiveFontGenerator({
         </div>
       </section>
 
-      {/* Font Category Cards — Progressive loading */}
+      {/* Unicode Style Category Cards — Progressive loading */}
       <section
         id={RESULTS_ID}
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleCards.map((card) => (
+          {visibleCategories.map((category) => (
             <div
-              key={card.category}
-              id={`cat-${slugify(card.category)}`}
+              key={category}
+              id={`cat-${slugify(category)}`}
               className="animate-card-fade-in scroll-mt-28"
               style={{ contentVisibility: "auto", containIntrinsicSize: "auto 500px" }}
             >
               <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                 <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
-                  {card.category}
+                  {category}
                 </strong>
                 <div className="space-y-3">
-                  {/* Google Font entries */}
-                  {card.fonts.map((font) => {
-                    const styleId = `${card.category}-${font.name}`;
+                  {(cursiveUnicodeStyles[category] ?? []).map((style) => {
+                    const styleId = `${category}-${style.name}`;
                     const isCopied = copiedId === styleId;
+                    const transformed = style.transform(activeText);
 
                     return (
                       <div
-                        key={font.name}
+                        key={style.name}
                         className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 gap-3 sm:gap-0 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
                       >
                         <div className="flex flex-col gap-1 min-w-0 flex-1 sm:mr-4">
-                          <span
-                            className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
-                            aria-label={`${card.category} \u2013 ${font.name} font style`}
-                          >
-                            {font.name}
+                          <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high">
+                            {style.name}
                           </span>
                           <div
                             aria-hidden="true"
                             className="font-body break-all overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text min-h-[1.5em]"
-                            style={{
-                              fontSize: `${fontSize}px`,
-                              lineHeight: 1.5,
-                              fontFamily: `'${font.family}', cursive`,
-                            }}
+                            style={{ fontSize: `${fontSize}px`, lineHeight: 1.5 }}
                           >
-                            {activeText}
+                            {transformed}
                           </div>
                         </div>
                         <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
                           <button
-                            onClick={() => setPreviewText(activeText)}
+                            onClick={() => setPreviewText(transformed)}
                             className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
                             aria-label="Preview on platform"
                             title="Preview on platform"
@@ -311,7 +288,7 @@ export default function CursiveFontGenerator({
                             <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
                           </button>
                           <button
-                            onClick={() => setDownloadInfo({ text: activeText, styleName: font.name })}
+                            onClick={() => setDownloadInfo({ text: transformed, styleName: style.name })}
                             className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
                             aria-label="Download as image"
                             title="Download as image"
@@ -319,9 +296,9 @@ export default function CursiveFontGenerator({
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                             <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
                           </button>
-                          <ShareButtons text={activeText} />
+                          <ShareButtons text={transformed} />
                           <button
-                            onClick={() => toggleFavorite({ id: styleId, styleName: font.name, categoryName: card.category, text: activeText })}
+                            onClick={() => toggleFavorite({ id: styleId, styleName: style.name, categoryName: category, text: transformed })}
                             className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
                               isFavorite(styleId)
                                 ? "text-[#ef4444]"
@@ -337,11 +314,11 @@ export default function CursiveFontGenerator({
                             <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                           </button>
                           <button
-                            onClick={() => handleCopy(activeText, styleId)}
+                            onClick={() => handleCopy(transformed, styleId)}
                             aria-label={
                               isCopied
-                                ? `Copied ${font.name} styled text`
-                                : `Copy ${font.name} ${card.category} styled text`
+                                ? `Copied ${style.name} cursive text`
+                                : `Copy ${style.name} cursive text to clipboard`
                             }
                             className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                               isCopied
@@ -360,94 +337,6 @@ export default function CursiveFontGenerator({
                       </div>
                     );
                   })}
-
-                  {/* Unicode transform entries */}
-                  {(cursiveUnicodeStyles[card.category] ?? []).map(
-                    (style) => {
-                      const uStyleId = `${card.category}-unicode-${style.name}`;
-                      const isUCopied = copiedId === uStyleId;
-                      const transformed = style.transform(activeText);
-
-                      return (
-                        <div
-                          key={style.name}
-                          className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 gap-3 sm:gap-0 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
-                        >
-                          <div className="flex flex-col gap-1 min-w-0 flex-1 sm:mr-4">
-                            <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high">
-                              {style.name}
-                            </span>
-                            <div
-                              aria-hidden="true"
-                              className="font-body break-all overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text min-h-[1.5em]"
-                              style={{ fontSize: `${fontSize}px`, lineHeight: 1.5 }}
-                            >
-                              {transformed}
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
-                            <button
-                              onClick={() => setPreviewText(transformed)}
-                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
-                              aria-label="Preview on platform"
-                              title="Preview on platform"
-                            >
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
-                              <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
-                            </button>
-                            <button
-                              onClick={() => setDownloadInfo({ text: transformed, styleName: style.name })}
-                              className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
-                              aria-label="Download as image"
-                              title="Download as image"
-                            >
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-                              <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
-                            </button>
-                            <ShareButtons text={transformed} />
-                            <button
-                              onClick={() => toggleFavorite({ id: uStyleId, styleName: style.name, categoryName: card.category, text: transformed })}
-                              className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
-                                isFavorite(uStyleId)
-                                  ? "text-[#ef4444]"
-                                  : "text-on-surface-variant hover:text-[#ef4444]"
-                              }`}
-                              aria-label={isFavorite(uStyleId) ? "Remove from favorites" : "Add to favorites"}
-                            >
-                              {isFavorite(uStyleId) ? (
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                              ) : (
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                              )}
-                              <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(uStyleId) ? "Saved" : "Save"}</span>
-                            </button>
-                            <button
-                              onClick={() =>
-                                handleCopy(transformed, uStyleId)
-                              }
-                              aria-label={
-                                isUCopied
-                                  ? `Copied ${style.name} cursive text`
-                                  : `Copy ${style.name} cursive text to clipboard`
-                              }
-                              className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
-                                isUCopied
-                                  ? "bg-[#22c55e] text-white"
-                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
-                              }`}
-                            >
-                              {isUCopied ? (
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                              ) : (
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                              )}
-                              <span className="text-[0.55rem] leading-none mt-0.5">{isUCopied ? "Done" : "Copy"}</span>
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    },
-                  )}
                 </div>
               </div>
             </div>
@@ -455,7 +344,7 @@ export default function CursiveFontGenerator({
         </div>
 
         {/* Explore More Button — loads remaining categories */}
-        {!showAll && fontCards.length > INITIAL_COUNT && (
+        {!showAll && categories.length > INITIAL_COUNT && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
@@ -487,9 +376,7 @@ export default function CursiveFontGenerator({
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          {copiedId?.includes("-unicode-")
-            ? "Text Copied to Clipboard"
-            : "Font Name Copied to Clipboard"}
+          Text Copied to Clipboard
         </div>
       )}
 

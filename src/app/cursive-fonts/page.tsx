@@ -4,7 +4,6 @@ import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
-import CursiveGoogleFontsLoader from "./CursiveGoogleFontsLoader";
 import CursiveFontGenerator from "./CursiveFontGeneratorLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -114,100 +113,6 @@ const topFonts = [
   },
 ];
 
-const fontCards = [
-  {
-    category: "Handwriting Cursive",
-    pill: "Handwriting",
-    fonts: [
-      { name: "Playwrite Ireland", family: "Playwrite Ireland" },
-      { name: "Caveat", family: "Caveat" },
-      { name: "Shadows Into Light", family: "Shadows Into Light" },
-      { name: "Indie Flower", family: "Indie Flower" },
-      { name: "Patrick Hand", family: "Patrick Hand" },
-      { name: "Handlee", family: "Handlee" },
-    ],
-  },
-  {
-    category: "Playful Script",
-    pill: "Playful",
-    fonts: [
-      { name: "Kalam", family: "Kalam" },
-      { name: "Amatic SC", family: "Amatic SC" },
-      { name: "Gloria Hallelujah", family: "Gloria Hallelujah" },
-      { name: "Reenie Beanie", family: "Reenie Beanie" },
-      { name: "Sriracha", family: "Sriracha" },
-      { name: "Ms Madi", family: "Ms Madi" },
-    ],
-  },
-  {
-    category: "Elegant Cursive",
-    pill: "Elegant",
-    fonts: [
-      { name: "Italianno", family: "Italianno" },
-      { name: "Nothing You Could Do", family: "Nothing You Could Do" },
-      { name: "Cedarville Cursive", family: "Cedarville Cursive" },
-      { name: "Sue Ellen Francisco", family: "Sue Ellen Francisco" },
-      { name: "Mr De Haviland", family: "Mr De Haviland" },
-      { name: "Mr Dafoe", family: "Mr Dafoe" },
-    ],
-  },
-  {
-    category: "Brush & Marker",
-    pill: "Brush",
-    fonts: [
-      { name: "Permanent Marker", family: "Permanent Marker" },
-      { name: "Caveat Brush", family: "Caveat Brush" },
-      { name: "Nanum Brush Script", family: "Nanum Brush Script" },
-      { name: "Lacquer", family: "Lacquer" },
-      { name: "Vibur", family: "Vibur" },
-      { name: "Sedgwick Ave Display", family: "Sedgwick Ave Display" },
-    ],
-  },
-  {
-    category: "School & Guides",
-    pill: "School",
-    fonts: [
-      { name: "Playwrite Perú", family: "Playwrite Peru" },
-      { name: "Playwrite Việt Nam Guides", family: "Playwrite VN Guides" },
-      { name: "Homemade Apple", family: "Homemade Apple" },
-    ],
-  },
-  {
-    category: "Chunky Fun",
-    pill: "Chunky",
-    fonts: [
-      { name: "Leckerli One", family: "Leckerli One" },
-      { name: "Bubblegum Sans", family: "Bubblegum Sans" },
-      { name: "Mansalva", family: "Mansalva" },
-      { name: "Meddon", family: "Meddon" },
-      { name: "Oooh Baby", family: "Oooh Baby" },
-      { name: "Merienda", family: "Merienda" },
-    ],
-  },
-  {
-    category: "Retro Vintage",
-    pill: "Retro",
-    fonts: [
-      { name: "Rock Salt", family: "Rock Salt" },
-      { name: "Rancho", family: "Rancho" },
-      { name: "Knewave", family: "Knewave" },
-      { name: "Montez", family: "Montez" },
-      { name: "Shadows Into Light Two", family: "Shadows Into Light Two" },
-    ],
-  },
-  {
-    category: "Cultural Brush",
-    pill: "Cultural",
-    fonts: [
-      { name: "Nanum Pen Script", family: "Nanum Pen Script" },
-      { name: "Ma Shan Zheng", family: "Ma Shan Zheng" },
-      { name: "Mali", family: "Mali" },
-      { name: "Covered By Your Grace", family: "Covered By Your Grace" },
-      { name: "Give You Glory", family: "Give You Glory" },
-      { name: "Solitreo", family: "Solitreo" },
-    ],
-  },
-];
 
 export default function CursiveFontsPage() {
   const jsonLd = {
@@ -293,11 +198,7 @@ export default function CursiveFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Preconnect to Google Fonts origins — server-rendered for early discovery */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      {/* Google Fonts — loaded asynchronously to avoid blocking LCP */}
-      <CursiveGoogleFontsLoader />
+
       <TopNavBar activePage="cursive-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
@@ -320,7 +221,7 @@ export default function CursiveFontsPage() {
         </section>
 
         {/* Dynamic Cursive Font Generator — input, size controls, live results */}
-        <CursiveFontGenerator fontCards={fontCards} />
+        <CursiveFontGenerator />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
