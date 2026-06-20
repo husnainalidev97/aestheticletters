@@ -318,7 +318,7 @@ export default function HalloweenFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   If you want the real downloadable font file for print or design software, UnifrakturMaguntia is a
-                  free option on Google Fonts (fonts.google.com). It is not part of this tool, but it pairs well with
+                  free option on Google Fonts. It is not part of this tool, but it pairs well with
                   a dark red or black background if you want a closer match to the original brand look.
                 </p>
               </article>
@@ -476,7 +476,7 @@ export default function HalloweenFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For thumbnails or overlays where you need a fixed background image, a downloaded font gives more
-                  control over size and color. You can grab a free Halloween font from Google Fonts (fonts.google.com)
+                  control over size and color. You can grab a free Halloween font from Google Fonts
                   and use it in Photoshop or Canva.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -566,7 +566,7 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Some advanced Canva tools, like custom stroke effects or color gradients on letters, only work with
                   a real font file, not pasted text. If you need that level of control, you can download a font like
-                  Creepster or Nosifer for free from Google Fonts (fonts.google.com) and add it through Canva&apos;s
+                  Creepster or Nosifer for free from Google Fonts and add it through Canva&apos;s
                   Brand Kit.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -593,7 +593,7 @@ export default function HalloweenFontsPage() {
                   {[
                     "Use this tool to try a few Halloween styles and pick the look you like best.",
                     "Write down the name of a real font that matches that look.",
-                    "Visit Google Fonts (fonts.google.com) and grab that font for free.",
+                    "Visit Google Fonts and grab that font for free.",
                     "Add it to your computer. It will then appear inside Cricut Design Space under your system fonts.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
@@ -690,9 +690,9 @@ export default function HalloweenFontsPage() {
                 <>
                   <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
                     If you have come across these font names while searching for Halloween fonts, here is a quick look
-                    at each one and where to find it. These are real font files you can download for free from Google
-                    Fonts (fonts.google.com). They live outside this tool, completely separate from the Unicode styles
-                    you see here.
+                    at each one and where to find it. These are real font files you can download for free from{" "}
+                    <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 hover:no-underline">Google Fonts</a>.
+                    They live outside this tool, completely separate from the Unicode styles you see here.
                   </p>
                   <div className="space-y-3">
                     {[
