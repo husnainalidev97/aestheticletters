@@ -95,7 +95,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Handwriting Cursive": [
     {
       name: "Cursive Script",
-      transform: (t) => applyMap(t, scriptMap),
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), "\u2053", "\u2053"),
     },
     {
       name: "Connected Baseline",
@@ -149,7 +149,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Elegant Cursive": [
     {
       name: "Calligraphy",
-      transform: (t) => applyMap(t, boldScriptMap),
+      transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0304"]),
     },
     {
       name: "Royal Script",
@@ -176,7 +176,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Brush & Marker": [
     {
       name: "Brush Stroke",
-      transform: (t) => applyMap(t, boldItalicMap),
+      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0323"]),
     },
     {
       name: "Heavy Brush",
