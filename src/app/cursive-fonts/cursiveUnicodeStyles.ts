@@ -99,7 +99,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Connected Baseline",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0332"]),
+      transform: (t) => withWordFlourish(applyMap(t, boldScriptMap), "\u00B7", "\u00B7"),
     },
     {
       name: "Smooth Overline",
@@ -111,11 +111,11 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Soft Cursive",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0303"]),
+      transform: (t) => withFrame(applyMap(t, scriptMap), "\u00AB", "\u00BB"),
     },
     {
       name: "Dotted Writing",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0323"]),
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), "\u2022", "\u2022"),
     },
   ],
 
@@ -138,7 +138,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Playful Waves",
-      transform: (t) => withCombining(applyMap(t, sansSerifItalicMap), ["\u0303"]),
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifItalicMap), "\u2248", "\u2248"),
     },
     {
       name: "Candy Script",
@@ -149,7 +149,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Elegant Cursive": [
     {
       name: "Calligraphy",
-      transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0304"]),
+      transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2014", "\u2014"),
     },
     {
       name: "Royal Script",
@@ -176,7 +176,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
   "Brush & Marker": [
     {
       name: "Brush Stroke",
-      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0323"]),
+      transform: (t) => withWordFlourish(applyMap(t, boldItalicMap), "\u00BB", "\u00AB"),
     },
     {
       name: "Heavy Brush",
@@ -184,7 +184,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Brush Underline",
-      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]),
+      transform: (t) => withFrame(applyMap(t, sansSerifBoldItalicMap), "\u25B8", "\u25C2"),
     },
     {
       name: "Marker Bold",
@@ -196,7 +196,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Ink Flow",
-      transform: (t) => withCombining(applyMap(t, sansSerifBoldItalicMap), ["\u0304"]),
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifBoldItalicMap), "~", "~"),
     },
   ],
 
@@ -211,19 +211,19 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Practice Cursive",
-      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0332"]),
+      transform: (t) => withWordFlourish(applyMap(t, italicMap), "\u2013", "\u2013"),
     },
     {
       name: "Worksheet Style",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0307"]),
+      transform: (t) => withWordFlourish(applyMap(t, scriptMap), "\u25CB", "\u25CB"),
     },
     {
       name: "Guideline Writing",
-      transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]),
+      transform: (t) => withWordFlourish(applyMap(t, boldScriptMap), "\u2502", "\u2502"),
     },
     {
       name: "Ruled Script",
-      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0333"]),
+      transform: (t) => withWordFlourish(applyMap(t, italicMap), "\u2502", "\u2502"),
     },
   ],
 
@@ -246,7 +246,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Heavy Accent",
-      transform: (t) => withCombining(applyMap(t, sansSerifBoldMap), ["\u0306"]),
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifBoldMap), "\u2605", "\u2605"),
     },
     {
       name: "Chunky Hearts",
@@ -269,7 +269,7 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Signature Line",
-      transform: (t) => withCombining(applyMap(t, italicMap), ["\u0304"]),
+      transform: (t) => withWordFlourish(applyMap(t, italicMap), "~", "~"),
     },
     {
       name: "Retro Stars",
@@ -277,14 +277,14 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Antique Cursive",
-      transform: (t) => withCombining(applyMap(t, scriptMap), ["\u0305"]),
+      transform: (t) => withFrame(applyMap(t, scriptMap), "\u2605", "\u2605"),
     },
   ],
 
   "Cultural Brush": [
     {
       name: "Flowing Brush",
-      transform: (t) => withCombining(applyMap(t, sansSerifBoldItalicMap), ["\u0303"]),
+      transform: (t) => withWordFlourish(applyMap(t, sansSerifBoldItalicMap), "\u2022", "\u2022"),
     },
     {
       name: "Horn Script",
@@ -300,11 +300,11 @@ export const cursiveUnicodeStyles: Record<string, UnicodeStyle[]> = {
     },
     {
       name: "Ink Calligraphy",
-      transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0304"]),
+      transform: (t) => withWordFlourish(applyMap(t, boldItalicMap), "\u2606", "\u2606"),
     },
     {
       name: "Global Pen",
-      transform: (t) => withCombining(applyMap(t, sansSerifItalicMap), ["\u030A"]),
+      transform: (t) => withFrame(applyMap(t, sansSerifItalicMap), "\u25CF", "\u25CF"),
     },
   ],
 };
