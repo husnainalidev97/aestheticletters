@@ -1,8 +1,9 @@
 "use client";
 
-import { memo, useMemo } from "react";
+import { memo, useMemo, useState, lazy, Suspense } from "react";
 import { FontCategory } from "../lib/fontStyles";
-import ShareButtons from "./ShareButtons";
+
+const ShareButtons = lazy(() => import("./ShareButtons"));
 
 interface FontCategoryCardProps {
   category: FontCategory;
@@ -15,6 +16,7 @@ interface FontCategoryCardProps {
   onToggleFavorite?: (item: { id: string; styleName: string; categoryName: string; text: string; fontFamily?: string }) => void;
   onPreview?: (text: string) => void;
   onDownload?: (text: string, styleName: string) => void;
+  initialVisibleStyles?: number;
 }
 
 function FontCategoryCard({
@@ -28,19 +30,27 @@ function FontCategoryCard({
   onToggleFavorite,
   onPreview,
   onDownload,
+  initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
+  const [showAllStyles, setShowAllStyles] = useState(!initialVisibleStyles);
 
-  // Memoize all transform results — only recompute when text or styles change
+  const stylesToTransform = showAllStyles
+    ? category.styles
+    : category.styles.slice(0, initialVisibleStyles);
+
   const transformedStyles = useMemo(
     () =>
-      category.styles.map((style) => ({
+      stylesToTransform.map((style) => ({
         style,
         converted: style.transform(text),
         styleId: `${category.name}-${style.name}`,
       })),
-    [category, text],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [category, text, showAllStyles],
   );
+
+  const hiddenCount = category.styles.length - stylesToTransform.length;
 
   return (
     <div
@@ -126,7 +136,14 @@ function FontCategoryCard({
                     <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
                   </button>
                 )}
-                <ShareButtons text={converted} />
+                <Suspense fallback={
+                  <div className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>
+                    <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
+                  </div>
+                }>
+                  <ShareButtons text={converted} />
+                </Suspense>
                 {onToggleFavorite && (
                   <button
                     onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted, fontFamily: style.fontFamily })}
@@ -165,6 +182,18 @@ function FontCategoryCard({
             </div>
           );
         })}
+        {!showAllStyles && hiddenCount > 0 && (
+          <button
+            onClick={() => setShowAllStyles(true)}
+            className={`w-full py-3 rounded-xl text-sm font-headline font-bold transition-all ${
+              isDark
+                ? "text-primary/80 hover:bg-surface-container-lowest/30"
+                : "text-primary hover:bg-surface-container-high"
+            }`}
+          >
+            Show {hiddenCount} More Styles
+          </button>
+        )}
       </div>
       {isDark && (
         <div className="absolute -right-4 -bottom-4 opacity-[0.07] text-primary pointer-events-none">
