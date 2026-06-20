@@ -476,8 +476,8 @@ export default function HalloweenFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For thumbnails or overlays where you need a fixed background image, a downloaded font gives more
-                  control over size and color. You can grab a free Halloween font from Google Fonts
-                  and use it in Photoshop or Canva.
+                  control over size and color. This works well in design software like Photoshop or Canva, where you
+                  can adjust the size, color, and spacing exactly how you want.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Try the pasted style first. It works in more thumbnail tools than people expect, and you only need
