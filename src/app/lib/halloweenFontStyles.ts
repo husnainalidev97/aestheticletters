@@ -139,7 +139,7 @@ const graveyardGothic: FontCategory = {
   styles: [
     { name: "Gothic Fraktur", transform: (t) => apply(t, FRAKTUR) },
     { name: "Bold Fraktur", transform: (t) => apply(t, BOLD_FRAKTUR) },
-    { name: "Grave Mist", transform: (t) => withCombining(t, ["\u0305", "\u0330"]) },
+    { name: "\uD83E\uDEA6 Grave Mist \uD83E\uDEA6", transform: (t) => decorate(withCombining(t, ["\u0305", "\u0330"]), "\uD83E\uDEA6") },
     { name: "Cursed Graveyard", transform: (t) => withCombining(t, ["\u0334", "\u0325"]) },
     { name: "Graveyard Zalgo", transform: (t) => zalgo(t, 3, 3, 17) },
     { name: "\u26B0 Tombstone Text \u26B0", transform: (t) => decorate(withCombining(t, ["\u032A", "\u0329"]), "\u26B0") },
@@ -154,7 +154,7 @@ const graveyardGothic: FontCategory = {
 const bloodDrip: FontCategory = {
   name: "Blood Drip",
   styles: [
-    { name: "Vein Rupture", transform: (t) => zalgo(t, 2, 4, 37) },
+    { name: "\uD83E\uDDDF Vein Rupture \uD83E\uDDDF", transform: (t) => decorate(zalgo(t, 2, 4, 37), "\uD83E\uDDDF") },
     { name: "Scarlet Slash", transform: (t) => withCombining(t, ["\u0336", "\u0331", "\u0323"]) },
     { name: "Blood Splatter", transform: (t) => zalgo(t, 1, 5, 41) },
     { name: "Blood Drip Light", transform: (t) => withCombining(t, ["\u0322", "\u0323"]) },
@@ -176,7 +176,7 @@ const cursedScript: FontCategory = {
     { name: "Zalgo Light", transform: (t) => zalgo(t, 2, 0, 0) },
     { name: "Zalgo Heavy", transform: (t) => zalgo(t, 7, 7, 7) },
     { name: "Zalgo God", transform: (t) => zalgo(t, 11, 11, 13) },
-    { name: "Void Curse", transform: (t) => withCombining(t, ["\u0338", "\u0336"]) },
+    { name: "\uD83D\uDC41 Void Curse \uD83D\uDC41", transform: (t) => decorate(withCombining(t, ["\u0338", "\u0336"]), "\uD83D\uDC41") },
     { name: "\uD83D\uDC80 Curse Mark \uD83D\uDC80", transform: (t) => decorate(withCombining(t, ["\u033D"]), "\uD83D\uDC80") },
   ],
 };
@@ -188,7 +188,7 @@ const pumpkinHollow: FontCategory = {
   name: "Pumpkin Hollow",
   styles: [
     { name: "Jack-o-Lantern", transform: (t) => decorate(apply(t, BOLD), "\uD83C\uDF83") },
-    { name: "Pumpkin Carve", transform: (t) => withCombining(t, ["\u0336", "\u0307"]) },
+    { name: "\uD83D\uDC08\u200D\u2B1B Pumpkin Carve \uD83D\uDC08\u200D\u2B1B", transform: (t) => decorate(withCombining(t, ["\u0336", "\u0307"]), "\uD83D\uDC08\u200D\u2B1B") },
     { name: "Haunted Harvest", transform: (t) => zalgo(t, 1, 2, 47) },
     { name: "\uD83C\uDF83 Pumpkin Glow \uD83C\uDF83", transform: (t) => decorate(withCombining(t, ["\u030A", "\u0307"]), "\uD83C\uDF83") },
     { name: "\uD83C\uDF6C Candy Drip \uD83C\uDF6C", transform: (t) => decorate(withCombining(t, ["\u0307", "\u0306"]), "\uD83C\uDF6C") },
@@ -224,7 +224,7 @@ const witchSpell: FontCategory = {
     { name: "Wicked Italic", transform: (t) => withCombining(t, ["\u0303", "\u0330", "\u0337"]) },
     { name: "Arcane Double", transform: (t) => withCombining(apply(t, DOUBLE_STRUCK), ["\u20F0"]) },
     { name: "Hex Circle", transform: (t) => withCombining(t, ["\u0307", "\u030A", "\u0323"]) },
-    { name: "Star Occult", transform: (t) => withCombining(t, ["\u20F0"]) },
+    { name: "\uD83E\uDE84 Star Occult \uD83E\uDE84", transform: (t) => decorate(withCombining(t, ["\u20F0"]), "\uD83E\uDE84") },
     { name: "Potion Zalgo", transform: (t) => zalgo(t, 2, 2, 31) },
     { name: "\uD83D\uDD2E Crystal Spell \uD83D\uDD2E", transform: (t) => decorate(withCombining(t, ["\u0302", "\u0307"]), "\uD83D\uDD2E") },
     { name: "\u26A1 Lightning Hex \u26A1", transform: (t) => decorateWords(withCombining(t, ["\u0308"]), "\u26A1") },
@@ -240,7 +240,7 @@ const skullGothic: FontCategory = {
   styles: [
     { name: "Skull Bold", transform: (t) => withCombining(t, ["\u0336", "\u0325", "\u0323"]) },
     { name: "Ossuary Mono", transform: (t) => withCombining(t, ["\u0334", "\u0332", "\u030D"]) },
-    { name: "Necro Slash", transform: (t) => withCombining(t, ["\u0337", "\u0336", "\u0329"]) },
+    { name: "\u26D3 Necro Slash \u26D3", transform: (t) => decorate(withCombining(t, ["\u0337", "\u0336", "\u0329"]), "\u26D3") },
     { name: "Skull Bones", transform: (t) => withCombining(t, ["\u033D", "\u0329", "\u0333"]) },
     { name: "\u2620 Skull & Bones \u2620", transform: (t) => decorate(withCombining(t, ["\u0334", "\u0323"]), "\u2620") },
     { name: "\uD83D\uDDE1 Death Strike \uD83D\uDDE1", transform: (t) => decorate(withCombining(t, ["\u0336", "\u032A"]), "\uD83D\uDDE1") },
@@ -256,7 +256,7 @@ const moonlightCursive: FontCategory = {
   name: "Moonlight Cursive",
   styles: [
     { name: "Moonlight Script", transform: (t) => apply(t, MATH_SCRIPT) },
-    { name: "Twilight Whisper", transform: (t) => withCombining(t, ["\u0303", "\u0304", "\u0330"]) },
+    { name: "\uD83E\uDDDB Twilight Whisper \uD83E\uDDDB", transform: (t) => decorate(withCombining(t, ["\u0303", "\u0304", "\u0330"]), "\uD83E\uDDDB") },
     { name: "Starlight Zalgo", transform: (t) => zalgo(t, 2, 1, 67) },
     { name: "\uD83C\uDF19 Moonbeam \uD83C\uDF19", transform: (t) => decorate(withCombining(t, ["\u0304", "\u030A"]), "\uD83C\uDF19") },
     { name: "\uD83E\uDD87 Night Flight \uD83E\uDD87", transform: (t) => decorate(withCombining(t, ["\u0303", "\u0305"]), "\uD83E\uDD87") },
@@ -291,7 +291,7 @@ const batWing: FontCategory = {
     { name: "Nocturnal Bold", transform: (t) => withCombining(t, ["\u0305", "\u0338", "\u0323"]) },
     { name: "Vampire Italic", transform: (t) => withCombining(t, ["\u0338", "\u0303", "\u0331"]) },
     { name: "Bat Screech Zalgo", transform: (t) => zalgo(t, 3, 3, 53) },
-    { name: "Fang Strike", transform: (t) => withCombining(t, ["\u030D", "\u0338"]) },
+    { name: "\uD83E\uDD21 Fang Strike \uD83E\uDD21", transform: (t) => decorate(withCombining(t, ["\u030D", "\u0338"]), "\uD83E\uDD21") },
     { name: "\uD83E\uDD87 Bat Wing \uD83E\uDD87", transform: (t) => decorate(withCombining(t, ["\u030D", "\u0323"]), "\uD83E\uDD87") },
     { name: "\uD83D\uDC3A Wolf Howl \uD83D\uDC3A", transform: (t) => decorateWords(withCombining(t, ["\u0303"]), "\uD83D\uDC3A") },
     { name: "\u26B0 Coffin Rest \u26B0", transform: (t) => decorate(withCombining(t, ["\u0336", "\u0333"]), "\u26B0") },
