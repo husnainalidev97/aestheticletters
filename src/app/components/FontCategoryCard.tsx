@@ -44,6 +44,7 @@ function FontCategoryCard({
       stylesToTransform.map((style) => ({
         style,
         converted: style.transform(text),
+        display: (style.displayTransform ?? style.transform)(text),
         styleId: `${category.name}-${style.name}`,
       })),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,7 +69,7 @@ function FontCategoryCard({
         {title}
       </strong>
       <div className="space-y-3">
-        {transformedStyles.map(({ style, converted, styleId }) => {
+        {transformedStyles.map(({ style, converted, display, styleId }) => {
           const isCopied = copiedId === styleId;
 
           return (
@@ -91,9 +92,9 @@ function FontCategoryCard({
                 <div
                   aria-hidden="true"
                   className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
-                  style={{ fontSize: `${fontSize}px`, fontFamily: style.fontFamily || "'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Sans Symbols 2', 'Noto Sans Symbols', 'Noto Sans', sans-serif" }}
+                  style={{ fontSize: `${fontSize}px`, fontFamily: style.fontFamily || "'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Sans Symbols 2', 'Noto Sans Symbols', 'Noto Sans', sans-serif", textDecoration: style.textDecoration }}
                 >
-                  {converted}
+                  {display}
                 </div>
                 {style.fontFamily && (
                   <div

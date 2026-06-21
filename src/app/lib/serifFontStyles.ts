@@ -160,8 +160,8 @@ export const serifUnicodeCategories: FontCategory[] = [
   {
     name: "Strikethrough Styles",
     styles: [
-      { name: "Bold Serif Underline", transform: (t) => withCombining(apply(t, boldSerifMap), "\u0332") },
-      { name: "Italic Serif Strikethrough", transform: (t) => withCombining(apply(t, italicSerifMap), "\u0336") },
+      { name: "Bold Serif Underline", transform: (t) => withCombining(apply(t, boldSerifMap), "\u0332"), displayTransform: (t) => apply(t, boldSerifMap), textDecoration: "underline" },
+      { name: "Italic Serif Strikethrough", transform: (t) => withCombining(apply(t, italicSerifMap), "\u0336"), displayTransform: (t) => apply(t, italicSerifMap), textDecoration: "line-through" },
     ],
   },
   {

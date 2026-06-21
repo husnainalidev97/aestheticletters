@@ -68,11 +68,11 @@ export const sansSerifUnicodeCategories: FontCategory[] = [
   {
     name: "Decorated Sans-Serif",
     styles: [
-      { name: "Sans Underline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0332") },
-      { name: "Sans Strikethrough", transform: (t) => withCombining(apply(t, italicSansSerifMap), "\u0336") },
-      { name: "Sans Overline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0305") },
-      { name: "Sans Dotted", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0307") },
-      { name: "Sans Wavy", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0303") },
+      { name: "Sans Underline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0332"), displayTransform: (t) => apply(t, boldSansSerifMap), textDecoration: "underline" },
+      { name: "Sans Strikethrough", transform: (t) => withCombining(apply(t, italicSansSerifMap), "\u0336"), displayTransform: (t) => apply(t, italicSansSerifMap), textDecoration: "line-through" },
+      { name: "Sans Overline", transform: (t) => withCombining(apply(t, boldSansSerifMap), "\u0305"), displayTransform: (t) => apply(t, boldSansSerifMap), textDecoration: "overline" },
+      { name: "Sans Dotted", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0307"), displayTransform: (t) => apply(t, sansSerifMap), textDecoration: "underline dotted" },
+      { name: "Sans Wavy", transform: (t) => withCombining(apply(t, sansSerifMap), "\u0303"), displayTransform: (t) => apply(t, sansSerifMap), textDecoration: "underline wavy" },
     ],
   },
 ];

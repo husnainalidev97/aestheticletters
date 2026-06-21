@@ -7,6 +7,10 @@ export interface FontStyle {
   name: string;
   transform: (text: string) => string;
   fontFamily?: string;
+  /** Visual-only transform (no combining marks); clipboard still uses `transform`. */
+  displayTransform?: (text: string) => string;
+  /** CSS text-decoration applied to the preview element (e.g. "underline"). */
+  textDecoration?: string;
 }
 
 export interface FontCategory {
