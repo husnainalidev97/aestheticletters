@@ -21,7 +21,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 3;
 
 const FANCY_EMOJIS: Record<string, string> = {
   "Bold Artistic Styles": "💪",

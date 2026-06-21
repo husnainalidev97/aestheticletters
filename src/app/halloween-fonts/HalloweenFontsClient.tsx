@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, useDeferredValue, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { halloweenFontCategories } from "../lib/halloweenFontStyles";
 import type { FontCategory } from "../lib/fontStyles";
@@ -63,6 +63,7 @@ export default function HalloweenFontsClient() {
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
+  const deferredText = useDeferredValue(activeText);
 
   const visibleCategories: FontCategory[] = showAll
     ? halloweenFontCategories
@@ -200,7 +201,7 @@ export default function HalloweenFontsClient() {
             <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
-                text={activeText}
+                text={deferredText}
                 fontSize={fontSize}
                 copiedId={copiedId}
                 onCopy={handleCopy}
@@ -209,7 +210,6 @@ export default function HalloweenFontsClient() {
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
                 onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
-                initialVisibleStyles={3}
               />
             </div>
           ))}

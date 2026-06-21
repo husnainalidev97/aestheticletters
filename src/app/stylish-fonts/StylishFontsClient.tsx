@@ -21,7 +21,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "Stylish Fonts";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 3;
 
 const STYLISH_EMOJIS: Record<string, string> = {
   "Parenthesized Text": "🔤",

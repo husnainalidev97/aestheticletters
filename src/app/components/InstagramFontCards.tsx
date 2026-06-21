@@ -299,7 +299,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
-const INITIAL_VISIBLE_CARDS = 4;
+const INITIAL_VISIBLE_CARDS = 3;
 
 export default function InstagramFontCards() {
   const [input, setInput] = useState("");
