@@ -573,53 +573,43 @@ export default function CursiveFontsPage() {
           </div>
         </section>
 
-        {/* Similar Font Styles & Popular Tools */}
+        {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-              <h2 className="font-headline text-xl md:text-2xl font-bold mb-5 text-center leading-tight">
-                Similar Font Styles
-              </h2>
-              <ul className="flex flex-wrap justify-center gap-3 list-none p-0 m-0">
-                {[
-                  { label: "Aesthetic Fonts", href: "/" },
-                  { label: "Cute Fonts", href: "/cute-fonts" },
-                  { label: "Serif Fonts", href: "/serif-fonts" },
-                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
-                ].map((tool) => (
-                  <li key={tool.href}>
-                    <Link
-                      href={tool.href}
-                      className="inline-flex items-center px-5 py-2.5 rounded-full bg-surface-container-low font-body font-medium text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                    >
-                      {tool.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-              <h2 className="font-headline text-xl md:text-2xl font-bold mb-5 text-center leading-tight">
-                Popular Tools
-              </h2>
-              <ul className="flex flex-wrap justify-center gap-3 list-none p-0 m-0">
-                {[
-                  { label: "Instagram Fonts", href: "/instagram-fonts" },
-                  { label: "Facebook Fonts", href: "/facebook-fonts" },
-                  { label: "Fancy Fonts", href: "/fancy-fonts" },
-                  { label: "Stylish Fonts", href: "/stylish-fonts" },
-                ].map((tool) => (
-                  <li key={tool.href}>
-                    <Link
-                      href={tool.href}
-                      className="inline-flex items-center px-5 py-2.5 rounded-full bg-surface-container-low font-body font-medium text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                    >
-                      {tool.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
+          </h2>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-8 max-w-xl mx-auto">
+            Looking for a different vibe? Try these generators to find the
+            perfect style for your text.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Aesthetic Fonts", href: "/", icon: "✨", tag: "Similar Style", desc: "All-in-one text styler" },
+              { label: "Cute Fonts", href: "/cute-fonts", icon: "🎀", tag: "Similar Style", desc: "Adorable text styles" },
+              { label: "Serif Fonts", href: "/serif-fonts", icon: "🅰️", tag: "Similar Style", desc: "Classic serif letters" },
+              { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "🔤", tag: "Similar Style", desc: "Clean modern text" },
+              { label: "Instagram Fonts", href: "/instagram-fonts", icon: "📸", tag: "Popular Tool", desc: "Stand out on Insta" },
+              { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", tag: "Popular Tool", desc: "Style your FB posts" },
+              { label: "Fancy Fonts", href: "/fancy-fonts", icon: "👑", tag: "Popular Tool", desc: "Decorative text art" },
+              { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", tag: "Popular Tool", desc: "Premium text styles" },
+            ].map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="group relative flex flex-col items-center text-center p-5 md:p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+              >
+                <span className="text-2xl md:text-3xl mb-2">{tool.icon}</span>
+                <span className="font-headline font-bold text-sm md:text-base text-on-surface group-hover:text-primary transition-colors">
+                  {tool.label}
+                </span>
+                <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                  {tool.desc}
+                </span>
+                <span className="mt-2 text-[0.6rem] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant">
+                  {tool.tag}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
