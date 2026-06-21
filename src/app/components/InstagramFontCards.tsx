@@ -10,12 +10,12 @@ import {
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "./FavoritesSection";
-import ShareButtons from "./ShareButtons";
 import CategoryJumpLinks from "./CategoryJumpLinks";
 import TextHistory from "./TextHistory";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
+const ShareButtons = lazy(() => import("./ShareButtons"));
 
 // ── Shorthand builder for engine-driven styles ─────────────────────────────
 
@@ -469,9 +469,10 @@ export default function InstagramFontCards() {
                         <div
                           key={idx}
                           id={`style-${slugify(style.label)}`}
-                          className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 gap-3 sm:gap-0 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
+                          className="flex flex-col p-4 gap-3 rounded-xl transition-all group bg-surface hover:bg-surface-container-high"
+                          style={{ contentVisibility: "auto", containIntrinsicSize: "auto 120px" }}
                         >
-                          <div className="flex flex-col gap-1 min-w-0 flex-1 sm:mr-4">
+                          <div className="flex flex-col gap-1 min-w-0">
                             <span
                               className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high"
                               aria-label={`${card.name} – ${style.label} font style`}
@@ -486,7 +487,7 @@ export default function InstagramFontCards() {
                               {style.text}
                             </div>
                           </div>
-                          <div className="flex items-center gap-1 flex-shrink-0 self-end sm:self-center">
+                          <div className="flex items-center gap-2 flex-wrap relative z-10">
                             <button
                               onClick={() => setPreviewText(style.text)}
                               className="flex flex-col items-center justify-center w-10 rounded-full transition-all text-on-surface-variant hover:text-primary"
@@ -505,7 +506,14 @@ export default function InstagramFontCards() {
                               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                               <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
                             </button>
-                            <ShareButtons text={style.text} />
+                            <Suspense fallback={
+                              <div className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>
+                                <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
+                              </div>
+                            }>
+                              <ShareButtons text={style.text} />
+                            </Suspense>
                             <button
                               onClick={() => toggleFavorite({ id: styleId, styleName: style.label, categoryName: card.name, text: style.text })}
                               className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
@@ -515,26 +523,22 @@ export default function InstagramFontCards() {
                               }`}
                               aria-label={isFavorite(styleId) ? "Remove from favorites" : "Add to favorites"}
                             >
-                              {isFavorite(styleId) ? (
-                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
-                              ) : (
-                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
-                              )}
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill={isFavorite(styleId) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
                               <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite(styleId) ? "Saved" : "Save"}</span>
                             </button>
                             <button
                               onClick={() => handleCopy(style.text, styleId)}
-                              className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
+                              className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all duration-200 flex flex-col items-center justify-center ${
                                 isCopied
-                                  ? "bg-[#15803d] text-white"
-                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
+                                  ? "bg-[#15803d] text-white scale-110"
+                                  : "text-on-surface-variant hover:bg-primary hover:text-on-primary active:scale-95"
                               }`}
                               aria-label={isCopied ? "Copied" : "Copy to clipboard"}
                             >
                               {isCopied ? (
-                                <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12" /></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                               ) : (
-                                <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
                               )}
                               <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                             </button>
