@@ -35,7 +35,7 @@ export default function CopyButton({
     <button
       className={`${sizeClass} rounded-full flex items-center justify-center transition-all ${
         copied
-          ? "bg-[#22c55e] text-white"
+          ? "bg-[#15803d] text-white"
           : "bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary"
       }`}
       onClick={handleCopy}

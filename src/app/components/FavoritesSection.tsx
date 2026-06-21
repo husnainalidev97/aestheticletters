@@ -88,7 +88,7 @@ export default function FavoritesSection({ favorites, onRemove }: FavoritesSecti
                       onClick={() => handleCopy(fav.text, fav.id)}
                       className={`w-9 flex flex-col items-center justify-center rounded-full transition-all ${
                         isCopied
-                          ? "bg-[#22c55e] text-white"
+                          ? "bg-[#15803d] text-white"
                           : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                       }`}
                       aria-label={isCopied ? "Copied" : "Copy to clipboard"}

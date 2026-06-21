@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/fancy-fonts",
     title: "Fancy Fonts Generator (𝓬𝓸𝓹𝔂 𝓪𝓷𝓭 𝓹𝓪𝓼𝓽) — Aesthetic Letters",
     description:
@@ -31,6 +31,8 @@ export const metadata: Metadata = {
         alt: "Fancy Fonts Copy and Paste — 130+ free fancy font styles",
       },
     ],
+    publishedTime: "2026-05-01T08:00:00+00:00",
+    modifiedTime: "2026-06-15T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

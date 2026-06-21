@@ -526,7 +526,7 @@ export default function InstagramFontCards() {
                               onClick={() => handleCopy(style.text, styleId)}
                               className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                                 isCopied
-                                  ? "bg-[#22c55e] text-white"
+                                  ? "bg-[#15803d] text-white"
                                   : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                               }`}
                               aria-label={isCopied ? "Copied" : "Copy to clipboard"}
@@ -565,6 +565,8 @@ export default function InstagramFontCards() {
       {copiedId && (
         <div
           key={copyCount}
+          role="status"
+          aria-live="polite"
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>

@@ -269,7 +269,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             title="Browse all aesthetic font generators and text styling tools — explore every style in one place"
             className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0px_8px_24px_rgba(155,89,182,0.3)] active:scale-[0.97]"
             style={{
-              background: "linear-gradient(135deg, #9b6dd7 0%, #e888b0 100%)",
+              background: "linear-gradient(135deg, #7c4daf 0%, #a94d73 100%)",
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform duration-300 group-hover:rotate-12" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
@@ -329,6 +329,8 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
       {copiedId && (
         <div
           key={copyCount}
+          role="status"
+          aria-live="polite"
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>

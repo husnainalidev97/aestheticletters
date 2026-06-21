@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/facebook-fonts",
     title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
@@ -30,6 +30,8 @@ export const metadata: Metadata = {
         alt: "facebook fonts generator with unique fonts for posts comments and bios",
       },
     ],
+    publishedTime: "2026-05-23T08:00:00+00:00",
+    modifiedTime: "2026-06-11T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -241,12 +243,6 @@ export default function FacebookFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary focus:text-sm focus:font-medium focus:shadow-lg"
-      >
-        Skip to content
-      </a>
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
@@ -307,18 +303,20 @@ export default function FacebookFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Three steps:
                 </p>
-                <ul className="space-y-3 mb-6">
+                <div className="space-y-4 mb-6">
                   {[
-                    "Type your word, sentence, or caption in the input box",
-                    "Browse through 40+ font styles and pick yours",
-                    "Hit Copy; then paste directly into Facebook",
+                    { step: "1", text: "Type your word, sentence, or caption in the input box" },
+                    { step: "2", text: "Browse through 40+ font styles and pick yours" },
+                    { step: "3", text: "Hit Copy; then paste directly into Facebook" },
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-on-surface-variant text-lg">
-                      <svg className="text-primary flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <span>{item}</span>
-                    </li>
+                    <div key={item.step} className="flex items-start gap-3 text-on-surface-variant text-lg">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-sm">
+                        {item.step}
+                      </div>
+                      <span className="pt-1">{item.text}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </article>
 
               {/* Where Can You Use Facebook Fonts? */}
