@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: [{ url: "https://www.aestheticletters.com/serif-fonts-og.jpg", width: 1200, height: 630, alt: "Serif Fonts Generator" }],
     publishedTime: "2026-05-10T08:00:00+00:00",
-    modifiedTime: "2026-06-12T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

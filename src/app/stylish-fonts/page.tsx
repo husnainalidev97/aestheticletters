@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
     images: [{ url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp", width: 1734, height: 907, alt: "stylish fonts generator explained with different styles and show features which are completely free" }],
     publishedTime: "2026-05-11T08:00:00+00:00",
-    modifiedTime: "2026-06-15T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

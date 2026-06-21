@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 1200, height: 630, alt: "Usage of Cute Fonts" }],
     publishedTime: "2026-05-11T08:00:00+00:00",
-    modifiedTime: "2026-06-07T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp", width: 1200, height: 630, alt: "Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly" }],
     publishedTime: "2026-06-02T08:00:00+00:00",
-    modifiedTime: "2026-06-19T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

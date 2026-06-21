@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
     images: [{ url: "/halloween-fonts-generator-featured-image.webp", width: 1200, height: 630 }],
     publishedTime: "2026-05-20T08:00:00+00:00",
-    modifiedTime: "2026-06-20T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

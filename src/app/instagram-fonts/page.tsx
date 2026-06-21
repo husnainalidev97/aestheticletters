@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
     images: [{ url: "/instagram-fonts-generator-explained.webp", width: 848, height: 1230 }],
     publishedTime: "2026-05-01T08:00:00+00:00",
-    modifiedTime: "2026-06-08T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
