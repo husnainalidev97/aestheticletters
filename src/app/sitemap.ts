@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cursive-fonts`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-06-20T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },

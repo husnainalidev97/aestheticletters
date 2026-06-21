@@ -25,8 +25,9 @@ function getSnapshot(): HistoryEntry[] {
   return cache!;
 }
 
+const EMPTY_HISTORY: HistoryEntry[] = [];
 function getServerSnapshot(): HistoryEntry[] {
-  return [];
+  return EMPTY_HISTORY;
 }
 
 function persist(next: HistoryEntry[]) {

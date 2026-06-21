@@ -4,7 +4,6 @@ import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
-import CursiveGoogleFontsLoader from "./CursiveGoogleFontsLoader";
 import CursiveFontGenerator from "./CursiveFontGeneratorLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -17,19 +16,22 @@ export const metadata: Metadata = {
     canonical: "https://www.aestheticletters.com/cursive-fonts",
   },
   openGraph: {
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/cursive-fonts",
     title: "Cursive Fonts - Handwritten Text Generator | Copy & Paste",
     description:
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
       {
-        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
-        width: 896,
-        height: 1200,
+        url: "https://www.aestheticletters.com/cursive-fonts-og.webp",
+        width: 1200,
+        height: 624,
+        alt: "Cursive Fonts Generator by Aesthetic Letters — copy and paste handwritten text styles",
       },
     ],
     siteName: "Aesthetic Letters",
+    publishedTime: "2026-04-19T08:00:00+00:00",
+    modifiedTime: "2026-06-20T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     description:
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
-      "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+      "https://www.aestheticletters.com/cursive-fonts-og.webp",
     ],
   },
 };
@@ -76,138 +78,49 @@ const faqs = [
   },
 ];
 
-const topFonts = [
+const categoryDescriptions = [
   {
-    name: "Caveat",
+    name: "Handwriting Cursive",
     description:
-      "A clean and simple cursive font. Great for everyday use and easy to read.",
+      "Looks like real handwriting. Cursive Script gives you a smooth, joined-up style. Smooth Overline adds a line above your words, like an underline but on top. Flourished Handwriting adds small decorative symbols around your text.",
   },
   {
-    name: "Shadows Into Light",
+    name: "Playful Script",
     description:
-      "A light handwritten font that works well for captions and casual writing.",
+      "Fun and bouncy styles, great for casual posts. Star Bounce and Sparkle Script add little stars and dots around your letters. Bubbly Cursive puts your whole phrase inside cute brackets.",
   },
   {
-    name: "Playwrite Ireland",
+    name: "Elegant Cursive",
     description:
-      "An elegant style that feels slightly formal and neat.",
+      "Classy styles for invitations, signatures, or branding. Calligraphy and Royal Script give you that fancy, hand-lettered look you see on wedding cards.",
   },
   {
-    name: "Italianno",
+    name: "Brush & Marker",
     description:
-      "Smooth and stylish. A good choice for invitations and creative designs.",
+      "Styles that look like they were drawn with a real brush or marker. Heavy Brush and Marker Bold give you thick, bold strokes. Brush Underline adds a brush-style line under each letter.",
   },
   {
-    name: "Permanent Marker",
+    name: "School & Guides",
     description:
-      "A bold cursive font that looks strong and noticeable.",
+      "A throwback to handwriting practice sheets from school. Dotted Guide and Ruled Script add dotted or lined marks above and below your text, just like a worksheet.",
   },
   {
-    name: "Indie Flower",
+    name: "Chunky Fun",
     description:
-      "A friendly and relaxed handwritten style, perfect for informal use.",
+      "Bold styles that grab attention. Bold Block is thick and easy to read. Chunky Hearts adds little heart symbols between your letters.",
   },
   {
-    name: "Rancho",
+    name: "Retro Vintage",
     description:
-      "A classic script font with a slightly vintage feel.",
+      "Old-school styles that feel classic. Old Script and Antique Cursive look like signatures from vintage signs or old letters.",
+  },
+  {
+    name: "Cultural Brush",
+    description:
+      "Brush-style fonts inspired by art from around the world. These are fun, decorative styles, not exact copies of any real language or script.",
   },
 ];
 
-const fontCards = [
-  {
-    category: "Handwriting Cursive",
-    pill: "Handwriting",
-    fonts: [
-      { name: "Playwrite Ireland", family: "Playwrite Ireland" },
-      { name: "Caveat", family: "Caveat" },
-      { name: "Shadows Into Light", family: "Shadows Into Light" },
-      { name: "Indie Flower", family: "Indie Flower" },
-      { name: "Patrick Hand", family: "Patrick Hand" },
-      { name: "Handlee", family: "Handlee" },
-    ],
-  },
-  {
-    category: "Playful Script",
-    pill: "Playful",
-    fonts: [
-      { name: "Kalam", family: "Kalam" },
-      { name: "Amatic SC", family: "Amatic SC" },
-      { name: "Gloria Hallelujah", family: "Gloria Hallelujah" },
-      { name: "Reenie Beanie", family: "Reenie Beanie" },
-      { name: "Sriracha", family: "Sriracha" },
-      { name: "Ms Madi", family: "Ms Madi" },
-    ],
-  },
-  {
-    category: "Elegant Cursive",
-    pill: "Elegant",
-    fonts: [
-      { name: "Italianno", family: "Italianno" },
-      { name: "Nothing You Could Do", family: "Nothing You Could Do" },
-      { name: "Cedarville Cursive", family: "Cedarville Cursive" },
-      { name: "Sue Ellen Francisco", family: "Sue Ellen Francisco" },
-      { name: "Mr De Haviland", family: "Mr De Haviland" },
-      { name: "Mr Dafoe", family: "Mr Dafoe" },
-    ],
-  },
-  {
-    category: "Brush & Marker",
-    pill: "Brush",
-    fonts: [
-      { name: "Permanent Marker", family: "Permanent Marker" },
-      { name: "Caveat Brush", family: "Caveat Brush" },
-      { name: "Nanum Brush Script", family: "Nanum Brush Script" },
-      { name: "Lacquer", family: "Lacquer" },
-      { name: "Vibur", family: "Vibur" },
-      { name: "Sedgwick Ave Display", family: "Sedgwick Ave Display" },
-    ],
-  },
-  {
-    category: "School & Guides",
-    pill: "School",
-    fonts: [
-      { name: "Playwrite Perú", family: "Playwrite Peru" },
-      { name: "Playwrite Việt Nam Guides", family: "Playwrite VN Guides" },
-      { name: "Homemade Apple", family: "Homemade Apple" },
-    ],
-  },
-  {
-    category: "Chunky Fun",
-    pill: "Chunky",
-    fonts: [
-      { name: "Leckerli One", family: "Leckerli One" },
-      { name: "Bubblegum Sans", family: "Bubblegum Sans" },
-      { name: "Mansalva", family: "Mansalva" },
-      { name: "Meddon", family: "Meddon" },
-      { name: "Oooh Baby", family: "Oooh Baby" },
-      { name: "Merienda", family: "Merienda" },
-    ],
-  },
-  {
-    category: "Retro Vintage",
-    pill: "Retro",
-    fonts: [
-      { name: "Rock Salt", family: "Rock Salt" },
-      { name: "Rancho", family: "Rancho" },
-      { name: "Knewave", family: "Knewave" },
-      { name: "Montez", family: "Montez" },
-      { name: "Shadows Into Light Two", family: "Shadows Into Light Two" },
-    ],
-  },
-  {
-    category: "Cultural Brush",
-    pill: "Cultural",
-    fonts: [
-      { name: "Nanum Pen Script", family: "Nanum Pen Script" },
-      { name: "Ma Shan Zheng", family: "Ma Shan Zheng" },
-      { name: "Mali", family: "Mali" },
-      { name: "Covered By Your Grace", family: "Covered By Your Grace" },
-      { name: "Give You Glory", family: "Give You Glory" },
-      { name: "Solitreo", family: "Solitreo" },
-    ],
-  },
-];
 
 export default function CursiveFontsPage() {
   const jsonLd = {
@@ -284,6 +197,33 @@ export default function CursiveFontsPage() {
           },
         })),
       },
+      {
+        "@type": "HowTo",
+        name: "How to Use This Cursive Text Generator in Seconds",
+        description:
+          "Using this cursive font generator is very simple. There is no need for technical knowledge. Just follow these quick steps to create cursive text instantly.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Type Your Word",
+            text: "Simply type or paste your words into the generator box above. It can be a name, caption, quote, or anything you want to convert.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Choose a Cursive Style",
+            text: "You will see multiple handwritten font styles, including simple cursive, bold cursive, and signature-style. Decide which one best suits your needs.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and Paste Anywhere",
+            text: "Once you like a style, copy the text and paste it anywhere. It works on Instagram, Facebook, WhatsApp, and many other platforms.",
+          },
+        ],
+      },
     ],
   };
 
@@ -293,11 +233,7 @@ export default function CursiveFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Preconnect to Google Fonts origins — server-rendered for early discovery */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      {/* Google Fonts — loaded asynchronously to avoid blocking LCP */}
-      <CursiveGoogleFontsLoader />
+
       <TopNavBar activePage="cursive-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
@@ -308,11 +244,11 @@ export default function CursiveFontsPage() {
           ]}
         />
         {/* Server-rendered hero for fast LCP — no JS needed for initial paint */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-24 pb-0 text-center">
-          <h1 className="font-headline text-[3.5rem] md:text-6xl font-bold tracking-tight text-on-background mb-6">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Cursive Fonts - Handwritten Text Generator
           </h1>
-          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Creating handwritten or cursive text takes time and effort. Use this
             tool to generate cursive fonts instantly and get a clean handwritten
             look in seconds.
@@ -320,7 +256,7 @@ export default function CursiveFontsPage() {
         </section>
 
         {/* Dynamic Cursive Font Generator — input, size controls, live results */}
-        <CursiveFontGenerator fontCards={fontCards} />
+        <CursiveFontGenerator />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
@@ -538,41 +474,49 @@ export default function CursiveFontsPage() {
                 </p>
               </article>
 
-              {/* Top 7 Handwritten Fonts */}
+              {/* 40+ Handwritten Font Styles in 8 Categories */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 7 Handwritten Fonts That Work Everywhere
+                  40+ Handwritten Font Styles in 8 Categories
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are some of the best script typefaces that are simple,
-                  readable, and widely used:
+                  This generator gives you 40+ cursive and handwritten styles.
+                  They are grouped into 8 categories to help you find the look
+                  you want faster. Every style is made from real Unicode text,
+                  not images or fonts, so it copies and pastes perfectly
+                  anywhere.
                 </p>
                 <div className="space-y-6">
-                  {topFonts.map((font) => (
+                  {categoryDescriptions.map((cat) => (
                     <div
-                      key={font.name}
+                      key={cat.name}
                       className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
                     >
                       <h3 className="font-headline font-bold text-primary mb-2 text-xl">
-                        {font.name}
+                        {cat.name}
                       </h3>
                       <p className="text-on-surface-variant text-sm leading-relaxed">
-                        {font.description}
+                        {cat.description}
                       </p>
                     </div>
                   ))}
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-8">
-                  These are some of the most popular cursive fonts used across
-                  different platforms. If you want to explore more decorative
-                  styles,{" "}
+                  Every style on this list is plain text. That means you can
+                  copy it and paste it straight into Instagram, Facebook,
+                  WhatsApp, or anywhere else that lets you type.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-4">
+                  These are some of the most popular cursive styles people use
+                  across different platforms. If you also want symbols and
+                  emojis to pair with your text,{" "}
                   <Link
                     href="/"
                     className="text-primary font-bold underline hover:opacity-80 transition-all"
                   >
                     aesthetic fonts
                   </Link>{" "}
-                  are also worth trying.
+                  has a wide collection to explore.
                 </p>
               </article>
             </div>
@@ -631,29 +575,74 @@ export default function CursiveFontsPage() {
           </div>
         </section>
 
-        {/* Similar Font Styles */}
+        {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Similar Font Styles
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
           </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Aesthetic Fonts", href: "/" },
-                { label: "Cute Fonts", href: "/cute-fonts" },
-                { label: "Fancy Fonts", href: "/fancy-fonts" },
-                { label: "Stylish Fonts", href: "/stylish-fonts" },
-              ].map((tool) => (
-                <li key={tool.href}>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Looking for a different vibe? Try these generators to find the
+            perfect style for your text.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Aesthetic Fonts", href: "/", icon: "✨", desc: "All-in-one text styler" },
+                  { label: "Cute Fonts", href: "/cute-fonts", icon: "🎀", desc: "Adorable text styles" },
+                  { label: "Serif Fonts", href: "/serif-fonts", icon: "🅰️", desc: "Classic serif letters" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "🔤", desc: "Clean modern text" },
+                ].map((tool) => (
                   <Link
+                    key={tool.href}
                     href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
                   >
-                    {tool.label}
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "📸", desc: "Stand out on Insta" },
+                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", desc: "Style your FB posts" },
+                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "👑", desc: "Decorative text art" },
+                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", desc: "Premium text styles" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
