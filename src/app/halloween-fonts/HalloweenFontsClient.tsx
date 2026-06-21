@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect, useDeferredValue, lazy, Suspense } from "react";
 import FontCategoryCard from "../components/FontCategoryCard";
 import { halloweenFontCategories } from "../lib/halloweenFontStyles";
+import type { FontCategory } from "../lib/fontStyles";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import FavoritesSection from "../components/FavoritesSection";
@@ -19,6 +20,9 @@ const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 18;
 const STEP = 2;
 const DEFAULT_TEXT = "Halloween Fonts";
+
+/** Priority 1 — rendered on first paint. */
+const INITIAL_COUNT = 2;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Blood Drip", "Cursed Script", "Skull Gothic", "Dark Ritual"]);
@@ -45,9 +49,12 @@ const halloweenCategoryLinks = (halloweenFontCategories as unknown as { name: st
 export default function HalloweenFontsClient() {
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
+  const [showAll, setShowAll] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [inputText, setInputText] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
+  const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
@@ -57,6 +64,10 @@ export default function HalloweenFontsClient() {
 
   const activeText = inputText.trim() || DEFAULT_TEXT;
   const deferredText = useDeferredValue(activeText);
+
+  const visibleCategories: FontCategory[] = showAll
+    ? halloweenFontCategories
+    : halloweenFontCategories.slice(0, INITIAL_COUNT);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -80,9 +91,19 @@ export default function HalloweenFontsClient() {
 
   useEffect(() => {
     return () => {
+      if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
       if (historyTimerRef.current) clearTimeout(historyTimerRef.current);
     };
+  }, []);
+
+  const handleExploreMore = useCallback(() => {
+    setIsLoadingMore(true);
+    if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
+    loadMoreTimerRef.current = setTimeout(() => {
+      setShowAll(true);
+      setIsLoadingMore(false);
+    }, 300);
   }, []);
 
   const handleCopy = useCallback((text: string, id: string) => {
@@ -162,6 +183,7 @@ export default function HalloweenFontsClient() {
           </div>
           <CategoryJumpLinks
             categories={halloweenCategoryLinks}
+            onExpandAll={() => setShowAll(true)}
           />
         </div>
       </section>
@@ -175,13 +197,8 @@ export default function HalloweenFontsClient() {
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {halloweenFontCategories.map((category, index) => (
-            <div
-              key={category.name}
-              id={`cat-${slugify(category.name)}`}
-              className="animate-card-fade-in scroll-mt-28"
-              style={index >= 2 ? { contentVisibility: "auto", containIntrinsicSize: "auto 500px" } : undefined}
-            >
+          {visibleCategories.map((category) => (
+            <div key={category.name} id={`cat-${slugify(category.name)}`} className="animate-card-fade-in scroll-mt-28">
               <FontCategoryCard
                 category={category}
                 text={deferredText}
@@ -197,6 +214,28 @@ export default function HalloweenFontsClient() {
             </div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="flex justify-center mt-16">
+            <button
+              onClick={handleExploreMore}
+              disabled={isLoadingMore}
+              className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2 disabled:opacity-70"
+            >
+              {isLoadingMore ? (
+                <span className="flex items-center gap-2">
+                  <span className="inline-block w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  Loading...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  Explore More Styles
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </span>
+              )}
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Copied Toast */}
