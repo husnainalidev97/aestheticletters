@@ -19,7 +19,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "Cute Fonts";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 3;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Ornate Borders", "Glittering Stars"]);
