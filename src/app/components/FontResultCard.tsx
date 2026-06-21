@@ -144,7 +144,7 @@ export default function FontResultCard({
             e.stopPropagation();
             handleCopy();
           }}
-          className={`flex items-center justify-center w-[42px] h-[42px] rounded-full transition-all duration-300 ease-in-out ${copied ? "bg-[#22c55e] text-white" : btnHovered ? "bg-surface-container-high text-primary" : "bg-surface-container text-on-surface-variant"}`}
+          className={`flex items-center justify-center w-[42px] h-[42px] rounded-full transition-all duration-300 ease-in-out ${copied ? "bg-[#15803d] text-white" : btnHovered ? "bg-surface-container-high text-primary" : "bg-surface-container text-on-surface-variant"}`}
           style={{ transform: btnTransform }}
           onMouseEnter={() => setBtnHovered(true)}
           onMouseLeave={() => setBtnHovered(false)}
@@ -158,7 +158,7 @@ export default function FontResultCard({
         </button>
         {/* "Copied!" tooltip */}
         <span
-          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-semibold text-white bg-[#22c55e] transition-opacity duration-200 ease-in-out"
+          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-semibold text-white bg-[#15803d] transition-opacity duration-200 ease-in-out"
           style={{ opacity: copied ? 1 : 0 }}
         >
           Copied!

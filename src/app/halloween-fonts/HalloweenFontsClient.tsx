@@ -22,7 +22,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "Halloween Fonts";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 2;
+const INITIAL_COUNT = 3;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Blood Drip", "Cursed Script", "Skull Gothic", "Dark Ritual"]);
@@ -242,6 +242,8 @@ export default function HalloweenFontsClient() {
       {copiedId && (
         <div
           key={copyCount}
+          role="status"
+          aria-live="polite"
           className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full editorial-shadow animate-slide-up flex items-center gap-4 font-headline font-bold text-sm tracking-tight"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>

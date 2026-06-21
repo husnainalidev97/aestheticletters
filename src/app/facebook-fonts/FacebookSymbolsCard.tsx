@@ -125,7 +125,7 @@ export default function FacebookSymbolsCard() {
                   onClick={() => handleCopy(symbol)}
                   className={`min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-xl transition-all active:scale-95 select-none ${
                     copiedSymbol === symbol
-                      ? "bg-[#22c55e] text-white"
+                      ? "bg-[#15803d] text-white"
                       : "bg-surface hover:bg-surface-container-high text-on-surface"
                   }`}
                   aria-label={`Copy ${symbol}`}

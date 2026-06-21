@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     ],
     siteName: "Aesthetic Letters",
     publishedTime: "2026-04-19T08:00:00+00:00",
-    modifiedTime: "2026-06-20T00:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",

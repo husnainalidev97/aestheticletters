@@ -18,12 +18,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/halloween-fonts",
     title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
     images: [{ url: "/halloween-fonts-generator-featured-image.webp", width: 1200, height: 630 }],
+    publishedTime: "2026-05-20T08:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -169,11 +171,38 @@ export default function HalloweenFontsPage() {
     ],
   };
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Use Halloween Fonts on Every Major Platform",
+    description:
+      "The three-step process is the same everywhere: generate your text, copy it, and paste it. Works on Instagram, TikTok, Discord, YouTube, WhatsApp, and more.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Copy and Paste First",
+        text: "Generate your Halloween text in this tool, then copy it. Open any platform like Canva, Instagram, or TikTok and paste your styled text straight in. No upload, no font install needed.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Download Only If You Need More Control",
+        text: "Some advanced tools like Canva stroke effects or color gradients only work with a real font file. If you need that level of control, download a font like Creepster or Nosifer from Google Fonts.",
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar />
       <main id="main-content" className="pt-[5.5rem]">

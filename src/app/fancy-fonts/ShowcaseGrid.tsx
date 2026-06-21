@@ -99,7 +99,7 @@ export default function ShowcaseGrid({ cards }: { cards: ShowcaseCard[] }) {
                   onClick={() => handleCopy(card.preview, index)}
                   className={`w-9 h-9 flex items-center justify-center rounded-full transition-all ${
                     isCopied
-                      ? "bg-[#22c55e] text-white"
+                      ? "bg-[#15803d] text-white"
                       : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                   }`}
                   aria-label={isCopied ? "Copied" : "Copy to clipboard"}

@@ -322,7 +322,7 @@ export default function CursiveFontGenerator() {
                             }
                             className={`flex-shrink-0 w-10 rounded-full font-bold transition-all flex flex-col items-center justify-center ${
                               isCopied
-                                ? "bg-[#22c55e] text-white"
+                                ? "bg-[#15803d] text-white"
                                 : "text-on-surface-variant hover:bg-primary hover:text-on-primary"
                             }`}
                           >

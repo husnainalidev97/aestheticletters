@@ -20,12 +20,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Aesthetic Letters",
-    type: "website",
+    type: "article",
     url: "https://www.aestheticletters.com/instagram-fonts",
     title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
     images: [{ url: "/instagram-fonts-generator-explained.webp", width: 848, height: 1230 }],
+    publishedTime: "2026-05-01T08:00:00+00:00",
+    modifiedTime: "2026-06-21T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -146,11 +148,50 @@ export default function InstagramFontsPage() {
     ],
   };
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Use Instagram Font Changer (Step by Step)",
+    description:
+      "Using our tool is simple. Fill out the input box, get multiple fonts instantly, click to copy, and add to your Instagram bio or caption.",
+    totalTime: "PT1M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Fill Out the Input Box",
+        text: "Fill out the input box with your text.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Get Multiple Fonts Instantly",
+        text: "Get multiple different fonts for Instagram instantly.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Click to Copy",
+        text: "Click any style to copy.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "Add to Your Profile",
+        text: "Add it to your Insta bio or caption.",
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="instagram-fonts" />
       <main id="main-content" className="pt-[5.5rem]">

@@ -272,7 +272,7 @@ export default function DownloadImage({ text, styleName, onClose }: DownloadImag
             onClick={renderAndDownload}
             disabled={isRendering}
             className="w-full py-3.5 rounded-xl font-headline font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
-            style={{ background: "linear-gradient(135deg, #9b6dd7 0%, #e888b0 100%)" }}
+            style={{ background: "linear-gradient(135deg, #7c4daf 0%, #a94d73 100%)" }}
           >
             {isRendering ? (
               <>
