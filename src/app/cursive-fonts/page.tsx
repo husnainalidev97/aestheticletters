@@ -578,38 +578,69 @@ export default function CursiveFontsPage() {
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
-          <p className="text-on-surface-variant text-center text-sm md:text-base mb-8 max-w-xl mx-auto">
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
             Looking for a different vibe? Try these generators to find the
             perfect style for your text.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: "Aesthetic Fonts", href: "/", icon: "✨", tag: "Similar Style", desc: "All-in-one text styler" },
-              { label: "Cute Fonts", href: "/cute-fonts", icon: "🎀", tag: "Similar Style", desc: "Adorable text styles" },
-              { label: "Serif Fonts", href: "/serif-fonts", icon: "🅰️", tag: "Similar Style", desc: "Classic serif letters" },
-              { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "🔤", tag: "Similar Style", desc: "Clean modern text" },
-              { label: "Instagram Fonts", href: "/instagram-fonts", icon: "📸", tag: "Popular Tool", desc: "Stand out on Insta" },
-              { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", tag: "Popular Tool", desc: "Style your FB posts" },
-              { label: "Fancy Fonts", href: "/fancy-fonts", icon: "👑", tag: "Popular Tool", desc: "Decorative text art" },
-              { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", tag: "Popular Tool", desc: "Premium text styles" },
-            ].map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group relative flex flex-col items-center text-center p-5 md:p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
-              >
-                <span className="text-2xl md:text-3xl mb-2">{tool.icon}</span>
-                <span className="font-headline font-bold text-sm md:text-base text-on-surface group-hover:text-primary transition-colors">
-                  {tool.label}
-                </span>
-                <span className="text-on-surface-variant text-xs mt-1 leading-snug">
-                  {tool.desc}
-                </span>
-                <span className="mt-2 text-[0.6rem] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant">
-                  {tool.tag}
-                </span>
-              </Link>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Aesthetic Fonts", href: "/", icon: "✨", desc: "All-in-one text styler" },
+                  { label: "Cute Fonts", href: "/cute-fonts", icon: "🎀", desc: "Adorable text styles" },
+                  { label: "Serif Fonts", href: "/serif-fonts", icon: "🅰️", desc: "Classic serif letters" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "🔤", desc: "Clean modern text" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "📸", desc: "Stand out on Insta" },
+                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", desc: "Style your FB posts" },
+                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "👑", desc: "Decorative text art" },
+                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", desc: "Premium text styles" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
