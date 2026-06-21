@@ -76,41 +76,46 @@ const faqs = [
   },
 ];
 
-const topFonts = [
+const categoryDescriptions = [
   {
-    name: "Cursive Script",
+    name: "Handwriting Cursive",
     description:
-      "A flowing script style with connected letters. Great for elegant captions and bios.",
+      "Looks like real handwriting. Cursive Script gives you a smooth, joined-up style. Smooth Overline adds a line above your words, like an underline but on top. Flourished Handwriting adds small decorative symbols around your text.",
   },
   {
-    name: "Bold Script",
+    name: "Playful Script",
     description:
-      "A heavier cursive look that stands out. Perfect for headings and strong statements.",
+      "Fun and bouncy styles, great for casual posts. Star Bounce and Sparkle Script add little stars and dots around your letters. Bubbly Cursive puts your whole phrase inside cute brackets.",
   },
   {
-    name: "Flourished Handwriting",
+    name: "Elegant Cursive",
     description:
-      "Decorated with floral accents around each word. Ideal for quotes and invitations.",
+      "Classy styles for invitations, signatures, or branding. Calligraphy and Royal Script give you that fancy, hand-lettered look you see on wedding cards.",
   },
   {
-    name: "Royal Script",
+    name: "Brush & Marker",
     description:
-      "An ornate calligraphy style with classic ornamental brackets. Great for formal designs.",
+      "Styles that look like they were drawn with a real brush or marker. Heavy Brush and Marker Bold give you thick, bold strokes. Brush Underline adds a brush-style line under each letter.",
   },
   {
-    name: "Brush Stroke",
+    name: "School & Guides",
     description:
-      "A bold italic style that mimics marker pen writing. Eye-catching for social media.",
+      "A throwback to handwriting practice sheets from school. Dotted Guide and Ruled Script add dotted or lined marks above and below your text, just like a worksheet.",
   },
   {
-    name: "Sparkle Script",
+    name: "Chunky Fun",
     description:
-      "Italic text wrapped with star decorations. Fun and playful for creative posts.",
+      "Bold styles that grab attention. Bold Block is thick and easy to read. Chunky Hearts adds little heart symbols between your letters.",
   },
   {
-    name: "Classic Italic",
+    name: "Retro Vintage",
     description:
-      "A clean italic style with a vintage feel. Versatile and works everywhere.",
+      "Old-school styles that feel classic. Old Script and Antique Cursive look like signatures from vintage signs or old letters.",
+  },
+  {
+    name: "Cultural Brush",
+    description:
+      "Brush-style fonts inspired by art from around the world. These are fun, decorative styles, not exact copies of any real language or script.",
   },
 ];
 
@@ -467,41 +472,49 @@ export default function CursiveFontsPage() {
                 </p>
               </article>
 
-              {/* Top 7 Handwritten Fonts */}
+              {/* 40+ Handwritten Font Styles in 8 Categories */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Top 7 Cursive Styles That Work Everywhere
+                  40+ Handwritten Font Styles in 8 Categories
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are some of the best cursive text styles that are simple,
-                  readable, and widely used:
+                  This generator gives you 40+ cursive and handwritten styles.
+                  They are grouped into 8 categories to help you find the look
+                  you want faster. Every style is made from real Unicode text,
+                  not images or fonts, so it copies and pastes perfectly
+                  anywhere.
                 </p>
                 <div className="space-y-6">
-                  {topFonts.map((font) => (
+                  {categoryDescriptions.map((cat) => (
                     <div
-                      key={font.name}
+                      key={cat.name}
                       className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10"
                     >
                       <h3 className="font-headline font-bold text-primary mb-2 text-xl">
-                        {font.name}
+                        {cat.name}
                       </h3>
                       <p className="text-on-surface-variant text-sm leading-relaxed">
-                        {font.description}
+                        {cat.description}
                       </p>
                     </div>
                   ))}
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-8">
-                  These are some of the most popular cursive fonts used across
-                  different platforms. If you want to explore more decorative
-                  styles,{" "}
+                  Every style on this list is plain text. That means you can
+                  copy it and paste it straight into Instagram, Facebook,
+                  WhatsApp, or anywhere else that lets you type.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-4">
+                  These are some of the most popular cursive styles people use
+                  across different platforms. If you also want symbols and
+                  emojis to pair with your text,{" "}
                   <Link
                     href="/"
                     className="text-primary font-bold underline hover:opacity-80 transition-all"
                   >
                     aesthetic fonts
                   </Link>{" "}
-                  are also worth trying.
+                  has a wide collection to explore.
                 </p>
               </article>
             </div>
