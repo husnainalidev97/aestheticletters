@@ -9,9 +9,9 @@ import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 
 export const metadata: Metadata = {
-  title: { absolute: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste" },
+  title: { absolute: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste" },
   description:
-    "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+    "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
   alternates: {
     canonical: "https://www.aestheticletters.com/number-font-generator",
   },
@@ -19,16 +19,16 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/number-font-generator",
-    title: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
+    title: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
     description:
-      "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+      "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
     images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
+    title: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
     description:
-      "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+      "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
     images: ["https://www.aestheticletters.com/og-image.jpg"],
   },
 };
@@ -129,7 +129,7 @@ export default function NumberFontGeneratorPage() {
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/number-font-generator",
         description:
-          "Turn plain numbers into 90+ stylish Unicode number fonts. Copy and paste fancy numbers for Instagram, WhatsApp, Discord, gaming usernames, and more.",
+          "Turn plain numbers into 100+ stylish Unicode number fonts. Copy and paste fancy numbers for Instagram, WhatsApp, Discord, gaming usernames, and more.",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -140,9 +140,9 @@ export default function NumberFontGeneratorPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/number-font-generator#webpage",
         url: "https://www.aestheticletters.com/number-font-generator",
-        name: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
+        name: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
         description:
-          "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+          "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/number-font-generator#breadcrumb",
         },
@@ -238,7 +238,7 @@ export default function NumberFontGeneratorPage() {
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Use this Number Font Generator to turn any number into a new style in
-            seconds. Type it below, then copy and paste from 90+ fonts, from clean
+            seconds. Type it below, then copy and paste from 100+ fonts, from clean
             Unicode styles to decorative designs.
           </p>
         </section>
