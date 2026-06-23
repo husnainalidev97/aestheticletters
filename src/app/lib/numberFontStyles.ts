@@ -464,15 +464,15 @@ const blockNumbers: FontCategory = {
 
 export const numberFontCategories: FontCategory[] = [
   numberFontStyles,
-  numberEmojis,
-  circledNumbers,
-  scriptNumbers,
-  lineFonts,
-  wrappedFonts,
-  overtextStyles,
-  symbolicNumbers,
   framedNumbers,
   decoratedNumbers,
-  mixedNumberStyles,
+  numberEmojis,
+  scriptNumbers,
+  wrappedFonts,
+  circledNumbers,
+  lineFonts,
   blockNumbers,
+  overtextStyles,
+  symbolicNumbers,
+  mixedNumberStyles,
 ];
