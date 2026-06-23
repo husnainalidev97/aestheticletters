@@ -247,6 +247,12 @@ const arabicDigitMap = buildDigitMap(0x0660);
 // Devanagari Numerals: U+0966–U+096F
 const devanagariDigitMap = buildDigitMap(0x0966);
 
+// Thai Numerals: U+0E50–U+0E59
+const thaiDigitMap = buildDigitMap(0x0e50);
+
+// Tibetan Numerals: U+0F20–U+0F29
+const tibetanDigitMap = buildDigitMap(0x0f20);
+
 // Upside Down Numbers
 const upsideDownDigitMap: Record<string, string> = {
   "0": "0",
@@ -289,6 +295,8 @@ const numberFontStyles: FontCategory = {
     { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthDigitMap) },
     { name: "Arabic Numerals", transform: (t) => applyMap(t, arabicDigitMap) },
     { name: "Devanagari Numerals", transform: (t) => applyMap(t, devanagariDigitMap) },
+    { name: "Thai Numerals", transform: (t) => applyMap(t, thaiDigitMap) },
+    { name: "Tibetan Numerals", transform: (t) => applyMap(t, tibetanDigitMap) },
   ],
 };
 
