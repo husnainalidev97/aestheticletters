@@ -86,6 +86,13 @@ const toolCategories: ToolCategory[] = [
         icon: "favorite",
         href: "/cute-fonts",
       },
+      {
+        title: "Number Font Generator",
+        description:
+          "Turn plain numbers into 100+ stylish Unicode number fonts. Copy and paste fancy numbers instantly.",
+        icon: "123",
+        href: "/number-font-generator",
+      },
     ],
   },
   {
