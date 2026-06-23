@@ -257,13 +257,6 @@ export default function NumberFontGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Number Font Generator?
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  A number font generator changes plain digits into styled versions
-                  of the same numbers. You type a number, and the tool shows you
-                  many ways to display it, from bold numbers to circled numbers to
-                  line fonts. Nothing about the number itself changes, only how it
-                  looks.
-                </p>
                 <Image
                   src="/images/number-font-generator/what-is-number-font-generator-before-after.webp"
                   alt="Number font generator transforming plain digits 2025 into multiple Unicode styled variations"
@@ -273,6 +266,13 @@ export default function NumberFontGeneratorPage() {
                   priority={false}
                   loading="lazy"
                 />
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  A number font generator changes plain digits into styled versions
+                  of the same numbers. You type a number, and the tool shows you
+                  many ways to display it, from bold numbers to circled numbers to
+                  line fonts. Nothing about the number itself changes, only how it
+                  looks.
+                </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   People sometimes call these &quot;number fonts,&quot; but that
                   name is a little misleading. A real font is a file you install on
