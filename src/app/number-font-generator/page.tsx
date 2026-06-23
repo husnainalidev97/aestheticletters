@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import NumberFontGenerator from "../components/NumberFontGenerator";
@@ -263,6 +264,15 @@ export default function NumberFontGeneratorPage() {
                   line fonts. Nothing about the number itself changes, only how it
                   looks.
                 </p>
+                <Image
+                  src="/images/number-font-generator/what-is-number-font-generator-before-after.webp"
+                  alt="Number font generator transforming plain digits 2025 into multiple Unicode styled variations"
+                  width={800}
+                  height={400}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   People sometimes call these &quot;number fonts,&quot; but that
                   name is a little misleading. A real font is a file you install on
@@ -368,6 +378,15 @@ export default function NumberFontGeneratorPage() {
                   the most popular ones come from, and why they look the way they
                   do.
                 </p>
+                <Image
+                  src="/images/number-font-generator/popular-unicode-number-font-styles-comparison.webp"
+                  alt="Comparison chart of 8 popular Unicode number font styles including Roman numerals, double-struck, fullwidth, superscript, and circled numbers"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <div className="space-y-8">
                   {numberStyles.map((style) => (
                     <div key={style.name}>
@@ -424,6 +443,15 @@ export default function NumberFontGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   A Quick Note on Number Styles in Typography
                 </h2>
+                <Image
+                  src="/images/number-font-generator/lining-vs-oldstyle-number-figures-typography.webp"
+                  alt="Typography comparison showing lining figures versus oldstyle figures and tabular versus proportional number spacing"
+                  width={800}
+                  height={350}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Professional typography treats numbers differently depending on
                   where they appear. In a heading or a table, every digit usually
