@@ -354,6 +354,9 @@ const wrappedFonts: FontCategory = {
     { name: "Crescent Box", transform: (t) => wrapChars(t, "\u263E", "\u263D") },
     { name: "Fine Edges", transform: (t) => wrapChars(t, "\u2991", "\u2992") },
     { name: "Soft Curl", transform: (t) => wrapChars(t, "\u2570", "\u256F") },
+    { name: "Leaf Wrap", transform: (t) => wrapChars(t, "\u2767", "\u2767") },
+    { name: "Lotus Frame", transform: (t) => wrapChars(t, "\u2766", "\u2766") },
+    { name: "Dagger Edge", transform: (t) => wrapChars(t, "\u2020", "\u2020") },
   ],
 };
 
@@ -423,6 +426,9 @@ const decoratedNumbers: FontCategory = {
     { name: "Flower Frame", transform: (t) => wrapChars(t, "\u273F", "\u273F") },
     { name: "Diamond Edge", transform: (t) => wrapChars(t, "\u2756", "\u2756") },
     { name: "Heart Border", transform: (t) => wrapChars(t, "\u2765", "\u2765") },
+    { name: "Snowflake Border", transform: (t) => wrapChars(t, "\u2744", "\u2744") },
+    { name: "Clover Edge", transform: (t) => wrapChars(t, "\u2618", "\u2618") },
+    { name: "Compass Frame", transform: (t) => wrapChars(t, "\u2724", "\u2724") },
   ],
 };
 
@@ -439,6 +445,9 @@ const mixedNumberStyles: FontCategory = {
     { name: "Gem Cut", transform: (t) => wrapChars(t, "\u29DB", "\u29DA") },
     { name: "Wavy Line", transform: (t) => withSeparator(t, "\u223C") },
     { name: "Flow Chain", transform: (t) => withSeparator(t, "\u22B6") },
+    { name: "Arrow Chain", transform: (t) => withSeparator(t, "\u2192") },
+    { name: "Bullet Point", transform: (t) => withSeparator(t, "\u2022") },
+    { name: "Lightning Bolt", transform: (t) => withSeparator(t, "\u26A1") },
   ],
 };
 
@@ -457,6 +466,8 @@ const blockNumbers: FontCategory = {
     { name: "Solid Block", transform: (t) => wrapChars(t, "\u2588", "\u2588") },
     { name: "Dark Shade", transform: (t) => wrapChars(t, "\u2593", "\u2593") },
     { name: "Medium Shade", transform: (t) => wrapChars(t, "\u2592", "\u2592") },
+    { name: "Light Shade", transform: (t) => wrapChars(t, "\u2591", "\u2591") },
+    { name: "Double Box", transform: (t) => wrapChars(t, "\u2560", "\u2563") },
   ],
 };
 
