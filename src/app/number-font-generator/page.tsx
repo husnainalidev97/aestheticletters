@@ -144,6 +144,8 @@ export default function NumberFontGeneratorPage() {
         name: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
         description:
           "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+        datePublished: "2025-06-20",
+        dateModified: "2025-06-23",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/number-font-generator#breadcrumb",
         },
@@ -177,6 +179,7 @@ export default function NumberFontGeneratorPage() {
       },
       {
         "@type": "FAQPage",
+        "@id": "https://www.aestheticletters.com/number-font-generator#faq",
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -188,9 +191,11 @@ export default function NumberFontGeneratorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": "https://www.aestheticletters.com/number-font-generator#howto",
         name: "How to Copy and Paste Number Fonts",
         description:
           "Getting your styled numbers takes three steps. There is nothing to download and nothing to set up first.",
+        image: "https://www.aestheticletters.com/images/number-font-generator/what-is-number-font-generator-before-after.webp",
         totalTime: "PT1M",
         step: [
           {
