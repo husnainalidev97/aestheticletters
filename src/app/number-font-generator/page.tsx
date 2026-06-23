@@ -244,7 +244,7 @@ export default function NumberFontGeneratorPage() {
         </section>
 
         {/* Interactive Font Generator */}
-        <FontGenerator totalFontStyles={totalFontStyles} />
+        <FontGenerator totalFontStyles={totalFontStyles} hideHeader hideExploreButton />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
@@ -412,9 +412,9 @@ export default function NumberFontGeneratorPage() {
                     href="/fancy-fonts"
                     className="text-primary underline underline-offset-4 hover:no-underline"
                   >
-                    Fancy Fonts
+                    Fancy Fonts Generator
                   </Link>{" "}
-                  generator covers letters, symbols, and more in the same copy and
+                  covers letters, symbols, and more in the same copy and
                   paste style.
                 </p>
               </article>
@@ -460,34 +460,6 @@ export default function NumberFontGeneratorPage() {
                 </p>
               </div>
             </aside>
-          </div>
-        </section>
-
-        {/* Similar Font Generator */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Similar Font Generator
-          </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Fancy Fonts", href: "/fancy-fonts" },
-                { label: "Instagram Fonts", href: "/instagram-fonts" },
-                { label: "Cursive Fonts", href: "/cursive-fonts" },
-                { label: "Stylish Fonts", href: "/stylish-fonts" },
-                { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
-                { label: "Aesthetic Fonts", href: "/" },
-              ].map((tool) => (
-                <li key={tool.href}>
-                  <Link
-                    href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
-                  >
-                    {tool.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 

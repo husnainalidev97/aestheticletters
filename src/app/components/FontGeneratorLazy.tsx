@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const FontGenerator = dynamic(() => import("./FontGenerator"), {
+const FontGeneratorDynamic = dynamic(() => import("./FontGenerator"), {
   loading: () => (
     <div className="min-h-[600px] md:min-h-[900px]">
       {/* Header + Generator skeleton */}
@@ -35,4 +35,4 @@ const FontGenerator = dynamic(() => import("./FontGenerator"), {
   ),
 });
 
-export default FontGenerator;
+export default FontGeneratorDynamic;
