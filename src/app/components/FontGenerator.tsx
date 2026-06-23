@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
-import { fontCategories } from "../lib/fontStyles";
+import { fontCategories, type FontCategory } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
@@ -48,9 +48,13 @@ const homeCategoryLinks = fontCategories.map((cat) => ({
 
 interface FontGeneratorProps {
   totalFontStyles: number;
+  hideHeader?: boolean;
+  hideExploreButton?: boolean;
+  categories?: FontCategory[];
+  defaultText?: string;
 }
 
-export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts" }: FontGeneratorProps) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -72,9 +76,13 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const allCategories = customCategories || fontCategories;
+  const filteredCategories = allCategories.filter(
+    (cat) => !cat.condition || cat.condition(text),
+  );
   const visibleCategories = showAll
-    ? fontCategories
-    : fontCategories.slice(0, INITIAL_COUNT);
+    ? filteredCategories
+    : filteredCategories.slice(0, INITIAL_COUNT);
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -147,7 +155,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
     }
   }, [fallbackCopy]);
 
-  const displayText = text || "Aesthetic Fonts";
+  const displayText = text || defaultText;
 
   const handlePreview = useCallback((t: string) => setPreviewText(t), []);
   const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
@@ -173,13 +181,17 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
     <>
       {/* Compact header + generator tool — tool-first layout */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
-        <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight text-on-background mb-2 md:mb-3">
-          Aesthetic Fonts Copy and Paste
-        </h1>
-        <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 text-sm md:text-lg">
-          Give your words a fresh and modern look with over 120 aesthetic
-          fonts, perfect for quotes, creative posts, and visual storytelling.
-        </p>
+        {!hideHeader && (
+          <>
+            <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight text-on-background mb-2 md:mb-3">
+              Aesthetic Fonts Copy and Paste
+            </h1>
+            <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 text-sm md:text-lg">
+              Give your words a fresh and modern look with over 120 aesthetic
+              fonts, perfect for quotes, creative posts, and visual storytelling.
+            </p>
+          </>
+        )}
         {/* Generator Block: Input + Slider */}
         <div className="relative w-full max-w-3xl mx-auto space-y-5">
           <div className="relative">
@@ -236,7 +248,11 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
             </div>
           </div>
           <CategoryJumpLinks
-            categories={homeCategoryLinks}
+            categories={customCategories ? filteredCategories.map((cat) => ({
+              label: cat.name,
+              emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
+              id: `cat-${slugify(cat.name)}`,
+            })) : homeCategoryLinks}
             onExpandAll={() => setShowAll(true)}
           />
         </div>
@@ -263,19 +279,21 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
       >
         {/* Dynamic Font Counter Badge */}
-        <div className="flex justify-end mb-5">
-          <Link
-            href="/all-tools"
-            title="Browse all aesthetic font generators and text styling tools — explore every style in one place"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0px_8px_24px_rgba(155,89,182,0.3)] active:scale-[0.97]"
-            style={{
-              background: "linear-gradient(135deg, #7c4daf 0%, #a94d73 100%)",
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform duration-300 group-hover:rotate-12" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
-            Explore {totalFontStyles} Font Styles
-          </Link>
-        </div>
+        {!hideExploreButton && (
+          <div className="flex justify-end mb-5">
+            <Link
+              href="/all-tools"
+              title="Browse all aesthetic font generators and text styling tools — explore every style in one place"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0px_8px_24px_rgba(155,89,182,0.3)] active:scale-[0.97]"
+              style={{
+                background: "linear-gradient(135deg, #7c4daf 0%, #a94d73 100%)",
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform duration-300 group-hover:rotate-12" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
+              Explore {totalFontStyles} Font Styles
+            </Link>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category, index) => (
@@ -316,7 +334,7 @@ export default function FontGenerator({ totalFontStyles }: FontGeneratorProps) {
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  Show {fontCategories.length - INITIAL_COUNT} More Categories
+                  Show {filteredCategories.length - INITIAL_COUNT} More Categories
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}

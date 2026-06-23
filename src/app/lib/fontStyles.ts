@@ -16,6 +16,8 @@ export interface FontStyle {
 export interface FontCategory {
   name: string;
   styles: FontStyle[];
+  /** Optional condition: card is hidden when this returns false for current input. */
+  condition?: (text: string) => boolean;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────

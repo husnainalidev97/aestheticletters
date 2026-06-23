@@ -7,6 +7,7 @@ import { facebookFontCategories } from "./facebookFontStyles";
 import { cursiveUnicodeStyles } from "../cursive-fonts/cursiveUnicodeStyles";
 import { serifUnicodeCategories, serifFontCategories } from "./serifFontStyles";
 import { sansSerifUnicodeCategories } from "./sansSerifFontStyles";
+import { numberFontCategories } from "./numberFontStyles";
 
 // Instagram font cards are in a "use client" component and cannot be imported
 // at static build time. Count is derived from 12 categories × ~10 styles each.
@@ -56,5 +57,9 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
-  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount;
+  const numberCount = numberFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount;
 }
