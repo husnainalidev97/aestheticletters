@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     title: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
     description:
       "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
-    images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/images/number-font-generator/number-font-generator-og.webp", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste",
     description:
       "Our Number Font Generator turns plain numbers into 100+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
-    images: ["https://www.aestheticletters.com/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/images/number-font-generator/number-font-generator-og.webp"],
   },
 };
 
