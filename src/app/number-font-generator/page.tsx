@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import FontGenerator from "../components/FontGeneratorLazy";
+import FAQAccordion from "../components/FAQAccordion";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 
 export const metadata: Metadata = {
-  title: "Number Font Generator - Copy & Paste Stylish Numbers",
+  title: { absolute: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste" },
   description:
-    "Generate stylish number fonts with our free Number Font Generator. Copy and paste fancy numbers for Instagram, Facebook, WhatsApp, and more.",
+    "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
   alternates: {
     canonical: "https://www.aestheticletters.com/number-font-generator",
   },
@@ -16,31 +19,485 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/number-font-generator",
-    title: "Number Font Generator - Copy & Paste Stylish Numbers",
+    title: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
     description:
-      "Generate stylish number fonts with our free Number Font Generator. Copy and paste fancy numbers for Instagram, Facebook, WhatsApp, and more.",
+      "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
     images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Number Font Generator - Copy & Paste Stylish Numbers",
+    title: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
     description:
-      "Generate stylish number fonts with our free Number Font Generator. Copy and paste fancy numbers for Instagram, Facebook, WhatsApp, and more.",
+      "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
     images: ["https://www.aestheticletters.com/og-image.jpg"],
   },
 };
 
-export default function NumberFontGenerator() {
+const faqs = [
+  {
+    question: "Is this number font generator free to use?",
+    answer:
+      "Yes, and it stays that way. This tool has no account requirement, no download, and no cap on how often you return to use it. Style one number today and a hundred more next week, all without creating a profile or entering payment details.",
+  },
+  {
+    question: "Why do some number styles show as boxes or question marks?",
+    answer:
+      "A box or question mark shows up when your phone or app has no built-in way to draw that particular character. Unicode has a name for this gap: a missing glyph. Updating your operating system usually solves it, since newer software adds support for more characters over time.",
+  },
+  {
+    question: "Do number fonts work on Instagram, WhatsApp, and Discord?",
+    answer:
+      "Yes. Since these are Unicode characters and not downloaded fonts, they work anywhere that accepts regular text, including bios, captions, and chat messages.",
+  },
+  {
+    question: "Why can\u2019t I get circled numbers above 20 or Roman numerals above 12?",
+    answer:
+      "Unicode does have some symbols beyond these points, but they live in parts of Unicode that many devices do not support well. To keep every style on this page working reliably, we only show the ranges that are safe on virtually all phones and apps.",
+  },
+  {
+    question: "Is there an italic number font?",
+    answer:
+      "No. Unicode created italic versions of letters, but never made italic versions of numbers. Any tool claiming to offer italic numbers is not using a real Unicode style.",
+  },
+  {
+    question: "Are fancy number fonts accessible for screen readers?",
+    answer:
+      "Not reliably. Screen readers are built to read plain numbers and letters. Styled Unicode characters often get skipped or read incorrectly, so it is best to avoid them in places where accessibility matters.",
+  },
+  {
+    question: "Can I style a long number, like a date or a phone number?",
+    answer:
+      "Yes. Type as many digits as you like. Most styles work digit by digit, so longer numbers are styled the same way as short ones.",
+  },
+];
+
+const numberStyles = [
+  {
+    name: "Roman Numerals",
+    description:
+      "Roman numerals are one of the oldest number systems still in everyday use, dating back to ancient Rome. Unicode gives them their own characters, separate from regular letters, so software can tell \u201C\u2160\u201D the numeral apart from \u201CI\u201D the letter. This is why clock faces, book chapters, and outlines often use these special characters instead of typing a capital I.",
+  },
+  {
+    name: "Double-Struck Numbers",
+    description:
+      "This style started in university math classrooms. Professors writing on chalkboards could not make true bold letters with chalk, so they drew each stroke twice to create a bolder look. You will still see this style in math textbooks today, used to label important groups of numbers.",
+  },
+  {
+    name: "Fullwidth Numbers",
+    description:
+      "These wider digits come from East Asian typesetting. Chinese, Japanese, and Korean characters are naturally square shaped, so early computer systems made matching wide versions of Western numbers and letters. This kept everything lined up neatly when the two writing styles appeared in the same line of text.",
+  },
+  {
+    name: "Superscript and Subscript Numbers",
+    description:
+      "Science and math needed a way to write formulas without special formatting tools, which is exactly why these small raised and lowered numbers exist. A chemical formula like water, written as H followed by a small 2, uses a true subscript character rather than just a smaller font size.",
+  },
+  {
+    name: "Circled Numbers",
+    description:
+      "Circled numbers were first designed as list markers, especially in East Asian documents where they replaced plain numbers with periods. You will still see them used this way today, in instructions, footnotes, and numbered steps where a small circled mark stands out more than a plain digit.",
+  },
+  {
+    name: "Parenthesized Numbers",
+    description:
+      "Long before computers, typewriters could not draw a circle around a number. People used parentheses instead, like (1) or (2), as a simple stand-in. This older typewriter habit became its own permanent character set, which is why parenthesized numbers still show up often in legal documents and academic writing.",
+  },
+  {
+    name: "Number Emojis",
+    description:
+      "These are not separate emoji characters at all. Each one is built from a regular digit, a small invisible marker, and a square symbol layered together. This combination is what makes phones and apps show your number inside a colorful keycap, the same look used for buttons on a phone dial pad.",
+  },
+  {
+    name: "Arabic and Devanagari Numerals",
+    description:
+      "Not every culture writes numbers the same way. Arabic-Indic numerals are used across the Arabic speaking world, while Devanagari numerals appear in Hindi and several other South Asian languages. Both are genuine number systems with their own characters, not stylized versions of 0 through 9.",
+  },
+];
+
+export default function NumberFontGeneratorPage() {
   const totalFontStyles = getTotalFontStyleCount();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.aestheticletters.com/number-font-generator#software",
+        name: "Number Font Generator",
+        operatingSystem: "Any",
+        applicationCategory: "UtilitiesApplication",
+        browserRequirements: "requires HTML5 support",
+        url: "https://www.aestheticletters.com/number-font-generator",
+        description:
+          "Turn plain numbers into 90+ stylish Unicode number fonts. Copy and paste fancy numbers for Instagram, WhatsApp, Discord, gaming usernames, and more.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.aestheticletters.com/number-font-generator#webpage",
+        url: "https://www.aestheticletters.com/number-font-generator",
+        name: "Number Font Generator \u2013 90+ Stylish Numbers to Copy & Paste",
+        description:
+          "Our Number Font Generator turns plain numbers into 90+ styles, from Unicode fonts to fun decorative designs. Every style is tested on mobile. Free, no sign-up.",
+        breadcrumb: {
+          "@id": "https://www.aestheticletters.com/number-font-generator#breadcrumb",
+        },
+        mainEntity: {
+          "@id": "https://www.aestheticletters.com/number-font-generator#software",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.aestheticletters.com/number-font-generator#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.aestheticletters.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "All Tools",
+            item: "https://www.aestheticletters.com/all-tools",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Number Font Generator",
+            item: "https://www.aestheticletters.com/number-font-generator",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "HowTo",
+        name: "How to Copy and Paste Number Fonts",
+        description:
+          "Getting your styled numbers takes three steps. There is nothing to download and nothing to set up first.",
+        totalTime: "PT1M",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Type Your Number",
+            text: "Use the box at the top of the page. You can enter a single digit or a long number like a date or a price.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Pick a Style",
+            text: "Browse the cards and find one that fits what you are making.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Copy and Paste",
+            text: "Click the card to copy it, then paste it into your bio, post, or message.",
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "All Tools", href: "/all-tools" },
+            { label: "Number Font Generator", href: "/number-font-generator" },
+          ]}
+        />
+
+        {/* Hero Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            Number Font Generator &ndash; Copy and Paste
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
+            Use this Number Font Generator to turn any number into a new style in
+            seconds. Type it below, then copy and paste from 90+ fonts, from clean
+            Unicode styles to decorative designs.
+          </p>
+        </section>
+
+        {/* Interactive Font Generator */}
         <FontGenerator totalFontStyles={totalFontStyles} />
 
-        {/* Content sections will be added here */}
+        {/* SEO Content Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* Main Content */}
+            <div className="lg:col-span-8 flex flex-col gap-16">
+              {/* What is a Number Font Generator? */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  What is a Number Font Generator?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  A number font generator changes plain digits into styled versions
+                  of the same numbers. You type a number, and the tool shows you
+                  many ways to display it, from bold numbers to circled numbers to
+                  line fonts. Nothing about the number itself changes, only how it
+                  looks.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  People sometimes call these &quot;number fonts,&quot; but that
+                  name is a little misleading. A real font is a file you install on
+                  your device. These styles are something else: characters that
+                  already exist inside Unicode, the system that gives every letter,
+                  number, and symbol a unique code. Your device already knows how to
+                  show them, so there is nothing to add.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  This is why a number font generator works the moment you open it.
+                  You are not downloading new symbols. You are picking from ones
+                  that already exist, the same way our{" "}
+                  <Link
+                    href="/sans-serif-fonts"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    Sans Serif Fonts
+                  </Link>{" "}
+                  tool works for letters instead of digits.
+                </p>
+              </article>
 
+              {/* How to Copy and Paste Number Fonts */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  How to Copy and Paste Number Fonts?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Getting your styled numbers takes three steps. There is nothing to
+                  download and nothing to set up first.
+                </p>
+                <div className="space-y-8">
+                  {[
+                    {
+                      step: 1,
+                      title: "Type Your Number",
+                      description:
+                        "Use the box at the top of the page. You can enter a single digit or a long number like a date or a price.",
+                    },
+                    {
+                      step: 2,
+                      title: "Pick a Style",
+                      description:
+                        "Browse the cards above and find one that fits what you are making.",
+                    },
+                    {
+                      step: 3,
+                      title: "Copy and Paste",
+                      description:
+                        "Click the card to copy it, then paste it into your bio, post, or message.",
+                    },
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-6">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-xl font-bold mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-on-surface-variant">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              {/* Why These Numbers Work Everywhere */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Why These Numbers Work Everywhere
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Every character in Unicode has its own code point, a kind of
+                  address that tells your device exactly what to draw. The bold
+                  number 𝟏 and the plain number 1 have different code points, even
+                  though they mean the same value.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  This system lives inside two main areas. One is called
+                  Mathematical Alphanumeric Symbols, originally made for math papers
+                  that needed bold or italic letters with a fixed meaning. The other
+                  is Enclosed Alphanumerics, built for circled and bracketed numbers
+                  used in lists and signs.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Because phones, browsers, and apps all read the same Unicode
+                  standard, a styled number made on one device looks the same on
+                  another. That is the real reason copy and paste works without any
+                  setup.
+                </p>
+              </article>
+
+              {/* Popular Number Font Styles, Explained */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Popular Number Font Styles, Explained
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Each style on this page has its own story. Here is where eight of
+                  the most popular ones come from, and why they look the way they
+                  do.
+                </p>
+                <div className="space-y-8">
+                  {numberStyles.map((style) => (
+                    <div key={style.name}>
+                      <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
+                        {style.name}
+                      </h3>
+                      <p className="text-on-surface-variant leading-relaxed text-lg">
+                        {style.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              {/* Where to Use Numerical Fonts */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where to Use Numerical Fonts?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Bold Numbers or Circled Numbers can make a follower count or a
+                  sale price stand out in an Instagram bio. Double-Struck Numbers
+                  can give a gaming name a sharper look without changing what it
+                  says. Pair them with{" "}
+                  <Link
+                    href="/instagram-fonts"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    Instagram Fonts
+                  </Link>{" "}
+                  to style your whole bio, not just the numbers in it.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  On WhatsApp or Discord, styled numbers are useful for countdowns,
+                  &quot;Day 12 of 30&quot; posts, or marking steps in a list.
+                  Superscript and Subscript Numbers are handy for school work, like
+                  writing a footnote or a chemical formula.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Want your whole caption styled, not just the numbers in it? Our{" "}
+                  <Link
+                    href="/fancy-fonts"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    Fancy Fonts
+                  </Link>{" "}
+                  generator covers letters, symbols, and more in the same copy and
+                  paste style.
+                </p>
+              </article>
+
+              {/* A Quick Note on Number Styles in Typography */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  A Quick Note on Number Styles in Typography
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Professional typography treats numbers differently depending on
+                  where they appear. In a heading or a table, every digit usually
+                  looks uniform and upright. But inside a normal sentence, some
+                  fonts swap in numbers with small tails and uneven heights, called
+                  oldstyle figures, so they blend in next to lowercase letters
+                  instead of standing out.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  There is also a spacing difference. Tabular figures all take up
+                  the same width, so columns of numbers line up neatly in a table.
+                  Proportional figures vary in width instead, matching the natural
+                  rhythm of regular text.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  These terms describe how a font is built, not the Unicode styles
+                  on this page. Still, they explain why number design has always
+                  mattered, long before copy and paste existed.
+                </p>
+              </article>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4 space-y-12">
+              {/* Security Feature */}
+              <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
+                <h3 className="font-headline font-bold text-primary mb-4 flex items-center gap-2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                  Client-Side Security
+                </h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  We prioritize your privacy. All transformations happen 100% in
+                  your browser. We never store or track the text you type.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {/* Similar Font Generator */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-8 text-center leading-tight">
+            Similar Font Generator
+          </h2>
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
+            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
+              {[
+                { label: "Fancy Fonts", href: "/fancy-fonts" },
+                { label: "Instagram Fonts", href: "/instagram-fonts" },
+                { label: "Cursive Fonts", href: "/cursive-fonts" },
+                { label: "Stylish Fonts", href: "/stylish-fonts" },
+                { label: "Sans Serif Fonts", href: "/sans-serif-fonts" },
+                { label: "Aesthetic Fonts", href: "/" },
+              ].map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                  >
+                    {tool.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
+            Frequently Asked Questions
+          </h2>
+          <FAQAccordion faqs={faqs} />
+        </section>
       </main>
       <BackToTopButton />
       <Footer />
