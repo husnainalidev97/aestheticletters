@@ -31,6 +31,11 @@ function wrapChars(text: string, prefix: string, suffix: string): string {
   return [...text].map((c) => (c === " " ? c : prefix + c + suffix)).join("");
 }
 
+/** Append a separator symbol after each non-space character. */
+function withSeparator(text: string, sep: string): string {
+  return [...text].map((c) => (c === " " ? c : c + sep)).join("");
+}
+
 // ── Digit Maps ────────────────────────────────────────────────────────────
 
 // Number Emojis (digit + U+FE0F + U+20E3)
@@ -242,6 +247,34 @@ const arabicDigitMap = buildDigitMap(0x0660);
 // Devanagari Numerals: U+0966–U+096F
 const devanagariDigitMap = buildDigitMap(0x0966);
 
+// Upside Down Numbers
+const upsideDownDigitMap: Record<string, string> = {
+  "0": "0",
+  "1": "\u21C2",
+  "2": "\u1614",
+  "3": "\u0190",
+  "4": "\u07C8",
+  "5": "\u100C",
+  "6": "9",
+  "7": "\u3125",
+  "8": "8",
+  "9": "6",
+};
+
+// Mirror Numbers
+const mirrorDigitMap: Record<string, string> = {
+  "0": "0",
+  "1": "\u0B67",
+  "2": "\u01A7",
+  "3": "\u0510",
+  "4": "\u10BE",
+  "5": "\u091F",
+  "6": "\u03BC",
+  "7": "\u0662",
+  "8": "8",
+  "9": "\u16DA",
+};
+
 // ── 12 Category Cards ─────────────────────────────────────────────────────
 
 // Card 1: Number Font Styles (core mathematical Unicode digit styles)
@@ -259,11 +292,15 @@ const numberFontStyles: FontCategory = {
   ],
 };
 
-// Card 2: Number Emojis
+// Card 2: Number Emojis (keycap + fun transformations)
 const numberEmojis: FontCategory = {
   name: "Number Emojis",
   styles: [
     { name: "Keycap Emojis", transform: (t) => applyMap(t, emojiDigitMap) },
+    { name: "Upside Down", transform: (t) => applyMap(t, upsideDownDigitMap) },
+    { name: "Flip Reverse", transform: (t) => [...applyMap(t, upsideDownDigitMap)].reverse().join("") },
+    { name: "Mirror Text", transform: (t) => [...applyMap(t, mirrorDigitMap)].reverse().join("") },
+    { name: "Reversed Text", transform: (t) => [...t].reverse().join("") },
   ],
 };
 
@@ -295,6 +332,7 @@ const lineFonts: FontCategory = {
   name: "Line Fonts",
   styles: [
     { name: "Underline", transform: (t) => withCombining(t, ["\u0332"]) },
+    { name: "Double Macron", transform: (t) => withCombining(t, ["\u035F"]) },
     { name: "Double Underline", transform: (t) => withCombining(t, ["\u0333"]) },
     { name: "Strikethrough", transform: (t) => withCombining(t, ["\u0336"]) },
     { name: "Slashed Text", transform: (t) => withCombining(t, ["\u0337"]) },
@@ -302,110 +340,123 @@ const lineFonts: FontCategory = {
     { name: "Overline", transform: (t) => withCombining(t, ["\u0305"]) },
     { name: "Double Overline", transform: (t) => withCombining(t, ["\u033F"]) },
     { name: "Top-Bottom Lines", transform: (t) => withCombining(t, ["\u0332", "\u0305"]) },
-    { name: "Strike + Underline", transform: (t) => withCombining(t, ["\u0336", "\u0332"]) },
   ],
 };
 
-// Card 6: Wrapped Fonts (surrounding/framing characters per digit)
+// Card 6: Wrapped Fonts (creative symbol pairs wrapping each digit)
 const wrappedFonts: FontCategory = {
   name: "Wrapped Fonts",
   styles: [
-    { name: "Angle Wrap", transform: (t) => wrapChars(t, "\u27E8", "\u27E9") },
-    { name: "Double Angle", transform: (t) => wrapChars(t, "\u300A", "\u300B") },
-    { name: "Floor Bracket", transform: (t) => wrapChars(t, "\u230A", "\u230B") },
-    { name: "Ceil Bracket", transform: (t) => wrapChars(t, "\u2308", "\u2309") },
-    { name: "Tortoise Shell", transform: (t) => wrapChars(t, "\u3014", "\u3015") },
-    { name: "White Corner", transform: (t) => wrapChars(t, "\u300E", "\u300F") },
-    { name: "Lens Bracket", transform: (t) => wrapChars(t, "\u2983", "\u2984") },
-    { name: "Half Bracket", transform: (t) => wrapChars(t, "\u2E22", "\u2E23") },
+    { name: "Petal Wrap", transform: (t) => wrapChars(t, "\u22B0", "\u22B1") },
+    { name: "Balanced Curve", transform: (t) => wrapChars(t, "\u29FC", "\u29FD") },
+    { name: "Math Edge", transform: (t) => wrapChars(t, "\u2320", "\u2321") },
+    { name: "Arrow Script", transform: (t) => wrapChars(t, "\u27B9", "\u27B7") },
+    { name: "Crescent Box", transform: (t) => wrapChars(t, "\u263E", "\u263D") },
+    { name: "Fine Edges", transform: (t) => wrapChars(t, "\u2991", "\u2992") },
+    { name: "Soft Curl", transform: (t) => wrapChars(t, "\u2570", "\u256F") },
   ],
 };
 
-// Card 7: Overtext Styles (combining marks above characters)
+// Card 7: Overtext Styles (combining marks above — competitor-quality names)
 const overtextStyles: FontCategory = {
   name: "Overtext Styles",
   styles: [
-    { name: "Dot Above", transform: (t) => withCombining(t, ["\u0307"]) },
-    { name: "Diaeresis", transform: (t) => withCombining(t, ["\u0308"]) },
-    { name: "Acute Accent", transform: (t) => withCombining(t, ["\u0301"]) },
-    { name: "Tilde Above", transform: (t) => withCombining(t, ["\u0303"]) },
-    { name: "Caron", transform: (t) => withCombining(t, ["\u030C"]) },
-    { name: "Circumflex", transform: (t) => withCombining(t, ["\u0302"]) },
-    { name: "Double Acute", transform: (t) => withCombining(t, ["\u030B"]) },
-    { name: "Ring + Tilde", transform: (t) => withCombining(t, ["\u030A", "\u0303"]) },
+    { name: "Crown Script", transform: (t) => withCombining(t, ["\u035B"]) },
+    { name: "Floating Marks", transform: (t) => withCombining(t, ["\u0309"]) },
+    { name: "Accent Edge", transform: (t) => withCombining(t, ["\u0302"]) },
+    { name: "Text Tide", transform: (t) => withCombining(t, ["\u0303"]) },
+    { name: "Light Pulse", transform: (t) => withCombining(t, ["\u0306"]) },
+    { name: "Spiral Text", transform: (t) => withCombining(t, ["\u034C"]) },
+    { name: "Crowned Rings", transform: (t) => withCombining(t, ["\u030A"]) },
+    { name: "Double Accent", transform: (t) => withCombining(t, ["\u030B"]) },
+    { name: "Top Dot", transform: (t) => withCombining(t, ["\u0307"]) },
   ],
 };
 
-// Card 8: Symbolic Numbers (marks below/around characters)
+// Card 8: Symbolic Numbers (marks below/around + separator combos)
 const symbolicNumbers: FontCategory = {
   name: "Symbolic Numbers",
   styles: [
-    { name: "Ring Above", transform: (t) => withCombining(t, ["\u030A"]) },
-    { name: "Breve Below", transform: (t) => withCombining(t, ["\u032E"]) },
-    { name: "Tilde Below", transform: (t) => withCombining(t, ["\u0330"]) },
-    { name: "Cedilla", transform: (t) => withCombining(t, ["\u0327"]) },
-    { name: "Ogonek", transform: (t) => withCombining(t, ["\u0328"]) },
-    { name: "Dot Below", transform: (t) => withCombining(t, ["\u0323"]) },
-    { name: "Ring + Tilde Below", transform: (t) => withCombining(t, ["\u030A", "\u0330"]) },
-    { name: "Breve + Dot Below", transform: (t) => withCombining(t, ["\u032E", "\u0323"]) },
+    { name: "Dotted Rings", transform: (t) => {
+      const suffix = "\u030A";
+      const sep = "\u2AF6";
+      return [...t].map((c) => (c === " " ? c : c + suffix + sep)).join("");
+    }},
+    { name: "Dual Edges", transform: (t) => withCombining(t, ["\u0353", "\u033D"]) },
+    { name: "Guided Marks", transform: (t) => withCombining(t, ["\u034E"]) },
+    { name: "Flow Underline", transform: (t) => withCombining(t, ["\u0330"]) },
+    { name: "Breve Below", transform: (t) => withCombining(t, ["\u035C"]) },
+    { name: "Vertical Tilde", transform: (t) => withCombining(t, ["\u033E"]) },
   ],
 };
 
-// Card 9: Framed Numbers (boxed/framed with surrounding characters)
+// Card 9: Framed Numbers (block-style framing with brackets and box-drawing)
 const framedNumbers: FontCategory = {
   name: "Framed Numbers",
   styles: [
-    { name: "Pipe Frame", transform: (t) => wrapChars(t, "\u2502", "\u2502") },
-    { name: "Heavy Frame", transform: (t) => wrapChars(t, "\u2503", "\u2503") },
-    { name: "Corner Frame", transform: (t) => wrapChars(t, "\u250C", "\u2510") },
-    { name: "Round Frame", transform: (t) => wrapChars(t, "\u256D", "\u256E") },
-    { name: "Double Pipe", transform: (t) => wrapChars(t, "\u2551", "\u2551") },
-    { name: "Bracket Frame", transform: (t) => wrapChars(t, "\u2045", "\u2046") },
-    { name: "Full Box", transform: (t) => wrapChars(t, "\u2503", "\u2503") },
+    { name: "Boxed", transform: (t) => wrapChars(t, "[", "]") },
+    { name: "U Brackets", transform: (t) => wrapChars(t, "\u2E26", "\u2E27") },
+    { name: "Triple Line", transform: (t) => wrapChars(t, "\u269E", "\u269F") },
+    { name: "Triple Brackets", transform: (t) => wrapChars(t, "\u2AF7", "\u2AF8") },
+    { name: "Looped Frame", transform: (t) => wrapChars(t, "\u23B0", "\u23B1") },
+    { name: "Arc", transform: (t) => wrapChars(t, "\u2993", "\u2994") },
+    { name: "Box Letter", transform: (t) => wrapChars(t, "\u3010", "\u3011") },
+    { name: "Soft Corner", transform: (t) => wrapChars(t, "\u256D", "\u256E") },
+    { name: "Square Corner", transform: (t) => wrapChars(t, "\u250C", "\u2510") },
+    { name: "Twin Pillar", transform: (t) => wrapChars(t, "\u2551", "\u2551") },
   ],
 };
 
-// Card 10: Decorated Numbers (decorative combining marks)
+// Card 10: Decorated Numbers (decorative symbol borders)
 const decoratedNumbers: FontCategory = {
   name: "Decorated Numbers",
   styles: [
-    { name: "Star Accent", transform: (t) => withCombining(t, ["\u20F0"]) },
-    { name: "Sparkle Accent", transform: (t) => withCombining(t, ["\u0489"]) },
-    { name: "Flower Accent", transform: (t) => withCombining(t, ["\u0488"]) },
-    { name: "Dot Cluster", transform: (t) => withCombining(t, ["\u0324"]) },
-    { name: "X Above", transform: (t) => withCombining(t, ["\u033D"]) },
-    { name: "Bridge Above", transform: (t) => withCombining(t, ["\u0346"]) },
-    { name: "Star + Ring", transform: (t) => withCombining(t, ["\u20F0", "\u030A"]) },
-    { name: "Sparkle + Dot", transform: (t) => withCombining(t, ["\u0489", "\u0324"]) },
+    { name: "Flower Border", transform: (t) => wrapChars(t, "\u2740", "\u2740") },
+    { name: "Star Border", transform: (t) => wrapChars(t, "\u2605", "\u2605") },
+    { name: "Shine Line", transform: (t) => wrapChars(t, "\u2726", "\u2726") },
+    { name: "Spark Line", transform: (t) => wrapChars(t, "\u2727", "\u2727") },
+    { name: "Crown Border", transform: (t) => wrapChars(t, "\u2655", "\u2655") },
+    { name: "Star Frame", transform: (t) => wrapChars(t, "\u2606", "\u2606") },
+    { name: "Glitter Edge", transform: (t) => wrapChars(t, "\u2735", "\u2735") },
+    { name: "Simple Border", transform: (t) => wrapChars(t, "\u2500", "\u2500") },
+    { name: "Quote Style", transform: (t) => wrapChars(t, "\u275D", "\u275E") },
+    { name: "Flower Frame", transform: (t) => wrapChars(t, "\u273F", "\u273F") },
+    { name: "Diamond Edge", transform: (t) => wrapChars(t, "\u2756", "\u2756") },
+    { name: "Heart Border", transform: (t) => wrapChars(t, "\u2765", "\u2765") },
   ],
 };
 
-// Card 11: Mixed Number Styles (varied combining mark combinations)
+// Card 11: Mixed Number Styles (dynamic separators and motion-style transforms)
 const mixedNumberStyles: FontCategory = {
   name: "Mixed Number Styles",
   styles: [
-    { name: "Hook Above", transform: (t) => withCombining(t, ["\u0309"]) },
-    { name: "Horn", transform: (t) => withCombining(t, ["\u031B"]) },
-    { name: "Comma Above", transform: (t) => withCombining(t, ["\u0313"]) },
-    { name: "Turned Comma", transform: (t) => withCombining(t, ["\u0312"]) },
-    { name: "Macron Below", transform: (t) => withCombining(t, ["\u0331"]) },
-    { name: "Grave Accent", transform: (t) => withCombining(t, ["\u0300"]) },
-    { name: "Hook + Dot", transform: (t) => withCombining(t, ["\u0309", "\u0323"]) },
-    { name: "Comma + Cedilla", transform: (t) => withCombining(t, ["\u0313", "\u0327"]) },
+    { name: "Streamline Text", transform: (t) => withSeparator(t, "\u2307") },
+    { name: "Smiling Line", transform: (t) => withSeparator(t, "\u203F") },
+    { name: "Shockwave Text", transform: (t) => withSeparator(t, "\u21AF") },
+    { name: "Decor Dot", transform: (t) => withSeparator(t, "\u203B") },
+    { name: "Ocean Crest", transform: (t) => withSeparator(t, "\u0DF4") },
+    { name: "Mirror Frame", transform: (t) => wrapChars(t, "\u21DC", "\u21DD") },
+    { name: "Gem Cut", transform: (t) => wrapChars(t, "\u29DB", "\u29DA") },
+    { name: "Wavy Line", transform: (t) => withSeparator(t, "\u223C") },
+    { name: "Flow Chain", transform: (t) => withSeparator(t, "\u22B6") },
   ],
 };
 
-// Card 12: Block Numbers (block/geometric characters around digits)
+// Card 12: Block Numbers (heavy block-style wrapping)
 const blockNumbers: FontCategory = {
   name: "Block Numbers",
   styles: [
+    { name: "Boxed Bold", transform: (t) => {
+      return [...t].map((c) => (c === " " ? c : "[" + c + "\u0332\u0305" + "]")).join("");
+    }},
+    { name: "Pointed Arch", transform: (t) => {
+      return [...t].map((c) => (c === " " ? c : "\u29FC" + c + "\u032B" + "\u29FD")).join("");
+    }},
+    { name: "Curve Overlay", transform: (t) => withCombining(t, ["\u032E", "\u0311"]) },
+    { name: "Heavy Frame", transform: (t) => wrapChars(t, "\u2590", "\u258C") },
     { name: "Solid Block", transform: (t) => wrapChars(t, "\u2588", "\u2588") },
-    { name: "Medium Shade", transform: (t) => wrapChars(t, "\u2592", "\u2592") },
-    { name: "Light Shade", transform: (t) => wrapChars(t, "\u2591", "\u2591") },
     { name: "Dark Shade", transform: (t) => wrapChars(t, "\u2593", "\u2593") },
-    { name: "Black Square", transform: (t) => wrapChars(t, "\u25A0", "\u25A0") },
-    { name: "Black Diamond", transform: (t) => wrapChars(t, "\u25C6", "\u25C6") },
-    { name: "Black Circle", transform: (t) => wrapChars(t, "\u25CF", "\u25CF") },
+    { name: "Medium Shade", transform: (t) => wrapChars(t, "\u2592", "\u2592") },
   ],
 };
 
