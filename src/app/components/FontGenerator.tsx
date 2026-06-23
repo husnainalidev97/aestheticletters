@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
-import { fontCategories } from "../lib/fontStyles";
+import { fontCategories, type FontCategory } from "../lib/fontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
@@ -50,9 +50,11 @@ interface FontGeneratorProps {
   totalFontStyles: number;
   hideHeader?: boolean;
   hideExploreButton?: boolean;
+  categories?: FontCategory[];
+  defaultText?: string;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts" }: FontGeneratorProps) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -74,9 +76,13 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const allCategories = customCategories || fontCategories;
+  const filteredCategories = allCategories.filter(
+    (cat) => !cat.condition || cat.condition(text),
+  );
   const visibleCategories = showAll
-    ? fontCategories
-    : fontCategories.slice(0, INITIAL_COUNT);
+    ? filteredCategories
+    : filteredCategories.slice(0, INITIAL_COUNT);
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -149,7 +155,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
     }
   }, [fallbackCopy]);
 
-  const displayText = text || "Aesthetic Fonts";
+  const displayText = text || defaultText;
 
   const handlePreview = useCallback((t: string) => setPreviewText(t), []);
   const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
@@ -242,7 +248,11 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
             </div>
           </div>
           <CategoryJumpLinks
-            categories={homeCategoryLinks}
+            categories={customCategories ? filteredCategories.map((cat) => ({
+              label: cat.name,
+              emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
+              id: `cat-${slugify(cat.name)}`,
+            })) : homeCategoryLinks}
             onExpandAll={() => setShowAll(true)}
           />
         </div>
@@ -324,7 +334,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  Show {fontCategories.length - INITIAL_COUNT} More Categories
+                  Show {filteredCategories.length - INITIAL_COUNT} More Categories
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}

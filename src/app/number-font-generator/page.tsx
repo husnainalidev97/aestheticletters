@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
-import FontGenerator from "../components/FontGeneratorLazy";
+import NumberFontGenerator from "../components/NumberFontGenerator";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
@@ -244,7 +244,7 @@ export default function NumberFontGeneratorPage() {
         </section>
 
         {/* Interactive Font Generator */}
-        <FontGenerator totalFontStyles={totalFontStyles} hideHeader hideExploreButton />
+        <NumberFontGenerator totalFontStyles={totalFontStyles} />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
