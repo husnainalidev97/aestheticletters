@@ -139,6 +139,8 @@ const boldSerif: FontCategory = {
     { name: "Bold Serif Top-Bottom", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0332", "\u0305"]) },
     { name: "Bold Serif Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
     { name: "Bold Serif Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
+    { name: "Bold Serif Dotted", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0307"]) },
+    { name: "Bold Serif Wavy", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0330"]) },
   ],
 };
 
@@ -153,6 +155,8 @@ const boldSans: FontCategory = {
     { name: "Bold Sans Top-Bottom", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332", "\u0305"]) },
     { name: "Bold Sans Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
     { name: "Bold Sans Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
+    { name: "Bold Sans Dotted", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0307"]) },
+    { name: "Bold Sans Wavy", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0330"]) },
   ],
 };
 
@@ -167,6 +171,7 @@ const boldItalic: FontCategory = {
     { name: "Bold Italic Top-Bottom", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332", "\u0305"]) },
     { name: "Bold Italic Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "[", "]") },
     { name: "Bold Italic Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2022") },
+    { name: "Bold Italic Dotted", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0307"]) },
   ],
 };
 
@@ -181,6 +186,7 @@ const boldItalicSans: FontCategory = {
     { name: "Bold Italic Sans Top-Bottom", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0332", "\u0305"]) },
     { name: "Bold Italic Sans Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "[", "]") },
     { name: "Bold Italic Sans Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u2022") },
+    { name: "Bold Italic Sans Dotted", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0307"]) },
   ],
 };
 
@@ -194,6 +200,9 @@ const boldScript: FontCategory = {
     { name: "Bold Script Boxed", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "[", "]") },
     { name: "Bold Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
     { name: "Bold Script Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
+    { name: "Bold Script Overline", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0305"]) },
+    { name: "Bold Script Dotted", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0307"]) },
+    { name: "Bold Script Sparkle", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2727") },
   ],
 };
 
@@ -205,6 +214,11 @@ const boldFraktur: FontCategory = {
     { name: "Bold Fraktur Underline", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0332"]) },
     { name: "Bold Fraktur Dagger", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2020", "\u2020") },
     { name: "Bold Fraktur Boxed", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "[", "]") },
+    { name: "Bold Fraktur Strikethrough", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0336"]) },
+    { name: "Bold Fraktur Overline", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0305"]) },
+    { name: "Bold Fraktur Top-Bottom", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0332", "\u0305"]) },
+    { name: "Bold Fraktur Dotted", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0307"]) },
+    { name: "Bold Fraktur Slash", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0338"]) },
   ],
 };
 
@@ -219,6 +233,7 @@ const doubleStruck: FontCategory = {
     { name: "Double-Struck Boxed", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "[", "]") },
     { name: "Double-Struck Bullet", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2022") },
     { name: "Double-Struck Angle", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB", "\u00BB") },
+    { name: "Double-Struck Dotted", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0307"]) },
   ],
 };
 
@@ -233,6 +248,7 @@ const negativeCircled: FontCategory = {
     { name: "Negative Circled Lightning", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u26A1") },
     { name: "Negative Circled Arrow", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2192") },
     { name: "Negative Circled Angle", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u00AB", "\u00BB") },
+    { name: "Negative Circled Sparkle", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2727") },
   ],
 };
 
@@ -247,6 +263,7 @@ const negativeSquared: FontCategory = {
     { name: "Negative Squared Lightning", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u26A1") },
     { name: "Negative Squared Arrow", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2192") },
     { name: "Negative Squared Angle", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u00AB", "\u00BB") },
+    { name: "Negative Squared Sparkle", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2727") },
   ],
 };
 
