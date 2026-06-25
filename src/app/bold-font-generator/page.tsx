@@ -529,33 +529,38 @@ export default function BoldFontGeneratorPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Why double struck bold has seven hidden exceptions
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                       Double struck letters look heavy and outlined at the same
                       time, which makes them popular for headers and usernames.
                       Seven capital letters in this style, C, H, N, P, Q, R, and Z,
                       live in a completely different part of Unicode than the other
                       nineteen. Most generators get this wrong and show a broken box
-                      for these seven letters instead of the correct character. We
-                      checked every letter against the official Unicode data before
-                      building this style. Our generator maps each one by hand to
-                      its correct location, so every letter in your text displays
-                      correctly, every time.
+                      for these seven letters instead of the correct character.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      We checked every letter against the official Unicode data
+                      before building this style. Our generator maps each one by
+                      hand to its correct location, so every letter in your text
+                      displays correctly, every time.
                     </p>
                   </div>
                   <div>
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       A note on screen readers and accessibility
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                       Regular bold letters, made with a formatting instruction, gets
                       announced as bold, with a small change in tone. Bold Unicode
                       text gets read out letter by letter instead, as something like
                       mathematical bold capital B, which does not sound like a real
-                      word at all. Because of this, bold font generators work best
-                      for short phrases, headlines, or usernames, not for long
-                      paragraphs that someone needs to hear read aloud. Plain thick
-                      formatting stays the more accessible choice for any text that
-                      carries important information.
+                      word at all.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      Because of this, bold font generators work best for short
+                      phrases, headlines, or usernames, not for long paragraphs that
+                      someone needs to hear read aloud. Plain thick formatting stays
+                      the more accessible choice for any text that carries important
+                      information.
                     </p>
                   </div>
                 </div>
