@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import BoldFontGenerator from "../components/BoldFontGenerator";
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
     title: "Bold Font Generator - Free Bold Text Styles (Copy & Paste)",
     description:
       "Use this bold font generator to turn any text into loud styles instantly. Copy and paste bold text into Instagram, Discord, Facebook, or WhatsApp for free.",
-    images: [{ url: "https://www.aestheticletters.com/images/og-default.webp", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/images/bold-font-generator/bold-font-generator-og.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bold Font Generator - Free Bold Text Styles (Copy & Paste)",
     description:
       "Use this bold font generator to turn any text into loud styles instantly. Copy and paste bold text into Instagram, Discord, Facebook, or WhatsApp for free.",
-    images: ["https://www.aestheticletters.com/images/og-default.webp"],
+    images: ["https://www.aestheticletters.com/images/bold-font-generator/bold-font-generator-og.webp"],
   },
 };
 
@@ -128,6 +129,7 @@ export default function BoldFontGeneratorPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/bold-font-generator",
+        image: "https://www.aestheticletters.com/images/bold-font-generator/bold-font-generator-og.webp",
         description:
           "Turn plain text into bold Unicode styles instantly. Copy and paste bold text for Instagram, WhatsApp, Discord, Facebook, and more.",
         offers: {
@@ -194,6 +196,7 @@ export default function BoldFontGeneratorPage() {
         name: "How to Copy and Paste Bold Fonts",
         description:
           "Turning your text strong here works the same way no matter what you type, a name, a short bio, or a full sentence.",
+        image: "https://www.aestheticletters.com/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp",
         totalTime: "PT1M",
         step: [
           {
@@ -359,6 +362,15 @@ export default function BoldFontGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Copy and Paste Bold Fonts?
                 </h2>
+                <Image
+                  src="/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp"
+                  alt="Three step process to copy and paste bold fonts: type your text, pick a bold style from nine cards, then paste the Unicode bold text anywhere"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Turning your text strong here works the same way no matter what
                   you type, a name, a short bio, or a full sentence.
@@ -432,6 +444,15 @@ export default function BoldFontGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Bold Text Works Best?
                 </h2>
+                <Image
+                  src="/images/bold-font-generator/bold-text-works-best-social-media-platforms.webp"
+                  alt="Bold Unicode text displayed correctly across Discord username, Instagram bio, Facebook post, and WhatsApp message showing platform compatibility"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Bold Unicode text works almost anywhere that accepts plain text,
                   but a few platforms have rules and limitations worth knowing
@@ -571,6 +592,15 @@ export default function BoldFontGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Bold Font Styles, Explained
                 </h2>
+                <Image
+                  src="/images/bold-font-generator/nine-bold-font-styles-comparison-chart.webp"
+                  alt="Comparison chart of nine Unicode bold font styles showing Bold Serif, Bold Sans, Bold Italic, Bold Script, Bold Fraktur, Double-Struck, Negative Circled, and Negative Squared applied to the same sample text"
+                  width={1024}
+                  height={1536}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Each style on this page has its own story. Here is where nine of
                   the most popular ones come from, and why they look the way they
