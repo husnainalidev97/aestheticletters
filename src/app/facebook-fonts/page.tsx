@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       },
     ],
     publishedTime: "2026-05-23T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-06-25T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -387,7 +387,8 @@ export default function FacebookFontsPage() {
                   group rules, and Marketplace descriptions.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Bold Unicode letters carry weight without being decorative. They read clearly on every device
+                  <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">Bold Unicode letters</Link>{" "}
+                  carry weight without being decorative. They read clearly on every device
                   including older Android phones. If you only use one font style, use bold.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">

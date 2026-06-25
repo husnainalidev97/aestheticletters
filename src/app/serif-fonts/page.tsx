@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: [{ url: "https://www.aestheticletters.com/serif-fonts-og.jpg", width: 1200, height: 630, alt: "Serif Fonts Generator" }],
     publishedTime: "2026-05-10T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-06-25T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -520,7 +520,7 @@ export default function SerifFontsPage() {
                   This generator includes 15 Unicode serif-inspired styles.
                 </p>
                 {[
-                  { name: "Bold Serif", desc: <>Strong and highly visible text that stands out in profiles and headings. For more bold styling options beyond serif, try our bold text generator for additional styles.</> },
+                  { name: "Bold Serif", desc: <>Strong and highly visible text that stands out in profiles and headings. For more bold styling options beyond serif, try our <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">bold text generator</Link> for additional styles.</> },
                   { name: "Italic Serif", desc: "A more elegant style that adds personality and movement." },
                   { name: "Bold Italic Serif", desc: "Combines weight and sophistication." },
                   { name: "Script Serif", desc: <>Inspired by decorative handwriting styles. For dedicated handwriting-style text, explore our <Link href="/cursive-fonts" className="text-primary underline">cursive font generator</Link>.</> },

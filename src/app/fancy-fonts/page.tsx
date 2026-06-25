@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       },
     ],
     publishedTime: "2026-05-01T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-06-25T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -579,8 +579,10 @@ export default function FancyFontsPage() {
                   creates enough visual contrast without cluttering a short post.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  For Facebook posts and profile intros, clean script or bold
-                  styles land better than gothic or symbol-heavy options since the
+                  For Facebook posts and profile intros, clean script or{" "}
+                  <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">bold
+                  styles</Link>{" "}
+                  land better than gothic or symbol-heavy options since the
                   audience skews broader and readability matters more.
                 </p>
               </article>

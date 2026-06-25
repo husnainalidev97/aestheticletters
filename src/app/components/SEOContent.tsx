@@ -167,7 +167,11 @@ export default function SEOContent() {
               2. Dark Aesthetic
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
-              Minimal but bold styles with a darker tone. Perfect for moody
+              Minimal but{" "}
+              <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">
+                bold styles
+              </Link>{" "}
+              with a darker tone. Perfect for moody
               captions, profile names, and subtle edgy content.
             </p>
           </div>
