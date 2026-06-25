@@ -35,7 +35,7 @@ export default function BoldFontGenerator({ totalFontStyles }: BoldFontGenerator
       hideHeader
       hideExploreButton
       categories={boldFontCategories}
-      defaultText="Bold"
+      defaultText="Bold Fonts"
     />
   );
 }
