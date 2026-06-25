@@ -387,7 +387,8 @@ export default function FacebookFontsPage() {
                   group rules, and Marketplace descriptions.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
-                  Bold Unicode letters carry weight without being decorative. They read clearly on every device
+                  <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">Bold Unicode letters</Link>{" "}
+                  carry weight without being decorative. They read clearly on every device
                   including older Android phones. If you only use one font style, use bold.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">

@@ -107,7 +107,7 @@ const categoryDescriptions = [
   {
     name: "Chunky Fun",
     description:
-      "Bold styles that grab attention. Bold Block is thick and easy to read. Chunky Hearts adds little heart symbols between your letters.",
+      <><Link href="/bold-font-generator" className="text-primary underline underline-offset-4">Bold styles</Link> that grab attention. Bold Block is thick and easy to read. Chunky Hearts adds little heart symbols between your letters.</>,
   },
   {
     name: "Retro Vintage",

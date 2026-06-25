@@ -520,7 +520,7 @@ export default function SerifFontsPage() {
                   This generator includes 15 Unicode serif-inspired styles.
                 </p>
                 {[
-                  { name: "Bold Serif", desc: <>Strong and highly visible text that stands out in profiles and headings. For more bold styling options beyond serif, try our bold text generator for additional styles.</> },
+                  { name: "Bold Serif", desc: <>Strong and highly visible text that stands out in profiles and headings. For more bold styling options beyond serif, try our <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">bold text generator</Link> for additional styles.</> },
                   { name: "Italic Serif", desc: "A more elegant style that adds personality and movement." },
                   { name: "Bold Italic Serif", desc: "Combines weight and sophistication." },
                   { name: "Script Serif", desc: <>Inspired by decorative handwriting styles. For dedicated handwriting-style text, explore our <Link href="/cursive-fonts" className="text-primary underline">cursive font generator</Link>.</> },
