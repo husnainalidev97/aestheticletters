@@ -600,7 +600,7 @@ export default function BoldFontGeneratorPage() {
                       word at all.
                     </p>
                     <p className="text-on-surface-variant leading-relaxed text-lg">
-                      Because of this, bold font generators work best for short
+                      Because of this, bold font generator work best for short
                       phrases, headlines, or usernames, not for long paragraphs that
                       someone needs to hear read aloud. Plain thick formatting stays
                       the more accessible choice for any text that carries important
