@@ -739,10 +739,10 @@ export default function BoldFontGeneratorPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
-                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
-                  { label: "Number Fonts", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Stylish number fonts" },
+                  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                  { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
+                  { label: "Number Font Generator", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Stylish number fonts" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
