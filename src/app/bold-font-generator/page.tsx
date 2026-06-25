@@ -278,7 +278,7 @@ export default function BoldFontGeneratorPage() {
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A bold font generator changes plain letters into bold Unicode
-                  characters. You type a word, and the tool shows you nine
+                  characters. You type a word, and the tool shows you 81
                   different bold styles, from clean sans bold to heavy gothic
                   letters. The text itself does not change. Only the way it looks
                   changes.
@@ -555,7 +555,7 @@ export default function BoldFontGeneratorPage() {
                       Why some bold styles skip digits and lowercase letters
                     </h3>
                     <p className="text-on-surface-variant leading-relaxed text-lg">
-                      We checked every letter, number, and case across all nine
+                      We checked every letter, number, and case across all 81
                       styles one by one before building this page. Unicode only
                       built complete dark alphabets for two of them, Bold Serif and
                       Bold Sans. Every other style covers capital letters only, with
