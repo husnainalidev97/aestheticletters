@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       },
     ],
     publishedTime: "2026-05-23T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-06-25T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
