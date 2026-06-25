@@ -604,16 +604,18 @@ export default function BoldFontGeneratorPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Why some platforms silently turn your bold text back to plain text
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                       Some platforms run a step called Unicode normalization before
                       saving or displaying your text. This step quietly turns bold
                       Unicode letters back into plain letters without telling you.
                       We tested this directly. Our own Bold Sans version of the word
-                      Bold becomes plain Bold once this step runs. This is the real,
-                      technical reason bold style sometimes does not work on a
-                      specific site, even though it worked perfectly on the page
-                      where you copied it. The platform is changing your text on its
-                      own side, not failing to display it.
+                      Bold becomes plain Bold once this step runs.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      This is the real, technical reason bold style sometimes does
+                      not work on a specific site, even though it worked perfectly
+                      on the page where you copied it. The platform is changing your
+                      text on its own side, not failing to display it.
                     </p>
                   </div>
                   <div>
