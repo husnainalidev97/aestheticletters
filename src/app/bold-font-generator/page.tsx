@@ -145,8 +145,10 @@ export default function BoldFontGeneratorPage() {
         name: "Bold Font Generator - Free Bold Text Styles (Copy & Paste)",
         description:
           "Use this bold font generator to turn any text into loud styles instantly. Copy and paste bold text into Instagram, Discord, Facebook, or WhatsApp for free.",
-        datePublished: "2026-06-25",
-        dateModified: "2026-06-25",
+        inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+        datePublished: "2026-06-25T08:00:00+00:00",
+        dateModified: "2026-06-25T00:00:00+00:00",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/bold-font-generator#breadcrumb",
         },
@@ -178,48 +180,50 @@ export default function BoldFontGeneratorPage() {
           },
         ],
       },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Copy and Paste Bold Fonts",
+    description:
+      "Turning your text strong here works the same way no matter what you type, a name, a short bio, or a full sentence.",
+    image: "https://www.aestheticletters.com/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp",
+    totalTime: "PT1M",
+    step: [
       {
-        "@type": "FAQPage",
-        "@id": "https://www.aestheticletters.com/bold-font-generator#faq",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type Your Text",
+        text: "Start typing in the field near the top of the page. Whatever you enter updates every style card below it instantly.",
       },
       {
-        "@type": "HowTo",
-        "@id": "https://www.aestheticletters.com/bold-font-generator#howto",
-        name: "How to Copy and Paste Bold Fonts",
-        description:
-          "Turning your text strong here works the same way no matter what you type, a name, a short bio, or a full sentence.",
-        image: "https://www.aestheticletters.com/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp",
-        totalTime: "PT1M",
-        step: [
-          {
-            "@type": "HowToStep",
-            position: 1,
-            name: "Type Your Text",
-            text: "Start typing in the field near the top of the page. Whatever you enter updates every style card below it instantly.",
-          },
-          {
-            "@type": "HowToStep",
-            position: 2,
-            name: "Pick a Style",
-            text: "Scroll through the nine style cards below. Each one shows a live preview of your exact text, so you see the real result before copying anything.",
-          },
-          {
-            "@type": "HowToStep",
-            position: 3,
-            name: "Copy and Paste",
-            text: "Click Copy on the style you want. Paste it into Instagram, Facebook, Discord, WhatsApp, or anywhere else that accepts plain text.",
-          },
-        ],
+        "@type": "HowToStep",
+        position: 2,
+        name: "Pick a Style",
+        text: "Scroll through the nine style cards below. Each one shows a live preview of your exact text, so you see the real result before copying anything.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy and Paste",
+        text: "Click Copy on the style you want. Paste it into Instagram, Facebook, Discord, WhatsApp, or anywhere else that accepts plain text.",
       },
     ],
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
@@ -227,6 +231,14 @@ export default function BoldFontGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
