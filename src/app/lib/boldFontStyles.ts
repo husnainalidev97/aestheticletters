@@ -60,28 +60,36 @@ function withSeparator(text: string, sep: string): string {
 
 // ── Character Maps ────────────────────────────────────────────────────────
 
-// Mathematical Bold (letters): U+1D400–U+1D419 (upper), U+1D41A–U+1D433 (lower)
-const boldMap = buildMap(0x1d400, 0x1d41a);
+// Bold Serif: U+1D400–U+1D419 (upper), U+1D41A–U+1D433 (lower)
+const boldSerifMap = buildMap(0x1d400, 0x1d41a);
 
-// Mathematical Bold digits: U+1D7CE–U+1D7D7
-const boldDigitMap = buildDigitMap(0x1d7ce);
+// Bold Serif digits: U+1D7CE–U+1D7D7
+const boldSerifDigitMap = buildDigitMap(0x1d7ce);
 
-// Sans-Serif Bold (letters): U+1D5D4–U+1D5ED (upper), U+1D5EE–U+1D607 (lower)
-const sansSerifBoldMap = buildMap(0x1d5d4, 0x1d5ee);
+// Bold Sans: U+1D5D4–U+1D5ED (upper), U+1D5EE–U+1D607 (lower)
+const boldSansMap = buildMap(0x1d5d4, 0x1d5ee);
 
-// Sans-Serif Bold digits: U+1D7EC–U+1D7F5
-const sansSerifBoldDigitMap = buildDigitMap(0x1d7ec);
+// Bold Sans digits: U+1D7EC–U+1D7F5
+const boldSansDigitMap = buildDigitMap(0x1d7ec);
 
-// Mathematical Bold Italic: U+1D468–U+1D481 (upper), U+1D482–U+1D49B (lower)
+// Bold Italic: U+1D468–U+1D481 (upper), U+1D482–U+1D49B (lower)
+// Digits: NOT SUPPORTED — no Unicode block exists
 const boldItalicMap = buildMap(0x1d468, 0x1d482);
 
-// Mathematical Bold Script: U+1D4D0–U+1D4E9 (upper), U+1D4EA–U+1D503 (lower)
+// Bold Italic Sans: U+1D63C–U+1D655 (upper), U+1D656–U+1D66F (lower)
+// Digits: NOT SUPPORTED — no Unicode block exists
+const boldItalicSansMap = buildMap(0x1d63c, 0x1d656);
+
+// Bold Script: U+1D4D0–U+1D4E9 (upper), U+1D4EA–U+1D503 (lower)
+// Digits: NOT SUPPORTED — no Unicode block exists
 const boldScriptMap = buildMap(0x1d4d0, 0x1d4ea);
 
-// Mathematical Bold Fraktur: U+1D56C–U+1D585 (upper), U+1D586–U+1D59F (lower)
+// Bold Fraktur: U+1D56C–U+1D585 (upper), U+1D586–U+1D59F (lower)
+// Digits: NOT SUPPORTED — no Unicode block exists
 const boldFrakturMap = buildMap(0x1d56c, 0x1d586);
 
-// Mathematical Double-Struck: U+1D538–U+1D551 (upper), U+1D552–U+1D56B (lower)
+// Double-Struck: U+1D538–U+1D551 (upper with 7 exceptions), U+1D552–U+1D56B (lower)
+// Exceptions: C=U+2102, H=U+210D, N=U+2115, P=U+2119, Q=U+211A, R=U+211D, Z=U+2124
 const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
   C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119",
   Q: "\u211A", R: "\u211D", Z: "\u2124",
@@ -90,16 +98,28 @@ const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
 // Double-Struck digits: U+1D7D8–U+1D7E1
 const doubleStruckDigitMap = buildDigitMap(0x1d7d8);
 
-// Sans-Serif Bold Italic: U+1D63C–U+1D655 (upper), U+1D656–U+1D66F (lower)
-const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
+// Negative Circled: U+1F150–U+1F169 (uppercase only, lowercase maps to same)
+// Digits 1-9: U+2776–U+277E, Digit 0: U+24EA
+const negCircledMap: Record<string, string> = {};
+for (let i = 0; i < 26; i++) {
+  negCircledMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x1f150 + i);
+  negCircledMap[String.fromCharCode(97 + i)] = String.fromCodePoint(0x1f150 + i);
+}
+const negCircledDigitMap: Record<string, string> = {
+  "0": "\u24EA",
+  "1": "\u2776",
+  "2": "\u2777",
+  "3": "\u2778",
+  "4": "\u2779",
+  "5": "\u277A",
+  "6": "\u277B",
+  "7": "\u277C",
+  "8": "\u277D",
+  "9": "\u277E",
+};
 
-// Fullwidth Latin: U+FF21–U+FF3A (upper), U+FF41–U+FF5A (lower)
-const fullwidthMap = buildMap(0xff21, 0xff41, { " ": "\u3000" });
-
-// Fullwidth digits: U+FF10–U+FF19
-const fullwidthDigitMap = buildDigitMap(0xff10);
-
-// Negative Squared Latin Capital Letters: U+1F170–U+1F189
+// Negative Squared: U+1F170–U+1F189 (uppercase only, lowercase maps to same)
+// Digits: NOT SUPPORTED at all
 const negSquaredMap: Record<string, string> = {};
 for (let i = 0; i < 26; i++) {
   negSquaredMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x1f170 + i);
@@ -108,162 +128,160 @@ for (let i = 0; i < 26; i++) {
 
 // ── 9 Category Cards ──────────────────────────────────────────────────────
 
-// Card 1: Core Bold Styles (the primary bold transformations)
-const coreBoldStyles: FontCategory = {
-  name: "Core Bold Styles",
+// Card 1: Bold Serif
+const boldSerif: FontCategory = {
+  name: "Bold Serif",
   styles: [
-    { name: "Bold Serif", transform: (t) => applyMaps(t, boldMap, boldDigitMap) },
-    { name: "Bold Sans", transform: (t) => applyMaps(t, sansSerifBoldMap, sansSerifBoldDigitMap) },
+    { name: "Bold Serif", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
+    { name: "Bold Serif Underline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0332"]) },
+    { name: "Bold Serif Strikethrough", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0336"]) },
+    { name: "Bold Serif Overline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0305"]) },
+    { name: "Bold Serif Top-Bottom", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0332", "\u0305"]) },
+    { name: "Bold Serif Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
+    { name: "Bold Serif Star", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2726", "\u2726") },
+    { name: "Bold Serif Diamond", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25C6", "\u25C6") },
+    { name: "Bold Serif Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
+  ],
+};
+
+// Card 2: Bold Sans
+const boldSans: FontCategory = {
+  name: "Bold Sans",
+  styles: [
+    { name: "Bold Sans", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
+    { name: "Bold Sans Underline", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332"]) },
+    { name: "Bold Sans Strikethrough", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0336"]) },
+    { name: "Bold Sans Overline", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0305"]) },
+    { name: "Bold Sans Top-Bottom", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332", "\u0305"]) },
+    { name: "Bold Sans Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
+    { name: "Bold Sans Star", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2726", "\u2726") },
+    { name: "Bold Sans Diamond", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25C6", "\u25C6") },
+    { name: "Bold Sans Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
+  ],
+};
+
+// Card 3: Bold Italic
+const boldItalic: FontCategory = {
+  name: "Bold Italic",
+  styles: [
     { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
-    { name: "Bold Sans Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+    { name: "Bold Italic Underline", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]) },
+    { name: "Bold Italic Strikethrough", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0336"]) },
+    { name: "Bold Italic Overline", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0305"]) },
+    { name: "Bold Italic Top-Bottom", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332", "\u0305"]) },
+    { name: "Bold Italic Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "[", "]") },
+    { name: "Bold Italic Star", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u2726", "\u2726") },
+    { name: "Bold Italic Diamond", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u25C6", "\u25C6") },
+    { name: "Bold Italic Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2022") },
+  ],
+};
+
+// Card 4: Bold Italic Sans
+const boldItalicSans: FontCategory = {
+  name: "Bold Italic Sans",
+  styles: [
+    { name: "Bold Italic Sans", transform: (t) => applyMap(t, boldItalicSansMap) },
+    { name: "Bold Italic Sans Underline", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0332"]) },
+    { name: "Bold Italic Sans Strikethrough", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0336"]) },
+    { name: "Bold Italic Sans Overline", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0305"]) },
+    { name: "Bold Italic Sans Top-Bottom", transform: (t) => withCombining(applyMap(t, boldItalicSansMap), ["\u0332", "\u0305"]) },
+    { name: "Bold Italic Sans Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "[", "]") },
+    { name: "Bold Italic Sans Star", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "\u2726", "\u2726") },
+    { name: "Bold Italic Sans Diamond", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "\u25C6", "\u25C6") },
+    { name: "Bold Italic Sans Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u2022") },
+  ],
+};
+
+// Card 5: Bold Script
+const boldScript: FontCategory = {
+  name: "Bold Script",
+  styles: [
     { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+    { name: "Bold Script Underline", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]) },
+    { name: "Bold Script Strikethrough", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0336"]) },
+    { name: "Bold Script Heart", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2765", "\u2765") },
+    { name: "Bold Script Flower", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2740", "\u2740") },
+    { name: "Bold Script Star", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2726", "\u2726") },
+    { name: "Bold Script Boxed", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "[", "]") },
+    { name: "Bold Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
+    { name: "Bold Script Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
+  ],
+};
+
+// Card 6: Bold Fraktur
+const boldFraktur: FontCategory = {
+  name: "Bold Fraktur",
+  styles: [
     { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Double-Struck Bold", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
-    { name: "Fullwidth Bold", transform: (t) => applyMaps(t, fullwidthMap, fullwidthDigitMap) },
-    { name: "Squared Bold", transform: (t) => applyMap(t, negSquaredMap) },
+    { name: "Bold Fraktur Underline", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0332"]) },
+    { name: "Bold Fraktur Dagger", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2020", "\u2020") },
+    { name: "Bold Fraktur Cross", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2719", "\u2719") },
+    { name: "Bold Fraktur Star", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2726", "\u2726") },
+    { name: "Bold Fraktur Iron", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2694", "\u2694") },
+    { name: "Bold Fraktur Skull", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2620", "\u2620") },
+    { name: "Bold Fraktur Boxed", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "[", "]") },
+    { name: "Bold Fraktur Flame", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2739", "\u2739") },
   ],
 };
 
-// Card 2: Bold with Lines (combining mark line decorations on bold text)
-const boldWithLines: FontCategory = {
-  name: "Bold with Lines",
+// Card 7: Double-Struck
+const doubleStruck: FontCategory = {
+  name: "Double-Struck",
   styles: [
-    { name: "Bold Underline", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0332"]) },
-    { name: "Bold Double Underline", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0333"]) },
-    { name: "Bold Strikethrough", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0336"]) },
-    { name: "Bold Overline", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0305"]) },
-    { name: "Bold Slash", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0337"]) },
-    { name: "Sans Bold Underline", transform: (t) => withCombining(applyMaps(t, sansSerifBoldMap, sansSerifBoldDigitMap), ["\u0332"]) },
-    { name: "Sans Bold Strikethrough", transform: (t) => withCombining(applyMaps(t, sansSerifBoldMap, sansSerifBoldDigitMap), ["\u0336"]) },
-    { name: "Bold Top-Bottom Lines", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0332", "\u0305"]) },
-    { name: "Bold Tilde Overlay", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0334"]) },
+    { name: "Double-Struck", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
+    { name: "Double-Struck Underline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0332"]) },
+    { name: "Double-Struck Strikethrough", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0336"]) },
+    { name: "Double-Struck Overline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0305"]) },
+    { name: "Double-Struck Boxed", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "[", "]") },
+    { name: "Double-Struck Star", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2726", "\u2726") },
+    { name: "Double-Struck Diamond", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u25C6", "\u25C6") },
+    { name: "Double-Struck Bullet", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2022") },
+    { name: "Double-Struck Angle", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB", "\u00BB") },
   ],
 };
 
-// Card 3: Bold Decorative (bold text with decorative frames)
-const boldDecorative: FontCategory = {
-  name: "Bold Decorative",
+// Card 8: Negative Circled
+const negativeCircled: FontCategory = {
+  name: "Negative Circled",
   styles: [
-    { name: "Bold Star Border", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2605", "\u2605") },
-    { name: "Bold Diamond Edge", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2756", "\u2756") },
-    { name: "Bold Heart Border", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2765", "\u2765") },
-    { name: "Bold Flower Frame", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u273F", "\u273F") },
-    { name: "Bold Crown Border", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2655", "\u2655") },
-    { name: "Bold Snowflake", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2744", "\u2744") },
-    { name: "Bold Sparkle", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2726", "\u2726") },
-    { name: "Bold Glitter", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2727", "\u2727") },
-    { name: "Bold Compass", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2724", "\u2724") },
-    { name: "Bold Clover", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2618", "\u2618") },
+    { name: "Negative Circled", transform: (t) => applyMaps(t, negCircledMap, negCircledDigitMap) },
+    { name: "Negative Circled Underline", transform: (t) => withCombining(applyMaps(t, negCircledMap, negCircledDigitMap), ["\u0332"]) },
+    { name: "Negative Circled Star", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2726", "\u2726") },
+    { name: "Negative Circled Diamond", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u25C6", "\u25C6") },
+    { name: "Negative Circled Boxed", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "[", "]") },
+    { name: "Negative Circled Bullet", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2022") },
+    { name: "Negative Circled Lightning", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u26A1") },
+    { name: "Negative Circled Arrow", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2192") },
+    { name: "Negative Circled Angle", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u00AB", "\u00BB") },
   ],
 };
 
-// Card 4: Bold Framed (bold text with bracket/box frames)
-const boldFramed: FontCategory = {
-  name: "Bold Framed",
+// Card 9: Negative Squared
+const negativeSquared: FontCategory = {
+  name: "Negative Squared",
   styles: [
-    { name: "Bold Boxed", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "[", "]") },
-    { name: "Bold U Brackets", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2E26", "\u2E27") },
-    { name: "Bold Box Letter", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u3010", "\u3011") },
-    { name: "Bold Soft Corner", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u256D", "\u256E") },
-    { name: "Bold Square Corner", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u250C", "\u2510") },
-    { name: "Bold Twin Pillar", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2551", "\u2551") },
-    { name: "Bold Heavy Frame", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2590", "\u258C") },
-    { name: "Bold Double Box", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2560", "\u2563") },
-    { name: "Bold Arc", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2993", "\u2994") },
-  ],
-};
-
-// Card 5: Bold Gothic (bold fraktur variations with decorative elements)
-const boldGothic: FontCategory = {
-  name: "Bold Gothic",
-  styles: [
-    { name: "Gothic Bold", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Gothic Dagger", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2020", "\u2020") },
-    { name: "Gothic Cross", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2719", "\u2719") },
-    { name: "Gothic Star", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2726", "\u2726") },
-    { name: "Gothic Iron", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2694", "\u2694") },
-    { name: "Gothic Rune", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u16ED", "\u16ED") },
-    { name: "Gothic Skull", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2620", "\u2620") },
-    { name: "Gothic Flame", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2739", "\u2739") },
-  ],
-};
-
-// Card 6: Bold Script Styles (bold script/cursive variations)
-const boldScriptStyles: FontCategory = {
-  name: "Bold Script Styles",
-  styles: [
-    { name: "Script Bold", transform: (t) => applyMap(t, boldScriptMap) },
-    { name: "Script Bold Underline", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]) },
-    { name: "Script Bold Star", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2726", "\u2726") },
-    { name: "Script Bold Heart", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2765", "\u2765") },
-    { name: "Script Bold Flower", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u2740", "\u2740") },
-    { name: "Script Bold Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
-    { name: "Script Bold Dot", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2022") },
-    { name: "Script Bold Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
-  ],
-};
-
-// Card 7: Bold Overtext (bold text with combining marks above)
-const boldOvertext: FontCategory = {
-  name: "Bold Overtext",
-  styles: [
-    { name: "Bold Crown", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u035B"]) },
-    { name: "Bold Accent", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0302"]) },
-    { name: "Bold Wave Top", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0303"]) },
-    { name: "Bold Ring Top", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u030A"]) },
-    { name: "Bold Dot Top", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0307"]) },
-    { name: "Bold Double Accent", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u030B"]) },
-    { name: "Bold Breve", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0306"]) },
-    { name: "Bold Hook Above", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u0309"]) },
-    { name: "Bold Spiral", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u034C"]) },
-  ],
-};
-
-// Card 8: Bold Separators (bold text with separator symbols between characters)
-const boldSeparators: FontCategory = {
-  name: "Bold Separators",
-  styles: [
-    { name: "Bold Bullet", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u2022") },
-    { name: "Bold Arrow", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u2192") },
-    { name: "Bold Lightning", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u26A1") },
-    { name: "Bold Wave", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u223C") },
-    { name: "Bold Smile", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u203F") },
-    { name: "Bold Star Sep", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u2605") },
-    { name: "Bold Diamond Sep", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u25C6") },
-    { name: "Bold Dot Sep", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u00B7") },
-    { name: "Bold Chain", transform: (t) => withSeparator(applyMaps(t, boldMap, boldDigitMap), "\u22B6") },
-  ],
-};
-
-// Card 9: Bold Block Styles (bold with heavy block-style wrapping)
-const boldBlockStyles: FontCategory = {
-  name: "Bold Block Styles",
-  styles: [
-    { name: "Solid Block Bold", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2588", "\u2588") },
-    { name: "Dark Shade Bold", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2593", "\u2593") },
-    { name: "Medium Shade Bold", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2592", "\u2592") },
-    { name: "Light Shade Bold", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u2591", "\u2591") },
-    { name: "Bold Pointed Arch", transform: (t) => {
-      const bText = applyMaps(t, boldMap, boldDigitMap);
-      return [...bText].map((c) => (c === " " ? c : "\u29FC" + c + "\u29FD")).join("");
-    }},
-    { name: "Bold Looped", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u23B0", "\u23B1") },
-    { name: "Bold Triple Line", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u269E", "\u269F") },
-    { name: "Bold Petal Wrap", transform: (t) => wrapChars(applyMaps(t, boldMap, boldDigitMap), "\u22B0", "\u22B1") },
-    { name: "Bold Curve Overlay", transform: (t) => withCombining(applyMaps(t, boldMap, boldDigitMap), ["\u032E", "\u0311"]) },
+    { name: "Negative Squared", transform: (t) => applyMap(t, negSquaredMap) },
+    { name: "Negative Squared Underline", transform: (t) => withCombining(applyMap(t, negSquaredMap), ["\u0332"]) },
+    { name: "Negative Squared Star", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u2726", "\u2726") },
+    { name: "Negative Squared Diamond", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u25C6", "\u25C6") },
+    { name: "Negative Squared Boxed", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "[", "]") },
+    { name: "Negative Squared Bullet", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2022") },
+    { name: "Negative Squared Lightning", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u26A1") },
+    { name: "Negative Squared Arrow", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2192") },
+    { name: "Negative Squared Angle", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u00AB", "\u00BB") },
   ],
 };
 
 // ── Export ─────────────────────────────────────────────────────────────────
 
 export const boldFontCategories: FontCategory[] = [
-  coreBoldStyles,
-  boldWithLines,
-  boldGothic,
-  boldScriptStyles,
-  boldDecorative,
-  boldFramed,
-  boldOvertext,
-  boldSeparators,
-  boldBlockStyles,
+  boldSerif,
+  boldSans,
+  boldItalic,
+  boldItalicSans,
+  boldScript,
+  boldFraktur,
+  doubleStruck,
+  negativeCircled,
+  negativeSquared,
 ];

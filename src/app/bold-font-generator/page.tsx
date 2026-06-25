@@ -83,6 +83,11 @@ const boldStyles = [
       "Combines the weight of bold with the forward lean of italic text. Unicode provides this style for uppercase and lowercase letters only, with no dedicated digit set. Best suited for emphasis within a short phrase.",
   },
   {
+    name: "Bold Italic Sans",
+    description:
+      "The sans-serif version of bold italic, combining clean lines with forward-leaning weight. This style covers uppercase and lowercase letters and works well for modern, dynamic-looking text.",
+  },
+  {
     name: "Bold Script",
     description:
       "A heavier version of the cursive script alphabet. Each letter has flowing connections typical of handwritten text, but with thicker strokes. Covers uppercase and lowercase letters without bold digits.",
@@ -93,24 +98,19 @@ const boldStyles = [
       "The heavy version of the old German blackletter style. Bold Fraktur letters carry the ornate medieval look with added weight. Popular for gothic-themed usernames and dramatic display text.",
   },
   {
-    name: "Double-Struck Bold",
+    name: "Double-Struck",
     description:
       "Letters that appear bold and outlined at the same time, originally used in mathematics to denote special number sets. Seven capital letters (C, H, N, P, Q, R, Z) live in a different part of Unicode than the rest, which many generators get wrong.",
   },
   {
-    name: "Bold Sans Italic",
+    name: "Negative Circled",
     description:
-      "The sans-serif version of bold italic, combining clean lines with forward-leaning weight. This style covers uppercase and lowercase letters and works well for modern, dynamic-looking text.",
+      "Each letter appears inside a filled dark circle, creating an eye-catching badge-style look. Covers uppercase letters and digits 0 through 9. Lowercase input renders as uppercase automatically since no separate lowercase block exists.",
   },
   {
-    name: "Fullwidth Bold",
+    name: "Negative Squared",
     description:
-      "Wide characters originally designed for East Asian typesetting, where each Latin letter takes the same width as a Chinese or Japanese character. The extra spacing gives text a distinctive stretched appearance.",
-  },
-  {
-    name: "Squared Bold",
-    description:
-      "Each letter appears inside a filled dark square, creating a bold block-style look. This style only covers capital letters, making it ideal for short acronyms, initials, or single-word emphasis.",
+      "Each letter appears inside a filled dark square, creating a bold block-style look. This style only covers capital letters with no digit support, making it ideal for short acronyms, initials, or single-word emphasis.",
   },
 ];
 
