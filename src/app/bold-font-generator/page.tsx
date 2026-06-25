@@ -561,6 +561,13 @@ export default function BoldFontGeneratorPage() {
                       Bold Sans. Every other style covers capital letters only, with
                       no bold lowercase letters and no bold digits.
                     </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      This is a real limit inside Unicode itself, not a bug in this
+                      tool. Bold Script has no thick number set at all. Type a date
+                      or a price in that style, and the numbers stay plain while the
+                      letters turn bold. Every style card shows this gap clearly
+                      instead of hiding it.
+                    </p>
                   </div>
                   <div>
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
