@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/all-tools`,
-      lastModified: new Date("2026-06-23T00:00:00Z"),
+      lastModified: new Date("2026-06-25T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.8,
     },
