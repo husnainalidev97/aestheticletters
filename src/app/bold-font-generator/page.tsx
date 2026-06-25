@@ -527,10 +527,14 @@ export default function BoldFontGeneratorPage() {
                       comes with a cost. Search engines read a bold Unicode letter
                       as a different character from the plain version, so the
                       headline may not get indexed for that plain text keyword the
-                      way a normal headline would. Bold Unicode text looks great in
-                      a screenshot or a social caption. Inside real website copy
-                      meant to rank in search, plain text with real thick formatting
-                      stays the safer choice.
+                      way a normal headline would.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      This is worth knowing if you run a website, not just a social
+                      media profile. Bold Unicode text looks great in a screenshot
+                      or a social caption. Inside real website copy meant to rank in
+                      search, plain text with real thick formatting stays the safer
+                      choice.
                     </p>
                   </div>
                 </div>
