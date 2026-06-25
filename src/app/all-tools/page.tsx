@@ -119,6 +119,13 @@ const toolCategories: ToolCategory[] = [
         icon: "font_download",
         href: "/sans-serif-fonts",
       },
+      {
+        title: "Bold Font Generator",
+        description:
+          "Turn plain text into 81 bold Unicode styles instantly. Copy and paste bold text for Instagram, Discord, Facebook, or WhatsApp.",
+        icon: "format_bold",
+        href: "/bold-font-generator",
+      },
     ],
   },
   {
