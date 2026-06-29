@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import DiscordFontGenerator from "../components/DiscordFontGenerator";
@@ -334,6 +335,14 @@ export default function DiscordFontsPage() {
                     </tbody>
                   </table>
                 </div>
+
+                <Image
+                  src="/images/discord-fonts/discord-fonts-where-they-work.webp"
+                  alt="Discord interface showing where Unicode fonts work — display names, server names, categories, roles, and bios support styled text while usernames and channel names do not"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mt-8 w-full"
+                />
               </article>
 
               {/* Discord Markdown vs. Unicode Fonts */}
@@ -436,6 +445,14 @@ export default function DiscordFontsPage() {
                   </Link>
                   .
                 </p>
+
+                <Image
+                  src="/images/discord-fonts/discord-fonts-boxes-fix.webp"
+                  alt="Comparison showing Discord fonts rendering correctly on desktop but appearing as empty boxes on mobile, with a tip that Small Caps and Bold styles work on all devices"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mt-8 w-full"
+                />
               </article>
 
               {/* 12 Discord Font Styles */}
@@ -539,6 +556,14 @@ export default function DiscordFontsPage() {
                     </div>
                   ))}
                 </div>
+
+                <Image
+                  src="/images/discord-fonts/discord-fonts-how-to-use.webp"
+                  alt="5-step guide showing how to use Discord fonts: type your text, pick a style like Gothic Bold or Script, click copy, open Discord, and paste to send your styled message"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mt-8 w-full"
+                />
               </article>
 
               {/* Best Discord Font Styles by Server Type */}
@@ -614,6 +639,14 @@ export default function DiscordFontsPage() {
                     </p>
                   </div>
                 </div>
+
+                <Image
+                  src="/images/discord-fonts/discord-fonts-server-styles.webp"
+                  alt="Six Discord server examples showing the best font style for each type: Gothic for Gaming, Script for Art, Monospace for Tech, Script with Korean brackets for K-pop, Small Caps for Community, and Zalgo for Horror servers"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mt-8 w-full"
+                />
               </article>
 
               {/* What Font Does Discord Use? */}
