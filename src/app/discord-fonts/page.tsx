@@ -515,7 +515,7 @@ export default function DiscordFontsPage() {
                   12 Discord Font Styles to Copy and Paste
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This discord font generator gives you 12 discord text styles
+                  This discord font generator gives you 12 discord text styles card
                   built for real Discord use, from bold headers to bot command
                   lists. Type your text once, then scroll through the cards above
                   to compare every style side by side. Each one is ready to copy
