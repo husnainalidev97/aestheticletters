@@ -340,6 +340,8 @@ export default function DiscordFontsPage() {
                   width={1200}
                   height={672}
                   className="rounded-xl mb-8 w-full"
+                  priority={false}
+                  loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   You may have seen other sites say these styles work in your
@@ -473,6 +475,8 @@ export default function DiscordFontsPage() {
                   width={1200}
                   height={672}
                   className="rounded-xl mb-8 w-full"
+                  priority={false}
+                  loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   If a pasted style suddenly drops a letter or shows a small box,
@@ -563,6 +567,8 @@ export default function DiscordFontsPage() {
                   width={1200}
                   height={672}
                   className="rounded-xl mb-8 w-full"
+                  priority={false}
+                  loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using a discord font styles your name or server without any
@@ -630,6 +636,8 @@ export default function DiscordFontsPage() {
                   width={1200}
                   height={672}
                   className="rounded-xl mb-8 w-full"
+                  priority={false}
+                  loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Different servers benefit from different discord text styles,
