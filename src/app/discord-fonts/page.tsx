@@ -10,7 +10,7 @@ import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 
 export const metadata: Metadata = {
-  title: { absolute: "Discord Fonts Generator | Copy Paste Discord Text Styles" },
+  title: { absolute: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles" },
   description:
     "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
   alternates: {
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/discord-fonts",
-    title: "Discord Fonts Generator | Copy Paste Discord Text Styles",
+    title: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
     description:
       "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
     images: [{ url: "https://www.aestheticletters.com/images/discord-fonts/discord-fonts-og.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Discord Fonts Generator | Copy Paste Discord Text Styles",
+    title: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
     description:
       "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
     images: ["https://www.aestheticletters.com/images/discord-fonts/discord-fonts-og.webp"],
@@ -106,7 +106,7 @@ export default function DiscordFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/discord-fonts#webpage",
         url: "https://www.aestheticletters.com/discord-fonts",
-        name: "Discord Fonts Generator | Copy Paste Discord Text Styles",
+        name: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
         description:
           "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
         inLanguage: "en",
