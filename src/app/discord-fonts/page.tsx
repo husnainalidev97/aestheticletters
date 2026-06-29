@@ -12,7 +12,7 @@ import { getTotalFontStyleCount } from "../lib/fontCount";
 export const metadata: Metadata = {
   title: { absolute: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles" },
   description:
-    "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
+    "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 140+ discord text styles, ready to copy and paste.",
   alternates: {
     canonical: "https://www.aestheticletters.com/discord-fonts",
   },
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/discord-fonts",
     title: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
     description:
-      "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
+      "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 140+ discord text styles, ready to copy and paste.",
     images: [{ url: "https://www.aestheticletters.com/images/discord-fonts/discord-fonts-og.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
     description:
-      "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
+      "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 140+ discord text styles, ready to copy and paste.",
     images: ["https://www.aestheticletters.com/images/discord-fonts/discord-fonts-og.webp"],
   },
 };
@@ -95,7 +95,7 @@ export default function DiscordFontsPage() {
         url: "https://www.aestheticletters.com/discord-fonts",
         image: "https://www.aestheticletters.com/images/discord-fonts/discord-fonts-og.webp",
         description:
-          "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
+          "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 140+ discord text styles, ready to copy and paste.",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -108,11 +108,11 @@ export default function DiscordFontsPage() {
         url: "https://www.aestheticletters.com/discord-fonts",
         name: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles",
         description:
-          "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 12 discord text styles, ready to copy and paste.",
+          "Generate discord fonts for your display name, server, or bio in seconds. This free discord font generator has 140+ discord text styles, ready to copy and paste.",
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-06-29T08:00:00+00:00",
-        dateModified: "2026-06-29T07:11:00+00:00",
+        dateModified: "2026-06-29T08:00:00+00:00",
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["h1", "h2", ".text-on-surface-variant"],
@@ -515,7 +515,7 @@ export default function DiscordFontsPage() {
                   12 Discord Font Styles to Copy and Paste
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  This discord font generator gives you 12 discord text styles card
+                  This discord font generator gives you 12 discord text styles cards
                   built for real Discord use, from bold headers to bot command
                   lists. Type your text once, then scroll through the cards above
                   to compare every style side by side. Each one is ready to copy
