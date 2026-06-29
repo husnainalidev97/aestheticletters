@@ -141,52 +141,77 @@ export default function Home() {
         <FontGenerator totalFontStyles={totalFontStyles} />
         <SEOSection />
 
-        {/* Explore More Styles */}
+        {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Explore More Styles
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
           </h2>
-          <p className="text-center text-on-surface-variant text-lg mb-10 max-w-2xl mx-auto">
-            Every generator below uses Unicode characters you can copy and paste into any platform. Pick the one that fits your style.
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Every generator uses Unicode characters you can copy and paste into any platform. Pick the one that fits your style.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { title: "Instagram Fonts", desc: "Stylish text for bios, captions, and stories that makes your profile stand out.", href: "/instagram-fonts", icon: "camera" },
-              { title: "Discord Fonts", desc: "140+ text styles for display names, server names, roles, and bios on Discord.", href: "/discord-fonts", icon: "forum" },
-              { title: "Facebook Fonts", desc: "Unique font styles for posts, comments, and bios that grab attention in feeds.", href: "/facebook-fonts", icon: "facebook" },
-              { title: "Fancy Fonts", desc: "Decorative Unicode letter styles for a confident, on brand typographic finish.", href: "/fancy-fonts", icon: "brush" },
-              { title: "Bold Font Generator", desc: "Turn plain text into 81 bold Unicode styles for headings, usernames, and bios.", href: "/bold-font-generator", icon: "format_bold" },
-              { title: "Cursive Fonts", desc: "Flowing handwriting style scripts that add a refined, personal touch to text.", href: "/cursive-fonts", icon: "draw" },
-              { title: "Cute Fonts", desc: "Pretty and playful styles with hearts, stars, and soft decorations for bios.", href: "/cute-fonts", icon: "favorite" },
-              { title: "Stylish Fonts", desc: "Cool and creative text styles for gaming names, captions, and everyday use.", href: "/stylish-fonts", icon: "style" },
-              { title: "Serif Fonts", desc: "Classic serif Unicode styles and 34 font types for an elegant, editorial look.", href: "/serif-fonts", icon: "text_fields" },
-              { title: "Sans Serif Fonts", desc: "Clean, modern sans serif styles and popular font pairings for any platform.", href: "/sans-serif-fonts", icon: "font_download" },
-              { title: "Number Fonts", desc: "100+ stylish Unicode number styles for countdowns, dates, and creative lists.", href: "/number-font-generator", icon: "123" },
-              { title: "Halloween Fonts", desc: "75+ spooky, gothic, and creepy styles for Halloween content and horror themes.", href: "/halloween-fonts", icon: "skull" },
-            ].map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group flex items-start gap-4 p-5 bg-surface-container-lowest border border-outline-variant/20 rounded-xl transition-all duration-200 hover:bg-surface-container-high hover:border-outline-variant/40 editorial-shadow"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary text-xl">{tool.icon}</span>
-                </div>
-                <div>
-                  <h3 className="font-headline font-bold text-base text-on-surface mb-1 group-hover:text-primary transition-colors">{tool.title}</h3>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">{tool.desc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/all-tools"
-              className="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest hover:underline underline-offset-4"
-            >
-              View All Tools
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
+                  { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                  { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDD70\uFE0F", desc: "Classic serif letters" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
+                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
+                  { label: "Number Fonts", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Stylish number fonts" },
+                  { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky text styles" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
