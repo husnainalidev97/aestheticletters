@@ -495,7 +495,7 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   One important note: always test your chosen Unicode style inside
                   the app before finalizing it; some characters render differently in Discord&apos;s font stack compared
-                  to mobile browsers.
+                  to mobile browsers. For year-round Discord text beyond Halloween themes, check our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord text styles</Link> page.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">YouTube and Streaming</h3>

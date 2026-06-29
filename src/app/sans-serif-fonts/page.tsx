@@ -629,7 +629,7 @@ export default function SansSerifFontsPage() {
                   Discord supports unicode characters in many areas. Bold or italic sans serif text in your username or server description makes your presence feel more designed and serious.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  <strong>Pro tip:</strong> Use the bold sans serif style (&#x1D5F9;&#x1D5F6;&#x1D5F8;&#x1D5F2; &#x1D601;&#x1D5F5;&#x1D5F6;&#x1D600;) for important words. Use regular or spaced non serif for a lighter, more elegant look. Both styles are available right here in the generator above.
+                  <strong>Pro tip:</strong> Use the bold sans serif style (&#x1D5F9;&#x1D5F6;&#x1D5F8;&#x1D5F2; &#x1D601;&#x1D5F5;&#x1D5F6;&#x1D600;) for important words. Use regular or spaced non serif for a lighter, more elegant look. Both styles are available right here in the generator above. Want even more Discord options beyond sans serif? See our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts</Link> page for 140+ styles.
                 </p>
               </article>
 
