@@ -552,12 +552,12 @@ export default function FancyFontsPage() {
                   Gothic, Blackletter, and bold styles are the most popular
                   choices for gaming usernames because they look strong and
                   memorable at a glance. On Discord, symbol-enhanced and
-                  double-struck styles work well for server nicknames.
+                  double-struck styles work well for server nicknames. For 140+ more options, see our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord font styles</Link> page.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   The key rule for gaming is legibility; a username that looks
                   impressive but cannot be read quickly loses its impact in a
-                  fast-paced match or server. Need more options? Our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord font styles</Link> page has 140+ styles built for display names, server names, and roles.
+                  fast-paced match or server.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For WhatsApp and TikTok</h3>

@@ -425,10 +425,10 @@ export default function NumberFontGeneratorPage() {
                   to style your whole bio, not just the numbers in it.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  On WhatsApp or <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Discord</Link>, styled numbers are useful for countdowns,
+                  On WhatsApp or Discord, styled numbers are useful for countdowns,
                   &quot;Day 12 of 30&quot; posts, or marking steps in a list.
                   Superscript and Subscript Numbers are handy for school work, like
-                  writing a footnote or a chemical formula.
+                  writing a footnote or a chemical formula. For styled text on Discord beyond just numbers, try our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord text generator</Link>.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   Want your whole caption styled, not just the numbers in it? Our{" "}
