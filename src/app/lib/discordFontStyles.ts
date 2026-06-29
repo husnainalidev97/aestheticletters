@@ -42,11 +42,6 @@ function applyMaps(text: string, ...maps: Record<string, string>[]): string {
   return applyMap(text, merged);
 }
 
-/** Wrap each non-space character with prefix and suffix. */
-function wrapChars(text: string, prefix: string, suffix: string): string {
-  return [...text].map((c) => (c === " " ? c : prefix + c + suffix)).join("");
-}
-
 /** Append a separator symbol after each non-space character. */
 function withSeparator(text: string, sep: string): string {
   return [...text].map((c) => (c === " " ? c : c + sep)).join("");
@@ -182,20 +177,26 @@ function reverseUpsideDown(text: string): string {
 }
 
 // ── 12 Category Cards ─────────────────────────────────────────────────────
+// Each card uses the most popular decorators from research:
+// Filigree ꧁꧂, Lenticular 【】, Egyptian 𓆩𓆪, Korean ꒰꒱, Corner 「」,
+// Sparkle ✦, Swords ⚔, Crown 👑, Stars ⋆, Dot ・, Hearts ♡
 
 // Card 1: Bold Discord
 const boldDiscord: FontCategory = {
   name: "Bold Discord",
   styles: [
     { name: "Bold Discord", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Bold Discord Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
-    { name: "Bold Discord Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
-    { name: "Bold Discord Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
-    { name: "Bold Discord Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
-    { name: "Bold Discord Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
-    { name: "Bold Discord Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
+    { name: "Bold Discord Filigree", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Bold Discord Lenticular", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
+    { name: "Bold Discord Egyptian", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u{13169}", "\u{1316A}") },
+    { name: "Bold Discord Korean", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\uD218", "\uD219") },
+    { name: "Bold Discord Corner", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u300C", "\u300D") },
+    { name: "Bold Discord Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2726") },
+    { name: "Bold Discord Swords", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2694", "\u2694") },
+    { name: "Bold Discord Star", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Bold Discord Dot", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u30FB") },
     { name: "Bold Discord Lightning", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u26A1") },
-    { name: "Bold Discord Pipe", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "|", "|") },
+    { name: "Bold Discord Angle", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -204,14 +205,17 @@ const gamerGothic: FontCategory = {
   name: "Gamer Gothic",
   styles: [
     { name: "Gamer Gothic", transform: (t) => applyMap(t, frakturMap) },
-    { name: "Gamer Gothic Boxed", transform: (t) => wrapChars(applyMap(t, frakturMap), "[", "]") },
-    { name: "Gamer Gothic Bullet", transform: (t) => withSeparator(applyMap(t, frakturMap), "\u2022") },
-    { name: "Gamer Gothic Sparkle", transform: (t) => withSeparator(applyMap(t, frakturMap), "\u2727") },
-    { name: "Gamer Gothic Arrow", transform: (t) => withSeparator(applyMap(t, frakturMap), "\u2192") },
-    { name: "Gamer Gothic Angle", transform: (t) => wrapChars(applyMap(t, frakturMap), "\u00AB", "\u00BB") },
-    { name: "Gamer Gothic Lenticular", transform: (t) => wrapChars(applyMap(t, frakturMap), "\u3010", "\u3011") },
-    { name: "Gamer Gothic Dagger", transform: (t) => wrapChars(applyMap(t, frakturMap), "\u2020", "\u2020") },
+    { name: "Gamer Gothic Filigree", transform: (t) => withFrame(applyMap(t, frakturMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Gamer Gothic Lenticular", transform: (t) => withFrame(applyMap(t, frakturMap), "\u3010", "\u3011") },
+    { name: "Gamer Gothic Egyptian", transform: (t) => withFrame(applyMap(t, frakturMap), "\u{13169}", "\u{1316A}") },
+    { name: "Gamer Gothic Swords", transform: (t) => withFrame(applyMap(t, frakturMap), "\u2694", "\u2694") },
+    { name: "Gamer Gothic Dagger", transform: (t) => withFrame(applyMap(t, frakturMap), "\u2020\u2021", "\u2021\u2020") },
     { name: "Gamer Gothic Rune", transform: (t) => withFrame(applyMap(t, frakturMap), "\u16ED", "\u16ED") },
+    { name: "Gamer Gothic Crown", transform: (t) => withFrame(applyMap(t, frakturMap), "\u265B", "\u265B") },
+    { name: "Gamer Gothic Corner", transform: (t) => withFrame(applyMap(t, frakturMap), "\u300E", "\u300F") },
+    { name: "Gamer Gothic Sparkle", transform: (t) => withSeparator(applyMap(t, frakturMap), "\u2726") },
+    { name: "Gamer Gothic Skull", transform: (t) => withFrame(applyMap(t, frakturMap), "\u2620", "\u2620") },
+    { name: "Gamer Gothic Angle", transform: (t) => withFrame(applyMap(t, frakturMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -220,14 +224,17 @@ const heavyGothic: FontCategory = {
   name: "Heavy Gothic",
   styles: [
     { name: "Heavy Gothic", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Heavy Gothic Boxed", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "[", "]") },
-    { name: "Heavy Gothic Bullet", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2022") },
-    { name: "Heavy Gothic Sparkle", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2727") },
-    { name: "Heavy Gothic Arrow", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2192") },
-    { name: "Heavy Gothic Angle", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u00AB", "\u00BB") },
-    { name: "Heavy Gothic Lenticular", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u3010", "\u3011") },
+    { name: "Heavy Gothic Filigree", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Heavy Gothic Lenticular", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u3010", "\u3011") },
+    { name: "Heavy Gothic Egyptian", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u{13169}", "\u{1316A}") },
     { name: "Heavy Gothic Cross", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2719\u271B", "\u271B\u2719") },
+    { name: "Heavy Gothic Swords", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2694", "\u2694") },
     { name: "Heavy Gothic Skull", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2620", "\u2620") },
+    { name: "Heavy Gothic Crown", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u265B", "\u265B") },
+    { name: "Heavy Gothic Rune", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u16ED", "\u16ED") },
+    { name: "Heavy Gothic Corner", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u300E", "\u300F") },
+    { name: "Heavy Gothic Sparkle", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2726") },
+    { name: "Heavy Gothic Angle", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -236,14 +243,17 @@ const serverOutline: FontCategory = {
   name: "Server Outline",
   styles: [
     { name: "Server Outline", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
-    { name: "Server Outline Boxed", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "[", "]") },
-    { name: "Server Outline Bullet", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2022") },
-    { name: "Server Outline Sparkle", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2727") },
-    { name: "Server Outline Arrow", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2192") },
-    { name: "Server Outline Angle", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB", "\u00BB") },
-    { name: "Server Outline Lenticular", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u3010", "\u3011") },
+    { name: "Server Outline Filigree", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Server Outline Lenticular", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u3010", "\u3011") },
+    { name: "Server Outline Egyptian", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u{13169}", "\u{1316A}") },
+    { name: "Server Outline Korean", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\uD218", "\uD219") },
+    { name: "Server Outline Corner", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u300C", "\u300D") },
+    { name: "Server Outline Sparkle", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2726") },
+    { name: "Server Outline Star", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Server Outline Diamond", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u25C6\u2500\u2500", "\u2500\u2500\u25C6") },
+    { name: "Server Outline Dot", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u30FB") },
     { name: "Server Outline Lightning", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u26A1") },
-    { name: "Server Outline Pipe", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "|", "|") },
+    { name: "Server Outline Angle", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -252,14 +262,17 @@ const discordScript: FontCategory = {
   name: "Discord Script",
   styles: [
     { name: "Discord Script", transform: (t) => applyMap(t, boldScriptMap) },
-    { name: "Discord Script Boxed", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "[", "]") },
-    { name: "Discord Script Bullet", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2022") },
-    { name: "Discord Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
-    { name: "Discord Script Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
-    { name: "Discord Script Sparkle", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2727") },
-    { name: "Discord Script Angle", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u00AB", "\u00BB") },
-    { name: "Discord Script Lenticular", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u3010", "\u3011") },
+    { name: "Discord Script Filigree", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Discord Script Lenticular", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u3010", "\u3011") },
+    { name: "Discord Script Korean", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\uD218", "\uD219") },
     { name: "Discord Script Heart", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2661", "\u2661") },
+    { name: "Discord Script Flower", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273F", "\u273F") },
+    { name: "Discord Script Sparkle", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2727\uFF65\uFF9F", "\uFF9F\uFF65\u2727") },
+    { name: "Discord Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
+    { name: "Discord Script Star", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Discord Script Corner", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u300C", "\u300D") },
+    { name: "Discord Script Pearl", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u22B9\u2032\u02DA", "\u02DA\u2032\u22B9") },
+    { name: "Discord Script Angle", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -268,14 +281,17 @@ const monoTag: FontCategory = {
   name: "Mono Tag",
   styles: [
     { name: "Mono Tag", transform: (t) => applyMaps(t, monospaceMap, monospaceDigitMap) },
-    { name: "Mono Tag Boxed", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "[", "]") },
-    { name: "Mono Tag Bullet", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2022") },
-    { name: "Mono Tag Sparkle", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2727") },
-    { name: "Mono Tag Arrow", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2192") },
-    { name: "Mono Tag Angle", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "\u00AB", "\u00BB") },
-    { name: "Mono Tag Lenticular", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "\u3010", "\u3011") },
-    { name: "Mono Tag Pipe", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "|", "|") },
+    { name: "Mono Tag Filigree", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Mono Tag Lenticular", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u3010", "\u3011") },
     { name: "Mono Tag Terminal", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), ">_", "") },
+    { name: "Mono Tag Bracket", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "[", "]") },
+    { name: "Mono Tag Corner", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u300C", "\u300D") },
+    { name: "Mono Tag Pipe", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2502", "\u2502") },
+    { name: "Mono Tag Block", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2593\u2592\u2591", "\u2591\u2592\u2593") },
+    { name: "Mono Tag Sparkle", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2726") },
+    { name: "Mono Tag Arrow", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2570\u2508\u27A4", "") },
+    { name: "Mono Tag Dot", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u30FB") },
+    { name: "Mono Tag Diamond", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u25C7\u2500", "\u2500\u25C7") },
   ],
 };
 
@@ -284,14 +300,17 @@ const tinyCaps: FontCategory = {
   name: "Tiny Caps",
   styles: [
     { name: "Tiny Caps", transform: (t) => applyMap(t, smallCapsMap) },
-    { name: "Tiny Caps Boxed", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "[", "]") },
-    { name: "Tiny Caps Bullet", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2022") },
-    { name: "Tiny Caps Sparkle", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2727") },
-    { name: "Tiny Caps Arrow", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2192") },
-    { name: "Tiny Caps Angle", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "\u00AB", "\u00BB") },
-    { name: "Tiny Caps Lenticular", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "\u3010", "\u3011") },
+    { name: "Tiny Caps Filigree", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Tiny Caps Lenticular", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u3010", "\u3011") },
+    { name: "Tiny Caps Korean", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\uD218", "\uD219") },
+    { name: "Tiny Caps Corner", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u300C", "\u300D") },
+    { name: "Tiny Caps Sparkle", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2727\uFF65", "\uFF65\u2727") },
+    { name: "Tiny Caps Star", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Tiny Caps Dot", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u30FB") },
     { name: "Tiny Caps Ringed", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u030A"]) },
-    { name: "Tiny Caps Pipe", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "|", "|") },
+    { name: "Tiny Caps Tibetan", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u0F3C", "\u0F3D") },
+    { name: "Tiny Caps Flower", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u273F", "\u273F") },
+    { name: "Tiny Caps Angle", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -300,14 +319,17 @@ const bubbleTag: FontCategory = {
   name: "Bubble Tag",
   styles: [
     { name: "Bubble Tag", transform: (t) => applyMap(t, circleMap) },
-    { name: "Bubble Tag Boxed", transform: (t) => wrapChars(applyMap(t, circleMap), "[", "]") },
-    { name: "Bubble Tag Bullet", transform: (t) => withSeparator(applyMap(t, circleMap), "\u2022") },
-    { name: "Bubble Tag Sparkle", transform: (t) => withSeparator(applyMap(t, circleMap), "\u2727") },
-    { name: "Bubble Tag Arrow", transform: (t) => withSeparator(applyMap(t, circleMap), "\u2192") },
-    { name: "Bubble Tag Angle", transform: (t) => wrapChars(applyMap(t, circleMap), "\u00AB", "\u00BB") },
-    { name: "Bubble Tag Lenticular", transform: (t) => wrapChars(applyMap(t, circleMap), "\u3010", "\u3011") },
+    { name: "Bubble Tag Filigree", transform: (t) => withFrame(applyMap(t, circleMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Bubble Tag Lenticular", transform: (t) => withFrame(applyMap(t, circleMap), "\u3010", "\u3011") },
+    { name: "Bubble Tag Korean", transform: (t) => withFrame(applyMap(t, circleMap), "\uD218", "\uD219") },
     { name: "Bubble Tag Heart", transform: (t) => withFrame(applyMap(t, circleMap), "\u2661", "\u2661") },
+    { name: "Bubble Tag Corner", transform: (t) => withFrame(applyMap(t, circleMap), "\u300C", "\u300D") },
+    { name: "Bubble Tag Sparkle", transform: (t) => withSeparator(applyMap(t, circleMap), "\u2726") },
+    { name: "Bubble Tag Star", transform: (t) => withFrame(applyMap(t, circleMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Bubble Tag Dot", transform: (t) => withSeparator(applyMap(t, circleMap), "\u30FB") },
     { name: "Bubble Tag Lightning", transform: (t) => withSeparator(applyMap(t, circleMap), "\u26A1") },
+    { name: "Bubble Tag Flower", transform: (t) => withFrame(applyMap(t, circleMap), "\u2740", "\u2740") },
+    { name: "Bubble Tag Angle", transform: (t) => withFrame(applyMap(t, circleMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -316,14 +338,17 @@ const boxedTag: FontCategory = {
   name: "Boxed Tag",
   styles: [
     { name: "Boxed Tag", transform: (t) => applyMap(t, negSquaredMap) },
-    { name: "Boxed Tag Bracket", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "[", "]") },
-    { name: "Boxed Tag Bullet", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2022") },
-    { name: "Boxed Tag Sparkle", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2727") },
-    { name: "Boxed Tag Arrow", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2192") },
-    { name: "Boxed Tag Angle", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u00AB", "\u00BB") },
-    { name: "Boxed Tag Lenticular", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u3010", "\u3011") },
+    { name: "Boxed Tag Filigree", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Boxed Tag Lenticular", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u3010", "\u3011") },
+    { name: "Boxed Tag Egyptian", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u{13169}", "\u{1316A}") },
+    { name: "Boxed Tag Swords", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u2694", "\u2694") },
+    { name: "Boxed Tag Corner", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u300C", "\u300D") },
+    { name: "Boxed Tag Sparkle", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2726") },
     { name: "Boxed Tag Lightning", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u26A1") },
-    { name: "Boxed Tag Pipe", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "|", "|") },
+    { name: "Boxed Tag Crown", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u265B", "\u265B") },
+    { name: "Boxed Tag Block", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u2588\u2593\u2592", "\u2592\u2593\u2588") },
+    { name: "Boxed Tag Diamond", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u25C6\u2500\u2500", "\u2500\u2500\u25C6") },
+    { name: "Boxed Tag Angle", transform: (t) => withFrame(applyMap(t, negSquaredMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -332,14 +357,17 @@ const wideTag: FontCategory = {
   name: "Wide Tag",
   styles: [
     { name: "Wide Tag", transform: (t) => applyMap(t, fullwidthMap) },
-    { name: "Wide Tag Boxed", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "[", "]") },
-    { name: "Wide Tag Bullet", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2022") },
-    { name: "Wide Tag Sparkle", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2727") },
-    { name: "Wide Tag Arrow", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2192") },
-    { name: "Wide Tag Angle", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "\u00AB", "\u00BB") },
-    { name: "Wide Tag Lenticular", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "\u3010", "\u3011") },
+    { name: "Wide Tag Filigree", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Wide Tag Lenticular", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u3010", "\u3011") },
     { name: "Wide Tag Neon", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2591\u2592\u2593", "\u2593\u2592\u2591") },
-    { name: "Wide Tag Pipe", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "|", "|") },
+    { name: "Wide Tag Block", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2588\u2593\u2592\u2591", "\u2591\u2592\u2593\u2588") },
+    { name: "Wide Tag Scan", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u2584\u2580\u2584\u2580", "\u2580\u2584\u2580\u2584") },
+    { name: "Wide Tag Corner", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u300C", "\u300D") },
+    { name: "Wide Tag Korean", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\uD218", "\uD219") },
+    { name: "Wide Tag Sparkle", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2726") },
+    { name: "Wide Tag Star", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Wide Tag Diamond", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u25C6\u2500\u2500", "\u2500\u2500\u25C6") },
+    { name: "Wide Tag Angle", transform: (t) => withFrame(applyMap(t, fullwidthMap), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -348,14 +376,17 @@ const flippedTag: FontCategory = {
   name: "Flipped Tag",
   styles: [
     { name: "Flipped Tag", transform: (t) => reverseUpsideDown(t) },
-    { name: "Flipped Tag Boxed", transform: (t) => wrapChars(reverseUpsideDown(t), "[", "]") },
-    { name: "Flipped Tag Bullet", transform: (t) => withSeparator(reverseUpsideDown(t), "\u2022") },
-    { name: "Flipped Tag Sparkle", transform: (t) => withSeparator(reverseUpsideDown(t), "\u2727") },
-    { name: "Flipped Tag Arrow", transform: (t) => withSeparator(reverseUpsideDown(t), "\u2192") },
-    { name: "Flipped Tag Angle", transform: (t) => wrapChars(reverseUpsideDown(t), "\u00AB", "\u00BB") },
-    { name: "Flipped Tag Lenticular", transform: (t) => wrapChars(reverseUpsideDown(t), "\u3010", "\u3011") },
+    { name: "Flipped Tag Filigree", transform: (t) => withFrame(reverseUpsideDown(t), "\u{A9C1}", "\u{A9C2}") },
+    { name: "Flipped Tag Lenticular", transform: (t) => withFrame(reverseUpsideDown(t), "\u3010", "\u3011") },
+    { name: "Flipped Tag Egyptian", transform: (t) => withFrame(reverseUpsideDown(t), "\u{13169}", "\u{1316A}") },
+    { name: "Flipped Tag Corner", transform: (t) => withFrame(reverseUpsideDown(t), "\u300C", "\u300D") },
+    { name: "Flipped Tag Korean", transform: (t) => withFrame(reverseUpsideDown(t), "\uD218", "\uD219") },
+    { name: "Flipped Tag Sparkle", transform: (t) => withSeparator(reverseUpsideDown(t), "\u2726") },
     { name: "Flipped Tag Strike", transform: (t) => withCombining(reverseUpsideDown(t), ["\u0336"]) },
-    { name: "Flipped Tag Pipe", transform: (t) => wrapChars(reverseUpsideDown(t), "|", "|") },
+    { name: "Flipped Tag Star", transform: (t) => withFrame(reverseUpsideDown(t), "\u22C6\u2729", "\u2729\u22C6") },
+    { name: "Flipped Tag Skull", transform: (t) => withFrame(reverseUpsideDown(t), "\u2620", "\u2620") },
+    { name: "Flipped Tag Dot", transform: (t) => withSeparator(reverseUpsideDown(t), "\u30FB") },
+    { name: "Flipped Tag Angle", transform: (t) => withFrame(reverseUpsideDown(t), "\u00AB", "\u00BB") },
   ],
 };
 
@@ -372,6 +403,9 @@ const glitchTag: FontCategory = {
     { name: "Glitch Tag Corrupt", transform: (t) => zalgo(t, 3, 3, 12) },
     { name: "Glitch Tag Static", transform: (t) => zalgo(t, 2, 0, 14) },
     { name: "Glitch Tag Void", transform: (t) => zalgo(t, 0, 3, 16) },
+    { name: "Glitch Tag Strikethrough", transform: (t) => withCombining(t, ["\u0336"]) },
+    { name: "Glitch Tag Underline", transform: (t) => withCombining(t, ["\u0332"]) },
+    { name: "Glitch Tag Crosshatch", transform: (t) => withCombining(t, ["\u0337"]) },
   ],
 };
 
