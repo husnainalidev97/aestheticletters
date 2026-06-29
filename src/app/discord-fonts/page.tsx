@@ -278,6 +278,13 @@ export default function DiscordFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Discord Fonts Actually Work (and Where They Don&rsquo;t)
                 </h2>
+                <Image
+                  src="/images/discord-fonts/discord-fonts-where-they-work.webp"
+                  alt="Discord interface showing where Unicode fonts work — display names, server names, categories, roles, and bios support styled text while usernames and channel names do not"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mb-8 w-full"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   You may have seen other sites say these styles work in your
                   username or channel name. They do not. Discord splits your
@@ -335,14 +342,6 @@ export default function DiscordFontsPage() {
                     </tbody>
                   </table>
                 </div>
-
-                <Image
-                  src="/images/discord-fonts/discord-fonts-where-they-work.webp"
-                  alt="Discord interface showing where Unicode fonts work — display names, server names, categories, roles, and bios support styled text while usernames and channel names do not"
-                  width={1200}
-                  height={672}
-                  className="rounded-xl mt-8 w-full"
-                />
               </article>
 
               {/* Discord Markdown vs. Unicode Fonts */}
@@ -412,6 +411,13 @@ export default function DiscordFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Do Some Discord Fonts Show as Boxes or Missing Letters?
                 </h2>
+                <Image
+                  src="/images/discord-fonts/discord-fonts-boxes-fix.webp"
+                  alt="Comparison showing Discord fonts rendering correctly on desktop but appearing as empty boxes on mobile, with a tip that Small Caps and Bold styles work on all devices"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mb-8 w-full"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   If a pasted style suddenly drops a letter or shows a small box,
                   it is not a glitch in this tool. It comes from a real gap
@@ -445,14 +451,6 @@ export default function DiscordFontsPage() {
                   </Link>
                   .
                 </p>
-
-                <Image
-                  src="/images/discord-fonts/discord-fonts-boxes-fix.webp"
-                  alt="Comparison showing Discord fonts rendering correctly on desktop but appearing as empty boxes on mobile, with a tip that Small Caps and Bold styles work on all devices"
-                  width={1200}
-                  height={672}
-                  className="rounded-xl mt-8 w-full"
-                />
               </article>
 
               {/* 12 Discord Font Styles */}
@@ -503,6 +501,13 @@ export default function DiscordFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Discord Fonts?
                 </h2>
+                <Image
+                  src="/images/discord-fonts/discord-fonts-how-to-use.webp"
+                  alt="5-step guide showing how to use Discord fonts: type your text, pick a style like Gothic Bold or Script, click copy, open Discord, and paste to send your styled message"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mb-8 w-full"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using a discord font styles your name or server without any
                   app, plugin, or Nitro subscription. The steps below cover the
@@ -556,14 +561,6 @@ export default function DiscordFontsPage() {
                     </div>
                   ))}
                 </div>
-
-                <Image
-                  src="/images/discord-fonts/discord-fonts-how-to-use.webp"
-                  alt="5-step guide showing how to use Discord fonts: type your text, pick a style like Gothic Bold or Script, click copy, open Discord, and paste to send your styled message"
-                  width={1200}
-                  height={672}
-                  className="rounded-xl mt-8 w-full"
-                />
               </article>
 
               {/* Best Discord Font Styles by Server Type */}
@@ -571,6 +568,13 @@ export default function DiscordFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Best Discord Font Styles by Server Type
                 </h2>
+                <Image
+                  src="/images/discord-fonts/discord-fonts-server-styles.webp"
+                  alt="Six Discord server examples showing the best font style for each type: Gothic for Gaming, Script for Art, Monospace for Tech, Script with Korean brackets for K-pop, Small Caps for Community, and Zalgo for Horror servers"
+                  width={1200}
+                  height={672}
+                  className="rounded-xl mb-8 w-full"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Different servers benefit from different discord text styles,
                   based on how members read and scan text inside that community.
@@ -639,14 +643,6 @@ export default function DiscordFontsPage() {
                     </p>
                   </div>
                 </div>
-
-                <Image
-                  src="/images/discord-fonts/discord-fonts-server-styles.webp"
-                  alt="Six Discord server examples showing the best font style for each type: Gothic for Gaming, Script for Art, Monospace for Tech, Script with Korean brackets for K-pop, Small Caps for Community, and Zalgo for Horror servers"
-                  width={1200}
-                  height={672}
-                  className="rounded-xl mt-8 w-full"
-                />
               </article>
 
               {/* What Font Does Discord Use? */}
