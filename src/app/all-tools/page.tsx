@@ -60,6 +60,13 @@ const toolCategories: ToolCategory[] = [
         icon: "facebook",
         href: "/facebook-fonts",
       },
+      {
+        title: "Discord Fonts",
+        description:
+          "140+ discord text styles for display names, server names, roles, and bios. Copy and paste instantly.",
+        icon: "forum",
+        href: "/discord-fonts",
+      },
     ],
   },
   {

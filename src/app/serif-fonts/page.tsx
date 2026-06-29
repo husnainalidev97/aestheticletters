@@ -615,7 +615,7 @@ export default function SerifFontsPage() {
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                       <p className="font-bold text-on-surface mb-1">Discord Profiles</p>
-                      <p className="text-on-surface-variant">Creative typography helps profiles stand out in communities. See all compatible styles on our discord fonts generator page.</p>
+                      <p className="text-on-surface-variant">Creative typography helps profiles stand out in communities. See all compatible styles on our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts generator</Link> page.</p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                       <p className="font-bold text-on-surface mb-1">Content Creators</p>
