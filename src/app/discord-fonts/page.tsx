@@ -202,20 +202,32 @@ export default function DiscordFontsPage() {
       {
         "@type": "HowToStep",
         position: 1,
-        name: "Type Your Text",
-        text: "Type your text into the generator above and pick a style from the 12 discord text styles available.",
+        name: "Display name",
+        text: "Type your text into the generator above and pick a style. Copy it, then open Discord and go to User Settings, then My Account, then Profiles. Paste your styled text into the Display Name field and save.",
       },
       {
         "@type": "HowToStep",
         position: 2,
-        name: "Copy the Styled Text",
-        text: "Click Copy on the style you want. The styled Unicode text is now in your clipboard.",
+        name: "Your nickname in one server",
+        text: "Find your name in the member list, click it, and look for the option to edit your server profile. This only changes how you appear in that specific server, your global username stays the same everywhere else.",
       },
       {
         "@type": "HowToStep",
         position: 3,
-        name: "Paste into Discord",
-        text: "Paste your styled discord fonts into your display name, server name, role, bio, or chat message.",
+        name: "The server\u2019s name",
+        text: "This one\u2019s only available if you have admin access. Head into the server\u2019s settings and find the Overview tab, where the server name field is waiting to be updated.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "A role\u2019s name",
+        text: "Also admin-only. Inside settings, the Roles tab lists every role in the server, picks the one you want to restyle and update its label. Useful for making mod or VIP roles visually pop in the member list.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 5,
+        name: "Chat message",
+        text: "Paste your styled discord fonts directly into the message box and send. No extra steps are needed, since message fields accept Unicode the same way display names do.",
       },
     ],
   };
