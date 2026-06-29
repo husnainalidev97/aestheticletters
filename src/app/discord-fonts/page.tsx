@@ -709,8 +709,8 @@ export default function DiscordFontsPage() {
                 {[
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF38", desc: "Kawaii aesthetic text" },
-                  { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
+                  { label: "Pretty Font Generator", href: "/cute-fonts", icon: "\uD83C\uDF38", desc: "Kawaii aesthetic text" },
+                  { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
