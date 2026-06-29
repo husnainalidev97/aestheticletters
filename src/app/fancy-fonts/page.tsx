@@ -557,7 +557,7 @@ export default function FancyFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   The key rule for gaming is legibility; a username that looks
                   impressive but cannot be read quickly loses its impact in a
-                  fast-paced match or server.
+                  fast-paced match or server. Need more options? Our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord font styles</Link> page has 140+ styles built for display names, server names, and roles.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">For WhatsApp and TikTok</h3>

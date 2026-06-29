@@ -480,7 +480,7 @@ export default function BoldFontGeneratorPage() {
                       it only works inside chat messages and forum posts. It does
                       not work in usernames, nicknames, About Me text, server
                       names, or channel topics. Bold Unicode text works in all of
-                      those places instead.
+                      those places instead. For a full set of Discord-specific styles beyond bold, try our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord font generator</Link>.
                     </p>
                   </div>
                   <div>

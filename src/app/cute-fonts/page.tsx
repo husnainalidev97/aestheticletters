@@ -656,7 +656,7 @@ export default function CuteFontsPage() {
                       <h3 className="font-headline font-bold mb-1 text-sm">Discord &amp; Gaming</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
                         Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
-                        and Discord users combine text with symbols for a unique gaming identity.
+                        and Discord users combine text with symbols for a unique gaming identity. For more Discord-optimized styles including bold, gothic, and monospace, visit our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts copy and paste</Link> tool.
                       </p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
