@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
-import BoldFontGenerator from "../components/BoldFontGenerator";
+import DiscordFontGenerator from "../components/DiscordFontGenerator";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
@@ -286,7 +286,7 @@ export default function DiscordFontsPage() {
         </section>
 
         {/* Interactive Font Generator */}
-        <BoldFontGenerator totalFontStyles={totalFontStyles} />
+        <DiscordFontGenerator totalFontStyles={totalFontStyles} />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
