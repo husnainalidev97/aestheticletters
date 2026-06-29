@@ -76,68 +76,7 @@ const faqs = [
   },
 ];
 
-const discordStyles = [
-  {
-    name: "Bold Discord",
-    description:
-      "Works best for announcements and category headers, where you want a line to stand out instantly.",
-  },
-  {
-    name: "Gamer Gothic",
-    description:
-      "Suits roleplay and fantasy servers, with a blackletter look tied to medieval and fantasy writing that sets a tone before a member reads a single word.",
-  },
-  {
-    name: "Heavy Gothic",
-    description:
-      "Carries more visual weight than Gamer Gothic, making it ideal for tabletop and lore heavy servers that use this style for channel categories.",
-  },
-  {
-    name: "Server Outline",
-    description:
-      "Gives server names a clean, structured look, though a few uppercase letters need special handling.",
-  },
-  {
-    name: "Discord Script",
-    description:
-      "Fits art, study, and chill community servers that want a softer feel.",
-  },
-  {
-    name: "Mono Tag",
-    description:
-      "Suits bot command lists, since every letter shares the same width.",
-  },
-  {
-    name: "Tiny Caps",
-    description:
-      "Keeps role names subtle and easy to read, building on the same small caps style covered on our Serif Fonts page.",
-  },
-  {
-    name: "Bubble Tag",
-    description:
-      "Works well for voice channel names with its rounded, friendly appearance.",
-  },
-  {
-    name: "Boxed Tag",
-    description:
-      "Matches the sharp, tactical look many competitive and FPS clans prefer.",
-  },
-  {
-    name: "Wide Tag",
-    description:
-      "Spaces out a server name for a banner style look.",
-  },
-  {
-    name: "Flipped Tag",
-    description:
-      "Rounds out the set for playful or cursed text moments with upside-down characters.",
-  },
-  {
-    name: "Glitch Tag",
-    description:
-      "Perfect for cursed text moments, adding combining marks that create a chaotic, glitchy appearance.",
-  },
-];
+
 
 export default function DiscordFontsPage() {
   const totalFontStyles = getTotalFontStyleCount();
@@ -504,25 +443,42 @@ export default function DiscordFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   12 Discord Font Styles to Copy and Paste
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   This discord font generator gives you 12 discord text styles
                   built for real Discord use, from bold headers to bot command
                   lists. Type your text once, then scroll through the cards above
                   to compare every style side by side. Each one is ready to copy
                   and paste.
                 </p>
-                <div className="space-y-8">
-                  {discordStyles.map((style) => (
-                    <div key={style.name}>
-                      <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
-                        {style.name}
-                      </h3>
-                      <p className="text-on-surface-variant leading-relaxed text-lg">
-                        {style.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Bold Discord works best for announcements and category headers,
+                  where you want a line to stand out instantly. Gamer Gothic and
+                  Heavy Gothic both suit roleplay and fantasy servers, with Heavy
+                  Gothic carrying more visual weight. Server Outline gives server
+                  names a clean, structured look, though a few uppercase letters
+                  need special handling.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Discord Script fits art, study, and chill community servers
+                  that want a softer feel. Mono Tag suits bot command lists,
+                  since every letter shares the same width. Tiny Caps keeps role
+                  names subtle and easy to read, building on the same small caps
+                  style covered on our{" "}
+                  <Link
+                    href="/serif-fonts"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    Serif Fonts
+                  </Link>{" "}
+                  page.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Bubble Tag works well for voice channel names, while Boxed Tag
+                  matches the sharp, tactical look many competitive and FPS clans
+                  prefer. Wide Tag spaces out a server name for a banner style
+                  look. Flipped Tag and Glitch Tag round out the set for playful
+                  or cursed text moments.
+                </p>
               </article>
 
               {/* How to Use Discord Fonts */}
