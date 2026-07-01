@@ -534,13 +534,15 @@ export default function TwitterFontsPage() {
                   short phrases like names or hooks, and keep longer or important
                   text, such as full sentences in a bio, in plain readable form.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Avoid mixing more than one or two styles in a single tweet or
                   bio. Stacking several decorative sets together makes text harder
                   to scan and can look cluttered rather than intentional. A single
                   well placed style usually reads as more deliberate than several
-                  competing ones. The same principle applies across platforms.
-                  Testing on{" "}
+                  competing ones.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  The same principle applies across platforms. Testing on{" "}
                   <Link
                     href="/facebook-fonts"
                     className="text-primary underline underline-offset-4 hover:no-underline"
