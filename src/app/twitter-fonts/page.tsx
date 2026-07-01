@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Twitter Fonts Generator \u2013 Unicode Styles for X Bios & Names",
     description:
       "Generate unique Twitter fonts for your X bio, display name, and tweets. Preview and copy Unicode text styles in seconds, no signup or download needed.",
-    images: [{ url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-og.webp", width: 1200, height: 640 }],
+    images: [{ url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-og.webp", width: 1200, height: 800 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -126,7 +126,7 @@ const twitterStyles = [
       "A strikethrough or underline styling for added commentary on a retweet, drawing attention to the key phrase in your added text.",
   },
   {
-    name: "Reply to Guy Mono",
+    name: "Reply Guy Mono",
     description:
       "A monospace style for casual, conversational replies, giving short responses a distinct, slightly technical tone without looking overly formal.",
   },
@@ -164,12 +164,19 @@ export default function TwitterFontsPage() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-07-01T08:00:00+00:00",
-        dateModified: "2026-07-01T00:00:00+00:00",
+        dateModified: "2026-07-01T12:00:00+00:00",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/twitter-fonts#breadcrumb",
         },
         mainEntity: {
           "@id": "https://www.aestheticletters.com/twitter-fonts#software",
+        },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2", ".text-on-surface-variant"],
+        },
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/twitter-fonts#image-how-to-use",
         },
       },
       {
@@ -246,6 +253,7 @@ export default function TwitterFontsPage() {
     description:
       "Type your text and instantly see unique twitter fonts for your X bio, display name, and tweets.",
     totalTime: "PT1M",
+    image: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-how-to-use.webp",
     step: [
       {
         "@type": "HowToStep",
@@ -276,7 +284,10 @@ export default function TwitterFontsPage() {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text:
+          typeof faq.answer === "string"
+            ? faq.answer
+            : "Yes. The same Unicode characters work on Instagram, Facebook, Discord and most other platforms that support standard text input.",
       },
     })),
   };

@@ -151,7 +151,7 @@ const feedStopper: FontCategory = {
     { name: "Feed Stopper Diamond", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25C6 ", " \u25C6") },
     { name: "Feed Stopper Lenticular", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010 ", " \u3011") },
     { name: "Feed Stopper Block", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25A0 ", " \u25A0") },
-    { name: "Feed Stopper Underline", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332"]) },
+    { name: "Feed Stopper Ornament", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2756 ", " \u2756") },
     { name: "Feed Stopper Word Star", transform: (t) => withWordSep(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2605") },
   ],
 };
@@ -177,7 +177,7 @@ const chirpBreak: FontCategory = {
   name: "Chirp Break",
   styles: [
     { name: "Chirp Break", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Chirp Break Overline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0305"]) },
+    { name: "Chirp Break Bullet", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25CF ", " \u25CF") },
     { name: "Chirp Break Triangle", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25B2 ", " \u25B2") },
     { name: "Chirp Break Hex Star", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2736 ", " \u2736") },
     { name: "Chirp Break Angle", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2329 ", " \u232A") },
@@ -200,7 +200,7 @@ const quoteTweetSerif: FontCategory = {
     { name: "Quote Tweet Serif Leaf", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u2619 ", " \u2619") },
     { name: "Quote Tweet Serif Floral", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u2767 ", " \u2767") },
     { name: "Quote Tweet Serif Tilde", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u223C ", " \u223C") },
-    { name: "Quote Tweet Serif Underline", transform: (t) => withCombining(applyMap(t, italicSerifMap), ["\u0332"]) },
+    { name: "Quote Tweet Serif Asterism", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u273D ", " \u273D") },
   ],
 };
 
@@ -232,7 +232,7 @@ const displayNameEdge: FontCategory = {
     { name: "Display Name Edge Maltese", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2720 ", " \u2720") },
     { name: "Display Name Edge Dagger", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2020 ", " \u2020") },
     { name: "Display Name Edge Fleur", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u269C ", " \u269C") },
-    { name: "Display Name Edge Overline", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0305"]) },
+    { name: "Display Name Edge Ankh", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2625 ", " \u2625") },
   ],
 };
 
@@ -245,8 +245,8 @@ const hotTakeBold: FontCategory = {
     { name: "Hot Take Bold Arrow", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2197 ", " \u2199") },
     { name: "Hot Take Bold Angle", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u27EA ", " \u27EB") },
     { name: "Hot Take Bold Open Star", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2606 ", " \u2606") },
-    { name: "Hot Take Bold Strike", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0336"]) },
-    { name: "Hot Take Bold Underline", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]) },
+    { name: "Hot Take Bold Square", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u25FC ", " \u25FC") },
+    { name: "Hot Take Bold Sidebar", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2595 ", "") },
     { name: "Hot Take Bold Reference", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u203B ", " \u203B") },
     { name: "Hot Take Bold Word Fire", transform: (t) => withWordSep(applyMap(t, boldItalicMap), "\u2022") },
   ],
@@ -264,7 +264,7 @@ const pinnedPostScript: FontCategory = {
     { name: "Pinned Post Script Rosette", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273E ", " \u273E") },
     { name: "Pinned Post Script Heart", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2765 ", " \u2765") },
     { name: "Pinned Post Script Snowflake", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u274B ", " \u274B") },
-    { name: "Pinned Post Script Underline", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]) },
+    { name: "Pinned Post Script Bloom", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2741 ", " \u2741") },
   ],
 };
 
@@ -278,9 +278,9 @@ const retweetHighlight: FontCategory = {
     { name: "Retweet Overline", transform: (t) => withCombining(t, ["\u0305"]) },
     { name: "Retweet Slash", transform: (t) => withCombining(t, ["\u0337"]) },
     { name: "Retweet Crosshatch", transform: (t) => withCombining(t, ["\u0336", "\u0305"]) },
-    { name: "Retweet Bold Underline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0332"]) },
-    { name: "Retweet Bold Strike", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0336"]) },
-    { name: "Retweet Italic Underline", transform: (t) => withCombining(applyMap(t, italicSerifMap), ["\u0332"]) },
+    { name: "Retweet Bold Corner", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2308 ", " \u2309") },
+    { name: "Retweet Bold Pipe", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2223 ", " \u2223") },
+    { name: "Retweet Italic Corner", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u230A ", " \u230B") },
   ],
 };
 
@@ -305,8 +305,8 @@ const tweetDouble: FontCategory = {
   name: "Tweet Double",
   styles: [
     { name: "Tweet Double", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
-    { name: "Tweet Double Overline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0305"]) },
-    { name: "Tweet Double Underline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0332"]) },
+    { name: "Tweet Double Arrow", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u21D2 ", " \u21D0") },
+    { name: "Tweet Double Sparkle", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u22C6 ", " \u22C6") },
     { name: "Tweet Double Bracket", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u27E6 ", " \u27E7") },
     { name: "Tweet Double Angle", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB ", " \u00BB") },
     { name: "Tweet Double Dot", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2234 ", " \u2235") },
@@ -321,8 +321,8 @@ const circlePop: FontCategory = {
   name: "Circle Pop",
   styles: [
     { name: "Circle Pop", transform: (t) => applyMaps(t, circledMap, circledDigitMap) },
-    { name: "Circle Pop Dotted", transform: (t) => withCombining(applyMaps(t, circledMap, circledDigitMap), ["\u0307"]) },
-    { name: "Circle Pop Underline", transform: (t) => withCombining(applyMaps(t, circledMap, circledDigitMap), ["\u0332"]) },
+    { name: "Circle Pop Dash", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u2013 ", " \u2013") },
+    { name: "Circle Pop Bullet", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u25E6 ", " \u25E6") },
     { name: "Circle Pop Star Frame", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u272A ", " \u272A") },
     { name: "Circle Pop Diamond", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u25C7 ", " \u25C7") },
     { name: "Circle Pop Spark", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u2728 ", " \u2728") },
