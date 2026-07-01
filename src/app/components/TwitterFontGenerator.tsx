@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { twitterFontCategories } from "../lib/twitterFontStyles";
+import { twitterFontCategories, calculateXWeight } from "../lib/twitterFontStyles";
 
 const FontGenerator = dynamic(() => import("./FontGenerator"), {
   loading: () => (
@@ -36,6 +36,9 @@ export default function TwitterFontGenerator({ totalFontStyles }: TwitterFontGen
       hideExploreButton
       categories={twitterFontCategories}
       defaultText="Twitter Fonts"
+      charWeightFn={calculateXWeight}
+      charWeightMax={280}
+      charWeightLabel="X Weight"
     />
   );
 }

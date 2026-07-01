@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Twitter Font Generator — 10 Category Cards for X (Twitter) use cases
+// Twitter Font Generator — 12 Category Cards for X (Twitter) use cases
 // ---------------------------------------------------------------------------
 
 import type { FontCategory } from "./fontStyles";
@@ -42,16 +42,6 @@ function applyMaps(text: string, ...maps: Record<string, string>[]): string {
   return applyMap(text, merged);
 }
 
-/** Wrap each non-space character with prefix and suffix. */
-function wrapChars(text: string, prefix: string, suffix: string): string {
-  return [...text].map((c) => (c === " " ? c : prefix + c + suffix)).join("");
-}
-
-/** Append a separator symbol after each non-space character. */
-function withSeparator(text: string, sep: string): string {
-  return [...text].map((c) => (c === " " ? c : c + sep)).join("");
-}
-
 /** Append combining mark(s) to each non-space character. */
 function withCombining(text: string, marks: string[]): string {
   const suffix = marks.join("");
@@ -61,6 +51,11 @@ function withCombining(text: string, marks: string[]): string {
 /** Wrap entire text with a prefix and suffix string. */
 function withFrame(text: string, prefix: string, suffix: string): string {
   return prefix + text + suffix;
+}
+
+/** Join words (not chars) with a separator — e.g. "hello world" → "hello ✦ world". */
+function withWordSep(text: string, sep: string): string {
+  return text.split(/\s+/).filter(Boolean).join(` ${sep} `);
 }
 
 // ── Character Maps ────────────────────────────────────────────────────────
@@ -103,6 +98,25 @@ const smallCapsMap: Record<string, string> = {
   y: "\u028F", z: "\u1D22",
 };
 
+// Double-Struck: U+1D538–U+1D551 (upper), U+1D552–U+1D56B (lower)
+const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
+  C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119",
+  Q: "\u211A", R: "\u211D", Z: "\u2124",
+});
+const doubleStruckDigitMap = buildDigitMap(0x1d7d8);
+
+// Circled: U+24B6–U+24CF (upper), U+24D0–U+24E9 (lower)
+const circledMap: Record<string, string> = {};
+for (let i = 0; i < 26; i++) {
+  circledMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x24b6 + i);
+  circledMap[String.fromCharCode(97 + i)] = String.fromCodePoint(0x24d0 + i);
+}
+const circledDigitMap: Record<string, string> = {
+  "0": "\u24EA", "1": "\u2460", "2": "\u2461", "3": "\u2462",
+  "4": "\u2463", "5": "\u2464", "6": "\u2465", "7": "\u2466",
+  "8": "\u2467", "9": "\u2468",
+};
+
 // Negative Circled: U+1F150–U+1F169 (uppercase only)
 const negCircledMap: Record<string, string> = {};
 for (let i = 0; i < 26; i++) {
@@ -122,7 +136,7 @@ const negCircledDigitMap: Record<string, string> = {
   "9": "\u277E",
 };
 
-// ── 10 Category Cards ─────────────────────────────────────────────────────
+// ── 12 Category Cards ─────────────────────────────────────────────────────
 // UX principles: max 1-2 separators per card, prefer frames & combining marks.
 // Each card uses a unique decorator set — no repeated symbols across cards.
 
@@ -138,7 +152,7 @@ const feedStopper: FontCategory = {
     { name: "Feed Stopper Lenticular", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010 ", " \u3011") },
     { name: "Feed Stopper Block", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25A0 ", " \u25A0") },
     { name: "Feed Stopper Underline", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332"]) },
-    { name: "Feed Stopper Bar", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25AC ", " \u25AC") },
+    { name: "Feed Stopper Word Star", transform: (t) => withWordSep(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2605") },
   ],
 };
 
@@ -151,10 +165,10 @@ const bioCaps: FontCategory = {
     { name: "Bio Caps Underline", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0332"]) },
     { name: "Bio Caps Ring", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u030A"]) },
     { name: "Bio Caps Star", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2726 ", " \u2726") },
-    { name: "Bio Caps Dash", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2014 ", " \u2014") },
-    { name: "Bio Caps Dot Sep", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u00B7") },
-    { name: "Bio Caps Arrow", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u25B9 ", " \u25B9") },
-    { name: "Bio Caps Clean", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2502 ", " \u2502") },
+    { name: "Bio Caps Word Dot", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "\u00B7") },
+    { name: "Bio Caps Word Pipe", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "|") },
+    { name: "Bio Caps Word Star", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "\u2726") },
+    { name: "Bio Caps Word Dash", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "\u2014") },
   ],
 };
 
@@ -234,7 +248,7 @@ const hotTakeBold: FontCategory = {
     { name: "Hot Take Bold Strike", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0336"]) },
     { name: "Hot Take Bold Underline", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]) },
     { name: "Hot Take Bold Reference", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u203B ", " \u203B") },
-    { name: "Hot Take Bold Dot Sep", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u00B7") },
+    { name: "Hot Take Bold Word Fire", transform: (t) => withWordSep(applyMap(t, boldItalicMap), "\u2022") },
   ],
 };
 
@@ -286,6 +300,56 @@ const replyGuyMono: FontCategory = {
   ],
 };
 
+// Card 11: Tweet Double — Double-Struck for tech/academic bios
+const tweetDouble: FontCategory = {
+  name: "Tweet Double",
+  styles: [
+    { name: "Tweet Double", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
+    { name: "Tweet Double Overline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0305"]) },
+    { name: "Tweet Double Underline", transform: (t) => withCombining(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), ["\u0332"]) },
+    { name: "Tweet Double Bracket", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u27E6 ", " \u27E7") },
+    { name: "Tweet Double Angle", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB ", " \u00BB") },
+    { name: "Tweet Double Dot", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2234 ", " \u2235") },
+    { name: "Tweet Double Infinity", transform: (t) => withFrame(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u221E ", " \u221E") },
+    { name: "Tweet Double Word Star", transform: (t) => withWordSep(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2605") },
+    { name: "Tweet Double Word Dot", transform: (t) => withWordSep(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00B7") },
+  ],
+};
+
+// Card 12: Circle Pop — Circled letters for eye-catching posts
+const circlePop: FontCategory = {
+  name: "Circle Pop",
+  styles: [
+    { name: "Circle Pop", transform: (t) => applyMaps(t, circledMap, circledDigitMap) },
+    { name: "Circle Pop Dotted", transform: (t) => withCombining(applyMaps(t, circledMap, circledDigitMap), ["\u0307"]) },
+    { name: "Circle Pop Underline", transform: (t) => withCombining(applyMaps(t, circledMap, circledDigitMap), ["\u0332"]) },
+    { name: "Circle Pop Star Frame", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u272A ", " \u272A") },
+    { name: "Circle Pop Diamond", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u25C7 ", " \u25C7") },
+    { name: "Circle Pop Spark", transform: (t) => withFrame(applyMaps(t, circledMap, circledDigitMap), "\u2728 ", " \u2728") },
+    { name: "Circle Pop Word Arrow", transform: (t) => withWordSep(applyMaps(t, circledMap, circledDigitMap), "\u2192") },
+    { name: "Circle Pop Word Star", transform: (t) => withWordSep(applyMaps(t, circledMap, circledDigitMap), "\u2726") },
+    { name: "Circle Pop Word Pipe", transform: (t) => withWordSep(applyMaps(t, circledMap, circledDigitMap), "|") },
+  ],
+};
+
+// ── X Character Weight Calculator ─────────────────────────────────────────
+// Based on twitter-text v3 config: BMP ranges U+0000–U+10FF = weight 100 (1 char),
+// everything else = defaultWeight 200 (2 chars). Scaled to 1/2 for display.
+
+export function calculateXWeight(text: string): number {
+  let weight = 0;
+  for (const char of text) {
+    const cp = char.codePointAt(0)!;
+    // BMP range that costs 1 char: U+0000–U+10FF
+    if (cp <= 0x10ff) {
+      weight += 1;
+    } else {
+      weight += 2;
+    }
+  }
+  return weight;
+}
+
 // ── Export ─────────────────────────────────────────────────────────────────
 
 export const twitterFontCategories: FontCategory[] = [
@@ -299,4 +363,6 @@ export const twitterFontCategories: FontCategory[] = [
   pinnedPostScript,
   retweetHighlight,
   replyGuyMono,
+  tweetDouble,
+  circlePop,
 ];

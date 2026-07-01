@@ -52,9 +52,15 @@ interface FontGeneratorProps {
   hideExploreButton?: boolean;
   categories?: FontCategory[];
   defaultText?: string;
+  /** Optional function to calculate platform-specific weighted char count. */
+  charWeightFn?: (text: string) => number;
+  /** Max weighted chars for the platform (e.g. 280 for tweets). */
+  charWeightMax?: number;
+  /** Label for the weighted counter (e.g. "X Weight"). */
+  charWeightLabel?: string;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts" }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel }: FontGeneratorProps) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -209,12 +215,20 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           </div>
           {/* Character Counter + Font Size Slider */}
           <div className="rounded-2xl bg-surface-container-low p-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between transition-colors duration-300">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${text.length > 150 ? "text-error" : "text-on-surface-variant"}`}>
                 <span className="font-semibold text-sm">Tt</span>
                 Character Count:{" "}
                 <span className="font-semibold">{text.length}</span>
               </span>
+              {charWeightFn && (
+                <span className={`flex items-center gap-1.5 text-xs font-body tabular-nums ${charWeightMax && charWeightFn(text) > charWeightMax ? "text-error" : "text-on-surface-variant"}`}>
+                  <span className="font-semibold text-sm">𝕏</span>
+                  {charWeightLabel || "Weight"}:{" "}
+                  <span className="font-semibold">{charWeightFn(text)}</span>
+                  {charWeightMax && <span>/ {charWeightMax}</span>}
+                </span>
+              )}
               <TextHistory onSelect={(t) => setText(t)} />
             </div>
             <div className="flex items-center gap-2">
