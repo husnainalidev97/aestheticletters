@@ -177,8 +177,8 @@ export default function TwitterFontsPage() {
         "@id": "https://www.aestheticletters.com/twitter-fonts#image-how-to-use",
         url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-how-to-use.webp",
         contentUrl: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-how-to-use.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Three step process to use the Twitter fonts generator: type your text, pick a style from twelve cards, then paste the styled Unicode text into your X profile",
         inLanguage: "en",
       },
@@ -187,8 +187,8 @@ export default function TwitterFontsPage() {
         "@id": "https://www.aestheticletters.com/twitter-fonts#image-where-they-work",
         url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-where-they-work.webp",
         contentUrl: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-where-they-work.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "X profile mockup showing where Unicode styled text works: display names, bios, and tweets accept styled text while handles do not",
         inLanguage: "en",
       },
@@ -197,8 +197,8 @@ export default function TwitterFontsPage() {
         "@id": "https://www.aestheticletters.com/twitter-fonts#image-character-cost",
         url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-character-cost.webp",
         contentUrl: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-character-cost.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Side by side comparison showing plain text uses 140 of 280 characters while the same styled text uses all 280, with Small Caps as the exception at no extra cost",
         inLanguage: "en",
       },
@@ -207,8 +207,8 @@ export default function TwitterFontsPage() {
         "@id": "https://www.aestheticletters.com/twitter-fonts#image-styles-comparison",
         url: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-styles-comparison.webp",
         contentUrl: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-styles-comparison.webp",
-        width: 1024,
-        height: 1536,
+        width: 1200,
+        height: 1800,
         caption: "Comparison chart of ten Twitter font styles showing Feed Stopper, Bio Caps, Chirp Break, Quote Tweet Serif, Thread Marker, Display Name Edge, Hot Take Bold, Pinned Post Script, Reply Guy Mono, and Tweet Double applied to the word Twitter",
         inLanguage: "en",
       },
@@ -345,8 +345,8 @@ export default function TwitterFontsPage() {
                 <Image
                   src="/images/twitter-fonts/twitter-fonts-how-to-use.webp"
                   alt="Three step process to use the Twitter fonts generator: type your text, pick a style from twelve cards, then paste the styled Unicode text into your X profile"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
@@ -438,8 +438,8 @@ export default function TwitterFontsPage() {
                 <Image
                   src="/images/twitter-fonts/twitter-fonts-where-they-work.webp"
                   alt="X profile mockup showing where Unicode styled text works: display names, bios, and tweets accept styled text while handles do not"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
@@ -477,8 +477,8 @@ export default function TwitterFontsPage() {
                 <Image
                   src="/images/twitter-fonts/twitter-fonts-character-cost.webp"
                   alt="Side by side comparison showing plain text uses 140 of 280 characters while the same styled text uses all 280, with Small Caps as the exception at no extra cost"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
@@ -531,8 +531,8 @@ export default function TwitterFontsPage() {
                 <Image
                   src="/images/twitter-fonts/twitter-fonts-styles-comparison.webp"
                   alt="Comparison chart of ten Twitter font styles showing Feed Stopper, Bio Caps, Chirp Break, Quote Tweet Serif, Thread Marker, Display Name Edge, Hot Take Bold, Pinned Post Script, Reply Guy Mono, and Tweet Double applied to the word Twitter"
-                  width={1024}
-                  height={1536}
+                  width={1200}
+                  height={1800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
