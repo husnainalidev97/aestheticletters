@@ -388,10 +388,13 @@ export default function TwitterFontsPage() {
                   The X handle works differently. Your handle is the unique
                   identifier that follows the @ symbol and forms your profile link.
                   X restricts handles to plain letters A through Z, the numbers 0
-                  through 9, and underscores. No other characters are accepted, and
-                  that includes every styled Unicode character this generator
-                  produces. If you try to save a styled handle, X will reject it at
-                  signup or during a username change.
+                  through 9, and underscores.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  No other characters are accepted, and that includes every styled
+                  Unicode character this generator produces. If you try to save a
+                  styled handle, X will reject it at signup or during a username
+                  change.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   So the short version: style your display name, your bio, and your
