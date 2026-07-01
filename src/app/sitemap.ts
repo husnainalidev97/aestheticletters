@@ -90,8 +90,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/twitter-fonts`,
+      lastModified: new Date("2026-07-01T08:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/all-tools`,
-      lastModified: new Date("2026-06-25T00:00:00Z"),
+      lastModified: new Date("2026-07-01T08:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.8,
     },

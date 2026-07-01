@@ -67,6 +67,13 @@ const toolCategories: ToolCategory[] = [
         icon: "forum",
         href: "/discord-fonts",
       },
+      {
+        title: "Twitter Fonts",
+        description:
+          "Unicode font styles for your X bio, display name, and tweets. Copy and paste in seconds.",
+        icon: "alternate_email",
+        href: "/twitter-fonts",
+      },
     ],
   },
   {
