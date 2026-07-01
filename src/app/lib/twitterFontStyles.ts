@@ -124,19 +124,19 @@ const negCircledDigitMap: Record<string, string> = {
 
 // ── 10 Category Cards ─────────────────────────────────────────────────────
 
-// Card 1: Feed Stopper — Bold Serif for tweet openers
+// Card 1: Feed Stopper — Bold Sans-Serif (research #1: best readability in feeds)
 const feedStopper: FontCategory = {
   name: "Feed Stopper",
   styles: [
-    { name: "Feed Stopper", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Feed Stopper Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
-    { name: "Feed Stopper Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
-    { name: "Feed Stopper Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
-    { name: "Feed Stopper Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
-    { name: "Feed Stopper Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
-    { name: "Feed Stopper Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
-    { name: "Feed Stopper Lightning", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u26A1") },
-    { name: "Feed Stopper Pipe", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "|", "|") },
+    { name: "Feed Stopper", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
+    { name: "Feed Stopper Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
+    { name: "Feed Stopper Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
+    { name: "Feed Stopper Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2727") },
+    { name: "Feed Stopper Arrow", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2192") },
+    { name: "Feed Stopper Angle", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u00AB", "\u00BB") },
+    { name: "Feed Stopper Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010", "\u3011") },
+    { name: "Feed Stopper Lightning", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1") },
+    { name: "Feed Stopper Pipe", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "|", "|") },
   ],
 };
 
@@ -156,19 +156,19 @@ const bioCaps: FontCategory = {
   ],
 };
 
-// Card 3: Chirp Break — Bold Sans to contrast with X's Chirp typeface
+// Card 3: Chirp Break — Bold Serif to contrast with X's sans-serif Chirp typeface
 const chirpBreak: FontCategory = {
   name: "Chirp Break",
   styles: [
-    { name: "Chirp Break", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
-    { name: "Chirp Break Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
-    { name: "Chirp Break Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
-    { name: "Chirp Break Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2727") },
-    { name: "Chirp Break Arrow", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2192") },
-    { name: "Chirp Break Angle", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u00AB", "\u00BB") },
-    { name: "Chirp Break Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010", "\u3011") },
-    { name: "Chirp Break Lightning", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1") },
-    { name: "Chirp Break Pipe", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "|", "|") },
+    { name: "Chirp Break", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
+    { name: "Chirp Break Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
+    { name: "Chirp Break Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
+    { name: "Chirp Break Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
+    { name: "Chirp Break Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
+    { name: "Chirp Break Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
+    { name: "Chirp Break Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
+    { name: "Chirp Break Lightning", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u26A1") },
+    { name: "Chirp Break Pipe", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "|", "|") },
   ],
 };
 
