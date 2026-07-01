@@ -522,19 +522,21 @@ export default function BoldFontGeneratorPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Twitter/X &mdash; the character cost trade-off
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                       Bold Unicode letters count as two characters each against
                       X&apos;s 280-character tweet limit, because they sit in the
                       supplementary Unicode plane. A fully bold tweet burns through
-                      your budget twice as fast as plain text. Bold works best in
-                      display names or short bio hooks where the visual weight
-                      matters more than length. For the full breakdown and styles
-                      built specifically for X, see our{" "}
+                      your budget twice as fast as plain text.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      Bold works best in display names or short bio hooks where
+                      the visual weight matters more than length. For the full
+                      breakdown and styles built specifically for X, see our{" "}
                       <Link
                         href="/twitter-fonts"
                         className="text-primary underline underline-offset-4 hover:no-underline"
                       >
-                        twitter fonts generator
+                        twitter text generator
                       </Link>
                       .
                     </p>
@@ -543,7 +545,7 @@ export default function BoldFontGeneratorPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Website headlines &mdash; a real trade off
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                       Putting bold Unicode text inside an actual website headline
                       comes with a cost. Search engines read a bold Unicode letter
                       as a different character from the plain version, so the
@@ -575,7 +577,7 @@ export default function BoldFontGeneratorPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Why some bold styles skip digits and lowercase letters
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                       We checked every letter, number, and case across all 81
                       styles one by one before building this page. Unicode only
                       built complete dark alphabets for two of them, Bold Serif and
