@@ -431,8 +431,14 @@ export default function TwitterFontsPage() {
                   Every character this generator produces already has a fixed
                   address inside the Unicode standard, the same global system that
                   stores every letter and symbol used across the world. Bold
-                  versions, script shapes, small caps, even stylized number
-                  characters each occupy their own dedicated section of that system.
+                  versions, script shapes, small caps, even{" "}
+                  <Link
+                    href="/number-font-generator"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    stylized number characters
+                  </Link>{" "}
+                  each occupy their own dedicated section of that system.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   When you type here, the generator locates the matching character
