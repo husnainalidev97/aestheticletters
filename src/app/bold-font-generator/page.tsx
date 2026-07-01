@@ -520,6 +520,27 @@ export default function BoldFontGeneratorPage() {
                   </div>
                   <div>
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
+                      Twitter/X &mdash; the character cost trade-off
+                    </h3>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      Bold Unicode letters count as two characters each against
+                      X&apos;s 280-character tweet limit, because they sit in the
+                      supplementary Unicode plane. A fully bold tweet burns through
+                      your budget twice as fast as plain text. Bold works best in
+                      display names or short bio hooks where the visual weight
+                      matters more than length. For the full breakdown and styles
+                      built specifically for X, see our{" "}
+                      <Link
+                        href="/twitter-fonts"
+                        className="text-primary underline underline-offset-4 hover:no-underline"
+                      >
+                        twitter fonts generator
+                      </Link>
+                      .
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Website headlines &mdash; a real trade off
                     </h3>
                     <p className="text-on-surface-variant leading-relaxed text-lg">

@@ -801,6 +801,7 @@ export default function DiscordFontsPage() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Pretty Font Generator", href: "/cute-fonts", icon: "\uD83C\uDF38", desc: "Kawaii aesthetic text" },
                   { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
