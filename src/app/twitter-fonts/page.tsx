@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What font does Twitter use?",
     answer:
-      "Chirp, X\u2019s native interface typeface introduced in 2021. It cannot be changed from within the app, which is why a twitter fonts generator like this one exists.",
+      "Chirp, X\u2019s native interface typeface introduced in 2021. It cannot be changed from within the app, which is why a twitter fonts generator like this one exists, see the section above for the full explanation.",
   },
   {
     question: "Why can\u2019t I paste styled text into my X username or handle?",
