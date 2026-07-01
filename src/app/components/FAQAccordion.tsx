@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 interface FAQ {
   question: string;
-  answer: string;
+  answer: string | ReactNode;
 }
 
 export default function FAQAccordion({
@@ -55,9 +55,13 @@ export default function FAQAccordion({
             >
               <div className="overflow-hidden">
                 <div className="px-8 pb-8 text-on-surface-variant leading-relaxed space-y-4">
-                  {faq.answer.split("\n\n").map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
+                  {typeof faq.answer === "string" ? (
+                    faq.answer.split("\n\n").map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))
+                  ) : (
+                    faq.answer
+                  )}
                 </div>
               </div>
             </div>

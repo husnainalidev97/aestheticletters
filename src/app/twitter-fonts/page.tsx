@@ -61,8 +61,15 @@ const faqs = [
   },
   {
     question: "Can I use these twitter font styles on other platforms too?",
-    answer:
-      "Yes. The same Unicode characters work on Instagram, Facebook, Discord and most other platforms that support standard text input.",
+    answer: (
+      <p>
+        Yes. The same Unicode characters work on{" "}
+        <a href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Instagram</a>,
+        Facebook,{" "}
+        <a href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Discord</a>{" "}
+        and most other platforms that support standard text input.
+      </p>
+    ),
   },
   {
     question: "Are these real fonts I am downloading?",
