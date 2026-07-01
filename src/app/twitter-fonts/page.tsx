@@ -350,18 +350,22 @@ export default function TwitterFontsPage() {
                   on a typeface called Chirp, introduced in 2021 as part of a full
                   visual redesign. Chirp controls how the platform looks on screen,
                   but it is fixed. Users cannot change twitter text settings or
-                  install a different typeface inside the app itself. That limit is
-                  exactly why a twitter font changer built on Unicode became
-                  popular. Instead of changing the font, people swap individual
-                  letters for visually similar Unicode characters that exist outside
-                  Chirp entirely.
+                  install a different typeface inside the app itself.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  That limit is exactly why a twitter font changer built on Unicode
+                  became popular. Instead of changing the font, people swap
+                  individual letters for visually similar Unicode characters that
+                  exist outside Chirp entirely.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Every character this generator produces already has a fixed
                   address inside the Unicode standard, the same global system that
                   stores every letter and symbol used across the world. Bold
                   versions, script shapes, small caps, even stylized number
                   characters each occupy their own dedicated section of that system.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
                   When you type here, the generator locates the matching character
                   from the right section and swaps it in. Because those characters
                   already exist in your device&apos;s text layer, they paste into any
