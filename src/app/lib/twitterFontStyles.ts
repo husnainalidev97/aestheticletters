@@ -123,133 +123,134 @@ const negCircledDigitMap: Record<string, string> = {
 };
 
 // ── 10 Category Cards ─────────────────────────────────────────────────────
-// Each card uses a UNIQUE decorator set — no repeated symbols across cards.
+// UX principles: max 1-2 separators per card, prefer frames & combining marks.
+// Each card uses a unique decorator set — no repeated symbols across cards.
 
-// Card 1: Feed Stopper — Bold Sans (loud, attention-grabbing decorators)
+// Card 1: Feed Stopper — Bold Sans (loud, punchy frames)
 const feedStopper: FontCategory = {
   name: "Feed Stopper",
   styles: [
     { name: "Feed Stopper", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
-    { name: "Feed Stopper Voltage", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1") },
+    { name: "Feed Stopper Voltage", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1 ", " \u26A1") },
     { name: "Feed Stopper Play", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25B6 ", " \u25C0") },
-    { name: "Feed Stopper Star", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2605") },
-    { name: "Feed Stopper Diamond", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25C6") },
-    { name: "Feed Stopper Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010", "\u3011") },
-    { name: "Feed Stopper Block", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25A0") },
-    { name: "Feed Stopper Ornament", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2756") },
+    { name: "Feed Stopper Star", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2605 ", " \u2605") },
+    { name: "Feed Stopper Diamond", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25C6 ", " \u25C6") },
+    { name: "Feed Stopper Lenticular", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010 ", " \u3011") },
+    { name: "Feed Stopper Block", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25A0 ", " \u25A0") },
+    { name: "Feed Stopper Underline", transform: (t) => withCombining(applyMaps(t, boldSansMap, boldSansDigitMap), ["\u0332"]) },
     { name: "Feed Stopper Bar", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u25AC ", " \u25AC") },
   ],
 };
 
-// Card 2: Bio Caps — Small Caps (clean, minimal bio-friendly separators)
+// Card 2: Bio Caps — Small Caps (ultra-clean, minimal cost for bios)
 const bioCaps: FontCategory = {
   name: "Bio Caps",
   styles: [
     { name: "Bio Caps", transform: (t) => applyMap(t, smallCapsMap) },
-    { name: "Bio Caps Dot", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u00B7") },
-    { name: "Bio Caps Stem", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2502") },
-    { name: "Bio Caps Tiny", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u25AA") },
-    { name: "Bio Caps Dash", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2014") },
-    { name: "Bio Caps Four Star", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2726") },
-    { name: "Bio Caps Triangle", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u25B9") },
-    { name: "Bio Caps Ring", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u25E6") },
-    { name: "Bio Caps Hyphen", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2219") },
+    { name: "Bio Caps Dotted", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0307"]) },
+    { name: "Bio Caps Underline", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0332"]) },
+    { name: "Bio Caps Ring", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u030A"]) },
+    { name: "Bio Caps Star", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2726 ", " \u2726") },
+    { name: "Bio Caps Dash", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2014 ", " \u2014") },
+    { name: "Bio Caps Dot Sep", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u00B7") },
+    { name: "Bio Caps Arrow", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u25B9 ", " \u25B9") },
+    { name: "Bio Caps Clean", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2502 ", " \u2502") },
   ],
 };
 
-// Card 3: Chirp Break — Bold Serif (editorial, strong contrast decorators)
+// Card 3: Chirp Break — Bold Serif (editorial, strong frames)
 const chirpBreak: FontCategory = {
   name: "Chirp Break",
   styles: [
     { name: "Chirp Break", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Chirp Break Fisheye", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25C9") },
-    { name: "Chirp Break Up", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25B2") },
-    { name: "Chirp Break Hex Star", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2736") },
-    { name: "Chirp Break Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2329", "\u232A") },
-    { name: "Chirp Break Pointer", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25BA") },
-    { name: "Chirp Break Nested", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25C8") },
-    { name: "Chirp Break Heavy Line", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2501\u2501 ", " \u2501\u2501") },
-    { name: "Chirp Break Chevron", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u276F") },
+    { name: "Chirp Break Overline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0305"]) },
+    { name: "Chirp Break Triangle", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25B2 ", " \u25B2") },
+    { name: "Chirp Break Hex Star", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2736 ", " \u2736") },
+    { name: "Chirp Break Angle", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2329 ", " \u232A") },
+    { name: "Chirp Break Pointer", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25BA ", " \u25C4") },
+    { name: "Chirp Break Nested", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u25C8 ", " \u25C8") },
+    { name: "Chirp Break Heavy", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2501\u2501 ", " \u2501\u2501") },
+    { name: "Chirp Break Chevron", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u276E ", " \u276F") },
   ],
 };
 
-// Card 4: Quote Tweet Serif — Italic Serif (literary, quotation-themed decorators)
+// Card 4: Quote Tweet Serif — Italic Serif (literary, quotation frames)
 const quoteTweetSerif: FontCategory = {
   name: "Quote Tweet Serif",
   styles: [
     { name: "Quote Tweet Serif", transform: (t) => applyMap(t, italicSerifMap) },
     { name: "Quote Tweet Serif Quoted", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u275D ", " \u275E") },
-    { name: "Quote Tweet Serif Tilde", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u223C") },
-    { name: "Quote Tweet Serif Floral", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u2767") },
-    { name: "Quote Tweet Serif Corner", transform: (t) => wrapChars(applyMap(t, italicSerifMap), "\u300C", "\u300D") },
     { name: "Quote Tweet Serif Single", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u275B ", " \u275C") },
-    { name: "Quote Tweet Serif Teardrop", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u273D") },
+    { name: "Quote Tweet Serif Corner", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u300C ", " \u300D") },
     { name: "Quote Tweet Serif Heart", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u2661 ", " \u2661") },
     { name: "Quote Tweet Serif Leaf", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u2619 ", " \u2619") },
+    { name: "Quote Tweet Serif Floral", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u2767 ", " \u2767") },
+    { name: "Quote Tweet Serif Tilde", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u223C ", " \u223C") },
+    { name: "Quote Tweet Serif Underline", transform: (t) => withCombining(applyMap(t, italicSerifMap), ["\u0332"]) },
   ],
 };
 
-// Card 5: Thread Marker — Negative Circled (structural, navigation decorators)
+// Card 5: Thread Marker — Negative Circled (structural, prefix-only navigation)
 const threadMarker: FontCategory = {
   name: "Thread Marker",
   styles: [
     { name: "Thread Marker", transform: (t) => applyMaps(t, negCircledMap, negCircledDigitMap) },
     { name: "Thread Marker Arrow", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u279C ", "") },
-    { name: "Thread Marker Wedge", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u25B8") },
     { name: "Thread Marker Hook", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u21B3 ", "") },
     { name: "Thread Marker Branch", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u251C\u2500 ", "") },
-    { name: "Thread Marker Line", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2500\u2500\u2500 ", " \u2500\u2500\u2500") },
+    { name: "Thread Marker Line", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2500\u2500 ", " \u2500\u2500") },
     { name: "Thread Marker Pipe", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2503 ", "") },
     { name: "Thread Marker Index", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u261B ", "") },
-    { name: "Thread Marker Dash", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2508") },
+    { name: "Thread Marker Bullet", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u25B8 ", "") },
+    { name: "Thread Marker Number", transform: (t) => withFrame(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2116 ", "") },
   ],
 };
 
-// Card 6: Display Name Edge — Bold Fraktur (gothic, dark aesthetic decorators)
+// Card 6: Display Name Edge — Bold Fraktur (gothic frames, dark aesthetic)
 const displayNameEdge: FontCategory = {
   name: "Display Name Edge",
   styles: [
     { name: "Display Name Edge", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Display Name Edge Dagger", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2020") },
     { name: "Display Name Edge Cross", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2629 ", " \u2629") },
     { name: "Display Name Edge Swords", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2694 ", " \u2694") },
     { name: "Display Name Edge Crown", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u265B ", " \u265B") },
     { name: "Display Name Edge Moon", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u263D ", " \u263E") },
-    { name: "Display Name Edge Maltese", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2720") },
-    { name: "Display Name Edge Double Dag", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2021 ", " \u2021") },
+    { name: "Display Name Edge Maltese", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2720 ", " \u2720") },
+    { name: "Display Name Edge Dagger", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2020 ", " \u2020") },
     { name: "Display Name Edge Fleur", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u269C ", " \u269C") },
+    { name: "Display Name Edge Overline", transform: (t) => withCombining(applyMap(t, boldFrakturMap), ["\u0305"]) },
   ],
 };
 
-// Card 7: Hot Take Bold — Bold Italic (fiery, impactful decorators)
+// Card 7: Hot Take Bold — Bold Italic (punchy frames, strong emphasis)
 const hotTakeBold: FontCategory = {
   name: "Hot Take Bold",
   styles: [
     { name: "Hot Take Bold", transform: (t) => applyMap(t, boldItalicMap) },
-    { name: "Hot Take Bold Burst", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2738") },
-    { name: "Hot Take Bold Slant", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2197") },
-    { name: "Hot Take Bold Square", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u25FC") },
-    { name: "Hot Take Bold Angle", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u27EA", "\u27EB") },
-    { name: "Hot Take Bold Open Star", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2606") },
-    { name: "Hot Take Bold Asterisk", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u273A") },
-    { name: "Hot Take Bold Fifth", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u258D") },
-    { name: "Hot Take Bold Ref", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u203B") },
+    { name: "Hot Take Bold Burst", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2738 ", " \u2738") },
+    { name: "Hot Take Bold Arrow", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2197 ", " \u2199") },
+    { name: "Hot Take Bold Angle", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u27EA ", " \u27EB") },
+    { name: "Hot Take Bold Open Star", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u2606 ", " \u2606") },
+    { name: "Hot Take Bold Strike", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0336"]) },
+    { name: "Hot Take Bold Underline", transform: (t) => withCombining(applyMap(t, boldItalicMap), ["\u0332"]) },
+    { name: "Hot Take Bold Reference", transform: (t) => withFrame(applyMap(t, boldItalicMap), "\u203B ", " \u203B") },
+    { name: "Hot Take Bold Dot Sep", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u00B7") },
   ],
 };
 
-// Card 8: Pinned Post Script — Bold Script (warm, floral, personal decorators)
+// Card 8: Pinned Post Script — Bold Script (warm, elegant frames)
 const pinnedPostScript: FontCategory = {
   name: "Pinned Post Script",
   styles: [
     { name: "Pinned Post Script", transform: (t) => applyMap(t, boldScriptMap) },
-    { name: "Pinned Post Script Bloom", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2740") },
     { name: "Pinned Post Script Petal", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273F ", " \u273F") },
-    { name: "Pinned Post Script Note", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u266A") },
     { name: "Pinned Post Script Ivy", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2766 ", " \u2766") },
-    { name: "Pinned Post Script Kiss", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2765") },
-    { name: "Pinned Post Script Rosette", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u273E") },
+    { name: "Pinned Post Script Note", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u266A ", " \u266A") },
     { name: "Pinned Post Script Clover", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2618 ", " \u2618") },
-    { name: "Pinned Post Script Snowflake", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u274B") },
+    { name: "Pinned Post Script Rosette", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u273E ", " \u273E") },
+    { name: "Pinned Post Script Heart", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u2765 ", " \u2765") },
+    { name: "Pinned Post Script Snowflake", transform: (t) => withFrame(applyMap(t, boldScriptMap), "\u274B ", " \u274B") },
+    { name: "Pinned Post Script Underline", transform: (t) => withCombining(applyMap(t, boldScriptMap), ["\u0332"]) },
   ],
 };
 
@@ -269,19 +270,19 @@ const retweetHighlight: FontCategory = {
   ],
 };
 
-// Card 10: Reply Guy Mono — Monospace (terminal-themed, tech decorators)
+// Card 10: Reply Guy Mono — Monospace (terminal-themed prefixes)
 const replyGuyMono: FontCategory = {
   name: "Reply Guy Mono",
   styles: [
     { name: "Reply Guy Mono", transform: (t) => applyMaps(t, monospaceMap, monospaceDigitMap) },
     { name: "Reply Guy Mono Terminal", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), ">_ ", "") },
-    { name: "Reply Guy Mono Bracket", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "[", "]") },
     { name: "Reply Guy Mono Hash", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "# ", "") },
     { name: "Reply Guy Mono Slash", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "// ", "") },
     { name: "Reply Guy Mono Block", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2593\u2592\u2591 ", " \u2591\u2592\u2593") },
     { name: "Reply Guy Mono Cursor", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2588 ", " \u2588") },
     { name: "Reply Guy Mono Tilde", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "~ ", " ~") },
     { name: "Reply Guy Mono Dollar", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "$ ", "") },
+    { name: "Reply Guy Mono Pipe", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2502 ", " \u2502") },
   ],
 };
 
