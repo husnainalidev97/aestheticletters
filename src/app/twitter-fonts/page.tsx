@@ -503,11 +503,13 @@ export default function TwitterFontsPage() {
                   profile is trying to do. A personal account has more freedom to
                   use expressive styles since individual voice and character carry
                   the post, and a bolder look fits that naturally. A business or
-                  creator account usually lands better with a lighter touch. Heavier
-                  decorative styles pull attention away from the content itself and
-                  can make a profile harder to scan quickly, which works against the
-                  clarity a brand account needs. For a wider range of decorative
-                  options across all platforms, the{" "}
+                  creator account usually lands better with a lighter touch.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Heavier decorative styles pull attention away from the content
+                  itself and can make a profile harder to scan quickly, which works
+                  against the clarity a brand account needs. For a wider range of
+                  decorative options across all platforms, the{" "}
                   <Link
                     href="/fancy-fonts"
                     className="text-primary underline underline-offset-4 hover:no-underline"
