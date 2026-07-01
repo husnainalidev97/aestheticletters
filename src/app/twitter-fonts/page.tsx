@@ -671,7 +671,7 @@ export default function TwitterFontsPage() {
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
-                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
+                  { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83D\uDD24", desc: "Classic serif styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -700,7 +700,7 @@ export default function TwitterFontsPage() {
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Unique Discord text" },
-                  { label: "Number Font Generator", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Stylish number fonts" },
+                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\u2728", desc: "Cool creative text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
