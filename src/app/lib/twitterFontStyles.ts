@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Twitter Font Generator — 9 Category Cards with multiple bold styles each
+// Twitter Font Generator — 10 Category Cards for X (Twitter) use cases
 // ---------------------------------------------------------------------------
 
 import type { FontCategory } from "./fontStyles";
@@ -52,48 +52,58 @@ function withSeparator(text: string, sep: string): string {
   return [...text].map((c) => (c === " " ? c : c + sep)).join("");
 }
 
+/** Append combining mark(s) to each non-space character. */
+function withCombining(text: string, marks: string[]): string {
+  const suffix = marks.join("");
+  return [...text].map((c) => (c === " " ? c : c + suffix)).join("");
+}
+
+/** Wrap entire text with a prefix and suffix string. */
+function withFrame(text: string, prefix: string, suffix: string): string {
+  return prefix + text + suffix;
+}
+
 // ── Character Maps ────────────────────────────────────────────────────────
 
 // Bold Serif: U+1D400–U+1D419 (upper), U+1D41A–U+1D433 (lower)
 const boldSerifMap = buildMap(0x1d400, 0x1d41a);
-
-// Bold Serif digits: U+1D7CE–U+1D7D7
 const boldSerifDigitMap = buildDigitMap(0x1d7ce);
 
 // Bold Sans: U+1D5D4–U+1D5ED (upper), U+1D5EE–U+1D607 (lower)
 const boldSansMap = buildMap(0x1d5d4, 0x1d5ee);
-
-// Bold Sans digits: U+1D7EC–U+1D7F5
 const boldSansDigitMap = buildDigitMap(0x1d7ec);
 
 // Bold Italic: U+1D468–U+1D481 (upper), U+1D482–U+1D49B (lower)
-// Digits: NOT SUPPORTED — no Unicode block exists
 const boldItalicMap = buildMap(0x1d468, 0x1d482);
 
-// Bold Italic Sans: U+1D63C–U+1D655 (upper), U+1D656–U+1D66F (lower)
-// Digits: NOT SUPPORTED — no Unicode block exists
-const boldItalicSansMap = buildMap(0x1d63c, 0x1d656);
+// Italic Serif: U+1D434–U+1D44D (upper), U+1D44E–U+1D467 (lower)
+const italicSerifMap = buildMap(0x1d434, 0x1d44e, { h: "\u210E" });
 
 // Bold Script: U+1D4D0–U+1D4E9 (upper), U+1D4EA–U+1D503 (lower)
-// Digits: NOT SUPPORTED — no Unicode block exists
 const boldScriptMap = buildMap(0x1d4d0, 0x1d4ea);
 
 // Bold Fraktur: U+1D56C–U+1D585 (upper), U+1D586–U+1D59F (lower)
-// Digits: NOT SUPPORTED — no Unicode block exists
 const boldFrakturMap = buildMap(0x1d56c, 0x1d586);
 
-// Double-Struck: U+1D538–U+1D551 (upper with 7 exceptions), U+1D552–U+1D56B (lower)
-// Exceptions: C=U+2102, H=U+210D, N=U+2115, P=U+2119, Q=U+211A, R=U+211D, Z=U+2124
-const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
-  C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119",
-  Q: "\u211A", R: "\u211D", Z: "\u2124",
-});
+// Monospace: U+1D670–U+1D689 (upper), U+1D68A–U+1D6A3 (lower)
+const monospaceMap = buildMap(0x1d670, 0x1d68a);
+const monospaceDigitMap = buildDigitMap(0x1d7f6);
 
-// Double-Struck digits: U+1D7D8–U+1D7E1
-const doubleStruckDigitMap = buildDigitMap(0x1d7d8);
+// Small Caps
+const smallCapsMap: Record<string, string> = {
+  A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
+  G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
+  M: "\u1D0D", N: "\u0274", O: "\u1D0F", P: "\u1D18", Q: "Q", R: "\u0280",
+  S: "\uA731", T: "\u1D1B", U: "\u1D1C", V: "\u1D20", W: "\u1D21", X: "x",
+  Y: "\u028F", Z: "\u1D22",
+  a: "\u1D00", b: "\u0299", c: "\u1D04", d: "\u1D05", e: "\u1D07", f: "\uA730",
+  g: "\u0262", h: "\u029C", i: "\u026A", j: "\u1D0A", k: "\u1D0B", l: "\u029F",
+  m: "\u1D0D", n: "\u0274", o: "\u1D0F", p: "\u1D18", q: "q", r: "\u0280",
+  s: "\uA731", t: "\u1D1B", u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x",
+  y: "\u028F", z: "\u1D22",
+};
 
-// Negative Circled: U+1F150–U+1F169 (uppercase only, lowercase maps to same)
-// Digits 1-9: U+2776–U+277E, Digit 0: U+24EA
+// Negative Circled: U+1F150–U+1F169 (uppercase only)
 const negCircledMap: Record<string, string> = {};
 for (let i = 0; i < 26; i++) {
   negCircledMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x1f150 + i);
@@ -112,170 +122,179 @@ const negCircledDigitMap: Record<string, string> = {
   "9": "\u277E",
 };
 
-// Negative Squared: U+1F170–U+1F189 (uppercase only, lowercase maps to same)
-// Digits: NOT SUPPORTED at all
-const negSquaredMap: Record<string, string> = {};
-for (let i = 0; i < 26; i++) {
-  negSquaredMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x1f170 + i);
-  negSquaredMap[String.fromCharCode(97 + i)] = String.fromCodePoint(0x1f170 + i);
-}
+// ── 10 Category Cards ─────────────────────────────────────────────────────
 
-// ── 9 Category Cards ──────────────────────────────────────────────────────
-
-// Card 1: Bold Serif
-const boldSerif: FontCategory = {
-  name: "Bold Serif",
+// Card 1: Feed Stopper — Bold Serif for tweet openers
+const feedStopper: FontCategory = {
+  name: "Feed Stopper",
   styles: [
-    { name: "Bold Serif", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Bold Serif Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
-    { name: "Bold Serif Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
-    { name: "Bold Serif Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
-    { name: "Bold Serif Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
-    { name: "Bold Serif Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
-    { name: "Bold Serif Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
-    { name: "Bold Serif Lightning", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u26A1") },
-    { name: "Bold Serif Pipe", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "|", "|") },
+    { name: "Feed Stopper", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
+    { name: "Feed Stopper Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
+    { name: "Feed Stopper Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
+    { name: "Feed Stopper Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
+    { name: "Feed Stopper Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
+    { name: "Feed Stopper Angle", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u00AB", "\u00BB") },
+    { name: "Feed Stopper Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u3010", "\u3011") },
+    { name: "Feed Stopper Lightning", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u26A1") },
+    { name: "Feed Stopper Pipe", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "|", "|") },
   ],
 };
 
-// Card 2: Bold Sans
-const boldSans: FontCategory = {
-  name: "Bold Sans",
+// Card 2: Bio Caps — Small Caps for the 160-char bio field
+const bioCaps: FontCategory = {
+  name: "Bio Caps",
   styles: [
-    { name: "Bold Sans", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
-    { name: "Bold Sans Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
-    { name: "Bold Sans Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
-    { name: "Bold Sans Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2727") },
-    { name: "Bold Sans Arrow", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2192") },
-    { name: "Bold Sans Angle", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u00AB", "\u00BB") },
-    { name: "Bold Sans Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010", "\u3011") },
-    { name: "Bold Sans Lightning", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1") },
-    { name: "Bold Sans Pipe", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "|", "|") },
+    { name: "Bio Caps", transform: (t) => applyMap(t, smallCapsMap) },
+    { name: "Bio Caps Dotted", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0307"]) },
+    { name: "Bio Caps Underline", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0332"]) },
+    { name: "Bio Caps Sparkle", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2727") },
+    { name: "Bio Caps Angle", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "\u00AB", "\u00BB") },
+    { name: "Bio Caps Star", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2729 ", " \u2729") },
+    { name: "Bio Caps Bullet", transform: (t) => withSeparator(applyMap(t, smallCapsMap), "\u2022") },
+    { name: "Bio Caps Lenticular", transform: (t) => wrapChars(applyMap(t, smallCapsMap), "\u3010", "\u3011") },
+    { name: "Bio Caps Flower", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u273F ", " \u273F") },
   ],
 };
 
-// Card 3: Bold Italic
-const boldItalic: FontCategory = {
-  name: "Bold Italic",
+// Card 3: Chirp Break — Bold Sans to contrast with X's Chirp typeface
+const chirpBreak: FontCategory = {
+  name: "Chirp Break",
   styles: [
-    { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
-    { name: "Bold Italic Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "[", "]") },
-    { name: "Bold Italic Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2022") },
-    { name: "Bold Italic Sparkle", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2727") },
-    { name: "Bold Italic Arrow", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2192") },
-    { name: "Bold Italic Angle", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u00AB", "\u00BB") },
-    { name: "Bold Italic Lenticular", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u3010", "\u3011") },
-    { name: "Bold Italic Lightning", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u26A1") },
-    { name: "Bold Italic Pipe", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "|", "|") },
+    { name: "Chirp Break", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
+    { name: "Chirp Break Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
+    { name: "Chirp Break Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
+    { name: "Chirp Break Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2727") },
+    { name: "Chirp Break Arrow", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2192") },
+    { name: "Chirp Break Angle", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u00AB", "\u00BB") },
+    { name: "Chirp Break Lenticular", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "\u3010", "\u3011") },
+    { name: "Chirp Break Lightning", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u26A1") },
+    { name: "Chirp Break Pipe", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "|", "|") },
   ],
 };
 
-// Card 4: Bold Italic Sans
-const boldItalicSans: FontCategory = {
-  name: "Bold Italic Sans",
+// Card 4: Quote Tweet Serif — Italic Serif for quote tweet commentary
+const quoteTweetSerif: FontCategory = {
+  name: "Quote Tweet Serif",
   styles: [
-    { name: "Bold Italic Sans", transform: (t) => applyMap(t, boldItalicSansMap) },
-    { name: "Bold Italic Sans Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "[", "]") },
-    { name: "Bold Italic Sans Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u2022") },
-    { name: "Bold Italic Sans Sparkle", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u2727") },
-    { name: "Bold Italic Sans Arrow", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u2192") },
-    { name: "Bold Italic Sans Angle", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "\u00AB", "\u00BB") },
-    { name: "Bold Italic Sans Lenticular", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "\u3010", "\u3011") },
-    { name: "Bold Italic Sans Lightning", transform: (t) => withSeparator(applyMap(t, boldItalicSansMap), "\u26A1") },
-    { name: "Bold Italic Sans Pipe", transform: (t) => wrapChars(applyMap(t, boldItalicSansMap), "|", "|") },
+    { name: "Quote Tweet Serif", transform: (t) => applyMap(t, italicSerifMap) },
+    { name: "Quote Tweet Serif Boxed", transform: (t) => wrapChars(applyMap(t, italicSerifMap), "[", "]") },
+    { name: "Quote Tweet Serif Bullet", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u2022") },
+    { name: "Quote Tweet Serif Sparkle", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u2727") },
+    { name: "Quote Tweet Serif Arrow", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u2192") },
+    { name: "Quote Tweet Serif Angle", transform: (t) => wrapChars(applyMap(t, italicSerifMap), "\u00AB", "\u00BB") },
+    { name: "Quote Tweet Serif Wave", transform: (t) => withSeparator(applyMap(t, italicSerifMap), "\u223C") },
+    { name: "Quote Tweet Serif Lenticular", transform: (t) => wrapChars(applyMap(t, italicSerifMap), "\u3010", "\u3011") },
+    { name: "Quote Tweet Serif Pipe", transform: (t) => wrapChars(applyMap(t, italicSerifMap), "|", "|") },
   ],
 };
 
-// Card 5: Bold Script
-const boldScript: FontCategory = {
-  name: "Bold Script",
+// Card 5: Thread Marker — Negative Circled for thread numbering
+const threadMarker: FontCategory = {
+  name: "Thread Marker",
   styles: [
-    { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
-    { name: "Bold Script Boxed", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "[", "]") },
-    { name: "Bold Script Bullet", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2022") },
-    { name: "Bold Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
-    { name: "Bold Script Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
-    { name: "Bold Script Sparkle", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2727") },
-    { name: "Bold Script Angle", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u00AB", "\u00BB") },
-    { name: "Bold Script Lenticular", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u3010", "\u3011") },
-    { name: "Bold Script Lightning", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u26A1") },
+    { name: "Thread Marker", transform: (t) => applyMaps(t, negCircledMap, negCircledDigitMap) },
+    { name: "Thread Marker Boxed", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "[", "]") },
+    { name: "Thread Marker Bullet", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2022") },
+    { name: "Thread Marker Lightning", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u26A1") },
+    { name: "Thread Marker Arrow", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2192") },
+    { name: "Thread Marker Angle", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u00AB", "\u00BB") },
+    { name: "Thread Marker Sparkle", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2727") },
+    { name: "Thread Marker Lenticular", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u3010", "\u3011") },
+    { name: "Thread Marker Pipe", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "|", "|") },
   ],
 };
 
-// Card 6: Bold Fraktur
-const boldFraktur: FontCategory = {
-  name: "Bold Fraktur",
+// Card 6: Display Name Edge — Bold Fraktur for the 50-char display name
+const displayNameEdge: FontCategory = {
+  name: "Display Name Edge",
   styles: [
-    { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
-    { name: "Bold Fraktur Dagger", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2020", "\u2020") },
-    { name: "Bold Fraktur Boxed", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "[", "]") },
-    { name: "Bold Fraktur Bullet", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2022") },
-    { name: "Bold Fraktur Arrow", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2192") },
-    { name: "Bold Fraktur Sparkle", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2727") },
-    { name: "Bold Fraktur Angle", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u00AB", "\u00BB") },
-    { name: "Bold Fraktur Lenticular", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u3010", "\u3011") },
-    { name: "Bold Fraktur Pipe", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "|", "|") },
+    { name: "Display Name Edge", transform: (t) => applyMap(t, boldFrakturMap) },
+    { name: "Display Name Edge Dagger", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u2020", "\u2020") },
+    { name: "Display Name Edge Boxed", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "[", "]") },
+    { name: "Display Name Edge Bullet", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2022") },
+    { name: "Display Name Edge Arrow", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2192") },
+    { name: "Display Name Edge Sparkle", transform: (t) => withSeparator(applyMap(t, boldFrakturMap), "\u2727") },
+    { name: "Display Name Edge Angle", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u00AB", "\u00BB") },
+    { name: "Display Name Edge Lenticular", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "\u3010", "\u3011") },
+    { name: "Display Name Edge Pipe", transform: (t) => wrapChars(applyMap(t, boldFrakturMap), "|", "|") },
   ],
 };
 
-// Card 7: Double-Struck
-const doubleStruck: FontCategory = {
-  name: "Double-Struck",
+// Card 7: Hot Take Bold — Bold Italic for opinion-driven tweets
+const hotTakeBold: FontCategory = {
+  name: "Hot Take Bold",
   styles: [
-    { name: "Double-Struck", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
-    { name: "Double-Struck Boxed", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "[", "]") },
-    { name: "Double-Struck Bullet", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2022") },
-    { name: "Double-Struck Angle", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u00AB", "\u00BB") },
-    { name: "Double-Struck Sparkle", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2727") },
-    { name: "Double-Struck Arrow", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u2192") },
-    { name: "Double-Struck Lenticular", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u3010", "\u3011") },
-    { name: "Double-Struck Lightning", transform: (t) => withSeparator(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "\u26A1") },
-    { name: "Double-Struck Pipe", transform: (t) => wrapChars(applyMaps(t, doubleStruckMap, doubleStruckDigitMap), "|", "|") },
+    { name: "Hot Take Bold", transform: (t) => applyMap(t, boldItalicMap) },
+    { name: "Hot Take Bold Boxed", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "[", "]") },
+    { name: "Hot Take Bold Bullet", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2022") },
+    { name: "Hot Take Bold Sparkle", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2727") },
+    { name: "Hot Take Bold Arrow", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u2192") },
+    { name: "Hot Take Bold Angle", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u00AB", "\u00BB") },
+    { name: "Hot Take Bold Lenticular", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "\u3010", "\u3011") },
+    { name: "Hot Take Bold Lightning", transform: (t) => withSeparator(applyMap(t, boldItalicMap), "\u26A1") },
+    { name: "Hot Take Bold Pipe", transform: (t) => wrapChars(applyMap(t, boldItalicMap), "|", "|") },
   ],
 };
 
-// Card 8: Negative Circled
-const negativeCircled: FontCategory = {
-  name: "Negative Circled",
+// Card 8: Pinned Post Script — Bold Script (cursive) for pinned tweets
+const pinnedPostScript: FontCategory = {
+  name: "Pinned Post Script",
   styles: [
-    { name: "Negative Circled", transform: (t) => applyMaps(t, negCircledMap, negCircledDigitMap) },
-    { name: "Negative Circled Boxed", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "[", "]") },
-    { name: "Negative Circled Bullet", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2022") },
-    { name: "Negative Circled Lightning", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u26A1") },
-    { name: "Negative Circled Arrow", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2192") },
-    { name: "Negative Circled Angle", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u00AB", "\u00BB") },
-    { name: "Negative Circled Sparkle", transform: (t) => withSeparator(applyMaps(t, negCircledMap, negCircledDigitMap), "\u2727") },
-    { name: "Negative Circled Lenticular", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "\u3010", "\u3011") },
-    { name: "Negative Circled Pipe", transform: (t) => wrapChars(applyMaps(t, negCircledMap, negCircledDigitMap), "|", "|") },
+    { name: "Pinned Post Script", transform: (t) => applyMap(t, boldScriptMap) },
+    { name: "Pinned Post Script Boxed", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "[", "]") },
+    { name: "Pinned Post Script Bullet", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2022") },
+    { name: "Pinned Post Script Wave", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u223C") },
+    { name: "Pinned Post Script Arrow", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2192") },
+    { name: "Pinned Post Script Sparkle", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u2727") },
+    { name: "Pinned Post Script Angle", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u00AB", "\u00BB") },
+    { name: "Pinned Post Script Lenticular", transform: (t) => wrapChars(applyMap(t, boldScriptMap), "\u3010", "\u3011") },
+    { name: "Pinned Post Script Lightning", transform: (t) => withSeparator(applyMap(t, boldScriptMap), "\u26A1") },
   ],
 };
 
-// Card 9: Negative Squared
-const negativeSquared: FontCategory = {
-  name: "Negative Squared",
+// Card 9: Retweet Highlight — Strikethrough & underline for commentary
+const retweetHighlight: FontCategory = {
+  name: "Retweet Highlight",
   styles: [
-    { name: "Negative Squared", transform: (t) => applyMap(t, negSquaredMap) },
-    { name: "Negative Squared Boxed", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "[", "]") },
-    { name: "Negative Squared Bullet", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2022") },
-    { name: "Negative Squared Lightning", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u26A1") },
-    { name: "Negative Squared Arrow", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2192") },
-    { name: "Negative Squared Angle", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u00AB", "\u00BB") },
-    { name: "Negative Squared Sparkle", transform: (t) => withSeparator(applyMap(t, negSquaredMap), "\u2727") },
-    { name: "Negative Squared Lenticular", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "\u3010", "\u3011") },
-    { name: "Negative Squared Pipe", transform: (t) => wrapChars(applyMap(t, negSquaredMap), "|", "|") },
+    { name: "Retweet Strikethrough", transform: (t) => withCombining(t, ["\u0336"]) },
+    { name: "Retweet Underline", transform: (t) => withCombining(t, ["\u0332"]) },
+    { name: "Retweet Double Underline", transform: (t) => withCombining(t, ["\u0333"]) },
+    { name: "Retweet Overline", transform: (t) => withCombining(t, ["\u0305"]) },
+    { name: "Retweet Slash", transform: (t) => withCombining(t, ["\u0337"]) },
+    { name: "Retweet Crosshatch", transform: (t) => withCombining(t, ["\u0336", "\u0305"]) },
+    { name: "Retweet Bold Underline", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0332"]) },
+    { name: "Retweet Bold Strike", transform: (t) => withCombining(applyMaps(t, boldSerifMap, boldSerifDigitMap), ["\u0336"]) },
+    { name: "Retweet Italic Underline", transform: (t) => withCombining(applyMap(t, italicSerifMap), ["\u0332"]) },
+  ],
+};
+
+// Card 10: Reply Guy Mono — Monospace for casual replies
+const replyGuyMono: FontCategory = {
+  name: "Reply Guy Mono",
+  styles: [
+    { name: "Reply Guy Mono", transform: (t) => applyMaps(t, monospaceMap, monospaceDigitMap) },
+    { name: "Reply Guy Mono Terminal", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), ">_ ", "") },
+    { name: "Reply Guy Mono Bracket", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "[", "]") },
+    { name: "Reply Guy Mono Corner", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "\u300C", "\u300D") },
+    { name: "Reply Guy Mono Pipe", transform: (t) => wrapChars(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2502", "\u2502") },
+    { name: "Reply Guy Mono Block", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2593\u2592\u2591 ", " \u2591\u2592\u2593") },
+    { name: "Reply Guy Mono Arrow", transform: (t) => withFrame(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2570\u2508\u27A4 ", "") },
+    { name: "Reply Guy Mono Sparkle", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u2726") },
+    { name: "Reply Guy Mono Dot", transform: (t) => withSeparator(applyMaps(t, monospaceMap, monospaceDigitMap), "\u30FB") },
   ],
 };
 
 // ── Export ─────────────────────────────────────────────────────────────────
 
 export const twitterFontCategories: FontCategory[] = [
-  boldSerif,
-  boldSans,
-  boldItalic,
-  boldItalicSans,
-  boldScript,
-  boldFraktur,
-  doubleStruck,
-  negativeCircled,
-  negativeSquared,
+  feedStopper,
+  bioCaps,
+  chirpBreak,
+  quoteTweetSerif,
+  threadMarker,
+  displayNameEdge,
+  hotTakeBold,
+  pinnedPostScript,
+  retweetHighlight,
+  replyGuyMono,
 ];
