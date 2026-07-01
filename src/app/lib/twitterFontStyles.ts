@@ -161,9 +161,9 @@ const bioCaps: FontCategory = {
   name: "Bio Caps",
   styles: [
     { name: "Bio Caps", transform: (t) => applyMap(t, smallCapsMap) },
-    { name: "Bio Caps Dotted", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0307"]) },
-    { name: "Bio Caps Underline", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u0332"]) },
-    { name: "Bio Caps Ring", transform: (t) => withCombining(applyMap(t, smallCapsMap), ["\u030A"]) },
+    { name: "Bio Caps Arrow", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u203A ", " \u2039") },
+    { name: "Bio Caps Bracket", transform: (t) => withFrame(applyMap(t, smallCapsMap), "[ ", " ]") },
+    { name: "Bio Caps Diamond", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u25C7 ", " \u25C7") },
     { name: "Bio Caps Star", transform: (t) => withFrame(applyMap(t, smallCapsMap), "\u2726 ", " \u2726") },
     { name: "Bio Caps Word Dot", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "\u00B7") },
     { name: "Bio Caps Word Pipe", transform: (t) => withWordSep(applyMap(t, smallCapsMap), "|") },
