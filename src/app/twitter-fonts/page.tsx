@@ -123,7 +123,7 @@ const twitterStyles = [
   {
     name: "Retweet Highlight",
     description:
-      "A strikethrough or underline styling for added commentary on a retweet, drawing attention to the key phrase in your added text.",
+      "A set of frame and word-separator styles for added commentary on a retweet, drawing attention to the key phrase in your added text with bold or italic emphasis.",
   },
   {
     name: "Reply Guy Mono",
