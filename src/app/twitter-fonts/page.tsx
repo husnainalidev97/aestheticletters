@@ -93,12 +93,12 @@ const twitterStyles = [
   {
     name: "Chirp Break",
     description:
-      "A clean sans-serif bold style meant to stand apart from X\u2019s own Chirp typeface. Useful for a display name or brand account that wants visible contrast against the platform\u2019s default look.",
+      "A bold serif style meant to stand apart from X\u2019s own Chirp typeface, which is sans-serif. The serif weight creates visible contrast against the platform\u2019s default look, useful for a display name or brand account.",
   },
   {
     name: "Quote Tweet Serif",
     description:
-      "A script style suited to quote tweet commentary, where a softer or more personal tone fits the added text sitting above someone else\u2019s post.",
+      "An italic serif style suited to quote tweet commentary, where a softer or more personal tone fits the added text sitting above someone else\u2019s post.",
   },
   {
     name: "Thread Marker",
@@ -148,6 +148,7 @@ export default function TwitterFontsPage() {
         url: "https://www.aestheticletters.com/twitter-fonts",
         description:
           "Turn plain text into stylish Unicode fonts for Twitter instantly. Copy and paste Twitter fonts for your bio, tweets, and display name.",
+        image: "https://www.aestheticletters.com/images/twitter-fonts/twitter-fonts-og.webp",
         offers: {
           "@type": "Offer",
           price: "0",

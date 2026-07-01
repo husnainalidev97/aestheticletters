@@ -268,16 +268,16 @@ const pinnedPostScript: FontCategory = {
   ],
 };
 
-// Card 9: Retweet Highlight — Combining marks (inherently unique per style)
+// Card 9: Retweet Highlight — Frame & word-sep styles for retweet commentary
 const retweetHighlight: FontCategory = {
   name: "Retweet Highlight",
   styles: [
-    { name: "Retweet Strikethrough", transform: (t) => withCombining(t, ["\u0336"]) },
-    { name: "Retweet Underline", transform: (t) => withCombining(t, ["\u0332"]) },
-    { name: "Retweet Double Underline", transform: (t) => withCombining(t, ["\u0333"]) },
-    { name: "Retweet Overline", transform: (t) => withCombining(t, ["\u0305"]) },
-    { name: "Retweet Slash", transform: (t) => withCombining(t, ["\u0337"]) },
-    { name: "Retweet Crosshatch", transform: (t) => withCombining(t, ["\u0336", "\u0305"]) },
+    { name: "Retweet Highlight", transform: (t) => withFrame(t, "\u27E4 ", " \u27E5") },
+    { name: "Retweet Arrow", transform: (t) => withFrame(t, "\u21BB ", " \u21BA") },
+    { name: "Retweet Guillemet", transform: (t) => withFrame(t, "\u2039 ", " \u203A") },
+    { name: "Retweet Bracket", transform: (t) => withFrame(t, "\u2997 ", " \u2998") },
+    { name: "Retweet Dash", transform: (t) => withFrame(t, "\u2014 ", " \u2014") },
+    { name: "Retweet Word Bullet", transform: (t) => withWordSep(t, "\u2022") },
     { name: "Retweet Bold Corner", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2308 ", " \u2309") },
     { name: "Retweet Bold Pipe", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2223 ", " \u2223") },
     { name: "Retweet Italic Corner", transform: (t) => withFrame(applyMap(t, italicSerifMap), "\u230A ", " \u230B") },
