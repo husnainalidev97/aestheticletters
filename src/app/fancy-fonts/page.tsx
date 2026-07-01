@@ -577,6 +577,12 @@ export default function FancyFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Twitter rewards brevity, so one styled word or a styled username
                   creates enough visual contrast without cluttering a short post.
+                  For styles built specifically around X&apos;s character limits and
+                  display name field, our{" "}
+                  <Link href="/twitter-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                    twitter fonts generator
+                  </Link>{" "}
+                  covers the full set of options that work best on that platform.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   For Facebook posts and profile intros, clean script or{" "}
