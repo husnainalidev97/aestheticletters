@@ -668,7 +668,7 @@ export default function TwitterFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
+                  { label: "Bold Fonts", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
                   { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83D\uDD24", desc: "Classic serif styles" },
@@ -701,6 +701,7 @@ export default function TwitterFontsPage() {
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Unique Discord text" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\u2728", desc: "Cool creative text" },
+                  { label: "Aesthetic Letters", href: "/", icon: "\uD83C\uDFA8", desc: "All font styles hub" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
