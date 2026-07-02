@@ -8,12 +8,18 @@ type ActivePage =
   | "all-tools"
   | "about"
   | "instagram-fonts"
-  | "cursive-fonts"
+  | "facebook-fonts"
+  | "discord-fonts"
+  | "twitter-fonts"
   | "fancy-fonts"
   | "stylish-fonts"
   | "cute-fonts"
-  | "halloween-fonts"
-  | "facebook-fonts";
+  | "cursive-fonts"
+  | "number-font-generator"
+  | "serif-fonts"
+  | "sans-serif-fonts"
+  | "bold-font-generator"
+  | "halloween-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -219,11 +225,25 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               Instagram Fonts
             </Link>
             <Link
-              href="/cursive-fonts"
-              className={mobileLinkClass("cursive-fonts")}
+              href="/facebook-fonts"
+              className={mobileLinkClass("facebook-fonts")}
               onClick={() => setIsOpen(false)}
             >
-              Cursive Fonts
+              Facebook Fonts
+            </Link>
+            <Link
+              href="/discord-fonts"
+              className={mobileLinkClass("discord-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Discord Fonts
+            </Link>
+            <Link
+              href="/twitter-fonts"
+              className={mobileLinkClass("twitter-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Twitter Fonts
             </Link>
             <Link
               href="/fancy-fonts"
@@ -245,6 +265,48 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Cute Fonts
+            </Link>
+            <Link
+              href="/cursive-fonts"
+              className={mobileLinkClass("cursive-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Cursive Fonts
+            </Link>
+            <Link
+              href="/number-font-generator"
+              className={mobileLinkClass("number-font-generator")}
+              onClick={() => setIsOpen(false)}
+            >
+              Number Font Generator
+            </Link>
+            <Link
+              href="/serif-fonts"
+              className={mobileLinkClass("serif-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Serif Fonts
+            </Link>
+            <Link
+              href="/sans-serif-fonts"
+              className={mobileLinkClass("sans-serif-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Sans Serif Fonts
+            </Link>
+            <Link
+              href="/bold-font-generator"
+              className={mobileLinkClass("bold-font-generator")}
+              onClick={() => setIsOpen(false)}
+            >
+              Bold Font Generator
+            </Link>
+            <Link
+              href="/halloween-fonts"
+              className={mobileLinkClass("halloween-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Halloween Fonts
             </Link>
           </nav>
         </div>
