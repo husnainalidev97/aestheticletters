@@ -75,6 +75,27 @@ export default function Home() {
           },
         ],
       },
+      {
+        "@type": "ItemList",
+        name: "Aesthetic Letter Tools",
+        description: "All font generator tools available on Aesthetic Letters. Every generator uses Unicode characters you can copy and paste into any platform.",
+        numberOfItems: 13,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Instagram Fonts", url: "https://www.aestheticletters.com/instagram-fonts" },
+          { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
+          { "@type": "ListItem", position: 3, name: "Discord Fonts", url: "https://www.aestheticletters.com/discord-fonts" },
+          { "@type": "ListItem", position: 4, name: "Twitter Fonts", url: "https://www.aestheticletters.com/twitter-fonts" },
+          { "@type": "ListItem", position: 5, name: "Fancy Fonts", url: "https://www.aestheticletters.com/fancy-fonts" },
+          { "@type": "ListItem", position: 6, name: "Stylish Fonts", url: "https://www.aestheticletters.com/stylish-fonts" },
+          { "@type": "ListItem", position: 7, name: "Cute Fonts", url: "https://www.aestheticletters.com/cute-fonts" },
+          { "@type": "ListItem", position: 8, name: "Cursive Fonts", url: "https://www.aestheticletters.com/cursive-fonts" },
+          { "@type": "ListItem", position: 9, name: "Bold Font Generator", url: "https://www.aestheticletters.com/bold-font-generator" },
+          { "@type": "ListItem", position: 10, name: "Number Font Generator", url: "https://www.aestheticletters.com/number-font-generator" },
+          { "@type": "ListItem", position: 11, name: "Serif Fonts", url: "https://www.aestheticletters.com/serif-fonts" },
+          { "@type": "ListItem", position: 12, name: "Sans Serif Fonts", url: "https://www.aestheticletters.com/sans-serif-fonts" },
+          { "@type": "ListItem", position: 13, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
+        ],
+      },
     ],
   };
 
@@ -136,6 +157,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
+
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
         <FontGenerator totalFontStyles={totalFontStyles} />
