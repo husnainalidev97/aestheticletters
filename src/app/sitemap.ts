@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${SITE_URL}/`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-07-02T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -97,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/all-tools`,
-      lastModified: new Date("2026-07-01T08:00:00Z"),
+      lastModified: new Date("2026-07-02T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -113,6 +113,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
-
+    {
+      url: `${SITE_URL}/privacy-policy`,
+      lastModified: infoModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/terms-and-services`,
+      lastModified: infoModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/disclaimer`,
+      lastModified: infoModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 }
