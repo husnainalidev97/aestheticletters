@@ -123,6 +123,8 @@ const oldEnglishChristmas: FontCategory = {
     { name: "Old English Candy", transform: (t) => intersperse(applyMap(t, frakturMap), "\uD83C\uDF6C") },
     { name: "Old English Dove", transform: (t) => withFrame(applyMap(t, frakturMap), "\uD83D\uDD4A\uFE0F", "\uD83D\uDD4A\uFE0F") },
     { name: "Old English Starburst", transform: (t) => intersperse(applyMap(t, frakturMap), "\u2736") },
+    { name: "Old English Mrs Claus", transform: (t) => withFrame(applyMap(t, frakturMap), "\uD83E\uDD36", "\uD83E\uDD36") },
+    { name: "Old English Ice Crystal", transform: (t) => intersperse(applyMap(t, frakturMap), "\u2745") },
   ],
 };
 
@@ -154,6 +156,8 @@ const boldOldEnglish: FontCategory = {
     { name: "Bold Old English Cookie", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\uD83C\uDF6A", "\uD83C\uDF6A") },
     { name: "Bold Old English Heart", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\u2764\uFE0F", "\u2764\uFE0F") },
     { name: "Bold Old English Starburst", transform: (t) => intersperse(applyMap(t, boldFrakturMap), "\u2736") },
+    { name: "Bold Old English Scarf", transform: (t) => withFrame(applyMap(t, boldFrakturMap), "\uD83E\uDDE3", "\uD83E\uDDE3") },
+    { name: "Bold Old English White Star", transform: (t) => intersperse(applyMap(t, boldFrakturMap), "\u2606") },
   ],
 };
 
@@ -185,6 +189,8 @@ const christmasBold: FontCategory = {
     { name: "Christmas Bold Candy", transform: (t) => intersperse(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\uD83C\uDF6C") },
     { name: "Christmas Bold Dove", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\uD83D\uDD4A\uFE0F", "\uD83D\uDD4A\uFE0F") },
     { name: "Christmas Bold Starburst", transform: (t) => intersperse(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2736") },
+    { name: "Christmas Bold Mittens", transform: (t) => withFrame(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\uD83E\uDDE4", "\uD83E\uDDE4") },
+    { name: "Christmas Bold Black Star", transform: (t) => intersperse(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2605") },
   ],
 };
 
@@ -216,6 +222,8 @@ const festiveSans: FontCategory = {
     { name: "Festive Sans Heart", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2764\uFE0F", "\u2764\uFE0F") },
     { name: "Festive Sans Cookie", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\uD83C\uDF6A", "\uD83C\uDF6A") },
     { name: "Festive Sans Starburst", transform: (t) => intersperse(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2736") },
+    { name: "Festive Sans Mrs Claus", transform: (t) => withFrame(applyMaps(t, boldSansMap, boldSansDigitMap), "\uD83E\uDD36", "\uD83E\uDD36") },
+    { name: "Festive Sans Ice Crystal", transform: (t) => intersperse(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2745") },
   ],
 };
 
@@ -247,6 +255,10 @@ const holidayScript: FontCategory = {
     { name: "Holiday Script Candy", transform: (t) => intersperse(applyMap(t, scriptMap), "\uD83C\uDF6C") },
     { name: "Holiday Script Cookie", transform: (t) => withFrame(applyMap(t, scriptMap), "\uD83C\uDF6A", "\uD83C\uDF6A") },
     { name: "Holiday Script Starburst", transform: (t) => intersperse(applyMap(t, scriptMap), "\u2736") },
+    { name: "Holiday Script Scarf", transform: (t) => withFrame(applyMap(t, scriptMap), "\uD83E\uDDE3", "\uD83E\uDDE3") },
+    { name: "Holiday Script Mittens", transform: (t) => withFrame(applyMap(t, scriptMap), "\uD83E\uDDE4", "\uD83E\uDDE4") },
+    { name: "Holiday Script White Star", transform: (t) => intersperse(applyMap(t, scriptMap), "\u2606") },
+    { name: "Holiday Script Black Star", transform: (t) => intersperse(applyMap(t, scriptMap), "\u2605") },
   ],
 };
 
