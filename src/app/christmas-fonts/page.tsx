@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import ChristmasFontGenerator from "../components/ChristmasFontGenerator";
@@ -22,12 +23,14 @@ export const metadata: Metadata = {
     title: "Christmas Fonts That Actually Work: Copy and Paste",
     description:
       "Most Christmas fonts break on certain letters. This generator tests every one, so your text always comes out complete on Instagram, WhatsApp and Discord.",
+    images: [{ url: "https://www.aestheticletters.com/images/christmas-fonts/christmas-fonts-og.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Christmas Fonts That Actually Work: Copy and Paste",
     description:
       "Most Christmas fonts break on certain letters. This generator tests every one, so your text always comes out complete on Instagram, WhatsApp and Discord.",
+    images: ["https://www.aestheticletters.com/images/christmas-fonts/christmas-fonts-og.webp"],
   },
 };
 
@@ -88,6 +91,7 @@ export default function ChristmasFontsPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/christmas-fonts",
+        image: "https://www.aestheticletters.com/images/christmas-fonts/christmas-fonts-og.webp",
         description:
           "Most Christmas fonts break on certain letters. This generator tests every one, so your text always comes out complete on Instagram, WhatsApp and Discord.",
         offers: {
@@ -247,6 +251,15 @@ export default function ChristmasFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Christmas Fonts?
                 </h2>
+                <Image
+                  src="/images/christmas-fonts/what-are-christmas-fonts-before-after.webp"
+                  alt="Before and after comparison showing plain text Merry Christmas transformed into five different Unicode Christmas font styles including Old English, Bold Fraktur, Bold Serif, Bold Sans, and Script"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Christmas fonts are text styles that make a word look festive
                   without changing a single letter underneath. This tool does not
@@ -275,6 +288,15 @@ export default function ChristmasFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use a Christmas Text Generator
                 </h2>
+                <Image
+                  src="/images/christmas-fonts/how-to-use-christmas-text-generator-three-steps.webp"
+                  alt="Three step process to use the Christmas text generator: type your text in the input box, browse festive style cards with live preview, then copy and paste styled text anywhere"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Using the xmas text generator takes three steps. Type or paste
                   your word into the box at the top of the page. Every style card
@@ -304,6 +326,15 @@ export default function ChristmasFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Christmas Font Styles You Can Copy and Paste
                 </h2>
+                <Image
+                  src="/images/christmas-fonts/five-christmas-font-styles-comparison-chart.webp"
+                  alt="Comparison chart of five Christmas font styles showing Old English Fraktur, Bold Old English, Christmas Bold, Festive Sans, and Holiday Script each applied to the text Merry Christmas with festive symbol decorators"
+                  width={1024}
+                  height={1536}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Five styles are available on this page, each built from a
                   different Unicode block and suited to a different kind of
@@ -384,6 +415,15 @@ export default function ChristmasFontsPage() {
                   How to Use Christmas Fonts on Instagram, WhatsApp, Discord and
                   Other Apps
                 </h2>
+                <Image
+                  src="/images/christmas-fonts/christmas-fonts-work-social-media-platforms.webp"
+                  alt="Christmas Unicode text displayed correctly across Instagram bio, WhatsApp message, Discord display name, Facebook post, X tweet, and Telegram showing platform compatibility"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Christmas fonts paste correctly into Instagram bios, captions
                   and stories, since Instagram accepts standard Unicode text
