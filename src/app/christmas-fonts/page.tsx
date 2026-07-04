@@ -226,22 +226,22 @@ export default function ChristmasFontsPage() {
         {/* Interactive Font Generator */}
         <ChristmasFontGenerator totalFontStyles={totalFontStyles} />
 
-        {/* Intro Paragraph */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12">
-          <p className="text-on-surface-variant leading-relaxed text-lg max-w-3xl mx-auto text-center">
-            Type a word above and watch it turn into festive Christmas text in
-            real time. Every style on this page is built from genuine Unicode
-            characters, not an image, so the result pastes cleanly into
-            Instagram, WhatsApp, Discord or Merry Christmas messages to friends
-            and family.
-          </p>
-        </section>
-
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
+              {/* Intro */}
+              <article>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Type a word above and watch it turn into festive Christmas
+                  text in real time. Every style on this page is built from
+                  genuine Unicode characters, not an image, so the result pastes
+                  cleanly into Instagram, WhatsApp, Discord or Merry Christmas
+                  messages to friends and family.
+                </p>
+              </article>
+
               {/* What Are Christmas Fonts? */}
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
