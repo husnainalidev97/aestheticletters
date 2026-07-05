@@ -155,7 +155,7 @@ const toolCategories: ToolCategory[] = [
       {
         title: "Christmas Fonts",
         description:
-          "140+ festive christmas text styles for cards, social media, and holiday greetings. Copy and paste instantly.",
+          "130+ festive christmas text styles for cards, social media, and holiday greetings. Copy and paste instantly.",
         icon: "celebration",
         href: "/christmas-fonts",
       },
