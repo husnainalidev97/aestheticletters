@@ -149,35 +149,6 @@ export default function ChristmasFontsPage() {
     ],
   };
 
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to use a Christmas Text Generator",
-    description:
-      "Using the xmas text generator takes three steps. Type or paste your word, pick a style, and copy.",
-    totalTime: "PT1M",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Type your word",
-        text: "Type or paste your word into the box at the top of the page. Every style card below updates at the same time.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Pick a style",
-        text: "Scroll through the cards and pick the one that fits your message.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Copy and paste",
-        text: "Clicking or tapping any style sends the styled word straight to your device clipboard, ready to drop into your next message.",
-      },
-    ],
-  };
-
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -200,10 +171,6 @@ export default function ChristmasFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="christmas-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
