@@ -313,14 +313,17 @@ export default function ChristmasFontsPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Old English Christmas
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                       Old English Christmas uses Fraktur letters from
                       Unicode&rsquo;s Mathematical Alphanumeric block, a
                       traditional Gothic style used for centuries in formal
                       lettering, heritage signage and diplomas. Checking every
                       capital letter against the Unicode chart shows five gaps,
                       C, H, I, R and Z, which are missing from that block on
-                      their own. This christmas font generator pulls those five
+                      their own.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      This christmas font generator pulls those five
                       from an older Unicode block instead, keeping every word
                       complete. For decorative Gothic and ornamental text
                       outside of Christmas, our{" "}
@@ -370,14 +373,19 @@ export default function ChristmasFontsPage() {
                     <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                       Holiday Script
                     </h3>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                       Holiday Script uses Unicode&rsquo;s flowing script
                       alphabet, suited to greetings and signatures. Testing every
                       letter against the script character set turns up eleven
                       gaps, capitals B, E, F, H, I, L, M and R, along with
-                      lowercase e, g and o. Each one is mapped in from an older
-                      Unicode block, so every word still renders in full. If
-                      you prefer a flowing script look year-round, our{" "}
+                      lowercase e, g and o.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                      Each one is mapped in from an older
+                      Unicode block, so every word still renders in full.
+                    </p>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">
+                      If you prefer a flowing script look year-round, our{" "}
                       <Link href="/cursive-fonts" className="text-primary underline underline-offset-4 hover:no-underline">cursive fonts collection</Link>{" "}
                       offers additional handwritten styles.
                     </p>
