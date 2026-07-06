@@ -90,6 +90,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/christmas-fonts`,
+      lastModified: new Date("2026-07-04T00:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/twitter-fonts`,
       lastModified: new Date("2026-07-01T08:00:00Z"),
       changeFrequency: "weekly",
