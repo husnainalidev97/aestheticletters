@@ -380,12 +380,10 @@ export default function ChristmasFontsPage() {
                       gaps, capitals B, E, F, H, I, L, M and R, along with
                       lowercase e, g and o.
                     </p>
-                    <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                      Each one is mapped in from an older
-                      Unicode block, so every word still renders in full.
-                    </p>
                     <p className="text-on-surface-variant leading-relaxed text-lg">
-                      If you prefer a flowing script look year-round, our{" "}
+                      Each one is mapped in from an older
+                      Unicode block, so every word still renders in full. If
+                      you prefer a flowing script look year-round, our{" "}
                       <Link href="/cursive-fonts" className="text-primary underline underline-offset-4 hover:no-underline">cursive fonts collection</Link>{" "}
                       offers additional handwritten styles.
                     </p>
@@ -439,7 +437,10 @@ export default function ChristmasFontsPage() {
                   Discord needs a small distinction, confirmed by testing both
                   fields directly. The display name shown across servers and
                   messages fully supports styled Christmas text, so it works
-                  there without a problem. The Discord username, the unique
+                  there without a problem.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  The Discord username, the unique
                   handle used to log in, only accepts lowercase letters, numbers,
                   underscores and periods, so styled text will not save there.
                   For a full set of Discord-specific styles beyond Christmas,
