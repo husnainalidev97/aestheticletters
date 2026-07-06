@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/fancy-fonts`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/instagram-fonts`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -49,13 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/halloween-fonts`,
-      lastModified: new Date("2026-06-29T00:00:00Z"),
+      lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -91,7 +91,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/christmas-fonts`,
-      lastModified: new Date("2026-07-04T00:00:00Z"),
+      lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
