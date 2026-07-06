@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 
@@ -25,16 +26,16 @@ export const metadata: Metadata = {
     title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
-    images: [{ url: "/instagram-fonts-generator-explained.webp", width: 848, height: 1230 }],
+    images: [{ url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-og.webp", width: 1200, height: 630, alt: "Instagram Fonts Generator by Aesthetic Letters showing 110 plus stylish Unicode text styles for bios captions and usernames" }],
     publishedTime: "2026-05-01T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-07-06T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
-    images: ["/instagram-fonts-generator-explained.webp"],
+    images: ["https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-og.webp"],
   },
 };
 
@@ -90,6 +91,11 @@ export default function InstagramFontsPage() {
         name: "Instagram Fonts Generator",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
+        browserRequirements: "requires HTML5 support",
+        url: "https://www.aestheticletters.com/instagram-fonts",
+        description:
+          "Turn plain text into 110+ stylish Unicode fonts for Instagram instantly. Copy and paste Instagram fonts for your bio, captions, and username.",
+        image: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-og.webp",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -103,12 +109,63 @@ export default function InstagramFontsPage() {
         name: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
         description:
           "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
+        inLanguage: "en",
+        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+        datePublished: "2026-05-01T08:00:00+00:00",
+        dateModified: "2026-07-06T00:00:00+00:00",
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/instagram-fonts#breadcrumb",
         },
-        about: {
+        mainEntity: {
           "@id": "https://www.aestheticletters.com/instagram-fonts#software",
         },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2", ".text-on-surface-variant"],
+        },
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/instagram-fonts#image-how-to-use",
+        },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/instagram-fonts#image-how-to-use",
+        url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-how-to-use.webp",
+        contentUrl: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-how-to-use.webp",
+        width: 1200,
+        height: 800,
+        caption: "Three step process to use the Instagram fonts generator: type your text, pick a style from 110 plus cards, then paste the styled Unicode text into your Instagram bio or captions",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/instagram-fonts#image-where-they-work",
+        url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-where-they-work.webp",
+        contentUrl: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-where-they-work.webp",
+        width: 1200,
+        height: 800,
+        caption: "Instagram platform mockup showing where Unicode styled text works: bios, captions, comments, and stories accept styled text while usernames do not",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/instagram-fonts#image-styles-comparison",
+        url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-styles-comparison.webp",
+        contentUrl: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-styles-comparison.webp",
+        width: 1200,
+        height: 1200,
+        caption: "Comparison chart of ten Instagram font styles showing Bold, Sans-Serif Bold, Bold Italic, Gothic, Double-Struck, Small Caps, Monospace, Circled, Fullwidth, and Underlined applied to Aesthetic Fonts",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/instagram-fonts#image-before-after",
+        url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-before-after.webp",
+        contentUrl: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-before-after.webp",
+        width: 1200,
+        height: 800,
+        caption: "Side by side comparison of a plain Instagram profile versus the same profile using styled Unicode fonts in the bio and display name",
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -155,6 +212,7 @@ export default function InstagramFontsPage() {
     description:
       "Using our tool is simple. Fill out the input box, get multiple fonts instantly, click to copy, and add to your Instagram bio or caption.",
     totalTime: "PT1M",
+    image: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-how-to-use.webp",
     step: [
       {
         "@type": "HowToStep",
@@ -237,6 +295,15 @@ export default function InstagramFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Instagram Fonts?
                 </h2>
+                <Image
+                  src="/images/instagram-fonts/instagram-fonts-before-after.webp"
+                  alt="Side by side comparison of a plain Instagram profile versus the same profile using styled Unicode fonts in the bio and display name"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Instagram fonts are creative text styles made by using special
                   Unicode characters. These are not actual font files but special
@@ -284,6 +351,15 @@ export default function InstagramFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Instagram Font Changer (Step by Step)
                 </h2>
+                <Image
+                  src="/images/instagram-fonts/instagram-fonts-how-to-use.webp"
+                  alt="Three step process to use the Instagram fonts generator: type your text, pick a style from 110 plus cards, then paste the styled Unicode text into your Instagram bio or captions"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using our tool is simple:
                 </p>
@@ -330,6 +406,15 @@ export default function InstagramFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Instagram Letters Can Be Used?
                 </h2>
+                <Image
+                  src="/images/instagram-fonts/instagram-fonts-where-they-work.webp"
+                  alt="Instagram platform mockup showing where Unicode styled text works: bios, captions, comments, and stories accept styled text while usernames do not"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   These typefaces work in different places within IG.
                 </p>
@@ -381,6 +466,15 @@ export default function InstagramFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Different Fonts for Instagram and Where to Use Them
                 </h2>
+                <Image
+                  src="/images/instagram-fonts/instagram-fonts-styles-comparison.webp"
+                  alt="Comparison chart of ten Instagram font styles showing Bold, Sans-Serif Bold, Bold Italic, Gothic, Double-Struck, Small Caps, Monospace, Circled, Fullwidth, and Underlined applied to Aesthetic Fonts"
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   The right Instagram font style creates more readable content
                   and improves your brand&apos;s image.
@@ -659,7 +753,7 @@ export default function InstagramFontsPage() {
             <Sidebar
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/instagram-fonts-generator-explained.webp", alt: "instagram fonts generator explained" }}
+              bottomImage={{ src: "/images/instagram-fonts/instagram-fonts-generator-explained.webp", alt: "instagram fonts generator explained" }}
             />
           </div>
         </section>
