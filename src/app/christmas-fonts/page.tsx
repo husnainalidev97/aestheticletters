@@ -560,15 +560,11 @@ export default function ChristmasFontsPage() {
             <div>
               <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
                 <span className="inline-block w-1 h-5 rounded-full bg-primary" />
-                Similar Font Styles
+                Other Seasonal Font Styles
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Aesthetic Letters", href: "/", icon: "\u2728", desc: "All font generators" },
-                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
-                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
-                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
-                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -594,11 +590,11 @@ export default function ChristmasFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
+                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
-                  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Pretty Font Generator", href: "/cute-fonts", icon: "\uD83C\uDF38", desc: "Kawaii aesthetic text" },
-                  { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
