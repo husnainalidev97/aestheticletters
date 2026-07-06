@@ -110,7 +110,7 @@ export default function ChristmasFontsPage() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-07-04T08:00:00+00:00",
-        dateModified: "2026-07-04T08:00:00+00:00",
+        dateModified: "2026-07-06T08:00:00+00:00",
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["h1", "h2", ".text-on-surface-variant"],
@@ -466,11 +466,32 @@ export default function ChristmasFontsPage() {
                     </thead>
                     <tbody className="divide-y divide-outline-variant/20">
                       <tr><td className="px-6 py-3 text-2xl">&#x2744;</td><td className="px-6 py-3 text-on-surface-variant">Snowflake</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2744</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2745;</td><td className="px-6 py-3 text-on-surface-variant">Tight Snowflake</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2745</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2746;</td><td className="px-6 py-3 text-on-surface-variant">Heavy Snowflake</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2746</td></tr>
                       <tr><td className="px-6 py-3 text-2xl">&#x2B50;</td><td className="px-6 py-3 text-on-surface-variant">Star</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2B50</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F31F;</td><td className="px-6 py-3 text-on-surface-variant">Glowing Star</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F31F</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2606;</td><td className="px-6 py-3 text-on-surface-variant">White Star</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2606</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2605;</td><td className="px-6 py-3 text-on-surface-variant">Black Star</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2605</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2736;</td><td className="px-6 py-3 text-on-surface-variant">Starburst</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2736</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2726;</td><td className="px-6 py-3 text-on-surface-variant">Sparkle</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2726</td></tr>
                       <tr><td className="px-6 py-3 text-2xl">&#x1F514;</td><td className="px-6 py-3 text-on-surface-variant">Bell</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F514</td></tr>
                       <tr><td className="px-6 py-3 text-2xl">&#x1F384;</td><td className="px-6 py-3 text-on-surface-variant">Christmas Tree</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F384</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F332;</td><td className="px-6 py-3 text-on-surface-variant">Evergreen Tree</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F332</td></tr>
                       <tr><td className="px-6 py-3 text-2xl">&#x1F385;</td><td className="px-6 py-3 text-on-surface-variant">Santa Claus</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F385</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F936;</td><td className="px-6 py-3 text-on-surface-variant">Mrs. Claus</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F936</td></tr>
                       <tr><td className="px-6 py-3 text-2xl">&#x1F381;</td><td className="px-6 py-3 text-on-surface-variant">Gift</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F381</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F380;</td><td className="px-6 py-3 text-on-surface-variant">Ribbon</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F380</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F98C;</td><td className="px-6 py-3 text-on-surface-variant">Reindeer</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F98C</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2603;</td><td className="px-6 py-3 text-on-surface-variant">Snowman</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2603</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x26C4;</td><td className="px-6 py-3 text-on-surface-variant">Snowman Without Snow</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+26C4</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F56F;</td><td className="px-6 py-3 text-on-surface-variant">Candle</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F56F</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F9E3;</td><td className="px-6 py-3 text-on-surface-variant">Scarf</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F9E3</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F9E4;</td><td className="px-6 py-3 text-on-surface-variant">Mittens</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F9E4</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F36A;</td><td className="px-6 py-3 text-on-surface-variant">Cookie</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F36A</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F36C;</td><td className="px-6 py-3 text-on-surface-variant">Candy</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F36C</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F54A;</td><td className="px-6 py-3 text-on-surface-variant">Dove</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F54A</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x2764;</td><td className="px-6 py-3 text-on-surface-variant">Heart</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+2764</td></tr>
+                      <tr><td className="px-6 py-3 text-2xl">&#x1F3B6;</td><td className="px-6 py-3 text-on-surface-variant">Music Notes</td><td className="px-6 py-3 text-on-surface-variant font-mono">U+1F3B6</td></tr>
                     </tbody>
                   </table>
                 </div>
