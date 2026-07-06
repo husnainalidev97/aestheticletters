@@ -322,7 +322,10 @@ export default function ChristmasFontsPage() {
                       C, H, I, R and Z, which are missing from that block on
                       their own. This christmas font generator pulls those five
                       from an older Unicode block instead, keeping every word
-                      complete.
+                      complete. For decorative Gothic and ornamental text
+                      outside of Christmas, our{" "}
+                      <Link href="/fancy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">fancy font generator</Link>{" "}
+                      offers year-round options.
                     </p>
                   </div>
                   <div>
@@ -346,7 +349,10 @@ export default function ChristmasFontsPage() {
                       reliable set that covers every letter and number without
                       exception. It reads clearly at any size, which makes it a
                       solid pick for short greetings, event titles or a bio that
-                      needs to stand out.
+                      needs to stand out. For bold text beyond the holiday
+                      season, the{" "}
+                      <Link href="/bold-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">bold font generator</Link>{" "}
+                      covers the full range of Unicode bold styles.
                     </p>
                   </div>
                   <div>
@@ -370,10 +376,18 @@ export default function ChristmasFontsPage() {
                       letter against the script character set turns up eleven
                       gaps, capitals B, E, F, H, I, L, M and R, along with
                       lowercase e, g and o. Each one is mapped in from an older
-                      Unicode block, so every word still renders in full.
+                      Unicode block, so every word still renders in full. If
+                      you prefer a flowing script look year-round, our{" "}
+                      <Link href="/cursive-fonts" className="text-primary underline underline-offset-4 hover:no-underline">cursive fonts collection</Link>{" "}
+                      offers additional handwritten styles.
                     </p>
                   </div>
                 </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-8">
+                  For spooky seasonal text during October, our{" "}
+                  <Link href="/halloween-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Halloween font generator</Link>{" "}
+                  offers Gothic and glitch styles built from the same Unicode system.
+                </p>
               </article>
 
               {/* How to Use Christmas Fonts on Instagram, WhatsApp, Discord */}
@@ -396,7 +410,9 @@ export default function ChristmasFontsPage() {
                   and stories, since Instagram accepts standard Unicode text
                   almost everywhere on the app. Pinterest descriptions and
                   Telegram messages work the same way, so a styled greeting shows
-                  up exactly as it appeared on this page.
+                  up exactly as it appeared on this page. For styles designed
+                  specifically for Instagram profiles, see our{" "}
+                  <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Instagram font generator</Link>.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Facebook works a little differently depending on where the text
@@ -418,13 +434,19 @@ export default function ChristmasFontsPage() {
                   there without a problem. The Discord username, the unique
                   handle used to log in, only accepts lowercase letters, numbers,
                   underscores and periods, so styled text will not save there.
+                  For a full set of Discord-specific styles beyond Christmas,
+                  our{" "}
+                  <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Discord font generator</Link>{" "}
+                  has 140+ options.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   X, formerly known as Twitter, also accepts styled Christmas
                   text in posts and bios. Worth knowing that most decorative
                   Unicode styles count as two characters per letter toward the
                   post limit, so a long styled greeting can use up space faster
-                  than plain text would.
+                  than plain text would. For more X-optimized styles that
+                  balance character count with visual impact, try our{" "}
+                  <Link href="/twitter-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Twitter font generator</Link>.
                 </p>
               </article>
 

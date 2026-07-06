@@ -700,12 +700,19 @@ export default function HalloweenFontsPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For fonts you can use confidently year-round without any seasonal context, our{" "}
                   <Link href="/fancy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                     fancy fonts generator
                   </Link>{" "}
                   covers 120+ decorative styles that work across every occasion.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Once October ends, our{" "}
+                  <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                    Christmas font generator
+                  </Link>{" "}
+                  picks up where Halloween left off with festive Unicode styles for the holiday season.
                 </p>
               </article>
 
