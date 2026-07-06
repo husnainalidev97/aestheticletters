@@ -584,12 +584,17 @@ export default function FancyFontsPage() {
                   </Link>{" "}
                   covers the full set of options that work best on that platform.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   For Facebook posts and profile intros, clean script or{" "}
                   <Link href="/bold-font-generator" className="text-primary underline underline-offset-4">bold
                   styles</Link>{" "}
                   land better than gothic or symbol-heavy options since the
                   audience skews broader and readability matters more.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Looking for seasonal decorative text? Our{" "}
+                  <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas font styles</Link>{" "}
+                  pair Gothic and Script alphabets with holiday symbols like snowflakes, bells and stars.
                 </p>
               </article>
 

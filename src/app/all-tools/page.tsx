@@ -152,6 +152,13 @@ const toolCategories: ToolCategory[] = [
         icon: "skull",
         href: "/halloween-fonts",
       },
+      {
+        title: "Christmas Fonts",
+        description:
+          "130+ festive christmas text styles for cards, social media, and holiday greetings. Copy and paste instantly.",
+        icon: "celebration",
+        href: "/christmas-fonts",
+      },
     ],
   },
 

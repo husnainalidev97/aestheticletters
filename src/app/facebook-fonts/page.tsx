@@ -457,6 +457,11 @@ export default function FacebookFontsPage() {
                   <strong>Works great for:</strong> Coaches, consultants, professional service businesses, personal
                   brands in formal industries.
                 </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  For dedicated holiday text with built-in snowflakes and trees, our{" "}
+                  <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas text generator</Link>{" "}
+                  works perfectly in Facebook posts and comments during the festive season.
+                </p>
               </article>
 
               {/* Facebook Fonts vs Instagram Fonts vs TikTok Fonts */}

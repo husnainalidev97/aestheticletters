@@ -19,7 +19,8 @@ type ActivePage =
   | "serif-fonts"
   | "sans-serif-fonts"
   | "bold-font-generator"
-  | "halloween-fonts";
+  | "halloween-fonts"
+  | "christmas-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -307,6 +308,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Halloween Fonts
+            </Link>
+            <Link
+              href="/christmas-fonts"
+              className={mobileLinkClass("christmas-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Christmas Fonts
             </Link>
           </nav>
         </div>
