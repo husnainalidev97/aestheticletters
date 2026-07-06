@@ -564,7 +564,7 @@ export default function ChristmasFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
+                  { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky & glitch text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -590,10 +590,10 @@ export default function ChristmasFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+                  { label: "Fancy Text Generator", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Cursive Text Generator", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
                 ].map((tool) => (
                   <Link
