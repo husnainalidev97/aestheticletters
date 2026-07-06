@@ -262,7 +262,7 @@ export default function InstagramFontsPage() {
         />
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
-            Instagram Fonts
+            Instagram Fonts — Copy and Paste
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
             Discover 110+ Instagram fonts to instantly upgrade your profile, bio, and captions with unique and readable styles.
