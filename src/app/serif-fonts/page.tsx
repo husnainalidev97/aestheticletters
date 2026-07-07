@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar";
 import SerifFontsClient from "./SerifFontsClientLazy";
 
 export const metadata: Metadata = {
-  title: { absolute: "Serif Fonts Generator - Copy and Paste Serif Text Styles" },
+  title: { absolute: "Serif Fonts Generator - 12+ Copy & Paste Text Styles" },
   description:
     "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
   alternates: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/serif-fonts",
-    title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
+    title: "Serif Fonts Generator - 12+ Copy & Paste Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: [{ url: "https://www.aestheticletters.com/serif-fonts-og.jpg", width: 1200, height: 630, alt: "Serif Fonts Generator" }],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Serif Fonts Generator - Copy and Paste Serif Text Styles",
+    title: "Serif Fonts Generator - 12+ Copy & Paste Text Styles",
     description:
       "Convert text into serif fonts you can copy and paste. Explore 12+ unicode serif styles for social media profiles, usernames, bios, and messaging apps.",
     images: ["https://www.aestheticletters.com/serif-fonts-og.jpg"],
