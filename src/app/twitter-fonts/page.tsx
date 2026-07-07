@@ -93,7 +93,7 @@ const twitterStyles = [
   {
     name: "Chirp Break",
     description:
-      "A bold serif style meant to stand apart from X\u2019s own Chirp typeface, which is sans-serif. The serif weight creates visible contrast against the platform\u2019s default look, useful for a display name or brand account.",
+      "meant to stand apart from X\u2019s own Chirp typeface, which is sans-serif. The serif weight creates visible contrast against the platform\u2019s default look, useful for a display name or brand account.",
   },
   {
     name: "Quote Tweet Serif",
@@ -568,6 +568,17 @@ export default function TwitterFontsPage() {
                         {style.name}
                       </h3>
                       <p className="text-on-surface-variant leading-relaxed text-lg">
+                        {style.name === "Chirp Break" && (
+                          <>
+                            A bold{" "}
+                            <Link
+                              href="/serif-fonts"
+                              className="text-primary underline underline-offset-4 hover:no-underline"
+                            >
+                              serif style
+                            </Link>{" "}
+                          </>
+                        )}
                         {style.description}
                         {style.name === "Feed Stopper" && (
                           <>

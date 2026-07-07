@@ -61,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/serif-fonts`,
-      lastModified: toolsModified,
+      lastModified: new Date("2026-07-07T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -97,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/twitter-fonts`,
-      lastModified: new Date("2026-07-01T08:00:00Z"),
+      lastModified: new Date("2026-07-07T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
