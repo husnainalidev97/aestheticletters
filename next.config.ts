@@ -16,7 +16,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com https://www.clarity.ms data:",
       "img-src 'self' data: https: blob: https://www.clarity.ms https://c.bing.com",
       "worker-src 'self' blob:",
-      "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://pagead2.googlesyndication.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.clarity.ms https://*.clarity.ms",
+      "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com https://pagead2.googlesyndication.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.clarity.ms https://*.clarity.ms",
       "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
     ].join("; "),
   },
