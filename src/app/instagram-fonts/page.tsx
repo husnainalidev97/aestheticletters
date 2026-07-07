@@ -598,11 +598,7 @@ export default function InstagramFontsPage() {
                   For a clean and modern look, many users prefer using{" "}
                   <Link href="/stylish-fonts" className="text-primary underline underline-offset-4">stylish fonts</Link> in their profiles.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
-                  During the holiday season,{" "}
-                  <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas fonts for Instagram</Link>{" "}
-                  let you add festive flair to bios and captions with snowflake and star decorators.
-                </p>
+
               </article>
 
               {/* IG Username Font Limitations */}
