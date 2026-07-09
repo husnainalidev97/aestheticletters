@@ -365,56 +365,74 @@ export default function PreppyFontsPage() {
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
-          <div className="max-w-3xl mx-auto flex flex-col gap-16">
-            <article>
-              {introParagraphs.map((text, i) => (
-                <p
-                  key={i}
-                  className={`text-on-surface-variant leading-relaxed text-lg${
-                    i < introParagraphs.length - 1 ? " mb-6" : ""
-                  }`}
-                >
-                  {text}
-                </p>
-              ))}
-            </article>
-
-            {sections.map((section) => (
-              <article key={section.heading}>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  {section.heading}
-                </h2>
-                {section.paragraphs?.map((text, i) => (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* Main Content */}
+            <div className="lg:col-span-8 flex flex-col gap-16">
+              <article>
+                {introParagraphs.map((text, i) => (
                   <p
                     key={i}
-                    className="text-on-surface-variant leading-relaxed text-lg mb-6"
+                    className={`text-on-surface-variant leading-relaxed text-lg${
+                      i < introParagraphs.length - 1 ? " mb-6" : ""
+                    }`}
                   >
                     {text}
                   </p>
                 ))}
-                {section.subsections && (
-                  <div className="space-y-6">
-                    {section.subsections.map((sub) => (
-                      <div key={sub.heading}>
-                        <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
-                          {sub.heading}
-                        </h3>
-                        {sub.paragraphs.map((text, i) => (
-                          <p
-                            key={i}
-                            className={`text-on-surface-variant leading-relaxed text-lg${
-                              i < sub.paragraphs.length - 1 ? " mb-3" : ""
-                            }`}
-                          >
-                            {text}
-                          </p>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                )}
               </article>
-            ))}
+
+              {sections.map((section) => (
+                <article key={section.heading}>
+                  <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                    {section.heading}
+                  </h2>
+                  {section.paragraphs?.map((text, i) => (
+                    <p
+                      key={i}
+                      className="text-on-surface-variant leading-relaxed text-lg mb-6"
+                    >
+                      {text}
+                    </p>
+                  ))}
+                  {section.subsections && (
+                    <div className="space-y-6">
+                      {section.subsections.map((sub) => (
+                        <div key={sub.heading}>
+                          <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
+                            {sub.heading}
+                          </h3>
+                          {sub.paragraphs.map((text, i) => (
+                            <p
+                              key={i}
+                              className={`text-on-surface-variant leading-relaxed text-lg${
+                                i < sub.paragraphs.length - 1 ? " mb-3" : ""
+                              }`}
+                            >
+                              {text}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4 space-y-12">
+              {/* Security Feature */}
+              <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
+                <h3 className="font-headline font-bold text-primary mb-4 flex items-center gap-2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                  Client-Side Security
+                </h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  We prioritize your privacy. All transformations happen 100% in
+                  your browser. We never store or track the text you type.
+                </p>
+              </div>
+            </aside>
           </div>
         </section>
 
