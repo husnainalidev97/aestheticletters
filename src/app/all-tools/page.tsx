@@ -68,13 +68,6 @@ const toolCategories: ToolCategory[] = [
         href: "/discord-fonts",
       },
       {
-        title: "Preppy Fonts",
-        description:
-          "23 preppy text styles across 5 aesthetics — Old Money, Coquette, Clean Girl, Star Girl, and Guys. Copy and paste instantly.",
-        icon: "checkroom",
-        href: "/preppy-fonts",
-      },
-      {
         title: "Twitter Fonts",
         description:
           "Unicode font styles for your X bio, display name, and tweets. Copy and paste in seconds.",
@@ -86,6 +79,13 @@ const toolCategories: ToolCategory[] = [
   {
     title: "Creative & Decorative",
     cards: [
+      {
+        title: "Preppy Fonts",
+        description:
+          "23 preppy text styles across 5 aesthetics — Old Money, Coquette, Clean Girl, Star Girl, and Guys. Copy and paste instantly.",
+        icon: "checkroom",
+        href: "/preppy-fonts",
+      },
       {
         title: "Fancy Fonts",
         description:
