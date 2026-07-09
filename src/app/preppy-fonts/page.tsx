@@ -48,7 +48,7 @@ type SectionImage = {
   height: number;
   caption: string;
 };
-type Subsection = { heading: string; paragraphs: ReactNode[] };
+type Subsection = { heading: string; image?: SectionImage; paragraphs: ReactNode[] };
 type ContentSection = {
   heading: string;
   image?: SectionImage;
@@ -153,6 +153,13 @@ const sections: ContentSection[] = [
     subsections: [
       {
         heading: "Instagram Bios & Captions",
+        image: {
+          src: "/images/preppy-fonts/preppy-instagram-bio-example.webp",
+          alt: "Example preppy Instagram profile with the display name in Heritage Bold Italic, a Ballet Script bio line, Quiet Caps interests, and Minimal Mono est. 2004",
+          width: 900,
+          height: 1000,
+          caption: "A preppy Instagram bio built with the generator — Heritage Bold Italic name, Ballet Script and Quiet Caps bio lines.",
+        },
         paragraphs: [
           <>
             <Link href="/instagram-fonts" className={linkClass}>
@@ -469,6 +476,22 @@ export default function PreppyFontsPage() {
                           <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">
                             {sub.heading}
                           </h3>
+                          {sub.image && (
+                            <figure className="mb-4 sm:float-right sm:ml-6 sm:mb-3 max-w-[260px] mx-auto">
+                              <Image
+                                src={sub.image.src}
+                                alt={sub.image.alt}
+                                width={sub.image.width}
+                                height={sub.image.height}
+                                className="rounded-xl w-full"
+                                priority={false}
+                                loading="lazy"
+                              />
+                              <figcaption className="mt-2 text-xs text-on-surface-variant text-center">
+                                {sub.image.caption}
+                              </figcaption>
+                            </figure>
+                          )}
                           {sub.paragraphs.map((text, i) => (
                             <p
                               key={i}
