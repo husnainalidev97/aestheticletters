@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import PreppyFontGenerator from "../components/PreppyFontGenerator";
@@ -40,9 +41,17 @@ const introParagraphs = [
   "The preppy text generator works instantly and needs no download or sign up. Every style below copies straight to the clipboard, ready to paste into Instagram, Discord, Roblox, or anywhere else text appears. Scroll up to explore styles across five aesthetics, from Old Money serif to Star Girl bubble letters.",
 ];
 
+type SectionImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+};
 type Subsection = { heading: string; paragraphs: ReactNode[] };
 type ContentSection = {
   heading: string;
+  image?: SectionImage;
   paragraphs?: ReactNode[];
   subsections?: Subsection[];
 };
@@ -60,6 +69,13 @@ const sections: ContentSection[] = [
   },
   {
     heading: "What Makes a Font \u201CPreppy\u201D?",
+    image: {
+      src: "/images/preppy-fonts/preppy-font-aesthetics-comparison.webp",
+      alt: "Five preppy font aesthetics compared using the name Emma: Old Money in Country Club Bold, Coquette in Ballet Script, Clean Girl in Minimal Mono, Star Girl in Chrome Block, and For Guys in Varsity Bold",
+      width: 1200,
+      height: 660,
+      caption: "The five preppy font aesthetics \u2014 the same name shown in each bucket's signature style.",
+    },
     paragraphs: [
       "No single font defines preppy. Five distinct looks make up the style instead, each borrowing from its own piece of the aesthetic. Some stay formal with serif letters rooted in old money style, while others turn soft and playful with a coquette or Y2K feel.",
       "Every style below uses real Unicode characters, not images or downloadable files. That means the styled text pastes cleanly into any bio, caption, or username field. Pick the style that matches the vibe, then browse the cards for the exact look.",
@@ -422,6 +438,22 @@ export default function PreppyFontsPage() {
                   <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                     {section.heading}
                   </h2>
+                  {section.image && (
+                    <figure className="mb-8">
+                      <Image
+                        src={section.image.src}
+                        alt={section.image.alt}
+                        width={section.image.width}
+                        height={section.image.height}
+                        className="rounded-xl w-full"
+                        priority={false}
+                        loading="lazy"
+                      />
+                      <figcaption className="mt-3 text-sm text-on-surface-variant text-center">
+                        {section.image.caption}
+                      </figcaption>
+                    </figure>
+                  )}
                   {section.paragraphs?.map((text, i) => (
                     <p
                       key={i}
