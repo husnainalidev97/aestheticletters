@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import PreppyFontGenerator from "../components/PreppyFontGenerator";
 import FAQAccordion from "../components/FAQAccordion";
@@ -38,12 +40,14 @@ const introParagraphs = [
   "The preppy text generator works instantly and needs no download or sign up. Every style below copies straight to the clipboard, ready to paste into Instagram, Discord, Roblox, or anywhere else text appears. Scroll up to explore styles across five aesthetics, from Old Money serif to Star Girl bubble letters.",
 ];
 
-type Subsection = { heading: string; paragraphs: string[] };
+type Subsection = { heading: string; paragraphs: ReactNode[] };
 type ContentSection = {
   heading: string;
-  paragraphs?: string[];
+  paragraphs?: ReactNode[];
   subsections?: Subsection[];
 };
+
+const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
 
 const sections: ContentSection[] = [
   {
@@ -101,7 +105,17 @@ const sections: ContentSection[] = [
   {
     heading: "Preppy vs Similar Font Aesthetics",
     paragraphs: [
-      "Preppy often gets mixed up with cute or coquette styles, since all three share a soft, feminine edge in places. The difference sits in the details. Cute fonts lean fully into playful symbols: teddy bears, cupcakes, and rainbow accents that work for any lighthearted bio, not tied to a specific cultural look.",
+      <>
+        Preppy often gets mixed up with cute or coquette styles, since all
+        three share a soft, feminine edge in places. The difference sits in the
+        details.{" "}
+        <Link href="/cute-fonts" className={linkClass}>
+          Cute fonts
+        </Link>{" "}
+        lean fully into playful symbols: teddy bears, cupcakes, and rainbow
+        accents that work for any lighthearted bio, not tied to a specific
+        cultural look.
+      </>,
       "Coquette sits closer to preppy but narrows in on ribbons, ballet, and romantic softness rather than the tailored, country club side of the aesthetic. A preppy bio might pair a bold serif name with a tennis racket emoji, while a coquette one leans toward cursive script and a bow.",
       "Cottagecore, meanwhile, pulls from a completely different mood: wildflowers, rustic kitchens, and countryside living rather than boat shoes or Ivy League campuses. None of these styles are wrong to mix, but knowing the distinction helps pick fonts that actually match the vibe someone wants to send.",
     ],
@@ -124,7 +138,16 @@ const sections: ContentSection[] = [
       {
         heading: "Instagram Bios & Captions",
         paragraphs: [
-          "Instagram bios and captions accept styled unicode text without any restriction, which makes this one of the easiest places to use preppy fonts. A bold serif name at the top of a bio reads like a magazine header, while a script style pairs well with a softer caption underneath a photo.",
+          <>
+            <Link href="/instagram-fonts" className={linkClass}>
+              Instagram
+            </Link>{" "}
+            bios and captions accept styled unicode text without any
+            restriction, which makes this one of the easiest places to use
+            preppy fonts. A bold serif name at the top of a bio reads like a
+            magazine header, while a script style pairs well with a softer
+            caption underneath a photo.
+          </>,
           "Captions have more room to work with than bios, so a longer preppy phrase or quote fits without trouble. Bios stay short, so a single styled word or name often works better than a full styled sentence.",
         ],
       },
@@ -138,7 +161,20 @@ const sections: ContentSection[] = [
       {
         heading: "Discord & Twitter Usernames",
         paragraphs: [
-          "Discord and Twitter both restrict usernames to standard ASCII characters, so styled preppy text will not work in a username field on either platform. Server names, display names, nicknames, bios, and tweets accept styled text without issue, since those fields do not carry the same restriction.",
+          <>
+            <Link href="/discord-fonts" className={linkClass}>
+              Discord
+            </Link>{" "}
+            and{" "}
+            <Link href="/twitter-fonts" className={linkClass}>
+              Twitter
+            </Link>{" "}
+            both restrict usernames to standard ASCII characters, so styled
+            preppy text will not work in a username field on either platform.
+            Server names, display names, nicknames, bios, and tweets accept
+            styled text without issue, since those fields do not carry the same
+            restriction.
+          </>,
           "One more detail worth knowing on Twitter: most styled unicode letters count as two characters toward the limit instead of one, which eats into the character count faster than plain text. Small Caps is the exception here, since it counts as a single character per letter like normal text.",
         ],
       },
