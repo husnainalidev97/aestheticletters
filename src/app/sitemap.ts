@@ -90,6 +90,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/preppy-fonts`,
+      lastModified: new Date("2026-07-09T11:30:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        `${SITE_URL}/images/preppy-fonts/preppy-fonts-og.webp`,
+        `${SITE_URL}/images/preppy-fonts/preppy-font-aesthetics-comparison.webp`,
+        `${SITE_URL}/images/preppy-fonts/preppy-instagram-bio-example.webp`,
+        `${SITE_URL}/images/preppy-fonts/preppy-bio-formulas.webp`,
+        `${SITE_URL}/images/preppy-fonts/preppy-vs-similar-aesthetics.webp`,
+      ],
+    },
+    {
       url: `${SITE_URL}/christmas-fonts`,
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",

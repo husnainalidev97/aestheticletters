@@ -80,6 +80,13 @@ const toolCategories: ToolCategory[] = [
     title: "Creative & Decorative",
     cards: [
       {
+        title: "Preppy Fonts",
+        description:
+          "23 preppy text styles across 5 aesthetics — Old Money, Coquette, Clean Girl, Star Girl, and Guys. Copy and paste instantly.",
+        icon: "checkroom",
+        href: "/preppy-fonts",
+      },
+      {
         title: "Fancy Fonts",
         description:
           "Decorative unicode letter sets for a confident, on-brand typographic finish.",
