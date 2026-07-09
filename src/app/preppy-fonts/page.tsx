@@ -357,9 +357,62 @@ export default function PreppyFontsPage() {
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/preppy-fonts#breadcrumb",
         },
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/preppy-fonts#image-og",
+        },
         mainEntity: {
           "@id": "https://www.aestheticletters.com/preppy-fonts#software",
         },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/preppy-fonts#image-og",
+        url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp",
+        contentUrl: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp",
+        width: 1200,
+        height: 630,
+        caption: "Preppy Fonts copy-and-paste generator preview with sample names in Country Club Bold, Ballet Script, Chrome Block, and Retro Wide styles",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/preppy-fonts#image-aesthetics",
+        url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-font-aesthetics-comparison.webp",
+        contentUrl: "https://www.aestheticletters.com/images/preppy-fonts/preppy-font-aesthetics-comparison.webp",
+        width: 1200,
+        height: 660,
+        caption: "Five preppy font aesthetics compared using the name Emma: Old Money in Country Club Bold, Coquette in Ballet Script, Clean Girl in Minimal Mono, Star Girl in Chrome Block, and For Guys in Varsity Bold",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/preppy-fonts#image-instagram",
+        url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-instagram-bio-example.webp",
+        contentUrl: "https://www.aestheticletters.com/images/preppy-fonts/preppy-instagram-bio-example.webp",
+        width: 900,
+        height: 1000,
+        caption: "Example preppy Instagram profile with the display name in Heritage Bold Italic, a Ballet Script bio line, Quiet Caps interests, and Minimal Mono est. 2004",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/preppy-fonts#image-bio-formulas",
+        url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-bio-formulas.webp",
+        contentUrl: "https://www.aestheticletters.com/images/preppy-fonts/preppy-bio-formulas.webp",
+        width: 1200,
+        height: 900,
+        caption: "Three preppy bio formula templates: Name plus Vibe with a Ballet Script name and Quiet Caps phrase, Name plus Symbol plus Link, and Initial plus Full Name using a bold serif monogram",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/preppy-fonts#image-comparison",
+        url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-vs-similar-aesthetics.webp",
+        contentUrl: "https://www.aestheticletters.com/images/preppy-fonts/preppy-vs-similar-aesthetics.webp",
+        width: 1200,
+        height: 600,
+        caption: "Comparison of preppy, coquette, cute, and cottagecore aesthetics showing the name Ava styled with each look's typical symbols and font",
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -401,6 +454,42 @@ export default function PreppyFontsPage() {
     })),
   };
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Make Preppy Fonts",
+    description:
+      "Turn plain text into preppy styled fonts you can copy and paste into any bio, caption, or username, with no download or sign up.",
+    totalTime: "PT1M",
+    image: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Type your text",
+        text: "Type a name, word, or phrase into the generator box at the top of the page.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Pick a preppy style",
+        text: "Browse the five aesthetics \u2014 Old Money, Coquette, Clean Girl, Star Girl, and Preppy for Guys \u2014 and find the styled version that matches the vibe you want.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Copy the style",
+        text: "Click the copy button next to the style. The styled Unicode text is copied straight to your clipboard.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "Paste it anywhere",
+        text: "Paste the text into an Instagram bio, Discord name, Roblox username, or any field that accepts text.",
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -410,6 +499,10 @@ export default function PreppyFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="preppy-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
