@@ -10,6 +10,7 @@ type ActivePage =
   | "instagram-fonts"
   | "facebook-fonts"
   | "discord-fonts"
+  | "preppy-fonts"
   | "twitter-fonts"
   | "fancy-fonts"
   | "stylish-fonts"
@@ -238,6 +239,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Discord Fonts
+            </Link>
+            <Link
+              href="/preppy-fonts"
+              className={mobileLinkClass("preppy-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              Preppy Fonts
             </Link>
             <Link
               href="/twitter-fonts"

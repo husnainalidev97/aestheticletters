@@ -68,6 +68,13 @@ const toolCategories: ToolCategory[] = [
         href: "/discord-fonts",
       },
       {
+        title: "Preppy Fonts",
+        description:
+          "140+ preppy text styles for display names, server names, roles, and bios. Copy and paste instantly.",
+        icon: "forum",
+        href: "/preppy-fonts",
+      },
+      {
         title: "Twitter Fonts",
         description:
           "Unicode font styles for your X bio, display name, and tweets. Copy and paste in seconds.",
