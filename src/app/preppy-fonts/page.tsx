@@ -454,42 +454,6 @@ export default function PreppyFontsPage() {
     })),
   };
 
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Make Preppy Fonts",
-    description:
-      "Turn plain text into preppy styled fonts you can copy and paste into any bio, caption, or username, with no download or sign up.",
-    totalTime: "PT1M",
-    image: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Type your text",
-        text: "Type a name, word, or phrase into the generator box at the top of the page.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Pick a preppy style",
-        text: "Browse the five aesthetics \u2014 Old Money, Coquette, Clean Girl, Star Girl, and Preppy for Guys \u2014 and find the styled version that matches the vibe you want.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Copy the style",
-        text: "Click the copy button next to the style. The styled Unicode text is copied straight to your clipboard.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 4,
-        name: "Paste it anywhere",
-        text: "Paste the text into an Instagram bio, Discord name, Roblox username, or any field that accepts text.",
-      },
-    ],
-  };
-
   return (
     <>
       <script
@@ -499,10 +463,6 @@ export default function PreppyFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <TopNavBar activePage="preppy-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
