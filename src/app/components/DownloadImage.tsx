@@ -84,7 +84,7 @@ export default function DownloadImage({ text, styleName, onClose }: DownloadImag
       // Text
       const fontSize = Math.min(size.width * 0.07, 80);
       ctx.fillStyle = bg.textColor;
-      ctx.font = `${fontSize}px "Segoe UI Symbol", "Apple Color Emoji", "Noto Sans Symbols 2", "Noto Sans", sans-serif`;
+      ctx.font = `${fontSize}px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Noto Sans Symbols 2", "Noto Sans", sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
@@ -186,7 +186,7 @@ export default function DownloadImage({ text, styleName, onClose }: DownloadImag
               </p>
               <p
                 className="text-lg sm:text-xl break-all leading-relaxed"
-                style={{ color: bg.textColor, fontFamily: "'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Sans Symbols 2', sans-serif" }}
+                style={{ color: bg.textColor, fontFamily: "'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol', 'Noto Sans Symbols 2', sans-serif" }}
               >
                 {text}
               </p>
