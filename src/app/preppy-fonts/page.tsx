@@ -237,6 +237,13 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Sample Preppy Bio Formulas",
+    image: {
+      src: "/images/preppy-fonts/preppy-bio-formulas.webp",
+      alt: "Three preppy bio formula templates: Name plus Vibe with a Ballet Script name and Quiet Caps phrase, Name plus Symbol plus Link, and Initial plus Full Name using a bold serif monogram",
+      width: 1200,
+      height: 900,
+      caption: "Three preppy bio formulas \u2014 styled name plus vibe, name plus symbol plus link, and the initial-only monogram trick.",
+    },
     paragraphs: [
       "A bio formula gives structure to work from instead of starting with a blank field. Three formats cover most preppy bios well.",
       "Name plus vibe: style the name in a bold serif or script, then add a short word or phrase underneath that sets the mood, like tennis girl or est. 2004, styled in Small Caps for contrast.",
