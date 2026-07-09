@@ -120,6 +120,13 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Preppy vs Similar Font Aesthetics",
+    image: {
+      src: "/images/preppy-fonts/preppy-vs-similar-aesthetics.webp",
+      alt: "Comparison of preppy, coquette, cute, and cottagecore aesthetics showing the name Ava styled with each look's typical symbols and font",
+      width: 1200,
+      height: 600,
+      caption: "How preppy compares to coquette, cute, and cottagecore \u2014 the same name styled for each aesthetic.",
+    },
     paragraphs: [
       <>
         Preppy often gets mixed up with cute or coquette styles, since all
