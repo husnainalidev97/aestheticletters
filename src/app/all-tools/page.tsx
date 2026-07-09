@@ -70,8 +70,8 @@ const toolCategories: ToolCategory[] = [
       {
         title: "Preppy Fonts",
         description:
-          "140+ preppy text styles for display names, server names, roles, and bios. Copy and paste instantly.",
-        icon: "forum",
+          "23 preppy text styles across 5 aesthetics — Old Money, Coquette, Clean Girl, Star Girl, and Guys. Copy and paste instantly.",
+        icon: "checkroom",
         href: "/preppy-fonts",
       },
       {
