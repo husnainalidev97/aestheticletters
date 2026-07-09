@@ -25,13 +25,11 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/preppy-fonts",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    images: [{ url: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    images: ["https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp"],
   },
 };
 
@@ -295,7 +293,6 @@ export default function PreppyFontsPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/preppy-fonts",
-        image: "https://www.aestheticletters.com/images/preppy-fonts/preppy-fonts-og.webp",
         description: PAGE_DESCRIPTION,
         offers: {
           "@type": "Offer",
