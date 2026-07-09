@@ -79,7 +79,7 @@ export default function Home() {
         "@type": "ItemList",
         name: "Aesthetic Letter Tools",
         description: "All font generator tools available on Aesthetic Letters. Every generator uses Unicode characters you can copy and paste into any platform.",
-        numberOfItems: 14,
+        numberOfItems: 13,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Instagram Fonts", url: "https://www.aestheticletters.com/instagram-fonts" },
           { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
@@ -94,7 +94,6 @@ export default function Home() {
           { "@type": "ListItem", position: 11, name: "Serif Fonts", url: "https://www.aestheticletters.com/serif-fonts" },
           { "@type": "ListItem", position: 12, name: "Sans Serif Fonts", url: "https://www.aestheticletters.com/sans-serif-fonts" },
           { "@type": "ListItem", position: 13, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
-          { "@type": "ListItem", position: 14, name: "Preppy Fonts", url: "https://www.aestheticletters.com/preppy-fonts" },
         ],
       },
     ],
@@ -214,7 +213,6 @@ export default function Home() {
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
-                  { label: "Preppy Fonts", href: "/preppy-fonts", icon: "\uD83C\uDFBE", desc: "Old Money & coquette styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
