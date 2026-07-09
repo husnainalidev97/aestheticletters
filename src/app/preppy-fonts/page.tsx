@@ -349,7 +349,7 @@ export default function PreppyFontsPage() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-07-09T08:00:00+00:00",
-        dateModified: "2026-07-09T08:00:00+00:00",
+        dateModified: "2026-07-09T11:30:00+00:00",
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["h1", "h2", ".text-on-surface-variant"],
