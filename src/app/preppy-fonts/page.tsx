@@ -559,10 +559,11 @@ export default function PreppyFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Aesthetic Fonts", href: "/", icon: "\u2728", desc: "All-in-one text styler" },
-                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDD70\uFE0F", desc: "Classic serif letters" },
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
+                  { label: "Bold Fonts", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
+                  { label: "Aesthetic Letters", href: "/", icon: "\u2728", desc: "All-in-one text styler" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -588,10 +589,11 @@ export default function PreppyFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
-                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
-                  { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
+                  { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style your server text" },
+                  { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                  { label: "Cute Font Generator", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
