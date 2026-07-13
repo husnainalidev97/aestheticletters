@@ -107,7 +107,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-07-13T08:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${SITE_URL}/images/weird-font-generator/weird-font-generator-og.webp`],
+      images: [
+        `${SITE_URL}/images/weird-font-generator/weird-font-generator-og.webp`,
+        `${SITE_URL}/images/weird-font-generator/weird-fonts-how-to-use.webp`,
+        `${SITE_URL}/images/weird-font-generator/weird-fonts-before-after.webp`,
+        `${SITE_URL}/images/weird-font-generator/weird-fonts-styles-comparison.webp`,
+        `${SITE_URL}/images/weird-font-generator/weird-fonts-real-scripts.webp`,
+        `${SITE_URL}/images/weird-font-generator/weird-fonts-boxes-fix.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/christmas-fonts`,
