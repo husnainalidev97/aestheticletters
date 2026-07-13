@@ -122,7 +122,7 @@ export const weirdFontCategories: FontCategory[] = [
       { name: "Runic Elder", transform: (t) => applyMap(t, runicMap) },
       { name: "Runic Elder Marked", transform: (t) => withBookend(applyMap(t, runicMap), "\u2234") },
       { name: "Runic Younger", transform: (t) => applyMap(t, runicYoungerMap) },
-      { name: "Runic Younger Marked", transform: (t) => withBookend(applyMap(t, runicYoungerMap), "\u26a0") },
+      { name: "Runic Younger Marked", transform: (t) => withBookend(applyMap(t, runicYoungerMap), "\u26a0\ufe0f") },
     ],
   },
   {
@@ -156,7 +156,7 @@ export const weirdFontCategories: FontCategory[] = [
       { name: "Superscript", transform: (t) => applyMap(t, superscriptMap) },
       { name: "Superscript Marked", transform: (t) => withBookend(applyMap(t, superscriptMap), "\u03df") },
       { name: "Subscript", transform: (t) => applyMap(t, subscriptMap) },
-      { name: "Subscript Marked", transform: (t) => withBookend(applyMap(t, subscriptMap), "\u2697") },
+      { name: "Subscript Marked", transform: (t) => withBookend(applyMap(t, subscriptMap), "\u2697\ufe0f") },
     ],
   },
   {
