@@ -103,6 +103,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${SITE_URL}/weird-font-generator`,
+      lastModified: new Date("2026-07-13T08:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [`${SITE_URL}/images/weird-font-generator/weird-font-generator-og.webp`],
+    },
+    {
       url: `${SITE_URL}/christmas-fonts`,
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",

@@ -114,6 +114,13 @@ const toolCategories: ToolCategory[] = [
         icon: "123",
         href: "/number-font-generator",
       },
+      {
+        title: "Weird Font Generator",
+        description:
+          "Turn plain text into 6 strange styles — ancient runes, floating marks, Cherokee, superscript, and Deseret. Copy and paste instantly.",
+        icon: "emoji_symbols",
+        href: "/weird-font-generator",
+      },
     ],
   },
   {
