@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import WeirdFontGenerator from "../components/WeirdFontGenerator";
@@ -16,6 +17,61 @@ const PAGE_DESCRIPTION =
   "Use this Weird Font Generator to turn plain text into 6 strange styles instantly. Ancient runes, floating marks, and more. Tap to copy, paste anywhere.";
 const OG_IMAGE =
   "https://www.aestheticletters.com/images/weird-font-generator/weird-font-generator-og.webp";
+
+const IMAGE_DIR = "/images/weird-font-generator";
+const IMAGE_BASE = `https://www.aestheticletters.com${IMAGE_DIR}`;
+
+type SectionImage = {
+  id: string;
+  file: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
+
+const contentImages = {
+  howTo: {
+    id: "image-how-to-use",
+    file: "weird-fonts-how-to-use.webp",
+    width: 1200,
+    height: 800,
+    alt: "Three steps to use the weird font generator: type your text, pick a style, then copy and paste the styled text anywhere",
+    caption: "Three step process for the weird font generator: type your text, pick one of the six styles, then copy and paste the styled Unicode text anywhere",
+  },
+  beforeAfter: {
+    id: "image-before-after",
+    file: "weird-fonts-before-after.webp",
+    width: 1200,
+    height: 800,
+    alt: "The plain word WEIRD shown next to six weird font styles: Runic, Halo Marks, Underglow, Cherokee, Superscript, and Deseret",
+    caption: "Before and after comparison showing the plain word WEIRD turned into six weird font styles: Runic Cipher, Halo Marks, Underglow, Cherokee Cipher, Superscript Oddity, and Deseret Cipher",
+  },
+  comparison: {
+    id: "image-styles-comparison",
+    file: "weird-fonts-styles-comparison.webp",
+    width: 1200,
+    height: 1200,
+    alt: "Comparison chart of six weird font styles applied to the word WEIRD, each with a live example and how many letters it covers",
+    caption: "Comparison chart of the six weird font styles applied to the word WEIRD, each showing a live example, a short description, and how many of the 26 letters it covers",
+  },
+  scripts: {
+    id: "image-real-scripts",
+    file: "weird-fonts-real-scripts.webp",
+    width: 1200,
+    height: 800,
+    alt: "Three real writing systems behind the weird fonts: Elder Futhark runes, the Cherokee syllabary, and the 1850s Deseret alphabet",
+    caption: "The three real writing systems behind the weird font styles: the Elder Futhark runic alphabet, the Cherokee syllabary completed in 1821, and the 1850s Deseret alphabet",
+  },
+  boxes: {
+    id: "image-boxes-fix",
+    file: "weird-fonts-boxes-fix.webp",
+    width: 1200,
+    height: 800,
+    alt: "Why some weird fonts show as boxes: rare scripts fail on phones missing their fonts, while Underglow renders on every device",
+    caption: "Desktop versus phone comparison showing why Runic, Cherokee, and Deseret weird fonts can appear as empty boxes on devices without those fonts, while Underglow renders everywhere",
+  },
+} satisfies Record<string, SectionImage>;
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_TITLE },
@@ -54,6 +110,7 @@ type Subsection = { heading: string; paragraphs: ReactNode[]; example?: Example 
 type TableRow = { style: string; look: string; covered: string };
 type ContentSection = {
   heading: string;
+  image?: SectionImage;
   paragraphs?: ReactNode[];
   table?: TableRow[];
   tableNote?: ReactNode;
@@ -65,6 +122,7 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 const sections: ContentSection[] = [
   {
     heading: "How to Use This Weird Font Generator?",
+    image: contentImages.howTo,
     paragraphs: [
       "Start typing in the box above the styles. Each one updates as you go, so you can watch your text turn weird in real time and pick whichever version catches your eye. Copy and paste takes one tap once you find a style you like.",
       "Found one you like? Tap it. It copies automatically. Now paste it into your Instagram bio, a Discord message, or wherever you're headed next.",
@@ -73,6 +131,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "What Makes These Weird Fonts Work? (Unicode Explanation)",
+    image: contentImages.beforeAfter,
     paragraphs: [
       "Weird fonts carry a bit of a misleading name. Your phone or computer installs nothing new when you use one. Each style instead borrows characters Unicode already ships with, the same standard quietly running behind every keyboard you have ever typed on.",
       "Unicode is a shared character standard that gives every letter, symbol, and script in the world its own unique code, so any device can display it the same way. It covers everything from the alphabet you're reading now to runes, syllabaries, and accent marks.",
@@ -82,6 +141,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Weird Font Styles Overview",
+    image: contentImages.comparison,
     paragraphs: [
       "Six styles live on this page. Here's what each one actually looks like before you scroll through them properly.",
     ],
@@ -173,6 +233,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "The Real Scripts Behind Our Weird Text Styles",
+    image: contentImages.scripts,
     paragraphs: [
       "Three of these weird font styles pull from writing systems that existed long before Unicode did, each with its own real history worth knowing.",
       "The Elder Futhark, used for Runic Cipher, dates back roughly 1,700 years. Germanic tribes across Northern Europe carved these runes into stone, wood, and metal long before the Latin alphabet reached the region.",
@@ -199,6 +260,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Will These Weird Fonts Work Everywhere?",
+    image: contentImages.boxes,
     paragraphs: [
       "Not quite, and the reasons split into two separate issues worth understanding before you post.",
     ],
@@ -331,6 +393,16 @@ export default function WeirdFontGeneratorPage() {
         caption: "Weird Font Generator copy-and-paste preview showing Runic, Halo Marks, Underglow, Cherokee, Superscript, and Deseret styles",
         inLanguage: "en",
       },
+      ...Object.values(contentImages).map((img) => ({
+        "@type": "ImageObject",
+        "@id": `https://www.aestheticletters.com/weird-font-generator#${img.id}`,
+        url: `${IMAGE_BASE}/${img.file}`,
+        contentUrl: `${IMAGE_BASE}/${img.file}`,
+        width: img.width,
+        height: img.height,
+        caption: img.caption,
+        inLanguage: "en",
+      })),
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.aestheticletters.com/weird-font-generator#breadcrumb",
@@ -429,6 +501,16 @@ export default function WeirdFontGeneratorPage() {
                   <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                     {section.heading}
                   </h2>
+                  {section.image && (
+                    <Image
+                      src={`${IMAGE_DIR}/${section.image.file}`}
+                      alt={section.image.alt}
+                      width={section.image.width}
+                      height={section.image.height}
+                      className="w-full h-auto rounded-xl mb-8"
+                      priority={false}
+                    />
+                  )}
                   {section.paragraphs?.map((text, i) => (
                     <p
                       key={i}
