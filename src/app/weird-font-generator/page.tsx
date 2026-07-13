@@ -333,10 +333,10 @@ const similarTools = [
 ];
 
 const popularTools = [
-  { label: "Preppy Fonts", href: "/preppy-fonts", icon: "\uD83C\uDF80", desc: "Old money, coquette, and clean-girl styles" },
-  { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Styles for usernames, tags, and messages" },
-  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
-  { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky, atmospheric seasonal styles" },
+  { label: "Preppy Font Generator", href: "/preppy-fonts", icon: "\uD83C\uDF80", desc: "Old money, coquette, and clean-girl styles" },
+  { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Styles for usernames, tags, and messages" },
+  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
+  { label: "Halloween Font Generator", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky, atmospheric seasonal styles" },
 ];
 
 export default function WeirdFontGeneratorPage() {
