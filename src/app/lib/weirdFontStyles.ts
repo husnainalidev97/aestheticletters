@@ -74,16 +74,30 @@ const LOW_LINE = "\u0332"; // Underglow
 
 // ── Export ─────────────────────────────────────────────────────────────────
 
-const weirdFonts: FontCategory = {
-  name: "Weird Font Styles",
-  styles: [
-    { name: "Runic Cipher", transform: (t) => applyMap(t, runicMap) },
-    { name: "Halo Marks", transform: (t) => withCombining(t, RING_ABOVE) },
-    { name: "Underglow", transform: (t) => withCombining(t, LOW_LINE) },
-    { name: "Cherokee Cipher", transform: (t) => applyMap(t, cherokeeMap) },
-    { name: "Superscript Oddity", transform: (t) => applyMap(t, superscriptMap) },
-    { name: "Deseret Cipher", transform: (t) => applyMap(t, deseretMap) },
-  ],
-};
-
-export const weirdFontCategories: FontCategory[] = [weirdFonts];
+// One category per style, so each renders as its own named card.
+export const weirdFontCategories: FontCategory[] = [
+  {
+    name: "Runic Cipher",
+    styles: [{ name: "Ancient runes", transform: (t) => applyMap(t, runicMap) }],
+  },
+  {
+    name: "Halo Marks",
+    styles: [{ name: "Ring above", transform: (t) => withCombining(t, RING_ABOVE) }],
+  },
+  {
+    name: "Underglow",
+    styles: [{ name: "Line beneath", transform: (t) => withCombining(t, LOW_LINE) }],
+  },
+  {
+    name: "Cherokee Cipher",
+    styles: [{ name: "Cherokee syllabary", transform: (t) => applyMap(t, cherokeeMap) }],
+  },
+  {
+    name: "Superscript Oddity",
+    styles: [{ name: "Tiny raised letters", transform: (t) => applyMap(t, superscriptMap) }],
+  },
+  {
+    name: "Deseret Cipher",
+    styles: [{ name: "Deseret alphabet", transform: (t) => applyMap(t, deseretMap) }],
+  },
+];

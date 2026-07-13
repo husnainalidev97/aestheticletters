@@ -95,9 +95,9 @@ export const metadata: Metadata = {
   },
 };
 
-// Map each style name to its transform so on-page examples always match the tool.
+// Map each cipher (category) name to its transform so on-page examples always match the tool.
 const transformByName = Object.fromEntries(
-  weirdFontCategories.flatMap((cat) => cat.styles).map((s) => [s.name, s.transform]),
+  weirdFontCategories.map((cat) => [cat.name, cat.styles[0].transform]),
 );
 
 const introParagraphs = [
