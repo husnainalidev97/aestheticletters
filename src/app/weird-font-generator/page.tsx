@@ -326,12 +326,14 @@ const faqs = [
 ];
 
 const similarTools = [
-  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\u2728", desc: "More decorative Unicode styles beyond weird looks" },
+  { label: "Aesthetic Fonts", href: "/", icon: "\u2728", desc: "All-in-one text styler for every look" },
+  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles beyond weird looks" },
   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDD24", desc: "Clean, polished styles for bios and profiles" },
   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing, handwritten looking styles" },
 ];
 
 const popularTools = [
+  { label: "Preppy Fonts", href: "/preppy-fonts", icon: "\uD83C\uDF80", desc: "Old money, coquette, and clean-girl styles" },
   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Styles for usernames, tags, and messages" },
   { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
   { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky, atmospheric seasonal styles" },
