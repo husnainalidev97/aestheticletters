@@ -38,16 +38,16 @@ function withCombining(text: string, mark: string): string {
 const runicMap = buildLookalikeMap({
   A: 0x16a8, B: 0x16d2, D: 0x16de, E: 0x16d6, F: 0x16a0, G: 0x16b7,
   H: 0x16ba, I: 0x16c1, J: 0x16c3, K: 0x16b2, L: 0x16da, M: 0x16d7,
-  N: 0x16be, O: 0x16df, P: 0x16c8, R: 0x16b1, S: 0x16cb, T: 0x16cf,
+  N: 0x16be, O: 0x16df, P: 0x16c8, R: 0x16b1, S: 0x16ca, T: 0x16cf,
   U: 0x16a2, W: 0x16b9, Z: 0x16c9,
 });
 
-// Cherokee Cipher — Cherokee syllabary lookalikes (U+13A0 & U+AB70 blocks).
-// 18 of 26 letters covered; C, F, K, N, Q, U, X, Z have no close match.
+// Cherokee Cipher — Cherokee syllabary lookalikes (U+13A0–U+13F5 block).
+// 18 of 26 letters covered; C, F, I, K, N, Q, U, X have no close match.
 const cherokeeMap = buildLookalikeMap({
-  A: 0x13aa, B: 0x13fc, D: 0xab70, E: 0xab7c, G: 0x13fb, H: 0x13cb,
-  I: 0xab96, J: 0x13ab, L: 0x13ee, M: 0x13c7, O: 0x13eb, P: 0x13e2,
-  R: 0xab71, S: 0x13ea, T: 0x13a2, V: 0x13c9, W: 0xabc3, Y: 0x13f9,
+  A: 0x13a0, B: 0x13c8, D: 0x13d3, E: 0x13ac, G: 0x13a6, H: 0x13bb,
+  J: 0x13ab, L: 0x13de, M: 0x13b7, O: 0x13be, P: 0x13ae, R: 0x13a1,
+  S: 0x13da, T: 0x13a2, V: 0x13c9, W: 0x13b3, Y: 0x13a9, Z: 0x13c3,
 });
 
 // Superscript Oddity — modifier letters (Phonetic Extensions).
@@ -62,8 +62,8 @@ const superscriptMap = buildLookalikeMap({
 // Deseret Cipher — Deseret alphabet (U+10400 block), mapped phonetically.
 // 23 of 26 letters covered; C, Q, X carry no sound of their own in English.
 const deseretMap = buildLookalikeMap({
-  A: 0x10402, B: 0x10412, D: 0x10414, E: 0x10407, F: 0x10419, G: 0x10418,
-  H: 0x10410, I: 0x10406, J: 0x10416, K: 0x10417, L: 0x10422, M: 0x10423,
+  A: 0x10402, B: 0x10412, D: 0x10414, E: 0x10401, F: 0x10419, G: 0x10418,
+  H: 0x10410, I: 0x10400, J: 0x10416, K: 0x10417, L: 0x10422, M: 0x10423,
   N: 0x10424, O: 0x10404, P: 0x10411, R: 0x10421, S: 0x1041d, T: 0x10413,
   U: 0x10405, V: 0x1041a, W: 0x1040e, Y: 0x1040f, Z: 0x1041e,
 });

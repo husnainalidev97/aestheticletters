@@ -202,7 +202,7 @@ const sections: ContentSection[] = [
         example: { plain: "WEIRD", styleName: "Cherokee Cipher" },
         paragraphs: [
           "This style borrows characters from the Cherokee syllabary, a writing system Sequoyah completed in 1821 and the Cherokee Nation still uses today. Several of its characters happen to resemble Latin letters, which is what makes this style work as a cipher.",
-          "Eight letters (C, F, K, N, Q, U, X, and Z) don't have a close visual match, so they display normally instead of being swapped.",
+          "Eight letters (C, F, I, K, N, Q, U, and X) don't have a close visual match, so they display normally instead of being swapped.",
         ],
       },
       {
