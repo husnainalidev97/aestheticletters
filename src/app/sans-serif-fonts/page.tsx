@@ -616,7 +616,7 @@ export default function SansSerifFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">X (Twitter) Usernames and Tweets</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words.
+                  On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words. For platform-specific styles, see our <Link href="/twitter-fonts" className="text-primary underline">twitter text generator</Link>.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok Captions and Profiles</h3>
@@ -721,7 +721,7 @@ export default function SansSerifFontsPage() {
 
                   <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Clean Sans Serif</h3>
                   <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern.
+                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern. Want the full range of heavy styles? Our <Link href="/bold-font-generator" className="text-primary underline">bold text generator</Link> has 81 bold Unicode options beyond this set.
                   </p>
 
                   <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Decorated Sans Serif</h3>
