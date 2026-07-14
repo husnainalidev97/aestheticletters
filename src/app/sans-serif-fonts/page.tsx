@@ -632,21 +632,53 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   A bold or spaced out sans serif style makes your Instagram bio look polished and professional. Clean text stands out better in the small bio space. You can easily create these styles using an <Link href="/instagram-fonts" className="text-primary underline">instagram font generator</Link>. Many influencers and brand accounts use stylized non serif text to create a distinctive look.
                 </p>
+                <Image
+                  src="/sans-serif-instagram-bio-mockup.webp"
+                  alt="Instagram profile bio using a bold sans serif username and clean sans serif bio text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Facebook Bios and Posts</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   A clean sans serif style works well for Facebook page names, post highlights, and profile bios. The simple letterforms stay readable in a feed full of other content. You can build these styles with a <Link href="/facebook-fonts" className="text-primary underline">facebook font generator</Link> if you want options made specifically for that platform.
                 </p>
+                <Image
+                  src="/sans-serif-facebook-post-mockup.webp"
+                  alt="Facebook post with a bold sans serif page name and a highlighted bold sans serif headline"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">X (Twitter) Usernames and Tweets</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words. For platform-specific styles, see our <Link href="/twitter-fonts" className="text-primary underline">twitter text generator</Link>.
                 </p>
+                <Image
+                  src="/sans-serif-x-twitter-profile-mockup.webp"
+                  alt="X Twitter profile with a bold sans serif display name and a tweet using bold sans serif text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok Captions and Profiles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   On TikTok, your bio and username both support unicode-based text styles. A stylized username looks much more intentional and branded than plain text. It helps your profile look more professional at first look. You can also explore dedicated TikTok font styles if you want something more platform-specific.
                 </p>
+                <Image
+                  src="/sans-serif-tiktok-profile-mockup.webp"
+                  alt="TikTok profile with a bold sans serif username and a clean sans serif bio"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Discord Usernames and Server Names</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
@@ -655,6 +687,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   <strong>Pro tip:</strong> Use the bold sans serif style (&#x1D5F9;&#x1D5F6;&#x1D5F8;&#x1D5F2; &#x1D601;&#x1D5F5;&#x1D5F6;&#x1D600;) for important words. Use regular or spaced non serif for a lighter, more elegant look. Both styles are available right here in the generator above. Want even more Discord options beyond sans serif? See our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts</Link> page for 140+ styles.
                 </p>
+                <Image
+                  src="/sans-serif-discord-username-mockup.webp"
+                  alt="Discord chat with a bold sans serif username and server message text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mt-8"
+                  priority={false}
+                />
               </article>
 
               {/* Sans Serif Font Pairing Guide */}
