@@ -420,6 +420,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Non serif is not a single style; it&apos;s a family of four different categories, each carrying its own visual character and design purpose. Knowing the difference puts you in control of every font decision you make.
                 </p>
+                <Image
+                  src="/4-types-of-sans-serif-fonts-grotesque-neo-geometric-humanist.webp"
+                  alt="The four sans serif categories, Grotesque, Neo Grotesque, Geometric, and Humanist, each shown with a sample letterform and popular typefaces"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 {[
                   {
