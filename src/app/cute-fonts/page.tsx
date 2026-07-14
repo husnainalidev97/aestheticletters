@@ -509,6 +509,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What are Cute Fonts?
                 </h2>
+                <Image
+                  src="/what-are-cute-fonts-normal-versus-cute-unicode-styles.webp"
+                  alt="Normal text shown next to the same word in bubble, script, cursive, and gothic cute font styles"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Cute fonts are decorative text styles that make words look more creative, soft, warm, or gentle.
                   Many people use them to make usernames, captions, bios, and messages stand out on social media
