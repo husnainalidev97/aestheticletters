@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/cute-fonts",
-    title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
+    title: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 1200, height: 630, alt: "Usage of Cute Fonts" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
+    title: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: ["https://www.aestheticletters.com/usage-cute-fonts.webp"],
