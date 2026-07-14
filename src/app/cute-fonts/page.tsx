@@ -585,6 +585,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-4 leading-tight">
                   Cute Fonts vs Pretty Fonts vs Aesthetic Fonts &mdash; Which One Is Right for You?
                 </h2>
+                <Image
+                  src="/cute-fonts-vs-pretty-fonts-vs-aesthetic-fonts-comparison.webp"
+                  alt="Side-by-side comparison of cute, pretty, and aesthetic font styles with their moods and best uses"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Different font styles create different moods and visual impressions. Cute fonts usually look
                   playful and friendly, while pretty fonts feel softer and more elegant.{" "}
