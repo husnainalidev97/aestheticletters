@@ -11,7 +11,7 @@ import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 
 
 export const metadata: Metadata = {
-  title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
+  title: { absolute: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool" },
   description:
     "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/sans-serif-fonts",
-    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool",
     description:
       "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp", width: 1200, height: 630, alt: "Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool",
     description:
       "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: ["https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp"],
