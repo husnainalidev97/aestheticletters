@@ -650,6 +650,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
+                <Image
+                  src="/top-10-cute-font-styles-preview-copy-and-paste.webp"
+                  alt="Preview of ten cute font styles including script, cursive, gothic, bubble, monospace, and fullwidth"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
                     <div key={style.name} className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
