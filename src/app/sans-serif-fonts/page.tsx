@@ -11,7 +11,7 @@ import SansSerifFontsClient from "./SansSerifFontsClientLazy";
 
 
 export const metadata: Metadata = {
-  title: { absolute: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)" },
+  title: { absolute: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool" },
   description:
     "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
   alternates: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/sans-serif-fonts",
-    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool",
     description:
       "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: [{ url: "https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp", width: 1200, height: 630, alt: "Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sans Serif Fonts Generator \u2014 Free Copy & Paste Tool (2026)",
+    title: "Sans Serif Fonts Generator - Free \uD835\uDDD6\uD835\uDDFC\uD835\uDDFD\uD835\uDE06 & \uD835\uDDE3\uD835\uDDEE\uD835\uDE00\uD835\uDE01\uD835\uDDF2 Tool",
     description:
       "Create modern text with 10 sans serif font styles. Perfect for branding, logos, website headings, presentations, and design projects. It's free, try now!",
     images: ["https://www.aestheticletters.com/sans-serif-fonts-generator-og.webp"],
@@ -305,10 +305,10 @@ export default function SansSerifFontsPage() {
                   What Are Sans Serif Fonts?
                 </h2>
                 <Image
-                  src="/sans-serif-fonts-generator-og.webp"
-                  alt="Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly"
-                  width={1200}
-                  height={630}
+                  src="/what-are-sans-serif-fonts-serif-vs-sans-comparison.webp"
+                  alt="Serif letters with little feet compared to clean sans serif letters, plus the word clean shown in sans serif Unicode styles"
+                  width={1600}
+                  height={900}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
@@ -420,6 +420,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Non serif is not a single style; it&apos;s a family of four different categories, each carrying its own visual character and design purpose. Knowing the difference puts you in control of every font decision you make.
                 </p>
+                <Image
+                  src="/4-types-of-sans-serif-fonts-grotesque-neo-geometric-humanist.webp"
+                  alt="The four sans serif categories, Grotesque, Neo Grotesque, Geometric, and Humanist, each shown with a sample letterform and popular typefaces"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 {[
                   {
@@ -474,6 +482,14 @@ export default function SansSerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 15 Sans Serif Fonts to Know (Free + Premium)
                 </h2>
+                <Image
+                  src="/top-15-sans-serif-fonts-specimen-preview.webp"
+                  alt="Specimen sheet previewing the top 15 sans serif fonts, each name shown in its own typeface with its category and free or premium label"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
                 </p>
@@ -552,6 +568,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This is one of the most asked questions in typography. Which is more readable, serif or non serif?
                 </p>
+                <Image
+                  src="/sans-serif-vs-serif-readability-comparison.webp"
+                  alt="Sans serif text shown in a browser window as best on screen next to serif text on paper as best in print, with a note that the readability gap is small"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">On Screen</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
@@ -608,21 +632,53 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   A bold or spaced out sans serif style makes your Instagram bio look polished and professional. Clean text stands out better in the small bio space. You can easily create these styles using an <Link href="/instagram-fonts" className="text-primary underline">instagram font generator</Link>. Many influencers and brand accounts use stylized non serif text to create a distinctive look.
                 </p>
+                <Image
+                  src="/sans-serif-instagram-bio-mockup.webp"
+                  alt="Instagram profile bio using a bold sans serif username and clean sans serif bio text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Facebook Bios and Posts</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   A clean sans serif style works well for Facebook page names, post highlights, and profile bios. The simple letterforms stay readable in a feed full of other content. You can build these styles with a <Link href="/facebook-fonts" className="text-primary underline">facebook font generator</Link> if you want options made specifically for that platform.
                 </p>
+                <Image
+                  src="/sans-serif-facebook-post-mockup.webp"
+                  alt="Facebook post with a bold sans serif page name and a highlighted bold sans serif headline"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">X (Twitter) Usernames and Tweets</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words.
+                  On X, your username and display name are tiny. A clean bold sans serif style makes your name pop in a crowded feed. Unicode sans serif styles also work in tweets and replies to highlight key words. For platform-specific styles, see our <Link href="/twitter-fonts" className="text-primary underline">twitter text generator</Link>.
                 </p>
+                <Image
+                  src="/sans-serif-x-twitter-profile-mockup.webp"
+                  alt="X Twitter profile with a bold sans serif display name and a tweet using bold sans serif text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok Captions and Profiles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   On TikTok, your bio and username both support unicode-based text styles. A stylized username looks much more intentional and branded than plain text. It helps your profile look more professional at first look. You can also explore dedicated TikTok font styles if you want something more platform-specific.
                 </p>
+                <Image
+                  src="/sans-serif-tiktok-profile-mockup.webp"
+                  alt="TikTok profile with a bold sans serif username and a clean sans serif bio"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Discord Usernames and Server Names</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
@@ -631,6 +687,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   <strong>Pro tip:</strong> Use the bold sans serif style (&#x1D5F9;&#x1D5F6;&#x1D5F8;&#x1D5F2; &#x1D601;&#x1D5F5;&#x1D5F6;&#x1D600;) for important words. Use regular or spaced non serif for a lighter, more elegant look. Both styles are available right here in the generator above. Want even more Discord options beyond sans serif? See our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts</Link> page for 140+ styles.
                 </p>
+                <Image
+                  src="/sans-serif-discord-username-mockup.webp"
+                  alt="Discord chat with a bold sans serif username and server message text"
+                  width={1000}
+                  height={720}
+                  className="w-full h-auto rounded-xl mt-8"
+                  priority={false}
+                />
               </article>
 
               {/* Sans Serif Font Pairing Guide */}
@@ -721,7 +785,7 @@ export default function SansSerifFontsPage() {
 
                   <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Clean Sans Serif</h3>
                   <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern.
+                    Four styles come straight from the sans serif Unicode block: Regular, Bold, Italic, and Bold Italic. A Monospace style rounds out this group, giving you an even, typewriter look that still reads clean and modern. Want the full range of heavy styles? Our <Link href="/bold-font-generator" className="text-primary underline">bold text generator</Link> has 81 bold Unicode options beyond this set.
                   </p>
 
                   <h3 className="font-headline text-lg font-bold mb-4 leading-tight">Decorated Sans Serif</h3>
@@ -739,28 +803,75 @@ export default function SansSerifFontsPage() {
           </div>
         </section>
 
-        {/* Check Similar Font Generator */}
+        {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Check Similar Font Generator
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
           </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Serif Font Generator", href: "/serif-fonts" },
-                { label: "Cursive Font Generator", href: "/cursive-fonts" },
-                { label: "Aesthetic Font Generator", href: "/" },
-              ].map((tool) => (
-                <li key={tool.href}>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Want more than sans serif fonts? Check out these generators for other
+            platforms and text styles.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Serif Fonts", href: "/serif-fonts", icon: "\u{1F4DC}", desc: "Classic letters with feet" },
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Bold Fonts", href: "/bold-font-generator", icon: "\u{1F4AA}", desc: "Heavy Unicode styles" },
+                  { label: "Aesthetic Letters", href: "/", icon: "\uD83E\uDE77", desc: "All-in-one text styler" },
+                ].map((tool) => (
                   <Link
+                    key={tool.href}
                     href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
                   >
-                    {tool.label}
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Trendy styled letters" },
+                  { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style your server text" },
+                  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
+                  { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

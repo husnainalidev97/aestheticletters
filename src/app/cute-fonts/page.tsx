@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -10,7 +11,7 @@ import CuteFontsClient from "./CuteFontsClientLazy";
 import ComparisonAccordion from "./ComparisonAccordion";
 
 export const metadata: Metadata = {
-  title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
+  title: { absolute: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸" },
   description:
     "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
   alternates: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/cute-fonts",
-    title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
+    title: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: [{ url: "https://www.aestheticletters.com/usage-cute-fonts.webp", width: 1200, height: 630, alt: "Usage of Cute Fonts" }],
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly",
+    title: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸",
     description:
       "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
     images: ["https://www.aestheticletters.com/usage-cute-fonts.webp"],
@@ -76,6 +77,18 @@ const faqs = [
     question: "What are the Best Cute Font Styles for Gaming?",
     answer:
       "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
+  },
+  {
+    question: "What Makes Preppy Fonts Different From Cute Fonts?",
+    answer: (
+      <>
+        Preppy styles borrow from a specific look, Ivy League, country club, Old Money, usually in bold serif or script
+        letters. Cute fonts stay open to any playful mood, with hearts, stars, and bubbly shapes that work for any
+        lighthearted bio. Browse the{" "}
+        <Link href="/preppy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">preppy fonts generator</Link>{" "}
+        for Old Money, Coquette, and Clean Girl styles.
+      </>
+    ),
   },
 ];
 
@@ -433,6 +446,14 @@ export default function CuteFontsPage() {
             text: "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
           },
         },
+        {
+          "@type": "Question",
+          name: "What Makes Preppy Fonts Different From Cute Fonts?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Preppy styles borrow from a specific look, Ivy League, country club, Old Money, usually in bold serif or script letters. Cute fonts stay open to any playful mood, with hearts, stars, and bubbly shapes that work for any lighthearted bio. Browse the preppy fonts generator at https://www.aestheticletters.com/preppy-fonts for Old Money, Coquette, and Clean Girl styles.",
+          },
+        },
       ],
     },
   ];
@@ -488,6 +509,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What are Cute Fonts?
                 </h2>
+                <Image
+                  src="/what-are-cute-fonts-normal-versus-cute-unicode-styles.webp"
+                  alt="Normal text shown next to the same word in bubble, script, cursive, and gothic cute font styles"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Cute fonts are decorative text styles that make words look more creative, soft, warm, or gentle.
                   Many people use them to make usernames, captions, bios, and messages stand out on social media
@@ -527,6 +556,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How do Cute Letters Work? (Unicode Explained)
                 </h2>
+                <Image
+                  src="/how-cute-unicode-letters-work-plain-text-to-copy-paste.webp"
+                  alt="Diagram showing how plain letters map to cute Unicode characters you can copy and paste"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   This pretty font generator uses unicode characters to create all font styles. That means you get more variety compared to basic font tools that only change letters into symbols.
                 </p>
@@ -548,6 +585,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-4 leading-tight">
                   Cute Fonts vs Pretty Fonts vs Aesthetic Fonts &mdash; Which One Is Right for You?
                 </h2>
+                <Image
+                  src="/cute-fonts-vs-pretty-fonts-vs-aesthetic-fonts-comparison.webp"
+                  alt="Side-by-side comparison of cute, pretty, and aesthetic font styles with their moods and best uses"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Different font styles create different moods and visual impressions. Cute fonts usually look
                   playful and friendly, while pretty fonts feel softer and more elegant.{" "}
@@ -605,6 +650,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
+                <Image
+                  src="/top-10-cute-font-styles-preview-copy-and-paste.webp"
+                  alt="Preview of ten cute font styles including script, cursive, gothic, bubble, monospace, and fullwidth"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <div className="space-y-6">
                   {fontShowcaseStyles.map((style, idx) => (
                     <div key={style.name} className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
@@ -626,81 +679,160 @@ export default function CuteFontsPage() {
                 </div>
               </article>
 
+              {/* Where Can You Use Cute Fonts? */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Can You Use Cute Fonts?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Cute text styles work on many apps and websites. They are popular because they help profiles,
+                  captions, and usernames look more personal and creative.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                    <Image
+                      src="/instagram-tiktok-cute-fonts-bio-mockup.webp"
+                      alt="Instagram and TikTok profile bio using cute fonts for the username and bio text"
+                      width={1000}
+                      height={720}
+                      className="w-full h-auto rounded-lg mb-4"
+                      priority={false}
+                    />
+                    <h3 className="font-headline font-bold mb-2 text-lg">Instagram &amp; TikTok</h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
+                      Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
+                      like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles.
+                    </p>
+                  </div>
+                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                    <Image
+                      src="/whatsapp-facebook-cute-fonts-chat-mockup.webp"
+                      alt="WhatsApp and Facebook group chat showing cute fonts in the group name, messages, and status"
+                      width={1000}
+                      height={720}
+                      className="w-full h-auto rounded-lg mb-4"
+                      priority={false}
+                    />
+                    <h3 className="font-headline font-bold mb-2 text-lg">WhatsApp &amp; Facebook</h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
+                      You can use cute bubble fonts in statuses, group names, comments, and messages. Birthday wishes
+                      and daily updates often get more attention when styled this way. Our <Link href="/facebook-fonts" className="text-primary underline underline-offset-4 hover:no-underline">facebook font changer</Link> has
+                      more Facebook-focused styles for posts and Page bios.
+                    </p>
+                  </div>
+                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                    <Image
+                      src="/discord-gaming-cute-fonts-username-mockup.webp"
+                      alt="Discord and gaming chat showing cute fonts used for usernames and a gamer tag"
+                      width={1000}
+                      height={720}
+                      className="w-full h-auto rounded-lg mb-4"
+                      priority={false}
+                    />
+                    <h3 className="font-headline font-bold mb-2 text-lg">Discord &amp; Gaming</h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
+                      Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
+                      and Discord users combine text with symbols for a unique gaming identity. For more Discord specific styles, see our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts copy and paste</Link> page.
+                    </p>
+                  </div>
+                  <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                    <Image
+                      src="/pinterest-youtube-cute-fonts-mockup.webp"
+                      alt="Pinterest pin and YouTube video thumbnail using cute fonts for the titles"
+                      width={1000}
+                      height={720}
+                      className="w-full h-auto rounded-lg mb-4"
+                      priority={false}
+                    />
+                    <h3 className="font-headline font-bold mb-2 text-lg">Pinterest &amp; YouTube</h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
+                      Creative bloggers and beginner designers use pretty text styles for pin titles, channel art,
+                      thumbnails, and short descriptions. These fonts can make content look more noticeable without
+                      complicated editing.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
             </div>
 
             {/* Sidebar */}
             <Sidebar
-              useCasesHeading="Where Can You Use Cute Fonts?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Cute text styles work on many apps and websites. They are popular because they help profiles,
-                    captions, and usernames look more personal and creative.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">Instagram &amp; TikTok</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
-                        like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">WhatsApp &amp; Facebook</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        You can use cute bubble fonts in statuses, group names, comments, and messages. Many people
-                        use them to make birthday wishes or daily updates look more fun.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">Discord &amp; Gaming</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
-                        and Discord users combine text with symbols for a unique gaming identity. For more Discord specific styles, see our <Link href="/discord-fonts" className="text-primary underline underline-offset-4 hover:no-underline">discord fonts copy and paste</Link> page.
-                      </p>
-                    </div>
-                    <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
-                      <h3 className="font-headline font-bold mb-1 text-sm">Pinterest &amp; YouTube</h3>
-                      <p className="text-xs text-on-surface-variant leading-relaxed">
-                        Creative bloggers and beginner designers use pretty text styles for pin titles, channel art,
-                        thumbnails, and short descriptions. These fonts can make content look more noticeable without
-                        complicated editing.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              }
-
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/usage-cute-fonts.webp", alt: "Usage of Cute Fonts" }}
             />
           </div>
         </section>
 
-        {/* Explore Trending Fonts Styles */}
+        {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Explore Trending Fonts Styles
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
           </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Aesthetic Fonts", href: "/" },
-                { label: "Cursive Fonts", href: "/cursive-fonts" },
-                { label: "Stylish Fonts", href: "/stylish-fonts" },
-                { label: "Instagram Fonts", href: "/instagram-fonts" },
-              ].map((tool) => (
-                <li key={tool.href}>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Want more than cute fonts? Check out these generators for letters,
+            symbols, and complete text styling.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\u2728", desc: "Trendy styled letters" },
+                  { label: "Preppy Fonts", href: "/preppy-fonts", icon: "\uD83C\uDF80", desc: "Old Money & Coquette styles" },
+                  { label: "Christmas Fonts", href: "/christmas-fonts", icon: "\uD83C\uDF84", desc: "Festive holiday text" },
+                  { label: "Aesthetic Fonts", href: "/", icon: "\uD83E\uDE77", desc: "All-in-one text styler" },
+                ].map((tool) => (
                   <Link
+                    key={tool.href}
                     href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
                   >
-                    {tool.label}
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Text Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style your server text" },
+                  { label: "Facebook Text Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
