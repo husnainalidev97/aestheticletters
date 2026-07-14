@@ -305,10 +305,10 @@ export default function SansSerifFontsPage() {
                   What Are Sans Serif Fonts?
                 </h2>
                 <Image
-                  src="/sans-serif-fonts-generator-og.webp"
-                  alt="Sans Serif Fonts Generator by Aesthetic Letters showing 10 free sans serif text styles you can copy and paste instantly"
-                  width={1200}
-                  height={630}
+                  src="/what-are-sans-serif-fonts-serif-vs-sans-comparison.webp"
+                  alt="Serif letters with little feet compared to clean sans serif letters, plus the word clean shown in sans serif Unicode styles"
+                  width={1600}
+                  height={900}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
