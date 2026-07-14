@@ -11,7 +11,7 @@ import CuteFontsClient from "./CuteFontsClientLazy";
 import ComparisonAccordion from "./ComparisonAccordion";
 
 export const metadata: Metadata = {
-  title: { absolute: "Cute Fonts Generator – Copy & Paste Pretty Fonts Instantly" },
+  title: { absolute: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸" },
   description:
     "Generate cute fonts instantly with 90+ pretty font styles for copy and paste. Perfect for Instagram, TikTok, WhatsApp, gaming usernames, and creative bios.",
   alternates: {
