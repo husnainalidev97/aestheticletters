@@ -760,7 +760,6 @@ export default function CuteFontsPage() {
             <Sidebar
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/usage-cute-fonts.webp", alt: "Usage of Cute Fonts" }}
             />
           </div>
         </section>
