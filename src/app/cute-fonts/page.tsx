@@ -77,6 +77,18 @@ const faqs = [
     answer:
       "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
   },
+  {
+    question: "What Makes Preppy Fonts Different From Cute Fonts?",
+    answer: (
+      <>
+        Preppy styles borrow from a specific look, Ivy League, country club, Old Money, usually in bold serif or script
+        letters. Cute fonts stay open to any playful mood, with hearts, stars, and bubbly shapes that work for any
+        lighthearted bio. Browse the{" "}
+        <Link href="/preppy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">preppy fonts generator</Link>{" "}
+        for Old Money, Coquette, and Clean Girl styles.
+      </>
+    ),
+  },
 ];
 
 const fontShowcaseStyles: { name: string; description: string; example: string; bestFor: string; fontFamily?: string }[] = [
@@ -433,6 +445,14 @@ export default function CuteFontsPage() {
             text: "Cute bubble fonts and decorative Unicode styles are popular for gaming usernames because they look unique without being too difficult to read. Styles like Pixie Dust and Glittering Stars work especially well for Free Fire, Discord, and casual gaming profiles.",
           },
         },
+        {
+          "@type": "Question",
+          name: "What Makes Preppy Fonts Different From Cute Fonts?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Preppy styles borrow from a specific look, Ivy League, country club, Old Money, usually in bold serif or script letters. Cute fonts stay open to any playful mood, with hearts, stars, and bubbly shapes that work for any lighthearted bio. Browse the preppy fonts generator at https://www.aestheticletters.com/preppy-fonts for Old Money, Coquette, and Clean Girl styles.",
+          },
+        },
       ],
     },
   ];
@@ -648,8 +668,9 @@ export default function CuteFontsPage() {
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
                       <h3 className="font-headline font-bold mb-1 text-sm">WhatsApp &amp; Facebook</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
-                        You can use cute bubble fonts in statuses, group names, comments, and messages. Many people
-                        use them to make birthday wishes or daily updates look more fun.
+                        You can use cute bubble fonts in statuses, group names, comments, and messages. Birthday wishes
+                        and daily updates often get more attention when styled this way. Our <Link href="/facebook-fonts" className="text-primary underline underline-offset-4 hover:no-underline">facebook font changer</Link> has
+                        more Facebook-focused styles for posts and Page bios.
                       </p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
