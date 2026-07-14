@@ -692,6 +692,14 @@ export default function CuteFontsPage() {
                   </p>
                   <div className="space-y-4">
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <Image
+                        src="/instagram-tiktok-cute-fonts-bio-mockup.webp"
+                        alt="Instagram and TikTok profile bio using cute fonts for the username and bio text"
+                        width={1000}
+                        height={720}
+                        className="w-full h-auto rounded-lg mb-3"
+                        priority={false}
+                      />
                       <h3 className="font-headline font-bold mb-1 text-sm">Instagram &amp; TikTok</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
                         Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
@@ -699,6 +707,14 @@ export default function CuteFontsPage() {
                       </p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <Image
+                        src="/whatsapp-facebook-cute-fonts-chat-mockup.webp"
+                        alt="WhatsApp and Facebook group chat showing cute fonts in the group name, messages, and status"
+                        width={1000}
+                        height={720}
+                        className="w-full h-auto rounded-lg mb-3"
+                        priority={false}
+                      />
                       <h3 className="font-headline font-bold mb-1 text-sm">WhatsApp &amp; Facebook</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
                         You can use cute bubble fonts in statuses, group names, comments, and messages. Birthday wishes
@@ -707,6 +723,14 @@ export default function CuteFontsPage() {
                       </p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <Image
+                        src="/discord-gaming-cute-fonts-username-mockup.webp"
+                        alt="Discord and gaming chat showing cute fonts used for usernames and a gamer tag"
+                        width={1000}
+                        height={720}
+                        className="w-full h-auto rounded-lg mb-3"
+                        priority={false}
+                      />
                       <h3 className="font-headline font-bold mb-1 text-sm">Discord &amp; Gaming</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
                         Gamers often use cute letters for nicknames, clan names, and profile customization. Some Free Fire
@@ -714,6 +738,14 @@ export default function CuteFontsPage() {
                       </p>
                     </div>
                     <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+                      <Image
+                        src="/pinterest-youtube-cute-fonts-mockup.webp"
+                        alt="Pinterest pin and YouTube video thumbnail using cute fonts for the titles"
+                        width={1000}
+                        height={720}
+                        className="w-full h-auto rounded-lg mb-3"
+                        priority={false}
+                      />
                       <h3 className="font-headline font-bold mb-1 text-sm">Pinterest &amp; YouTube</h3>
                       <p className="text-xs text-on-surface-variant leading-relaxed">
                         Creative bloggers and beginner designers use pretty text styles for pin titles, channel art,
