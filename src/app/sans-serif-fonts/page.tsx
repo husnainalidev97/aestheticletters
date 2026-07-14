@@ -637,7 +637,7 @@ export default function SansSerifFontsPage() {
                   alt="Instagram profile bio using a bold sans serif username and clean sans serif bio text"
                   width={1000}
                   height={720}
-                  className="w-full max-w-md h-auto rounded-xl mb-8 mx-auto"
+                  className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
 
@@ -650,7 +650,7 @@ export default function SansSerifFontsPage() {
                   alt="Facebook post with a bold sans serif page name and a highlighted bold sans serif headline"
                   width={1000}
                   height={720}
-                  className="w-full max-w-md h-auto rounded-xl mb-8 mx-auto"
+                  className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
 
@@ -663,7 +663,7 @@ export default function SansSerifFontsPage() {
                   alt="X Twitter profile with a bold sans serif display name and a tweet using bold sans serif text"
                   width={1000}
                   height={720}
-                  className="w-full max-w-md h-auto rounded-xl mb-8 mx-auto"
+                  className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
 
@@ -676,7 +676,7 @@ export default function SansSerifFontsPage() {
                   alt="TikTok profile with a bold sans serif username and a clean sans serif bio"
                   width={1000}
                   height={720}
-                  className="w-full max-w-md h-auto rounded-xl mb-8 mx-auto"
+                  className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
 
@@ -692,7 +692,7 @@ export default function SansSerifFontsPage() {
                   alt="Discord chat with a bold sans serif username and server message text"
                   width={1000}
                   height={720}
-                  className="w-full max-w-md h-auto rounded-xl mt-8 mx-auto"
+                  className="w-full h-auto rounded-xl mt-8"
                   priority={false}
                 />
               </article>
