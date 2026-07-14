@@ -560,6 +560,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This is one of the most asked questions in typography. Which is more readable, serif or non serif?
                 </p>
+                <Image
+                  src="/sans-serif-vs-serif-readability-comparison.webp"
+                  alt="Sans serif text shown in a browser window as best on screen next to serif text on paper as best in print, with a note that the readability gap is small"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">On Screen</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
