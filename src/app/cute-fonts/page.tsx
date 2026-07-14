@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -547,6 +548,14 @@ export default function CuteFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How do Cute Letters Work? (Unicode Explained)
                 </h2>
+                <Image
+                  src="/how-cute-unicode-letters-work-plain-text-to-copy-paste.webp"
+                  alt="Diagram showing how plain letters map to cute Unicode characters you can copy and paste"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   This pretty font generator uses unicode characters to create all font styles. That means you get more variety compared to basic font tools that only change letters into symbols.
                 </p>
