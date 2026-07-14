@@ -485,6 +485,14 @@ export default function SansSerifFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
                 </p>
+                <Image
+                  src="/top-15-sans-serif-fonts-specimen-preview.webp"
+                  alt="Specimen sheet previewing the top 15 sans serif fonts, each name shown in its own typeface with its category and free or premium label"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
                     <thead>
