@@ -482,9 +482,6 @@ export default function SansSerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 15 Sans Serif Fonts to Know (Free + Premium)
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
-                </p>
                 <Image
                   src="/top-15-sans-serif-fonts-specimen-preview.webp"
                   alt="Specimen sheet previewing the top 15 sans serif fonts, each name shown in its own typeface with its category and free or premium label"
@@ -493,6 +490,9 @@ export default function SansSerifFontsPage() {
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Here are the most recognizable and widely used sans serif fonts today, a mix of free Google Fonts and premium options.
+                </p>
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
                     <thead>
