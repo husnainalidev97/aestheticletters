@@ -20,6 +20,7 @@ type ActivePage =
   | "serif-fonts"
   | "sans-serif-fonts"
   | "bold-font-generator"
+  | "big-text-generator"
   | "halloween-fonts"
   | "christmas-fonts"
   | "weird-font-generator";
@@ -310,6 +311,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Bold Font Generator
+            </Link>
+            <Link
+              href="/big-text-generator"
+              className={mobileLinkClass("big-text-generator")}
+              onClick={() => setIsOpen(false)}
+            >
+              Big Text Generator
             </Link>
             <Link
               href="/halloween-fonts"

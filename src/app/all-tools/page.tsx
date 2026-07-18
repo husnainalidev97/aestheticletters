@@ -154,6 +154,13 @@ const toolCategories: ToolCategory[] = [
         icon: "format_bold",
         href: "/bold-font-generator",
       },
+      {
+        title: "Big Text Generator",
+        description:
+          "Turn text into big Unicode styles — Fullwidth, Bold Sans, Bold Serif — then preview it at scale in banner, thumbnail, and story frames.",
+        icon: "format_size",
+        href: "/big-text-generator",
+      },
     ],
   },
   {

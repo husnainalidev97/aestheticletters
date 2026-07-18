@@ -12,6 +12,7 @@ import TextHistory from "./TextHistory";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
+const ScalePreview = lazy(() => import("./ScalePreview"));
 
 const RESULTS_ID = "font-results";
 
@@ -58,9 +59,11 @@ interface FontGeneratorProps {
   charWeightMax?: number;
   /** Label for the weighted counter (e.g. "X Weight"). */
   charWeightLabel?: string;
+  /** Enable the "Preview at scale" modal (banner/thumbnail/story frames). */
+  enableScalePreview?: boolean;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview }: FontGeneratorProps) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -78,6 +81,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   // Modal states for Preview & Download
   const [previewText, setPreviewText] = useState<string | null>(null);
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+  const [scalePreviewText, setScalePreviewText] = useState<string | null>(null);
 
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -165,6 +169,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
 
   const handlePreview = useCallback((t: string) => setPreviewText(t), []);
   const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
+  const handleScalePreview = useCallback((t: string) => setScalePreviewText(t), []);
 
   const handleExploreMore = () => {
     setIsLoadingMore(true);
@@ -328,6 +333,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 onToggleFavorite={toggleFavorite}
                 onPreview={handlePreview}
                 onDownload={handleDownload}
+                onScalePreview={enableScalePreview ? handleScalePreview : undefined}
               />
             </div>
           ))}
@@ -385,6 +391,13 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
             styleName={downloadInfo.styleName}
             onClose={() => setDownloadInfo(null)}
           />
+        </Suspense>
+      )}
+
+      {/* Preview at Scale Modal — code-split */}
+      {scalePreviewText !== null && (
+        <Suspense fallback={null}>
+          <ScalePreview text={scalePreviewText} onClose={() => setScalePreviewText(null)} />
         </Suspense>
       )}
     </>
