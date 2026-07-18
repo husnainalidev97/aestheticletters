@@ -8,12 +8,14 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 
-// NOTE: Copy below (metadata, hero, SEO sections, FAQs) is placeholder pending
-// the finished content package. Structure/schema mirror bold-font-generator.
+const META_DESCRIPTION =
+  "Turn any word into big, large, or wide text you can copy and paste anywhere. Free to use, no sign up, with three styles and a live preview to check size first.";
+
 export const metadata: Metadata = {
-  title: { absolute: "Big Text Generator - Large Copy & Paste Text Styles" },
-  description:
-    "Turn any text into big Unicode styles — Fullwidth, Bold Sans, and Bold Serif. Preview it at scale in banner, thumbnail, and story frames, then copy and paste anywhere.",
+  title: {
+    absolute: "Big Text Generator: Free Wide and Large Text - (Copy & Paste)",
+  },
+  description: META_DESCRIPTION,
   alternates: {
     canonical: "https://www.aestheticletters.com/big-text-generator",
   },
@@ -21,64 +23,219 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/big-text-generator",
-    title: "Big Text Generator - Large Copy & Paste Text Styles",
-    description:
-      "Turn any text into big Unicode styles — Fullwidth, Bold Sans, and Bold Serif. Preview it at scale in banner, thumbnail, and story frames, then copy and paste anywhere.",
-    images: [{ url: "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp", width: 1200, height: 640 }],
+    title: "Big Text Generator: Free Wide and Large Text - (Copy & Paste)",
+    description: META_DESCRIPTION,
+    images: [
+      {
+        url: "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
+        width: 1200,
+        height: 640,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Big Text Generator - Large Copy & Paste Text Styles",
-    description:
-      "Turn any text into big Unicode styles — Fullwidth, Bold Sans, and Bold Serif. Preview it at scale in banner, thumbnail, and story frames, then copy and paste anywhere.",
-    images: ["https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp"],
+    title: "Big Text Generator: Free Wide and Large Text - (Copy & Paste)",
+    description: META_DESCRIPTION,
+    images: [
+      "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
+    ],
   },
 };
+
+const introParagraph =
+  "This Big Text Generator takes any word or phrase and turns it into large styled text within seconds. The process stays simple from start to finish, enter a phrase, choose from the style options, then copy the result straight into wherever it needs to go. Whether someone searches using a huge text generator or the term used here, the same output comes back either way.";
+
+const whatIsParagraphs = [
+  "Unicode assigns a unique code to every letter, number, and symbol that exists, and a big text generator pulls from a different set of those codes than a keyboard normally uses. Enter a word, and styled versions appear immediately, built entirely from characters that already exist within that system. No download or installation happens at any point.",
+  "People often assume big style comes from a special font file, the same way a heavy typeface would. These styles work differently. Each one is a character that already lives inside Unicode, ready to display the moment you paste it. Your phone or computer already knows how to show it.",
+  "This tool works well for single letters and initials too, not just full words. A big letter generator use case, like styling a single monogram letter for a logo or a profile picture, uses the exact same Unicode characters as a full phrase, just applied to one letter instead of many.",
+];
+
+const bigTextStyles = [
+  {
+    name: "Fullwidth \u2014 the widest option",
+    description:
+      "Fullwidth stretches every character out, making words look spaced and expanded rather than heavy. This style suits headers, banner text, and anywhere the goal is width and presence over boldness. Longer phrases stay readable even at this expanded width.",
+  },
+  {
+    name: "Bold Sans \u2014 clean and heavy",
+    description:
+      "Bold Sans keeps letters tight and modern while adding real visual weight. This style works for both short titles and longer captions, since the heaviness never sacrifices spacing or clarity, even across a full sentence.",
+  },
+  {
+    name: "Bold Serif \u2014 classic and heavy",
+    description:
+      "Bold Serif carries the same full coverage as Bold Sans, with small strokes at the letter ends for a more traditional look. This page uses only 2 of the 9 bold styles verified on our bold font generator, where the complete set lives, each checked letter by letter before publishing.",
+  },
+];
+
+const howToSteps = [
+  {
+    step: 1,
+    title: "Enter Your Text",
+    description:
+      "Find the input field near the top of the page and start typing. Every style card updates in real time as you type, without needing a separate submit action.",
+  },
+  {
+    step: 2,
+    title: "Compare the Styles",
+    description:
+      "Browse the row of style cards beneath the input. Since each card renders your actual text rather than a placeholder example, you can judge the real result before committing to one.",
+  },
+  {
+    step: 3,
+    title: "Grab the Result",
+    description:
+      "Select Copy under whichever card fits best, then drop it into a bio, a title, a thumbnail overlay, or any other field that takes plain text.",
+  },
+];
+
+const scaleParagraphs = [
+  "A style card shows your text at a small, fixed size, which does not match how it will actually look once it lives on a thumbnail, a banner, or a website header. Click Preview at Scale on any style to see your exact text rendered close to its real size.",
+  "Nothing about the underlying Unicode changes just because the display size does, the copy button always pulls the exact same characters shown in the small card view. Three shape presets, a square, a wide banner, and a tall story format, let readability get checked against the actual context the text will appear in, before anything gets posted.",
+];
+
+const notBiggerParagraphs = [
+  "Most tools labeled as a big text generator show styles like bold, gothic, or script text. These styles add visual weight, but they do not make letters wider or larger in shape. A bold letter and a plain letter occupy roughly the same width on screen.",
+  "Fullwidth text works differently. Each character sits inside a wider space, defined directly inside Unicode itself. This is not a visual trick added by a website. Unicode assigns fullwidth characters their own dedicated codes, built to occupy more horizontal space than a standard letter.",
+  "Fullwidth characters were originally built for East Asian typesetting, where Latin letters needed to match the width of Chinese, Japanese, and Korean characters sitting beside them. That original purpose is exactly why they read as wider today, not a side effect of styling.",
+  "This is the real technical reason fullwidth text reads as bigger rather than just heavier. Bold Sans and Bold Serif still belong on this page because weight matters for visual impact too, but only fullwidth text is measurably wider by design, not just darker in tone.",
+  "We checked every letter, number, and punctuation mark across Fullwidth, Bold Sans, and Bold Serif before publishing this page, so every character in your text displays correctly, every time.",
+];
+
+const useCases = [
+  {
+    title: "YouTube thumbnails",
+    body: "A thumbnail competes with dozens of others in a crowded feed. Fullwidth or Bold Sans text, previewed at scale before you export the thumbnail, stays readable even when shrunk down to a small preview size on someone's phone.",
+  },
+  {
+    title: "Website headers and hero sections",
+    body: "A website headline benefits from real visual weight, but plain formatted text stays the safer choice for anything meant to rank in search. Save huge text styles for banners, graphics, or sections that are not carrying the page's main keyword.",
+  },
+  {
+    title: "Presentation slides and posters",
+    body: "Slides and printed posters get read from a distance, so weight and width both matter more than they would in a paragraph on screen. Bold Serif works well for a formal title slide, while Fullwidth suits a wide banner header.",
+  },
+  {
+    title: "Discord servers and headers",
+    body: "Discord server names and channel categories often use wide, spaced out text to create a banner style look at the top of a member list. For more Discord specific styles built around usernames and roles, see our discord font generator.",
+  },
+];
+
+const limitations = [
+  {
+    title: "Character count costs differ by platform",
+    body: [
+      "A name that reads as short can still burn through Discord's character limit faster than expected, depending on the style chosen. Discord measures length by raw character code, not by visual letter count.",
+      "Bold Sans and Bold Serif both sit in a part of Unicode that costs two units per letter, while Fullwidth costs only one, identical to plain text.",
+      "Twitter counts differently. Its weighted system charges extra for Fullwidth characters too, the same rate as Bold Sans and Bold Serif, so switching to Fullwidth does not save any space in a tweet.",
+    ],
+  },
+  {
+    title: "Screen readers struggle with all three styles",
+    body: [
+      "A screen reader announces these characters by their technical Unicode name, not the letter they resemble. A word in Fullwidth or Bold Serif gets read aloud in a way that sounds nothing like a real word, which makes big text style a poor choice for anything a visually impaired reader depends on.",
+    ],
+  },
+  {
+    title: "Some devices cannot display every character",
+    body: [
+      "A small box appearing where a letter should be usually points to the device, not the text. Certain phones and apps, especially older ones, simply were never updated with the graphical data required to draw less common Unicode characters. The text itself remains correct even when a device fails to render it properly.",
+    ],
+  },
+];
+
+const notWorking = [
+  {
+    title: "Why some platforms turn your text back to plain letters",
+    body: [
+      "Some platforms run a step called Unicode normalization before saving or displaying text you paste in. This step quietly turns styled letters back into plain ones without warning you. Our own Bold Sans version of a word can revert to plain text once this step runs on the other end.",
+      "This is the real reason a big font sometimes stops working on one specific site, even though it looked correct on the page where you copied it. The platform is changing your text on its own side, not failing to display what you sent.",
+    ],
+  },
+  {
+    title: "Why a letter shows as a box instead of the style you picked",
+    body: [
+      "This is a separate problem from the one above. Some older phones and apps simply lack the visual data needed to draw a specific Unicode character. The character itself is correct. The device just cannot render it.",
+    ],
+  },
+  {
+    title: "What to do if a platform strips your big text",
+    body: [
+      "If your text turns plain after pasting, the platform likely normalized it, and there is no fix on your side. If you see boxes instead, switch to Fullwidth or Bold Sans, since both carry the widest support across devices and platforms.",
+    ],
+  },
+];
 
 const faqs = [
   {
     question: "Is this big text generator free to use?",
     answer:
-      "Yes. There is no cost, no sign-up, and no email required. Type your text, pick a style, and copy it as many times as you like.",
+      "Yes. There is no cost at any point, and nothing requires a sign up or an email address. Generate and copy as many styles as needed, today or months from now, without anything changing about how the tool works.",
   },
   {
-    question: "What does the \u201cPreview at Scale\u201d button do?",
+    question: "Is a huge text generator different from a big text generator?",
     answer:
-      "It opens your styled text in a large, framed preview so you can see how it would look as a banner, thumbnail, or story. Switch between 16:9 banner, 1:1 thumbnail, and 9:16 story frames, and try a few background colors. The text stays real Unicode, so you can still copy and paste it anywhere.",
+      "No. Both names describe the exact same tool. People search using different words for the same result, so this generator answers to big, large, giant, or huge text without any difference in what it produces.",
   },
   {
-    question: "Does big text stay big when I paste it?",
+    question: "What is a big letter generator used for?",
     answer:
-      "The characters themselves are wider or heavier Unicode letters, so Fullwidth and bold styles keep their look wherever plain text is accepted. The scale preview is a size guide only \u2014 the actual on-screen size depends on the app you paste into.",
+      "People use it to style single letters or short initials, often for a monogram, a logo mark, or a profile picture. The same Unicode characters used for full phrases work just as well applied to one letter alone.",
   },
   {
-    question: "Which style should I use for a YouTube thumbnail or headline?",
+    question: "How do I copy and paste big letters into another app?",
     answer:
-      "Bold Sans and Bold Serif read best at large sizes because they cover every letter and digit. Fullwidth adds dramatic spacing that works well for short banner phrases. Use the scale preview to compare them in a banner frame before you copy.",
+      "Type your text, pick a style card, and click Copy. Open the app or platform where the text belongs, then paste directly into the field. No extra formatting step or app permission gets required anywhere in the process.",
   },
   {
-    question: "Why do some characters look different across devices?",
+    question: "Why does large text sometimes lose its size after I paste it?",
     answer:
-      "Big text uses Unicode characters, and each device renders them with its own installed fonts. Fullwidth, Bold Sans, and Bold Serif are widely supported, but very old phones or apps may show a fallback glyph for a few characters.",
+      "Some platforms run a cleanup step called normalization on pasted text, which quietly reverts styled characters back to plain letters. This happens on the platform's side, not because the copied text was wrong or broken.",
+  },
+  {
+    question:
+      "Do big text styles work on Instagram, Discord, YouTube, and other platforms?",
+    answer:
+      "Yes. Big text works in Instagram captions and bios, Discord messages and display names, YouTube titles and descriptions, and most other platforms that accept plain text without a special formatting toolbar.",
+  },
+  {
+    question:
+      "What's the actual difference between Fullwidth, Bold Sans, and Bold Serif?",
+    answer:
+      "Fullwidth letters occupy real extra width, built directly into Unicode. Bold Sans and Bold Serif stay the same width as plain text but carry more visual weight. All three read as big text through different methods.",
+  },
+  {
+    question: "Does the scale preview change the text I actually copy?",
+    answer:
+      "No. The preview only changes how large your text appears on screen while you check it. The copied result stays the same Unicode characters either way, unaffected by whatever size you previewed it at.",
+  },
+  {
+    question:
+      "Can I use the scale preview to check how my text looks as a thumbnail or banner before posting?",
+    answer:
+      "Yes. The preview shows text inside a square, a wide banner, and a tall story shape, so readability gets checked before anything goes live on the actual platform or design.",
+  },
+  {
+    question: "Why do some big text characters show up as boxes or missing letters?",
+    answer:
+      "An older phone or an app missing certain Unicode graphics data is nearly always the cause. Fullwidth and Bold Sans carry the broadest device support of the three styles here, so switching to either one resolves the issue in almost every case.",
   },
 ];
 
-const bigTextStyles = [
-  {
-    name: "Fullwidth",
-    description:
-      "Fullwidth Latin characters occupy a full em of horizontal space, the same width used for CJK text. This gives words a spaced-out, monospaced look that stands out in banners and short headlines. Covers every letter and digit, plus a wide space.",
-  },
-  {
-    name: "Bold Sans",
-    description:
-      "The clean, modern bold alphabet without serifs. Every uppercase letter, lowercase letter, and digit has its own dedicated Unicode code point, so it reads well at large sizes for headlines, thumbnails, and captions.",
-  },
-  {
-    name: "Bold Serif",
-    description:
-      "The classic mathematical bold alphabet with serifs. Like Bold Sans, it covers the full alphabet and all ten digits, and it is the most widely supported bold style across devices.",
-  },
+const similarTools = [
+  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDA4", desc: "Heavy bold text" },
+  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
+  { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDD70\uFE0F", desc: "Classic serif letters" },
+];
+
+const popularTools = [
+  { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83D\uDCAC", desc: "Style your server" },
+  { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
+  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+  { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
 ];
 
 export default function BigTextGeneratorPage() {
@@ -95,9 +252,10 @@ export default function BigTextGeneratorPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/big-text-generator",
-        image: "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
+        image:
+          "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
         description:
-          "Turn plain text into big Unicode styles — Fullwidth, Bold Sans, and Bold Serif — and preview it at scale in banner, thumbnail, and story frames.",
+          "Turn any word into big, large, or wide text — Fullwidth, Bold Sans, and Bold Serif — with a preview at scale to check size before you copy and paste.",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -108,9 +266,8 @@ export default function BigTextGeneratorPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/big-text-generator#webpage",
         url: "https://www.aestheticletters.com/big-text-generator",
-        name: "Big Text Generator - Large Copy & Paste Text Styles",
-        description:
-          "Turn any text into big Unicode styles — Fullwidth, Bold Sans, and Bold Serif. Preview it at scale in banner, thumbnail, and story frames, then copy and paste anywhere.",
+        name: "Big Text Generator: Free Wide and Large Text - (Copy & Paste)",
+        description: META_DESCRIPTION,
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-07-17T08:00:00+00:00",
@@ -152,30 +309,16 @@ export default function BigTextGeneratorPage() {
   const howToJsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to Generate and Preview Big Text",
+    name: "How to Copy and Paste Big Text",
     description:
-      "Turn your words into big Unicode text and preview them at scale before you copy.",
+      "Turn any word or phrase into big text and copy it anywhere in three steps.",
     totalTime: "PT1M",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Type Your Text",
-        text: "Start typing in the field near the top of the page. Whatever you enter updates every style card below it instantly.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Preview at Scale",
-        text: "Tap the Scale button on any style to open a large, framed preview. Switch between banner, thumbnail, and story frames to see how it looks.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Copy and Paste",
-        text: "Click Copy on the style you want. Paste it into Instagram, YouTube, Discord, or anywhere else that accepts plain text.",
-      },
-    ],
+    step: howToSteps.map((item) => ({
+      "@type": "HowToStep",
+      position: item.step,
+      name: item.title,
+      text: item.description,
+    })),
   };
 
   const faqJsonLd = {
@@ -221,11 +364,9 @@ export default function BigTextGeneratorPage() {
             Big Text Generator &mdash; Copy and Paste
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
-            Turn any text into big Unicode styles &mdash; Fullwidth, Bold Sans,
-            and Bold Serif. Preview it at scale in a banner, thumbnail, or story
-            frame to see how it would look as a headline, then copy and paste it
-            anywhere. Every style is built from Unicode characters your device
-            already supports, so nothing needs to download or install.
+            Type any word and turn it into big, large, or wide text in seconds.
+            Copy it, paste it anywhere, and preview exactly how large it will
+            look before you post it online.
           </p>
         </section>
 
@@ -238,77 +379,62 @@ export default function BigTextGeneratorPage() {
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               <article>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  {introParagraph}
+                </p>
+              </article>
+
+              <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Big Text Generator?
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  A big text generator changes plain letters into wider or
-                  heavier Unicode characters that stand out at a glance. You type
-                  a word, and the tool shows it in Fullwidth, Bold Sans, and Bold
-                  Serif. The text itself does not change &mdash; only the way it
-                  looks changes.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
-                  These styles are not font files you install. They are characters
-                  that already exist inside Unicode, the system that gives every
-                  letter and number a unique code, the same way our{" "}
-                  <Link
-                    href="/bold-font-generator"
-                    className="text-primary underline underline-offset-4 hover:no-underline"
-                  >
-                    Bold Font Generator
-                  </Link>{" "}
-                  works.
-                </p>
+                <div className="space-y-6">
+                  {whatIsParagraphs.map((para, i) => (
+                    <p
+                      key={i}
+                      className="text-on-surface-variant leading-relaxed text-lg"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
               </article>
 
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Preview Your Text at Scale
+                  Choosing a Big Text Style for Your Use Case
                 </h2>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Most &ldquo;big text&rdquo; searches are really about how the
-                  text will look large &mdash; as a YouTube thumbnail, a story
-                  background, a banner, or a poster. That is why every style on
-                  this page has a Scale button.
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Picking a big font style comes down to how you want the weight
+                  to feel, not what the text can or cannot display. All three
+                  styles here cover every letter, number, and punctuation mark,
+                  so nothing gets left in plain text partway through a sentence.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Tap it to open a large, framed preview that auto-sizes your text
-                  to fill the frame. Switch between a 16:9 banner, a 1:1
-                  thumbnail, and a 9:16 story, and try a few background colors to
-                  picture the real use case instead of a small card preview.
-                </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg">
-                  The preview is a display mode only. Your text stays real Unicode
-                  the whole time, so copy and paste still works exactly the same.
-                </p>
-              </article>
-
-              <article>
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  How to Generate and Preview Big Text?
-                </h2>
                 <div className="space-y-8">
-                  {[
-                    {
-                      step: 1,
-                      title: "Type Your Text",
-                      description:
-                        "Start typing in the field near the top of the page. Whatever you enter updates every style card below it instantly.",
-                    },
-                    {
-                      step: 2,
-                      title: "Preview at Scale",
-                      description:
-                        "Tap the Scale button on any style to open a large, framed preview. Switch between banner, thumbnail, and story frames to see how it looks.",
-                    },
-                    {
-                      step: 3,
-                      title: "Copy and Paste",
-                      description:
-                        "Click Copy on the style you want. Paste it into Instagram, YouTube, Discord, or anywhere else that accepts plain text.",
-                    },
-                  ].map((item) => (
+                  {bigTextStyles.map((style) => (
+                    <div key={style.name}>
+                      <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
+                        {style.name}
+                      </h3>
+                      <p className="text-on-surface-variant leading-relaxed text-lg">
+                        {style.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  How to Copy and Paste Big Text?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  A single word, a short phrase, or a full sentence all go
+                  through the identical process here, with no separate steps
+                  depending on length.
+                </p>
+                <div className="space-y-8">
+                  {howToSteps.map((item) => (
                     <div key={item.step} className="flex gap-6">
                       <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
                         {item.step}
@@ -328,21 +454,112 @@ export default function BigTextGeneratorPage() {
 
               <article>
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Big Text Styles, Explained
+                  See Your Big Text at Full Size
+                </h2>
+                <div className="space-y-6">
+                  {scaleParagraphs.map((para, i) => (
+                    <p
+                      key={i}
+                      className="text-on-surface-variant leading-relaxed text-lg"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </article>
+
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Most &ldquo;Big&rdquo; Text isn&rsquo;t Actually Bigger
+                </h2>
+                <div className="space-y-6">
+                  {notBiggerParagraphs.map((para, i) => (
+                    <p
+                      key={i}
+                      className="text-on-surface-variant leading-relaxed text-lg"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </article>
+
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Huge Text Works Best?
                 </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  This page focuses on three styles chosen for how well they read
-                  when the text gets big.
+                  Huge text earns its place anywhere a viewer needs to notice
+                  something in half a second, not read a full sentence. A few
+                  contexts make the biggest difference.
                 </p>
                 <div className="space-y-8">
-                  {bigTextStyles.map((style) => (
-                    <div key={style.name}>
+                  {useCases.map((item) => (
+                    <div key={item.title}>
                       <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
-                        {style.name}
+                        {item.title}
                       </h3>
                       <p className="text-on-surface-variant leading-relaxed text-lg">
-                        {style.description}
+                        {item.body}
                       </p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Big Text Limitations You Should Know
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  Big text carries a few real tradeoffs worth knowing before you
+                  use it somewhere it matters.
+                </p>
+                <div className="space-y-8">
+                  {limitations.map((item) => (
+                    <div key={item.title}>
+                      <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
+                        {item.title}
+                      </h3>
+                      <div className="space-y-4">
+                        {item.body.map((para, i) => (
+                          <p
+                            key={i}
+                            className="text-on-surface-variant leading-relaxed text-lg"
+                          >
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Big Text Not Working?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                  If your big style stops working somewhere, it usually comes
+                  down to one of two causes.
+                </p>
+                <div className="space-y-8">
+                  {notWorking.map((item) => (
+                    <div key={item.title}>
+                      <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">
+                        {item.title}
+                      </h3>
+                      <div className="space-y-4">
+                        {item.body.map((para, i) => (
+                          <p
+                            key={i}
+                            className="text-on-surface-variant leading-relaxed text-lg"
+                          >
+                            {para}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -383,12 +600,7 @@ export default function BigTextGeneratorPage() {
                 Similar Font Styles
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
-                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
-                  { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDD70\uFE0F", desc: "Classic serif letters" },
-                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
-                ].map((tool) => (
+                {similarTools.map((tool) => (
                   <Link
                     key={tool.href}
                     href={tool.href}
@@ -412,12 +624,7 @@ export default function BigTextGeneratorPage() {
                 Popular Tools
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
-                  { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
-                  { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
-                  { label: "Number Font Generator", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Stylish number fonts" },
-                ].map((tool) => (
+                {popularTools.map((tool) => (
                   <Link
                     key={tool.href}
                     href={tool.href}

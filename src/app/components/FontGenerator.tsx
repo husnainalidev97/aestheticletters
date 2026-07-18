@@ -339,8 +339,8 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           ))}
         </div>
 
-        {/* Explore More Button — loads remaining 7 deferred categories */}
-        {!showAll && (
+        {/* Explore More Button — loads remaining deferred categories */}
+        {!showAll && filteredCategories.length > INITIAL_COUNT && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
