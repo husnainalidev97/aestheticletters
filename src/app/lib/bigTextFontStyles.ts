@@ -5,7 +5,7 @@
 // that renders the output large in banner / thumbnail / poster frames.
 // ---------------------------------------------------------------------------
 
-import type { FontCategory } from "./fontStyles";
+import type { FontCategory, FontStyle } from "./fontStyles";
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -55,6 +55,42 @@ function withSeparator(text: string, sep: string): string {
   return [...text].map((c) => (c === " " ? c : c + sep)).join("");
 }
 
+/** Frame the whole phrase with a leading and trailing marker (kept large). */
+function frame(text: string, prefix: string, suffix: string): string {
+  return `${prefix}${text}${suffix}`;
+}
+
+// Decoration markers — all verified unused elsewhere on the site.
+const ARROW = String.fromCodePoint(0x2b95); // ⮕ rightwards black arrow
+const BLOCK = String.fromCodePoint(0x25ae); // ▮ black vertical rectangle
+const ALERT = String.fromCodePoint(0x1f6a8); // 🚨
+const IMPACT = String.fromCodePoint(0x1f4a5); // 💥
+const ANNOUNCE = String.fromCodePoint(0x1f4e2); // 📢
+const TARGET = String.fromCodePoint(0x1f3af); // 🎯
+const SCALE = String.fromCodePoint(0x1f4c8); // 📈
+const EMPHASIS = "\u203c\ufe0f"; // ‼️
+
+/**
+ * Big decorated variants applied on top of a large base transform. Every
+ * variant keeps the text large — the markers only frame the big Unicode
+ * output, so there are no small or tiny styles here.
+ */
+function bigDecorations(
+  prefix: string,
+  base: (t: string) => string,
+): FontStyle[] {
+  return [
+    { name: `${prefix} Bold Arrow`, transform: (t) => frame(base(t), `${ARROW}${ARROW} `, ` ${ARROW}${ARROW}`) },
+    { name: `${prefix} Block`, transform: (t) => frame(base(t), `${BLOCK} `, ` ${BLOCK}`) },
+    { name: `${prefix} Alert`, transform: (t) => frame(base(t), `${ALERT} `, ` ${ALERT}`) },
+    { name: `${prefix} Impact`, transform: (t) => frame(base(t), `${IMPACT} `, ` ${IMPACT}`) },
+    { name: `${prefix} Announcement`, transform: (t) => frame(base(t), `${ANNOUNCE} `, ` ${ANNOUNCE}`) },
+    { name: `${prefix} Target`, transform: (t) => frame(base(t), `${TARGET} `, ` ${TARGET}`) },
+    { name: `${prefix} Scale Up`, transform: (t) => frame(base(t), `${SCALE} `, ` ${SCALE}`) },
+    { name: `${prefix} Emphasis`, transform: (t) => frame(base(t), "", ` ${EMPHASIS}`) },
+  ];
+}
+
 // ── Character Maps ────────────────────────────────────────────────────────
 
 // Fullwidth Latin: U+FF21 (upper), U+FF41 (lower), U+FF10 (digits), U+3000 (space)
@@ -77,15 +113,20 @@ const boldSerifDigitMap = buildDigitMap(0x1d7ce);
 
 // ── 3 Category Cards ────────────────────────────────────────────────────────
 
+// Base transforms — the three large font families every style builds on.
+const fullwidthBase = (t: string) => applyMap(t, fullwidthMap);
+const boldSansBase = (t: string) => applyMaps(t, boldSansMap, boldSansDigitMap);
+const boldSerifBase = (t: string) => applyMaps(t, boldSerifMap, boldSerifDigitMap);
+
 // Card 1: Fullwidth — the widest, most "banner-like" spacing.
 const fullwidth: FontCategory = {
   name: "Fullwidth",
   styles: [
-    { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
-    { name: "Fullwidth Boxed", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "[", "]") },
-    { name: "Fullwidth Bullet", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2022") },
-    { name: "Fullwidth Arrow", transform: (t) => withSeparator(applyMap(t, fullwidthMap), "\u2192") },
-    { name: "Fullwidth Lenticular", transform: (t) => wrapChars(applyMap(t, fullwidthMap), "\u3010", "\u3011") },
+    { name: "Fullwidth", transform: fullwidthBase },
+    { name: "Fullwidth Boxed", transform: (t) => wrapChars(fullwidthBase(t), "[", "]") },
+    { name: "Fullwidth Bullet", transform: (t) => withSeparator(fullwidthBase(t), "\u2022") },
+    { name: "Fullwidth Lenticular", transform: (t) => wrapChars(fullwidthBase(t), "\u3010", "\u3011") },
+    ...bigDecorations("Fullwidth", fullwidthBase),
   ],
 };
 
@@ -93,11 +134,11 @@ const fullwidth: FontCategory = {
 const boldSans: FontCategory = {
   name: "Bold Sans",
   styles: [
-    { name: "Bold Sans", transform: (t) => applyMaps(t, boldSansMap, boldSansDigitMap) },
-    { name: "Bold Sans Boxed", transform: (t) => wrapChars(applyMaps(t, boldSansMap, boldSansDigitMap), "[", "]") },
-    { name: "Bold Sans Bullet", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2022") },
-    { name: "Bold Sans Arrow", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2192") },
-    { name: "Bold Sans Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSansMap, boldSansDigitMap), "\u2727") },
+    { name: "Bold Sans", transform: boldSansBase },
+    { name: "Bold Sans Boxed", transform: (t) => wrapChars(boldSansBase(t), "[", "]") },
+    { name: "Bold Sans Bullet", transform: (t) => withSeparator(boldSansBase(t), "\u2022") },
+    { name: "Bold Sans Sparkle", transform: (t) => withSeparator(boldSansBase(t), "\u2727") },
+    ...bigDecorations("Bold Sans", boldSansBase),
   ],
 };
 
@@ -105,11 +146,11 @@ const boldSans: FontCategory = {
 const boldSerif: FontCategory = {
   name: "Bold Serif",
   styles: [
-    { name: "Bold Serif", transform: (t) => applyMaps(t, boldSerifMap, boldSerifDigitMap) },
-    { name: "Bold Serif Boxed", transform: (t) => wrapChars(applyMaps(t, boldSerifMap, boldSerifDigitMap), "[", "]") },
-    { name: "Bold Serif Bullet", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2022") },
-    { name: "Bold Serif Arrow", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2192") },
-    { name: "Bold Serif Sparkle", transform: (t) => withSeparator(applyMaps(t, boldSerifMap, boldSerifDigitMap), "\u2727") },
+    { name: "Bold Serif", transform: boldSerifBase },
+    { name: "Bold Serif Boxed", transform: (t) => wrapChars(boldSerifBase(t), "[", "]") },
+    { name: "Bold Serif Bullet", transform: (t) => withSeparator(boldSerifBase(t), "\u2022") },
+    { name: "Bold Serif Sparkle", transform: (t) => withSeparator(boldSerifBase(t), "\u2727") },
+    ...bigDecorations("Bold Serif", boldSerifBase),
   ],
 };
 
