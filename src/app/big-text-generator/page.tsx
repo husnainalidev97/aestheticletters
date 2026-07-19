@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import BigTextGenerator from "../components/BigTextGenerator";
@@ -10,6 +11,62 @@ import { getTotalFontStyleCount } from "../lib/fontCount";
 
 const META_DESCRIPTION =
   "Turn any word into big, large, or wide text you can copy and paste anywhere. Free to use, no sign up, with three styles and a live preview to check size first.";
+
+const IMAGE_DIR = "/images/big-text-generator";
+const IMAGE_BASE = `https://www.aestheticletters.com${IMAGE_DIR}`;
+const OG_IMAGE = `${IMAGE_BASE}/big-text-generator-og.webp`;
+
+type SectionImage = {
+  id: string;
+  file: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
+
+const contentImages = {
+  styles: {
+    id: "image-styles-comparison",
+    file: "big-text-styles-comparison.webp",
+    width: 1200,
+    height: 1200,
+    alt: "Comparison of the three big text styles applied to the word BIG TEXT: Fullwidth (widest), Bold Sans (clean and heavy), and Bold Serif (classic)",
+    caption: "Comparison of the three big text styles applied to BIG TEXT, each with a live sample and what it is best used for: Fullwidth is the widest, Bold Sans is clean and heavy, and Bold Serif is classic",
+  },
+  howTo: {
+    id: "image-how-to-copy-paste",
+    file: "big-text-how-to-copy-paste.webp",
+    width: 1200,
+    height: 800,
+    alt: "Three steps to make big text: type your text, pick a style or symbol wrap, then copy and paste the styled text anywhere",
+    caption: "The three step process for the big text generator: type your text, pick a style or symbol wrapper, then copy and paste the styled Unicode text anywhere",
+  },
+  fullwidth: {
+    id: "image-fullwidth-vs-bold",
+    file: "big-text-fullwidth-vs-bold.webp",
+    width: 1200,
+    height: 800,
+    alt: "The word WIDE in plain, Bold Sans, and Fullwidth showing that only Fullwidth extends past the plain text width while bold just adds weight",
+    caption: "Why most big text is not actually bigger: plain and Bold Sans end at the same width while only Fullwidth extends past the plain width line, because bold adds weight rather than width",
+  },
+  useCases: {
+    id: "image-where-it-works",
+    file: "big-text-where-it-works.webp",
+    width: 1200,
+    height: 800,
+    alt: "Four places big text works best shown as mockups: a YouTube thumbnail, a website header, slides and posters, and a Discord server",
+    caption: "Where big text works best, shown as mockups: YouTube thumbnails, website headers, slides and posters, and Discord server names and channels",
+  },
+  boxes: {
+    id: "image-boxes-fix",
+    file: "big-text-boxes-fix.webp",
+    width: 1200,
+    height: 800,
+    alt: "Big text showing as boxes fix: rare Unicode blocks fall back to empty boxes, while Fullwidth, Bold Sans, and Bold Serif render on every device",
+    caption: "Why big text can show as empty boxes on some devices, with the fix: rare Unicode blocks lack font support, while Fullwidth, Bold Sans, and Bold Serif use widely supported blocks that render on iOS, Android, and desktop",
+  },
+} satisfies Record<string, SectionImage>;
 
 export const metadata: Metadata = {
   title: {
@@ -27,9 +84,10 @@ export const metadata: Metadata = {
     description: META_DESCRIPTION,
     images: [
       {
-        url: "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
+        url: OG_IMAGE,
         width: 1200,
-        height: 640,
+        height: 630,
+        alt: "Big Text Generator copy-and-paste preview showing the Fullwidth, Bold Sans, and Bold Serif styles",
       },
     ],
   },
@@ -37,9 +95,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Big Text Generator: Free Wide and Large Text - (Copy & Paste)",
     description: META_DESCRIPTION,
-    images: [
-      "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
-    ],
+    images: [OG_IMAGE],
   },
 };
 
@@ -252,8 +308,7 @@ export default function BigTextGeneratorPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/big-text-generator",
-        image:
-          "https://www.aestheticletters.com/images/big-text-generator/big-text-generator-og.webp",
+        image: OG_IMAGE,
         description:
           "Turn any word into big, large, or wide text — Fullwidth, Bold Sans, and Bold Serif — with a preview at scale to check size before you copy and paste.",
         offers: {
@@ -278,7 +333,30 @@ export default function BigTextGeneratorPage() {
         mainEntity: {
           "@id": "https://www.aestheticletters.com/big-text-generator#software",
         },
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/big-text-generator#image-og",
+        },
       },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/big-text-generator#image-og",
+        url: OG_IMAGE,
+        contentUrl: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        caption: "Big Text Generator copy-and-paste preview showing the Fullwidth, Bold Sans, and Bold Serif styles",
+        inLanguage: "en",
+      },
+      ...Object.values(contentImages).map((img) => ({
+        "@type": "ImageObject",
+        "@id": `https://www.aestheticletters.com/big-text-generator#${img.id}`,
+        url: `${IMAGE_BASE}/${img.file}`,
+        contentUrl: `${IMAGE_BASE}/${img.file}`,
+        width: img.width,
+        height: img.height,
+        caption: img.caption,
+        inLanguage: "en",
+      })),
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.aestheticletters.com/big-text-generator#breadcrumb",
@@ -410,6 +488,13 @@ export default function BigTextGeneratorPage() {
                   styles here cover every letter, number, and punctuation mark,
                   so nothing gets left in plain text partway through a sentence.
                 </p>
+                <Image
+                  src={`${IMAGE_DIR}/${contentImages.styles.file}`}
+                  alt={contentImages.styles.alt}
+                  width={contentImages.styles.width}
+                  height={contentImages.styles.height}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="space-y-8">
                   {bigTextStyles.map((style) => (
                     <div key={style.name}>
@@ -433,6 +518,13 @@ export default function BigTextGeneratorPage() {
                   through the identical process here, with no separate steps
                   depending on length.
                 </p>
+                <Image
+                  src={`${IMAGE_DIR}/${contentImages.howTo.file}`}
+                  alt={contentImages.howTo.alt}
+                  width={contentImages.howTo.width}
+                  height={contentImages.howTo.height}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="space-y-8">
                   {howToSteps.map((item) => (
                     <div key={item.step} className="flex gap-6">
@@ -472,6 +564,13 @@ export default function BigTextGeneratorPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Most &ldquo;Big&rdquo; Text isn&rsquo;t Actually Bigger
                 </h2>
+                <Image
+                  src={`${IMAGE_DIR}/${contentImages.fullwidth.file}`}
+                  alt={contentImages.fullwidth.alt}
+                  width={contentImages.fullwidth.width}
+                  height={contentImages.fullwidth.height}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="space-y-6">
                   {notBiggerParagraphs.map((para, i) => (
                     <p
@@ -493,6 +592,13 @@ export default function BigTextGeneratorPage() {
                   something in half a second, not read a full sentence. A few
                   contexts make the biggest difference.
                 </p>
+                <Image
+                  src={`${IMAGE_DIR}/${contentImages.useCases.file}`}
+                  alt={contentImages.useCases.alt}
+                  width={contentImages.useCases.width}
+                  height={contentImages.useCases.height}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="space-y-8">
                   {useCases.map((item) => (
                     <div key={item.title}>
@@ -544,6 +650,13 @@ export default function BigTextGeneratorPage() {
                   If your big style stops working somewhere, it usually comes
                   down to one of two causes.
                 </p>
+                <Image
+                  src={`${IMAGE_DIR}/${contentImages.boxes.file}`}
+                  alt={contentImages.boxes.alt}
+                  width={contentImages.boxes.width}
+                  height={contentImages.boxes.height}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="space-y-8">
                   {notWorking.map((item) => (
                     <div key={item.title}>
