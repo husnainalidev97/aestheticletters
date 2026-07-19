@@ -68,9 +68,11 @@ const boldSerifDigitMap = buildDigitMap(0x1d7ce);
 // ── 3 Category Cards ────────────────────────────────────────────────────────
 
 // Base transforms — the three large font families every style builds on.
-const fullwidthBase = (t: string) => applyMap(t, fullwidthMap);
-const boldSansBase = (t: string) => applyMaps(t, boldSansMap, boldSansDigitMap);
-const boldSerifBase = (t: string) => applyMaps(t, boldSerifMap, boldSerifDigitMap);
+// Input is uppercased first: capital letters read as bigger, which is the
+// expected look for "big text".
+const fullwidthBase = (t: string) => applyMap(t.toUpperCase(), fullwidthMap);
+const boldSansBase = (t: string) => applyMaps(t.toUpperCase(), boldSansMap, boldSansDigitMap);
+const boldSerifBase = (t: string) => applyMaps(t.toUpperCase(), boldSerifMap, boldSerifDigitMap);
 
 // Card 1: Fullwidth — the widest, most "banner-like" spacing.
 const fullwidth: FontCategory = {
