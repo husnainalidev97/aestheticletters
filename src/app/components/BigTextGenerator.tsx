@@ -39,9 +39,6 @@ export default function BigTextGenerator({ totalFontStyles }: BigTextGeneratorPr
       enableScalePreview
       wrapSymbols={bigTextWrapSymbols}
       comboCategories={bigTextComboCategories}
-      defaultFontSize={48}
-      maxFontSizeDesktop={96}
-      maxFontSizeMobile={52}
     />
   );
 }
