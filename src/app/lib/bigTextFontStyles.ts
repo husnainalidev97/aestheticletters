@@ -104,12 +104,12 @@ export const bigTextFontCategories: FontCategory[] = [
 // Pre-wrapped pairings of the same 3 styles + the same symbol set. Rendered as
 // their own named cards; not affected by the "Wrap with a symbol" toggle.
 
-const ALERT = String.fromCodePoint(0x1f6a8); // 🚨
-const IMPACT = String.fromCodePoint(0x1f4a5); // 💥
-const ANNOUNCEMENT = String.fromCodePoint(0x1f4e2); // 📢
-const TARGET = String.fromCodePoint(0x1f3af); // 🎯
-const SCALE_UP = String.fromCodePoint(0x1f4c8); // 📈
-const LOUD = String.fromCodePoint(0x1f50a); // 🔊
+const BOLD_ARROW = String.fromCodePoint(0x2b95); // ⮕
+const HEAVY_BAR = String.fromCodePoint(0x25ac); // ▬
+const POINTER = String.fromCodePoint(0x2bc8); // ⯈
+const STARBURST = String.fromCodePoint(0x2742); // ❂
+const BLOCK_FRAME = String.fromCodePoint(0x25ae); // ▮
+const CHECKER = String.fromCodePoint(0x259e, 0x259a); // ▞▚
 
 /** Wrap a base transform's output symmetrically with a symbol. */
 const combo = (base: (t: string) => string, symbol: string) => (t: string) =>
@@ -121,12 +121,12 @@ const makeCombo = (name: string, base: (t: string) => string, symbol: string): F
 });
 
 export const bigTextComboCategories: FontCategory[] = [
-  makeCombo("Fullwidth · Alert", fullwidthBase, ALERT),
-  makeCombo("Fullwidth · Scale Up", fullwidthBase, SCALE_UP),
-  makeCombo("Bold Sans · Impact", boldSansBase, IMPACT),
-  makeCombo("Bold Sans · Target", boldSansBase, TARGET),
-  makeCombo("Bold Serif · Announcement", boldSerifBase, ANNOUNCEMENT),
-  makeCombo("Bold Serif · Loud", boldSerifBase, LOUD),
+  makeCombo("Fullwidth · Bold Arrow", fullwidthBase, BOLD_ARROW),
+  makeCombo("Fullwidth · Heavy Bar", fullwidthBase, HEAVY_BAR),
+  makeCombo("Bold Sans · Pointer", boldSansBase, POINTER),
+  makeCombo("Bold Sans · Starburst", boldSansBase, STARBURST),
+  makeCombo("Bold Serif · Block Frame", boldSerifBase, BLOCK_FRAME),
+  makeCombo("Bold Serif · Checker", boldSerifBase, CHECKER),
 ];
 
 /**
