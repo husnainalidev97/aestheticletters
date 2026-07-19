@@ -39,6 +39,7 @@ export default function BigTextGenerator({ totalFontStyles }: BigTextGeneratorPr
       enableScalePreview
       wrapSymbols={bigTextWrapSymbols}
       comboCategories={bigTextComboCategories}
+      hideJumpLinks
     />
   );
 }

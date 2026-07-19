@@ -72,9 +72,11 @@ interface FontGeneratorProps {
   maxFontSizeMobile?: number;
   /** Optional pre-wrapped "Popular Combos" cards rendered in their own section. */
   comboCategories?: FontCategory[];
+  /** Hide the "Jump to style" quick-links row. */
+  hideJumpLinks?: boolean;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks }: FontGeneratorProps) {
   const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
@@ -283,14 +285,16 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
               </span>
             </div>
           </div>
-          <CategoryJumpLinks
-            categories={customCategories ? filteredCategories.map((cat) => ({
-              label: cat.name,
-              emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
-              id: `cat-${slugify(cat.name)}`,
-            })) : homeCategoryLinks}
-            onExpandAll={() => setShowAll(true)}
-          />
+          {!hideJumpLinks && (
+            <CategoryJumpLinks
+              categories={customCategories ? filteredCategories.map((cat) => ({
+                label: cat.name,
+                emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
+                id: `cat-${slugify(cat.name)}`,
+              })) : homeCategoryLinks}
+              onExpandAll={() => setShowAll(true)}
+            />
+          )}
         </div>
       </section>
 
