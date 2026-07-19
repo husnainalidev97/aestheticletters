@@ -40,6 +40,7 @@ export default function BigTextGenerator({ totalFontStyles }: BigTextGeneratorPr
       wrapSymbols={bigTextWrapSymbols}
       comboCategories={bigTextComboCategories}
       hideJumpLinks
+      hideDownload
     />
   );
 }

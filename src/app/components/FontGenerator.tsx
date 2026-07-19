@@ -74,9 +74,11 @@ interface FontGeneratorProps {
   comboCategories?: FontCategory[];
   /** Hide the "Jump to style" quick-links row. */
   hideJumpLinks?: boolean;
+  /** Hide the "Download as image" button on every card. */
+  hideDownload?: boolean;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload }: FontGeneratorProps) {
   const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
@@ -418,7 +420,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
                 onPreview={handlePreview}
-                onDownload={handleDownload}
+                onDownload={hideDownload ? undefined : handleDownload}
                 onScalePreview={enableScalePreview ? handleScalePreview : undefined}
                 wrapSymbol={wrapSymbol}
               />
@@ -453,7 +455,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                     isFavorite={isFavorite}
                     onToggleFavorite={toggleFavorite}
                     onPreview={handlePreview}
-                    onDownload={handleDownload}
+                    onDownload={hideDownload ? undefined : handleDownload}
                     onScalePreview={enableScalePreview ? handleScalePreview : undefined}
                     wrapSymbol={null}
                   />
