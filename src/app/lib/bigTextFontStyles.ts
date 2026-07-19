@@ -106,7 +106,7 @@ export const bigTextFontCategories: FontCategory[] = [
 
 const BOLD_ARROW = String.fromCodePoint(0x2b95); // ⮕
 const HEAVY_BAR = String.fromCodePoint(0x25ac); // ▬
-const POINTER = String.fromCodePoint(0x2bc8); // ⯈
+const POINTER = String.fromCodePoint(0x27a2); // ➢
 const STARBURST = String.fromCodePoint(0x2742); // ❂
 const BLOCK_FRAME = String.fromCodePoint(0x25ae); // ▮
 const CHECKER = String.fromCodePoint(0x259e, 0x259a); // ▞▚
@@ -150,7 +150,7 @@ export const bigTextWrapSymbols: WrapSymbol[] = [
   { label: "Loud", symbol: String.fromCodePoint(0x1f50a) }, // 🔊
   // Clean / professional — emoji-free pointers, bars, featured mark
   { label: "Bold Arrow", symbol: String.fromCodePoint(0x2b95) }, // ⮕
-  { label: "Pointer", symbol: String.fromCodePoint(0x2bc8) }, // ⯈
+  { label: "Pointer", symbol: String.fromCodePoint(0x27a2) }, // ➢
   { label: "Block Frame", symbol: String.fromCodePoint(0x25ae) }, // ▮
   { label: "Heavy Bar", symbol: String.fromCodePoint(0x25ac) }, // ▬
   { label: "Starburst", symbol: String.fromCodePoint(0x2742) }, // ❂
