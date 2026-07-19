@@ -325,29 +325,41 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           const wrapCount = wrapSymbols.length;
           const wayCount = styleCount * (wrapCount + 1);
           return (
-          <div className="mb-6 rounded-2xl bg-surface-container-low p-4">
-            <p className="font-body text-sm text-on-surface-variant mb-3">
-              <span className="font-semibold text-on-background">{styleCount} styles</span>
-              {", "}
-              <span className="font-semibold text-on-background">{wrapCount} symbol wraps</span>
-              {", "}
-              <span className="font-semibold text-on-background">{wayCount} ways</span>
-              {" to style your text"}
-            </p>
-            <div className="flex items-center justify-between gap-2 mb-3">
-              <span className="font-headline text-sm font-bold tracking-tight text-on-background">
-                Wrap with a symbol
+          <div className="mb-8 rounded-2xl border border-outline-variant/15 bg-surface-container-low p-5 md:p-6">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+              <div className="min-w-0">
+                <h2 className="font-headline text-base md:text-lg font-bold tracking-tight text-on-background">
+                  Add a symbol wrapper
+                </h2>
+                <p className="font-body text-sm text-on-surface-variant mt-1">
+                  Frame your text on both sides — or keep it plain.
+                </p>
+              </div>
+              <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5z" /></svg>
+                {styleCount} styles × {wrapCount + 1} wraps = {wayCount} looks
               </span>
-              {wrapSymbol && (
-                <button
-                  onClick={() => setWrapSymbol(null)}
-                  className="text-xs font-body text-primary hover:underline"
-                >
-                  Clear
-                </button>
-              )}
             </div>
-            <div className="flex flex-wrap gap-2">
+
+            <div
+              role="group"
+              aria-label="Symbol wrapper"
+              className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"
+            >
+              <button
+                type="button"
+                aria-pressed={wrapSymbol === null}
+                onClick={() => setWrapSymbol(null)}
+                title="No symbol — plain text"
+                className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
+                  wrapSymbol === null
+                    ? "border-primary bg-primary text-on-primary shadow-sm"
+                    : "border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 hover:bg-surface-container-high"
+                }`}
+              >
+                <span aria-hidden="true" className="text-base leading-none font-bold tracking-tight">Aa</span>
+                <span className="truncate">Plain</span>
+              </button>
               {wrapSymbols.map(({ label, symbol }) => {
                 const active = wrapSymbol === symbol;
                 return (
@@ -357,14 +369,14 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                     aria-pressed={active}
                     onClick={() => setWrapSymbol(active ? null : symbol)}
                     title={`Wrap with ${label}`}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-body transition-all ${
+                    className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
                       active
-                        ? "bg-primary text-on-primary"
-                        : "bg-surface hover:bg-surface-container-high text-on-surface-variant"
+                        ? "border-primary bg-primary text-on-primary shadow-sm"
+                        : "border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 hover:bg-surface-container-high"
                     }`}
                   >
-                    <span aria-hidden="true" className="text-base leading-none">{symbol}</span>
-                    <span>{label}</span>
+                    <span aria-hidden="true" className="w-5 shrink-0 text-center text-lg leading-none">{symbol}</span>
+                    <span className="truncate">{label}</span>
                   </button>
                 );
               })}
