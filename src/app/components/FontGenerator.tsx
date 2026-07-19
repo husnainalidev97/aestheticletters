@@ -402,6 +402,52 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           );
         })()}
 
+        {wrapSymbols && wrapSymbols.length > 0 && (
+          <div className="mb-8 rounded-2xl border border-outline-variant/30 bg-surface-container-low/60 p-4 md:p-5">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="font-headline text-sm font-bold tracking-tight text-on-background">
+                Live preview
+              </h3>
+              <span className="font-body text-xs text-on-surface-variant">
+                {wrapSymbol ? "Wrapped" : "Plain"} — tap a symbol above to update
+              </span>
+            </div>
+            <div className="mt-3 space-y-2">
+              {allCategories.map((category) => {
+                const style = category.styles[0];
+                if (!style) return null;
+                const wrap = (s: string) => (wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s);
+                const converted = wrap(style.transform(displayText));
+                const display = wrap((style.displayTransform ?? style.transform)(displayText));
+                const id = `preview-${slugify(category.name)}`;
+                return (
+                  <div
+                    key={category.name}
+                    className="flex items-center justify-between gap-3 rounded-xl bg-surface px-3 py-2.5"
+                  >
+                    <span className="min-w-0 flex-1 truncate text-lg text-on-background" title={category.name}>
+                      {display}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(converted, id)}
+                      aria-label={`Copy ${category.name}`}
+                      className="flex shrink-0 items-center gap-1.5 rounded-full border border-outline-variant/40 px-3 py-1.5 text-xs font-medium text-on-surface-variant transition-all hover:border-primary/50 hover:text-primary"
+                    >
+                      {copiedId === id ? (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                      ) : (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                      )}
+                      {copiedId === id ? "Copied" : "Copy"}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category, index) => (
             <div
