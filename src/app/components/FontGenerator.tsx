@@ -70,9 +70,11 @@ interface FontGeneratorProps {
   maxFontSizeDesktop?: number;
   /** Max preview font size in px on mobile (defaults to 30). */
   maxFontSizeMobile?: number;
+  /** Optional pre-wrapped "Popular Combos" cards rendered in their own section. */
+  comboCategories?: FontCategory[];
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories }: FontGeneratorProps) {
   const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
@@ -419,6 +421,43 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
             </div>
           ))}
         </div>
+
+        {comboCategories && comboCategories.length > 0 && (
+          <div className="mt-12">
+            <div className="mb-6">
+              <h2 className="font-headline text-xl md:text-2xl font-bold tracking-tight text-on-background">
+                Popular Combos
+              </h2>
+              <p className="font-body text-sm text-on-surface-variant mt-1">
+                Ready-made style + symbol pairings — copy, scale, or share like any other card.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {comboCategories.map((category) => (
+                <div
+                  key={category.name}
+                  id={`cat-${slugify(category.name)}`}
+                  className="animate-card-fade-in scroll-mt-28"
+                >
+                  <FontCategoryCard
+                    category={category}
+                    text={displayText}
+                    fontSize={fontSize}
+                    copiedId={copiedId}
+                    onCopy={handleCopy}
+                    isDark={false}
+                    isFavorite={isFavorite}
+                    onToggleFavorite={toggleFavorite}
+                    onPreview={handlePreview}
+                    onDownload={handleDownload}
+                    onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                    wrapSymbol={null}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Explore More Button — loads remaining deferred categories */}
         {!showAll && filteredCategories.length > INITIAL_COUNT && (
