@@ -64,12 +64,21 @@ interface FontGeneratorProps {
   enableScalePreview?: boolean;
   /** Optional symbol wrappers — renders a picker that symmetrically wraps output. */
   wrapSymbols?: WrapSymbol[];
+  /** Initial preview font size in px (defaults to 18). */
+  defaultFontSize?: number;
+  /** Max preview font size in px on desktop (defaults to 40). */
+  maxFontSizeDesktop?: number;
+  /** Max preview font size in px on mobile (defaults to 30). */
+  maxFontSizeMobile?: number;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile }: FontGeneratorProps) {
+  const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
+  const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
+  const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
   const [text, setText] = useState("");
-  const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
-  const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
+  const [fontSize, setFontSize] = useState(initialSize);
+  const [maxSize, setMaxSize] = useState(maxDesktop);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
@@ -104,14 +113,14 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
     const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      const newMax = e.matches ? MAX_SIZE_MOBILE : MAX_SIZE_DESKTOP;
+      const newMax = e.matches ? maxMobile : maxDesktop;
       setMaxSize(newMax);
       setFontSize((prev) => Math.min(prev, newMax));
     };
     handler(mql);
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  }, []);
+  }, [maxMobile, maxDesktop]);
 
   // Save text to history (debounced 1.5s after last keystroke)
   useEffect(() => {
