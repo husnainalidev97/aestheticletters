@@ -390,6 +390,7 @@ export default function BigTextGeneratorPage() {
     name: "How to Copy and Paste Big Text",
     description:
       "Turn any word or phrase into big text and copy it anywhere in three steps.",
+    image: `${IMAGE_BASE}/${contentImages.howTo.file}`,
     totalTime: "PT1M",
     step: howToSteps.map((item) => ({
       "@type": "HowToStep",
@@ -494,6 +495,8 @@ export default function BigTextGeneratorPage() {
                   width={contentImages.styles.width}
                   height={contentImages.styles.height}
                   className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="space-y-8">
                   {bigTextStyles.map((style) => (
@@ -524,6 +527,8 @@ export default function BigTextGeneratorPage() {
                   width={contentImages.howTo.width}
                   height={contentImages.howTo.height}
                   className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="space-y-8">
                   {howToSteps.map((item) => (
@@ -570,6 +575,8 @@ export default function BigTextGeneratorPage() {
                   width={contentImages.fullwidth.width}
                   height={contentImages.fullwidth.height}
                   className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="space-y-6">
                   {notBiggerParagraphs.map((para, i) => (
@@ -598,6 +605,8 @@ export default function BigTextGeneratorPage() {
                   width={contentImages.useCases.width}
                   height={contentImages.useCases.height}
                   className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="space-y-8">
                   {useCases.map((item) => (
@@ -656,6 +665,8 @@ export default function BigTextGeneratorPage() {
                   width={contentImages.boxes.width}
                   height={contentImages.boxes.height}
                   className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="space-y-8">
                   {notWorking.map((item) => (
