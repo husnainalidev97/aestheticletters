@@ -109,7 +109,7 @@ const IMPACT = String.fromCodePoint(0x1f4a5); // 💥
 const ANNOUNCEMENT = String.fromCodePoint(0x1f4e2); // 📢
 const TARGET = String.fromCodePoint(0x1f3af); // 🎯
 const SCALE_UP = String.fromCodePoint(0x1f4c8); // 📈
-const EMPHASIS = "\u203c\ufe0f"; // ‼️
+const LOUD = String.fromCodePoint(0x1f50a); // 🔊
 
 /** Wrap a base transform's output symmetrically with a symbol. */
 const combo = (base: (t: string) => string, symbol: string) => (t: string) =>
@@ -126,7 +126,7 @@ export const bigTextComboCategories: FontCategory[] = [
   makeCombo("Bold Sans · Impact", boldSansBase, IMPACT),
   makeCombo("Bold Sans · Target", boldSansBase, TARGET),
   makeCombo("Bold Serif · Announcement", boldSerifBase, ANNOUNCEMENT),
-  makeCombo("Bold Serif · Emphasis", boldSerifBase, EMPHASIS),
+  makeCombo("Bold Serif · Loud", boldSerifBase, LOUD),
 ];
 
 /**
@@ -140,12 +140,18 @@ export interface WrapSymbol {
 }
 
 export const bigTextWrapSymbols: WrapSymbol[] = [
+  // Expressive / social — attention, impact, scale
   { label: "Alert", symbol: String.fromCodePoint(0x1f6a8) }, // 🚨
   { label: "Impact", symbol: String.fromCodePoint(0x1f4a5) }, // 💥
   { label: "Announcement", symbol: String.fromCodePoint(0x1f4e2) }, // 📢
+  { label: "Megaphone", symbol: String.fromCodePoint(0x1f4e3) }, // 📣
   { label: "Target", symbol: String.fromCodePoint(0x1f3af) }, // 🎯
   { label: "Scale Up", symbol: String.fromCodePoint(0x1f4c8) }, // 📈
+  { label: "Loud", symbol: String.fromCodePoint(0x1f50a) }, // 🔊
+  // Clean / professional — emoji-free pointers, bars, featured mark
   { label: "Bold Arrow", symbol: String.fromCodePoint(0x2b95) }, // ⮕
+  { label: "Pointer", symbol: String.fromCodePoint(0x2bc8) }, // ⯈
   { label: "Block Frame", symbol: String.fromCodePoint(0x25ae) }, // ▮
-  { label: "Emphasis", symbol: "\u203c\ufe0f" }, // ‼️
+  { label: "Heavy Bar", symbol: String.fromCodePoint(0x25ac) }, // ▬
+  { label: "Starburst", symbol: String.fromCodePoint(0x2742) }, // ❂
 ];
