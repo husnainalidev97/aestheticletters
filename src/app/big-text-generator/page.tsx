@@ -121,8 +121,21 @@ const bigTextStyles = [
   },
   {
     name: "Bold Serif \u2014 classic and heavy",
-    description:
-      "Bold Serif carries the same full coverage as Bold Sans, with small strokes at the letter ends for a more traditional look. This page uses only 2 of the 9 bold styles verified on our bold font generator, where the complete set lives, each checked letter by letter before publishing.",
+    description: (
+      <>
+        Bold Serif carries the same full coverage as Bold Sans, with small
+        strokes at the letter ends for a more traditional look. This page uses
+        only 2 of the 9 bold styles verified on our{" "}
+        <Link
+          href="/bold-font-generator"
+          className="text-primary underline underline-offset-4 hover:no-underline"
+        >
+          bold font generator
+        </Link>
+        , where the complete set lives, each checked letter by letter before
+        publishing.
+      </>
+    ),
   },
 ];
 
@@ -175,7 +188,20 @@ const useCases = [
   },
   {
     title: "Discord servers and headers",
-    body: "Discord server names and channel categories often use wide, spaced out text to create a banner style look at the top of a member list. For more Discord specific styles built around usernames and roles, see our discord font generator.",
+    body: (
+      <>
+        Discord server names and channel categories often use wide, spaced out
+        text to create a banner style look at the top of a member list. For more
+        Discord specific styles built around usernames and roles, see our{" "}
+        <Link
+          href="/discord-fonts"
+          className="text-primary underline underline-offset-4 hover:no-underline"
+        >
+          discord font generator
+        </Link>
+        .
+      </>
+    ),
   },
 ];
 
