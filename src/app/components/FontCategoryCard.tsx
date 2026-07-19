@@ -17,6 +17,8 @@ interface FontCategoryCardProps {
   onPreview?: (text: string) => void;
   onDownload?: (text: string, styleName: string) => void;
   onScalePreview?: (text: string) => void;
+  /** When set, wraps each style's output symmetrically with this symbol. */
+  wrapSymbol?: string | null;
   initialVisibleStyles?: number;
 }
 
@@ -32,6 +34,7 @@ function FontCategoryCard({
   onPreview,
   onDownload,
   onScalePreview,
+  wrapSymbol,
   initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
@@ -41,17 +44,17 @@ function FontCategoryCard({
     ? category.styles
     : category.styles.slice(0, initialVisibleStyles);
 
-  const transformedStyles = useMemo(
-    () =>
-      stylesToTransform.map((style) => ({
-        style,
-        converted: style.transform(text),
-        display: (style.displayTransform ?? style.transform)(text),
-        styleId: `${category.name}-${style.name}`,
-      })),
+  const transformedStyles = useMemo(() => {
+    const wrap = (s: string) =>
+      wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
+    return stylesToTransform.map((style) => ({
+      style,
+      converted: wrap(style.transform(text)),
+      display: wrap((style.displayTransform ?? style.transform)(text)),
+      styleId: `${category.name}-${style.name}`,
+    }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [category, text, showAllStyles],
-  );
+  }, [category, text, showAllStyles, wrapSymbol]);
 
   const hiddenCount = category.styles.length - stylesToTransform.length;
 

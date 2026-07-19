@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { bigTextFontCategories } from "../lib/bigTextFontStyles";
+import { bigTextFontCategories, bigTextWrapSymbols } from "../lib/bigTextFontStyles";
 
 const FontGenerator = dynamic(() => import("./FontGenerator"), {
   loading: () => (
@@ -37,6 +37,7 @@ export default function BigTextGenerator({ totalFontStyles }: BigTextGeneratorPr
       categories={bigTextFontCategories}
       defaultText="Big Text"
       enableScalePreview
+      wrapSymbols={bigTextWrapSymbols}
     />
   );
 }

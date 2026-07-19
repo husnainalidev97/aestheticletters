@@ -97,3 +97,24 @@ export const bigTextFontCategories: FontCategory[] = [
   boldSans,
   boldSerif,
 ];
+
+/**
+ * Optional symbol wrappers for the Big Text picker. Each wraps the generated
+ * text symmetrically (same symbol on both sides). All verified unused
+ * elsewhere on the site. `symbol` is what gets inserted; `label` names it.
+ */
+export interface WrapSymbol {
+  label: string;
+  symbol: string;
+}
+
+export const bigTextWrapSymbols: WrapSymbol[] = [
+  { label: "Alert", symbol: String.fromCodePoint(0x1f6a8) }, // 🚨
+  { label: "Impact", symbol: String.fromCodePoint(0x1f4a5) }, // 💥
+  { label: "Announcement", symbol: String.fromCodePoint(0x1f4e2) }, // 📢
+  { label: "Target", symbol: String.fromCodePoint(0x1f3af) }, // 🎯
+  { label: "Scale Up", symbol: String.fromCodePoint(0x1f4c8) }, // 📈
+  { label: "Bold Arrow", symbol: String.fromCodePoint(0x2b95) }, // ⮕
+  { label: "Block Frame", symbol: String.fromCodePoint(0x25ae) }, // ▮
+  { label: "Emphasis", symbol: "\u203c\ufe0f" }, // ‼️
+];

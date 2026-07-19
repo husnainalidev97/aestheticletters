@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
 import { fontCategories, type FontCategory } from "../lib/fontStyles";
+import type { WrapSymbol } from "../lib/bigTextFontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
@@ -61,9 +62,11 @@ interface FontGeneratorProps {
   charWeightLabel?: string;
   /** Enable the "Preview at scale" modal (banner/thumbnail/story frames). */
   enableScalePreview?: boolean;
+  /** Optional symbol wrappers — renders a picker that symmetrically wraps output. */
+  wrapSymbols?: WrapSymbol[];
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols }: FontGeneratorProps) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
@@ -82,6 +85,9 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const [previewText, setPreviewText] = useState<string | null>(null);
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
   const [scalePreviewText, setScalePreviewText] = useState<string | null>(null);
+
+  // Selected symbol wrapper (null = off)
+  const [wrapSymbol, setWrapSymbol] = useState<string | null>(null);
 
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -314,6 +320,46 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           </div>
         )}
 
+        {wrapSymbols && wrapSymbols.length > 0 && (
+          <div className="mb-6 rounded-2xl bg-surface-container-low p-4">
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <span className="font-headline text-sm font-bold tracking-tight text-on-background">
+                Wrap with a symbol
+              </span>
+              {wrapSymbol && (
+                <button
+                  onClick={() => setWrapSymbol(null)}
+                  className="text-xs font-body text-primary hover:underline"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {wrapSymbols.map(({ label, symbol }) => {
+                const active = wrapSymbol === symbol;
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setWrapSymbol(active ? null : symbol)}
+                    title={`Wrap with ${label}`}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-body transition-all ${
+                      active
+                        ? "bg-primary text-on-primary"
+                        : "bg-surface hover:bg-surface-container-high text-on-surface-variant"
+                    }`}
+                  >
+                    <span aria-hidden="true" className="text-base leading-none">{symbol}</span>
+                    <span>{label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category, index) => (
             <div
@@ -334,6 +380,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 onPreview={handlePreview}
                 onDownload={handleDownload}
                 onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                wrapSymbol={wrapSymbol}
               />
             </div>
           ))}
