@@ -154,4 +154,9 @@ export const bigTextWrapSymbols: WrapSymbol[] = [
   { label: "Block Frame", symbol: String.fromCodePoint(0x25ae) }, // ▮
   { label: "Heavy Bar", symbol: String.fromCodePoint(0x25ac) }, // ▬
   { label: "Starburst", symbol: String.fromCodePoint(0x2742) }, // ❂
+  // Banner / line frames — competitor-style structural wraps, all site-unique
+  { label: "Dashes", symbol: String.fromCodePoint(0x2505) }, // ┅
+  { label: "Pillars", symbol: String.fromCodePoint(0x2016) }, // ‖
+  { label: "Checker", symbol: String.fromCodePoint(0x259e, 0x259a) }, // ▞▚
+  { label: "Side Bars", symbol: String.fromCodePoint(0x258a) }, // ▊
 ];
