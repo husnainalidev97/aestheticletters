@@ -320,8 +320,20 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           </div>
         )}
 
-        {wrapSymbols && wrapSymbols.length > 0 && (
+        {wrapSymbols && wrapSymbols.length > 0 && (() => {
+          const styleCount = allCategories.reduce((sum, cat) => sum + cat.styles.length, 0);
+          const wrapCount = wrapSymbols.length;
+          const wayCount = styleCount * (wrapCount + 1);
+          return (
           <div className="mb-6 rounded-2xl bg-surface-container-low p-4">
+            <p className="font-body text-sm text-on-surface-variant mb-3">
+              <span className="font-semibold text-on-background">{styleCount} styles</span>
+              {", "}
+              <span className="font-semibold text-on-background">{wrapCount} symbol wraps</span>
+              {", "}
+              <span className="font-semibold text-on-background">{wayCount} ways</span>
+              {" to style your text"}
+            </p>
             <div className="flex items-center justify-between gap-2 mb-3">
               <span className="font-headline text-sm font-bold tracking-tight text-on-background">
                 Wrap with a symbol
@@ -358,7 +370,8 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
               })}
             </div>
           </div>
-        )}
+          );
+        })()}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category, index) => (
