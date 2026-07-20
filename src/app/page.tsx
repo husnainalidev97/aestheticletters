@@ -94,6 +94,7 @@ export default function Home() {
           { "@type": "ListItem", position: 11, name: "Serif Fonts", url: "https://www.aestheticletters.com/serif-fonts" },
           { "@type": "ListItem", position: 12, name: "Sans Serif Fonts", url: "https://www.aestheticletters.com/sans-serif-fonts" },
           { "@type": "ListItem", position: 13, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
+          { "@type": "ListItem", position: 14, name: "Big Text Generator", url: "https://www.aestheticletters.com/big-text-generator" },
         ],
       },
     ],
@@ -239,6 +240,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
+                  { label: "Big Text Generator", href: "/big-text-generator", icon: "\uD83D\uDD20", desc: "Preview text at scale" },
                   { label: "Number Fonts", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "100+ number styles" },
                   { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDFF7\uFE0F", desc: "Classic serif styles" },
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern fonts" },

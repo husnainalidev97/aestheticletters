@@ -16,6 +16,9 @@ interface FontCategoryCardProps {
   onToggleFavorite?: (item: { id: string; styleName: string; categoryName: string; text: string; fontFamily?: string }) => void;
   onPreview?: (text: string) => void;
   onDownload?: (text: string, styleName: string) => void;
+  onScalePreview?: (text: string) => void;
+  /** When set, wraps each style's output symmetrically with this symbol. */
+  wrapSymbol?: string | null;
   initialVisibleStyles?: number;
 }
 
@@ -30,6 +33,8 @@ function FontCategoryCard({
   onToggleFavorite,
   onPreview,
   onDownload,
+  onScalePreview,
+  wrapSymbol,
   initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
@@ -39,17 +44,17 @@ function FontCategoryCard({
     ? category.styles
     : category.styles.slice(0, initialVisibleStyles);
 
-  const transformedStyles = useMemo(
-    () =>
-      stylesToTransform.map((style) => ({
-        style,
-        converted: style.transform(text),
-        display: (style.displayTransform ?? style.transform)(text),
-        styleId: `${category.name}-${style.name}`,
-      })),
+  const transformedStyles = useMemo(() => {
+    const wrap = (s: string) =>
+      wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
+    return stylesToTransform.map((style) => ({
+      style,
+      converted: wrap(style.transform(text)),
+      display: wrap((style.displayTransform ?? style.transform)(text)),
+      styleId: `${category.name}-${style.name}`,
+    }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [category, text, showAllStyles],
-  );
+  }, [category, text, showAllStyles, wrapSymbol]);
 
   const hiddenCount = category.styles.length - stylesToTransform.length;
 
@@ -120,6 +125,21 @@ function FontCategoryCard({
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
                     <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
+                  </button>
+                )}
+                {onScalePreview && (
+                  <button
+                    onClick={() => onScalePreview(converted)}
+                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
+                      isDark
+                        ? "text-on-surface-variant/60 hover:text-primary"
+                        : "text-on-surface-variant hover:text-primary"
+                    }`}
+                    aria-label="Preview at scale"
+                    title="Preview at scale"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" /></svg>
+                    <span className="text-[0.55rem] leading-none mt-0.5">Scale</span>
                   </button>
                 )}
                 {onDownload && (

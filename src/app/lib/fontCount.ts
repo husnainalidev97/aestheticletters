@@ -9,6 +9,7 @@ import { serifUnicodeCategories, serifFontCategories } from "./serifFontStyles";
 import { sansSerifUnicodeCategories } from "./sansSerifFontStyles";
 import { numberFontCategories } from "./numberFontStyles";
 import { boldFontCategories } from "./boldFontStyles";
+import { bigTextFontCategories } from "./bigTextFontStyles";
 import { twitterFontCategories } from "./twitterFontStyles";
 import { christmasFontCategories } from "./christmasFontStyles";
 
@@ -68,6 +69,10 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
+  const bigTextCount = bigTextFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
   const twitterCount = twitterFontCategories.reduce(
     (sum, cat) => sum + cat.styles.length,
     0,
@@ -76,5 +81,5 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
-  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount + boldCount + twitterCount + christmasCount;
+  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount + boldCount + bigTextCount + twitterCount + christmasCount;
 }

@@ -107,6 +107,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/big-text-generator`,
+      lastModified: new Date("2026-07-17T00:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        `${SITE_URL}/images/big-text-generator/big-text-generator-og.webp`,
+        `${SITE_URL}/images/big-text-generator/big-text-styles-comparison.webp`,
+        `${SITE_URL}/images/big-text-generator/big-text-how-to-copy-paste.webp`,
+        `${SITE_URL}/images/big-text-generator/big-text-fullwidth-vs-bold.webp`,
+        `${SITE_URL}/images/big-text-generator/big-text-where-it-works.webp`,
+        `${SITE_URL}/images/big-text-generator/big-text-boxes-fix.webp`,
+      ],
+    },
+    {
       url: `${SITE_URL}/discord-fonts`,
       lastModified: new Date("2026-06-29T00:00:00Z"),
       changeFrequency: "weekly",

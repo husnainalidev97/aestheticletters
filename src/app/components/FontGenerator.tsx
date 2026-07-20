@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
 import { fontCategories, type FontCategory } from "../lib/fontStyles";
+import type { WrapSymbol } from "../lib/bigTextFontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
 import { useFavorites } from "../lib/useFavorites";
@@ -12,6 +13,7 @@ import TextHistory from "./TextHistory";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
+const ScalePreview = lazy(() => import("./ScalePreview"));
 
 const RESULTS_ID = "font-results";
 
@@ -58,12 +60,31 @@ interface FontGeneratorProps {
   charWeightMax?: number;
   /** Label for the weighted counter (e.g. "X Weight"). */
   charWeightLabel?: string;
+  /** Enable the "Preview at scale" modal (banner/thumbnail/story frames). */
+  enableScalePreview?: boolean;
+  /** Optional symbol wrappers — renders a picker that symmetrically wraps output. */
+  wrapSymbols?: WrapSymbol[];
+  /** Initial preview font size in px (defaults to 18). */
+  defaultFontSize?: number;
+  /** Max preview font size in px on desktop (defaults to 40). */
+  maxFontSizeDesktop?: number;
+  /** Max preview font size in px on mobile (defaults to 30). */
+  maxFontSizeMobile?: number;
+  /** Optional pre-wrapped "Popular Combos" cards rendered in their own section. */
+  comboCategories?: FontCategory[];
+  /** Hide the "Jump to style" quick-links row. */
+  hideJumpLinks?: boolean;
+  /** Hide the "Download as image" button on every card. */
+  hideDownload?: boolean;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload }: FontGeneratorProps) {
+  const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
+  const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
+  const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
   const [text, setText] = useState("");
-  const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
-  const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
+  const [fontSize, setFontSize] = useState(initialSize);
+  const [maxSize, setMaxSize] = useState(maxDesktop);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
@@ -78,6 +99,11 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   // Modal states for Preview & Download
   const [previewText, setPreviewText] = useState<string | null>(null);
   const [downloadInfo, setDownloadInfo] = useState<{ text: string; styleName: string } | null>(null);
+  const [scalePreviewText, setScalePreviewText] = useState<string | null>(null);
+
+  // Selected symbol wrapper (null = off)
+  const [wrapSymbol, setWrapSymbol] = useState<string | null>(null);
+  const [showAllWraps, setShowAllWraps] = useState(false);
 
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -94,14 +120,14 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
     const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      const newMax = e.matches ? MAX_SIZE_MOBILE : MAX_SIZE_DESKTOP;
+      const newMax = e.matches ? maxMobile : maxDesktop;
       setMaxSize(newMax);
       setFontSize((prev) => Math.min(prev, newMax));
     };
     handler(mql);
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  }, []);
+  }, [maxMobile, maxDesktop]);
 
   // Save text to history (debounced 1.5s after last keystroke)
   useEffect(() => {
@@ -165,6 +191,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
 
   const handlePreview = useCallback((t: string) => setPreviewText(t), []);
   const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
+  const handleScalePreview = useCallback((t: string) => setScalePreviewText(t), []);
 
   const handleExploreMore = () => {
     setIsLoadingMore(true);
@@ -261,14 +288,16 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
               </span>
             </div>
           </div>
-          <CategoryJumpLinks
-            categories={customCategories ? filteredCategories.map((cat) => ({
-              label: cat.name,
-              emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
-              id: `cat-${slugify(cat.name)}`,
-            })) : homeCategoryLinks}
-            onExpandAll={() => setShowAll(true)}
-          />
+          {!hideJumpLinks && (
+            <CategoryJumpLinks
+              categories={customCategories ? filteredCategories.map((cat) => ({
+                label: cat.name,
+                emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
+                id: `cat-${slugify(cat.name)}`,
+              })) : homeCategoryLinks}
+              onExpandAll={() => setShowAll(true)}
+            />
+          )}
         </div>
       </section>
 
@@ -309,6 +338,89 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           </div>
         )}
 
+        {wrapSymbols && wrapSymbols.length > 0 && (() => {
+          const styleCount = allCategories.reduce((sum, cat) => sum + cat.styles.length, 0);
+          const wrapCount = wrapSymbols.length;
+          const wayCount = styleCount * (wrapCount + 1);
+          const WRAP_PREVIEW_COUNT = 7;
+          const hasMoreWraps = wrapSymbols.length > WRAP_PREVIEW_COUNT;
+          const selectedHidden =
+            wrapSymbol !== null &&
+            wrapSymbols.findIndex((w) => w.symbol === wrapSymbol) >= WRAP_PREVIEW_COUNT;
+          const visibleWraps =
+            showAllWraps || selectedHidden ? wrapSymbols : wrapSymbols.slice(0, WRAP_PREVIEW_COUNT);
+          return (
+          <div className="mb-8 rounded-2xl border border-outline-variant/15 bg-surface-container-low p-5 md:p-6">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+              <div className="min-w-0">
+                <h2 className="font-headline text-base md:text-lg font-bold tracking-tight text-on-background">
+                  Add a symbol wrapper
+                </h2>
+                <p className="font-body text-sm text-on-surface-variant mt-1">
+                  Frame your text on both sides — or keep it plain.
+                </p>
+              </div>
+              <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5z" /></svg>
+                {styleCount} styles × {wrapCount + 1} wraps = {wayCount} looks
+              </span>
+            </div>
+
+            <div
+              role="group"
+              aria-label="Symbol wrapper"
+              className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"
+            >
+              <button
+                type="button"
+                aria-pressed={wrapSymbol === null}
+                onClick={() => setWrapSymbol(null)}
+                title="No symbol — plain text"
+                className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
+                  wrapSymbol === null
+                    ? "border-primary bg-primary text-on-primary shadow-sm"
+                    : "border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 hover:bg-surface-container-high"
+                }`}
+              >
+                <span aria-hidden="true" className="text-base leading-none font-bold tracking-tight">Aa</span>
+                <span className="truncate">Plain</span>
+              </button>
+              {visibleWraps.map(({ label, symbol }) => {
+                const active = wrapSymbol === symbol;
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setWrapSymbol(active ? null : symbol)}
+                    title={`Wrap with ${label}`}
+                    className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
+                      active
+                        ? "border-primary bg-primary text-on-primary shadow-sm"
+                        : "border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 hover:bg-surface-container-high"
+                    }`}
+                  >
+                    <span aria-hidden="true" className="w-5 shrink-0 text-center text-lg leading-none">{symbol}</span>
+                    <span className="truncate">{label}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {hasMoreWraps && !selectedHidden && (
+              <button
+                type="button"
+                onClick={() => setShowAllWraps((v) => !v)}
+                aria-expanded={showAllWraps}
+                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+              >
+                {showAllWraps ? "Show fewer symbols" : `More symbols (${wrapSymbols.length - WRAP_PREVIEW_COUNT})`}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={`transition-transform ${showAllWraps ? "rotate-180" : ""}`}><polyline points="6 9 12 15 18 9" /></svg>
+              </button>
+            )}
+          </div>
+          );
+        })()}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleCategories.map((category, index) => (
             <div
@@ -327,14 +439,53 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
                 onPreview={handlePreview}
-                onDownload={handleDownload}
+                onDownload={hideDownload ? undefined : handleDownload}
+                onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                wrapSymbol={wrapSymbol}
               />
             </div>
           ))}
         </div>
 
-        {/* Explore More Button — loads remaining 7 deferred categories */}
-        {!showAll && (
+        {comboCategories && comboCategories.length > 0 && (
+          <div className="mt-12">
+            <div className="mb-6">
+              <h2 className="font-headline text-xl md:text-2xl font-bold tracking-tight text-on-background">
+                Popular Combos
+              </h2>
+              <p className="font-body text-sm text-on-surface-variant mt-1">
+                Ready-made style + symbol pairings — copy, scale, or share like any other card.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {comboCategories.map((category) => (
+                <div
+                  key={category.name}
+                  id={`cat-${slugify(category.name)}`}
+                  className="animate-card-fade-in scroll-mt-28"
+                >
+                  <FontCategoryCard
+                    category={category}
+                    text={displayText}
+                    fontSize={fontSize}
+                    copiedId={copiedId}
+                    onCopy={handleCopy}
+                    isDark={false}
+                    isFavorite={isFavorite}
+                    onToggleFavorite={toggleFavorite}
+                    onPreview={handlePreview}
+                    onDownload={hideDownload ? undefined : handleDownload}
+                    onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                    wrapSymbol={null}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Explore More Button — loads remaining deferred categories */}
+        {!showAll && filteredCategories.length > INITIAL_COUNT && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
@@ -385,6 +536,13 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
             styleName={downloadInfo.styleName}
             onClose={() => setDownloadInfo(null)}
           />
+        </Suspense>
+      )}
+
+      {/* Preview at Scale Modal — code-split */}
+      {scalePreviewText !== null && (
+        <Suspense fallback={null}>
+          <ScalePreview text={scalePreviewText} onClose={() => setScalePreviewText(null)} />
         </Suspense>
       )}
     </>
