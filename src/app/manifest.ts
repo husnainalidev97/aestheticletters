@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
+import { getTotalFontStyleCount } from "./lib/fontCount";
 
 export default function manifest(): MetadataRoute.Manifest {
+  const totalFontStyles = getTotalFontStyleCount();
+  
   return {
     name: "Aesthetic Letters",
     short_name: "Aesthetic Letters",
     description:
-      "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more.",
+      `Create aesthetic fonts with ${totalFontStyles}+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more.`,
     start_url: "/",
     display: "standalone",
     background_color: "#fcf9f8",

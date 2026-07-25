@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
+import { getTotalFontStyleCount } from "./lib/fontCount";
 
 export const metadata: Metadata = {
   title: "Page Not Found | Aesthetic Letters",
@@ -10,11 +11,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+const totalFontStyles = getTotalFontStyleCount();
+
 const quickLinks = [
   {
     href: "/",
     label: "Aesthetic Fonts",
-    description: "120+ copy-paste stylish fonts for every platform.",
+    description: `${totalFontStyles}+ copy-paste stylish fonts for every platform.`,
     icon: "auto_awesome",
   },
   {

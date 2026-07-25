@@ -8,6 +8,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Sidebar from "../components/Sidebar";
 import HalloweenFontsClient from "./HalloweenFontsClientLazy";
 import Breadcrumb from "../components/Breadcrumb";
+import { getTotalFontStyleCount } from "../lib/fontCount";
 
 export const metadata: Metadata = {
   title: { absolute: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)" },
@@ -101,6 +102,8 @@ const symbolsTable = [
 ];
 
 export default function HalloweenFontsPage() {
+  const totalFontStyles = getTotalFontStyleCount();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -705,7 +708,7 @@ export default function HalloweenFontsPage() {
                   <Link href="/fancy-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                     fancy fonts generator
                   </Link>{" "}
-                  covers 120+ decorative styles that work across every occasion.
+                  covers {totalFontStyles}+ decorative styles that work across every occasion.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   Once October ends, our{" "}

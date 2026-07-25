@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const totalFontStyles = getTotalFontStyleCount();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -141,8 +143,6 @@ export default function Home() {
       },
     })),
   };
-
-  const totalFontStyles = getTotalFontStyleCount();
 
   return (
     <>

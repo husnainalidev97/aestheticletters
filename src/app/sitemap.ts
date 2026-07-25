@@ -102,9 +102,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/bold-font-generator`,
-      lastModified: new Date("2026-06-29T00:00:00Z"),
+      lastModified: new Date("2026-07-25T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/bold-font-generator/bold-font-generator-og.webp`,
+        `${SITE_URL}/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp`,
+        `${SITE_URL}/images/bold-font-generator/bold-text-works-best-social-media-platforms.webp`,
+        `${SITE_URL}/images/bold-font-generator/nine-bold-font-styles-comparison-chart.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/big-text-generator`,

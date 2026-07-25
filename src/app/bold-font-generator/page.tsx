@@ -760,6 +760,7 @@ export default function BoldFontGeneratorPage() {
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDD70\uFE0F", desc: "Classic serif letters" },
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDD24", desc: "Clean modern text" },
+                  { label: "Big Text Styles", href: "/big-text-generator", icon: "\uD83D\uDD20", desc: "Preview text at scale" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

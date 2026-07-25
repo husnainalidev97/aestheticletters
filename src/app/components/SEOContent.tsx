@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+import { getTotalFontStyleCount } from "../lib/fontCount";
+
 export default function SEOContent() {
+  const totalFontStyles = getTotalFontStyleCount();
+
   return (
     <div className="lg:col-span-8 flex flex-col gap-16">
       {/* Section 1: What is an Aesthetic Fonts Generator? */}
@@ -58,7 +62,7 @@ export default function SEOContent() {
               Creative
             </h3>
             <p className="text-xs text-on-surface-variant">
-              Access 120+ styles from gothic to vaporwave.
+              Access {totalFontStyles}+ styles from gothic to vaporwave.
             </p>
           </div>
         </div>
@@ -121,13 +125,13 @@ export default function SEOContent() {
         </div>
       </article>
 
-      {/* Section 3: Choose From 120+ Aesthetic Font Styles */}
+      {/* Section 3: Choose From Aesthetic Font Styles */}
       <article>
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-          Choose From 120+ Aesthetic Font Styles
+          Choose From {totalFontStyles}+ Aesthetic Font Styles
         </h2>
         <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-          Here&apos;s the interesting part: these 120+ aesthetic font styles give
+          Here&apos;s the interesting part: these {totalFontStyles}+ aesthetic font styles give
           you multiple ways to style your text based on where and how you want to
           use it. From clean and professional looks to bold, decorative designs,
           every style is built for a specific purpose.

@@ -12,6 +12,7 @@ import { boldFontCategories } from "./boldFontStyles";
 import { bigTextFontCategories } from "./bigTextFontStyles";
 import { twitterFontCategories } from "./twitterFontStyles";
 import { christmasFontCategories } from "./christmasFontStyles";
+import { weirdFontCategories } from "./weirdFontStyles";
 
 // Instagram font cards are in a "use client" component and cannot be imported
 // at static build time. Count is derived from 12 categories × ~10 styles each.
@@ -81,5 +82,9 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
-  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount + boldCount + bigTextCount + twitterCount + christmasCount;
+  const weirdCount = weirdFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount + boldCount + bigTextCount + twitterCount + christmasCount + weirdCount;
 }
