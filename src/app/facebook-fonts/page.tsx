@@ -119,7 +119,7 @@ export default function FacebookFontsPage() {
           "@id": "https://www.aestheticletters.com/facebook-fonts#breadcrumb",
         },
         primaryImageOfPage: {
-          "@id": "https://www.aestheticletters.com/facebook-fonts#image-how-to-use",
+          "@id": "https://www.aestheticletters.com/facebook-fonts#image-what-are",
         },
       },
       {
@@ -136,6 +136,16 @@ export default function FacebookFontsPage() {
           price: "0",
           priceCurrency: "USD",
         },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-what-are",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-what-are.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-what-are.webp",
+        width: 1536,
+        height: 1024,
+        caption: "Plain text converted into Unicode characters and then displayed as styled text on Facebook, explaining what Facebook fonts are",
+        inLanguage: "en",
       },
       {
         "@type": "ImageObject",
@@ -335,8 +345,8 @@ export default function FacebookFontsPage() {
                   What Are Facebook Fonts?
                 </h2>
                 <Image
-                  src="/images/facebook-fonts/facebook-fonts-before-after.webp"
-                  alt="Side by side comparison of a plain Facebook profile versus the same profile using styled Unicode fonts in the intro section"
+                  src="/images/facebook-fonts/facebook-fonts-what-are.webp"
+                  alt="Plain text converted into Unicode characters and then displayed as styled text on Facebook, explaining what Facebook fonts are"
                   width={1536}
                   height={1024}
                   className="w-full h-auto rounded-xl mb-8"
@@ -348,6 +358,27 @@ export default function FacebookFontsPage() {
                   no settings, and no technical knowledge needed. Since facebook does not let you bold, italicize, or
                   style your text natively, this generator converts your plain words into Unicode characters that look
                   like different font styles but work inside any facebook text field.
+                </p>
+              </article>
+
+              {/* Before & After: Facebook Fonts Make Your Profile Stand Out */}
+              <article>
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Before &amp; After: Facebook Fonts Make Your Profile Stand Out
+                </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-before-after.webp"
+                  alt="Side by side comparison of a plain Facebook profile versus the same profile using styled Unicode fonts in the intro section"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  The difference is immediate. A plain Facebook profile intro looks like every other profile. The same
+                  intro with bold headings, cursive highlights, and small caps taglines looks intentional, memorable,
+                  and designed. That is the real value of using Facebook fonts.
                 </p>
               </article>
 

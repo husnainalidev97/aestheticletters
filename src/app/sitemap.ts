@@ -103,6 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-og.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-what-are.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-how-to-use.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-where-they-work.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-styles-comparison.webp`,
