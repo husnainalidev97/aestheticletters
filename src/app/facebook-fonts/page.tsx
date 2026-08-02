@@ -142,8 +142,8 @@ export default function FacebookFontsPage() {
         "@id": "https://www.aestheticletters.com/facebook-fonts#image-what-are",
         url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-what-are.webp",
         contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-what-are.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Plain text converted into Unicode characters and then displayed as styled text on Facebook, explaining what Facebook fonts are",
         inLanguage: "en",
       },
@@ -162,8 +162,8 @@ export default function FacebookFontsPage() {
         "@id": "https://www.aestheticletters.com/facebook-fonts#image-where-they-work",
         url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-where-they-work.webp",
         contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-where-they-work.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Facebook platform mockup showing where Unicode styled text works: posts, bio, comments, groups, pages, and marketplace listings",
         inLanguage: "en",
       },
@@ -192,8 +192,8 @@ export default function FacebookFontsPage() {
         "@id": "https://www.aestheticletters.com/facebook-fonts#image-for-businesses",
         url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-for-businesses.webp",
         contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-for-businesses.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Facebook business use cases including local business pages, marketplace sellers, group announcements, and creator profiles using styled Unicode text",
         inLanguage: "en",
       },
@@ -347,8 +347,8 @@ export default function FacebookFontsPage() {
                 <Image
                   src="/images/facebook-fonts/facebook-fonts-what-are.webp"
                   alt="Plain text converted into Unicode characters and then displayed as styled text on Facebook, explaining what Facebook fonts are"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
@@ -432,8 +432,8 @@ export default function FacebookFontsPage() {
                 <Image
                   src="/images/facebook-fonts/facebook-fonts-where-they-work.webp"
                   alt="Facebook platform mockup showing where Unicode styled text works: posts, bio, comments, groups, pages, and marketplace listings"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
@@ -672,8 +672,8 @@ export default function FacebookFontsPage() {
                 <Image
                   src="/images/facebook-fonts/facebook-fonts-for-businesses.webp"
                   alt="Facebook business use cases including local business pages, marketplace sellers, group announcements, and creator profiles using styled Unicode text"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
