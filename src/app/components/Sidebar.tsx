@@ -33,48 +33,12 @@ export default function Sidebar({
         </div>
       )}
 
-      {/* Common Mistakes to Avoid */}
-      {showTips && <div className="p-8 bg-surface text-on-surface rounded-2xl border border-primary/20 shadow-sm">
+      {/* Custom Tips */}
+      {showTips && tipsContent && <div className="p-8 bg-surface text-on-surface rounded-2xl border border-primary/20 shadow-sm">
         <h2 className="font-headline text-2xl font-bold mb-6">
           {tipsHeading}
         </h2>
-        {tipsContent || (
-          <>
-            <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
-              Using aesthetic text is simple, but avoid these common mistakes:
-            </p>
-            <ol className="space-y-4 text-sm leading-relaxed">
-              <li>
-                <strong>Too Many Styles:</strong> A sentence that contains too
-                many styles can look cluttered and confusing.
-              </li>
-              <li>
-                <strong>Hard-to-Read Styles:</strong> The use of hard-to-read
-                styles reduces engagement and readability.
-              </li>
-              <li>
-                <strong>Overuse in Long Text:</strong> Overusing decorative text
-                in long paragraphs makes content difficult to follow.
-              </li>
-              <li>
-                <strong>Platform Compatibility:</strong> Ignoring platform
-                compatibility (Instagram, Facebook, WhatsApp, TikTok, YouTube,
-                Gaming usernames) can result in broken text.
-              </li>
-              <li>
-                <strong>Tone Mismatch:</strong> Copying styles that don&apos;t
-                match your content tone can feel out of place.
-              </li>
-            </ol>
-            <div className="mt-6 p-4 bg-primary-container/10 rounded-xl">
-              <p className="text-sm text-on-surface-variant leading-relaxed">
-                <strong>Pro Tip:</strong> Use decorative styles wisely. Too many
-                effects can reduce readability, especially on mobile screens. Keep it
-                simple for better results.
-              </p>
-            </div>
-          </>
-        )}
+        {tipsContent}
       </div>}
 
       {/* Aesthetic Letters Banner */}

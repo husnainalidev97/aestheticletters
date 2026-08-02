@@ -396,7 +396,47 @@ export default function SEOContent() {
         </div>
       </article>
 
-      {/* Section 5: Comparison Table */}
+      {/* Section 5: Common Mistakes to Avoid */}
+      <article>
+        <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+          05 Common Mistakes to Avoid When Using Aesthetic Fonts
+        </h2>
+        <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+          Using aesthetic text is simple, but avoid these common mistakes:
+        </p>
+        <ol className="space-y-4 text-lg leading-relaxed mb-6 text-on-surface-variant">
+          <li>
+            <strong>Too Many Styles:</strong> A sentence that contains too
+            many styles can look cluttered and confusing.
+          </li>
+          <li>
+            <strong>Hard-to-Read Styles:</strong> The use of hard-to-read
+            styles reduces engagement and readability.
+          </li>
+          <li>
+            <strong>Overuse in Long Text:</strong> Overusing decorative text
+            in long paragraphs makes content difficult to follow.
+          </li>
+          <li>
+            <strong>Platform Compatibility:</strong> Ignoring platform
+            compatibility (Instagram, Facebook, WhatsApp, TikTok, YouTube,
+            Gaming usernames) can result in broken text.
+          </li>
+          <li>
+            <strong>Tone Mismatch:</strong> Copying styles that don&apos;t
+            match your content tone can feel out of place.
+          </li>
+        </ol>
+        <div className="p-6 bg-primary-container/10 rounded-xl border border-primary/10">
+          <p className="text-on-surface-variant leading-relaxed">
+            <strong>Pro Tip:</strong> Use decorative styles wisely. Too many
+            effects can reduce readability, especially on mobile screens. Keep it
+            simple for better results.
+          </p>
+        </div>
+      </article>
+
+      {/* Section 6: Comparison Table */}
       <article>
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           Aesthetic Font Generator vs Installing Real Fonts
