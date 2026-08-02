@@ -848,10 +848,6 @@ export default function FacebookFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{
-                src: "/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp",
-                alt: "facebook fonts generator with unique fonts for posts comments and bios",
-              }}
             />
           </div>
         </section>
