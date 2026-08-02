@@ -6,8 +6,6 @@ import SEOSection from "./components/SEOSection";
 import FAQSection, { homeFaqs } from "./components/FAQSection";
 import Footer from "./components/Footer";
 import BackToTopButton from "./components/BackToTopButton";
-import { getTotalFontStyleCount } from "./lib/fontCount";
-
 export const metadata: Metadata = {
   title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
   description:
@@ -22,22 +20,20 @@ export const metadata: Metadata = {
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: [{ url: "https://www.aestheticletters.com/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/og-image.webp", width: 1200, height: 624 }],
     publishedTime: "2026-04-19T08:00:00+00:00",
-    modifiedTime: "2026-06-25T00:00:00+00:00",
+    modifiedTime: new Date().toISOString(),
   },
   twitter: {
     card: "summary_large_image",
     title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
     description:
       "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
-    images: ["https://www.aestheticletters.com/og-image.jpg"],
+    images: ["https://www.aestheticletters.com/og-image.webp"],
   },
 };
 
 export default function Home() {
-  const totalFontStyles = getTotalFontStyleCount();
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -63,7 +59,7 @@ export default function Home() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-04-19T08:00:00+00:00",
-        dateModified: "2026-06-25T00:00:00+00:00",
+        dateModified: new Date().toISOString(),
       },
       {
         "@type": "BreadcrumbList",
@@ -108,6 +104,7 @@ export default function Home() {
     name: "How Does This Aesthetic Text Generator Work?",
     description:
       "Using an aesthetic generator is very simple. Neither design expertise nor technical knowledge is required. Just follow these quick steps to create free aesthetic font styles instantly.",
+    image: "https://www.aestheticletters.com/how-aesthetic-font-generator-works-3-steps.webp",
     totalTime: "PT1M",
     step: [
       {
@@ -134,6 +131,7 @@ export default function Home() {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    image: "https://www.aestheticletters.com/og-image.webp",
     mainEntity: homeFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -161,7 +159,7 @@ export default function Home() {
 
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
-        <FontGenerator totalFontStyles={totalFontStyles} />
+        <FontGenerator />
         <SEOSection />
 
         {/* Explore More Tools */}

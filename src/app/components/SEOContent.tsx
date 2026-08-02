@@ -1,10 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import { getTotalFontStyleCount } from "../lib/fontCount";
-
 export default function SEOContent() {
-  const totalFontStyles = getTotalFontStyleCount();
-
   return (
     <div className="lg:col-span-8 flex flex-col gap-16">
       {/* Section 1: What is an Aesthetic Fonts Generator? */}
@@ -62,7 +59,7 @@ export default function SEOContent() {
               Creative
             </h3>
             <p className="text-xs text-on-surface-variant">
-              Access {totalFontStyles}+ styles from gothic to vaporwave.
+              Access 120+ styles from gothic to vaporwave.
             </p>
           </div>
         </div>
@@ -78,6 +75,14 @@ export default function SEOContent() {
           nor technical knowledge is required. Just follow these quick steps to
           create free aesthetic font styles instantly:
         </p>
+        <Image
+          src="/how-aesthetic-font-generator-works-3-steps.webp"
+          alt="Three simple steps to generate aesthetic fonts: type text, preview Unicode styles, copy and paste anywhere"
+          width={1200}
+          height={608}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className="w-full h-auto rounded-2xl mb-8"
+        />
         <div className="space-y-8">
           <div className="flex gap-6">
             <div className="flex-shrink-0 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold">
@@ -128,10 +133,10 @@ export default function SEOContent() {
       {/* Section 3: Choose From Aesthetic Font Styles */}
       <article>
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-          Choose From {totalFontStyles}+ Aesthetic Font Styles
+          Choose From 120+ Aesthetic Font Styles
         </h2>
         <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-          Here&apos;s the interesting part: these {totalFontStyles}+ aesthetic font styles give
+          Here&apos;s the interesting part: these 120+ aesthetic font styles give
           you multiple ways to style your text based on where and how you want to
           use it. From clean and professional looks to bold, decorative designs,
           every style is built for a specific purpose.
@@ -151,6 +156,14 @@ export default function SEOContent() {
           All styles are fast, mobile-responsive, and easy to copy and paste
           using Unicode characters for quick text decoration.
         </p>
+        <Image
+          src="/aesthetic-font-styles-category-grid-preview.webp"
+          alt="Grid of 10 aesthetic font categories including soft, dark, gothic, vaporwave, glitch, kawaii, cottagecore, Y2K, layered, and text decorators"
+          width={1200}
+          height={896}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className="w-full h-auto rounded-2xl mb-8"
+        />
         <div className="space-y-6">
           <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
             <h3 className="font-headline text-xl font-bold mb-2">
@@ -271,6 +284,14 @@ export default function SEOContent() {
           messaging, and digital platforms. The following are some places where
           they can be useful:
         </p>
+        <Image
+          src="/aesthetic-fonts-platform-mockups.webp"
+          alt="Examples of aesthetic fonts used in an Instagram bio, Discord username, and WhatsApp message"
+          width={1200}
+          height={800}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className="w-full h-auto rounded-2xl mb-8"
+        />
         <div className="space-y-6 mb-8">
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
             <h3 className="font-headline font-bold text-base mb-1">
@@ -400,7 +421,55 @@ export default function SEOContent() {
         </div>
       </article>
 
-      {/* Section 5: Comparison Table */}
+      {/* Section 5: Common Mistakes to Avoid */}
+      <article>
+        <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+          05 Common Mistakes to Avoid When Using Aesthetic Fonts
+        </h2>
+        <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+          Using aesthetic text is simple, but avoid these common mistakes:
+        </p>
+        <Image
+          src="/common-mistakes-when-using-aesthetic-fonts.webp"
+          alt="Five common mistakes to avoid when using aesthetic fonts: too many styles, hard-to-read text, overuse, platform compatibility, and tone mismatch"
+          width={1200}
+          height={800}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className="w-full h-auto rounded-2xl mb-6"
+        />
+        <ol className="space-y-4 text-lg leading-relaxed mb-6 text-on-surface-variant">
+          <li>
+            <strong>Too Many Styles:</strong> A sentence that contains too
+            many styles can look cluttered and confusing.
+          </li>
+          <li>
+            <strong>Hard-to-Read Styles:</strong> The use of hard-to-read
+            styles reduces engagement and readability.
+          </li>
+          <li>
+            <strong>Overuse in Long Text:</strong> Overusing decorative text
+            in long paragraphs makes content difficult to follow.
+          </li>
+          <li>
+            <strong>Platform Compatibility:</strong> Ignoring platform
+            compatibility (Instagram, Facebook, WhatsApp, TikTok, YouTube,
+            Gaming usernames) can result in broken text.
+          </li>
+          <li>
+            <strong>Tone Mismatch:</strong> Copying styles that don&apos;t
+            match your content tone can feel out of place.
+          </li>
+        </ol>
+        <div className="p-6 bg-primary-container/10 rounded-xl border border-primary/10">
+          <p className="text-on-surface-variant leading-relaxed">
+            <strong>Pro Tip:</strong> Use decorative styles wisely. Too many
+            effects can reduce readability, especially on mobile screens. Keep it
+            simple for better results.
+          </p>
+        </div>
+      </article>
+
+      {/* Section 6: Comparison Table */}
       <article>
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           Aesthetic Font Generator vs Installing Real Fonts
@@ -408,6 +477,14 @@ export default function SEOContent() {
         <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
           Generating fonts vs. installing fonts has a big difference:
         </p>
+        <Image
+          src="/aesthetic-font-generator-vs-real-fonts-comparison.webp"
+          alt="Comparison showing aesthetic font generators work without installation while real fonts require downloads and only work in specific apps"
+          width={1200}
+          height={608}
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className="w-full h-auto rounded-2xl mb-8"
+        />
         <div className="overflow-x-auto rounded-xl border border-outline-variant/10">
           <table className="w-full text-left border-collapse min-w-[600px]">
             <caption className="text-left font-headline text-lg font-bold mb-4 px-1">

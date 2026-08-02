@@ -13,33 +13,61 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${SITE_URL}/`,
-      lastModified: new Date("2026-07-02T00:00:00Z"),
+      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      images: [
+        `${SITE_URL}/aesthetic-font-styles-category-grid-preview.webp`,
+        `${SITE_URL}/aesthetic-fonts-platform-mockups.webp`,
+        `${SITE_URL}/how-aesthetic-font-generator-works-3-steps.webp`,
+        `${SITE_URL}/common-mistakes-when-using-aesthetic-fonts.webp`,
+        `${SITE_URL}/aesthetic-font-generator-vs-real-fonts-comparison.webp`,
+        `${SITE_URL}/og-image.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/fancy-fonts`,
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/fancy-fonts-og.webp`,
+        `${SITE_URL}/fancy-fonts-tool-features.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/cursive-fonts`,
       lastModified: new Date("2026-06-25T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/cursive-fonts-og.webp`,
+        `${SITE_URL}/how-to-use-this-cursive-fonts-generator-in-seconds.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/instagram-fonts`,
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-og.webp`,
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-before-after.webp`,
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-generator-explained.webp`,
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-how-to-use.webp`,
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-styles-comparison.webp`,
+        `${SITE_URL}/images/instagram-fonts/instagram-fonts-where-they-work.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/stylish-fonts`,
       lastModified: stylishFontsModified,
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/how-to-use-the-stylish-font-maker-step-by-step.webp`,
+        `${SITE_URL}/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/cute-fonts`,
@@ -63,18 +91,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp`,
+        `${SITE_URL}/halloween-fonts-generator-featured-image.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/serif-fonts`,
       lastModified: new Date("2026-07-07T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/serif-fonts-og.jpg`,
+        `${SITE_URL}/serif-fonts-explained-visually.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/sans-serif-fonts`,
@@ -83,6 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [
         `${SITE_URL}/sans-serif-fonts-generator-og.webp`,
+        `${SITE_URL}/sans-serif-fonts-explained.webp`,
         `${SITE_URL}/what-are-sans-serif-fonts-serif-vs-sans-comparison.webp`,
         `${SITE_URL}/4-types-of-sans-serif-fonts-grotesque-neo-geometric-humanist.webp`,
         `${SITE_URL}/sans-serif-vs-serif-readability-comparison.webp`,
@@ -99,6 +139,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-06-29T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/number-font-generator/number-font-generator-og.webp`,
+        `${SITE_URL}/images/number-font-generator/what-is-number-font-generator-before-after.webp`,
+        `${SITE_URL}/images/number-font-generator/popular-unicode-number-font-styles-comparison.webp`,
+        `${SITE_URL}/images/number-font-generator/lining-vs-oldstyle-number-figures-typography.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/bold-font-generator`,
@@ -131,6 +177,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-06-29T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/discord-fonts/discord-fonts-og.webp`,
+        `${SITE_URL}/images/discord-fonts/discord-fonts-how-to-use.webp`,
+        `${SITE_URL}/images/discord-fonts/discord-fonts-boxes-fix.webp`,
+        `${SITE_URL}/images/discord-fonts/discord-fonts-server-styles.webp`,
+        `${SITE_URL}/images/discord-fonts/discord-fonts-where-they-work.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/preppy-fonts`,
@@ -164,12 +217,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-07-06T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/christmas-fonts/christmas-fonts-og.webp`,
+        `${SITE_URL}/images/christmas-fonts/what-are-christmas-fonts-before-after.webp`,
+        `${SITE_URL}/images/christmas-fonts/how-to-use-christmas-text-generator-three-steps.webp`,
+        `${SITE_URL}/images/christmas-fonts/five-christmas-font-styles-comparison-chart.webp`,
+        `${SITE_URL}/images/christmas-fonts/christmas-fonts-work-social-media-platforms.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/twitter-fonts`,
       lastModified: new Date("2026-07-07T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [
+        `${SITE_URL}/images/twitter-fonts/twitter-fonts-og.webp`,
+        `${SITE_URL}/images/twitter-fonts/twitter-fonts-how-to-use.webp`,
+        `${SITE_URL}/images/twitter-fonts/twitter-fonts-character-cost.webp`,
+        `${SITE_URL}/images/twitter-fonts/twitter-fonts-styles-comparison.webp`,
+        `${SITE_URL}/images/twitter-fonts/twitter-fonts-where-they-work.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/all-tools`,
