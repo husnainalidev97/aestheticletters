@@ -98,11 +98,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: new Date("2026-07-06T00:00:00Z"),
+      lastModified: new Date("2026-08-02T00:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
-        `${SITE_URL}/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-og.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-how-to-use.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-where-they-work.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-styles-comparison.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-before-after.webp`,
+        `${SITE_URL}/images/facebook-fonts/facebook-fonts-for-businesses.webp`,
       ],
     },
     {

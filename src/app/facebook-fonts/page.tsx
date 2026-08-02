@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -24,10 +25,10 @@ export const metadata: Metadata = {
       "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
     images: [
       {
-        url: "https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp",
-        width: 1200,
-        height: 630,
-        alt: "facebook fonts generator with unique fonts for posts comments and bios",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-og.webp",
+        width: 1536,
+        height: 800,
+        alt: "Facebook Fonts Generator by Aesthetic Letters showing 40 plus Unicode text styles for posts bios comments and usernames",
       },
     ],
     publishedTime: "2026-05-23T08:00:00+00:00",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols",
     description:
       "Use our Facebook fonts generator to create unique text for posts, bios, and usernames. Copy & paste 40+ font styles and 150+ symbols. Free and works on mobile.",
-    images: ["https://www.aestheticletters.com/facebook-fonts-generator-with-unique-fonts-for-posts-comments-and-bios.webp"],
+    images: ["https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-og.webp"],
   },
 };
 
@@ -117,12 +118,16 @@ export default function FacebookFontsPage() {
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/facebook-fonts#breadcrumb",
         },
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/facebook-fonts#image-how-to-use",
+        },
       },
       {
         "@type": "SoftwareApplication",
         "@id": "https://www.aestheticletters.com/facebook-fonts#software",
         name: "Facebook Fonts Generator",
         url: "https://www.aestheticletters.com/facebook-fonts",
+        image: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-og.webp",
         applicationCategory: "UtilitiesApplication",
         operatingSystem: "All",
         browserRequirements: "Requires HTML5 support",
@@ -131,6 +136,56 @@ export default function FacebookFontsPage() {
           price: "0",
           priceCurrency: "USD",
         },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-how-to-use",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-how-to-use.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-how-to-use.webp",
+        width: 1536,
+        height: 1024,
+        caption: "Three step process to use the Facebook fonts generator: type your text, pick a style, then paste the styled Unicode text into a Facebook post or bio",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-where-they-work",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-where-they-work.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-where-they-work.webp",
+        width: 1536,
+        height: 1024,
+        caption: "Facebook platform mockup showing where Unicode styled text works: posts, bio, comments, groups, pages, and marketplace listings",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-styles-comparison",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-styles-comparison.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-styles-comparison.webp",
+        width: 1200,
+        height: 1200,
+        caption: "Comparison chart of ten Facebook font styles including Bold, Cursive, Gothic, Small Caps, Bubble, Fullwidth, Mono, Script, Fraktur, and Strikethrough",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-before-after",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-before-after.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-before-after.webp",
+        width: 1536,
+        height: 1024,
+        caption: "Side by side comparison of a plain Facebook profile versus the same profile using styled Unicode fonts in the intro section",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/facebook-fonts#image-for-businesses",
+        url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-for-businesses.webp",
+        contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-for-businesses.webp",
+        width: 1536,
+        height: 1024,
+        caption: "Facebook business use cases including local business pages, marketplace sellers, group announcements, and creator profiles using styled Unicode text",
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -174,6 +229,7 @@ export default function FacebookFontsPage() {
         name: "How to Use This Facebook Font Generator",
         description:
           "Generate stylish Unicode text for Facebook posts, bios, and comments in three simple steps.",
+        image: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-how-to-use.webp",
         totalTime: "PT1M",
         step: [
           {
@@ -278,6 +334,15 @@ export default function FacebookFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Facebook Fonts?
                 </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-before-after.webp"
+                  alt="Side by side comparison of a plain Facebook profile versus the same profile using styled Unicode fonts in the intro section"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Facebook fonts are stylish text characters you can copy and paste directly into facebook with no app,
                   no settings, and no technical knowledge needed. Since facebook does not let you bold, italicize, or
@@ -291,6 +356,15 @@ export default function FacebookFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use This Facebook Font Generator?
                 </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-how-to-use.webp"
+                  alt="Three step process to use the Facebook fonts generator: type your text, pick a style, then paste the styled Unicode text into a Facebook post or bio"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Enter any word, sentence, or caption. Every facebook font style updates instantly, no waiting,
                   no page reload. Scroll through 40+ styles, spot the one that fits, and hit Copy. Then open facebook
@@ -324,6 +398,15 @@ export default function FacebookFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Can You Use Facebook Fonts?
                 </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-where-they-work.webp"
+                  alt="Facebook platform mockup showing where Unicode styled text works: posts, bio, comments, groups, pages, and marketplace listings"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Facebook has dozens of text fields across its platform and the good news is custom fonts work in most
                   of them. But not all and using them in the wrong place can get your text rejected or your ad flagged.
@@ -375,6 +458,15 @@ export default function FacebookFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Font Style Guide: Which Facebook Font Style Works Best for What?
                 </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-styles-comparison.webp"
+                  alt="Comparison chart of ten Facebook font styles including Bold, Cursive, Gothic, Small Caps, Bubble, Fullwidth, Mono, Script, Fraktur, and Strikethrough"
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Not every font style fits every situation. Using a Gothic Fraktur font in a customer service reply
                   looks odd. Using plain bold text for a fun birthday post feels flat. Here is a straight guide to
@@ -546,6 +638,15 @@ export default function FacebookFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Facebook Fonts for Businesses
                 </h2>
+                <Image
+                  src="/images/facebook-fonts/facebook-fonts-for-businesses.webp"
+                  alt="Facebook business use cases including local business pages, marketplace sellers, group announcements, and creator profiles using styled Unicode text"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   If you run a facebook Page, manage a group, or sell on Marketplace, fb business fonts are a simple
                   feature many competitors still ignore. Here is how different types of businesses get real value
