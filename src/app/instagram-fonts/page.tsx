@@ -106,7 +106,7 @@ export default function InstagramFontsPage() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/instagram-fonts#webpage",
         url: "https://www.aestheticletters.com/instagram-fonts",
-        name: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
+        name: "Instagram Fonts Copy and Paste – 110+ Free Styles",
         description:
           "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
         inLanguage: "en",
