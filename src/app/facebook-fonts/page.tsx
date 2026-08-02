@@ -152,8 +152,8 @@ export default function FacebookFontsPage() {
         "@id": "https://www.aestheticletters.com/facebook-fonts#image-how-to-use",
         url: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-how-to-use.webp",
         contentUrl: "https://www.aestheticletters.com/images/facebook-fonts/facebook-fonts-how-to-use.webp",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 800,
         caption: "Three step process to use the Facebook fonts generator: type your text, pick a style, then paste the styled Unicode text into a Facebook post or bio",
         inLanguage: "en",
       },
@@ -359,8 +359,8 @@ export default function FacebookFontsPage() {
                 <Image
                   src="/images/facebook-fonts/facebook-fonts-how-to-use.webp"
                   alt="Three step process to use the Facebook fonts generator: type your text, pick a style, then paste the styled Unicode text into a Facebook post or bio"
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                   loading="lazy"
