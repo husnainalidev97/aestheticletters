@@ -107,7 +107,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-how-to-use.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-where-they-work.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-styles-comparison.webp`,
-        `${SITE_URL}/images/facebook-fonts/facebook-fonts-before-after.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-for-businesses.webp`,
       ],
     },
