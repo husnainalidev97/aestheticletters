@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/instagram-fonts",
-    title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
+    title: "Instagram Fonts Copy and Paste – 110+ Free Styles",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
     images: [{ url: "https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-og.webp", width: 1200, height: 630, alt: "Instagram Fonts Generator by Aesthetic Letters showing 110 plus stylish Unicode text styles for bios captions and usernames" }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Instagram Fonts Collection: 110+ Stylish Copy & Paste Fonts",
+    title: "Instagram Fonts Copy and Paste – 110+ Free Styles",
     description:
       "Explore 110+ Instagram fonts to give your profile a fresh and unique look. Choose your style and use it instantly without any extra steps or setup.",
     images: ["https://www.aestheticletters.com/images/instagram-fonts/instagram-fonts-og.webp"],
