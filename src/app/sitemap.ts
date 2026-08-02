@@ -98,7 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: new Date("2026-08-02T00:00:00Z"),
+      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
