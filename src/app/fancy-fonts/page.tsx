@@ -8,7 +8,7 @@ import FancyFontsClient from "./FancyFontsClientLazy";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import ShowcaseGrid from "./ShowcaseGridLazy";
-import SectionNav from "./SectionNav";
+import SectionNav from "../components/SectionNav";
 
 const pageSections = [
   { id: "what-are", label: "What are" },
