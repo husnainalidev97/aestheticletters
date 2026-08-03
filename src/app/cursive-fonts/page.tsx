@@ -182,16 +182,6 @@ export default function CursiveFontsPage() {
       },
       {
         "@type": "ImageObject",
-        "@id": "https://www.aestheticletters.com/cursive-fonts#image-how-to-use",
-        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-how-to-use-three-steps.webp",
-        contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-how-to-use-three-steps.webp",
-        width: 1200,
-        height: 800,
-        caption: "Three simple steps to use the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it anywhere.",
-        inLanguage: "en",
-      },
-      {
-        "@type": "ImageObject",
         "@id": "https://www.aestheticletters.com/cursive-fonts#image-where-they-work",
         url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
         contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
@@ -260,7 +250,7 @@ export default function CursiveFontsPage() {
         description:
           "Using this cursive font generator is very simple. There is no need for technical knowledge. Just follow these quick steps to create cursive text instantly.",
         totalTime: "PT1M",
-        image: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-how-to-use-three-steps.webp",
+        image: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
         step: [
           {
             "@type": "HowToStep",
@@ -375,15 +365,6 @@ export default function CursiveFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use This Cursive Text Generator in Seconds
                 </h2>
-                <Image
-                  src="/images/cursive-fonts/cursive-fonts-how-to-use-three-steps.webp"
-                  alt="Three simple steps to use the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it anywhere."
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
-                  loading="lazy"
-                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using this cursive font generator is very simple. There is no
                   need for technical knowledge.
@@ -667,14 +648,13 @@ export default function CursiveFontsPage() {
               {/* How to Use Image */}
               <div className="rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
                 <Image
-                  src="/images/cursive-fonts/cursive-fonts-how-to-use-three-steps.webp"
-                  alt="Three simple steps to use the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it anywhere."
+                  src="/how-to-use-this-cursive-fonts-generator-in-seconds.webp"
+                  alt="Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message."
                   width={1200}
                   height={800}
                   className="w-full h-auto"
                 />
               </div>
-
 
             </aside>
           </div>
