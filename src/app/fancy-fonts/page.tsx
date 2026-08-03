@@ -689,7 +689,7 @@ export default function FancyFontsPage() {
                   audience skews broader and readability matters more.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Looking for seasonal decorative text? Our{" "}
+                  NOTE: Looking for seasonal decorative text? Our{" "}
                   <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas font styles</Link>{" "}
                   pair Gothic and Script alphabets with holiday symbols like snowflakes, bells and stars.
                 </p>
