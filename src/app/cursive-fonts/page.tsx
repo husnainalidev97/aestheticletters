@@ -7,6 +7,16 @@ import Breadcrumb from "../components/Breadcrumb";
 import CursiveFontGenerator from "./CursiveFontGeneratorLazy";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-cursive-fonts", label: "What Are Cursive" },
+  { id: "how-to-use-this-cursive-text-generator-in-seconds", label: "How to Use" },
+  { id: "where-you-can-use-cursive-fonts", label: "Where You Can" },
+  { id: "why-do-cursive-letters-attract-more-attention", label: "Why do Cursive" },
+  { id: "40-handwritten-font-styles-in-8-categories", label: "40+ Handwritten Font" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Cursive Fonts - Handwritten Text Generator | Copy & Paste" },
@@ -258,6 +268,8 @@ export default function CursiveFontsPage() {
         {/* Dynamic Cursive Font Generator — input, size controls, live results */}
         <CursiveFontGenerator />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -278,7 +290,7 @@ export default function CursiveFontsPage() {
               </article>
 
               {/* What Are Cursive Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-cursive-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Cursive Fonts?
                 </h2>
@@ -302,7 +314,7 @@ export default function CursiveFontsPage() {
               </article>
 
               {/* How to Use */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-this-cursive-text-generator-in-seconds">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use This Cursive Text Generator in Seconds
                 </h2>
@@ -369,7 +381,7 @@ export default function CursiveFontsPage() {
               </article>
 
               {/* Where You Can Use Cursive Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-you-can-use-cursive-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where You Can Use Cursive Fonts?
                 </h2>
@@ -429,7 +441,7 @@ export default function CursiveFontsPage() {
               </article>
 
               {/* Why do Cursive letters Attract More Attention? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-do-cursive-letters-attract-more-attention">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why do Cursive letters Attract More Attention?
                 </h2>
@@ -475,7 +487,7 @@ export default function CursiveFontsPage() {
               </article>
 
               {/* 40+ Handwritten Font Styles in 8 Categories */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="40-handwritten-font-styles-in-8-categories">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   40+ Handwritten Font Styles in 8 Categories
                 </h2>
@@ -576,7 +588,7 @@ export default function CursiveFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -647,7 +659,7 @@ export default function CursiveFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

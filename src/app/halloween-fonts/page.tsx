@@ -9,6 +9,20 @@ import Sidebar from "../components/Sidebar";
 import HalloweenFontsClient from "./HalloweenFontsClientLazy";
 import Breadcrumb from "../components/Breadcrumb";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-halloween-fonts", label: "What Are Halloween" },
+  { id: "how-does-a-creepy-text-generator-work", label: "How Does a" },
+  { id: "spirit-halloween-font-what-font-do-they-use", label: "Spirit Halloween Font:" },
+  { id: "75-halloween-font-styles-explained", label: "75+ Halloween Font" },
+  { id: "how-to-use-halloween-fonts-on-every-major-platform", label: "How to Use" },
+  { id: "spooky-symbols-and-emojis-copy-paste-cheat-sheet", label: "Spooky Symbols and" },
+  { id: "halloween-fonts-in-canva-a-practical-workflow", label: "Halloween Fonts in" },
+  { id: "creepy-fonts-on-cricut-what-actually-works", label: "Creepy Fonts on" },
+  { id: "halloween-fonts-for-different-use-cases", label: "Halloween Fonts for" },
+  { id: "when-not-to-use-spooky-fonts", label: "When NOT to" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)" },
@@ -230,6 +244,8 @@ export default function HalloweenFontsPage() {
         {/* Interactive Generator */}
         <HalloweenFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -252,7 +268,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* What Are Halloween Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-halloween-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Halloween Fonts?
                 </h2>
@@ -303,7 +319,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* How Does a Creepy Text Generator Work? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-does-a-creepy-text-generator-work">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Does a Creepy Text Generator Work?
                 </h2>
@@ -334,7 +350,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* Spirit Halloween Font */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="spirit-halloween-font-what-font-do-they-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Spirit Halloween Font: What Font Do They Use?
                 </h2>
@@ -356,7 +372,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* 75+ Halloween Font Styles Explained */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="75-halloween-font-styles-explained">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   75+ Halloween Font Styles Explained
                 </h2>
@@ -446,7 +462,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* How to Use Halloween Fonts on Every Major Platform */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-halloween-fonts-on-every-major-platform">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Halloween Fonts on Every Major Platform
                 </h2>
@@ -525,7 +541,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* Spooky Symbols and Emojis */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="spooky-symbols-and-emojis-copy-paste-cheat-sheet">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Spooky Symbols and Emojis: Copy-Paste Cheat Sheet
                 </h2>
@@ -561,7 +577,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* Halloween Fonts in Canva */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="halloween-fonts-in-canva-a-practical-workflow">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Halloween Fonts in Canva: A Practical Workflow
                 </h2>
@@ -607,7 +623,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* Creepy Fonts on Cricut */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="creepy-fonts-on-cricut-what-actually-works">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Creepy Fonts on Cricut: What Actually Works
                 </h2>
@@ -657,7 +673,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* Halloween Fonts for Different Use Cases */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="halloween-fonts-for-different-use-cases">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Halloween Fonts for Different Use Cases
                 </h2>
@@ -682,7 +698,7 @@ export default function HalloweenFontsPage() {
               </article>
 
               {/* When NOT to Use Spooky Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="when-not-to-use-spooky-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   When NOT to Use Spooky Fonts
                 </h2>
@@ -764,7 +780,7 @@ export default function HalloweenFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

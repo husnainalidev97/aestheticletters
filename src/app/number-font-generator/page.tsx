@@ -8,6 +8,17 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-a-number-font-generator", label: "What is a" },
+  { id: "how-to-copy-and-paste-number-fonts", label: "How to Copy" },
+  { id: "why-these-numbers-work-everywhere", label: "Why These Numbers" },
+  { id: "popular-number-font-styles-explained", label: "Popular Number Font" },
+  { id: "where-to-use-numerical-fonts", label: "Where to Use" },
+  { id: "a-quick-note-on-number-styles-in-typography", label: "A Quick Note" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Number Font Generator \u2013 100+ Stylish Numbers to Copy & Paste" },
@@ -252,13 +263,15 @@ export default function NumberFontGeneratorPage() {
         {/* Interactive Font Generator */}
         <NumberFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* What is a Number Font Generator? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-is-a-number-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Number Font Generator?
                 </h2>
@@ -301,7 +314,7 @@ export default function NumberFontGeneratorPage() {
               </article>
 
               {/* How to Copy and Paste Number Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-copy-and-paste-number-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Copy and Paste Number Fonts?
                 </h2>
@@ -348,7 +361,7 @@ export default function NumberFontGeneratorPage() {
               </article>
 
               {/* Why These Numbers Work Everywhere */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-these-numbers-work-everywhere">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why These Numbers Work Everywhere
                 </h2>
@@ -374,7 +387,7 @@ export default function NumberFontGeneratorPage() {
               </article>
 
               {/* Popular Number Font Styles, Explained */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="popular-number-font-styles-explained">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Popular Number Font Styles, Explained
                 </h2>
@@ -407,7 +420,7 @@ export default function NumberFontGeneratorPage() {
               </article>
 
               {/* Where to Use Numerical Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-to-use-numerical-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where to Use Numerical Fonts?
                 </h2>
@@ -444,7 +457,7 @@ export default function NumberFontGeneratorPage() {
               </article>
 
               {/* A Quick Note on Number Styles in Typography */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="a-quick-note-on-number-styles-in-typography">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   A Quick Note on Number Styles in Typography
                 </h2>
@@ -497,7 +510,7 @@ export default function NumberFontGeneratorPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -568,7 +581,7 @@ export default function NumberFontGeneratorPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

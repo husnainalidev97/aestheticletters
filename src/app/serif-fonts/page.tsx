@@ -7,6 +7,19 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import SerifFontsClient from "./SerifFontsClientLazy";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-a-serif-font-generator", label: "What is a" },
+  { id: "how-to-use-a-serif-font-generator", label: "How to Use" },
+  { id: "unicode-serif-text-vs-traditional-serif-fonts", label: "Unicode Serif Text" },
+  { id: "what-are-serif-fonts-history-origins", label: "What Are Serif" },
+  { id: "8-serif-font-styles-for-inspiration-design-projects", label: "8 Serif Font" },
+  { id: "unicode-serif-styles-available-in-this-tool", label: "Unicode Serif Styles" },
+  { id: "serif-vs-sans-serif-when-to-use-which", label: "Serif vs Sans-Serif" },
+  { id: "famous-serif-type-fonts-their-stories", label: "Famous Serif Type" },
+  { id: "explore-related-fonts", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Serif Fonts Generator - 12+ Copy & Paste Text Styles" },
@@ -242,6 +255,8 @@ export default function SerifFontsPage() {
         {/* Interactive Generator */}
         <SerifFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 3000px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -264,7 +279,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* What is a Serif Font Generator? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-is-a-serif-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Serif Font Generator?
                 </h2>
@@ -299,7 +314,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* How to Use a Serif Font Generator? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-a-serif-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use a Serif Font Generator?
                 </h2>
@@ -350,7 +365,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* Unicode Serif Text vs Traditional Serif Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="unicode-serif-text-vs-traditional-serif-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Unicode Serif Text vs Traditional Serif Fonts
                 </h2>
@@ -394,7 +409,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* What Are Serif Fonts? (History & Origins) */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-serif-fonts-history-origins">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Serif Fonts? (History &amp; Origins)
                 </h2>
@@ -432,7 +447,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* 8 Serif Font Styles for Inspiration & Design Projects */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="8-serif-font-styles-for-inspiration-design-projects">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   8 Serif Font Styles for Inspiration &amp; Design Projects
                 </h2>
@@ -512,7 +527,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* Unicode Serif Styles Available */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="unicode-serif-styles-available-in-this-tool">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Unicode Serif Styles Available in This Tool
                 </h2>
@@ -548,7 +563,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* Serif vs Sans-Serif Table */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="serif-vs-sans-serif-when-to-use-which">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Serif vs Sans-Serif — When to Use Which?
                 </h2>
@@ -575,7 +590,7 @@ export default function SerifFontsPage() {
               </article>
 
               {/* Famous Serif Type Fonts & Their Stories */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="famous-serif-type-fonts-their-stories">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Famous Serif Type Fonts &amp; Their Stories
                 </h2>
@@ -637,7 +652,7 @@ export default function SerifFontsPage() {
         </section>
 
         {/* Explore Related Fonts */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-related-fonts">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
             Explore Related Fonts
           </h2>
@@ -665,7 +680,7 @@ export default function SerifFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

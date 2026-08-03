@@ -10,6 +10,17 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 import { weirdFontCategories } from "../lib/weirdFontStyles";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "how-to-use-this-weird-font-generator", label: "How to Use" },
+  { id: "what-makes-these-weird-fonts-work-unicode-explanation", label: "What Makes These" },
+  { id: "weird-font-styles-overview", label: "Weird Font Styles" },
+  { id: "the-real-scripts-behind-our-weird-text-styles", label: "The Real Scripts" },
+  { id: "best-uses-for-weird-font-styles", label: "Best Uses for" },
+  { id: "will-these-weird-fonts-work-everywhere", label: "Will These Weird" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 const PAGE_TITLE =
   "Weird Font Generator (\u16B9\u16D6\u16C1\u16B1\u16DE) \u2014 Strange Styles (Copy & Paste)";
@@ -109,6 +120,7 @@ type Example = { plain: string; styleName: string };
 type Subsection = { heading: string; paragraphs: ReactNode[]; example?: Example };
 type TableRow = { style: string; look: string; covered: string };
 type ContentSection = {
+  id?: string;
   heading: string;
   image?: SectionImage;
   paragraphs?: ReactNode[];
@@ -122,6 +134,7 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 const sections: ContentSection[] = [
   {
     heading: "How to Use This Weird Font Generator?",
+    id: "how-to-use-this-weird-font-generator",
     image: contentImages.howTo,
     paragraphs: [
       "Start typing in the box above the styles. Each one updates as you go, so you can watch your text turn weird in real time and pick whichever version catches your eye. Copy and paste takes one tap once you find a style you like.",
@@ -131,6 +144,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "What Makes These Weird Fonts Work? (Unicode Explanation)",
+    id: "what-makes-these-weird-fonts-work-unicode-explanation",
     image: contentImages.beforeAfter,
     paragraphs: [
       "Weird fonts carry a bit of a misleading name. Your phone or computer installs nothing new when you use one. Each style instead borrows characters Unicode already ships with, the same standard quietly running behind every keyboard you have ever typed on.",
@@ -141,6 +155,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Weird Font Styles Overview",
+    id: "weird-font-styles-overview",
     image: contentImages.comparison,
     paragraphs: [
       "Six styles live on this page. Here's what each one actually looks like before you scroll through them properly.",
@@ -233,6 +248,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "The Real Scripts Behind Our Weird Text Styles",
+    id: "the-real-scripts-behind-our-weird-text-styles",
     image: contentImages.scripts,
     paragraphs: [
       "Three of these weird font styles pull from writing systems that existed long before Unicode did, each with its own real history worth knowing.",
@@ -249,6 +265,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Best Uses for Weird Font Styles",
+    id: "best-uses-for-weird-font-styles",
     paragraphs: [
       "Weird fonts work best where a little personality goes a long way. A bio, a username, or a single line in a caption gets noticed without asking too much of the reader.",
       "Runic Cipher suits usernames and gaming tags well, especially anywhere a bold, ancient feel fits the vibe. Cherokee Cipher carries the same visual punch while telling a small story of its own, worth a mention if someone asks about it.",
@@ -260,6 +277,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Will These Weird Fonts Work Everywhere?",
+    id: "will-these-weird-fonts-work-everywhere",
     image: contentImages.boxes,
     paragraphs: [
       "Not quite, and the reasons split into two separate issues worth understanding before you post.",
@@ -480,6 +498,8 @@ export default function WeirdFontGeneratorPage() {
         {/* Interactive Font Generator */}
         <WeirdFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -499,7 +519,7 @@ export default function WeirdFontGeneratorPage() {
               </article>
 
               {sections.map((section) => (
-                <article key={section.heading}>
+                <article key={section.heading} id={section.id} className="scroll-mt-[9rem]">
                   <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                     {section.heading}
                   </h2>
@@ -598,7 +618,7 @@ export default function WeirdFontGeneratorPage() {
 
         {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight scroll-mt-[9rem]" id="explore-more-tools">
             Explore More Tools
           </h2>
           <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
@@ -659,7 +679,7 @@ export default function WeirdFontGeneratorPage() {
 
         {/* FAQ Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center scroll-mt-[9rem]" id="frequently-asked-questions">
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={faqs} />

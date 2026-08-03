@@ -124,7 +124,7 @@ export default function SectionNav({ sections }: SectionNavProps) {
         <div
           ref={containerRef}
           onScroll={handleScroll}
-          className="flex gap-2 overflow-x-auto scrollbar-hide justify-start md:justify-center"
+          className="flex gap-2 overflow-x-auto scrollbar-hide justify-start md:[justify-content:safe_center]"
         >
           {sections.map((section) => {
             const isActive = activeId === section.id;

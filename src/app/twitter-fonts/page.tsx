@@ -8,6 +8,17 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "how-to-use-the-twitter-text-generator", label: "How to Use" },
+  { id: "why-twitter-fonts-exist", label: "Why Twitter Fonts" },
+  { id: "where-styled-text-actually-works-on-x", label: "Where Styled Text" },
+  { id: "the-real-cost-of-styled-text-character-limits-explained", label: "The Real Cost" },
+  { id: "10-twitter-font-styles-and-when-to-use-them", label: "10 Twitter Font" },
+  { id: "best-practices-for-styling-tweets-bios-and-display-name", label: "Best Practices for" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Twitter Fonts Generator \u2013 Unicode Styles for X Bios & Names" },
@@ -332,6 +343,8 @@ export default function TwitterFontsPage() {
         {/* Interactive Font Generator */}
         <TwitterFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -350,7 +363,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* How to Use the Twitter Text Generator */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-the-twitter-text-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use the Twitter Text Generator?
                 </h2>
@@ -410,7 +423,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* Why Twitter Fonts Exist */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-twitter-fonts-exist">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Twitter Fonts Exist?
                 </h2>
@@ -449,7 +462,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* Where Styled Text Actually Works on X */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-styled-text-actually-works-on-x">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Styled Text Actually Works on X?
                 </h2>
@@ -488,7 +501,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* The Real Cost of Styled Text */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="the-real-cost-of-styled-text-character-limits-explained">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   The Real Cost of Styled Text: Character Limits Explained
                 </h2>
@@ -542,7 +555,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* 10 Twitter Font Styles and When to Use Them */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="10-twitter-font-styles-and-when-to-use-them">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   10 Twitter Font Styles and When to Use Them
                 </h2>
@@ -599,7 +612,7 @@ export default function TwitterFontsPage() {
               </article>
 
               {/* Best Practices for Styling Tweets, Bios, and Display Names */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="best-practices-for-styling-tweets-bios-and-display-name">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Best Practices for Styling Tweets, Bios, and Display Names
                 </h2>
@@ -680,7 +693,7 @@ export default function TwitterFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -752,7 +765,7 @@ export default function TwitterFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>
