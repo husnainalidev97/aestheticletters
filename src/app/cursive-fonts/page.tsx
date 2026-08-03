@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     ],
     siteName: "Aesthetic Letters",
     publishedTime: "2026-04-19T08:00:00+00:00",
-    modifiedTime: "2026-06-25T00:00:00+00:00",
+    modifiedTime: "2026-08-03T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -49,7 +49,12 @@ export const metadata: Metadata = {
     description:
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
-      "https://www.aestheticletters.com/cursive-fonts-og.webp",
+      {
+        url: "https://www.aestheticletters.com/cursive-fonts-og.webp",
+        width: 1200,
+        height: 624,
+        alt: "Cursive Fonts Generator by Aesthetic Letters — copy and paste handwritten text styles",
+      },
     ],
   },
 };
@@ -143,8 +148,7 @@ export default function CursiveFontsPage() {
         url: "https://www.aestheticletters.com/cursive-fonts",
         description:
           "Free online cursive fonts generator. Convert plain text into handwritten, script, and signature-style Unicode fonts that copy and paste anywhere.",
-        image:
-          "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-what-are-before-after.webp",
+        image: { "@id": "https://www.aestheticletters.com/cursive-fonts#image-what-are" },
         inLanguage: "en",
         operatingSystem: "All",
         applicationCategory: "UtilitiesApplication",
@@ -178,6 +182,16 @@ export default function CursiveFontsPage() {
         width: 1200,
         height: 800,
         caption: "Plain text transformed into multiple copy-paste cursive font styles showing the before and after look of handwritten Unicode text.",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-how-to-use",
+        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        contentUrl: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        width: 896,
+        height: 1200,
+        caption: "Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message.",
         inLanguage: "en",
       },
       {
@@ -250,7 +264,7 @@ export default function CursiveFontsPage() {
         description:
           "Using this cursive font generator is very simple. There is no need for technical knowledge. Just follow these quick steps to create cursive text instantly.",
         totalTime: "PT1M",
-        image: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        image: { "@id": "https://www.aestheticletters.com/cursive-fonts#image-how-to-use" },
         step: [
           {
             "@type": "HowToStep",
@@ -338,7 +352,6 @@ export default function CursiveFontsPage() {
                   width={1200}
                   height={800}
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
                   loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -438,7 +451,6 @@ export default function CursiveFontsPage() {
                   width={1200}
                   height={800}
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
                   loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
@@ -507,7 +519,6 @@ export default function CursiveFontsPage() {
                   width={1200}
                   height={800}
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
                   loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -562,7 +573,6 @@ export default function CursiveFontsPage() {
                   width={1200}
                   height={1200}
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
                   loading="lazy"
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
@@ -650,9 +660,10 @@ export default function CursiveFontsPage() {
                 <Image
                   src="/how-to-use-this-cursive-fonts-generator-in-seconds.webp"
                   alt="Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message."
-                  width={1200}
-                  height={800}
+                  width={896}
+                  height={1200}
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </div>
 
