@@ -6,7 +6,7 @@ import ShareButtons from "../components/ShareButtons";
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
 
-interface ShowcaseCard {
+export interface ShowcaseCard {
   name: string;
   pill: string;
   preview: string;

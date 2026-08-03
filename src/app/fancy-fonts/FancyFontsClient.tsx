@@ -21,7 +21,7 @@ const STEP = 2;
 const DEFAULT_TEXT = "";
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 2;
 
 const FANCY_EMOJIS: Record<string, string> = {
   "Bold Artistic Styles": "💪",
@@ -235,6 +235,7 @@ export default function FancyFontsClient() {
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
                 onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
+                initialVisibleStyles={4}
               />
             </div>
           ))}

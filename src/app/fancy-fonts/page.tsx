@@ -7,7 +7,7 @@ import BackToTopButton from "../components/BackToTopButton";
 import FancyFontsClient from "./FancyFontsClientLazy";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
-import ShowcaseGrid from "./ShowcaseGrid";
+import ShowcaseGrid from "./ShowcaseGridLazy";
 
 export const metadata: Metadata = {
   title: { absolute: "130+ Fancy Fonts \u2013 Copy & Paste for Instagram, Gaming & More" },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://www.aestheticletters.com/fancy-fonts",
     title: "Fancy Fonts Generator (𝓬𝓸𝓹𝔂 𝓪𝓷𝓭 𝓹𝓪𝓼𝓽) — Aesthetic Letters",
     description:
-      "Transform your text into elegant styles instantly. 100% private, browser-based, and compatible with all social media platforms.",
+      "Tired of plain text? Copy 130+ free fancy fonts for Instagram, WhatsApp, Facebook, or gaming usernames and make your messages stand out immediately.",
     images: [
       {
         url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-og.webp",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
       },
     ],
     publishedTime: "2026-05-01T08:00:00+00:00",
-    modifiedTime: "2026-06-25T00:00:00+00:00",
+    modifiedTime: "2026-08-03T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Fancy Fonts Generator — Aesthetic Letters",
     description:
-      "Copy and paste unique aesthetic fonts for your social media profiles.",
+      "Tired of plain text? Copy 130+ free fancy fonts for Instagram, WhatsApp, Facebook, or gaming usernames and make your messages stand out immediately.",
     images: [
       {
         url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-og.webp",
