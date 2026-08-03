@@ -8,6 +8,16 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-christmas-fonts", label: "What Are Christmas" },
+  { id: "how-to-use-a-christmas-text-generator", label: "How to Use" },
+  { id: "christmas-font-styles-you-can-copy-and-paste", label: "Christmas Font Styles" },
+  { id: "how-to-use-christmas-fonts-on-instagram-whatsapp-discor", label: "How to Use" },
+  { id: "christmas-symbols-and-emoji-cheat-sheet", label: "Christmas Symbols and" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Christmas Fonts That Actually Work: Copy and Paste" },
@@ -237,6 +247,8 @@ export default function ChristmasFontsPage() {
         {/* Interactive Font Generator */}
         <ChristmasFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -254,7 +266,7 @@ export default function ChristmasFontsPage() {
               </article>
 
               {/* What Are Christmas Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-christmas-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Christmas Fonts?
                 </h2>
@@ -291,7 +303,7 @@ export default function ChristmasFontsPage() {
               </article>
 
               {/* How to use a Christmas Text Generator */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-a-christmas-text-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use a Christmas Text Generator
                 </h2>
@@ -329,7 +341,7 @@ export default function ChristmasFontsPage() {
               </article>
 
               {/* Christmas Font Styles You Can Copy and Paste */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="christmas-font-styles-you-can-copy-and-paste">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Christmas Font Styles You Can Copy and Paste
                 </h2>
@@ -437,7 +449,7 @@ export default function ChristmasFontsPage() {
               </article>
 
               {/* How to Use Christmas Fonts on Instagram, WhatsApp, Discord */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-christmas-fonts-on-instagram-whatsapp-discor">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Christmas Fonts on Instagram, WhatsApp, Discord and
                   Other Apps
@@ -500,7 +512,7 @@ export default function ChristmasFontsPage() {
               </article>
 
               {/* Christmas Symbols and Emoji Cheat Sheet */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="christmas-symbols-and-emoji-cheat-sheet">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Christmas Symbols and Emoji Cheat Sheet
                 </h2>
@@ -587,7 +599,7 @@ export default function ChristmasFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -656,7 +668,7 @@ export default function ChristmasFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

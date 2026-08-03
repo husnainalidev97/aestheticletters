@@ -11,6 +11,18 @@ import CopyButton from "../components/CopyButton";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import TrendingFonts from "../components/TrendingFonts";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-instagram-fonts", label: "What Are Instagram" },
+  { id: "how-to-use-instagram-font-changer-step-by-step", label: "How to Use" },
+  { id: "where-instagram-letters-can-be-used", label: "Where Instagram" },
+  { id: "different-fonts-for-instagram-and-where-to-use-them", label: "Different Fonts for" },
+  { id: "best-instagram-text-strategy-most-people-ignore-this", label: "Best Instagram Text" },
+  { id: "ig-username-font-limitations-important", label: "IG Username Font" },
+  { id: "ig-bio-username-examples-copy-paste-ready", label: "IG Bio &" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Instagram Fonts Copy and Paste – 110+ Free Styles" },
@@ -270,6 +282,8 @@ export default function InstagramFontsPage() {
         </section>
         <InstagramFontCards />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -291,7 +305,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* What Are Instagram Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-instagram-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Instagram Fonts?
                 </h2>
@@ -347,7 +361,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* How to Use */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-instagram-font-changer-step-by-step">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Instagram Font Changer (Step by Step)
                 </h2>
@@ -402,7 +416,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* Where Instagram Letters Can Be Used */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-instagram-letters-can-be-used">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Instagram Letters Can Be Used?
                 </h2>
@@ -462,7 +476,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* Different Fonts for Instagram */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="different-fonts-for-instagram-and-where-to-use-them">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Different Fonts for Instagram and Where to Use Them
                 </h2>
@@ -549,7 +563,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* Best Instagram Text Strategy */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="best-instagram-text-strategy-most-people-ignore-this">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Best Instagram Text Strategy (Most People Ignore This)
                 </h2>
@@ -602,7 +616,7 @@ export default function InstagramFontsPage() {
               </article>
 
               {/* IG Username Font Limitations */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="ig-username-font-limitations-important">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   IG Username Font Limitations (Important)
                 </h2>
@@ -633,7 +647,7 @@ export default function InstagramFontsPage() {
               <TrendingFonts />
 
               {/* IG Bio & Username Examples */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="ig-bio-username-examples-copy-paste-ready">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   IG Bio &amp; Username Examples (Copy &amp; Paste Ready)
                 </h2>
@@ -755,7 +769,7 @@ export default function InstagramFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -826,7 +840,7 @@ export default function InstagramFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

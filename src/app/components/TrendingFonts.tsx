@@ -185,6 +185,7 @@ export default function TrendingFonts() {
                       ? "bg-[#15803d] text-white"
                       : "bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary"
                   }`}
+                  aria-label={isCopied ? "Copied to clipboard" : "Copy to clipboard"}
                 >
                   {isCopied ? (
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
@@ -197,7 +198,7 @@ export default function TrendingFonts() {
                     e.stopPropagation();
                     handleScrollToStyle(font.styleSlug);
                   }}
-                  className="text-[0.6rem] text-primary hover:underline font-bold uppercase tracking-wider"
+                  className="text-[0.6rem] text-primary hover:underline font-bold uppercase tracking-wider px-1 py-1.5 min-h-[24px]"
                 >
                   Find in Generator
                 </button>

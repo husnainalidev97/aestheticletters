@@ -8,6 +8,19 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import SansSerifFontsClient from "./SansSerifFontsClientLazy";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-sans-serif-fonts", label: "What Are Sans" },
+  { id: "how-to-use-sans-serif-text-generator", label: "How to Use" },
+  { id: "4-types-of-sans-serif-fonts", label: "4 Types of" },
+  { id: "top-15-sans-serif-fonts-to-know-free-premium", label: "Top 15 Sans" },
+  { id: "when-to-use-sans-serif-fonts", label: "When to Use" },
+  { id: "sans-serif-vs-serif-readability-comparison", label: "Sans Serif vs" },
+  { id: "non-serif-typefaces-for-social-media", label: "Non Serif Typefaces" },
+  { id: "sans-serif-font-pairing-guide", label: "Sans Serif Font" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 
 export const metadata: Metadata = {
@@ -293,6 +306,8 @@ export default function SansSerifFontsPage() {
         {/* Interactive Generator */}
         <SansSerifFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -300,7 +315,7 @@ export default function SansSerifFontsPage() {
             <div className="lg:col-span-8 flex flex-col gap-16">
 
               {/* What Are Sans Serif Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-sans-serif-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Sans Serif Fonts?
                 </h2>
@@ -377,7 +392,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* How to Use Sans Serif Text Generator */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-sans-serif-text-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Sans Serif Text Generator?
                 </h2>
@@ -413,7 +428,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* 4 Types of Sans Serif Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="4-types-of-sans-serif-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   4 Types of Sans Serif Fonts
                 </h2>
@@ -478,7 +493,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* Top 15 Sans Serif Fonts to Know */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="top-15-sans-serif-fonts-to-know-free-premium">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 15 Sans Serif Fonts to Know (Free + Premium)
                 </h2>
@@ -523,7 +538,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* When to Use Sans Serif Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="when-to-use-sans-serif-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   When to Use Sans Serif Fonts?
                 </h2>
@@ -561,7 +576,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* Sans Serif vs Serif: Readability Comparison */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="sans-serif-vs-serif-readability-comparison">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Sans Serif vs Serif: Readability Comparison
                 </h2>
@@ -620,7 +635,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* Non Serif Typefaces for Social Media */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="non-serif-typefaces-for-social-media">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Non Serif Typefaces for Social Media
                 </h2>
@@ -698,7 +713,7 @@ export default function SansSerifFontsPage() {
               </article>
 
               {/* Sans Serif Font Pairing Guide */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="sans-serif-font-pairing-guide">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Sans Serif Font Pairing Guide
                 </h2>
@@ -804,7 +819,7 @@ export default function SansSerifFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -876,7 +891,7 @@ export default function SansSerifFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

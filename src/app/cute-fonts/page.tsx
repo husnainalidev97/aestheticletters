@@ -9,6 +9,17 @@ import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import CuteFontsClient from "./CuteFontsClientLazy";
 import ComparisonAccordion from "./ComparisonAccordion";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-cute-fonts", label: "What are Cute" },
+  { id: "how-do-cute-letters-work-unicode-explained", label: "How do Cute" },
+  { id: "cute-fonts-vs-pretty-fonts-vs-aesthetic-fonts-which-one", label: "Cute Fonts vs" },
+  { id: "tips-for-using-cute-letter-fonts-effectively", label: "Tips for Using" },
+  { id: "top-10-best-cute-pretty-fonts-unicode-styles", label: "Top 10 Best" },
+  { id: "where-can-you-use-cute-fonts", label: "Where Can You" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Cute Fonts 🌸 𝓒𝓸𝓹𝔂 & 𝓟𝓪𝓼𝓽𝓮 Pretty Text Styles 🌸" },
@@ -487,6 +498,8 @@ export default function CuteFontsPage() {
         {/* Interactive Generator */}
         <CuteFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -505,7 +518,7 @@ export default function CuteFontsPage() {
               </article>
 
               {/* What are Cute Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-cute-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What are Cute Fonts?
                 </h2>
@@ -552,7 +565,7 @@ export default function CuteFontsPage() {
               </article>
 
               {/* How do Cute Letters Work? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-do-cute-letters-work-unicode-explained">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How do Cute Letters Work? (Unicode Explained)
                 </h2>
@@ -581,7 +594,7 @@ export default function CuteFontsPage() {
 
 
               {/* Comparison Table */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="cute-fonts-vs-pretty-fonts-vs-aesthetic-fonts-which-one">
                 <h2 className="font-headline text-4xl font-bold mb-4 leading-tight">
                   Cute Fonts vs Pretty Fonts vs Aesthetic Fonts &mdash; Which One Is Right for You?
                 </h2>
@@ -610,7 +623,7 @@ export default function CuteFontsPage() {
               </article>
 
               {/* Tips for Using Cute Letter Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="tips-for-using-cute-letter-fonts-effectively">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Tips for Using Cute Letter Fonts Effectively
                 </h2>
@@ -646,7 +659,7 @@ export default function CuteFontsPage() {
               </article>
 
               {/* Top 10 Best Cute & Pretty Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="top-10-best-cute-pretty-fonts-unicode-styles">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Top 10 Best Cute &amp; Pretty Fonts &mdash; Unicode Styles
                 </h2>
@@ -680,7 +693,7 @@ export default function CuteFontsPage() {
               </article>
 
               {/* Where Can You Use Cute Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-can-you-use-cute-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Can You Use Cute Fonts?
                 </h2>
@@ -765,7 +778,7 @@ export default function CuteFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -837,7 +850,7 @@ export default function CuteFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

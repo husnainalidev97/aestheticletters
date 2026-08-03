@@ -3,10 +3,8 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Tool pages — default last-modified for pages not individually updated */
-  const toolsModified = new Date("2026-06-29T00:00:00Z");
-  /* Stylish fonts — major overhaul: Unicode styles, schema, SVG icons, OG image */
-  const stylishFontsModified = new Date("2026-06-21T00:00:00Z");
+  /* Tool pages — updated today with SectionNav rollout */
+  const toolsModified = new Date("2026-08-03T00:00:00Z");
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -27,17 +25,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/fancy-fonts`,
-      lastModified: new Date("2026-07-06T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
-        `${SITE_URL}/fancy-fonts-og.webp`,
+        `${SITE_URL}/images/fancy-fonts/fancy-fonts-og.webp`,
+        `${SITE_URL}/images/fancy-fonts/what-are-fancy-fonts-before-after.webp`,
+        `${SITE_URL}/images/fancy-fonts/how-to-use-fancy-font-generator-three-steps.webp`,
+        `${SITE_URL}/images/fancy-fonts/fancy-font-styles-comparison-chart.webp`,
+        `${SITE_URL}/images/fancy-fonts/fancy-fonts-where-they-work.webp`,
+        `${SITE_URL}/images/fancy-fonts/fancy-fonts-universal-unicode-explained.webp`,
+        `${SITE_URL}/images/fancy-fonts/fancy-fonts-tips-effective-use.webp`,
         `${SITE_URL}/fancy-fonts-tool-features.webp`,
       ],
     },
     {
       url: `${SITE_URL}/cursive-fonts`,
-      lastModified: new Date("2026-06-25T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -47,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/instagram-fonts`,
-      lastModified: new Date("2026-07-06T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -61,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/stylish-fonts`,
-      lastModified: stylishFontsModified,
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -71,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cute-fonts`,
-      lastModified: new Date("2026-07-14T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -88,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/halloween-fonts`,
-      lastModified: new Date("2026-07-06T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -98,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: new Date(),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -112,7 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/serif-fonts`,
-      lastModified: new Date("2026-07-07T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -122,7 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/sans-serif-fonts`,
-      lastModified: new Date("2026-07-14T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -141,7 +145,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/number-font-generator`,
-      lastModified: new Date("2026-06-29T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -153,7 +157,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/bold-font-generator`,
-      lastModified: new Date("2026-07-25T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -165,7 +169,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/big-text-generator`,
-      lastModified: new Date("2026-07-17T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -179,7 +183,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/discord-fonts`,
-      lastModified: new Date("2026-06-29T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -192,7 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/preppy-fonts`,
-      lastModified: new Date("2026-07-09T11:30:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -205,7 +209,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/weird-font-generator`,
-      lastModified: new Date("2026-07-13T08:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -219,7 +223,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/christmas-fonts`,
-      lastModified: new Date("2026-07-06T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -232,7 +236,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/twitter-fonts`,
-      lastModified: new Date("2026-07-07T00:00:00Z"),
+      lastModified: toolsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [

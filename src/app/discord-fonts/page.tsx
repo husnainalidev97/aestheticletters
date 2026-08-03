@@ -8,6 +8,19 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-discord-fonts", label: "What Are Discord" },
+  { id: "where-discord-fonts-actually-work-and-where-they-dont", label: "Where Discord Fonts" },
+  { id: "discord-markdown-vs-unicode-fonts", label: "Discord Markdown vs." },
+  { id: "why-do-some-discord-fonts-show-as-boxes-or-missing-lett", label: "Why Do Some" },
+  { id: "12-discord-font-styles-to-copy-and-paste", label: "12 Discord Font" },
+  { id: "how-to-use-discord-fonts", label: "How to Use" },
+  { id: "best-discord-font-styles-by-server-type", label: "Best Discord Font" },
+  { id: "what-font-does-discord-use", label: "What Font Does" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Discord Fonts Generator: Copy Paste 140+ Discord Text Styles" },
@@ -284,13 +297,15 @@ export default function DiscordFontsPage() {
         {/* Interactive Font Generator */}
         <DiscordFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* What Are Discord Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-discord-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Discord Fonts?
                 </h2>
@@ -330,7 +345,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* Where Discord Fonts Actually Work */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-discord-fonts-actually-work-and-where-they-dont">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Discord Fonts Actually Work (and Where They Don&rsquo;t)
                 </h2>
@@ -403,7 +418,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* Discord Markdown vs. Unicode Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="discord-markdown-vs-unicode-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Discord Markdown vs. Unicode Fonts
                 </h2>
@@ -465,7 +480,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* Why Do Some Discord Fonts Show as Boxes */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-do-some-discord-fonts-show-as-boxes-or-missing-lett">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Do Some Discord Fonts Show as Boxes or Missing Letters?
                 </h2>
@@ -514,7 +529,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* 12 Discord Font Styles */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="12-discord-font-styles-to-copy-and-paste">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   12 Discord Font Styles to Copy and Paste
                 </h2>
@@ -557,7 +572,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* How to Use Discord Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-discord-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Discord Fonts?
                 </h2>
@@ -626,7 +641,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* Best Discord Font Styles by Server Type */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="best-discord-font-styles-by-server-type">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Best Discord Font Styles by Server Type
                 </h2>
@@ -710,7 +725,7 @@ export default function DiscordFontsPage() {
               </article>
 
               {/* What Font Does Discord Use? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-font-does-discord-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Font Does Discord Use?
                 </h2>
@@ -753,7 +768,7 @@ export default function DiscordFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -826,7 +841,7 @@ export default function DiscordFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

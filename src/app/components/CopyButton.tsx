@@ -39,6 +39,7 @@ export default function CopyButton({
           : "bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary"
       }`}
       onClick={handleCopy}
+      aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
     >
       {copied ? (
         <svg className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>

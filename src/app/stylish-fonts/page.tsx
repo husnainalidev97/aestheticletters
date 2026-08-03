@@ -8,6 +8,19 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import StylishFontsClient from "./StylishFontsClientLazy";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-a-stylish-font-generator", label: "What is a" },
+  { id: "why-stylish-fonts-dont-always-work-important-to-know", label: "Why Stylish Fonts" },
+  { id: "how-to-use-the-stylish-font-maker-step-by-step", label: "How to Use" },
+  { id: "choose-the-right-cool-stylish-font-for-your-use-case", label: "Choose the Right" },
+  { id: "all-stylish-font-styles-you-can-use", label: "All Stylish Font" },
+  { id: "how-stylish-fonts-actually-work-behind-the-scenes", label: "How Stylish Fonts" },
+  { id: "common-mistakes-tips-when-using-stylish-letters", label: "Common Mistakes &" },
+  { id: "why-use-this-stylish-font-generator", label: "Why Use This" },
+  { id: "explore-related-fonts", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free" },
@@ -342,6 +355,8 @@ export default function StylishFontsPage() {
         {/* Interactive Generator */}
         <StylishFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -363,7 +378,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* What is a Stylish Font Generator? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-is-a-stylish-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Stylish Font Generator?
                 </h2>
@@ -394,7 +409,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* Why Stylish Fonts Don't Always Work */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-stylish-fonts-dont-always-work-important-to-know">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Stylish Fonts Don&apos;t Always Work (Important to Know)
                 </h2>
@@ -415,7 +430,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* How to Use */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-the-stylish-font-maker-step-by-step">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use the Stylish Font Maker (Step by Step)
                 </h2>
@@ -466,7 +481,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* Choose the Right Font */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="choose-the-right-cool-stylish-font-for-your-use-case">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Choose the Right Cool Stylish Font for Your Use Case
                 </h2>
@@ -498,7 +513,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* All Stylish Font Styles */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="all-stylish-font-styles-you-can-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   All Stylish Font Styles You Can Use
                 </h2>
@@ -535,7 +550,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* How Stylish Fonts Actually Work */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-stylish-fonts-actually-work-behind-the-scenes">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Stylish Fonts Actually Work (Behind the Scenes)
                 </h2>
@@ -564,7 +579,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* Common Mistakes & Tips */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="common-mistakes-tips-when-using-stylish-letters">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Common Mistakes &amp; Tips When Using Stylish Letters
                 </h2>
@@ -613,7 +628,7 @@ export default function StylishFontsPage() {
               </article>
 
               {/* Why Use This Generator */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="why-use-this-stylish-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Use This Stylish Font Generator?
                 </h2>
@@ -680,7 +695,7 @@ export default function StylishFontsPage() {
         </section>
 
         {/* Explore Related Fonts */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-related-fonts">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
             Explore Related Fonts
           </h2>
@@ -708,7 +723,7 @@ export default function StylishFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

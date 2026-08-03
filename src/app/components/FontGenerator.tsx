@@ -78,7 +78,7 @@ interface FontGeneratorProps {
   hideDownload?: boolean;
 }
 
-export default function FontGenerator({ totalFontStyles: _totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload }: FontGeneratorProps) {
   const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
@@ -333,7 +333,7 @@ export default function FontGenerator({ totalFontStyles: _totalFontStyles, hideH
               }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform duration-300 group-hover:rotate-12" aria-hidden="true"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" /></svg>
-              Explore All Font Styles
+              Explore {totalFontStyles ? `${Math.floor(totalFontStyles / 100) * 100}+` : "All"} Font Styles
             </Link>
           </div>
         )}

@@ -8,6 +8,19 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-a-bold-font-generator", label: "What is a" },
+  { id: "choosing-a-bold-style-for-your-use-case", label: "Choosing a Bold" },
+  { id: "how-to-copy-and-paste-bold-fonts", label: "How to Copy" },
+  { id: "how-bold-text-works-without-formatting-support", label: "How Bold Text" },
+  { id: "where-bold-text-works-best", label: "Where Bold Text" },
+  { id: "bold-text-limitations-you-should-know", label: "Bold Text Limitations" },
+  { id: "bold-font-styles-explained", label: "Bold Font Styles," },
+  { id: "bold-font-not-working", label: "Bold Font Not" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Bold Font Generator - Free Bold Text Styles (Copy & Paste)" },
@@ -266,13 +279,15 @@ export default function BoldFontGeneratorPage() {
         {/* Interactive Font Generator */}
         <BoldFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* What is a Bold Font Generator? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-is-a-bold-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Bold Font Generator?
                 </h2>
@@ -319,7 +334,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* Choosing a Bold Style for Your Use Case */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="choosing-a-bold-style-for-your-use-case">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Choosing a Bold Style for Your Use Case
                 </h2>
@@ -370,7 +385,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* How to Copy and Paste Bold Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-copy-and-paste-bold-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Copy and Paste Bold Fonts?
                 </h2>
@@ -426,7 +441,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* How Bold Text Works Without Formatting Support */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-bold-text-works-without-formatting-support">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Bold Text Works Without Formatting Support?
                 </h2>
@@ -452,7 +467,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* Where Bold Text Works Best */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-bold-text-works-best">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Bold Text Works Best?
                 </h2>
@@ -564,7 +579,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* Bold Text Limitations You Should Know */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="bold-text-limitations-you-should-know">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Bold Text Limitations You Should Know
                 </h2>
@@ -634,7 +649,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* Bold Font Styles, Explained */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="bold-font-styles-explained">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Bold Font Styles, Explained
                 </h2>
@@ -667,7 +682,7 @@ export default function BoldFontGeneratorPage() {
               </article>
 
               {/* Bold Font Not Working? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="bold-font-not-working">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Bold Font Not Working?
                 </h2>
@@ -739,7 +754,7 @@ export default function BoldFontGeneratorPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -811,7 +826,7 @@ export default function BoldFontGeneratorPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

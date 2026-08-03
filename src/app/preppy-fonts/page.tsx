@@ -9,6 +9,19 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-the-preppy-aesthetic", label: "What is the" },
+  { id: "what-makes-a-font-preppy", label: "What Makes a" },
+  { id: "preppy-vs-similar-font-aesthetics", label: "Preppy vs Similar" },
+  { id: "tips-for-styling-your-name", label: "Tips for Styling" },
+  { id: "where-to-use-preppy-fonts", label: "Where to Use" },
+  { id: "compatibility-will-preppy-fonts-work-everywhere", label: "Compatibility — Will" },
+  { id: "preppy-kaomoji-symbol-combos", label: "Preppy Kaomoji &" },
+  { id: "sample-preppy-bio-formulas", label: "Sample Preppy Bio" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 const PAGE_TITLE = "Preppy Fonts \uD83C\uDF80 Free Copy & Paste Text Generator";
 const PAGE_DESCRIPTION =
@@ -50,6 +63,7 @@ type SectionImage = {
 };
 type Subsection = { heading: string; image?: SectionImage; paragraphs: ReactNode[] };
 type ContentSection = {
+  id?: string;
   heading: string;
   image?: SectionImage;
   paragraphs?: ReactNode[];
@@ -61,6 +75,7 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 const sections: ContentSection[] = [
   {
     heading: "What is the Preppy Aesthetic?",
+    id: "what-is-the-preppy-aesthetic",
     paragraphs: [
       "The word preppy comes from prep school, short for preparatory school. These private schools across the northeastern United States built a look around sharp blazers, tennis whites, and understated wealth. The style stayed linked to Ivy League campuses and East Coast country clubs for decades.",
       "Ralph Lauren turned this look into a global aesthetic through the 1980s and 1990s. Then came a fresh wave. TikTok and Pinterest brought preppy back around 2022, splitting it into smaller aesthetics like Old Money, Coquette, and Clean Girl. Each one adds its own mood to the same tailored foundation.",
@@ -69,6 +84,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "What Makes a Font \u201CPreppy\u201D?",
+    id: "what-makes-a-font-preppy",
     image: {
       src: "/images/preppy-fonts/preppy-font-aesthetics-comparison.webp",
       alt: "Five preppy font aesthetics compared using the name Emma: Old Money in Country Club Bold, Coquette in Ballet Script, Clean Girl in Minimal Mono, Star Girl in Chrome Block, and For Guys in Varsity Bold",
@@ -120,6 +136,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Preppy vs Similar Font Aesthetics",
+    id: "preppy-vs-similar-font-aesthetics",
     image: {
       src: "/images/preppy-fonts/preppy-vs-similar-aesthetics.webp",
       alt: "Comparison of preppy, coquette, cute, and cottagecore aesthetics showing the name Ava styled with each look's typical symbols and font",
@@ -145,6 +162,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Tips for Styling Your Name",
+    id: "tips-for-styling-your-name",
     paragraphs: [
       "Short names carry bold or heavy styles well, since there is little room for the text to feel cluttered. A three or four letter name looks sharp in a bold serif or a boxed style, where every letter gets full attention.",
       "Longer names often work better in a lighter touch, like a script or a minimal sans style. Too much weight on a long name can make it harder to read at a glance, especially inside a small bio field on a phone screen.",
@@ -154,6 +172,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Where to Use Preppy Fonts?",
+    id: "where-to-use-preppy-fonts",
     paragraphs: [
       "Preppy text shows up most on Instagram bios, Roblox usernames, and Discord servers, though every style below works anywhere text can be pasted. Each platform carries its own details worth knowing beforehand, especially around character limits and username rules. The sections below cover the platforms where preppy fonts get used most.",
     ],
@@ -226,6 +245,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Compatibility \u2014 Will Preppy Fonts Work Everywhere?",
+    id: "compatibility-will-preppy-fonts-work-everywhere",
     paragraphs: [
       "Every style on this page uses real unicode characters, the same character system that powers emoji and every language keyboard. That means the styled text works on nearly any modern phone, tablet, or computer without needing a special font installed.",
       "A few styles carry small details worth knowing. Cursive Script and Double-Struck both borrow a handful of letters from a different part of the unicode system, since the main block does not include every letter.",
@@ -236,6 +256,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Preppy Kaomoji & Symbol Combos",
+    id: "preppy-kaomoji-symbol-combos",
     paragraphs: [
       "Kaomoji and symbols round out a preppy bio the same way a small accessory finishes an outfit. A tennis racket or sailboat emoji next to a bold serif name leans Old Money, while a bow or ribbon symbol next to a script style leans Coquette.",
       "A few combos worth trying: a heart or bow on either side of a script name for a soft look, a lightning bolt or star pair for a Star Girl feel, and a simple anchor or rugby ball for the guy's version of the aesthetic.",
@@ -244,6 +265,7 @@ const sections: ContentSection[] = [
   },
   {
     heading: "Sample Preppy Bio Formulas",
+    id: "sample-preppy-bio-formulas",
     image: {
       src: "/images/preppy-fonts/preppy-bio-formulas.webp",
       alt: "Three preppy bio formula templates: Name plus Vibe with a Ballet Script name and Quiet Caps phrase, Name plus Symbol plus Link, and Initial plus Full Name using a bold serif monogram",
@@ -489,6 +511,8 @@ export default function PreppyFontsPage() {
         {/* Interactive Font Generator */}
         <PreppyFontGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -508,7 +532,7 @@ export default function PreppyFontsPage() {
               </article>
 
               {sections.map((section) => (
-                <article key={section.heading}>
+                <article key={section.heading} id={section.id} className="scroll-mt-[9rem]">
                   <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                     {section.heading}
                   </h2>
@@ -596,7 +620,7 @@ export default function PreppyFontsPage() {
 
         {/* Explore More Tools */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight scroll-mt-[9rem]" id="explore-more-tools">
             Explore More Tools
           </h2>
           <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
@@ -669,7 +693,7 @@ export default function PreppyFontsPage() {
 
         {/* FAQ Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
-          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
+          <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center scroll-mt-[9rem]" id="frequently-asked-questions">
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={faqs} />

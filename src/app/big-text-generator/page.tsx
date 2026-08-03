@@ -8,6 +8,19 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { getTotalFontStyleCount } from "../lib/fontCount";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-is-a-big-text-generator", label: "What is a" },
+  { id: "choosing-a-big-text-style-for-your-use-case", label: "Choosing a Big" },
+  { id: "how-to-copy-and-paste-big-text", label: "How to Copy" },
+  { id: "see-your-big-text-at-full-size", label: "See Your Big" },
+  { id: "most-big-text-isnt-actually-bigger", label: "Most “Big” Text" },
+  { id: "where-huge-text-works-best", label: "Where Huge Text" },
+  { id: "big-text-limitations-you-should-know", label: "Big Text Limitations" },
+  { id: "big-text-not-working", label: "Big Text Not" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 const META_DESCRIPTION =
   "Turn any word into big, large, or wide text you can copy and paste anywhere. Free to use, no sign up, with three styles and a live preview to check size first.";
@@ -478,6 +491,8 @@ export default function BigTextGeneratorPage() {
         {/* Interactive Font Generator */}
         <BigTextGenerator totalFontStyles={totalFontStyles} />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -489,7 +504,7 @@ export default function BigTextGeneratorPage() {
                 </p>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-is-a-big-text-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Big Text Generator?
                 </h2>
@@ -505,7 +520,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="choosing-a-big-text-style-for-your-use-case">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Choosing a Big Text Style for Your Use Case
                 </h2>
@@ -538,7 +553,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-copy-and-paste-big-text">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Copy and Paste Big Text?
                 </h2>
@@ -575,7 +590,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="see-your-big-text-at-full-size">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   See Your Big Text at Full Size
                 </h2>
@@ -591,7 +606,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="most-big-text-isnt-actually-bigger">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Most &ldquo;Big&rdquo; Text isn&rsquo;t Actually Bigger
                 </h2>
@@ -616,7 +631,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-huge-text-works-best">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Huge Text Works Best?
                 </h2>
@@ -648,7 +663,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="big-text-limitations-you-should-know">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Big Text Limitations You Should Know
                 </h2>
@@ -677,7 +692,7 @@ export default function BigTextGeneratorPage() {
                 </div>
               </article>
 
-              <article>
+              <article className="scroll-mt-[9rem]" id="big-text-not-working">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Big Text Not Working?
                 </h2>
@@ -734,7 +749,7 @@ export default function BigTextGeneratorPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -795,7 +810,7 @@ export default function BigTextGeneratorPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>

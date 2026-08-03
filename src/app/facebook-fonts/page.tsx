@@ -8,6 +8,19 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
+import SectionNav from "../components/SectionNav";
+const pageSections = [
+  { id: "what-are-facebook-fonts", label: "What Are Facebook" },
+  { id: "how-to-use-this-facebook-font-generator", label: "How to Use" },
+  { id: "where-can-you-use-facebook-fonts", label: "Where Can You" },
+  { id: "font-style-guide-which-facebook-font-style-works-best-f", label: "Font Style Guide:" },
+  { id: "facebook-fonts-vs-instagram-fonts-vs-tiktok-fonts", label: "Facebook Fonts vs" },
+  { id: "facebook-fonts-for-businesses", label: "Facebook Fonts for" },
+  { id: "facebook-fonts-that-work-in-ads", label: "Facebook Fonts That" },
+  { id: "what-font-does-facebook-actually-use", label: "What Font Does" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Facebook Fonts - Copy & Paste 40+ Styles & 150+ FB Symbols" },
@@ -323,6 +336,8 @@ export default function FacebookFontsPage() {
         {/* Interactive Generator */}
         <FacebookFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -330,7 +345,7 @@ export default function FacebookFontsPage() {
             <div className="lg:col-span-8 flex flex-col gap-16">
 
               {/* What Are Facebook Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-are-facebook-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Facebook Fonts?
                 </h2>
@@ -352,7 +367,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* How to Use This Facebook Font Generator */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="how-to-use-this-facebook-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use This Facebook Font Generator?
                 </h2>
@@ -394,7 +409,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* Where Can You Use Facebook Fonts? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="where-can-you-use-facebook-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Can You Use Facebook Fonts?
                 </h2>
@@ -454,7 +469,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* Font Style Guide */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="font-style-guide-which-facebook-font-style-works-best-f">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Font Style Guide: Which Facebook Font Style Works Best for What?
                 </h2>
@@ -557,7 +572,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* Facebook Fonts vs Instagram Fonts vs TikTok Fonts */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="facebook-fonts-vs-instagram-fonts-vs-tiktok-fonts">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Facebook Fonts vs Instagram Fonts vs TikTok Fonts
                 </h2>
@@ -634,7 +649,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* Facebook Fonts for Businesses */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="facebook-fonts-for-businesses">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Facebook Fonts for Businesses
                 </h2>
@@ -669,7 +684,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* Facebook Fonts That Work in Ads */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="facebook-fonts-that-work-in-ads">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Facebook Fonts That Work in Ads
                 </h2>
@@ -736,7 +751,7 @@ export default function FacebookFontsPage() {
               </article>
 
               {/* What Font Does Facebook Actually Use? */}
-              <article>
+              <article className="scroll-mt-[9rem]" id="what-font-does-facebook-actually-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Font Does Facebook Actually Use?
                 </h2>
@@ -853,7 +868,7 @@ export default function FacebookFontsPage() {
         </section>
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-more-tools">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
@@ -924,7 +939,7 @@ export default function FacebookFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]" id="frequently-asked-questions">
           <h2 className="font-headline text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>
