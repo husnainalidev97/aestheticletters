@@ -5,21 +5,25 @@ import { cuteFontCategories } from "./cuteFontStyles";
 import { halloweenFontCategories } from "./halloweenFontStyles";
 import { facebookFontCategories } from "./facebookFontStyles";
 import { cursiveUnicodeStyles } from "../cursive-fonts/cursiveUnicodeStyles";
-import { serifUnicodeCategories, serifFontCategories } from "./serifFontStyles";
+import { serifUnicodeCategories } from "./serifFontStyles";
 import { sansSerifUnicodeCategories } from "./sansSerifFontStyles";
 import { numberFontCategories } from "./numberFontStyles";
 import { boldFontCategories } from "./boldFontStyles";
-import { bigTextFontCategories } from "./bigTextFontStyles";
+import { bigTextFontCategories, bigTextComboCategories } from "./bigTextFontStyles";
 import { twitterFontCategories } from "./twitterFontStyles";
 import { christmasFontCategories } from "./christmasFontStyles";
 import { weirdFontCategories } from "./weirdFontStyles";
+import { discordFontCategories } from "./discordFontStyles";
+import { preppyFontCategories } from "./preppyFontStyles";
+import instagramDeferredCardDefs from "./instagramCardDefsDeferred";
 
-// Instagram font cards are in a "use client" component and cannot be imported
-// at static build time. Count is derived from 12 categories × ~10 styles each.
-const INSTAGRAM_FONT_STYLE_COUNT = 121;
+// Instagram card defs are split: the first 3 categories (30 styles) live in the
+// InstagramFontCards client component, and the remaining 9 categories live in the
+// deferred data file. We count both here and avoid importing a "use client" file.
+const INSTAGRAM_INITIAL_STYLE_COUNT = 30;
 
 /**
- * Dynamically counts every font style registered across all data files.
+ * Dynamically counts every font style registered across all tool data files.
  * Keeps the displayed number in sync whenever new styles are added.
  */
 export function getTotalFontStyleCount(): number {
@@ -54,9 +58,6 @@ export function getTotalFontStyleCount(): number {
   const serifCount = serifUnicodeCategories.reduce(
     (sum, cat) => sum + cat.styles.length,
     0,
-  ) + serifFontCategories.reduce(
-    (sum, cat) => sum + cat.styles.length,
-    0,
   );
   const sansSerifCount = sansSerifUnicodeCategories.reduce(
     (sum, cat) => sum + cat.styles.length,
@@ -73,6 +74,9 @@ export function getTotalFontStyleCount(): number {
   const bigTextCount = bigTextFontCategories.reduce(
     (sum, cat) => sum + cat.styles.length,
     0,
+  ) + bigTextComboCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
   );
   const twitterCount = twitterFontCategories.reduce(
     (sum, cat) => sum + cat.styles.length,
@@ -86,5 +90,38 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
-  return homeCount + fancyCount + stylishCount + cuteCount + halloweenCount + facebookCount + cursiveCount + INSTAGRAM_FONT_STYLE_COUNT + serifCount + sansSerifCount + numberCount + boldCount + bigTextCount + twitterCount + christmasCount + weirdCount;
+  const discordCount = discordFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  const preppyCount = preppyFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  const instagramDeferredCount = instagramDeferredCardDefs.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
+  const instagramCount = INSTAGRAM_INITIAL_STYLE_COUNT + instagramDeferredCount;
+
+  return (
+    homeCount +
+    fancyCount +
+    stylishCount +
+    cuteCount +
+    halloweenCount +
+    facebookCount +
+    cursiveCount +
+    instagramCount +
+    serifCount +
+    sansSerifCount +
+    numberCount +
+    boldCount +
+    bigTextCount +
+    twitterCount +
+    christmasCount +
+    weirdCount +
+    discordCount +
+    preppyCount
+  );
 }
