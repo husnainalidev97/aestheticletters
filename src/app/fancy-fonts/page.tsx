@@ -25,10 +25,10 @@ export const metadata: Metadata = {
       "Transform your text into elegant styles instantly. 100% private, browser-based, and compatible with all social media platforms.",
     images: [
       {
-        url: "https://www.aestheticletters.com/fancy-fonts-og.webp",
-        width: 1730,
-        height: 909,
-        alt: "Fancy Fonts Copy and Paste — 130+ free fancy font styles",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "Fancy Fonts Generator — 130+ free copy-and-paste Unicode font styles for Instagram, bios, and gaming usernames",
       },
     ],
     publishedTime: "2026-05-01T08:00:00+00:00",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
       "Copy and paste unique aesthetic fonts for your social media profiles.",
     images: [
       {
-        url: "https://www.aestheticletters.com/fancy-fonts-og.webp",
-        alt: "Fancy Fonts Copy and Paste — 130+ free fancy font styles",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-og.webp",
+        alt: "Fancy Fonts Generator — 130+ free copy-and-paste Unicode font styles for Instagram, bios, and gaming usernames",
       },
     ],
   },
@@ -272,6 +272,8 @@ export default function FancyFontsPage() {
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/fancy-fonts",
+        image:
+          "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-og.webp",
         description:
           "Transform your text into 130+ elegant fancy font styles instantly. Copy and paste stylish Unicode text for Instagram, WhatsApp, Facebook, gaming usernames, and more.",
         offers: {
@@ -287,6 +289,9 @@ export default function FancyFontsPage() {
         name: "130+ Fancy Fonts \u2013 Copy & Paste for Instagram, Gaming & More",
         description:
           "Tired of plain text? Copy 130+ free fancy fonts for Instagram, WhatsApp, Facebook, or gaming usernames and make your messages stand out immediately.",
+        primaryImageOfPage: {
+          "@id": "https://www.aestheticletters.com/fancy-fonts#image-what-are",
+        },
         breadcrumb: {
           "@id":
             "https://www.aestheticletters.com/fancy-fonts#breadcrumb",
@@ -295,6 +300,78 @@ export default function FancyFontsPage() {
           "@id":
             "https://www.aestheticletters.com/fancy-fonts#software",
         },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-what-are",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/what-are-fancy-fonts-before-after.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/what-are-fancy-fonts-before-after.webp",
+        width: 1200,
+        height: 800,
+        caption:
+          "Plain text converted into multiple Unicode fancy font styles, showing how copy-paste fonts work",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-how-to-use",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/how-to-use-fancy-font-generator-three-steps.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/how-to-use-fancy-font-generator-three-steps.webp",
+        width: 1200,
+        height: 800,
+        caption:
+          "Three simple steps to use the fancy font generator: type your text, choose a style, then copy and paste it anywhere",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-styles-comparison",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-font-styles-comparison-chart.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/fancy-font-styles-comparison-chart.webp",
+        width: 1024,
+        height: 1024,
+        caption:
+          "Comparison chart of popular fancy font styles including Bold, Script, Gothic, Bubble, Monospace, Symbol, Minimal, and Retro with best use cases",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-where-they-work",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-where-they-work.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-where-they-work.webp",
+        width: 1200,
+        height: 800,
+        caption:
+          "Generic social media and messaging mockups showing where fancy fonts work: profile bios, posts, captions, comments, chat messages, and more",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-unicode-everywhere",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-universal-unicode-explained.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-universal-unicode-explained.webp",
+        width: 1200,
+        height: 800,
+        caption:
+          "Diagram explaining that fancy fonts are Unicode characters and display consistently across laptops, phones, and tablets without downloads",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/fancy-fonts#image-tips",
+        url: "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-tips-effective-use.webp",
+        contentUrl:
+          "https://www.aestheticletters.com/images/fancy-fonts/fancy-fonts-tips-effective-use.webp",
+        width: 1200,
+        height: 800,
+        caption:
+          "Visual tips for using fancy fonts effectively: match style to tone, test on mobile, keep paragraphs plain, and respect accessibility",
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -408,10 +485,10 @@ export default function FancyFontsPage() {
                 </h2>
                 <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
                   <Image
-                    src="/fancy-fonts-og.webp"
-                    alt="Fancy Fonts Copy and Paste — 130+ free fancy font styles visually explained with bold, script, monospace, fraktur, and small caps examples"
-                    width={1730}
-                    height={909}
+                    src="/images/fancy-fonts/what-are-fancy-fonts-before-after.webp"
+                    alt="Plain text converted into multiple Unicode fancy font styles side by side, showing how copy-paste fonts work"
+                    width={1200}
+                    height={800}
                     loading="lazy"
                     className="w-full h-auto"
                   />
@@ -464,6 +541,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use the Fancy Font Generator?
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/images/fancy-fonts/how-to-use-fancy-font-generator-three-steps.webp"
+                    alt="Three simple steps to use the fancy font generator: type your text, choose a style, then copy and paste it anywhere"
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <div className="space-y-8">
                   {[
                     {
@@ -526,6 +613,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Which Fancy Font Style Should You Use?
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/images/fancy-fonts/fancy-font-styles-comparison-chart.webp"
+                    alt="Comparison chart of popular fancy font styles including Bold, Script, Gothic, Bubble, Monospace, Symbol, Minimal, and Retro with best use cases"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   With 130+ styles available, picking the right one can feel
                   overwhelming. The good news is that different platforms have
@@ -603,6 +700,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Can You Use Fancy Fonts?
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/images/fancy-fonts/fancy-fonts-where-they-work.webp"
+                    alt="Generic social media and messaging mockups showing where fancy fonts work: profile bios, posts, captions, comments, chat messages, and more"
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   You can use fancy letter fonts on many websites and apps to make
                   your text look cooler and easier to notice.
@@ -640,6 +747,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Fancy Typefaces Work on Every Platform?
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/images/fancy-fonts/fancy-fonts-universal-unicode-explained.webp"
+                    alt="Diagram explaining that fancy fonts are Unicode characters and display consistently across laptops, phones, and tablets without downloads"
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Most people assume styled text works like a downloaded font,
                   something the receiving app needs to load before it can display
@@ -668,6 +785,16 @@ export default function FancyFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Tips for Using Fancy Fonts Effectively
                 </h2>
+                <div className="mb-8 rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
+                  <Image
+                    src="/images/fancy-fonts/fancy-fonts-tips-effective-use.webp"
+                    alt="Visual tips for using fancy fonts effectively: match style to tone, test on mobile, keep paragraphs plain, and respect accessibility"
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Styled text works best when it is used with intention. A few simple
                   habits will make your output look sharper and more deliberate.
