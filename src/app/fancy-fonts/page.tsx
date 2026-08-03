@@ -483,11 +483,11 @@ export default function FancyFontsPage() {
           </p>
         </section>
 
-        {/* Sticky section navigation */}
-        <SectionNav sections={pageSections} />
-
         {/* Interactive: Input + Slider + Font Cards */}
         <FancyFontsClient />
+
+        {/* Sticky section navigation — appears as user reaches the content */}
+        <SectionNav sections={pageSections} />
 
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
