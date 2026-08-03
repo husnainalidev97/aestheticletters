@@ -47,6 +47,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [
         `${SITE_URL}/cursive-fonts-og.webp`,
         `${SITE_URL}/how-to-use-this-cursive-fonts-generator-in-seconds.webp`,
+        `${SITE_URL}/images/cursive-fonts/cursive-fonts-what-are-before-after.webp`,
+        `${SITE_URL}/images/cursive-fonts/cursive-fonts-where-they-work.webp`,
+        `${SITE_URL}/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp`,
+        `${SITE_URL}/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp`,
       ],
     },
     {

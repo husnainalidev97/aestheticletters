@@ -38,10 +38,40 @@ export const metadata: Metadata = {
         height: 624,
         alt: "Cursive Fonts Generator by Aesthetic Letters — copy and paste handwritten text styles",
       },
+      {
+        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        width: 896,
+        height: 1200,
+        alt: "Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-what-are-before-after.webp",
+        width: 1200,
+        height: 800,
+        alt: "Plain text transformed into multiple copy-paste cursive font styles, showing the before and after look of handwritten Unicode text.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
+        width: 1200,
+        height: 800,
+        alt: "Social media and design mockups showing where cursive fonts work best: Instagram bios, wedding invitations, logos, and quotes.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp",
+        width: 1200,
+        height: 1200,
+        alt: "Comparison chart of 8 cursive font categories including Handwriting, Playful Script, Elegant Cursive, Brush & Marker, School & Guides, Chunky Fun, Retro Vintage, and Cultural Brush.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp",
+        width: 1200,
+        height: 800,
+        alt: "Elegant cursive script examples for wedding invitations, romantic quotes, signatures, and personal branding.",
+      },
     ],
     siteName: "Aesthetic Letters",
     publishedTime: "2026-04-19T08:00:00+00:00",
-    modifiedTime: "2026-06-25T00:00:00+00:00",
+    modifiedTime: "2026-08-03T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
@@ -49,7 +79,42 @@ export const metadata: Metadata = {
     description:
       "Convert your text into cursive fonts instantly. Use this cursive text generator to create handwritten styles you can copy and use on social media, and more.",
     images: [
-      "https://www.aestheticletters.com/cursive-fonts-og.webp",
+      {
+        url: "https://www.aestheticletters.com/cursive-fonts-og.webp",
+        width: 1200,
+        height: 624,
+        alt: "Cursive Fonts Generator by Aesthetic Letters — copy and paste handwritten text styles",
+      },
+      {
+        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        width: 896,
+        height: 1200,
+        alt: "Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-what-are-before-after.webp",
+        width: 1200,
+        height: 800,
+        alt: "Plain text transformed into multiple copy-paste cursive font styles, showing the before and after look of handwritten Unicode text.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
+        width: 1200,
+        height: 800,
+        alt: "Social media and design mockups showing where cursive fonts work best: Instagram bios, wedding invitations, logos, and quotes.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp",
+        width: 1200,
+        height: 1200,
+        alt: "Comparison chart of 8 cursive font categories including Handwriting, Playful Script, Elegant Cursive, Brush & Marker, School & Guides, Chunky Fun, Retro Vintage, and Cultural Brush.",
+      },
+      {
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp",
+        width: 1200,
+        height: 800,
+        alt: "Elegant cursive script examples for wedding invitations, romantic quotes, signatures, and personal branding.",
+      },
     ],
   },
 };
@@ -143,8 +208,7 @@ export default function CursiveFontsPage() {
         url: "https://www.aestheticletters.com/cursive-fonts",
         description:
           "Free online cursive fonts generator. Convert plain text into handwritten, script, and signature-style Unicode fonts that copy and paste anywhere.",
-        image:
-          "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        image: { "@id": "https://www.aestheticletters.com/cursive-fonts#image-what-are" },
         inLanguage: "en",
         operatingSystem: "All",
         applicationCategory: "UtilitiesApplication",
@@ -166,12 +230,59 @@ export default function CursiveFontsPage() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
-          width: 896,
-          height: 1200,
+          "@id": "https://www.aestheticletters.com/cursive-fonts#image-what-are",
         },
         mainEntity: { "@id": "https://www.aestheticletters.com/cursive-fonts#software" },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-what-are",
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-what-are-before-after.webp",
+        contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-what-are-before-after.webp",
+        width: 1200,
+        height: 800,
+        caption: "Plain text transformed into multiple copy-paste cursive font styles showing the before and after look of handwritten Unicode text.",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-how-to-use",
+        url: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        contentUrl: "https://www.aestheticletters.com/how-to-use-this-cursive-fonts-generator-in-seconds.webp",
+        width: 896,
+        height: 1200,
+        caption: "Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message.",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-where-they-work",
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
+        contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-where-they-work.webp",
+        width: 1200,
+        height: 800,
+        caption: "Social media and design mockups showing where cursive fonts work best: Instagram bios, wedding invitations, logos, and quotes.",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-styles",
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp",
+        contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp",
+        width: 1200,
+        height: 1200,
+        caption: "Comparison chart of 8 cursive font categories including Handwriting, Playful Script, Elegant Cursive, Brush & Marker, School & Guides, Chunky Fun, Retro Vintage, and Cultural Brush.",
+        inLanguage: "en",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.aestheticletters.com/cursive-fonts#image-elegant",
+        url: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp",
+        contentUrl: "https://www.aestheticletters.com/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp",
+        width: 1200,
+        height: 800,
+        caption: "Elegant cursive script examples for wedding invitations, romantic quotes, signatures, and personal branding.",
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -213,6 +324,7 @@ export default function CursiveFontsPage() {
         description:
           "Using this cursive font generator is very simple. There is no need for technical knowledge. Just follow these quick steps to create cursive text instantly.",
         totalTime: "PT1M",
+        image: { "@id": "https://www.aestheticletters.com/cursive-fonts#image-how-to-use" },
         step: [
           {
             "@type": "HowToStep",
@@ -294,6 +406,14 @@ export default function CursiveFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Cursive Fonts?
                 </h2>
+                <Image
+                  src="/images/cursive-fonts/cursive-fonts-what-are-before-after.webp"
+                  alt="Plain text transformed into multiple copy-paste cursive font styles, showing the before and after look of handwritten Unicode text."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Cursive fonts are text styles that look like natural
                   handwriting. The letters are often connected, smooth, and
@@ -385,6 +505,14 @@ export default function CursiveFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where You Can Use Cursive Fonts?
                 </h2>
+                <Image
+                  src="/images/cursive-fonts/cursive-fonts-where-they-work.webp"
+                  alt="Social media and design mockups showing where cursive fonts work best: Instagram bios, wedding invitations, logos, and quotes."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Cursive letters are flexible and can be used in many places.
                   The social media world isn&apos;t the only place they can be
@@ -443,8 +571,16 @@ export default function CursiveFontsPage() {
               {/* Why do Cursive letters Attract More Attention? */}
               <article className="scroll-mt-[9rem]" id="why-do-cursive-letters-attract-more-attention">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  Why do Cursive letters Attract More Attention?
+                  Why Do Cursive Letters Attract More Attention?
                 </h2>
+                <Image
+                  src="/images/cursive-fonts/cursive-fonts-elegant-script-examples.webp"
+                  alt="Elegant cursive script examples for wedding invitations, romantic quotes, signatures, and personal branding."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Cursive letters stand out because of their different appearance
                   from normal words. When people scroll through content, unique
@@ -491,6 +627,14 @@ export default function CursiveFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   40+ Handwritten Font Styles in 8 Categories
                 </h2>
+                <Image
+                  src="/images/cursive-fonts/cursive-fonts-styles-comparison-chart.webp"
+                  alt="Comparison chart of 8 cursive font categories including Handwriting, Playful Script, Elegant Cursive, Brush & Marker, School & Guides, Chunky Fun, Retro Vintage, and Cultural Brush."
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This generator gives you 40+ cursive and handwritten styles.
                   They are grouped into 8 categories to help you find the look
@@ -575,13 +719,13 @@ export default function CursiveFontsPage() {
               <div className="rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
                 <Image
                   src="/how-to-use-this-cursive-fonts-generator-in-seconds.webp"
-                  alt="Screenshot of the Aesthetic Letters cursive fonts generator showing the input box, font-size slider, and a list of handwritten font styles with copy buttons."
-                  width={450}
-                  height={600}
+                  alt="Three-step guide for using the cursive fonts generator: type your text, choose a handwritten style, then copy and paste it into a social bio or message."
+                  width={896}
+                  height={1200}
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </div>
-
 
             </aside>
           </div>
