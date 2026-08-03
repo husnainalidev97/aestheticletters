@@ -8,6 +8,19 @@ import FancyFontsClient from "./FancyFontsClientLazy";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import ShowcaseGrid from "./ShowcaseGridLazy";
+import SectionNav from "./SectionNav";
+
+const pageSections = [
+  { id: "what-are", label: "What are" },
+  { id: "how-to-use", label: "How to Use" },
+  { id: "which-style", label: "Which Style" },
+  { id: "where-to-use", label: "Where to Use" },
+  { id: "why-work", label: "Why it Works" },
+  { id: "tips", label: "Tips" },
+  { id: "reasons", label: "Features" },
+  { id: "popular", label: "Popular" },
+  { id: "faq", label: "FAQ" },
+];
 
 export const metadata: Metadata = {
   title: { absolute: "130+ Fancy Fonts \u2013 Copy & Paste for Instagram, Gaming & More" },
@@ -473,13 +486,16 @@ export default function FancyFontsPage() {
         {/* Interactive: Input + Slider + Font Cards */}
         <FancyFontsClient />
 
+        {/* Sticky section navigation */}
+        <SectionNav sections={pageSections} />
+
         {/* SEO Content Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* What are Fancy Fonts */}
-              <article>
+              <article id="what-are" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What are Fancy Fonts &amp; Typefaces?
                 </h2>
@@ -537,7 +553,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* How to Use */}
-              <article>
+              <article id="how-to-use" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use the Fancy Font Generator?
                 </h2>
@@ -609,7 +625,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* Which Fancy Font Style Should You Use? */}
-              <article>
+              <article id="which-style" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Which Fancy Font Style Should You Use?
                 </h2>
@@ -696,7 +712,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* Where Can You Use Fancy Fonts */}
-              <article>
+              <article id="where-to-use" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Where Can You Use Fancy Fonts?
                 </h2>
@@ -743,7 +759,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* Why Fancy Typefaces Work on Every Platform */}
-              <article>
+              <article id="why-work" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Fancy Typefaces Work on Every Platform?
                 </h2>
@@ -781,7 +797,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* Tips for Using Fancy Fonts Effectively */}
-              <article>
+              <article id="tips" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Tips for Using Fancy Fonts Effectively
                 </h2>
@@ -815,7 +831,7 @@ export default function FancyFontsPage() {
               </article>
 
               {/* 6 Reasons */}
-              <article>
+              <article id="reasons" className="scroll-mt-[9rem]">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   6 Reasons Our Fancy Text Generator Stands Above the Rest
                 </h2>
@@ -874,7 +890,7 @@ export default function FancyFontsPage() {
         </section>
 
         {/* Most Popular Fancy Font Styles Showcase */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+        <section id="popular" className="scroll-mt-[9rem] max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
           <h2 className="font-headline text-4xl font-bold mb-12 leading-tight text-center">
             Most Popular Fancy Font Styles to Copy and Paste
           </h2>
@@ -910,7 +926,7 @@ export default function FancyFontsPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
+        <section id="faq" className="scroll-mt-[9rem] max-w-[1440px] mx-auto px-4 md:px-[150px] py-12 md:py-24">
           <h2 className="font-headline text-2xl md:text-4xl font-bold mb-16 text-center">
             Frequently Asked Questions
           </h2>
