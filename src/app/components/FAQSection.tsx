@@ -35,7 +35,7 @@ export const homeFaqs = [
 
 export default function FAQSection() {
   return (
-    <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+    <section id="frequently-asked-questions" className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 scroll-mt-[9rem]">
       <h2 className="font-headline text-4xl font-bold mb-16 text-center">
         Frequently Asked Questions
       </h2>

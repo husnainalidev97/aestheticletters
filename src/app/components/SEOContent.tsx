@@ -5,7 +5,7 @@ export default function SEOContent() {
   return (
     <div className="lg:col-span-8 flex flex-col gap-16">
       {/* Section 1: What is an Aesthetic Fonts Generator? */}
-      <article>
+      <article id="what-is-an-aesthetic-fonts-generator" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           What is an Aesthetic Fonts Generator?
         </h2>
@@ -66,7 +66,7 @@ export default function SEOContent() {
       </article>
 
       {/* Section 2: How Does This Aesthetic Text Generator Work? */}
-      <article>
+      <article id="how-does-this-aesthetic-text-generator-work" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           How Does This Aesthetic Text Generator Work?
         </h2>
@@ -131,7 +131,7 @@ export default function SEOContent() {
       </article>
 
       {/* Section 3: Choose From Aesthetic Font Styles */}
-      <article>
+      <article id="choose-from-120-aesthetic-font-styles" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           Choose From 120+ Aesthetic Font Styles
         </h2>
@@ -275,7 +275,7 @@ export default function SEOContent() {
       </article>
 
       {/* Section 4: Where Can Aesthetic Fonts Be Used? */}
-      <article>
+      <article id="where-can-aesthetic-fonts-be-used" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           Where Can Aesthetic Fonts Be Used?
         </h2>
@@ -422,7 +422,7 @@ export default function SEOContent() {
       </article>
 
       {/* Section 5: Common Mistakes to Avoid */}
-      <article>
+      <article id="05-common-mistakes-to-avoid-when-using-aesthetic-fonts" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           05 Common Mistakes to Avoid When Using Aesthetic Fonts
         </h2>
@@ -470,7 +470,7 @@ export default function SEOContent() {
       </article>
 
       {/* Section 6: Comparison Table */}
-      <article>
+      <article id="aesthetic-font-generator-vs-installing-real-fonts" className="scroll-mt-[9rem]">
         <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
           Aesthetic Font Generator vs Installing Real Fonts
         </h2>

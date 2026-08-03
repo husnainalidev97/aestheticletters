@@ -6,7 +6,19 @@ import SEOSection from "./components/SEOSection";
 import FAQSection, { homeFaqs } from "./components/FAQSection";
 import Footer from "./components/Footer";
 import BackToTopButton from "./components/BackToTopButton";
+import SectionNav from "./components/SectionNav";
 import { getTotalFontStyleCount } from "./lib/fontCount";
+
+const homePageSections = [
+  { id: "what-is-an-aesthetic-fonts-generator", label: "What is an" },
+  { id: "how-does-this-aesthetic-text-generator-work", label: "How Does" },
+  { id: "choose-from-120-aesthetic-font-styles", label: "Choose From" },
+  { id: "where-can-aesthetic-fonts-be-used", label: "Where Can" },
+  { id: "05-common-mistakes-to-avoid-when-using-aesthetic-fonts", label: "05 Common Mistakes" },
+  { id: "aesthetic-font-generator-vs-installing-real-fonts", label: "Aesthetic Font" },
+  { id: "explore-more-tools", label: "Explore" },
+  { id: "frequently-asked-questions", label: "FAQ" },
+];
 export const metadata: Metadata = {
   title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
   description:
@@ -163,10 +175,13 @@ export default function Home() {
       <TopNavBar activePage="home" />
       <main id="main-content" className="pt-[5.5rem]">
         <FontGenerator totalFontStyles={totalFontStyles} />
+
+        {/* Sticky section navigation */}
+        <SectionNav sections={homePageSections} />
         <SEOSection />
 
         {/* Explore More Tools */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+        <section id="explore-more-tools" className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]">
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
             Explore More Tools
           </h2>
