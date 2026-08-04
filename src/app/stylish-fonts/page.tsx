@@ -89,12 +89,6 @@ const faqs = [
 
 const fontShowcaseStyles = [
   {
-    name: "Katakana & Look-alikes",
-    description: "Japanese katakana and Unicode look-alike alphabets for a global aesthetic.",
-    example: "サタヤライサハ フオナタサ",
-    bestFor: "Instagram bios and captions with an international vibe.",
-  },
-  {
     name: "Circled & Bubble",
     description: "Negative circled letters and emoji-framed bubble text.",
     example: "🅢🅣🅨🅛🅘🅢🅗 🅕🅞🅝🅣🅢",
@@ -107,10 +101,10 @@ const fontShowcaseStyles = [
     bestFor: "Gaming usernames and bold headlines.",
   },
   {
-    name: "Weight & Style",
-    description: "Mathematical italic and bold-italic for clean emphasis.",
-    example: "𝑆𝑡𝑦𝑙𝑖𝑠ℎ 𝐹𝑜𝑛𝑡𝑠",
-    bestFor: "Professional-looking emphasis and readable posts.",
+    name: "Element Wraps",
+    description: "Plain and bold text wrapped with emoji and symbol elements.",
+    example: "🧊 Stylish Fonts 🧊",
+    bestFor: "Decorated captions and standout profile names.",
   },
   {
     name: "Double-Struck Frames",
@@ -119,16 +113,16 @@ const fontShowcaseStyles = [
     bestFor: "Math and science themed bios and captions.",
   },
   {
+    name: "Katakana & Look-alikes",
+    description: "Japanese katakana and Unicode look-alike alphabets for a global aesthetic.",
+    example: "サタヤライサハ フオナタサ",
+    bestFor: "Instagram bios and captions with an international vibe.",
+  },
+  {
     name: "Monospace Terminal",
     description: "Terminal-style monospace alphabets with arrow and bracket frames.",
     example: "𝚂𝚝𝚢𝚕𝚒𝚜𝚑 𝙵𝚘𝚗𝚝𝚜",
     bestFor: "Code-style gaming usernames and terminal aesthetics.",
-  },
-  {
-    name: "Fullwidth Retro",
-    description: "Wide fullwidth letters inside quotation and lens frames.",
-    example: "Ｓｔｙｌｉｓｈ　Ｆｏｎｔｓ",
-    bestFor: "Retro vaporwave posts and aesthetic headers.",
   },
   {
     name: "Novelty",
@@ -137,16 +131,22 @@ const fontShowcaseStyles = [
     bestFor: "Meme captions and fun unique usernames.",
   },
   {
+    name: "Fullwidth Retro",
+    description: "Wide fullwidth letters inside quotation and lens frames.",
+    example: "Ｓｔｙｌｉｓｈ　Ｆｏｎｔｓ",
+    bestFor: "Retro vaporwave posts and aesthetic headers.",
+  },
+  {
+    name: "Weight & Style",
+    description: "Mathematical italic and bold-italic for clean emphasis.",
+    example: "𝑆𝑡𝑦𝑙𝑖𝑠ℎ 𝐹𝑜𝑛𝑡𝑠",
+    bestFor: "Professional-looking emphasis and readable posts.",
+  },
+  {
     name: "Currency & Braille",
     description: "Currency-symbol letters and braille dot patterns.",
     example: "₴₮ɎŁƗ₴Ħ ₣Ø₦₮₴",
     bestFor: "Creative typography and artistic posts.",
-  },
-  {
-    name: "Element Wraps",
-    description: "Plain and bold text wrapped with emoji and symbol elements.",
-    example: "🧊 Stylish Fonts 🧊",
-    bestFor: "Decorated captions and standout profile names.",
   },
 ];
 

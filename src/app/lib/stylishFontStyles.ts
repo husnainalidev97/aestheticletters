@@ -713,19 +713,19 @@ const elementWraps: StylishFontCategory = {
 // ── Exports ─────────────────────────────────────────────────────────────────
 
 export const stylishInitialCategories: StylishFontCategory[] = [
-  katakanaLookalikes,
   circledBubble,
   squaredBlock,
+  elementWraps,
 ];
 
 export const stylishDeferredCategories: StylishFontCategory[] = [
-  weightStyle,
   doubleStruckFrames,
+  katakanaLookalikes,
   monospaceTerminal,
-  fullwidthRetro,
   novelty,
+  fullwidthRetro,
+  weightStyle,
   currencyBraille,
-  elementWraps,
 ];
 
 export const stylishFontCategories: StylishFontCategory[] = [
