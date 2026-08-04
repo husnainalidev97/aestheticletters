@@ -76,6 +76,8 @@ function FontCategoryCard({
       <div className="space-y-3">
         {transformedStyles.map(({ style, converted, display, styleId }) => {
           const isCopied = copiedId === styleId;
+          const snippet = text.length > 30 ? `${text.slice(0, 30)}...` : text;
+          const copyLabel = isCopied ? "Done — copied" : `Copy "${snippet}" as ${style.name}`;
 
           return (
             <div
@@ -190,7 +192,8 @@ function FontCategoryCard({
                         ? "text-primary hover:bg-primary hover:text-on-primary active:scale-95"
                         : "text-on-surface-variant hover:bg-primary hover:text-on-primary active:scale-95"
                   }`}
-                  aria-label={isCopied ? "Done — copied" : "Copy to clipboard"}
+                  aria-label={copyLabel}
+                  title={copyLabel}
                 >
                   {isCopied ? (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>

@@ -24,16 +24,16 @@ const DEFAULT_TEXT = "Stylish Fonts";
 const INITIAL_COUNT = 3;
 
 const STYLISH_EMOJIS: Record<string, string> = {
-  "Parenthesized Text": "🔤",
-  "Diamond Glazed": "💎",
-  "Musical & Card Suits": "🎵",
-  "Starlight Sparkle": "⭐",
-  "Chess & Games": "♟️",
-  "Underlined Flow": "📝",
-  "Currency & Braille": "💰",
-  "Wavy Motion": "🌊",
-  "Runic & Ancient": "🪨",
-  "Box & Block Art": "🧱",
+  "Katakana & Look-alikes": "🈳",
+  "Circled & Bubble": "⭕",
+  "Squared & Block": "🟦",
+  "Weight & Style": "✒️",
+  "Double-Struck Frames": "🔳",
+  "Monospace Terminal": "⌨️",
+  "Fullwidth Retro": "🖨️",
+  "Novelty": "🎭",
+  "Currency & Braille": "💱",
+  "Element Wraps": "🧩",
 };
 
 const stylishCategoryLinks = (stylishFontCategories as unknown as { name: string }[]).map((cat) => ({
@@ -246,6 +246,7 @@ export default function StylishFontsClient() {
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
                 onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
+                initialVisibleStyles={category.name === "Element Wraps" ? 6 : undefined}
               />
             </div>
           ))}

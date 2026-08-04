@@ -22,6 +22,45 @@ const pageSections = [
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
+const openGraphImages = [
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+    width: 1200,
+    height: 630,
+    alt: "Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+    width: 1200,
+    height: 800,
+    alt: "Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+    width: 1200,
+    height: 800,
+    alt: "Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+    width: 1200,
+    height: 800,
+    alt: "Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols, enabling copy-paste without installing font files.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+    width: 1200,
+    height: 800,
+    alt: "Do's and don'ts for using stylish fonts: avoid overly complex styles, test before posting, and keep important text readable.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+    width: 1200,
+    height: 800,
+    alt: "Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 76 styles, all devices, no installation, safe and fast.",
+  },
+];
+
 export const metadata: Metadata = {
   title: { absolute: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free" },
   description:
@@ -36,16 +75,16 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp", width: 1734, height: 907, alt: "stylish fonts generator explained with different styles and show features which are completely free" }],
+    images: openGraphImages,
     publishedTime: "2026-05-11T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-08-04T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: ["https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"],
+    images: openGraphImages,
   },
 };
 
@@ -89,64 +128,64 @@ const faqs = [
 
 const fontShowcaseStyles = [
   {
-    name: "Parenthesized Text",
-    description: "Letters enclosed in parentheses for a unique labelled look.",
-    example: "\u249D\u24A3\u24A4\u24A8 \u24A4\u24A8 \u249F\u24A0\u24A7\u24A0\u24A9",
-    bestFor: "Subtle emphasis and annotation style bios.",
+    name: "Circled & Bubble",
+    description: "Negative circled letters and emoji-framed bubble text.",
+    example: "🅢🅣🅨🅛🅘🅢🅗 🅕🅞🅝🅣🅢",
+    bestFor: "Social media highlights and playful captions.",
   },
   {
-    name: "Diamond Glazed",
-    description: "Sparkling text style with decorative touches that mimic shine.",
-    example: "\u2666 This is Glazed \u2666",
-    bestFor: "Eye catching captions and creative posts.",
+    name: "Squared & Block",
+    description: "Squared negative caps and blocky symbol frames.",
+    example: "🆂🆃🆈🅻🅸🆂🅷 🅵🅾🅽🆃🆂",
+    bestFor: "Gaming usernames and bold headlines.",
   },
   {
-    name: "Musical & Card Suits",
-    description: "Music notes and playing card symbols around your text.",
-    example: "\u266A\u266B This is Music \u266B\u266A",
-    bestFor: "Music lovers and gamers.",
+    name: "Element Wraps",
+    description: "Plain, bold, circled-negative, and Cyrillic text wrapped with emoji and symbol elements.",
+    example: "🧊 Stylish Fonts 🧊",
+    bestFor: "Decorated captions and standout profile names.",
   },
   {
-    name: "Starlight Sparkle",
-    description: "Adds star like symbols around text for a magical feel.",
-    example: "\u2728 This is Sparkle \u2728",
-    bestFor: "Aesthetic posts and TikTok captions.",
+    name: "Double-Struck Frames",
+    description: "Double-struck letters inside geometric shape frames.",
+    example: "𝕊𝕥𝕪𝕝𝕚𝕤𝕙 𝔽𝕠𝕟𝕥𝕤",
+    bestFor: "Math and science themed bios and captions.",
   },
   {
-    name: "Chess & Games",
-    description: "Chess pieces and dice symbols give a strategic bold look.",
-    example: "\u265A\u265B This is Chess \u265B\u265A",
-    bestFor: "Gaming profiles and competitive bios.",
+    name: "Katakana & Look-alikes",
+    description: "Japanese katakana and Unicode look-alike alphabets for a global aesthetic.",
+    example: "サタヤライサハ フオナタサ",
+    bestFor: "Instagram bios and captions with an international vibe.",
   },
   {
-    name: "Underlined Flow",
-    description: "Smooth text with stylish underline effects.",
-    example: "T\u0332h\u0332i\u0332s\u0332 i\u0332s\u0332 F\u0332l\u0332o\u0332w\u0332",
-    bestFor: "Highlighting important words.",
+    name: "Monospace Terminal",
+    description: "Terminal-style monospace alphabets with arrow and bracket frames.",
+    example: "𝚂𝚝𝚢𝚕𝚒𝚜𝚑 𝙵𝚘𝚗𝚝𝚜",
+    bestFor: "Code-style gaming usernames and terminal aesthetics.",
+  },
+  {
+    name: "Novelty",
+    description: "Flip, mirror, and spaced-out transformations for playful text.",
+    example: "sʇuoℲ ɥsᴉlʎʇS",
+    bestFor: "Meme captions and fun unique usernames.",
+  },
+  {
+    name: "Fullwidth Retro",
+    description: "Wide fullwidth letters inside quotation and lens frames.",
+    example: "Ｓｔｙｌｉｓｈ　Ｆｏｎｔｓ",
+    bestFor: "Retro vaporwave posts and aesthetic headers.",
+  },
+  {
+    name: "Weight & Style",
+    description: "Mathematical italic and bold-italic for clean emphasis.",
+    example: "𝑆𝑡𝑦𝑙𝑖𝑠ℎ 𝐹𝑜𝑛𝑡𝑠",
+    bestFor: "Professional-looking emphasis and readable posts.",
   },
   {
     name: "Currency & Braille",
-    description: "Transform letters into currency symbols or braille dot patterns.",
-    example: "\u20B3\u20BF\u20B5\u0110\u0246\u20A3",
-    bestFor: "Unique bios and creative typography.",
-  },
-  {
-    name: "Wavy Motion",
-    description: "Text appears dynamic with wave like curves.",
-    example: "T\u0334h\u0334i\u0334s\u0334 i\u0334s\u0334 W\u0334a\u0334v\u0334y\u0334",
-    bestFor: "Creative storytelling posts.",
-  },
-  {
-    name: "Runic & Ancient",
-    description: "Ancient rune and small caps alphabets for a mystical look.",
-    example: "\u16BA\u16D6\u16DA\u16DA\u16A9",
-    bestFor: "Fantasy gaming and mythical bios.",
-  },
-  {
-    name: "Box & Block Art",
-    description: "Structural block and bracket frames around your text.",
-    example: "\u3010This is Framed\u3011",
-    bestFor: "Bold headlines and gaming usernames.",
+    description: "Currency-symbol letters and braille dot patterns.",
+    example: "₴₮ɎŁƗ₴Ħ ₣Ø₦₮₴",
+    bestFor: "Creative typography and artistic posts.",
   },
 ];
 
@@ -166,6 +205,69 @@ const platforms = [
 ];
 
 export default function StylishFontsPage() {
+  const imageObjects = [
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-og",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+      width: 1200,
+      height: 630,
+      caption: "Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-why-dont-always-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+      width: 1200,
+      height: 800,
+      caption: "Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-where-they-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+      width: 1200,
+      height: 800,
+      caption: "Social media and messaging mockups showing where stylish fonts work best.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-how-they-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+      width: 1200,
+      height: 800,
+      caption: "Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-common-mistakes",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+      width: 1200,
+      height: 800,
+      caption: "Do's and don'ts for using stylish fonts effectively.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-why-use",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+      width: 1200,
+      height: 800,
+      caption: "Benefits of the Aesthetic Letters stylish font generator: 76 Unicode text styles for Instagram, gaming, and messaging.",
+      inLanguage: "en",
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -174,7 +276,7 @@ export default function StylishFontsPage() {
         "@id": "https://www.aestheticletters.com/stylish-fonts#software",
         name: "Stylish Fonts Generator",
         description:
-          "Transform plain text into 100+ unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
+          "Transform plain text into 76 unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
@@ -192,6 +294,11 @@ export default function StylishFontsPage() {
         name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
         description:
           "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
+        datePublished: "2026-05-11T08:00:00+00:00",
+        dateModified: "2026-08-04T00:00:00+00:00",
+        image: {
+          "@id": "https://www.aestheticletters.com/stylish-fonts#image-og",
+        },
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
         },
@@ -323,6 +430,7 @@ export default function StylishFontsPage() {
           },
         ],
       },
+      ...imageObjects,
     ],
   };
 
@@ -383,12 +491,13 @@ export default function StylishFontsPage() {
                   What is a Stylish Font Generator?
                 </h2>
                 <Image
-                  src="/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"
-                  alt="stylish fonts generator explained with different styles and show features which are completely free"
-                  width={1734}
-                  height={907}
+                  src="/images/stylish-fonts/stylish-fonts-og.webp"
+                  alt="Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming."
+                  width={1200}
+                  height={630}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
+                  preload={true}
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
@@ -413,6 +522,15 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Stylish Fonts Don&apos;t Always Work (Important to Know)
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp"
+                  alt="Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Sometimes stylish fonts may not display correctly on all platforms. This happens because not
                   every app supports every character style.
@@ -485,6 +603,15 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Choose the Right Cool Stylish Font for Your Use Case
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-where-they-work.webp"
+                  alt="Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Every font style gives a different impression, so selecting one that matches your purpose really matters.
                 </p>
@@ -532,17 +659,7 @@ export default function StylishFontsPage() {
                         </span>
                       </p>
                       <p className="text-xs text-on-surface-variant">
-                        {style.name === "Starlight Sparkle" ? (
-                          <>
-                            Best for {style.bestFor.replace(".", "")}. If you love this soft magical vibe, explore{" "}
-                            <Link href="/cute-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
-                              cute fonts
-                            </Link>{" "}
-                            for more styles like this.
-                          </>
-                        ) : (
-                          <>Best for {style.bestFor}</>
-                        )}
+                        Best for {style.bestFor}
                       </p>
                     </div>
                   ))}
@@ -554,6 +671,15 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Stylish Fonts Actually Work (Behind the Scenes)
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp"
+                  alt="Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols, enabling copy-paste without installing font files."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   The styles you see in these generators are not traditional font files that you install on your
                   device. Instead, they are formed using special text symbols that already exist within the Unicode system.
@@ -583,6 +709,15 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Common Mistakes &amp; Tips When Using Stylish Letters
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp"
+                  alt="Do's and don'ts for using stylish fonts: avoid overly complex styles, test before posting, and keep important text readable."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using stylish text fonts effectively requires a bit of balance.
                 </p>
@@ -632,6 +767,15 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Use This Stylish Font Generator?
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp"
+                  alt="Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 100+ styles, all devices, no installation, safe and fast."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This tool is built to make text styling quick, easy, and more creative for everyday use.
                 </p>
@@ -689,7 +833,6 @@ export default function StylishFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/how-to-use-the-stylish-font-maker-step-by-step.webp", alt: "how to use the stylish font maker (step by step)" }}
             />
           </div>
         </section>

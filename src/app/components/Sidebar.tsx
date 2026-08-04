@@ -71,7 +71,7 @@ export default function Sidebar({
         </h3>
         <p className="text-sm text-on-surface-variant leading-relaxed">
           We prioritize your privacy. All transformations happen 100% in your
-          browser. We never store or track the text you type.
+          browser. Your text is never sent to or tracked on our servers.
         </p>
       </div>
 
