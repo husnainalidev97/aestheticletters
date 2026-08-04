@@ -16,344 +16,718 @@ export interface StylishFontCategory {
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 function withFrame(text: string, pre: string, suf: string): string {
-  return `${pre} ${text} ${suf}`;
-}
-
-function withCombining(text: string, combining: string[]): string {
-  const suffix = combining.join("");
-  return [...text].map((c) => (c === " " || c === "\u3000" ? c : c + suffix)).join("");
-}
-
-function intersperse(text: string, char: string): string {
-  return [...text].map((c) => (c === " " ? c : c + char)).join("");
+  return `${pre} ${text}${suf ? ` ${suf}` : ""}`;
 }
 
 function applyCharMap(text: string, map: Record<string, string>): string {
   return [...text].map((c) => map[c] ?? map[c.toLowerCase()] ?? c).join("");
 }
 
-/** Alternate between two transforms on even/odd characters */
-function alternate(text: string, evenFn: (c: string) => string, oddFn: (c: string) => string): string {
-  let idx = 0;
-  return [...text].map((c) => {
-    if (c === " " || c === "\u3000") return c;
-    return (idx++ % 2 === 0) ? evenFn(c) : oddFn(c);
-  }).join("");
-}
-
-/** Progressive decoration — each character gets increasingly more marks */
-function progressive(text: string, mark: string, max: number): string {
-  let idx = 0;
-  return [...text].map((c) => {
-    if (c === " ") return c;
-    const count = Math.min(idx++ % max + 1, max);
-    return c + mark.repeat(count);
-  }).join("");
-}
-
-/** Cycle through a list of symbols between each character */
-function cycleSeparator(text: string, symbols: string[]): string {
-  let idx = 0;
-  return [...text].map((c) => {
-    if (c === " ") return c;
-    return c + symbols[idx++ % symbols.length];
-  }).join("");
-}
-
-/** Reverse the text string */
 function reverse(text: string): string {
   return [...text].reverse().join("");
 }
 
-/** Mirror text: original + separator + reversed */
-function mirror(text: string, sep: string): string {
-  return text + sep + reverse(text);
+function spacedOut(text: string): string {
+  return [...text.toUpperCase()].join(" ");
 }
 
-/** Wrap each individual character with given symbols */
-function wrapEach(text: string, pre: string, suf: string): string {
-  return [...text].map((c) => (c === " " ? c : pre + c + suf)).join("");
+function upsideDown(text: string): string {
+  return reverse(applyCharMap(text, upsideDownMap));
 }
 
 // ── Character Maps ────────────────────────────────────────────────────────
 
-const parenthesizedMap: Record<string, string> = {};
-for (let i = 0; i < 26; i++) {
-  parenthesizedMap[String.fromCharCode(97 + i)] = String.fromCodePoint(0x249C + i);
-  parenthesizedMap[String.fromCharCode(65 + i)] = String.fromCodePoint(0x249C + i);
-}
+const katakanaMap: Record<string, string> = {
+  a: "\u{30A2}", b: "\u{30D0}", c: "\u{30C1}", d: "\u{30C0}", e: "\u{30A8}",
+  f: "\u{30D5}", g: "\u{30B0}", h: "\u{30CF}", i: "\u{30A4}", j: "\u{30B8}",
+  k: "\u{30AB}", l: "\u{30E9}", m: "\u{30DE}", n: "\u{30CA}", o: "\u{30AA}",
+  p: "\u{30D1}", q: "\u{30AF}", r: "\u{30EB}", s: "\u{30B5}", t: "\u{30BF}",
+  u: "\u{30A6}", v: "\u{30F4}", w: "\u{30EF}", x: "\u{30C3}", y: "\u{30E4}", z: "\u{30BC}",
+};
 
-const brailleMap: Record<string, string> = {
-  a: "\u2801", b: "\u2803", c: "\u2809", d: "\u2819", e: "\u2811",
-  f: "\u280B", g: "\u281B", h: "\u2813", i: "\u280A", j: "\u281A",
-  k: "\u2805", l: "\u2807", m: "\u280D", n: "\u281D", o: "\u2815",
-  p: "\u280F", q: "\u281F", r: "\u2817", s: "\u280E", t: "\u281E",
-  u: "\u2825", v: "\u2827", w: "\u283A", x: "\u282D", y: "\u283D", z: "\u2835",
+const cyrillicLookalikeMap: Record<string, string> = {
+  A: "\u{410}",
+  a: "\u{430}",
+  B: "\u{412}",
+  b: "\u{432}",
+  C: "\u{421}",
+  c: "\u{441}",
+  D: "\u{64}",
+  d: "\u{64}",
+  E: "\u{415}",
+  e: "\u{435}",
+  F: "\u{66}",
+  f: "\u{66}",
+  G: "\u{67}",
+  g: "\u{67}",
+  H: "\u{4BB}",
+  h: "\u{4BB}",
+  I: "\u{406}",
+  i: "\u{456}",
+  J: "\u{408}",
+  j: "\u{458}",
+  K: "\u{41A}",
+  k: "\u{43A}",
+  L: "\u{6C}",
+  l: "\u{6C}",
+  M: "\u{41C}",
+  m: "\u{43C}",
+  N: "\u{41F}",
+  n: "\u{43F}",
+  O: "\u{41E}",
+  o: "\u{43E}",
+  P: "\u{420}",
+  p: "\u{440}",
+  Q: "\u{71}",
+  q: "\u{71}",
+  R: "\u{72}",
+  r: "\u{72}",
+  S: "\u{405}",
+  s: "\u{455}",
+  T: "\u{422}",
+  t: "\u{442}",
+  U: "\u{426}",
+  u: "\u{446}",
+  V: "\u{474}",
+  v: "\u{475}",
+  W: "\u{77}",
+  w: "\u{77}",
+  X: "\u{425}",
+  x: "\u{445}",
+  Y: "\u{423}",
+  y: "\u{443}",
+  Z: "\u{7A}",
+  z: "\u{7A}",
+};
+
+const greekLookalikeMap: Record<string, string> = {
+  A: "\u{391}",
+  a: "\u{3B1}",
+  B: "\u{392}",
+  b: "\u{3B2}",
+  C: "\u{63}",
+  c: "\u{63}",
+  D: "\u{394}",
+  d: "\u{3B4}",
+  E: "\u{395}",
+  e: "\u{3B5}",
+  F: "\u{66}",
+  f: "\u{66}",
+  G: "\u{393}",
+  g: "\u{3B3}",
+  H: "\u{397}",
+  h: "\u{3B7}",
+  I: "\u{399}",
+  i: "\u{3B9}",
+  J: "\u{6A}",
+  j: "\u{6A}",
+  K: "\u{39A}",
+  k: "\u{3BA}",
+  L: "\u{39B}",
+  l: "\u{3BB}",
+  M: "\u{39C}",
+  m: "\u{3BC}",
+  N: "\u{39D}",
+  n: "\u{3BD}",
+  O: "\u{39F}",
+  o: "\u{3BF}",
+  P: "\u{3A1}",
+  p: "\u{3C1}",
+  Q: "\u{71}",
+  q: "\u{71}",
+  R: "\u{72}",
+  r: "\u{72}",
+  S: "\u{73}",
+  s: "\u{73}",
+  T: "\u{3A4}",
+  t: "\u{3C4}",
+  U: "\u{3A5}",
+  u: "\u{3C5}",
+  V: "\u{76}",
+  v: "\u{3BD}",
+  W: "\u{3A9}",
+  w: "\u{3C9}",
+  X: "\u{3A7}",
+  x: "\u{3C7}",
+  Y: "\u{393}",
+  y: "\u{3B3}",
+  Z: "\u{396}",
+  z: "\u{3B6}",
+};
+
+const circledNegativeMap: Record<string, string> = {
+  A: "\u{1F150}", a: "\u{1F150}",
+  B: "\u{1F151}", b: "\u{1F151}",
+  C: "\u{1F152}", c: "\u{1F152}",
+  D: "\u{1F153}", d: "\u{1F153}",
+  E: "\u{1F154}", e: "\u{1F154}",
+  F: "\u{1F155}", f: "\u{1F155}",
+  G: "\u{1F156}", g: "\u{1F156}",
+  H: "\u{1F157}", h: "\u{1F157}",
+  I: "\u{1F158}", i: "\u{1F158}",
+  J: "\u{1F159}", j: "\u{1F159}",
+  K: "\u{1F15A}", k: "\u{1F15A}",
+  L: "\u{1F15B}", l: "\u{1F15B}",
+  M: "\u{1F15C}", m: "\u{1F15C}",
+  N: "\u{1F15D}", n: "\u{1F15D}",
+  O: "\u{1F15E}", o: "\u{1F15E}",
+  P: "\u{1F15F}", p: "\u{1F15F}",
+  Q: "\u{1F160}", q: "\u{1F160}",
+  R: "\u{1F161}", r: "\u{1F161}",
+  S: "\u{1F162}", s: "\u{1F162}",
+  T: "\u{1F163}", t: "\u{1F163}",
+  U: "\u{1F164}", u: "\u{1F164}",
+  V: "\u{1F165}", v: "\u{1F165}",
+  W: "\u{1F166}", w: "\u{1F166}",
+  X: "\u{1F167}", x: "\u{1F167}",
+  Y: "\u{1F168}", y: "\u{1F168}",
+  Z: "\u{1F169}", z: "\u{1F169}",
+};
+
+const squaredNegativeMap: Record<string, string> = {
+  A: "\u{1F170}", a: "\u{1F170}",
+  B: "\u{1F171}", b: "\u{1F171}",
+  C: "\u{1F172}", c: "\u{1F172}",
+  D: "\u{1F173}", d: "\u{1F173}",
+  E: "\u{1F174}", e: "\u{1F174}",
+  F: "\u{1F175}", f: "\u{1F175}",
+  G: "\u{1F176}", g: "\u{1F176}",
+  H: "\u{1F177}", h: "\u{1F177}",
+  I: "\u{1F178}", i: "\u{1F178}",
+  J: "\u{1F179}", j: "\u{1F179}",
+  K: "\u{1F17A}", k: "\u{1F17A}",
+  L: "\u{1F17B}", l: "\u{1F17B}",
+  M: "\u{1F17C}", m: "\u{1F17C}",
+  N: "\u{1F17D}", n: "\u{1F17D}",
+  O: "\u{1F17E}", o: "\u{1F17E}",
+  P: "\u{1F17F}", p: "\u{1F17F}",
+  Q: "\u{1F180}", q: "\u{1F180}",
+  R: "\u{1F181}", r: "\u{1F181}",
+  S: "\u{1F182}", s: "\u{1F182}",
+  T: "\u{1F183}", t: "\u{1F183}",
+  U: "\u{1F184}", u: "\u{1F184}",
+  V: "\u{1F185}", v: "\u{1F185}",
+  W: "\u{1F186}", w: "\u{1F186}",
+  X: "\u{1F187}", x: "\u{1F187}",
+  Y: "\u{1F188}", y: "\u{1F188}",
+  Z: "\u{1F189}", z: "\u{1F189}",
+};
+
+const circledMap: Record<string, string> = {
+  A: "\u{24B6}", a: "\u{24D0}",
+  B: "\u{24B7}", b: "\u{24D1}",
+  C: "\u{24B8}", c: "\u{24D2}",
+  D: "\u{24B9}", d: "\u{24D3}",
+  E: "\u{24BA}", e: "\u{24D4}",
+  F: "\u{24BB}", f: "\u{24D5}",
+  G: "\u{24BC}", g: "\u{24D6}",
+  H: "\u{24BD}", h: "\u{24D7}",
+  I: "\u{24BE}", i: "\u{24D8}",
+  J: "\u{24BF}", j: "\u{24D9}",
+  K: "\u{24C0}", k: "\u{24DA}",
+  L: "\u{24C1}", l: "\u{24DB}",
+  M: "\u{24C2}", m: "\u{24DC}",
+  N: "\u{24C3}", n: "\u{24DD}",
+  O: "\u{24C4}", o: "\u{24DE}",
+  P: "\u{24C5}", p: "\u{24DF}",
+  Q: "\u{24C6}", q: "\u{24E0}",
+  R: "\u{24C7}", r: "\u{24E1}",
+  S: "\u{24C8}", s: "\u{24E2}",
+  T: "\u{24C9}", t: "\u{24E3}",
+  U: "\u{24CA}", u: "\u{24E4}",
+  V: "\u{24CB}", v: "\u{24E5}",
+  W: "\u{24CC}", w: "\u{24E6}",
+  X: "\u{24CD}", x: "\u{24E7}",
+  Y: "\u{24CE}", y: "\u{24E8}",
+  Z: "\u{24CF}", z: "\u{24E9}",
+};
+
+const squaredMap: Record<string, string> = {
+  A: "\u{1F130}", a: "\u{1F130}",
+  B: "\u{1F131}", b: "\u{1F131}",
+  C: "\u{1F132}", c: "\u{1F132}",
+  D: "\u{1F133}", d: "\u{1F133}",
+  E: "\u{1F134}", e: "\u{1F134}",
+  F: "\u{1F135}", f: "\u{1F135}",
+  G: "\u{1F136}", g: "\u{1F136}",
+  H: "\u{1F137}", h: "\u{1F137}",
+  I: "\u{1F138}", i: "\u{1F138}",
+  J: "\u{1F139}", j: "\u{1F139}",
+  K: "\u{1F13A}", k: "\u{1F13A}",
+  L: "\u{1F13B}", l: "\u{1F13B}",
+  M: "\u{1F13C}", m: "\u{1F13C}",
+  N: "\u{1F13D}", n: "\u{1F13D}",
+  O: "\u{1F13E}", o: "\u{1F13E}",
+  P: "\u{1F13F}", p: "\u{1F13F}",
+  Q: "\u{1F140}", q: "\u{1F140}",
+  R: "\u{1F141}", r: "\u{1F141}",
+  S: "\u{1F142}", s: "\u{1F142}",
+  T: "\u{1F143}", t: "\u{1F143}",
+  U: "\u{1F144}", u: "\u{1F144}",
+  V: "\u{1F145}", v: "\u{1F145}",
+  W: "\u{1F146}", w: "\u{1F146}",
+  X: "\u{1F147}", x: "\u{1F147}",
+  Y: "\u{1F148}", y: "\u{1F148}",
+  Z: "\u{1F149}", z: "\u{1F149}",
+};
+
+const upsideDownMap: Record<string, string> = {
+  a: "\u{250}",
+  b: "\u{71}",
+  c: "\u{254}",
+  d: "\u{70}",
+  e: "\u{1DD}",
+  f: "\u{25F}",
+  g: "\u{183}",
+  h: "\u{265}",
+  i: "\u{1D09}",
+  j: "\u{27E}",
+  k: "\u{29E}",
+  l: "\u{6C}",
+  m: "\u{26F}",
+  n: "\u{75}",
+  o: "\u{6F}",
+  p: "\u{64}",
+  q: "\u{62}",
+  r: "\u{279}",
+  s: "\u{73}",
+  t: "\u{287}",
+  u: "\u{6E}",
+  v: "\u{28C}",
+  w: "\u{28D}",
+  x: "\u{78}",
+  y: "\u{28E}",
+  z: "\u{7A}",
+  A: "\u{2200}",
+  B: "\u{10412}",
+  C: "\u{186}",
+  D: "\u{25D6}",
+  E: "\u{18E}",
+  F: "\u{2132}",
+  G: "\u{5E4}",
+  H: "\u{48}",
+  I: "\u{49}",
+  J: "\u{17F}",
+  K: "\u{22CA}",
+  L: "\u{2142}",
+  M: "\u{57}",
+  N: "\u{4E}",
+  O: "\u{4F}",
+  P: "\u{500}",
+  Q: "\u{38C}",
+  R: "\u{1D1A}",
+  S: "\u{53}",
+  T: "\u{22A5}",
+  U: "\u{2229}",
+  V: "\u{39B}",
+  W: "\u{4D}",
+  X: "\u{58}",
+  Y: "\u{2144}",
+  Z: "\u{5A}",
+  0: "\u{30}",
+  1: "\u{196}",
+  2: "\u{1105}",
+  3: "\u{190}",
+  4: "\u{3123}",
+  5: "\u{3DB}",
+  6: "\u{39}",
+  7: "\u{4C}",
+  8: "\u{38}",
+  9: "\u{36}",
 };
 
 const currencyMap: Record<string, string> = {
-  a: "\u20B3", b: "\u20BF", c: "\u20B5", d: "\u0110", e: "\u0246",
-  f: "\u20A3", g: "\u20B2", h: "\u0126", i: "\u0197", j: "\u0248",
-  k: "\u20AD", l: "\u0141", m: "\u20A5", n: "\u20A6", o: "\u00D8",
-  p: "\u20B1", q: "Q", r: "\u20B6", s: "\u20B4", t: "\u20AE",
-  u: "\u0244", v: "V", w: "\u20A9", x: "\u04BE", y: "\u024E", z: "\u2C6B",
+  a: "\u{20B3}",
+  b: "\u{20BF}",
+  c: "\u{20B5}",
+  d: "\u{110}",
+  e: "\u{246}",
+  f: "\u{20A3}",
+  g: "\u{20B2}",
+  h: "\u{126}",
+  i: "\u{197}",
+  j: "\u{248}",
+  k: "\u{20AD}",
+  l: "\u{141}",
+  m: "\u{20A5}",
+  n: "\u{20A6}",
+  o: "\u{D8}",
+  p: "\u{20B1}",
+  q: "\u{51}",
+  r: "\u{20B6}",
+  s: "\u{20B4}",
+  t: "\u{20AE}",
+  u: "\u{244}",
+  v: "\u{56}",
+  w: "\u{20A9}",
+  x: "\u{4BE}",
+  y: "\u{24E}",
+  z: "\u{2C6B}",
 };
 
-const runicMap: Record<string, string> = {
-  a: "\u16A8", b: "\u16D2", c: "\u16B2", d: "\u16DE", e: "\u16D6",
-  f: "\u16A0", g: "\u16B7", h: "\u16BA", i: "\u16C1", j: "\u16C3",
-  k: "\u16B4", l: "\u16DA", m: "\u16D7", n: "\u16BE", o: "\u16A9",
-  p: "\u16C8", q: "\u16B3", r: "\u16B1", s: "\u16CB", t: "\u16CF",
-  u: "\u16A2", v: "\u16E0", w: "\u16B9", x: "\u16EA", y: "\u16A5", z: "\u16C9",
+const brailleMap: Record<string, string> = {
+  a: "\u{2801}",
+  b: "\u{2803}",
+  c: "\u{2809}",
+  d: "\u{2819}",
+  e: "\u{2811}",
+  f: "\u{280B}",
+  g: "\u{281B}",
+  h: "\u{2813}",
+  i: "\u{280A}",
+  j: "\u{281A}",
+  k: "\u{2805}",
+  l: "\u{2807}",
+  m: "\u{280D}",
+  n: "\u{281D}",
+  o: "\u{2815}",
+  p: "\u{280F}",
+  q: "\u{281F}",
+  r: "\u{2817}",
+  s: "\u{280E}",
+  t: "\u{281E}",
+  u: "\u{2825}",
+  v: "\u{2827}",
+  w: "\u{283A}",
+  x: "\u{282D}",
+  y: "\u{283D}",
+  z: "\u{2835}",
 };
 
-const smallCapsMap: Record<string, string> = {
-  a: "\u1D00", b: "\u0299", c: "\u1D04", d: "\u1D05", e: "\u1D07",
-  f: "\uA730", g: "\u0262", h: "\u029C", i: "\u026A", j: "\u1D0A",
-  k: "\u1D0B", l: "\u029F", m: "\u1D0D", n: "\u0274", o: "\u1D0F",
-  p: "\u1D18", q: "\u01EB", r: "\u0280", s: "\u0455", t: "\u1D1B",
-  u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x", y: "\u028F", z: "\u1D22",
+const boldMap: Record<string, string> = {
+  A: "\u{1D400}", a: "\u{1D41A}",
+  B: "\u{1D401}", b: "\u{1D41B}",
+  C: "\u{1D402}", c: "\u{1D41C}",
+  D: "\u{1D403}", d: "\u{1D41D}",
+  E: "\u{1D404}", e: "\u{1D41E}",
+  F: "\u{1D405}", f: "\u{1D41F}",
+  G: "\u{1D406}", g: "\u{1D420}",
+  H: "\u{1D407}", h: "\u{1D421}",
+  I: "\u{1D408}", i: "\u{1D422}",
+  J: "\u{1D409}", j: "\u{1D423}",
+  K: "\u{1D40A}", k: "\u{1D424}",
+  L: "\u{1D40B}", l: "\u{1D425}",
+  M: "\u{1D40C}", m: "\u{1D426}",
+  N: "\u{1D40D}", n: "\u{1D427}",
+  O: "\u{1D40E}", o: "\u{1D428}",
+  P: "\u{1D40F}", p: "\u{1D429}",
+  Q: "\u{1D410}", q: "\u{1D42A}",
+  R: "\u{1D411}", r: "\u{1D42B}",
+  S: "\u{1D412}", s: "\u{1D42C}",
+  T: "\u{1D413}", t: "\u{1D42D}",
+  U: "\u{1D414}", u: "\u{1D42E}",
+  V: "\u{1D415}", v: "\u{1D42F}",
+  W: "\u{1D416}", w: "\u{1D430}",
+  X: "\u{1D417}", x: "\u{1D431}",
+  Y: "\u{1D418}", y: "\u{1D432}",
+  Z: "\u{1D419}", z: "\u{1D433}",
 };
 
-const cherokeeMap: Record<string, string> = {
-  a: "\u13A0", b: "\u13F4", c: "\u13D3", d: "\u13A7", e: "\u13AC",
-  f: "\u13A9", g: "\u13A6", h: "\u13AF", i: "\u13A2", j: "\u13AB",
-  k: "\u13E6", l: "\u13B6", m: "\u13B7", n: "\u13C0", o: "\u13A4",
-  p: "\u13C6", q: "\u13C8", r: "\u13D2", s: "\u13CD", t: "\u13D4",
-  u: "\u13CA", v: "\u13CB", w: "\u13D9", x: "\u13DE", y: "\u13A5", z: "\u13E3",
+const italicMap: Record<string, string> = {
+  A: "\u{1D434}", a: "\u{1D44E}",
+  B: "\u{1D435}", b: "\u{1D44F}",
+  C: "\u{1D436}", c: "\u{1D450}",
+  D: "\u{1D437}", d: "\u{1D451}",
+  E: "\u{1D438}", e: "\u{1D452}",
+  F: "\u{1D439}", f: "\u{1D453}",
+  G: "\u{1D43A}", g: "\u{1D454}",
+  H: "\u{1D43B}", h: "\u{210E}",
+  I: "\u{1D43C}", i: "\u{1D456}",
+  J: "\u{1D43D}", j: "\u{1D457}",
+  K: "\u{1D43E}", k: "\u{1D458}",
+  L: "\u{1D43F}", l: "\u{1D459}",
+  M: "\u{1D440}", m: "\u{1D45A}",
+  N: "\u{1D441}", n: "\u{1D45B}",
+  O: "\u{1D442}", o: "\u{1D45C}",
+  P: "\u{1D443}", p: "\u{1D45D}",
+  Q: "\u{1D444}", q: "\u{1D45E}",
+  R: "\u{1D445}", r: "\u{1D45F}",
+  S: "\u{1D446}", s: "\u{1D460}",
+  T: "\u{1D447}", t: "\u{1D461}",
+  U: "\u{1D448}", u: "\u{1D462}",
+  V: "\u{1D449}", v: "\u{1D463}",
+  W: "\u{1D44A}", w: "\u{1D464}",
+  X: "\u{1D44B}", x: "\u{1D465}",
+  Y: "\u{1D44C}", y: "\u{1D466}",
+  Z: "\u{1D44D}", z: "\u{1D467}",
 };
 
-const katakanaMap: Record<string, string> = {
-  a: "\u30A2", b: "\u30D0", c: "\u30C1", d: "\u30C0", e: "\u30A8",
-  f: "\u30D5", g: "\u30B0", h: "\u30CF", i: "\u30A4", j: "\u30B8",
-  k: "\u30AB", l: "\u30E9", m: "\u30DE", n: "\u30CA", o: "\u30AA",
-  p: "\u30D1", q: "\u30AF", r: "\u30EB", s: "\u30B5", t: "\u30BF",
-  u: "\u30A6", v: "\u30F4", w: "\u30EF", x: "\u30C3", y: "\u30E4", z: "\u30BC",
+const boldItalicMap: Record<string, string> = {
+  A: "\u{1D468}", a: "\u{1D482}",
+  B: "\u{1D469}", b: "\u{1D483}",
+  C: "\u{1D46A}", c: "\u{1D484}",
+  D: "\u{1D46B}", d: "\u{1D485}",
+  E: "\u{1D46C}", e: "\u{1D486}",
+  F: "\u{1D46D}", f: "\u{1D487}",
+  G: "\u{1D46E}", g: "\u{1D488}",
+  H: "\u{1D46F}", h: "\u{1D489}",
+  I: "\u{1D470}", i: "\u{1D48A}",
+  J: "\u{1D471}", j: "\u{1D48B}",
+  K: "\u{1D472}", k: "\u{1D48C}",
+  L: "\u{1D473}", l: "\u{1D48D}",
+  M: "\u{1D474}", m: "\u{1D48E}",
+  N: "\u{1D475}", n: "\u{1D48F}",
+  O: "\u{1D476}", o: "\u{1D490}",
+  P: "\u{1D477}", p: "\u{1D491}",
+  Q: "\u{1D478}", q: "\u{1D492}",
+  R: "\u{1D479}", r: "\u{1D493}",
+  S: "\u{1D47A}", s: "\u{1D494}",
+  T: "\u{1D47B}", t: "\u{1D495}",
+  U: "\u{1D47C}", u: "\u{1D496}",
+  V: "\u{1D47D}", v: "\u{1D497}",
+  W: "\u{1D47E}", w: "\u{1D498}",
+  X: "\u{1D47F}", x: "\u{1D499}",
+  Y: "\u{1D480}", y: "\u{1D49A}",
+  Z: "\u{1D481}", z: "\u{1D49B}",
 };
 
-const mathOperatorMap: Record<string, string> = {
-  a: "\u2200", b: "\u2229", c: "\u2282", d: "\u2202", e: "\u2203",
-  f: "\u0192", g: "\u2207", h: "\u210F", i: "\u222B", j: "\u2321",
-  k: "\u2234", l: "\u2113", m: "\u2218", n: "\u2115", o: "\u2205",
-  p: "\u220F", q: "\u211A", r: "\u211D", s: "\u2211", t: "\u22A4",
-  u: "\u222A", v: "\u2228", w: "\u2240", x: "\u2297", y: "\u2144", z: "\u2124",
+const doubleStruckMap: Record<string, string> = {
+  A: "\u{1D538}", a: "\u{1D552}",
+  B: "\u{1D539}", b: "\u{1D553}",
+  C: "\u{2102}", c: "\u{1D554}",
+  D: "\u{1D53B}", d: "\u{1D555}",
+  E: "\u{1D53C}", e: "\u{1D556}",
+  F: "\u{1D53D}", f: "\u{1D557}",
+  G: "\u{1D53E}", g: "\u{1D558}",
+  H: "\u{210D}", h: "\u{1D559}",
+  I: "\u{1D540}", i: "\u{1D55A}",
+  J: "\u{1D541}", j: "\u{1D55B}",
+  K: "\u{1D542}", k: "\u{1D55C}",
+  L: "\u{1D543}", l: "\u{1D55D}",
+  M: "\u{1D544}", m: "\u{1D55E}",
+  N: "\u{2115}", n: "\u{1D55F}",
+  O: "\u{1D546}", o: "\u{1D560}",
+  P: "\u{2119}", p: "\u{1D561}",
+  Q: "\u{211A}", q: "\u{1D562}",
+  R: "\u{211D}", r: "\u{1D563}",
+  S: "\u{1D54A}", s: "\u{1D564}",
+  T: "\u{1D54B}", t: "\u{1D565}",
+  U: "\u{1D54C}", u: "\u{1D566}",
+  V: "\u{1D54D}", v: "\u{1D567}",
+  W: "\u{1D54E}", w: "\u{1D568}",
+  X: "\u{1D54F}", x: "\u{1D569}",
+  Y: "\u{1D550}", y: "\u{1D56A}",
+  Z: "\u{2124}", z: "\u{1D56B}",
 };
 
-const zodiacSymbols = ["\u2648", "\u2649", "\u264A", "\u264B", "\u264C", "\u264D", "\u264E", "\u264F", "\u2650", "\u2651", "\u2652", "\u2653"];
-
-const weatherSymbols = ["\u2600", "\u2601", "\u2602", "\u2603", "\u2744", "\u26C5", "\u26A1", "\u2604"];
-
-const miscSymbols = ["\u262E", "\u262F", "\u2638", "\u2721", "\u269B", "\u2694", "\u2696", "\u269C", "\u2660", "\u2665"];
-
-const tengwarMap: Record<string, string> = {
-  a: "\u10D0", b: "\u10D1", c: "\u10D2", d: "\u10D3", e: "\u10D4",
-  f: "\u10D5", g: "\u10D6", h: "\u10D7", i: "\u10D8", j: "\u10D9",
-  k: "\u10DA", l: "\u10DB", m: "\u10DC", n: "\u10DD", o: "\u10DE",
-  p: "\u10DF", q: "\u10E0", r: "\u10E1", s: "\u10E2", t: "\u10E3",
-  u: "\u10E4", v: "\u10E5", w: "\u10E6", x: "\u10E7", y: "\u10E8", z: "\u10E9",
+const monospaceMap: Record<string, string> = {
+  A: "\u{1D670}", a: "\u{1D68A}",
+  B: "\u{1D671}", b: "\u{1D68B}",
+  C: "\u{1D672}", c: "\u{1D68C}",
+  D: "\u{1D673}", d: "\u{1D68D}",
+  E: "\u{1D674}", e: "\u{1D68E}",
+  F: "\u{1D675}", f: "\u{1D68F}",
+  G: "\u{1D676}", g: "\u{1D690}",
+  H: "\u{1D677}", h: "\u{1D691}",
+  I: "\u{1D678}", i: "\u{1D692}",
+  J: "\u{1D679}", j: "\u{1D693}",
+  K: "\u{1D67A}", k: "\u{1D694}",
+  L: "\u{1D67B}", l: "\u{1D695}",
+  M: "\u{1D67C}", m: "\u{1D696}",
+  N: "\u{1D67D}", n: "\u{1D697}",
+  O: "\u{1D67E}", o: "\u{1D698}",
+  P: "\u{1D67F}", p: "\u{1D699}",
+  Q: "\u{1D680}", q: "\u{1D69A}",
+  R: "\u{1D681}", r: "\u{1D69B}",
+  S: "\u{1D682}", s: "\u{1D69C}",
+  T: "\u{1D683}", t: "\u{1D69D}",
+  U: "\u{1D684}", u: "\u{1D69E}",
+  V: "\u{1D685}", v: "\u{1D69F}",
+  W: "\u{1D686}", w: "\u{1D6A0}",
+  X: "\u{1D687}", x: "\u{1D6A1}",
+  Y: "\u{1D688}", y: "\u{1D6A2}",
+  Z: "\u{1D689}", z: "\u{1D6A3}",
 };
 
-// ── 1: Parenthesized Text — character map + diverse combos ────────────────
+const fullwidthMap: Record<string, string> = {
+  A: "\u{FF21}", a: "\u{FF41}",
+  B: "\u{FF22}", b: "\u{FF42}",
+  C: "\u{FF23}", c: "\u{FF43}",
+  D: "\u{FF24}", d: "\u{FF44}",
+  E: "\u{FF25}", e: "\u{FF45}",
+  F: "\u{FF26}", f: "\u{FF46}",
+  G: "\u{FF27}", g: "\u{FF47}",
+  H: "\u{FF28}", h: "\u{FF48}",
+  I: "\u{FF29}", i: "\u{FF49}",
+  J: "\u{FF2A}", j: "\u{FF4A}",
+  K: "\u{FF2B}", k: "\u{FF4B}",
+  L: "\u{FF2C}", l: "\u{FF4C}",
+  M: "\u{FF2D}", m: "\u{FF4D}",
+  N: "\u{FF2E}", n: "\u{FF4E}",
+  O: "\u{FF2F}", o: "\u{FF4F}",
+  P: "\u{FF30}", p: "\u{FF50}",
+  Q: "\u{FF31}", q: "\u{FF51}",
+  R: "\u{FF32}", r: "\u{FF52}",
+  S: "\u{FF33}", s: "\u{FF53}",
+  T: "\u{FF34}", t: "\u{FF54}",
+  U: "\u{FF35}", u: "\u{FF55}",
+  V: "\u{FF36}", v: "\u{FF56}",
+  W: "\u{FF37}", w: "\u{FF57}",
+  X: "\u{FF38}", x: "\u{FF58}",
+  Y: "\u{FF39}", y: "\u{FF59}",
+  Z: "\u{FF3A}", z: "\u{FF5A}",
+  " ": "\u{3000}",
+};
 
-const parenthesizedText: StylishFontCategory = {
-  name: "Parenthesized Text",
+// ── Symbol / Emoji Wrap Carriers ───────────────────────────────────────────
+
+function wrapWith(baseMap: Record<string, string> | null, pre: string, suf: string) {
+  return (text: string) => withFrame(baseMap ? applyCharMap(text, baseMap) : text, pre, suf);
+}
+
+const katakanaLookalikes: StylishFontCategory = {
+  name: "\u{4B}\u{61}\u{74}\u{61}\u{6B}\u{61}\u{6E}\u{61}\u{20}\u{26}\u{20}\u{4C}\u{6F}\u{6F}\u{6B}\u{2D}\u{61}\u{6C}\u{69}\u{6B}\u{65}\u{73}",
   styles: [
-    { name: "Paren Letters", transform: (t) => applyCharMap(t, parenthesizedMap) },
-    { name: "Paren Reversed", transform: (t) => reverse(applyCharMap(t, parenthesizedMap)) },
-    { name: "Cherokee Script", transform: (t) => applyCharMap(t, cherokeeMap) },
-    { name: "Paren Alternate", transform: (t) => alternate(t, (c) => parenthesizedMap[c.toLowerCase()] ?? c, (c) => c) },
-    { name: "Cherokee Reversed", transform: (t) => reverse(applyCharMap(t, cherokeeMap)) },
-    { name: "Paren Cycle", transform: (t) => cycleSeparator(applyCharMap(t, parenthesizedMap), ["\u2022", "\u25E6", "\u2023"]) },
-    { name: "Paren Boxed", transform: (t) => wrapEach(applyCharMap(t, parenthesizedMap), "[", "]") },
-    { name: "Paren + Stars", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\u2729", "\u2729") },
-    { name: "Paren Dashes", transform: (t) => cycleSeparator(applyCharMap(t, parenthesizedMap), ["\u2013", "\u2014"]) },
-    { name: "Paren Crown", transform: (t) => withFrame(applyCharMap(t, parenthesizedMap), "\uD83D\uDC51", "\uD83D\uDC51") },
+  { name: "\u{4B}\u{61}\u{74}\u{61}\u{6B}\u{61}\u{6E}\u{61}\u{20}\u{53}\u{74}\u{79}\u{6C}\u{65}", transform: (t) => applyCharMap(t, katakanaMap) },
+  { name: "\u{4B}\u{61}\u{74}\u{61}\u{6B}\u{61}\u{6E}\u{61}\u{20}\u{52}\u{65}\u{76}\u{65}\u{72}\u{73}\u{65}\u{64}", transform: (t) => reverse(applyCharMap(t, katakanaMap)) },
+  { name: "\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}\u{20}\u{4C}\u{6F}\u{6F}\u{6B}\u{2D}\u{61}\u{6C}\u{69}\u{6B}\u{65}", transform: (t) => applyCharMap(t, cyrillicLookalikeMap) },
+  { name: "\u{47}\u{72}\u{65}\u{65}\u{6B}\u{20}\u{4C}\u{6F}\u{6F}\u{6B}\u{2D}\u{61}\u{6C}\u{69}\u{6B}\u{65}", transform: (t) => applyCharMap(t, greekLookalikeMap) },
   ],
 };
 
-// ── 2: Diamond Glazed — alternating and progressive patterns ──────────────
-
-const diamondGlazed: StylishFontCategory = {
-  name: "Diamond Glazed",
+const circledBubble: StylishFontCategory = {
+  name: "\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}\u{64}\u{20}\u{26}\u{20}\u{42}\u{75}\u{62}\u{62}\u{6C}\u{65}",
   styles: [
-    { name: "Diamond Alternate", transform: (t) => alternate(t, (c) => c + "\u2666", (c) => c + "\u2662") },
-    { name: "Katakana Style", transform: (t) => applyCharMap(t, katakanaMap) },
-    { name: "Diamond Cycle", transform: (t) => cycleSeparator(t, ["\u2666", "\u2662", "\u25C6", "\u25C7"]) },
-    { name: "Katakana Frame", transform: (t) => withFrame(applyCharMap(t, katakanaMap), "\u300C", "\u300D") },
-    { name: "Diamond Mirror", transform: (t) => mirror(t, " \u2666\u2662\u2666 ") },
-    { name: "Diamond Reversed", transform: (t) => withFrame(reverse(t), "\u25C6\u25C7", "\u25C7\u25C6") },
-    { name: "Diamond Underline", transform: (t) => withCombining(t, ["\u0324", "\u0332"]) },
-    { name: "Gem Shower", transform: (t) => withFrame(intersperse(t, "\u2662"), "\u2666\u2666", "\u2666\u2666") },
-    { name: "Crystal Frame", transform: (t) => withFrame(t, "\u2B25\u2666\u2B25", "\u2B25\u2666\u2B25") },
-    { name: "Katakana Reversed", transform: (t) => reverse(applyCharMap(t, katakanaMap)) },
+  { name: "\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}\u{64}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => applyCharMap(t, circledNegativeMap) },
+  { name: "\u{54}\u{61}\u{72}\u{67}\u{65}\u{74}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1F3AF}", "\u{1F3AF}")(t) },
+  { name: "\u{50}\u{75}\u{7A}\u{7A}\u{6C}\u{65}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1F9E9}", "\u{1F9E9}")(t) },
+  { name: "\u{4E}\u{65}\u{62}\u{75}\u{6C}\u{61}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1F30C}", "\u{1F30C}")(t) },
+  { name: "\u{4F}\u{72}\u{62}\u{69}\u{74}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1FA90}", "\u{1FA90}")(t) },
+  { name: "\u{56}\u{6F}\u{69}\u{64}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1F573}\u{FE0F}", "\u{1F573}\u{FE0F}")(t) },
+  { name: "\u{52}\u{65}\u{6C}\u{69}\u{63}\u{20}\u{43}\u{69}\u{72}\u{63}\u{6C}\u{65}", transform: (t) => wrapWith(circledMap, "\u{1F9B4}", "\u{1F9B4}")(t) },
   ],
 };
 
-// ── 3: Musical & Card Suits — rhythm-based transforms ─────────────────────
-
-const musicalCardSuits: StylishFontCategory = {
-  name: "Musical & Card Suits",
+const squaredBlock: StylishFontCategory = {
+  name: "\u{53}\u{71}\u{75}\u{61}\u{72}\u{65}\u{64}\u{20}\u{26}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}",
   styles: [
-    { name: "Melody Cycle", transform: (t) => cycleSeparator(t, ["\u266A", "\u266B", "\u266C", "\u266D"]) },
-    { name: "Card Alternate", transform: (t) => alternate(t, (c) => c + "\u2660", (c) => c + "\u2665") },
-    { name: "Suite Cycle", transform: (t) => cycleSeparator(t, ["\u2660", "\u2663", "\u2665", "\u2666"]) },
-    { name: "Zodiac Cycle", transform: (t) => cycleSeparator(t, zodiacSymbols) },
-    { name: "Music Mirror", transform: (t) => mirror(t, " \u266B\u266C\u266B ") },
-    { name: "Zodiac Frame", transform: (t) => withFrame(t, "\u2648\u2649\u264A", "\u2651\u2652\u2653") },
-    { name: "Card Reversed", transform: (t) => withFrame(reverse(t), "\u2660\u2663", "\u2665\u2666") },
-    { name: "Full Deck", transform: (t) => withFrame(t, "\u2660\u2663\u2665\u2666", "\u2666\u2665\u2663\u2660") },
-    { name: "Rhythm Dots", transform: (t) => withCombining(t, ["\u0307", "\u0323"]) },
-    { name: "Weather Cycle", transform: (t) => cycleSeparator(t, weatherSymbols) },
+  { name: "\u{53}\u{71}\u{75}\u{61}\u{72}\u{65}\u{64}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => applyCharMap(t, squaredNegativeMap) },
+  { name: "\u{4D}\u{6F}\u{6E}\u{6F}\u{6C}\u{69}\u{74}\u{68}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{1F5FF}", "\u{1F5FF}")(t) },
+  { name: "\u{43}\u{61}\u{6E}\u{64}\u{6C}\u{65}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{1F56F}\u{FE0F}", "\u{1F56F}\u{FE0F}")(t) },
+  { name: "\u{43}\u{68}\u{61}\u{72}\u{6D}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{1FA84}", "\u{1FA84}")(t) },
+  { name: "\u{42}\u{75}\u{62}\u{62}\u{6C}\u{65}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{1FAE7}", "\u{1FAE7}")(t) },
+  { name: "\u{52}\u{65}\u{65}\u{66}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{1FAB8}", "\u{1FAB8}")(t) },
+  { name: "\u{46}\u{61}\u{63}\u{65}\u{74}\u{20}\u{42}\u{6C}\u{6F}\u{63}\u{6B}", transform: (t) => wrapWith(squaredMap, "\u{2B16}", "\u{2B16}")(t) },
   ],
 };
 
-// ── 4: Starlight Sparkle — layered and progressive sparkle ────────────────
-
-const starlightSparkle: StylishFontCategory = {
-  name: "Starlight Sparkle",
+const weightStyle: StylishFontCategory = {
+  name: "\u{57}\u{65}\u{69}\u{67}\u{68}\u{74}\u{20}\u{26}\u{20}\u{53}\u{74}\u{79}\u{6C}\u{65}",
   styles: [
-    { name: "Weather Frame", transform: (t) => withFrame(t, "\u2600\u2601\u2602", "\u2602\u2601\u2600") },
-    { name: "Star Alternate", transform: (t) => alternate(t, (c) => c + "\u2605", (c) => c + "\u2606") },
-    { name: "Starry Cycle", transform: (t) => cycleSeparator(t, ["\u2605", "\u2606", "\u2726", "\u2727", "\u2728"]) },
-    { name: "Misc Symbol Cycle", transform: (t) => cycleSeparator(t, miscSymbols) },
-    { name: "Star Mirror", transform: (t) => mirror(t, " \u2605\u2606\u2605 ") },
-    { name: "Celestial Frame", transform: (t) => withFrame(t, "\u2726\u2727\u2726", "\u2726\u2727\u2726") },
-    { name: "Stardust Layer", transform: (t) => withCombining(t, ["\u0308", "\u030A"]) },
-    { name: "Nova Glow", transform: (t) => withFrame(alternate(t, (c) => c + "\u2605", (c) => c), "\u2B50", "\u2B50") },
-    { name: "Math Operators", transform: (t) => applyCharMap(t, mathOperatorMap) },
-    { name: "Shimmering", transform: (t) => withFrame(withCombining(t, ["\u0489"]), "\u269D\u2728", "\u2728\u269D") },
+  { name: "\u{49}\u{74}\u{61}\u{6C}\u{69}\u{63}", transform: (t) => applyCharMap(t, italicMap) },
+  { name: "\u{42}\u{6F}\u{6C}\u{64}\u{20}\u{49}\u{74}\u{61}\u{6C}\u{69}\u{63}", transform: (t) => applyCharMap(t, boldItalicMap) },
   ],
 };
 
-// ── 5: Chess & Games — strategic pattern transforms ───────────────────────
-
-const chessGames: StylishFontCategory = {
-  name: "Chess & Games",
+const doubleStruckFrames: StylishFontCategory = {
+  name: "\u{44}\u{6F}\u{75}\u{62}\u{6C}\u{65}\u{2D}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}\u{73}",
   styles: [
-    { name: "Chess Cycle", transform: (t) => cycleSeparator(t, ["\u265A", "\u265B", "\u265C", "\u265D", "\u265E", "\u265F"]) },
-    { name: "Piece Alternate", transform: (t) => alternate(t, (c) => c + "\u265A", (c) => c + "\u265F") },
-    { name: "Dice Progressive", transform: (t) => cycleSeparator(t, ["\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685"]) },
-    { name: "Knight Mirror", transform: (t) => mirror(t, " \u265E\u265E ") },
-    { name: "Math Reversed", transform: (t) => reverse(applyCharMap(t, mathOperatorMap)) },
-    { name: "Queen Reversed", transform: (t) => withFrame(reverse(t), "\u265B\u265B", "\u265B\u265B") },
-    { name: "Pawn March", transform: (t) => withFrame(intersperse(t, "\u265F"), "\u265A", "\u265A") },
-    { name: "Castle Wall", transform: (t) => withFrame(t, "\u265C\u265C\u265C", "\u265C\u265C\u265C") },
-    { name: "Tengwar Script", transform: (t) => applyCharMap(t, tengwarMap) },
-    { name: "Checkmate", transform: (t) => withFrame(cycleSeparator(t, ["\u265A", "\u265F"]), "\u2654", "\u2654") },
+  { name: "\u{44}\u{6F}\u{75}\u{62}\u{6C}\u{65}\u{2D}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => applyCharMap(t, doubleStruckMap) },
+  { name: "\u{52}\u{68}\u{6F}\u{6D}\u{62}\u{75}\u{73}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{2B17}", "\u{2B17}")(t) },
+  { name: "\u{4B}\u{69}\u{74}\u{65}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{2B18}", "\u{2B18}")(t) },
+  { name: "\u{44}\u{69}\u{61}\u{6D}\u{6F}\u{6E}\u{64}\u{20}\u{50}\u{6F}\u{69}\u{6E}\u{74}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{2B19}", "\u{2B19}")(t) },
+  { name: "\u{48}\u{65}\u{78}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{2B21}", "\u{2B21}")(t) },
+  { name: "\u{43}\u{65}\u{6C}\u{6C}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{2B22}", "\u{2B22}")(t) },
+  { name: "\u{47}\u{72}\u{69}\u{64}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{25A3}", "\u{25A3}")(t) },
+  { name: "\u{50}\u{61}\u{6E}\u{65}\u{6C}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{25A4}", "\u{25A4}")(t) },
+  { name: "\u{53}\u{6C}\u{61}\u{74}\u{65}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{25A5}", "\u{25A5}")(t) },
+  { name: "\u{46}\u{61}\u{63}\u{65}\u{74}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{25C8}", "\u{25C8}")(t) },
+  { name: "\u{50}\u{72}\u{69}\u{73}\u{6D}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{27E1}", "\u{27E1}")(t) },
+  { name: "\u{48}\u{61}\u{6C}\u{6F}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{27E0}", "\u{27E0}")(t) },
+  { name: "\u{4E}\u{6F}\u{64}\u{65}\u{20}\u{53}\u{74}\u{72}\u{75}\u{63}\u{6B}", transform: (t) => wrapWith(doubleStruckMap, "\u{27E2}", "\u{27E2}")(t) },
   ],
 };
 
-// ── 6: Underlined Flow — multi-layer combining marks ──────────────────────
-
-const underlinedFlow: StylishFontCategory = {
-  name: "Underlined Flow",
+const monospaceTerminal: StylishFontCategory = {
+  name: "\u{4D}\u{6F}\u{6E}\u{6F}\u{73}\u{70}\u{61}\u{63}\u{65}\u{20}\u{54}\u{65}\u{72}\u{6D}\u{69}\u{6E}\u{61}\u{6C}",
   styles: [
-    { name: "Single Underline", transform: (t) => withCombining(t, ["\u0332"]) },
-    { name: "Heavy Underbar", transform: (t) => withCombining(t, ["\u0333"]) },
-    { name: "Dotted Below", transform: (t) => withCombining(t, ["\u0324"]) },
-    { name: "Line + Dot Below", transform: (t) => withCombining(t, ["\u0331", "\u0323"]) },
-    { name: "Squiggle Below", transform: (t) => withCombining(t, ["\u0330"]) },
-    { name: "Ring Below", transform: (t) => withCombining(t, ["\u0325"]) },
-    { name: "Bridge Below", transform: (t) => withCombining(t, ["\u032A"]) },
-    { name: "Cedilla Flow", transform: (t) => withCombining(t, ["\u0327"]) },
-    { name: "Triple Stack", transform: (t) => withCombining(t, ["\u0332", "\u0324", "\u0330"]) },
-    { name: "Progressive Under", transform: (t) => progressive(t, "\u0332", 3) },
+  { name: "\u{4D}\u{6F}\u{6E}\u{6F}\u{73}\u{70}\u{61}\u{63}\u{65}", transform: (t) => applyCharMap(t, monospaceMap) },
+  { name: "\u{41}\u{72}\u{72}\u{6F}\u{77}\u{20}\u{4D}\u{6F}\u{6E}\u{6F}", transform: (t) => wrapWith(monospaceMap, "\u{279B}", "\u{279B}")(t) },
+  { name: "\u{50}\u{6F}\u{69}\u{6E}\u{74}\u{20}\u{4D}\u{6F}\u{6E}\u{6F}", transform: (t) => wrapWith(monospaceMap, "\u{279F}", "\u{279F}")(t) },
+  { name: "\u{53}\u{74}\u{72}\u{65}\u{61}\u{6B}\u{20}\u{4D}\u{6F}\u{6E}\u{6F}", transform: (t) => wrapWith(monospaceMap, "\u{21DD}", "\u{21DD}")(t) },
+  { name: "\u{50}\u{75}\u{6C}\u{73}\u{65}\u{20}\u{4D}\u{6F}\u{6E}\u{6F}", transform: (t) => wrapWith(monospaceMap, "\u{21E2}", "\u{21E2}")(t) },
+  { name: "\u{57}\u{61}\u{76}\u{65}\u{20}\u{4D}\u{6F}\u{6E}\u{6F}", transform: (t) => wrapWith(monospaceMap, "\u{219D}", "\u{219D}")(t) },
+  { name: "\u{54}\u{65}\u{72}\u{6D}\u{69}\u{6E}\u{61}\u{6C}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(monospaceMap, "\u{27E6}", "\u{27E7}")(t) },
   ],
 };
 
-// ── 7: Currency & Braille — alphabet replacement combos ───────────────────
+const fullwidthRetro: StylishFontCategory = {
+  name: "\u{46}\u{75}\u{6C}\u{6C}\u{77}\u{69}\u{64}\u{74}\u{68}\u{20}\u{52}\u{65}\u{74}\u{72}\u{6F}",
+  styles: [
+  { name: "\u{46}\u{75}\u{6C}\u{6C}\u{77}\u{69}\u{64}\u{74}\u{68}", transform: (t) => applyCharMap(t, fullwidthMap) },
+  { name: "\u{50}\u{6F}\u{69}\u{6E}\u{74}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{2770}", "\u{2771}")(t) },
+  { name: "\u{41}\u{6E}\u{67}\u{6C}\u{65}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{276E}", "\u{276F}")(t) },
+  { name: "\u{51}\u{75}\u{6F}\u{74}\u{65}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{2039}", "\u{203A}")(t) },
+  { name: "\u{47}\u{75}\u{69}\u{6C}\u{6C}\u{65}\u{6D}\u{65}\u{74}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{AB}", "\u{BB}")(t) },
+  { name: "\u{4C}\u{65}\u{6E}\u{73}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{2997}", "\u{2998}")(t) },
+  { name: "\u{42}\u{72}\u{61}\u{63}\u{6B}\u{65}\u{74}\u{20}\u{44}\u{6F}\u{74}\u{20}\u{46}\u{72}\u{61}\u{6D}\u{65}", transform: (t) => wrapWith(fullwidthMap, "\u{2045}", "\u{2046}")(t) },
+  ],
+};
+
+const novelty: StylishFontCategory = {
+  name: "\u{4E}\u{6F}\u{76}\u{65}\u{6C}\u{74}\u{79}",
+  styles: [
+  { name: "\u{55}\u{70}\u{73}\u{69}\u{64}\u{65}\u{20}\u{44}\u{6F}\u{77}\u{6E}\u{20}\u{28}\u{66}\u{6C}\u{69}\u{70}\u{29}", transform: (t) => upsideDown(t) },
+  { name: "\u{4D}\u{69}\u{72}\u{72}\u{6F}\u{72}\u{20}\u{28}\u{72}\u{65}\u{76}\u{65}\u{72}\u{73}\u{65}\u{20}\u{6F}\u{72}\u{64}\u{65}\u{72}\u{29}", transform: (t) => reverse(t) },
+  { name: "\u{53}\u{70}\u{61}\u{63}\u{65}\u{64}\u{20}\u{4F}\u{75}\u{74}\u{20}\u{43}\u{61}\u{70}\u{73}", transform: (t) => spacedOut(t) },
+  ],
+};
 
 const currencyBraille: StylishFontCategory = {
-  name: "Currency & Braille",
+  name: "\u{43}\u{75}\u{72}\u{72}\u{65}\u{6E}\u{63}\u{79}\u{20}\u{26}\u{20}\u{42}\u{72}\u{61}\u{69}\u{6C}\u{6C}\u{65}",
   styles: [
-    { name: "Money Letters", transform: (t) => applyCharMap(t, currencyMap) },
-    { name: "Currency Reversed", transform: (t) => reverse(applyCharMap(t, currencyMap)) },
-    { name: "Currency Mirror", transform: (t) => mirror(applyCharMap(t, currencyMap), " \u20AC ") },
-    { name: "Money Boxed", transform: (t) => wrapEach(applyCharMap(t, currencyMap), "\u00AB", "\u00BB") },
-    { name: "Crypto Alternate", transform: (t) => alternate(t, (c) => currencyMap[c.toLowerCase()] ?? c, (c) => c.toUpperCase()) },
-    { name: "Braille Code", transform: (t) => applyCharMap(t, brailleMap) },
-    { name: "Braille Reversed", transform: (t) => reverse(applyCharMap(t, brailleMap)) },
-    { name: "Braille Mirror", transform: (t) => mirror(applyCharMap(t, brailleMap), " \u28FF ") },
-    { name: "Braille + Dots", transform: (t) => cycleSeparator(applyCharMap(t, brailleMap), ["\u2022", "\u25E6"]) },
-    { name: "Braille Border", transform: (t) => withFrame(applyCharMap(t, brailleMap), "\u2800\u28FF\u2847", "\u2847\u28FF\u2800") },
+  { name: "\u{43}\u{75}\u{72}\u{72}\u{65}\u{6E}\u{63}\u{79}\u{20}\u{4C}\u{65}\u{74}\u{74}\u{65}\u{72}\u{73}", transform: (t) => applyCharMap(t, currencyMap) },
+  { name: "\u{42}\u{72}\u{61}\u{69}\u{6C}\u{6C}\u{65}\u{20}\u{50}\u{61}\u{74}\u{74}\u{65}\u{72}\u{6E}", transform: (t) => applyCharMap(t, brailleMap) },
   ],
 };
 
-// ── 8: Wavy Motion — combining mark layers & patterns ─────────────────────
-
-const wavyMotion: StylishFontCategory = {
-  name: "Wavy Motion",
+const elementWraps: StylishFontCategory = {
+  name: "\u{45}\u{6C}\u{65}\u{6D}\u{65}\u{6E}\u{74}\u{20}\u{57}\u{72}\u{61}\u{70}\u{73}",
   styles: [
-    { name: "Tilde Through", transform: (t) => withCombining(t, ["\u0334"]) },
-    { name: "Tilde Above", transform: (t) => withCombining(t, ["\u0303"]) },
-    { name: "Double Wave", transform: (t) => withCombining(t, ["\u0303", "\u0330"]) },
-    { name: "Wave Progressive", transform: (t) => progressive(t, "\u0303", 3) },
-    { name: "Wavy Undercurl", transform: (t) => withCombining(t, ["\u0330", "\u0303"]) },
-    { name: "Ripple Cycle", transform: (t) => cycleSeparator(t, ["\u223C", "\u2248", "\u223F"]) },
-    { name: "Ocean Mirror", transform: (t) => mirror(withCombining(t, ["\u0334"]), " \u2248 ") },
-    { name: "Sine Flow", transform: (t) => withFrame(t, "\u223F\u223F", "\u223F\u223F") },
-    { name: "Caron Wave", transform: (t) => withCombining(t, ["\u030C"]) },
-    { name: "Breve Bounce", transform: (t) => withCombining(t, ["\u0306"]) },
+  { name: "\u{46}\u{72}\u{6F}\u{73}\u{74}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{1F9CA}", "\u{1F9CA}")(t) },
+  { name: "\u{56}\u{6F}\u{72}\u{74}\u{65}\u{78}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{1F300}", "\u{1F300}")(t) },
+  { name: "\u{44}\u{69}\u{73}\u{63}\u{6F}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{1FAA9}", "\u{1FAA9}")(t) },
+  { name: "\u{54}\u{61}\u{6C}\u{69}\u{73}\u{6D}\u{61}\u{6E}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{1F9FF}", "\u{1F9FF}")(t) },
+  { name: "\u{47}\u{65}\u{61}\u{72}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{2699}\u{FE0F}", "\u{2699}\u{FE0F}")(t) },
+  { name: "\u{50}\u{6C}\u{75}\u{6D}\u{65}\u{20}\u{57}\u{72}\u{61}\u{70}", transform: (t) => wrapWith(null, "\u{1FAB6}", "\u{1FAB6}")(t) },
+  { name: "\u{43}\u{68}\u{69}\u{6D}\u{65}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1F390}", "\u{1F390}")(t) },
+  { name: "\u{57}\u{65}\u{62}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1F578}\u{FE0F}", "\u{1F578}\u{FE0F}")(t) },
+  { name: "\u{4B}\u{65}\u{79}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1F5DD}\u{FE0F}", "\u{1F5DD}\u{FE0F}")(t) },
+  { name: "\u{4B}\u{6E}\u{6F}\u{74}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1FAA2}", "\u{1FAA2}")(t) },
+  { name: "\u{54}\u{72}\u{69}\u{64}\u{65}\u{6E}\u{74}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1F531}", "\u{1F531}")(t) },
+  { name: "\u{54}\u{68}\u{72}\u{65}\u{61}\u{64}\u{20}\u{42}\u{6F}\u{6C}\u{64}", transform: (t) => wrapWith(boldMap, "\u{1F9F5}", "\u{1F9F5}")(t) },
+  { name: "\u{4C}\u{69}\u{6E}\u{6B}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{27E3}", "\u{27E3}")(t) },
+  { name: "\u{49}\u{6E}\u{66}\u{69}\u{6E}\u{69}\u{74}\u{79}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{221E}", "\u{221E}")(t) },
+  { name: "\u{54}\u{6F}\u{74}\u{61}\u{6C}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{2261}", "\u{2261}")(t) },
+  { name: "\u{43}\u{72}\u{6F}\u{73}\u{73}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{2021}", "\u{2021}")(t) },
+  { name: "\u{53}\u{65}\u{63}\u{74}\u{69}\u{6F}\u{6E}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{A7}", "\u{A7}")(t) },
+  { name: "\u{50}\u{69}\u{6C}\u{63}\u{72}\u{6F}\u{77}\u{20}\u{4E}\u{65}\u{67}\u{61}\u{74}\u{69}\u{76}\u{65}", transform: (t) => wrapWith(circledNegativeMap, "\u{B6}", "\u{B6}")(t) },
+  { name: "\u{52}\u{61}\u{69}\u{6C}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{2016}", "\u{2016}")(t) },
+  { name: "\u{43}\u{6C}\u{75}\u{73}\u{74}\u{65}\u{72}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{2042}", "\u{2042}")(t) },
+  { name: "\u{54}\u{77}\u{69}\u{6E}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{2051}", "\u{2051}")(t) },
+  { name: "\u{43}\u{6F}\u{6C}\u{75}\u{6D}\u{6E}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{22EE}", "\u{22EE}")(t) },
+  { name: "\u{43}\u{6C}\u{75}\u{73}\u{74}\u{65}\u{72}\u{20}\u{44}\u{6F}\u{74}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{2059}", "\u{2059}")(t) },
+  { name: "\u{54}\u{72}\u{61}\u{69}\u{6C}\u{20}\u{43}\u{79}\u{72}\u{69}\u{6C}\u{6C}\u{69}\u{63}", transform: (t) => wrapWith(cyrillicLookalikeMap, "\u{279C}", "\u{279C}")(t) },
   ],
 };
+// ── Exports ─────────────────────────────────────────────────────────────────
 
-// ── 9: Runic & Ancient — character replacement + patterns ─────────────────
-
-const runicAncient: StylishFontCategory = {
-  name: "Runic & Ancient",
-  styles: [
-    { name: "Elder Runes", transform: (t) => applyCharMap(t, runicMap) },
-    { name: "Rune Reversed", transform: (t) => reverse(applyCharMap(t, runicMap)) },
-    { name: "Rune Mirror", transform: (t) => mirror(applyCharMap(t, runicMap), " \u16C7 ") },
-    { name: "Rune Alternate", transform: (t) => alternate(t, (c) => runicMap[c.toLowerCase()] ?? c, (c) => c) },
-    { name: "Rune Progressive", transform: (t) => progressive(applyCharMap(t, runicMap), "\u16EB", 2) },
-    { name: "Rune Boxed", transform: (t) => wrapEach(applyCharMap(t, runicMap), "\u16C7", "\u16C7") },
-    { name: "Ancient Caps", transform: (t) => applyCharMap(t, smallCapsMap) },
-    { name: "Caps Reversed", transform: (t) => reverse(applyCharMap(t, smallCapsMap)) },
-    { name: "Caps Mirror", transform: (t) => mirror(applyCharMap(t, smallCapsMap), " \u2022 ") },
-    { name: "Caps + Underline", transform: (t) => withCombining(applyCharMap(t, smallCapsMap), ["\u0332"]) },
-  ],
-};
-
-// ── 10: Box & Block Art — structural frame transforms ─────────────────────
-
-const boxBlockArt: StylishFontCategory = {
-  name: "Box & Block Art",
-  styles: [
-    { name: "Lenticular Frame", transform: (t) => `\u3010${t}\u3011` },
-    { name: "Tortoise Shell", transform: (t) => `\u3014${t}\u3015` },
-    { name: "Double Angle", transform: (t) => `\u300A${t}\u300B` },
-    { name: "White Corner", transform: (t) => `\u300E${t}\u300F` },
-    { name: "Tengwar Reversed", transform: (t) => reverse(applyCharMap(t, tengwarMap)) },
-    { name: "Shade Alternate", transform: (t) => alternate(t, (c) => "\u2591" + c, (c) => "\u2593" + c) },
-    { name: "Column Frame", transform: (t) => `\u2551 ${t} \u2551` },
-    { name: "Box Mirror", transform: (t) => mirror(t, " \u2503 ") },
-    { name: "Block Reversed", transform: (t) => `\u2590${reverse(t)}\u258C` },
-    { name: "Brick Wall", transform: (t) => cycleSeparator(t, ["\u2596", "\u2597", "\u2598", "\u259D"]) },
-  ],
-};
-
-// ── Export ─────────────────────────────────────────────────────────────────
-
-/** First 3 categories — rendered immediately on page load. */
 export const stylishInitialCategories: StylishFontCategory[] = [
-  parenthesizedText,
-  diamondGlazed,
-  musicalCardSuits,
+  katakanaLookalikes,
+  circledBubble,
+  squaredBlock,
 ];
 
-/** Remaining 7 categories — loaded on "Explore More" click. */
 export const stylishDeferredCategories: StylishFontCategory[] = [
-  starlightSparkle,
-  chessGames,
-  underlinedFlow,
+  weightStyle,
+  doubleStruckFrames,
+  monospaceTerminal,
+  fullwidthRetro,
+  novelty,
   currencyBraille,
-  wavyMotion,
-  runicAncient,
-  boxBlockArt,
+  elementWraps,
 ];
 
-/** All 10 categories combined. */
 export const stylishFontCategories: StylishFontCategory[] = [
   ...stylishInitialCategories,
   ...stylishDeferredCategories,
