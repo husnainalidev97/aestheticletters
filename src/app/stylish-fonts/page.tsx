@@ -54,12 +54,6 @@ const openGraphImages = [
     alt: "Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts.",
   },
   {
-    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-styles-comparison-chart.webp",
-    width: 1200,
-    height: 1200,
-    alt: "Comparison chart of 10 stylish font styles including Parenthesized Text, Diamond Glazed, Musical & Card Suits, Starlight Sparkle, Chess & Games, Underlined Flow, Currency & Braille, Wavy Motion, Runic & Ancient, and Box & Block Art with best use cases.",
-  },
-  {
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
     width: 1200,
     height: 800,
@@ -252,16 +246,6 @@ export default function StylishFontsPage() {
       width: 1200,
       height: 800,
       caption: "Social media and messaging mockups showing where stylish fonts work best.",
-      inLanguage: "en",
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aestheticletters.com/stylish-fonts#image-styles-comparison",
-      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-styles-comparison-chart.webp",
-      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-styles-comparison-chart.webp",
-      width: 1200,
-      height: 1200,
-      caption: "Comparison chart of 10 popular stylish font styles with best use cases.",
       inLanguage: "en",
     },
     {
@@ -664,14 +648,6 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   All Stylish Font Styles You Can Use
                 </h2>
-                <Image
-                  src="/images/stylish-fonts/stylish-fonts-styles-comparison-chart.webp"
-                  alt="Comparison chart of 10 stylish font styles including Parenthesized Text, Diamond Glazed, Musical & Card Suits, Starlight Sparkle, Chess & Games, Underlined Flow, Currency & Braille, Wavy Motion, Runic & Ancient, and Box & Block Art with best use cases."
-                  width={1200}
-                  height={1200}
-                  className="w-full h-auto rounded-xl mb-8"
-                  loading="lazy"
-                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Here are some popular fonts available in this tool:
                 </p>

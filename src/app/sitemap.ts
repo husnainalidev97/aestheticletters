@@ -78,7 +78,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${SITE_URL}/how-to-use-the-stylish-font-maker-step-by-step.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-where-they-work.webp`,
-        `${SITE_URL}/images/stylish-fonts/stylish-fonts-styles-comparison-chart.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp`,
