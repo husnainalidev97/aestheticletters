@@ -5,6 +5,8 @@ const SITE_URL = "https://www.aestheticletters.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   /* Tool pages — updated today with SectionNav rollout */
   const toolsModified = new Date("2026-08-03T00:00:00Z");
+  /* Stylish Fonts page updated with new images */
+  const stylishFontsModified = new Date("2026-08-04T00:00:00Z");
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -69,12 +71,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/stylish-fonts`,
-      lastModified: toolsModified,
+      lastModified: stylishFontsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
-        `${SITE_URL}/how-to-use-the-stylish-font-maker-step-by-step.webp`,
-        `${SITE_URL}/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-og.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-where-they-work.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp`,
+        `${SITE_URL}/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp`,
       ],
     },
     {

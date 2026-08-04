@@ -22,6 +22,45 @@ const pageSections = [
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
+const openGraphImages = [
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+    width: 1200,
+    height: 630,
+    alt: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+    width: 1200,
+    height: 800,
+    alt: "Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+    width: 1200,
+    height: 800,
+    alt: "Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+    width: 1200,
+    height: 800,
+    alt: "Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols, enabling copy-paste without installing font files.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+    width: 1200,
+    height: 800,
+    alt: "Do's and don'ts for using stylish fonts: avoid overly complex styles, test before posting, and keep important text readable.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+    width: 1200,
+    height: 800,
+    alt: "Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 100+ styles, all devices, no installation, safe and fast.",
+  },
+];
+
 export const metadata: Metadata = {
   title: { absolute: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free" },
   description:
@@ -36,7 +75,7 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: [{ url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp", width: 1734, height: 907, alt: "stylish fonts generator explained with different styles and show features which are completely free" }],
+    images: openGraphImages,
     publishedTime: "2026-05-11T08:00:00+00:00",
     modifiedTime: "2026-08-04T00:00:00+00:00",
   },
@@ -45,7 +84,7 @@ export const metadata: Metadata = {
     title: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
     description:
       "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
-    images: ["https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"],
+    images: openGraphImages,
   },
 };
 
@@ -166,6 +205,69 @@ const platforms = [
 ];
 
 export default function StylishFontsPage() {
+  const imageObjects = [
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-og",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
+      width: 1200,
+      height: 630,
+      caption: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-why-dont-always-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
+      width: 1200,
+      height: 800,
+      caption: "Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-where-they-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-where-they-work.webp",
+      width: 1200,
+      height: 800,
+      caption: "Social media and messaging mockups showing where stylish fonts work best.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-how-they-work",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp",
+      width: 1200,
+      height: 800,
+      caption: "Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-common-mistakes",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp",
+      width: 1200,
+      height: 800,
+      caption: "Do's and don'ts for using stylish fonts effectively.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aestheticletters.com/stylish-fonts#image-why-use",
+      url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+      contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
+      width: 1200,
+      height: 800,
+      caption: "Benefits of the Aesthetic Letters stylish font generator.",
+      inLanguage: "en",
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -323,6 +425,7 @@ export default function StylishFontsPage() {
           },
         ],
       },
+      ...imageObjects,
     ],
   };
 
@@ -383,10 +486,10 @@ export default function StylishFontsPage() {
                   What is a Stylish Font Generator?
                 </h2>
                 <Image
-                  src="/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"
-                  alt="stylish fonts generator explained with different styles and show features which are completely free"
-                  width={1734}
-                  height={907}
+                  src="/images/stylish-fonts/stylish-fonts-og.webp"
+                  alt="Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles."
+                  width={1200}
+                  height={630}
                   className="w-full h-auto rounded-xl mb-8"
                   priority={false}
                 />
@@ -413,6 +516,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Stylish Fonts Don&apos;t Always Work (Important to Know)
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp"
+                  alt="Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Sometimes stylish fonts may not display correctly on all platforms. This happens because not
                   every app supports every character style.
@@ -485,6 +596,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Choose the Right Cool Stylish Font for Your Use Case
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-where-they-work.webp"
+                  alt="Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Every font style gives a different impression, so selecting one that matches your purpose really matters.
                 </p>
@@ -554,6 +673,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Stylish Fonts Actually Work (Behind the Scenes)
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-how-they-work-unicode-mapping.webp"
+                  alt="Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols, enabling copy-paste without installing font files."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   The styles you see in these generators are not traditional font files that you install on your
                   device. Instead, they are formed using special text symbols that already exist within the Unicode system.
@@ -583,6 +710,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Common Mistakes &amp; Tips When Using Stylish Letters
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-common-mistakes-and-tips.webp"
+                  alt="Do's and don'ts for using stylish fonts: avoid overly complex styles, test before posting, and keep important text readable."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using stylish text fonts effectively requires a bit of balance.
                 </p>
@@ -632,6 +767,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Use This Stylish Font Generator?
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp"
+                  alt="Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 100+ styles, all devices, no installation, safe and fast."
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This tool is built to make text styling quick, easy, and more creative for everyday use.
                 </p>
@@ -689,7 +832,6 @@ export default function StylishFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/how-to-use-the-stylish-font-maker-step-by-step.webp", alt: "how to use the stylish font maker (step by step)" }}
             />
           </div>
         </section>
