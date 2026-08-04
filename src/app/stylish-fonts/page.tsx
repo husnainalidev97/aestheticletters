@@ -27,7 +27,7 @@ const openGraphImages = [
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
     width: 1200,
     height: 630,
-    alt: "Stylish Fonts Generator by Aesthetic Letters — copy and paste 100+ cool Unicode text styles for Instagram, TikTok, gaming, and more.",
+    alt: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
   },
   {
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
@@ -213,7 +213,7 @@ export default function StylishFontsPage() {
       contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
       width: 1200,
       height: 630,
-      caption: "Stylish Fonts Generator by Aesthetic Letters — copy and paste 100+ cool Unicode text styles.",
+      caption: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
       inLanguage: "en",
     },
     {
@@ -485,6 +485,14 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Stylish Font Generator?
                 </h2>
+                <Image
+                  src="/images/stylish-fonts/stylish-fonts-og.webp"
+                  alt="Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles."
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto rounded-xl mb-8"
+                  priority={false}
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
                   and creative text styles. It works directly in your browser, so there is no need to install any
