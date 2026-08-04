@@ -27,7 +27,7 @@ const openGraphImages = [
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
     width: 1200,
     height: 630,
-    alt: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
+    alt: "Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming.",
   },
   {
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
@@ -57,7 +57,7 @@ const openGraphImages = [
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
     width: 1200,
     height: 800,
-    alt: "Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 100+ styles, all devices, no installation, safe and fast.",
+    alt: "Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 76 styles, all devices, no installation, safe and fast.",
   },
 ];
 
@@ -141,7 +141,7 @@ const fontShowcaseStyles = [
   },
   {
     name: "Element Wraps",
-    description: "Plain and bold text wrapped with emoji and symbol elements.",
+    description: "Plain, bold, circled-negative, and Cyrillic text wrapped with emoji and symbol elements.",
     example: "🧊 Stylish Fonts 🧊",
     bestFor: "Decorated captions and standout profile names.",
   },
@@ -213,7 +213,7 @@ export default function StylishFontsPage() {
       contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-og.webp",
       width: 1200,
       height: 630,
-      caption: "Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles.",
+      caption: "Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming.",
       inLanguage: "en",
     },
     {
@@ -263,7 +263,7 @@ export default function StylishFontsPage() {
       contentUrl: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-use-this-generator.webp",
       width: 1200,
       height: 800,
-      caption: "Benefits of the Aesthetic Letters stylish font generator.",
+      caption: "Benefits of the Aesthetic Letters stylish font generator: 76 Unicode text styles for Instagram, gaming, and messaging.",
       inLanguage: "en",
     },
   ];
@@ -276,7 +276,7 @@ export default function StylishFontsPage() {
         "@id": "https://www.aestheticletters.com/stylish-fonts#software",
         name: "Stylish Fonts Generator",
         description:
-          "Transform plain text into 100+ unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
+          "Transform plain text into 76 unique Unicode stylish font styles instantly. Copy and paste cool text for Instagram, WhatsApp, gaming usernames, and more.",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
@@ -294,6 +294,11 @@ export default function StylishFontsPage() {
         name: "Stylish Fonts Generator - Copy & Paste Cool Text Styles Free",
         description:
           "Stylish Fonts Generator is a free tool to convert normal text into creative styles. Generate, preview, & copy stylish text for social media, gaming, and more.",
+        datePublished: "2026-05-11T08:00:00+00:00",
+        dateModified: "2026-08-04T00:00:00+00:00",
+        image: {
+          "@id": "https://www.aestheticletters.com/stylish-fonts#image-og",
+        },
         breadcrumb: {
           "@id": "https://www.aestheticletters.com/stylish-fonts#breadcrumb",
         },
@@ -487,11 +492,12 @@ export default function StylishFontsPage() {
                 </h2>
                 <Image
                   src="/images/stylish-fonts/stylish-fonts-og.webp"
-                  alt="Stylish Fonts Generator by Aesthetic Letters showing bold, italic, script, gothic, bubble, and monospace text styles."
+                  alt="Stylish Fonts Generator by Aesthetic Letters — preview of bold, italic, circled, squared, katakana, and monospace Unicode text styles for social media and gaming."
                   width={1200}
                   height={630}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
+                  preload={true}
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
@@ -521,6 +527,7 @@ export default function StylishFontsPage() {
                   alt="Comparison showing stylish text rendering correctly on a modern phone versus broken empty boxes on an older unsupported device."
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />
@@ -601,6 +608,7 @@ export default function StylishFontsPage() {
                   alt="Social media and messaging mockups showing where stylish fonts work best, including Instagram bios, TikTok captions, WhatsApp status, gaming usernames, and Facebook posts."
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />
@@ -651,17 +659,7 @@ export default function StylishFontsPage() {
                         </span>
                       </p>
                       <p className="text-xs text-on-surface-variant">
-                        {style.name === "Starlight Sparkle" ? (
-                          <>
-                            Best for {style.bestFor.replace(".", "")}. If you love this soft magical vibe, explore{" "}
-                            <Link href="/cute-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
-                              cute fonts
-                            </Link>{" "}
-                            for more styles like this.
-                          </>
-                        ) : (
-                          <>Best for {style.bestFor}</>
-                        )}
+                        Best for {style.bestFor}
                       </p>
                     </div>
                   ))}
@@ -678,6 +676,7 @@ export default function StylishFontsPage() {
                   alt="Diagram explaining that stylish fonts are created by mapping plain text letters to Unicode symbols, enabling copy-paste without installing font files."
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />
@@ -715,6 +714,7 @@ export default function StylishFontsPage() {
                   alt="Do's and don'ts for using stylish fonts: avoid overly complex styles, test before posting, and keep important text readable."
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />
@@ -772,6 +772,7 @@ export default function StylishFontsPage() {
                   alt="Benefits of the Aesthetic Letters stylish font generator: instant generation, one-click copy, 100+ styles, all devices, no installation, safe and fast."
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />

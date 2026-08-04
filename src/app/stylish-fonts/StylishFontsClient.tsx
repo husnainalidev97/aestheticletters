@@ -246,6 +246,7 @@ export default function StylishFontsClient() {
                 onToggleFavorite={toggleFavorite}
                 onPreview={(t) => setPreviewText(t)}
                 onDownload={(t, name) => setDownloadInfo({ text: t, styleName: name })}
+                initialVisibleStyles={category.name === "Element Wraps" ? 6 : undefined}
               />
             </div>
           ))}
