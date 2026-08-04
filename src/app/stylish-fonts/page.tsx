@@ -30,18 +30,6 @@ const openGraphImages = [
     alt: "Stylish Fonts Generator by Aesthetic Letters — copy and paste 100+ cool Unicode text styles for Instagram, TikTok, gaming, and more.",
   },
   {
-    url: "https://www.aestheticletters.com/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp",
-    width: 1734,
-    height: 907,
-    alt: "stylish fonts generator explained with different styles and show features which are completely free",
-  },
-  {
-    url: "https://www.aestheticletters.com/how-to-use-the-stylish-font-maker-step-by-step.webp",
-    width: 1024,
-    height: 1536,
-    alt: "how to use the stylish font maker (step by step)",
-  },
-  {
     url: "https://www.aestheticletters.com/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp",
     width: 1200,
     height: 800,
@@ -497,14 +485,6 @@ export default function StylishFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What is a Stylish Font Generator?
                 </h2>
-                <Image
-                  src="/stylish-fonts-generator-explained-with-different-styles-and-show-features-which-are-completely-free.webp"
-                  alt="stylish fonts generator explained with different styles and show features which are completely free"
-                  width={1734}
-                  height={907}
-                  className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
-                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A stylish font generator is a simple web-based tool that changes plain text into eye-catching
                   and creative text styles. It works directly in your browser, so there is no need to install any
@@ -844,7 +824,6 @@ export default function StylishFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/how-to-use-the-stylish-font-maker-step-by-step.webp", alt: "how to use the stylish font maker (step by step)" }}
             />
           </div>
         </section>
