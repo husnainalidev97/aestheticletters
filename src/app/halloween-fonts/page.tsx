@@ -11,16 +11,16 @@ import Breadcrumb from "../components/Breadcrumb";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 import SectionNav from "../components/SectionNav";
 const pageSections = [
-  { id: "what-are-halloween-fonts", label: "What Are Halloween" },
-  { id: "how-does-a-creepy-text-generator-work", label: "How Does a" },
-  { id: "spirit-halloween-font-what-font-do-they-use", label: "Spirit Halloween Font:" },
-  { id: "75-halloween-font-styles-explained", label: "75+ Halloween Font" },
-  { id: "how-to-use-halloween-fonts-on-every-major-platform", label: "How to Use" },
-  { id: "spooky-symbols-and-emojis-copy-paste-cheat-sheet", label: "Spooky Symbols and" },
-  { id: "halloween-fonts-in-canva-a-practical-workflow", label: "Halloween Fonts in" },
-  { id: "creepy-fonts-on-cricut-what-actually-works", label: "Creepy Fonts on" },
-  { id: "halloween-fonts-for-different-use-cases", label: "Halloween Fonts for" },
-  { id: "when-not-to-use-spooky-fonts", label: "When NOT to" },
+  { id: "what-are-halloween-fonts", label: "What Are Halloween Fonts?" },
+  { id: "how-does-a-creepy-text-generator-work", label: "How Does a Creepy Text Generator Work?" },
+  { id: "spirit-halloween-font-what-font-do-they-use", label: "Spirit Halloween Font: What Font Do They Use?" },
+  { id: "75-halloween-font-styles-explained", label: "75+ Halloween Font Styles Explained" },
+  { id: "how-to-use-halloween-fonts-on-every-major-platform", label: "How to Use Halloween Fonts on Every Major Platform" },
+  { id: "spooky-symbols-and-emojis-copy-paste-cheat-sheet", label: "Spooky Symbols and Emojis: Copy-Paste Cheat Sheet" },
+  { id: "halloween-fonts-in-canva-a-practical-workflow", label: "Halloween Fonts in Canva: A Practical Workflow" },
+  { id: "creepy-fonts-on-cricut-what-actually-works", label: "Creepy Fonts on Cricut: What Actually Works" },
+  { id: "halloween-fonts-for-different-use-cases", label: "Halloween Fonts for Different Use Cases" },
+  { id: "when-not-to-use-spooky-fonts", label: "When NOT to Use Spooky Fonts" },
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
@@ -326,10 +326,11 @@ export default function HalloweenFontsPage() {
                 <Image
                   src="/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp"
                   alt="Halloween Fonts Generator - 75+ spooky, gothic, and creepy copy-paste text styles with blood drip, zalgo, skull, and cursed script effects"
-                  width={1200}
-                  height={630}
+                  width={847}
+                  height={445}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
                   className="w-full h-auto rounded-xl mb-8"
-                  priority={false}
                 />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A halloween font is any decorative typeface or styled text designed to evoke the mood of Halloween;
