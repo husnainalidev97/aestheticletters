@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
     return [
       { source: "/(.*)", headers: securityHeaders },
       {
+        // Cache HTML pages briefly and allow stale-while-revalidate,
+        // while leaving immutable static assets (/_next/*, images, fonts) untouched.
+        source: "/:path((?!_next|api)[^.]+)?",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, s-maxage=60, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
         source: "/.well-known/apple-app-site-association",
         headers: [{ key: "Content-Type", value: "application/json" }],
       },

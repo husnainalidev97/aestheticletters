@@ -118,7 +118,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full h-[5.5rem] z-50 bg-background/80 backdrop-blur-xl shadow-[0px_20px_40px_rgba(28,27,27,0.06)] flex justify-between items-center px-4 md:px-[150px] transition-colors duration-300">
+      <nav className="fixed top-0 left-0 w-full h-[5.5rem] z-[60] bg-background/80 backdrop-blur-xl shadow-[0px_20px_40px_rgba(28,27,27,0.06)] flex justify-between items-center px-4 md:px-[150px] transition-colors duration-300">
         <Link
           href="/"
           className="font-headline text-2xl font-bold text-on-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
@@ -185,7 +185,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
 
       {/* Mobile drawer */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden={!isOpen}
