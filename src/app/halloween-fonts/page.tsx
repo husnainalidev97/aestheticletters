@@ -897,7 +897,6 @@ export default function HalloweenFontsPage() {
               }
               showBanner={false}
               showTips={false}
-              bottomImage={{ src: "/halloween-fonts-generator-featured-image.webp", alt: "halloween fonts generator featured image" }}
             />
           </div>
         </section>
