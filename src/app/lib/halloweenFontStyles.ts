@@ -116,19 +116,17 @@ for (let i = 0; i < 26; i++) {
   FUTHARK[String.fromCharCode(65 + i)] = futharkLower[lower];
 }
 
-// Ogham (ancient Celtic) — Dark Ritual only
-const OGHAM: Record<string, string> = {
-  a: "\u1681", b: "\u1682", c: "\u1683", d: "\u1684", e: "\u1685",
-  f: "\u1686", g: "\u1687", h: "\u1688", i: "\u1689", j: "\u1683",
-  k: "\u168A", l: "\u168B", m: "\u168C", n: "\u168D", o: "\u168E",
-  p: "\u168F", q: "\u1690", r: "\u1691", s: "\u1692", t: "\u1693",
-  u: "\u1694", v: "\u1686", w: "\u1695", x: "\u1683", y: "\u1694",
-  z: "\u1692",
-};
+// Runic fallback for the "Ogham Runes" style. Pure Ogham (U+1680–U+169C)
+// is a vertical script and falls back to horizontal lines on many phones, so we
+// use a compatible runic block (U+16D0–U+16E9) that renders the same ancient/runic
+// mood while staying readable on Instagram, TikTok, Discord, etc.
+const OGHAM: Record<string, string> = {};
 for (let i = 0; i < 26; i++) {
   const upper = String.fromCharCode(65 + i);
   const lower = String.fromCharCode(97 + i);
-  OGHAM[upper] = OGHAM[lower];
+  const rune = String.fromCodePoint(0x16d0 + i);
+  OGHAM[upper] = rune;
+  OGHAM[lower] = rune;
 }
 
 // ── 1: Graveyard Gothic ──────────────────────────────────────────────────
