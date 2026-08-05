@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolsModified = new Date("2026-08-03T00:00:00Z");
   /* Stylish Fonts page updated with new images */
   const stylishFontsModified = new Date("2026-08-04T00:00:00Z");
-  /* Halloween Fonts page updated with new images */
-  const halloweenFontsModified = new Date("2026-08-05T00:00:00Z");
+  /* Halloween Fonts page updated with new images + fixes */
+  const halloweenFontsModified = new Date();
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
