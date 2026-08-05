@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolsModified = new Date("2026-08-03T00:00:00Z");
   /* Stylish Fonts page updated with new images */
   const stylishFontsModified = new Date("2026-08-04T00:00:00Z");
+  /* Halloween Fonts page updated with new images */
+  const halloweenFontsModified = new Date("2026-08-05T00:00:00Z");
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -102,12 +104,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/halloween-fonts`,
-      lastModified: toolsModified,
+      lastModified: halloweenFontsModified,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
         `${SITE_URL}/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp`,
         `${SITE_URL}/halloween-fonts-generator-featured-image.webp`,
+        `${SITE_URL}/images/halloween-fonts/how-halloween-creepy-text-generator-works-unicode-mapping.webp`,
+        `${SITE_URL}/images/halloween-fonts/spirit-halloween-font-alternatives-gothic-blackletter.webp`,
+        `${SITE_URL}/images/halloween-fonts/halloween-font-styles-comparison-chart-75-plus-spooky-styles.webp`,
+        `${SITE_URL}/images/halloween-fonts/halloween-fonts-platform-mockups-instagram-tiktok-discord-whatsapp.webp`,
+        `${SITE_URL}/images/halloween-fonts/spooky-symbols-emojis-copy-paste-cheat-sheet.webp`,
+        `${SITE_URL}/images/halloween-fonts/halloween-fonts-canva-practical-workflow.webp`,
+        `${SITE_URL}/images/halloween-fonts/creepy-fonts-cricut-workflow-downloaded-fonts-only.webp`,
+        `${SITE_URL}/images/halloween-fonts/when-not-to-use-spooky-fonts-dos-and-donts.webp`,
       ],
     },
     {

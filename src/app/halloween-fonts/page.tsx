@@ -24,6 +24,57 @@ const pageSections = [
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
+const openGraphImages = [
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/how-halloween-creepy-text-generator-works-unicode-mapping.webp",
+    width: 1200,
+    height: 800,
+    alt: "Diagram showing normal text being mapped to Unicode characters and output as spooky copy-paste Halloween text.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/spirit-halloween-font-alternatives-gothic-blackletter.webp",
+    width: 1200,
+    height: 800,
+    alt: "Gothic store-sign style Halloween text next to UnifrakturMaguntia and Graveyard Gothic alternatives, with bats and pumpkins.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/halloween-font-styles-comparison-chart-75-plus-spooky-styles.webp",
+    width: 900,
+    height: 900,
+    alt: "Comparison grid of Halloween font categories: dark horror, mystical/witch, playful/festive, and glitch/digital styles.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/halloween-fonts-platform-mockups-instagram-tiktok-discord-whatsapp.webp",
+    width: 1200,
+    height: 800,
+    alt: "Social media and messaging mockups showing Halloween text in an Instagram bio, TikTok caption, Discord username, and WhatsApp message.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/spooky-symbols-emojis-copy-paste-cheat-sheet.webp",
+    width: 1200,
+    height: 800,
+    alt: "Visual cheat sheet of Halloween symbols and emojis: skull, pumpkin, ghost, spiderweb, bat, crystal ball, coffin, blood drop, moon, lightning bolt.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/halloween-fonts-canva-practical-workflow.webp",
+    width: 1200,
+    height: 800,
+    alt: "Two-step workflow graphic: copy and paste Unicode text into Canva, or download a real Google Font for advanced effects.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/creepy-fonts-cricut-workflow-downloaded-fonts-only.webp",
+    width: 1200,
+    height: 800,
+    alt: "Cricut Design Space style mockup explaining that downloaded font files work for vinyl cutting while copy-paste Unicode text does not.",
+  },
+  {
+    url: "https://www.aestheticletters.com/images/halloween-fonts/when-not-to-use-spooky-fonts-dos-and-donts.webp",
+    width: 1200,
+    height: 800,
+    alt: "Do and don't infographic: avoid dripping gothic fonts for body text and family events, use spooky fonts for headings only, and avoid low-readability Unicode for accessibility-sensitive content.",
+  },
+];
+
 export const metadata: Metadata = {
   title: { absolute: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)" },
   description:
@@ -38,16 +89,16 @@ export const metadata: Metadata = {
     title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
-    images: [{ url: "/halloween-fonts-generator-featured-image.webp", width: 1200, height: 630 }],
+    images: openGraphImages,
     publishedTime: "2026-05-20T08:00:00+00:00",
-    modifiedTime: "2026-06-21T00:00:00+00:00",
+    modifiedTime: "2026-08-05T00:00:00+00:00",
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween Fonts - Copy & Paste (75+ Spooky & Creepy Styles)",
     description:
       "Generate spooky Halloween fonts and copy-paste them instantly to Instagram, TikTok, and anywhere else. 75+ styles including Gothic, cursed, and drip text.",
-    images: ["/halloween-fonts-generator-featured-image.webp"],
+    images: openGraphImages,
   },
 };
 
@@ -323,6 +374,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How Does a Creepy Text Generator Work?
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/how-halloween-creepy-text-generator-works-unicode-mapping.webp"
+                  alt="Diagram showing normal text being mapped to Unicode characters and output as spooky copy-paste Halloween text."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   A creepy font generator works by replacing your normal letters with Unicode characters that visually
                   look a lot like different font styles. Unicode is a universal text encoding standard that covers over
@@ -354,6 +414,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Spirit Halloween Font: What Font Do They Use?
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/spirit-halloween-font-alternatives-gothic-blackletter.webp"
+                  alt="Gothic store-sign style Halloween text next to UnifrakturMaguntia and Graveyard Gothic alternatives, with bats and pumpkins."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Every October, people search for the Spirit Halloween font, the bold lettering used by the popular
                   seasonal store. The exact font is made just for that brand, so it is not sold or shared anywhere.
@@ -376,6 +445,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   75+ Halloween Font Styles Explained
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/halloween-font-styles-comparison-chart-75-plus-spooky-styles.webp"
+                  alt="Comparison grid of Halloween font categories: dark horror, mystical/witch, playful/festive, and glitch/digital styles."
+                  width={900}
+                  height={900}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Different moods call for different spooky typography. Here is how to think about the major style
                   categories and which specific styles belong to each:
@@ -466,6 +544,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use Halloween Fonts on Every Major Platform
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/halloween-fonts-platform-mockups-instagram-tiktok-discord-whatsapp.webp"
+                  alt="Social media and messaging mockups showing Halloween text in an Instagram bio, TikTok caption, Discord username, and WhatsApp message."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   The three-step process is the same everywhere: generate your text, copy it, and paste it. But each
                   platform has gradations worth knowing.
@@ -545,6 +632,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Spooky Symbols and Emojis: Copy-Paste Cheat Sheet
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/spooky-symbols-emojis-copy-paste-cheat-sheet.webp"
+                  alt="Visual cheat sheet of Halloween symbols and emojis: skull, pumpkin, ghost, spiderweb, bat, crystal ball, coffin, blood drop, moon, lightning bolt."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Combining halloween symbols with styled text is one of the most effective ways to make social content
                   stand out. Here are the most useful ones to bookmark:
@@ -581,6 +677,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Halloween Fonts in Canva: A Practical Workflow
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/halloween-fonts-canva-practical-workflow.webp"
+                  alt="Two-step workflow graphic: copy and paste Unicode text into Canva, or download a real Google Font for advanced effects."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Canva is the easiest place to use your Halloween text once you have it ready. Here is the simple
                   way to do it.
@@ -627,6 +732,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Creepy Fonts on Cricut: What Actually Works
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/creepy-fonts-cricut-workflow-downloaded-fonts-only.webp"
+                  alt="Cricut Design Space style mockup explaining that downloaded font files work for vinyl cutting while copy-paste Unicode text does not."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Cricut works differently than social media, and most guides skip this part. Unicode text does not
                   cut well inside Cricut Design Space. The app treats each styled character like a tiny picture instead
@@ -702,6 +816,15 @@ export default function HalloweenFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   When NOT to Use Spooky Fonts
                 </h2>
+                <Image
+                  src="/images/halloween-fonts/when-not-to-use-spooky-fonts-dos-and-donts.webp"
+                  alt="Do and don't infographic: avoid dripping gothic fonts for body text and family events, use spooky fonts for headings only, and avoid low-readability Unicode for accessibility-sensitive content."
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Understanding when to hold back is just as important as knowing your options. Spooky typography
                   creates atmosphere, but it can also hurt clarity and credibility in the wrong context.
