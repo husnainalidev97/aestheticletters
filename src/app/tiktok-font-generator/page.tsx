@@ -798,6 +798,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Style-by-Style Rendering Safety Reference
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/tiktok-style-by-style-rendering-safety-reference.webp"
+                  alt="Style-by-style rendering safety reference showing which TikTok Unicode font styles are fully safe and which have known fallback letters"
+                  width={1024}
+                  height={1800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This table shows exactly which styles are fully safe and which carry small, verified gaps.
                 </p>
