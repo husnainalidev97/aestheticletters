@@ -216,7 +216,6 @@ export default function TikTokFontsPage() {
         name: "TikTok Font Generator",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
-        browserRequirements: "requires HTML5 support",
         url: "https://www.aestheticletters.com/tiktok-font-generator",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments.",
