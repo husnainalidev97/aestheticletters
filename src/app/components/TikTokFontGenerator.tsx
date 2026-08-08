@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { tiktokFontCategories } from "../lib/tiktokFontStyles";
+import { tiktokFontCategories, TIKTOK_SYMBOL_GROUPS } from "../lib/tiktokFontStyles";
+import type { WrapSymbol } from "../lib/bigTextFontStyles";
 
 const FontGenerator = dynamic(() => import("./FontGenerator"), {
   loading: () => (
@@ -28,6 +29,13 @@ interface TikTokFontGeneratorProps {
   totalFontStyles: number;
 }
 
+const tiktokWrapSymbols: WrapSymbol[] = TIKTOK_SYMBOL_GROUPS.flatMap((group) =>
+  group.symbols.map((symbol, i) => ({
+    label: `${group.name} ${i + 1}`,
+    symbol,
+  }))
+);
+
 export default function TikTokFontGenerator({ totalFontStyles }: TikTokFontGeneratorProps) {
   return (
     <FontGenerator
@@ -37,6 +45,7 @@ export default function TikTokFontGenerator({ totalFontStyles }: TikTokFontGener
       categories={tiktokFontCategories}
       defaultText="TikTok Fonts"
       initialVisibleCategories={4}
+      wrapSymbols={tiktokWrapSymbols}
     />
   );
 }
