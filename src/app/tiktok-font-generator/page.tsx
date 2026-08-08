@@ -474,6 +474,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why &quot;TikTok Username Font&quot; Doesn&apos;t Work?
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/tiktok-username-vs-display-name-unicode-restriction.webp"
+                  alt="Diagram explaining why Unicode fonts cannot be used in a TikTok username handle, while display names, bios, captions, and comments accept styled text"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Many people search for a way to add styled fonts inside their TikTok username field.
                 </p>
