@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -500,6 +501,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   TikTok Font Styles Available in This Generator?
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/thirteen-tiktok-font-styles-comparison-chart.webp"
+                  alt="Comparison chart of 13 TikTok Unicode font styles including Bold, Bold Italic, Bold Script, Bold Fraktur, Sans-Serif Bold, Fullwidth, Circled, Squared, Small Caps, Italic, Script, Fraktur, and Double-Struck"
+                  width={1024}
+                  height={1700}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   This tiktok font generator includes 13 verified Unicode styles, each checked letter by letter before publishing.
                 </p>
