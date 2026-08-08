@@ -267,6 +267,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${SITE_URL}/tiktok-fonts`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [`${SITE_URL}/og-image.webp`],
+    },
+    {
       url: `${SITE_URL}/all-tools`,
       lastModified: new Date("2026-07-02T00:00:00Z"),
       changeFrequency: "weekly",

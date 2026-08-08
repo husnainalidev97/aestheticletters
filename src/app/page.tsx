@@ -92,22 +92,26 @@ export default function Home() {
         "@type": "ItemList",
         name: "Aesthetic Letter Tools",
         description: "All font generator tools available on Aesthetic Letters. Every generator uses Unicode characters you can copy and paste into any platform.",
-        numberOfItems: 13,
+        numberOfItems: 18,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Instagram Fonts", url: "https://www.aestheticletters.com/instagram-fonts" },
           { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
           { "@type": "ListItem", position: 3, name: "Discord Fonts", url: "https://www.aestheticletters.com/discord-fonts" },
           { "@type": "ListItem", position: 4, name: "Twitter Fonts", url: "https://www.aestheticletters.com/twitter-fonts" },
-          { "@type": "ListItem", position: 5, name: "Fancy Fonts", url: "https://www.aestheticletters.com/fancy-fonts" },
-          { "@type": "ListItem", position: 6, name: "Stylish Fonts", url: "https://www.aestheticletters.com/stylish-fonts" },
-          { "@type": "ListItem", position: 7, name: "Cute Fonts", url: "https://www.aestheticletters.com/cute-fonts" },
-          { "@type": "ListItem", position: 8, name: "Cursive Fonts", url: "https://www.aestheticletters.com/cursive-fonts" },
-          { "@type": "ListItem", position: 9, name: "Bold Font Generator", url: "https://www.aestheticletters.com/bold-font-generator" },
-          { "@type": "ListItem", position: 10, name: "Number Font Generator", url: "https://www.aestheticletters.com/number-font-generator" },
-          { "@type": "ListItem", position: 11, name: "Serif Fonts", url: "https://www.aestheticletters.com/serif-fonts" },
-          { "@type": "ListItem", position: 12, name: "Sans Serif Fonts", url: "https://www.aestheticletters.com/sans-serif-fonts" },
-          { "@type": "ListItem", position: 13, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
-          { "@type": "ListItem", position: 14, name: "Big Text Generator", url: "https://www.aestheticletters.com/big-text-generator" },
+          { "@type": "ListItem", position: 5, name: "TikTok Fonts", url: "https://www.aestheticletters.com/tiktok-fonts" },
+          { "@type": "ListItem", position: 6, name: "Fancy Fonts", url: "https://www.aestheticletters.com/fancy-fonts" },
+          { "@type": "ListItem", position: 7, name: "Stylish Fonts", url: "https://www.aestheticletters.com/stylish-fonts" },
+          { "@type": "ListItem", position: 8, name: "Cute Fonts", url: "https://www.aestheticletters.com/cute-fonts" },
+          { "@type": "ListItem", position: 9, name: "Cursive Fonts", url: "https://www.aestheticletters.com/cursive-fonts" },
+          { "@type": "ListItem", position: 10, name: "Preppy Fonts", url: "https://www.aestheticletters.com/preppy-fonts" },
+          { "@type": "ListItem", position: 11, name: "Weird Font Generator", url: "https://www.aestheticletters.com/weird-font-generator" },
+          { "@type": "ListItem", position: 12, name: "Bold Font Generator", url: "https://www.aestheticletters.com/bold-font-generator" },
+          { "@type": "ListItem", position: 13, name: "Number Font Generator", url: "https://www.aestheticletters.com/number-font-generator" },
+          { "@type": "ListItem", position: 14, name: "Serif Fonts", url: "https://www.aestheticletters.com/serif-fonts" },
+          { "@type": "ListItem", position: 15, name: "Sans Serif Fonts", url: "https://www.aestheticletters.com/sans-serif-fonts" },
+          { "@type": "ListItem", position: 16, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
+          { "@type": "ListItem", position: 17, name: "Christmas Fonts", url: "https://www.aestheticletters.com/christmas-fonts" },
+          { "@type": "ListItem", position: 18, name: "Big Text Generator", url: "https://www.aestheticletters.com/big-text-generator" },
         ],
       },
     ],
@@ -201,6 +205,7 @@ export default function Home() {
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
                   { label: "Twitter Fonts", href: "/twitter-fonts", icon: "\uD835\uDD4F", desc: "Fonts for X/Twitter" },
+                  { label: "TikTok Fonts", href: "/tiktok-fonts", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -230,6 +235,8 @@ export default function Home() {
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Preppy Fonts", href: "/preppy-fonts", icon: "\uD83D\uDC54", desc: "Preppy aesthetic text" },
+                  { label: "Weird Font Generator", href: "/weird-font-generator", icon: "\uD83D\uDC7D", desc: "Strange & unique styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -261,6 +268,7 @@ export default function Home() {
                   { label: "Serif Fonts", href: "/serif-fonts", icon: "\uD83C\uDFF7\uFE0F", desc: "Classic serif styles" },
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern fonts" },
                   { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky text styles" },
+                  { label: "Christmas Fonts", href: "/christmas-fonts", icon: "\uD83C\uDF84", desc: "Festive holiday text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

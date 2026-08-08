@@ -38,11 +38,12 @@ function FontCategoryCard({
   initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
-  const [showAllStyles, setShowAllStyles] = useState(!initialVisibleStyles);
+  const cardInitial = initialVisibleStyles ?? category.initialVisibleStyles;
+  const [showAllStyles, setShowAllStyles] = useState(!cardInitial);
 
   const stylesToTransform = showAllStyles
     ? category.styles
-    : category.styles.slice(0, initialVisibleStyles);
+    : category.styles.slice(0, cardInitial);
 
   const transformedStyles = useMemo(() => {
     const wrap = (s: string) =>
@@ -66,13 +67,24 @@ function FontCategoryCard({
           : "rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300"
       }
     >
-      <strong
-        className={`block font-headline text-xl font-bold mb-6 ${
-          isDark ? "text-on-background dark:text-on-background" : "text-on-background"
-        }`}
-      >
-        {title}
-      </strong>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+        <strong
+          className={`block font-headline text-xl font-bold ${
+            isDark ? "text-on-background dark:text-on-background" : "text-on-background"
+          }`}
+        >
+          {title}
+        </strong>
+        {category.maxLength !== undefined && (
+          <span
+            className={`text-xs font-body tabular-nums ${
+              text.length > category.maxLength ? "text-error" : "text-on-surface-variant"
+            }`}
+          >
+            {category.maxLengthLabel ?? title}: {text.length} / {category.maxLength}
+          </span>
+        )}
+      </div>
       <div className="space-y-3">
         {transformedStyles.map(({ style, converted, display, styleId }) => {
           const isCopied = copiedId === styleId;

@@ -15,6 +15,7 @@ import { christmasFontCategories } from "./christmasFontStyles";
 import { weirdFontCategories } from "./weirdFontStyles";
 import { discordFontCategories } from "./discordFontStyles";
 import { preppyFontCategories } from "./preppyFontStyles";
+import { tiktokFontCategories } from "./tiktokFontStyles";
 import instagramDeferredCardDefs from "./instagramCardDefsDeferred";
 
 // Instagram card defs are split: the first 3 categories (30 styles) live in the
@@ -98,6 +99,10 @@ export function getTotalFontStyleCount(): number {
     (sum, cat) => sum + cat.styles.length,
     0,
   );
+  const tiktokCount = tiktokFontCategories.reduce(
+    (sum, cat) => sum + cat.styles.length,
+    0,
+  );
   const instagramDeferredCount = instagramDeferredCardDefs.reduce(
     (sum, cat) => sum + cat.styles.length,
     0,
@@ -122,6 +127,7 @@ export function getTotalFontStyleCount(): number {
     christmasCount +
     weirdCount +
     discordCount +
-    preppyCount
+    preppyCount +
+    tiktokCount
   );
 }

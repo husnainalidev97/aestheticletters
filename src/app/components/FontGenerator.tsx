@@ -76,9 +76,11 @@ interface FontGeneratorProps {
   hideJumpLinks?: boolean;
   /** Hide the "Download as image" button on every card. */
   hideDownload?: boolean;
+  /** Number of category cards to show before the "Show More Categories" button. */
+  initialVisibleCategories?: number;
 }
 
-export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload }: FontGeneratorProps) {
+export default function FontGenerator({ totalFontStyles, hideHeader, hideExploreButton, categories: customCategories, defaultText = "Aesthetic Fonts", charWeightFn, charWeightMax, charWeightLabel, enableScalePreview, wrapSymbols, defaultFontSize, maxFontSizeDesktop, maxFontSizeMobile, comboCategories, hideJumpLinks, hideDownload, initialVisibleCategories }: FontGeneratorProps) {
   const maxDesktop = maxFontSizeDesktop ?? MAX_SIZE_DESKTOP;
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
@@ -108,13 +110,14 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
   const allCategories = customCategories || fontCategories;
   const filteredCategories = allCategories.filter(
     (cat) => !cat.condition || cat.condition(text),
   );
   const visibleCategories = showAll
     ? filteredCategories
-    : filteredCategories.slice(0, INITIAL_COUNT);
+    : filteredCategories.slice(0, initialCategoryCount);
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -485,7 +488,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
         )}
 
         {/* Explore More Button — loads remaining deferred categories */}
-        {!showAll && filteredCategories.length > INITIAL_COUNT && (
+        {!showAll && filteredCategories.length > initialCategoryCount && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
@@ -499,7 +502,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  Show {filteredCategories.length - INITIAL_COUNT} More Categories
+                  Show {filteredCategories.length - initialCategoryCount} More Categories
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               )}

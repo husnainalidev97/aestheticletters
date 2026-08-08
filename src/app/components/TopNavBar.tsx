@@ -23,7 +23,8 @@ type ActivePage =
   | "big-text-generator"
   | "halloween-fonts"
   | "christmas-fonts"
-  | "weird-font-generator";
+  | "weird-font-generator"
+  | "tiktok-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -339,6 +340,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               Weird Font Generator
+            </Link>
+            <Link
+              href="/tiktok-fonts"
+              className={mobileLinkClass("tiktok-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              TikTok Fonts
             </Link>
           </nav>
         </div>
