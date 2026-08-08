@@ -124,6 +124,85 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 export default function TikTokFontsPage() {
   const totalFontStyles = getTotalFontStyleCount();
 
+  const baseUrl = "https://www.aestheticletters.com";
+  const tiktokImageDir = `${baseUrl}/images/tiktok-font-generator`;
+  const imageList = [
+    {
+      file: "thirteen-tiktok-font-styles-comparison-chart.webp",
+      name: "13 TikTok Font Styles Comparison Chart",
+      description:
+        "Comparison chart of 13 TikTok Unicode font styles including Bold, Bold Italic, Bold Script, Bold Fraktur, Sans-Serif Bold, Fullwidth, Circled, Squared, Small Caps, Italic, Script, Fraktur, and Double-Struck.",
+      width: 1024,
+      height: 1800,
+    },
+    {
+      file: "how-to-use-tiktok-font-generator-three-steps.webp",
+      name: "How to Use the TikTok Font Generator",
+      description:
+        "Three step guide showing how to use the TikTok font generator: type your text, pick a Unicode style from the cards, then copy and paste it into your TikTok display name or bio.",
+      width: 1536,
+      height: 1024,
+    },
+    {
+      file: "tiktok-character-limits-by-field-cards.webp",
+      name: "TikTok Character Limits by Field",
+      description:
+        "TikTok character limits by field: display name 30 characters, bio 80 characters, caption around 2,200 characters, and comment 150 characters.",
+      width: 1024,
+      height: 1024,
+    },
+    {
+      file: "tiktok-username-vs-display-name-unicode-restriction.webp",
+      name: "TikTok Username vs Display Name Unicode Restriction",
+      description:
+        "Diagram explaining why Unicode fonts cannot be used in a TikTok username handle, while display names, bios, captions, and comments accept styled text.",
+      width: 1024,
+      height: 1024,
+    },
+    {
+      file: "tiktok-aesthetic-symbols-cheat-sheet-grouped-by-style.webp",
+      name: "TikTok Aesthetic Symbols Cheat Sheet",
+      description:
+        "TikTok aesthetic symbols cheat sheet grouped by style: Botanical and Vine, Mystical and Alchemical, Geometric and Minimal, Tech and Y2K, and Classic and Religious.",
+      width: 1024,
+      height: 800,
+    },
+    {
+      file: "tiktok-fonts-vs-other-platforms-comparison.webp",
+      name: "TikTok Fonts vs Other Platforms Comparison",
+      description:
+        "Quick comparison of Unicode font support across TikTok, Instagram, Facebook, Discord, and X showing that display names, bios, captions, and messages work but usernames are restricted.",
+      width: 1536,
+      height: 560,
+    },
+    {
+      file: "tiktok-style-by-style-rendering-safety-reference.webp",
+      name: "TikTok Style-by-Style Rendering Safety Reference",
+      description:
+        "Style-by-style rendering safety reference showing which TikTok Unicode font styles are fully safe and which have known fallback letters.",
+      width: 1024,
+      height: 1800,
+    },
+    {
+      file: "common-mistakes-when-using-tiktok-fonts.webp",
+      name: "Common Mistakes When Using TikTok Fonts",
+      description:
+        "Common mistakes when using TikTok fonts: styling your username, overloading your bio, styling searchable words, ignoring older devices, and mixing too many styles.",
+      width: 1024,
+      height: 560,
+    },
+  ];
+  const imageObjects = imageList.map((img, index) => ({
+    "@type": "ImageObject",
+    "@id": `${tiktokImageDir}/${img.file}#image${index}`,
+    url: `${tiktokImageDir}/${img.file}`,
+    name: img.name,
+    description: img.description,
+    width: img.width,
+    height: img.height,
+  }));
+  const primaryImage = imageObjects[1];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -137,8 +216,7 @@ export default function TikTokFontsPage() {
         url: "https://www.aestheticletters.com/tiktok-font-generator",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments.",
-        image:
-          "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
+        image: primaryImage,
         offers: {
           "@type": "Offer",
           price: "0",
@@ -153,8 +231,8 @@ export default function TikTokFontsPage() {
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
         inLanguage: "en",
-        image:
-          "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
+        image: imageObjects,
+        primaryImageOfPage: primaryImage,
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-08-08T06:00:00+00:00",
         dateModified: new Date().toISOString(),
@@ -201,6 +279,7 @@ export default function TikTokFontsPage() {
           url: `https://www.aestheticletters.com/tiktok-font-generator#${category.name.toLowerCase().replace(/\s+/g, "-")}`,
         })),
       },
+      ...imageObjects,
     ],
   };
 
@@ -211,6 +290,7 @@ export default function TikTokFontsPage() {
     description:
       "Turn plain text into styled Unicode fonts for your TikTok display name, bio, captions, and comments in four quick steps.",
     totalTime: "PT1M",
+    image: primaryImage,
     step: [
       {
         "@type": "HowToStep",
