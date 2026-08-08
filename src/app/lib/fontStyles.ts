@@ -18,6 +18,16 @@ export interface FontCategory {
   styles: FontStyle[];
   /** Optional condition: card is hidden when this returns false for current input. */
   condition?: (text: string) => boolean;
+  /** Optional per-card character limit (shown as a live counter in the card header). */
+  maxLength?: number;
+  /** Optional label for the per-card character counter (defaults to the category name). */
+  maxLengthLabel?: string;
+  /** Number of styles to show before a "Show More" button inside the card. */
+  initialVisibleStyles?: number;
+  /** Optional symbols to embed symmetrically around each style's output (cycled by style index). */
+  symbols?: string[];
+  /** Optional offset added to the style index when choosing a symbol, so different cards can use unique symbols. */
+  symbolOffset?: number;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────

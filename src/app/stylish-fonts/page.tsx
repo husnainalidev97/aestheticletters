@@ -199,7 +199,7 @@ const useCasesData = [
 const platforms = [
   "Instagram bios and captions",
   "WhatsApp messages and status",
-  "TikTok usernames and descriptions",
+  "TikTok display names, bios, and descriptions",
   "Facebook posts and comments",
   "Free Fire and PUBG usernames",
 ];

@@ -557,7 +557,7 @@ export default function SansSerifFontsPage() {
                   },
                   {
                     title: "Social Media Bios and Captions",
-                    content: "When you use a sans serif font generator like this one, you create unicode based text styles that work on Instagram, TikTok, X (Twitter), and Discord. These bold or stylized styles make your bio or username stand out from the crowd.",
+                    content: "When you use a sans serif font generator like this one, you create unicode based text styles that work on Instagram, TikTok, X (Twitter), and Discord. These bold or stylized styles make your bio or display name stand out from the crowd.",
                   },
                   {
                     title: "Minimalist Design",
@@ -684,11 +684,15 @@ export default function SansSerifFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok Captions and Profiles</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  On TikTok, your bio and username both support unicode-based text styles. A stylized username looks much more intentional and branded than plain text. It helps your profile look more professional at first look. You can also explore dedicated TikTok font styles if you want something more platform-specific.
+                  On TikTok, your bio and display name both support unicode-based text styles. A stylized display name looks much more intentional and branded than plain text. It helps your profile look more professional at first look. You can also explore our{" "}
+                  <Link href="/tiktok-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">
+                    TikTok fonts
+                  </Link>{" "}
+                  if you want something more platform-specific.
                 </p>
                 <Image
                   src="/sans-serif-tiktok-profile-mockup.webp"
-                  alt="TikTok profile with a bold sans serif username and a clean sans serif bio"
+                  alt="TikTok profile with a bold sans serif display name and a clean sans serif bio"
                   width={1000}
                   height={720}
                   className="w-full h-auto rounded-xl mb-8"

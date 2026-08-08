@@ -38,21 +38,35 @@ function FontCategoryCard({
   initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
-  const [showAllStyles, setShowAllStyles] = useState(!initialVisibleStyles);
+  const cardInitial = initialVisibleStyles ?? category.initialVisibleStyles;
+  const [showAllStyles, setShowAllStyles] = useState(!cardInitial);
 
   const stylesToTransform = showAllStyles
     ? category.styles
-    : category.styles.slice(0, initialVisibleStyles);
+    : category.styles.slice(0, cardInitial);
 
   const transformedStyles = useMemo(() => {
     const wrap = (s: string) =>
       wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
-    return stylesToTransform.map((style) => ({
-      style,
-      converted: wrap(style.transform(text)),
-      display: wrap((style.displayTransform ?? style.transform)(text)),
-      styleId: `${category.name}-${style.name}`,
-    }));
+    return stylesToTransform.map((style, index) => {
+      let converted = wrap(style.transform(text));
+      let display = wrap((style.displayTransform ?? style.transform)(text));
+      if (category.symbols) {
+        const offset = category.symbolOffset ?? 0;
+        const sym =
+          category.symbols[
+            ((index + offset) * 37) % category.symbols.length
+          ];
+        converted = `${sym} ${converted} ${sym}`;
+        display = `${sym} ${display} ${sym}`;
+      }
+      return {
+        style,
+        converted,
+        display,
+        styleId: `${category.name}-${style.name}`,
+      };
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category, text, showAllStyles, wrapSymbol]);
 
@@ -66,13 +80,24 @@ function FontCategoryCard({
           : "rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300"
       }
     >
-      <strong
-        className={`block font-headline text-xl font-bold mb-6 ${
-          isDark ? "text-on-background dark:text-on-background" : "text-on-background"
-        }`}
-      >
-        {title}
-      </strong>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+        <strong
+          className={`block font-headline text-xl font-bold ${
+            isDark ? "text-on-background dark:text-on-background" : "text-on-background"
+          }`}
+        >
+          {title}
+        </strong>
+        {category.maxLength !== undefined && (
+          <span
+            className={`text-xs font-body tabular-nums ${
+              text.length > category.maxLength ? "text-error" : "text-on-surface-variant"
+            }`}
+          >
+            {category.maxLengthLabel ?? title}: {text.length} / {category.maxLength}
+          </span>
+        )}
+      </div>
       <div className="space-y-3">
         {transformedStyles.map(({ style, converted, display, styleId }) => {
           const isCopied = copiedId === styleId;
@@ -99,7 +124,7 @@ function FontCategoryCard({
                 <div
                   aria-hidden="true"
                   className="font-body break-all leading-relaxed overflow-hidden transition-[font-size] duration-200 ease-out text-on-surface dark-preview-text"
-                  style={{ fontSize: `${fontSize}px`, fontFamily: style.fontFamily || "'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol', 'Noto Sans Symbols 2', 'Noto Sans Symbols', 'Noto Sans', sans-serif", textDecoration: style.textDecoration }}
+                  style={{ fontSize: `${fontSize}px`, fontFamily: style.fontFamily || "var(--font-noto-math), var(--font-noto-symbols), var(--font-noto-symbols-2), 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol', 'Noto Sans Math', 'Noto Sans Symbols 2', 'Noto Sans Symbols', 'Noto Sans', sans-serif", textDecoration: style.textDecoration }}
                 >
                   {display}
                 </div>

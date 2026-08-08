@@ -118,7 +118,7 @@ const fontShowcaseStyles: { name: string; description: string; example: string; 
   },
   {
     name: "Glittering Stars",
-    description: "Decorative stars and attractive letters create a dreamy appearance. Many teenagers use it for TikTok usernames.",
+    description: "Decorative stars and attractive letters create a dreamy appearance. Many teenagers use it for TikTok display names.",
     example: "\u1D05\u2726\u0280\u2726\u1D07\u2726\u1D00\u2726\u1D0D\u2726 \u0262\u2726\u026A\u2726\u0280\u2726\u029F\u2726",
     bestFor: "TikTok profiles.",
   },
@@ -325,7 +325,7 @@ const comparisonData = {
 
 const platforms = [
   "Instagram bios and captions",
-  "TikTok usernames and descriptions",
+  "TikTok display names, bios, and descriptions",
   "WhatsApp messages and status",
   "Discord and gaming profiles",
   "Facebook posts and comments",
