@@ -847,6 +847,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Common Mistakes When Using TikTok Fonts
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/common-mistakes-when-using-tiktok-fonts.webp"
+                  alt="Common mistakes when using TikTok fonts: styling your username, overloading your bio, styling searchable words, ignoring older devices, and mixing too many styles"
+                  width={1024}
+                  height={560}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Even a great style can backfire if it lands in the wrong spot or breaks something else on your profile.
                 </p>
