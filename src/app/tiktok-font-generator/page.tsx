@@ -45,7 +45,13 @@ export const metadata: Metadata = {
     title: "TikTok Font Generator ✂️ Copy & Paste Styles 😍✨",
     description:
       "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
-    images: [{ url: "https://www.aestheticletters.com/og-image.webp", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
+        width: 1536,
+        height: 1024,
+      },
+    ],
     publishedTime: "2026-08-08T06:00:00+00:00",
     modifiedTime: new Date().toISOString(),
   },
@@ -54,7 +60,9 @@ export const metadata: Metadata = {
     title: "TikTok Font Generator ✂️ Copy & Paste Styles 😍✨",
     description:
       "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
-    images: ["https://www.aestheticletters.com/og-image.webp"],
+    images: [
+      "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
+    ],
   },
 };
 
@@ -129,6 +137,8 @@ export default function TikTokFontsPage() {
         url: "https://www.aestheticletters.com/tiktok-font-generator",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments.",
+        image:
+          "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
         offers: {
           "@type": "Offer",
           price: "0",
@@ -143,6 +153,8 @@ export default function TikTokFontsPage() {
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
         inLanguage: "en",
+        image:
+          "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-08-08T06:00:00+00:00",
         dateModified: new Date().toISOString(),
