@@ -677,6 +677,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   TikTok Fonts vs. Other Platforms &mdash; Quick Comparison
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/tiktok-fonts-vs-other-platforms-comparison.webp"
+                  alt="Quick comparison of Unicode font support across TikTok, Instagram, Facebook, Discord, and X showing that display names, bios, captions, and messages work but usernames are restricted"
+                  width={1536}
+                  height={560}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Unicode support and character limits change from platform to platform, and mixing them up causes real problems.
                 </p>
