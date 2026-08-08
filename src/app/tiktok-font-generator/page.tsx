@@ -586,6 +586,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   TikTok Symbols and Emojis to Pair With Your Text
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/tiktok-aesthetic-symbols-cheat-sheet-grouped-by-style.webp"
+                  alt="TikTok aesthetic symbols cheat sheet grouped by style: Botanical and Vine, Mystical and Alchemical, Geometric and Minimal, Tech and Y2K, and Classic and Religious"
+                  width={1024}
+                  height={800}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Symbols add extra personality to your styled text, making your profile feel more complete and polished.
                 </p>
