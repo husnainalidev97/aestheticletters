@@ -170,7 +170,7 @@ function FontCategoryCard({
                     aria-label="Preview on platform"
                     title="Preview on platform"
                   >
-                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">smartphone</span>
+                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">smartphone</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
                   </button>
                 )}
@@ -185,7 +185,7 @@ function FontCategoryCard({
                     aria-label="Preview at scale"
                     title="Preview at scale"
                   >
-                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">open_in_full</span>
+                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">open_in_full</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Scale</span>
                   </button>
                 )}
@@ -200,13 +200,13 @@ function FontCategoryCard({
                     aria-label="Download as image"
                     title="Download as image"
                   >
-                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">download</span>
+                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">download</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
                   </button>
                 )}
                 <Suspense fallback={
                   <div className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60">
-                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">share</span>
+                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">share</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
                   </div>
                 }>
@@ -224,7 +224,7 @@ function FontCategoryCard({
                     }`}
                     aria-label={isFavorite?.(styleId) ? "Saved — remove from favorites" : "Save to favorites"}
                   >
-                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1" : "'FILL' 0" }} aria-hidden="true">favorite</span>
+                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1, 'wght' 400" : "'FILL' 0, 'wght' 400" }} aria-hidden="true">favorite</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite?.(styleId) ? "Saved" : "Save"}</span>
                   </button>
                 )}
@@ -240,7 +240,7 @@ function FontCategoryCard({
                   aria-label={copyLabel}
                   title={copyLabel}
                 >
-                  <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">{isCopied ? "check" : "content_copy"}</span>
+                  <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">{isCopied ? "check" : "content_copy"}</span>
                   <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                 </button>
               </div>
