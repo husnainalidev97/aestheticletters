@@ -506,6 +506,9 @@ export default function TikTokFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   Proxima Nova still exists as one caption style option inside the video editor, labeled simply as Classic.
                 </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
+                  Understanding this distinction helps explain why some older articles describe TikTok&apos;s look differently than it appears today.
+                </p>
               </article>
 
               {/* TikTok Character Limits by Field */}
