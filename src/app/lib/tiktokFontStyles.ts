@@ -142,62 +142,72 @@ export const tiktokFontCategories: FontCategory[] = [
     name: "Display Name Fonts",
     maxLength: 30,
     maxLengthLabel: "Display Name",
-    initialVisibleStyles: 6,
     styles: tiktokUnicodeStyles,
   },
   {
     name: "Bio Fonts",
     maxLength: 80,
     maxLengthLabel: "Bio",
-    initialVisibleStyles: 6,
     styles: tiktokUnicodeStyles,
   },
   {
     name: "Caption Fonts",
     maxLength: 2200,
     maxLengthLabel: "Caption",
-    initialVisibleStyles: 6,
     styles: tiktokUnicodeStyles,
   },
   {
     name: "Comment Fonts",
     maxLength: 150,
     maxLengthLabel: "Comment",
-    initialVisibleStyles: 6,
     styles: tiktokUnicodeStyles,
   },
 ];
 
-// ── Symbols (New Discoveries + Religious, grouped by Aesthetic Group) ────────
+// ── Symbols (New Discoveries + Religious + Site-wide Approved, grouped by Aesthetic Group) ────────
 
 export const TIKTOK_SYMBOL_GROUPS: { name: string; symbols: string[] }[] = [
   {
     name: "Botanical and Vine",
     symbols: [
-      "🙐", "🙑", "🙒", "🙓", "🙔", "🙕", "🙖", "🙗",
-      "🙘", "🙙", "🙚", "🙛", "🙜", "🙝", "🙞", "🙟",
-      "🙠", "🙡", "🙢", "🙣", "🙤", "🙥", "🙦", "🙧",
-      "🙰", "🙱", "🙲", "🙳", "🙴", "🙵",
+      "\U0001f650", "\U0001f651", "\U0001f652", "\U0001f653", "\U0001f654", "\U0001f655", "\U0001f656", "\U0001f657", "\U0001f658", "\U0001f659",
+      "\U0001f65a", "\U0001f65b", "\U0001f65c", "\U0001f65d", "\U0001f65e", "\U0001f65f", "\U0001f660", "\U0001f661", "\U0001f662", "\U0001f663",
+      "\U0001f664", "\U0001f665", "\U0001f666", "\U0001f667", "\U0001f670", "\U0001f671", "\U0001f672", "\U0001f673", "\U0001f674", "\U0001f675",
+      "\u2740", "\u273f", "\u2766", "\u2767", "\u2618",
     ],
   },
   {
     name: "Mystical and Alchemical",
-    symbols: ["🜀", "🜁", "🜚", "🜥", "🝬"],
+    symbols: [
+      "\U0001f700", "\U0001f701", "\U0001f71a", "\U0001f725", "\U0001f76c", "\u2020", "\u2021", "\u16ed",
+    ],
   },
   {
     name: "Geometric and Minimal",
     symbols: [
-      "🙨", "🙩", "🙪", "🙫", "🙶", "🙷", "🙸", "🙹",
-      "🙺", "🙻", "🙼", "🙽", "⭑", "⭒", "⭕", "⬤",
-      "⬛", "⬜", "🞄", "🞊", "◊", "◇", "△",
+      "\U0001f668", "\U0001f669", "\U0001f66a", "\U0001f66b", "\U0001f676", "\U0001f677", "\U0001f678", "\U0001f679", "\U0001f67a", "\U0001f67b",
+      "\U0001f67c", "\U0001f67d", "\u2b51", "\u2b52", "\u2b55", "\u2b24", "\u2b1b", "\u2b1c", "\U0001f784", "\U0001f78a",
+      "\u2726", "\u2727", "\u2729", "\u2736", "\u2735", "\u2724", "\u2731", "\u2733", "\u2747", "\u2746",
+      "\u2666", "\u2605", "\u2606", "\u25c6", "\u25c7", "\u25ca", "\u25b3", "\u25b2", "\xab", "\xbb",
+      "\u2039", "\u203a", "\u3008", "\u3009", "\u276e", "\u276f", "\u300e", "\u300f", "\u300c", "\u300d",
+      "\u3010", "\u3011", "[", "]", "\u30fb", "\u2022", "\u2014", "|", "\u2192", "\u2248",
+      "\u2500", "\u2501", "\u256d", "\u256e", "\u250c", "\u2510", "\u2551", "\u22c6", "\u2e26", "\u2e27",
+      "\u269e", "\u269f", "\u2af7", "\u2af8", "\u23b0", "\u23b1", "\u2993", "\u2994", "\u030a",
     ],
   },
   {
     name: "Tech and Y2K",
-    symbols: ["🙬", "🙭", "🙮", "🙯", "🙾", "🙿", "⌘", "⎕", "⎈", "🂠"],
+    symbols: [
+      "\U0001f66c", "\U0001f66d", "\U0001f66e", "\U0001f66f", "\U0001f67e", "\U0001f67f", "\u2318", "\u2395", "\u2388", "\U0001f0a0",
+      "\u25b6", "\u25c0", "\u25ba", "\u25c4", "\u25a0", "\u25cf", "\u2756", "\u25c8", "\u2694", "\u26a1",
+      "\u2620",
+    ],
   },
   {
     name: "Classic and Religious",
-    symbols: ["✡", "☧", "☨", "✙", "✛"],
+    symbols: [
+      "\u2744", "\u2655", "\u275d", "\u275e", "\u2721", "\u2627", "\u2628", "\u2719", "\u271b",
+    ],
   },
 ];
+
