@@ -319,6 +319,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use This TikTok Text Generator
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp"
+                  alt="Three step guide showing how to use the TikTok font generator: type your text, pick a Unicode style from the cards, then copy and paste it into your TikTok display name or bio"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Start by deciding where your styled text will go, since that shapes which style works best.
                 </p>
