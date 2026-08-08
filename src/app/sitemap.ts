@@ -271,7 +271,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${SITE_URL}/og-image.webp`],
+      images: [
+        `${SITE_URL}/images/tiktok-font-generator/thirteen-tiktok-font-styles-comparison-chart.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-character-limits-by-field-cards.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-username-vs-display-name-unicode-restriction.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-aesthetic-symbols-cheat-sheet-grouped-by-style.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-fonts-vs-other-platforms-comparison.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-style-by-style-rendering-safety-reference.webp`,
+        `${SITE_URL}/images/tiktok-font-generator/common-mistakes-when-using-tiktok-fonts.webp`,
+      ],
     },
     {
       url: `${SITE_URL}/all-tools`,

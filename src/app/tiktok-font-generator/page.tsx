@@ -50,6 +50,7 @@ export const metadata: Metadata = {
         url: "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
         width: 1536,
         height: 1024,
+        alt: "Three step guide showing how to use the TikTok font generator: type your text, pick a Unicode style from the cards, then copy and paste it into your TikTok display name or bio",
       },
     ],
     publishedTime: "2026-08-08T06:00:00+00:00",
@@ -196,10 +197,13 @@ export default function TikTokFontsPage() {
     "@type": "ImageObject",
     "@id": `${tiktokImageDir}/${img.file}#image${index}`,
     url: `${tiktokImageDir}/${img.file}`,
+    contentUrl: `${tiktokImageDir}/${img.file}`,
     name: img.name,
     description: img.description,
+    caption: img.description,
     width: img.width,
     height: img.height,
+    inLanguage: "en",
   }));
   const primaryImage = imageObjects[1];
 
@@ -216,7 +220,7 @@ export default function TikTokFontsPage() {
         url: "https://www.aestheticletters.com/tiktok-font-generator",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments.",
-        image: primaryImage,
+        image: primaryImage.url,
         offers: {
           "@type": "Offer",
           price: "0",
@@ -232,7 +236,11 @@ export default function TikTokFontsPage() {
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
         inLanguage: "en",
         image: imageObjects,
-        primaryImageOfPage: primaryImage,
+        primaryImageOfPage: { "@id": primaryImage["@id"] },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2", ".text-on-surface-variant"],
+        },
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-08-08T06:00:00+00:00",
         dateModified: new Date().toISOString(),
@@ -290,7 +298,7 @@ export default function TikTokFontsPage() {
     description:
       "Turn plain text into styled Unicode fonts for your TikTok display name, bio, captions, and comments in four quick steps.",
     totalTime: "PT1M",
-    image: primaryImage,
+    image: primaryImage.url,
     step: [
       {
         "@type": "HowToStep",
@@ -621,7 +629,7 @@ export default function TikTokFontsPage() {
                   src="/images/tiktok-font-generator/thirteen-tiktok-font-styles-comparison-chart.webp"
                   alt="Comparison chart of 13 TikTok Unicode font styles including Bold, Bold Italic, Bold Script, Bold Fraktur, Sans-Serif Bold, Fullwidth, Circled, Squared, Small Caps, Italic, Script, Fraktur, and Double-Struck"
                   width={1024}
-                  height={1700}
+                  height={1800}
                   className="w-full h-auto rounded-xl mb-8"
                   loading="lazy"
                 />

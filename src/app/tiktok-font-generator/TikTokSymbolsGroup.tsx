@@ -57,9 +57,9 @@ export default function TikTokSymbolsGroup({ title, symbols }: TikTokSymbolsGrou
 
   return (
     <div className="mb-8 last:mb-0">
-      <h3 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high mb-3">
+      <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block w-fit text-on-surface-variant bg-surface-container-high mb-3">
         {title}
-      </h3>
+      </p>
       <div className="flex flex-wrap gap-1.5">
         {symbols.map((symbol, idx) => (
           <button
