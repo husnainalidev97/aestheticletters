@@ -815,17 +815,7 @@ export default function TikTokFontsPage() {
 
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-12">
-              <Sidebar
-                useCasesHeading="Where to Use TikTok Fonts?"
-                useCasesContent={
-                  <ul className="list-disc list-inside space-y-3 text-on-surface-variant leading-relaxed">
-                    <li>Display name — 30 characters, full Unicode</li>
-                    <li>Bio — 80 characters, keep it short</li>
-                    <li>Captions — around 2,200 characters</li>
-                    <li>Comments — 150 characters</li>
-                  </ul>
-                }
-              />
+              <Sidebar showBanner={false} />
             </aside>
           </div>
         </section>
