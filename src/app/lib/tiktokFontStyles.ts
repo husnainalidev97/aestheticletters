@@ -163,6 +163,7 @@ export const tiktokFontCategories: FontCategory[] = [
     maxLengthLabel: "Display Name",
     styles: tiktokUnicodeStyles,
     symbols: tiktokStyleSymbols,
+    symbolOffset: 0,
   },
   {
     name: "Bio Fonts",
@@ -170,6 +171,7 @@ export const tiktokFontCategories: FontCategory[] = [
     maxLengthLabel: "Bio",
     styles: tiktokUnicodeStyles,
     symbols: tiktokStyleSymbols,
+    symbolOffset: 13,
   },
   {
     name: "Caption Fonts",
@@ -177,6 +179,7 @@ export const tiktokFontCategories: FontCategory[] = [
     maxLengthLabel: "Caption",
     styles: tiktokUnicodeStyles,
     symbols: tiktokStyleSymbols,
+    symbolOffset: 26,
   },
   {
     name: "Comment Fonts",
@@ -184,6 +187,7 @@ export const tiktokFontCategories: FontCategory[] = [
     maxLengthLabel: "Comment",
     styles: tiktokUnicodeStyles,
     symbols: tiktokStyleSymbols,
+    symbolOffset: 39,
   },
 ];
 

@@ -26,6 +26,8 @@ export interface FontCategory {
   initialVisibleStyles?: number;
   /** Optional symbols to embed symmetrically around each style's output (cycled by style index). */
   symbols?: string[];
+  /** Optional offset added to the style index when choosing a symbol, so different cards can use unique symbols. */
+  symbolOffset?: number;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────

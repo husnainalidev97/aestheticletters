@@ -52,7 +52,11 @@ function FontCategoryCard({
       let converted = wrap(style.transform(text));
       let display = wrap((style.displayTransform ?? style.transform)(text));
       if (category.symbols) {
-        const sym = category.symbols[index % category.symbols.length];
+        const offset = category.symbolOffset ?? 0;
+        const sym =
+          category.symbols[
+            ((index + offset) * 37) % category.symbols.length
+          ];
         converted = `${sym} ${converted} ${sym}`;
         display = `${sym} ${display} ${sym}`;
       }
