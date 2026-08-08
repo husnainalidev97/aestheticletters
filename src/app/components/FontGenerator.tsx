@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useCallback, useRef, useEffect, lazy, Suspense, useDeferredValue } from "react";
 import Link from "next/link";
-import { fontCategories, type FontCategory } from "../lib/fontStyles";
+import type { FontCategory } from "../lib/fontStyles";
 import type { WrapSymbol } from "../lib/bigTextFontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
@@ -10,6 +10,7 @@ import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
 import TextHistory from "./TextHistory";
+import LazyMount from "./LazyMount";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
@@ -42,11 +43,7 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   "Vaporwave": "🌊",
 };
 
-const homeCategoryLinks = fontCategories.map((cat) => ({
-  label: cat.name,
-  emoji: CATEGORY_EMOJIS[cat.name] || "✦",
-  id: `cat-${slugify(cat.name)}`,
-}));
+
 
 interface FontGeneratorProps {
   totalFontStyles?: number;
@@ -85,6 +82,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const maxMobile = maxFontSizeMobile ?? MAX_SIZE_MOBILE;
   const initialSize = Math.min(defaultFontSize ?? DEFAULT_SIZE, maxDesktop);
   const [text, setText] = useState("");
+  const deferredText = useDeferredValue(text);
   const [fontSize, setFontSize] = useState(initialSize);
   const [maxSize, setMaxSize] = useState(maxDesktop);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -92,11 +90,21 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
 
   const [showAll, setShowAll] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [homeCategories, setHomeCategories] = useState<FontCategory[] | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
+
+  useEffect(() => {
+    if (customCategories) return;
+    let cancelled = false;
+    import("../lib/fontStyles").then((mod) => {
+      if (!cancelled) setHomeCategories(mod.fontCategories);
+    });
+    return () => { cancelled = true; };
+  }, [customCategories]);
 
   // Modal states for Preview & Download
   const [previewText, setPreviewText] = useState<string | null>(null);
@@ -109,15 +117,6 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
 
   // Debounce ref for text history
   const historyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
-  const allCategories = customCategories || fontCategories;
-  const filteredCategories = allCategories.filter(
-    (cat) => !cat.condition || cat.condition(text),
-  );
-  const visibleCategories = showAll
-    ? filteredCategories
-    : filteredCategories.slice(0, initialCategoryCount);
 
   // Cap max font size on mobile screens
   useEffect(() => {
@@ -190,8 +189,6 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
     }
   }, [fallbackCopy]);
 
-  const displayText = text || defaultText;
-
   const handlePreview = useCallback((t: string) => setPreviewText(t), []);
   const handleDownload = useCallback((t: string, name: string) => setDownloadInfo({ text: t, styleName: name }), []);
   const handleScalePreview = useCallback((t: string) => setScalePreviewText(t), []);
@@ -212,6 +209,37 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const increaseSize = () => {
     setFontSize((prev) => Math.min(maxSize, prev + STEP));
   };
+
+  if (!customCategories && !homeCategories) {
+    return (
+      <div className="min-h-[600px] md:min-h-[900px]">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <div className="w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
+            <div className="h-[56px] md:h-[120px] rounded-xl bg-surface-container-low animate-pulse" />
+            <div className="h-[52px] rounded-2xl bg-surface-container-low animate-pulse" />
+            <div className="h-[40px] rounded-xl bg-surface-container-low animate-pulse" />
+          </div>
+        </section>
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[1, 2].map((i) => (
+              <div key={i} className="h-[280px] rounded-xl bg-surface-container-low animate-pulse" />
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  const displayText = deferredText || defaultText;
+  const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
+  const allCategories = (customCategories || homeCategories)!;
+  const filteredCategories = allCategories.filter(
+    (cat) => !cat.condition || cat.condition(text),
+  );
+  const visibleCategories = showAll
+    ? filteredCategories
+    : filteredCategories.slice(0, initialCategoryCount);
 
   return (
     <>
@@ -293,11 +321,11 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
           </div>
           {!hideJumpLinks && (
             <CategoryJumpLinks
-              categories={customCategories ? filteredCategories.map((cat) => ({
+              categories={filteredCategories.map((cat) => ({
                 label: cat.name,
                 emoji: CATEGORY_EMOJIS[cat.name] || "\u2726",
                 id: `cat-${slugify(cat.name)}`,
-              })) : homeCategoryLinks}
+              }))}
               onExpandAll={() => setShowAll(true)}
             />
           )}
@@ -425,27 +453,28 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
         })()}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {visibleCategories.map((category, index) => (
+          {visibleCategories.map((category) => (
             <div
               key={category.name}
               id={`cat-${slugify(category.name)}`}
               className="animate-card-fade-in scroll-mt-28"
-              style={index >= 2 ? { contentVisibility: "auto", containIntrinsicSize: "auto 600px" } : undefined}
             >
-              <FontCategoryCard
-                category={category}
-                text={displayText}
-                fontSize={fontSize}
-                copiedId={copiedId}
-                onCopy={handleCopy}
-                isDark={DARK_CATEGORIES.has(category.name)}
-                isFavorite={isFavorite}
-                onToggleFavorite={toggleFavorite}
-                onPreview={handlePreview}
-                onDownload={hideDownload ? undefined : handleDownload}
-                onScalePreview={enableScalePreview ? handleScalePreview : undefined}
-                wrapSymbol={wrapSymbol}
-              />
+              <LazyMount className="min-h-[380px] md:min-h-[420px]" rootMargin="60px">
+                <FontCategoryCard
+                  category={category}
+                  text={displayText}
+                  fontSize={fontSize}
+                  copiedId={copiedId}
+                  onCopy={handleCopy}
+                  isDark={DARK_CATEGORIES.has(category.name)}
+                  isFavorite={isFavorite}
+                  onToggleFavorite={toggleFavorite}
+                  onPreview={handlePreview}
+                  onDownload={hideDownload ? undefined : handleDownload}
+                  onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                  wrapSymbol={wrapSymbol}
+                />
+              </LazyMount>
             </div>
           ))}
         </div>

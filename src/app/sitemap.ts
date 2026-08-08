@@ -272,6 +272,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
+        `${SITE_URL}/images/tiktok-font-generator/tiktok-font-generator-og-card.webp`,
         `${SITE_URL}/images/tiktok-font-generator/thirteen-tiktok-font-styles-comparison-chart.webp`,
         `${SITE_URL}/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp`,
         `${SITE_URL}/images/tiktok-font-generator/tiktok-character-limits-by-field-cards.webp`,

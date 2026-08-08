@@ -8,7 +8,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import SectionNav from "../components/SectionNav";
-import TikTokFontGenerator from "../components/TikTokFontGenerator";
+import TikTokFontGeneratorClient from "../components/TikTokFontGeneratorClient";
 import TikTokSymbolsGroup from "./TikTokSymbolsGroup";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 import { TIKTOK_SYMBOL_GROUPS, tiktokFontCategories } from "../lib/tiktokFontStyles";
@@ -374,7 +374,7 @@ export default function TikTokFontsPage() {
         </section>
 
         {/* Interactive Font Generator */}
-        <TikTokFontGenerator totalFontStyles={totalFontStyles} />
+        <TikTokFontGeneratorClient totalFontStyles={totalFontStyles} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
