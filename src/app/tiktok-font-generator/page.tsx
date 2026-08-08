@@ -372,9 +372,9 @@ export default function TikTokFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   Our{" "}
                   <Link href="/facebook-fonts" className={linkClass}>
-                    Facebook fonts guide
+                    Facebook fonts
                   </Link>{" "}
-                  breaks down this same native versus Unicode distinction in more detail, since the two systems work almost identically across both platforms.
+                  page breaks down this same native versus Unicode distinction in more detail, since the two systems work almost identically across both platforms.
                 </p>
               </article>
 
@@ -542,9 +542,9 @@ export default function TikTokFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   If you prefer a cleaner, more minimal look than these decorative styles offer, our{" "}
                   <Link href="/sans-serif-fonts" className={linkClass}>
-                    sans serif fonts collection
+                    sans serif fonts
                   </Link>{" "}
-                  covers that exact style in more depth.
+                  page covers that exact style in more depth.
                 </p>
               </article>
 
@@ -559,9 +559,9 @@ export default function TikTokFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   This tiktok font generator includes symbols across several aesthetic groups, so you can match your own personal style. For even more decorative wrapper options beyond this set, our{" "}
                   <Link href="/fancy-fonts" className={linkClass}>
-                    fancy fonts collection
+                    fancy fonts
                   </Link>{" "}
-                  has a dedicated section built specifically for TikTok and WhatsApp.
+                  collection has a dedicated section built specifically for TikTok and WhatsApp.
                 </p>
 
                 {TIKTOK_SYMBOL_GROUPS.map((group) => (
@@ -571,7 +571,7 @@ export default function TikTokFontsPage() {
                     </h3>
                     <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                       {group.name === "Botanical and Vine" && (
-                        <>These soft, delicate symbols suit a gentle or nature inspired profile. They pair especially well with the softer styles on our <Link href="/cute-fonts" className={linkClass}>cute fonts page</Link>.</>
+                        <>These soft, delicate symbols suit a gentle or nature inspired profile. They pair especially well with the softer styles on our <Link href="/cute-fonts" className={linkClass}>cute fonts</Link> page.</>
                       )}
                       {group.name === "Mystical and Alchemical" && (
                         <>Reach for these if your profile leans witchy, moody, or dark academia.</>
