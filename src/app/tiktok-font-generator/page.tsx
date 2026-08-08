@@ -414,6 +414,14 @@ export default function TikTokFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   TikTok Character Limits by Field
                 </h2>
+                <Image
+                  src="/images/tiktok-font-generator/tiktok-character-limits-by-field-cards.webp"
+                  alt="TikTok character limits by field: display name 30 characters, bio 80 characters, caption around 2,200 characters, and comment 150 characters"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-xl mb-8"
+                  loading="lazy"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Every spot on your TikTok profile follows its own rules for length and Unicode support.
                 </p>
