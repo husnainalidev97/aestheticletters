@@ -1013,6 +1013,7 @@ export default function TikTokFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
+                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD835\uDD35", desc: "Strong Unicode text" },
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
@@ -1042,7 +1043,6 @@ export default function TikTokFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD835\uDD35", desc: "Strong Unicode text" },
                   { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
