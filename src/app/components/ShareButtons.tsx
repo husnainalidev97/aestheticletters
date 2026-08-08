@@ -178,10 +178,10 @@ export default function ShareButtons({ text }: ShareButtonsProps) {
           }
           setIsOpen((v) => !v);
         }}
-        className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-all"
+        className="w-9 h-9 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
         aria-label="Share this style"
       >
-        <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">share</span>
+        <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">share</span>
         <span className="text-[0.6rem] font-medium leading-none mt-0.5">Share</span>
       </button>
 

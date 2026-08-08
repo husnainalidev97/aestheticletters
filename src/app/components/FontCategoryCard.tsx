@@ -162,51 +162,39 @@ function FontCategoryCard({
                 {onPreview && (
                   <button
                     onClick={() => onPreview(converted)}
-                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
-                      isDark
-                        ? "text-on-surface-variant/60 hover:text-primary"
-                        : "text-on-surface-variant hover:text-primary"
-                    }`}
+                    className="flex flex-col items-center justify-center w-9 h-9 rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
                     aria-label="Preview on platform"
                     title="Preview on platform"
                   >
-                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">smartphone</span>
+                    <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">smartphone</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Preview</span>
                   </button>
                 )}
                 {onScalePreview && (
                   <button
                     onClick={() => onScalePreview(converted)}
-                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
-                      isDark
-                        ? "text-on-surface-variant/60 hover:text-primary"
-                        : "text-on-surface-variant hover:text-primary"
-                    }`}
+                    className="flex flex-col items-center justify-center w-9 h-9 rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
                     aria-label="Preview at scale"
                     title="Preview at scale"
                   >
-                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">open_in_full</span>
+                    <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">open_in_full</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Scale</span>
                   </button>
                 )}
                 {onDownload && (
                   <button
                     onClick={() => onDownload(converted, style.name)}
-                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
-                      isDark
-                        ? "text-on-surface-variant/60 hover:text-primary"
-                        : "text-on-surface-variant hover:text-primary"
-                    }`}
+                    className="flex flex-col items-center justify-center w-9 h-9 rounded-full text-on-surface-variant/60 hover:text-primary transition-all"
                     aria-label="Download as image"
                     title="Download as image"
                   >
-                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">download</span>
+                    <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">download</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Image</span>
                   </button>
                 )}
                 <Suspense fallback={
-                  <div className="w-10 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60">
-                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">share</span>
+                  <div className="w-9 h-9 flex flex-col items-center justify-center rounded-full text-on-surface-variant/60">
+                    <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">share</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">Share</span>
                   </div>
                 }>
@@ -215,32 +203,28 @@ function FontCategoryCard({
                 {onToggleFavorite && (
                   <button
                     onClick={() => onToggleFavorite({ id: styleId, styleName: style.name, categoryName: category.name, text: converted, fontFamily: style.fontFamily })}
-                    className={`flex flex-col items-center justify-center w-10 rounded-full transition-all ${
+                    className={`flex flex-col items-center justify-center w-9 h-9 rounded-full transition-all ${
                       isFavorite?.(styleId)
                         ? "text-[#ef4444]"
-                        : isDark
-                          ? "text-on-surface-variant/60 hover:text-[#ef4444]"
-                          : "text-on-surface-variant hover:text-[#ef4444]"
+                        : "text-on-surface-variant/60 hover:text-[#ef4444]"
                     }`}
                     aria-label={isFavorite?.(styleId) ? "Saved — remove from favorites" : "Save to favorites"}
                   >
-                    <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1, 'wght' 400" : "'FILL' 0, 'wght' 400" }} aria-hidden="true">favorite</span>
+                    <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: isFavorite?.(styleId) ? "'FILL' 1, 'wght' 300" : "'FILL' 0, 'wght' 300" }} aria-hidden="true">favorite</span>
                     <span className="text-[0.55rem] leading-none mt-0.5">{isFavorite?.(styleId) ? "Saved" : "Save"}</span>
                   </button>
                 )}
                 <button
                   onClick={() => onCopy(converted, styleId)}
-                  className={`flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all duration-200 flex flex-col items-center justify-center ${
+                  className={`flex-shrink-0 w-9 h-9 rounded-full font-bold transition-all duration-200 flex flex-col items-center justify-center ${
                     isCopied
                       ? "bg-[#15803d] text-white scale-110"
-                      : isDark
-                        ? "text-primary hover:bg-primary hover:text-on-primary active:scale-95"
-                        : "text-on-surface-variant hover:bg-primary hover:text-on-primary active:scale-95"
+                      : "text-on-surface-variant/60 hover:bg-primary hover:text-on-primary active:scale-95"
                   }`}
                   aria-label={copyLabel}
                   title={copyLabel}
                 >
-                  <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400" }} aria-hidden="true">{isCopied ? "check" : "content_copy"}</span>
+                  <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }} aria-hidden="true">{isCopied ? "check" : "content_copy"}</span>
                   <span className="text-[0.55rem] leading-none mt-0.5">{isCopied ? "Done" : "Copy"}</span>
                 </button>
               </div>
