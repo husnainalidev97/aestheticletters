@@ -135,6 +135,25 @@ export const tiktokUnicodeStyles: FontStyle[] = [
   { name: "Double-Struck", transform: (t) => applyMaps(t, doubleStruckMap, doubleStruckDigitMap) },
 ];
 
+export const tiktokStyleSymbols: string[] = [
+  "\u{1f650}", "\u{1f700}", "\u{1f668}", "\u{1f66c}", "\u2744", "\u{1f651}", "\u{1f701}", "\u{1f669}", "\u{1f66d}", "\u2655",
+  "\u{1f652}", "\u{1f71a}", "\u{1f66a}", "\u{1f66e}", "\u275d", "\u{1f653}", "\u{1f725}", "\u{1f66b}", "\u{1f66f}", "\u275e",
+  "\u{1f654}", "\u{1f76c}", "\u{1f676}", "\u{1f67e}", "\u2721", "\u{1f655}", "\u2020", "\u{1f677}", "\u{1f67f}", "\u2627",
+  "\u{1f656}", "\u2021", "\u{1f678}", "\u2318", "\u2628", "\u{1f657}", "\u16ed", "\u{1f679}", "\u2395", "\u2719",
+  "\u{1f658}", "\u{1f67a}", "\u2388", "\u271b", "\u{1f659}", "\u{1f67b}", "\u{1f0a0}", "\u{1f65a}", "\u{1f67c}", "\u25b6",
+  "\u{1f65b}", "\u{1f67d}", "\u25c0", "\u{1f65c}", "\u2b51", "\u25ba", "\u{1f65d}", "\u2b52", "\u25c4", "\u{1f65e}",
+  "\u2b55", "\u25a0", "\u{1f65f}", "\u2b24", "\u25cf", "\u{1f660}", "\u2b1b", "\u2756", "\u{1f661}", "\u2b1c",
+  "\u25c8", "\u{1f662}", "\u{1f784}", "\u2694", "\u{1f663}", "\u{1f78a}", "\u26a1", "\u{1f664}", "\u2726", "\u2620",
+  "\u{1f665}", "\u2727", "\u{1f666}", "\u2729", "\u{1f667}", "\u2736", "\u{1f670}", "\u2735", "\u{1f671}", "\u2724",
+  "\u{1f672}", "\u2731", "\u{1f673}", "\u2733", "\u{1f674}", "\u2747", "\u{1f675}", "\u2746", "\u2740", "\u2666",
+  "\u273f", "\u2605", "\u2766", "\u2606", "\u2767", "\u25c6", "\u2618", "\u25c7", "\u25ca", "\u25b3",
+  "\u25b2", "\u00ab", "\u00bb", "\u2039", "\u203a", "\u3008", "\u3009", "\u276e", "\u276f", "\u300e",
+  "\u300f", "\u300c", "\u300d", "\u3010", "\u3011", "[", "]", "\u30fb", "\u2022", "\u2014",
+  "|", "\u2192", "\u2248", "\u2500", "\u2501", "\u256d", "\u256e", "\u250c", "\u2510", "\u2551",
+  "\u22c6", "\u2e26", "\u2e27", "\u269e", "\u269f", "\u2af7", "\u2af8", "\u23b0", "\u23b1", "\u2993",
+  "\u2994", "\u030a",
+];
+
 // ── Field-Based Category Cards ──────────────────────────────────────────────
 
 export const tiktokFontCategories: FontCategory[] = [
@@ -143,24 +162,28 @@ export const tiktokFontCategories: FontCategory[] = [
     maxLength: 30,
     maxLengthLabel: "Display Name",
     styles: tiktokUnicodeStyles,
+    symbols: tiktokStyleSymbols,
   },
   {
     name: "Bio Fonts",
     maxLength: 80,
     maxLengthLabel: "Bio",
     styles: tiktokUnicodeStyles,
+    symbols: tiktokStyleSymbols,
   },
   {
     name: "Caption Fonts",
     maxLength: 2200,
     maxLengthLabel: "Caption",
     styles: tiktokUnicodeStyles,
+    symbols: tiktokStyleSymbols,
   },
   {
     name: "Comment Fonts",
     maxLength: 150,
     maxLengthLabel: "Comment",
     styles: tiktokUnicodeStyles,
+    symbols: tiktokStyleSymbols,
   },
 ];
 

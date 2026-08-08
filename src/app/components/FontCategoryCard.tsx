@@ -48,12 +48,21 @@ function FontCategoryCard({
   const transformedStyles = useMemo(() => {
     const wrap = (s: string) =>
       wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
-    return stylesToTransform.map((style) => ({
-      style,
-      converted: wrap(style.transform(text)),
-      display: wrap((style.displayTransform ?? style.transform)(text)),
-      styleId: `${category.name}-${style.name}`,
-    }));
+    return stylesToTransform.map((style, index) => {
+      let converted = wrap(style.transform(text));
+      let display = wrap((style.displayTransform ?? style.transform)(text));
+      if (category.symbols) {
+        const sym = category.symbols[index % category.symbols.length];
+        converted = `${sym} ${converted} ${sym}`;
+        display = `${sym} ${display} ${sym}`;
+      }
+      return {
+        style,
+        converted,
+        display,
+        styleId: `${category.name}-${style.name}`,
+      };
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category, text, showAllStyles, wrapSymbol]);
 

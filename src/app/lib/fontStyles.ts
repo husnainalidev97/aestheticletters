@@ -24,6 +24,8 @@ export interface FontCategory {
   maxLengthLabel?: string;
   /** Number of styles to show before a "Show More" button inside the card. */
   initialVisibleStyles?: number;
+  /** Optional symbols to embed symmetrically around each style's output (cycled by style index). */
+  symbols?: string[];
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
