@@ -47,10 +47,10 @@ export const metadata: Metadata = {
       "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
     images: [
       {
-        url: "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
-        width: 1536,
-        height: 1024,
-        alt: "Three step guide showing how to use the TikTok font generator: type your text, pick a Unicode style from the cards, then copy and paste it into your TikTok display name or bio",
+        url: "https://www.aestheticletters.com/images/tiktok-font-generator/tiktok-font-generator-og-card.webp",
+        width: 1200,
+        height: 630,
+        alt: "TikTok Font Generator social share banner showing stylish Unicode fonts and a TikTok profile mockup",
       },
     ],
     publishedTime: "2026-08-08T06:00:00+00:00",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
     images: [
-      "https://www.aestheticletters.com/images/tiktok-font-generator/how-to-use-tiktok-font-generator-three-steps.webp",
+      "https://www.aestheticletters.com/images/tiktok-font-generator/tiktok-font-generator-og-card.webp",
     ],
   },
 };
@@ -192,6 +192,14 @@ export default function TikTokFontsPage() {
       width: 1024,
       height: 560,
     },
+    {
+      file: "tiktok-font-generator-og-card.webp",
+      name: "TikTok Font Generator",
+      description:
+        "TikTok Font Generator social share banner showing stylish Unicode fonts and a TikTok profile mockup.",
+      width: 1200,
+      height: 630,
+    },
   ];
   const imageObjects = imageList.map((img, index) => ({
     "@type": "ImageObject",
@@ -205,7 +213,7 @@ export default function TikTokFontsPage() {
     height: img.height,
     inLanguage: "en",
   }));
-  const primaryImage = imageObjects[1];
+  const primaryImage = imageObjects[imageObjects.length - 1];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -873,7 +881,11 @@ export default function TikTokFontsPage() {
                   This process, called normalization, can turn styled letters back into plain text without any warning.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  We tested this directly using the same method behind our bold text generator research on this site.
+                  We tested this directly using the same method behind our{" "}
+                  <Link href="/bold-font-generator" className={linkClass}>
+                    bold text generator
+                  </Link>{" "}
+                  research on this site.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Some platforms strip styled Unicode letters, while others keep them exactly as pasted.
@@ -1030,6 +1042,7 @@ export default function TikTokFontsPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
+                  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD835\uDD35", desc: "Strong Unicode text" },
                   { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
