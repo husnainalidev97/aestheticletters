@@ -378,9 +378,6 @@ export default function TikTokFontsPage() {
             <div className="lg:col-span-8 flex flex-col gap-16">
               {/* What is a TikTok Font Generator? */}
               <article className="scroll-mt-[9rem]" id="what-is-a-tiktok-font-generator">
-                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                  What is a TikTok Font Generator?
-                </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   TikTok moves fast, and a plain profile can get lost in someone&apos;s endless scroll within seconds.
                 </p>
@@ -390,9 +387,9 @@ export default function TikTokFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Simply type your words, browse the styles, then paste your favorite into your display name, bio, or captions.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Understanding this distinction helps explain why some older articles describe TikTok&apos;s look differently than it appears today.
-                </p>
+                <h2 className="font-headline text-4xl font-bold my-8 leading-tight">
+                  What is a TikTok Font Generator?
+                </h2>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   TikTok gives you four separate spots to add text: your display name, bio, captions, and comments.
                 </p>
