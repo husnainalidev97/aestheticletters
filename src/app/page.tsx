@@ -98,7 +98,7 @@ export default function Home() {
           { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
           { "@type": "ListItem", position: 3, name: "Discord Fonts", url: "https://www.aestheticletters.com/discord-fonts" },
           { "@type": "ListItem", position: 4, name: "Twitter Fonts", url: "https://www.aestheticletters.com/twitter-fonts" },
-          { "@type": "ListItem", position: 5, name: "TikTok Fonts", url: "https://www.aestheticletters.com/tiktok-fonts" },
+          { "@type": "ListItem", position: 5, name: "TikTok Fonts", url: "https://www.aestheticletters.com/tiktok-font-generator" },
           { "@type": "ListItem", position: 6, name: "Fancy Fonts", url: "https://www.aestheticletters.com/fancy-fonts" },
           { "@type": "ListItem", position: 7, name: "Stylish Fonts", url: "https://www.aestheticletters.com/stylish-fonts" },
           { "@type": "ListItem", position: 8, name: "Cute Fonts", url: "https://www.aestheticletters.com/cute-fonts" },
@@ -205,7 +205,7 @@ export default function Home() {
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
                   { label: "Twitter Fonts", href: "/twitter-fonts", icon: "\uD835\uDD4F", desc: "Fonts for X/Twitter" },
-                  { label: "TikTok Fonts", href: "/tiktok-fonts", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
+                  { label: "TikTok Fonts", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

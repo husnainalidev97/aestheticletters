@@ -22,10 +22,10 @@ const pageSections = [
   { id: "tiktok-font-styles-available-in-this-generator", label: "Font Styles" },
   { id: "tiktok-symbols-and-emojis-to-pair-with-your-text", label: "Symbols" },
   { id: "does-a-styled-font-affect-your-tiktok-reach", label: "Algorithm" },
-  { id: "tiktok-fonts-vs-other-platforms", label: "Platform Comparison" },
-  { id: "why-some-tiktok-fonts-dont-display-correctly", label: "Display Issues" },
+  { id: "tiktok-font-generator-vs-other-platforms", label: "Platform Comparison" },
+  { id: "why-some-tiktok-font-generator-dont-display-correctly", label: "Display Issues" },
   { id: "style-by-style-rendering-safety-reference", label: "Safety Reference" },
-  { id: "common-mistakes-when-using-tiktok-fonts", label: "Common Mistakes" },
+  { id: "common-mistakes-when-using-tiktok-font-generator", label: "Common Mistakes" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
   description:
     "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
   alternates: {
-    canonical: "https://www.aestheticletters.com/tiktok-fonts",
+    canonical: "https://www.aestheticletters.com/tiktok-font-generator",
   },
   openGraph: {
     siteName: "Aesthetic Letters",
     type: "article",
-    url: "https://www.aestheticletters.com/tiktok-fonts",
+    url: "https://www.aestheticletters.com/tiktok-font-generator",
     title: "TikTok Font Generator ✂️ Copy & Paste Styles 😍✨",
     description:
       "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
@@ -120,12 +120,12 @@ export default function TikTokFontsPage() {
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "@id": "https://www.aestheticletters.com/tiktok-fonts#software",
+        "@id": "https://www.aestheticletters.com/tiktok-font-generator#software",
         name: "TikTok Font Generator",
         operatingSystem: "Any",
         applicationCategory: "UtilitiesApplication",
         browserRequirements: "requires HTML5 support",
-        url: "https://www.aestheticletters.com/tiktok-fonts",
+        url: "https://www.aestheticletters.com/tiktok-font-generator",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments.",
         offers: {
@@ -136,8 +136,8 @@ export default function TikTokFontsPage() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://www.aestheticletters.com/tiktok-fonts#webpage",
-        url: "https://www.aestheticletters.com/tiktok-fonts",
+        "@id": "https://www.aestheticletters.com/tiktok-font-generator#webpage",
+        url: "https://www.aestheticletters.com/tiktok-font-generator",
         name: "TikTok Font Generator ✂️ Copy & Paste Styles 😍✨",
         description:
           "Turn plain text into cool TikTok fonts instantly. Copy and paste unique styles for your bio, display name, captions, and comments. Totally free to use.",
@@ -146,15 +146,15 @@ export default function TikTokFontsPage() {
         datePublished: "2026-08-08T06:00:00+00:00",
         dateModified: new Date().toISOString(),
         breadcrumb: {
-          "@id": "https://www.aestheticletters.com/tiktok-fonts#breadcrumb",
+          "@id": "https://www.aestheticletters.com/tiktok-font-generator#breadcrumb",
         },
         mainEntity: {
-          "@id": "https://www.aestheticletters.com/tiktok-fonts#software",
+          "@id": "https://www.aestheticletters.com/tiktok-font-generator#software",
         },
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.aestheticletters.com/tiktok-fonts#breadcrumb",
+        "@id": "https://www.aestheticletters.com/tiktok-font-generator#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -172,20 +172,20 @@ export default function TikTokFontsPage() {
             "@type": "ListItem",
             position: 3,
             name: "TikTok Font Generator",
-            item: "https://www.aestheticletters.com/tiktok-fonts",
+            item: "https://www.aestheticletters.com/tiktok-font-generator",
           },
         ],
       },
       {
         "@type": "ItemList",
-        "@id": "https://www.aestheticletters.com/tiktok-fonts#font-categories",
+        "@id": "https://www.aestheticletters.com/tiktok-font-generator#font-categories",
         name: "TikTok Font Style Categories",
         numberOfItems: tiktokFontCategories.length,
         itemListElement: tiktokFontCategories.map((category, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: category.name,
-          url: `https://www.aestheticletters.com/tiktok-fonts#${category.name.toLowerCase().replace(/\s+/g, "-")}`,
+          url: `https://www.aestheticletters.com/tiktok-font-generator#${category.name.toLowerCase().replace(/\s+/g, "-")}`,
         })),
       },
     ],
@@ -245,13 +245,13 @@ export default function TikTokFontsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <TopNavBar activePage="tiktok-fonts" />
+      <TopNavBar activePage="tiktok-font-generator" />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
-            { label: "TikTok Font Generator", href: "/tiktok-fonts" },
+            { label: "TikTok Font Generator", href: "/tiktok-font-generator" },
           ]}
         />
 
@@ -632,7 +632,7 @@ export default function TikTokFontsPage() {
               </article>
 
               {/* Platform Comparison */}
-              <article className="scroll-mt-[9rem]" id="tiktok-fonts-vs-other-platforms">
+              <article className="scroll-mt-[9rem]" id="tiktok-font-generator-vs-other-platforms">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   TikTok Fonts vs. Other Platforms &mdash; Quick Comparison
                 </h2>
@@ -711,7 +711,7 @@ export default function TikTokFontsPage() {
               </article>
 
               {/* Why Some TikTok Fonts Don't Display Correctly */}
-              <article className="scroll-mt-[9rem]" id="why-some-tiktok-fonts-dont-display-correctly">
+              <article className="scroll-mt-[9rem]" id="why-some-tiktok-font-generator-dont-display-correctly">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Why Some TikTok Fonts Don&apos;t Display Correctly?
                 </h2>
@@ -786,7 +786,7 @@ export default function TikTokFontsPage() {
               </article>
 
               {/* Common Mistakes */}
-              <article className="scroll-mt-[9rem]" id="common-mistakes-when-using-tiktok-fonts">
+              <article className="scroll-mt-[9rem]" id="common-mistakes-when-using-tiktok-font-generator">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Common Mistakes When Using TikTok Fonts
                 </h2>

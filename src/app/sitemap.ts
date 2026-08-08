@@ -267,7 +267,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${SITE_URL}/tiktok-fonts`,
+      url: `${SITE_URL}/tiktok-font-generator`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

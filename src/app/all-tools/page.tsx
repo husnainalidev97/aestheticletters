@@ -79,7 +79,7 @@ const toolCategories: ToolCategory[] = [
         description:
           "Turn plain text into TikTok fonts for your display name, bio, captions, and comments. Copy and paste instantly.",
         icon: "music_video",
-        href: "/tiktok-fonts",
+        href: "/tiktok-font-generator",
       },
     ],
   },
