@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Manrope } from "next/font/google";
+import { Space_Grotesk, Manrope, Noto_Sans_Math, Noto_Sans_Symbols, Noto_Sans_Symbols_2 } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -19,6 +19,33 @@ const manrope = Manrope({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+});
+
+const notoMath = Noto_Sans_Math({
+  variable: "--font-noto-math",
+  subsets: ["math"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+const notoSymbols = Noto_Sans_Symbols({
+  variable: "--font-noto-symbols",
+  subsets: ["symbols"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+const notoSymbols2 = Noto_Sans_Symbols_2({
+  variable: "--font-noto-symbols-2",
+  subsets: ["symbols"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -97,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${notoMath.variable} ${notoSymbols.variable} ${notoSymbols2.variable}`} suppressHydrationWarning>
       <head>
         {/* Preconnect to third-party origins for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
