@@ -563,6 +563,18 @@ export default function InstagramFontsPage() {
                         "Use in captions, stories, and aesthetic bios",
                         "Perfect for lifestyle and personal pages",
                       ],
+                      extra: (
+                        <>
+                          Browse our{" "}
+                          <Link
+                            href="/cute-fonts"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            Cute Fonts
+                          </Link>{" "}
+                          collection for more playful, adorable styles.
+                        </>
+                      ),
                     },
                   ].map((category) => (
                     <div
