@@ -326,7 +326,15 @@ export default function SEOContent() {
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Create unique, uncopyable <strong>Nicknames</strong> and{" "}
-              <strong>Clan tags</strong> that reflect your gaming style.
+              <strong>Clan tags</strong> that reflect your gaming style. Many
+              gamers also use{" "}
+              <Link
+                href="/discord-fonts"
+                className="text-primary underline underline-offset-4"
+              >
+                Discord fonts
+              </Link>{" "}
+              to style their server names and roles.
             </p>
           </div>
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
@@ -344,7 +352,15 @@ export default function SEOContent() {
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Use minimalist styles for <strong>Headlines</strong> or{" "}
-              <strong>Tweets</strong> to maintain a clean yet creative look.
+              <strong>Tweets</strong> to maintain a clean yet creative look. For
+              X specifically, try our{" "}
+              <Link
+                href="/twitter-fonts"
+                className="text-primary underline underline-offset-4"
+              >
+                twitter font generator
+              </Link>
+              .
             </p>
           </div>
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
