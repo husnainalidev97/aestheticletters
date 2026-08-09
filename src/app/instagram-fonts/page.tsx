@@ -512,6 +512,18 @@ export default function InstagramFontsPage() {
                         "Use in bios and highlights for a formal and clean appearance",
                         "Keeps your profile simple and trustworthy",
                       ],
+                      extra: (
+                        <>
+                          For more clean, professional styles, browse our{" "}
+                          <Link
+                            href="/sans-serif-fonts"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            sans serif fonts
+                          </Link>{" "}
+                          collection.
+                        </>
+                      ),
                     },
                     {
                       title: "3: Bold IG Fonts (\uD835\uDC07\uD835\uDC1E\uD835\uDC25\uD835\uDC25\uD835\uDC28)",
