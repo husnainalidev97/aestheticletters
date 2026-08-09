@@ -520,6 +520,18 @@ export default function InstagramFontsPage() {
                         "Use when you want strong visibility and attention",
                         "Works well in bios and captions for emphasis",
                       ],
+                      extra: (
+                        <>
+                          For even more variety, explore our{" "}
+                          <Link
+                            href="/bold-font-generator"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            Bold Font Generator
+                          </Link>{" "}
+                          with 81 bold Unicode styles.
+                        </>
+                      ),
                     },
                     {
                       title: "4: Gothic Fonts (\uD835\uDD73\uD835\uDD8A\uD835\uDD91\uD835\uDD91\uD835\uDD94)",
@@ -557,6 +569,11 @@ export default function InstagramFontsPage() {
                           </li>
                         ))}
                       </ul>
+                      {category.extra && (
+                        <p className="mt-4 text-on-surface-variant text-sm leading-relaxed">
+                          {category.extra}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
