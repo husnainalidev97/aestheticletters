@@ -78,7 +78,13 @@ const sections: ContentSection[] = [
     id: "what-is-the-preppy-aesthetic",
     paragraphs: [
       "The word preppy comes from prep school, short for preparatory school. These private schools across the northeastern United States built a look around sharp blazers, tennis whites, and understated wealth. The style stayed linked to Ivy League campuses and East Coast country clubs for decades.",
-      "Ralph Lauren turned this look into a global aesthetic through the 1980s and 1990s. Then came a fresh wave. TikTok and Pinterest brought preppy back around 2022, splitting it into smaller aesthetics like Old Money, Coquette, and Clean Girl. Each one adds its own mood to the same tailored foundation.",
+      <>
+        Ralph Lauren turned this look into a global aesthetic through the 1980s and 1990s. Then came a fresh wave.{" "}
+        <Link href="/tiktok-font-generator" className={linkClass}>
+          TikTok
+        </Link>{" "}
+        and Pinterest brought preppy back around 2022, splitting it into smaller aesthetics like Old Money, Coquette, and Clean Girl. Each one adds its own mood to the same tailored foundation.
+      </>,
       "Font choice plays a real part in this look online. A bio written in plain text does not carry the same weight as one styled in a crisp serif or a soft script. Preppy fonts translate that visual language, polished, understated, a little nostalgic, into something people can type and paste anywhere.",
     ],
   },
