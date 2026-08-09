@@ -309,7 +309,15 @@ export default function SEOContent() {
             </h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Use aesthetic text for <strong>Video descriptions</strong> and{" "}
-              <strong>Profile intros</strong> to grab attention.
+              <strong>Profile intros</strong> to grab attention. For
+              TikTok-specific styles, our{" "}
+              <Link
+                href="/tiktok-font-generator"
+                className="text-primary underline underline-offset-4"
+              >
+                tiktok font generator
+              </Link>{" "}
+              also covers display names, bios, and comments.
             </p>
           </div>
           <div className="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
