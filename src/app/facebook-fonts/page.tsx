@@ -327,9 +327,8 @@ export default function FacebookFontsPage() {
             Facebook Fonts — Copy &amp; Paste Unique Text Styles
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
-            Facebook has no built-in font changer. This free Facebook Fonts Generator converts your text into 40+
-            Unicode font styles and provides 150+ symbols you can copy and paste into Facebook posts, bios, comments,
-            and usernames, or use separately in your text and profiles.
+            Facebook has no built-in font changer. Use this free fb font generator to turn text into 40+ fonts and
+            150+ symbols for posts, bios, comments, and usernames.
           </p>
         </section>
 
@@ -558,14 +557,21 @@ export default function FacebookFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Small caps feel refined without being decorative. They style your text just enough to differentiate
-                  it while keeping a professional tone.
+                  it while keeping a professional tone. For more clean, professional styles, browse our{" "}
+                  <Link
+                    href="/sans-serif-fonts"
+                    className="text-primary underline underline-offset-4"
+                  >
+                    sans serif fonts
+                  </Link>{" "}
+                  collection.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   <strong>Works great for:</strong> Coaches, consultants, professional service businesses, personal
                   brands in formal industries.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  For dedicated holiday text with built-in snowflakes and trees, our{" "}
+                  <strong>NOTE:</strong> For dedicated holiday text with built-in snowflakes and trees, our{" "}
                   <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas text generator</Link>{" "}
                   works perfectly in Facebook posts and comments during the festive season.
                 </p>
@@ -599,9 +605,16 @@ export default function FacebookFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  TikTok&apos;s bio field supports Unicode fonts. Comments support it too. However TikTok has its own
-                  native text tool for video overlays that uses actual fonts, not Unicode. So on TikTok there are two
-                  separate systems: Unicode for bio and comments, native text editor for video. Don&apos;t confuse them.
+                  TikTok&apos;s bio field supports Unicode fonts. Create yours with our{" "}
+                  <Link
+                    href="/tiktok-font-generator"
+                    className="text-primary underline underline-offset-4"
+                  >
+                    tiktok font generator
+                  </Link>
+                  . Comments support it too. However TikTok has its own native text tool for video overlays that uses
+                  actual fonts, not Unicode. So on TikTok there are two separate systems: Unicode for bio and comments,
+                  native text editor for video. Don&apos;t confuse them.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">The Quick Comparison</h3>
@@ -888,6 +901,7 @@ export default function FacebookFontsPage() {
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -918,6 +932,7 @@ export default function FacebookFontsPage() {
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                  { label: "tiktok text generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

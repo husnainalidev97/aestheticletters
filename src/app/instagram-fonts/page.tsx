@@ -469,9 +469,11 @@ export default function InstagramFontsPage() {
                   ))}
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Additionally, these letters can also be used on Facebook.
-                  You can test them easily using our{" "}
-                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
+                  Additionally, these letters can also be used on Facebook and
+                  TikTok. You can test them easily using our{" "}
+                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>{" "}
+                  or{" "}
+                  <Link href="/tiktok-font-generator" className="text-primary underline">tiktok text generator</Link>.
                 </p>
               </article>
 
@@ -512,6 +514,18 @@ export default function InstagramFontsPage() {
                         "Use in bios and highlights for a formal and clean appearance",
                         "Keeps your profile simple and trustworthy",
                       ],
+                      extra: (
+                        <>
+                          For more clean, professional styles, browse our{" "}
+                          <Link
+                            href="/sans-serif-fonts"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            sans serif fonts
+                          </Link>{" "}
+                          collection.
+                        </>
+                      ),
                     },
                     {
                       title: "3: Bold IG Fonts (\uD835\uDC07\uD835\uDC1E\uD835\uDC25\uD835\uDC25\uD835\uDC28)",
@@ -520,6 +534,18 @@ export default function InstagramFontsPage() {
                         "Use when you want strong visibility and attention",
                         "Works well in bios and captions for emphasis",
                       ],
+                      extra: (
+                        <>
+                          For even more variety, explore our{" "}
+                          <Link
+                            href="/bold-font-generator"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            Bold Font Generator
+                          </Link>{" "}
+                          with 81 bold Unicode styles.
+                        </>
+                      ),
                     },
                     {
                       title: "4: Gothic Fonts (\uD835\uDD73\uD835\uDD8A\uD835\uDD91\uD835\uDD91\uD835\uDD94)",
@@ -537,6 +563,18 @@ export default function InstagramFontsPage() {
                         "Use in captions, stories, and aesthetic bios",
                         "Perfect for lifestyle and personal pages",
                       ],
+                      extra: (
+                        <>
+                          Browse our{" "}
+                          <Link
+                            href="/cute-fonts"
+                            className="text-primary underline underline-offset-4"
+                          >
+                            Cute Fonts
+                          </Link>{" "}
+                          collection for more playful, adorable styles.
+                        </>
+                      ),
                     },
                   ].map((category) => (
                     <div
@@ -557,6 +595,11 @@ export default function InstagramFontsPage() {
                           </li>
                         ))}
                       </ul>
+                      {category.extra && (
+                        <p className="mt-4 text-on-surface-variant text-sm leading-relaxed">
+                          {category.extra}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -789,6 +832,7 @@ export default function InstagramFontsPage() {
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -819,6 +863,7 @@ export default function InstagramFontsPage() {
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
+                  { label: "TikTok Font Generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
