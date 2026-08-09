@@ -558,14 +558,21 @@ export default function FacebookFontsPage() {
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
                   Small caps feel refined without being decorative. They style your text just enough to differentiate
-                  it while keeping a professional tone.
+                  it while keeping a professional tone. For more clean, professional styles, browse our{" "}
+                  <Link
+                    href="/sans-serif-fonts"
+                    className="text-primary underline underline-offset-4"
+                  >
+                    sans serif fonts
+                  </Link>{" "}
+                  collection.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   <strong>Works great for:</strong> Coaches, consultants, professional service businesses, personal
                   brands in formal industries.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  For dedicated holiday text with built-in snowflakes and trees, our{" "}
+                  <strong>NOTE:</strong> For dedicated holiday text with built-in snowflakes and trees, our{" "}
                   <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">Christmas text generator</Link>{" "}
                   works perfectly in Facebook posts and comments during the festive season.
                 </p>
