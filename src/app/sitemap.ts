@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const halloweenFontsModified = new Date();
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
+  /* Pages updated with new cross-link content */
+  const today = new Date();
 
   return [
     {
@@ -59,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/instagram-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -121,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -202,7 +204,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/discord-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -215,7 +217,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/preppy-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [

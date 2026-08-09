@@ -677,6 +677,7 @@ export default function PreppyFontsPage() {
                   { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style your server text" },
                   { label: "Facebook Font Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Cute Font Generator", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                  { label: "TikTok Font Generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
