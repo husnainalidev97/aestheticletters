@@ -599,9 +599,16 @@ export default function FacebookFontsPage() {
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">TikTok</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                  TikTok&apos;s bio field supports Unicode fonts. Comments support it too. However TikTok has its own
-                  native text tool for video overlays that uses actual fonts, not Unicode. So on TikTok there are two
-                  separate systems: Unicode for bio and comments, native text editor for video. Don&apos;t confuse them.
+                  TikTok&apos;s bio field supports Unicode fonts. Create yours with our{" "}
+                  <Link
+                    href="/tiktok-font-generator"
+                    className="text-primary underline underline-offset-4"
+                  >
+                    tiktok font generator
+                  </Link>
+                  . Comments support it too. However TikTok has its own native text tool for video overlays that uses
+                  actual fonts, not Unicode. So on TikTok there are two separate systems: Unicode for bio and comments,
+                  native text editor for video. Don&apos;t confuse them.
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">The Quick Comparison</h3>
