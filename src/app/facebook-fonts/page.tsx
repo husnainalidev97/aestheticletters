@@ -902,6 +902,7 @@ export default function FacebookFontsPage() {
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "\uD83D\uDC8E", desc: "Premium text styles" },
                   { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
@@ -932,6 +933,7 @@ export default function FacebookFontsPage() {
                   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "140+ Discord styles" },
                   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDDAB", desc: "81 bold text styles" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                  { label: "tiktok text generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
