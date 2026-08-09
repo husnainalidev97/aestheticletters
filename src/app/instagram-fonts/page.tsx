@@ -469,9 +469,11 @@ export default function InstagramFontsPage() {
                   ))}
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Additionally, these letters can also be used on Facebook.
-                  You can test them easily using our{" "}
-                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>.
+                  Additionally, these letters can also be used on Facebook and
+                  TikTok. You can test them easily using our{" "}
+                  <Link href="/facebook-fonts" className="text-primary underline">facebook fonts</Link>{" "}
+                  or{" "}
+                  <Link href="/tiktok-font-generator" className="text-primary underline">tiktok text generator</Link>.
                 </p>
               </article>
 
