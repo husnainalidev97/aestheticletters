@@ -327,9 +327,8 @@ export default function FacebookFontsPage() {
             Facebook Fonts — Copy &amp; Paste Unique Text Styles
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 md:mb-4 text-sm md:text-lg">
-            Facebook has no built-in font changer. This free Facebook Fonts Generator converts your text into 40+
-            Unicode font styles and provides 150+ symbols you can copy and paste into Facebook posts, bios, comments,
-            and usernames, or use separately in your text and profiles.
+            Facebook has no built-in font changer. Use this free fb font generator to turn text into 40+ fonts and
+            150+ symbols for posts, bios, comments, and usernames.
           </p>
         </section>
 
