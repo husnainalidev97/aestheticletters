@@ -3,12 +3,8 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Tool pages — updated today with SectionNav rollout */
+  /* Tool pages not modified in this update cycle */
   const toolsModified = new Date("2026-08-03T00:00:00Z");
-  /* Stylish Fonts page updated with new images */
-  const stylishFontsModified = new Date("2026-08-04T00:00:00Z");
-  /* Halloween Fonts page updated with new images + fixes */
-  const halloweenFontsModified = new Date();
   /* Info & legal pages — not modified in this update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
   /* Pages updated with new cross-link content */
@@ -31,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/fancy-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -47,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cursive-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -75,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/stylish-fonts`,
-      lastModified: stylishFontsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -89,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cute-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -106,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/halloween-fonts`,
-      lastModified: halloweenFontsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -137,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/serif-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -147,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/sans-serif-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -166,7 +162,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/number-font-generator`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -190,7 +186,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/big-text-generator`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -230,7 +226,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/weird-font-generator`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -244,7 +240,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/christmas-fonts`,
-      lastModified: toolsModified,
+      lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
