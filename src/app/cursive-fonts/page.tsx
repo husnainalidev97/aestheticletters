@@ -801,6 +801,9 @@ export default function CursiveFontsPage() {
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", desc: "Style your FB posts" },
                   { label: "Fancy Fonts", href: "/fancy-fonts", icon: "👑", desc: "Decorative text art" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", desc: "Premium text styles" },
+                  { label: "Discord Fonts", href: "/discord-fonts", icon: "🎮", desc: "Style server text" },
+                  { label: "Twitter Fonts", href: "/twitter-fonts", icon: "🐦", desc: "Fonts for X bios" },
+                  { label: "TikTok Fonts", href: "/tiktok-font-generator", icon: "🎵", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
