@@ -860,7 +860,7 @@ export default function HalloweenFontsPage() {
                   covers {totalFontStyles}+ decorative styles that work across every occasion.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Once October ends, our{" "}
+                  <strong className="text-on-surface">NOTE:</strong> Once October ends, our{" "}
                   <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                     Christmas font generator
                   </Link>{" "}
@@ -958,6 +958,7 @@ export default function HalloweenFontsPage() {
                   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
                   { label: "Discord Text Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style server text" },
                   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+                  { label: "TikTok Font Generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                   { label: "Aesthetic Font Generator", href: "/", icon: "\u2728", desc: "All-in-one text styler" },
                 ].map((tool) => (
                   <Link
