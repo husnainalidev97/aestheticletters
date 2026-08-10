@@ -568,7 +568,7 @@ export default function DiscordFontsPage() {
                   matches the sharp, tactical look many competitive and FPS clans
                   prefer. Wide Tag spaces out a server name for a banner style
                   look. Flipped Tag and Glitch Tag round out the set for playful
-                  or cursed text moments.
+                  or spooky text moments.
                 </p>
               </article>
 

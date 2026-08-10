@@ -106,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
-        `${SITE_URL}/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp`,
+        `${SITE_URL}/halloween-fonts-generator-75-spooky-gothic-copy-paste-text-styles.webp`,
         `${SITE_URL}/images/halloween-fonts/how-halloween-creepy-text-generator-works-unicode-mapping.webp`,
         `${SITE_URL}/images/halloween-fonts/spirit-halloween-font-alternatives-gothic-blackletter.webp`,
         `${SITE_URL}/images/halloween-fonts/halloween-font-styles-comparison-chart-75-plus-spooky-styles.webp`,

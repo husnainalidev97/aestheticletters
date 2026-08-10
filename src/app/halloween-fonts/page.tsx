@@ -325,7 +325,7 @@ export default function HalloweenFontsPage() {
                   What Are Halloween Fonts?
                 </h2>
                 <Image
-                  src="/halloween-fonts-generator-75-spooky-gothic-and-creepy-copy-paste-text-styles-with-blood-drip-zalgo-skull-and-cursed-script-effects.webp"
+                  src="/halloween-fonts-generator-75-spooky-gothic-copy-paste-text-styles.webp"
                   alt="Halloween Fonts Generator - 75+ spooky, gothic, and creepy copy-paste text styles with themed drip, zalgo, skull, and twisted script effects"
                   width={847}
                   height={445}
