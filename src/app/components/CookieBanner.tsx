@@ -125,19 +125,19 @@ export default function CookieBanner() {
       <div className="flex flex-col sm:flex-row gap-2">
         <button
           onClick={rejectOptional}
-          className="flex-1 px-4 py-2 rounded-xl border border-outline-variant text-on-surface-variant font-medium hover:bg-surface-container transition-colors"
+          className="w-full sm:flex-1 px-3 py-2 rounded-xl border border-outline-variant text-sm text-on-surface-variant font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
         >
-          Reject optional
+          Reject
         </button>
         <button
           onClick={openManage}
-          className="flex-1 px-4 py-2 rounded-xl border border-outline-variant text-on-surface font-medium hover:bg-surface-container transition-colors"
+          className="w-full sm:flex-1 px-3 py-2 rounded-xl border border-outline-variant text-sm text-on-surface font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
         >
           Manage
         </button>
         <button
           onClick={acceptAll}
-          className="flex-1 px-4 py-2 rounded-xl bg-primary text-on-primary font-medium hover:bg-primary/90 transition-colors"
+          className="w-full sm:flex-1 px-3 py-2 rounded-xl bg-primary text-sm text-on-primary font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
         >
           Accept all
         </button>
