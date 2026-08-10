@@ -14,6 +14,7 @@ const pageSections = [
   { id: "why-stylish-fonts-dont-always-work-important-to-know", label: "Why Stylish Fonts" },
   { id: "how-to-use-the-stylish-font-maker-step-by-step", label: "How to Use" },
   { id: "choose-the-right-cool-stylish-font-for-your-use-case", label: "Choose the Right" },
+  { id: "where-can-you-use-stylish-typefaces", label: "Where to Use" },
   { id: "all-stylish-font-styles-you-can-use", label: "All Stylish Font" },
   { id: "how-stylish-fonts-actually-work-behind-the-scenes", label: "How Stylish Fonts" },
   { id: "common-mistakes-tips-when-using-stylish-letters", label: "Common Mistakes &" },
@@ -639,6 +640,28 @@ export default function StylishFontsPage() {
                 </div>
               </article>
 
+              {/* Where Can You Use Stylish Typefaces */}
+              <article className="scroll-mt-[9rem]" id="where-can-you-use-stylish-typefaces">
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Can You Use Stylish Typefaces?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  You can use stylish letters almost anywhere online. Here are some popular platforms:
+                </p>
+                <ul className="space-y-4 mb-6">
+                  {platforms.map((platform) => (
+                    <li key={platform} className="flex items-start gap-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      <span className="text-on-surface-variant">{platform}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  These typefaces help you stand out in crowded spaces. Whether you are branding yourself
+                  or just having fun, stylish text adds personality to your content.
+                </p>
+              </article>
+
               {/* All Stylish Font Styles */}
               <article className="scroll-mt-[9rem]" id="all-stylish-font-styles-you-can-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -810,30 +833,7 @@ export default function StylishFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar
-              useCasesHeading="Where Can You Use Stylish Typefaces?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    You can use stylish letters almost anywhere online. Here are some popular platforms:
-                  </p>
-                  <ul className="space-y-3">
-                    {platforms.map((platform) => (
-                      <li key={platform} className="flex items-start gap-3">
-                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
-                        <span className="text-sm text-on-surface-variant">{platform}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    These typefaces help you stand out in crowded spaces. Whether you are branding yourself
-                    or just having fun, stylish text adds personality to your content.
-                  </p>
-                </>
-              }
-              showBanner={false}
-              showTips={false}
-            />
+            <Sidebar showBanner={false} showTips={false} />
           </div>
         </section>
 
