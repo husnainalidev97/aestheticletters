@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { type ReactNode, type ReactElement, isValidElement } from "react";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
@@ -66,8 +67,15 @@ const faqs = [
   },
   {
     question: "Can I use these styles in my Twitter bio?",
-    answer:
-      "Yes. Most serif unicode styles can be used in X (formerly Twitter) bios, display names, and posts.",
+    answer: (
+      <>
+        Yes. Most serif unicode styles can be used in X (formerly Twitter) bios, display names, and posts. For more platform-specific options, try our{" "}
+        <Link href="/twitter-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+          twitter font generator
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: "Do these fonts work on Discord?",
@@ -122,6 +130,15 @@ const serifVsSansSerif = [
 ];
 
 export default function SerifFontsPage() {
+  const getAnswerText = (answer: ReactNode): string => {
+    if (answer == null) return "";
+    if (typeof answer === "string") return answer;
+    if (typeof answer === "number") return String(answer);
+    if (Array.isArray(answer)) return answer.map(getAnswerText).join("");
+    if (isValidElement(answer)) return getAnswerText((answer as ReactElement<{ children?: ReactNode }>).props.children);
+    return "";
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -186,7 +203,7 @@ export default function SerifFontsPage() {
           name: faq.question,
           acceptedAnswer: {
             "@type": "Answer",
-            text: faq.answer,
+            text: getAnswerText(faq.answer),
           },
         })),
       },
@@ -346,7 +363,23 @@ export default function SerifFontsPage() {
                     {
                       step: "5",
                       title: "Paste Anywhere",
-                      desc: "Paste the text into supported platforms such as Instagram, Facebook, X (Twitter), Discord, TikTok, YouTube, WhatsApp, and Telegram.",
+                      desc: (
+                        <>
+                          Paste the text into supported platforms such as Instagram,{" "}
+                          <Link href="/facebook-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                            Facebook
+                          </Link>
+                          , X (
+                          <Link href="/twitter-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                            Twitter
+                          </Link>
+                          ), Discord,{" "}
+                          <Link href="/tiktok-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">
+                            TikTok
+                          </Link>
+                          , YouTube, WhatsApp, and Telegram.
+                        </>
+                      ),
                     },
                   ].map((item) => (
                     <div key={item.step} className="flex gap-6">
