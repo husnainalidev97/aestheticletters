@@ -224,7 +224,16 @@ const limitations = [
     body: [
       "A name that reads as short can still burn through Discord's character limit faster than expected, depending on the style chosen. Discord measures length by raw character code, not by visual letter count.",
       "Bold Sans and Bold Serif both sit in a part of Unicode that costs two units per letter, while Fullwidth costs only one, identical to plain text.",
-      "Twitter counts differently. Its weighted system charges extra for Fullwidth characters too, the same rate as Bold Sans and Bold Serif, so switching to Fullwidth does not save any space in a tweet.",
+      <>
+        Twitter counts differently. Its weighted system charges extra for Fullwidth characters too, the same rate as Bold Sans and Bold Serif, so switching to Fullwidth does not save any space in a tweet. Our{" "}
+        <Link
+          href="/twitter-fonts"
+          className="text-primary underline underline-offset-4 hover:no-underline"
+        >
+          twitter font generator
+        </Link>{" "}
+        covers more on how Unicode styles affect that count.
+      </>,
     ],
   },
   {
