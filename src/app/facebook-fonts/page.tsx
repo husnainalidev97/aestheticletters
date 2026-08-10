@@ -8,6 +8,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
+import BrandDisclaimer from "../components/BrandDisclaimer";
 import SectionNav from "../components/SectionNav";
 const pageSections = [
   { id: "what-are-facebook-fonts", label: "What Are Facebook" },
@@ -321,6 +322,7 @@ export default function FacebookFontsPage() {
             { label: "Facebook Fonts", href: "/facebook-fonts" },
           ]}
         />
+        <BrandDisclaimer brands={["Facebook", "Meta"]} />
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">

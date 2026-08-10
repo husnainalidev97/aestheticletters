@@ -128,6 +128,12 @@ export default function PrivacyPolicyPage() {
                 >
                   5. Your Privacy Rights
                 </a>
+                <a
+                  className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors"
+                  href="#eu-consent"
+                >
+                  6. EU/EEA/UK &amp; Swiss Consent
+                </a>
               </nav>
             </div>
           </aside>
@@ -234,25 +240,66 @@ export default function PrivacyPolicyPage() {
                 4. Third-Party Advertising
               </h2>
               <p className="mb-4">
-                We use Google AdSense and other third-party advertising companies
-                to serve ads when you visit our website. These companies may use
-                information about your visits to this and other websites in order
-                to provide advertisements about goods and services of interest to
-                you.
+                We use Google AdSense and similar third-party advertising
+                companies to serve ads when you visit our website. These
+                companies may use information about your visits to this and other
+                websites in order to provide advertisements about goods and
+                services of interest to you.
               </p>
               <p className="mb-4">
-                Google uses the DART cookie to serve ads based on user visits.
-                Users can opt out by visiting the Google Ad and Content Network
-                Privacy Policy at{" "}
+                Google uses cookies and similar technologies (including the DART
+                cookie and device identifiers) to serve and measure ads and to
+                personalize advertising. You can opt out of personalized
+                advertising from Google by visiting{" "}
+                <a
+                  className="text-primary underline decoration-primary/40 hover:decoration-primary underline-offset-4 transition-colors"
+                  href="https://adssettings.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google Ad Settings
+                </a>
+                . You can also learn more about how Google uses data for
+                advertising in{" "}
                 <a
                   className="text-primary underline decoration-primary/40 hover:decoration-primary underline-offset-4 transition-colors"
                   href="https://policies.google.com/technologies/ads"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://policies.google.com/technologies/ads
+                  Google&apos;s Advertising Technologies &amp; Privacy
                 </a>
-                .
+                {" "}page.
+              </p>
+              <p className="mb-4">
+                For additional choices about interest-based advertising across the
+                web, you can visit the{" "}
+                <a
+                  className="text-primary underline decoration-primary/40 hover:decoration-primary underline-offset-4 transition-colors"
+                  href="http://www.aboutads.info/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Digital Advertising Alliance
+                </a>
+                {" "}or{" "}
+                <a
+                  className="text-primary underline decoration-primary/40 hover:decoration-primary underline-offset-4 transition-colors"
+                  href="http://www.networkadvertising.org/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Network Advertising Initiative
+                </a>
+                {" "}opt-out pages.
+              </p>
+              <p className="mb-4">
+                We do not knowingly share the text you type into our generators
+                with advertisers. The advertising providers listed above may set
+                and read cookies or device identifiers through your browser. The
+                main advertising partner we work with is Google (Google AdSense);
+                additional partners may be added from time to time and will be
+                listed here.
               </p>
               <div className="bg-primary/5 p-8 rounded-xl border border-primary/10">
                 <h3 className="font-headline font-bold text-primary mb-3">
@@ -317,6 +364,35 @@ export default function PrivacyPolicyPage() {
                   </div>
                 </details>
               </div>
+            </section>
+
+            <section id="eu-consent">
+              <h2 className="font-headline text-2xl font-bold mb-6 text-on-surface">
+                6. EU/EEA/UK &amp; Swiss Consent
+              </h2>
+              <p className="mb-4">
+                If you are located in the European Economic Area (EEA), the United
+                Kingdom, or Switzerland, we ask for your consent before enabling
+                non-essential cookies and personalized advertising. Our cookie
+                consent banner allows you to accept or decline analytics and
+                advertising cookies separately.
+              </p>
+              <p className="mb-4">
+                You can change or withdraw your consent at any time by clicking
+                the &ldquo;Manage cookies&rdquo; option in the banner or by
+                clearing your browser cookies for this site. When consent is
+                declined, we use Google Consent Mode to limit data collection for
+                advertising and analytics purposes to the minimum required.
+              </p>
+              <p className="mb-4">
+                For personalized ads served through Google AdSense to users in
+                these regions, we are required to use a Google-certified Consent
+                Management Platform (CMP) that integrates with the IAB Transparency
+                and Consent Framework. We are in the process of integrating such
+                a CMP; until it is fully configured, personalized advertising in
+                the EEA/UK/Switzerland will be disabled and only limited, non-
+                personalized ads (if any) may be shown.
+              </p>
             </section>
 
             <section className="pt-12 border-t border-outline-variant/20" id="contact">

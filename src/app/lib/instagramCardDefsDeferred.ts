@@ -73,11 +73,11 @@ const deferredCardDefs: CardDef[] = [
     styles: [
       { label: "Shadow Fraktur", gen: (T) => v("fraktur", null, { prefix: "▪", suffix: "▪" })(T) },
       { label: "Pyramid Fraktur", gen: (T) => v("fraktur", null, "hieroglyph")(T) },
-      { label: "Cursed Text", gen: (T) => v("fraktur", null, { prefix: "†", suffix: "†" })(T) },
+      { label: "Twisted Text", gen: (T) => v("fraktur", null, { prefix: "†", suffix: "†" })(T) },
       { label: "Abyssal Dark", gen: (T) => v("bold-fraktur", null, { prefix: "▓", suffix: "▓" })(T) },
       { label: "Phantom Type", gen: (T) => v("fraktur", null, { prefix: "░", suffix: "░" })(T) },
       { label: "Wraith Bold", gen: (T) => v("bold-fraktur", null, { prefix: "◆", suffix: "◆" })(T) },
-      { label: "Dark Ritual", gen: (T) => v("fraktur", null, { prefix: "☠", suffix: "☠" })(T) },
+      { label: "Ancient Rites", gen: (T) => v("fraktur", null, { prefix: "☠", suffix: "☠" })(T) },
       { label: "Gothic Fraktur", gen: (T) => v("bold-fraktur")(T) },
       { label: "Void Fraktur", gen: (T) => v("fraktur", null, { prefix: "■", suffix: "■" })(T) },
       { label: "Heavy Gothic", gen: (T) => v("bold-fraktur", null, "heavy-box")(T) },

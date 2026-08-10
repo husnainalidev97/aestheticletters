@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Manrope, Noto_Sans_Math, Noto_Sans_Symbols, Noto_Sans_Symbols_2 } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-
-const GA_ID = "G-6QLR77B1GL";
+import { ConsentProvider } from "./components/ConsentProvider";
+import CookieBanner from "./components/CookieBanner";
+import ConsentAwareScripts from "./components/ConsentAwareScripts";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -131,14 +131,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        {/* Third-party analytics — double-deferred: lazyOnload (after window.load) + requestIdleCallback (browser idle) */}
-        <Script id="deferred-analytics" strategy="lazyOnload">
-          {`(window.requestIdleCallback||function(cb){setTimeout(cb,1)})(function(){
-(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wnvsu8cqo6");
-var s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}";document.head.appendChild(s);
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag("js",new Date());gtag("config","${GA_ID}");
-});`}
-        </Script>
+        {/* Consent default — deny optional cookies until the user consents */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});`,
+          }}
+        />
         {/* FOUC prevention — apply dark class before first paint */}
         <script
           dangerouslySetInnerHTML={{
@@ -157,7 +155,11 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        {children}
+        <ConsentProvider>
+          {children}
+          <CookieBanner />
+          <ConsentAwareScripts />
+        </ConsentProvider>
       </body>
     </html>
   );

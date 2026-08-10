@@ -25,18 +25,18 @@ const DEFAULT_TEXT = "Halloween Fonts";
 const INITIAL_COUNT = 3;
 
 /** Categories that receive the dark card treatment. */
-const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Blood Drip", "Cursed Script", "Skull Gothic", "Dark Ritual"]);
+const DARK_CATEGORIES = new Set(["Graveyard Gothic", "Crimson Drip", "Twisted Script", "Skull Gothic", "Ancient Rites"]);
 
 const HALLOWEEN_EMOJIS: Record<string, string> = {
   "Graveyard Gothic": "\u26B0\uFE0F",
-  "Blood Drip": "\uD83E\uDE78",
-  "Cursed Script": "\uD83D\uDD2E",
+  "Crimson Drip": "\uD83D\uDCA7",
+  "Twisted Script": "\uD83D\uDD2E",
   "Pumpkin Hollow": "\uD83C\uDF83",
   "Ghost Whisper": "\uD83D\uDC7B",
   "Witch Spell": "\uD83E\uDDD9",
   "Skull Gothic": "\u2620\uFE0F",
   "Moonlight Cursive": "\uD83C\uDF19",
-  "Dark Ritual": "\uD83D\uDD6F\uFE0F",
+  "Ancient Rites": "\uD83D\uDD6F\uFE0F",
   "Bat Wing": "\uD83E\uDD87",
 };
 
