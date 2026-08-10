@@ -560,6 +560,7 @@ export default function NumberFontGeneratorPage() {
                   { label: "Facebook Fonts", href: "/facebook-fonts", icon: "💬", desc: "Style your FB posts" },
                   { label: "Stylish Fonts", href: "/stylish-fonts", icon: "💎", desc: "Premium text styles" },
                   { label: "Cute Fonts", href: "/cute-fonts", icon: "🎀", desc: "Adorable text styles" },
+                  { label: "Discord Font Generator", href: "/discord-fonts", icon: "🎮", desc: "Style your server text" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}
