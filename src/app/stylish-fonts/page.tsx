@@ -197,14 +197,6 @@ const useCasesData = [
   { label: "Messaging Apps", description: "Keep it simple. Use light decorative stylish english fonts that are easy to read in chats." },
 ];
 
-const platforms = [
-  "Instagram bios and captions",
-  "WhatsApp messages and status",
-  "TikTok display names, bios, and descriptions",
-  "Facebook posts and comments",
-  "Free Fire and PUBG usernames",
-];
-
 export default function StylishFontsPage() {
   const imageObjects = [
     {
@@ -649,12 +641,43 @@ export default function StylishFontsPage() {
                   You can use stylish letters almost anywhere online. Here are some popular platforms:
                 </p>
                 <ul className="space-y-4 mb-6">
-                  {platforms.map((platform) => (
-                    <li key={platform} className="flex items-start gap-3">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <span className="text-on-surface-variant">{platform}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      Instagram bios and captions — Script and bold styles work best here. Our{" "}
+                      <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                        ig font generator
+                      </Link>{" "}
+                      breaks down which style fits which part of your profile.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">WhatsApp messages and status</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      TikTok display names, bios, and descriptions get more visual impact from high-energy styles. Build yours with the{" "}
+                      <Link href="/tiktok-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">
+                        tiktok font generator
+                      </Link>.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      Facebook posts and comments read better with cleaner styles. The{" "}
+                      <Link href="/facebook-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                        facebook fonts
+                      </Link>{" "}
+                      tool covers 40+ Unicode options built for that platform.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">Free Fire and PUBG usernames</span>
+                  </li>
                 </ul>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
                   These typefaces help you stand out in crowded spaces. Whether you are branding yourself
