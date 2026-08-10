@@ -12,6 +12,7 @@ const pageSections = [
   { id: "what-are-cursive-fonts", label: "What Are Cursive" },
   { id: "how-to-use-this-cursive-text-generator-in-seconds", label: "How to Use" },
   { id: "where-you-can-use-cursive-fonts", label: "Where You Can" },
+  { id: "works-on-all-platforms", label: "Works on All" },
   { id: "why-do-cursive-letters-attract-more-attention", label: "Why do Cursive" },
   { id: "40-handwritten-font-styles-in-8-categories", label: "40+ Handwritten Font" },
   { id: "explore-more-tools", label: "Explore" },
@@ -151,6 +152,18 @@ const faqs = [
     answer:
       "Cursive typefaces usually have connected letters, while handwritten letters may look like natural writing but are not always connected.",
   },
+];
+
+const worksOnAllPlatformsItems: { before: string; link?: string; href?: string; after: string }[] = [
+  { before: "Instagram", after: " bios and captions" },
+  { before: "", link: "Facebook", href: "/facebook-fonts", after: " posts and comments" },
+  { before: "", link: "Discord", href: "/discord-fonts", after: " messages" },
+  { before: "Twitter/X", after: " posts" },
+  { before: "Quora answers", after: "" },
+  { before: "Pinterest pins", after: "" },
+  { before: "WhatsApp and Telegram", after: "" },
+  { before: "LinkedIn posts", after: "" },
+  { before: "", link: "TikTok", href: "/tiktok-font-generator", after: " captions" },
 ];
 
 const categoryDescriptions = [
@@ -568,6 +581,48 @@ export default function CursiveFontsPage() {
                 </ol>
               </article>
 
+              {/* Works on All Platforms */}
+              <article className="scroll-mt-[9rem]" id="works-on-all-platforms">
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Works on All Platforms
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  You can use these cursive fonts on social networks without any
+                  problems. Since it uses Unicode characters, you can use it
+                  without any issues.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  You can use these cursive letters for:
+                </p>
+                <ol className="space-y-4 mb-6 text-on-surface-variant leading-relaxed text-lg">
+                  {worksOnAllPlatformsItems.map((item, index) => (
+                    <li key={item.before + (item.link ?? "") + item.after}>
+                      <strong>{index + 1}. </strong>
+                      {item.link && item.href ? (
+                        <>
+                          <Link
+                            href={item.href}
+                            className="text-primary underline underline-offset-4 hover:no-underline"
+                          >
+                            {item.link}
+                          </Link>
+                          {item.after}
+                        </>
+                      ) : (
+                        <>
+                          {item.before}
+                          {item.after}
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Everything works online. All you have to do is simply copy your
+                  script text and place it to your favorite platforms.
+                </p>
+              </article>
+
               {/* Why do Cursive letters Attract More Attention? */}
               <article className="scroll-mt-[9rem]" id="why-do-cursive-letters-attract-more-attention">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -679,42 +734,6 @@ export default function CursiveFontsPage() {
 
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-12">
-              {/* Works on All Platforms */}
-              <div className="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm">
-                <h3 className="font-headline text-2xl font-bold mb-6">
-                  Works on All Platforms
-                </h3>
-                <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                  You can use these cursive fonts on social networks without any
-                  problems. Since it uses Unicode characters, you can use it
-                  without any issues.
-                </p>
-                <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                  You can use these cursive letters for:
-                </p>
-                <ol className="space-y-4 text-sm leading-relaxed">
-                  {[
-                    "Instagram bios and captions",
-                    "Facebook posts and comments",
-                    "Discord messages",
-                    "Twitter/X posts",
-                    "Quora answers",
-                    "Pinterest pins",
-                    "WhatsApp and Telegram",
-                    "LinkedIn posts",
-                    "TikTok captions",
-                  ].map((item, index) => (
-                    <li key={item}>
-                      <strong>{index + 1}. {item}</strong>
-                    </li>
-                  ))}
-                </ol>
-                <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                  Everything works online. All you have to do is simply copy your
-                  script text and place it to your favorite platforms.
-                </p>
-              </div>
-
               {/* How to Use Image */}
               <div className="rounded-2xl overflow-hidden border border-outline-variant/10 shadow-sm">
                 <Image
