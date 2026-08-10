@@ -335,7 +335,6 @@ export default function FacebookFontsPage() {
 
         {/* Interactive Generator */}
         <FacebookFontsClient />
-        <BrandDisclaimer brands={["Facebook", "Meta"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
@@ -964,6 +963,7 @@ export default function FacebookFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["Facebook", "Meta"]} />
       <Footer />
     </>
   );

@@ -376,7 +376,6 @@ export default function TikTokFontsPage() {
 
         {/* Interactive Font Generator */}
         <TikTokFontGeneratorClient totalFontStyles={totalFontStyles} />
-        <BrandDisclaimer brands={["TikTok", "ByteDance"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
@@ -1078,6 +1077,7 @@ export default function TikTokFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["TikTok", "ByteDance"]} />
       <Footer />
     </>
   );

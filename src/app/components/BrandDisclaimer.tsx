@@ -11,13 +11,10 @@ export default function BrandDisclaimer({ brands }: BrandDisclaimerProps) {
   const names = rest.length === 0 ? last : `${rest.join(", ")} and ${last}`;
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 md:px-[150px]">
-      <div className="my-4 rounded-lg border border-outline-variant/20 bg-surface-container-lowest p-3 text-center text-xs text-on-surface-variant">
-        <strong>Independent tool:</strong> Aesthetic Letters is not affiliated
-        with, endorsed by, or sponsored by {names}. This is an unofficial
-        Unicode text-styling tool and does not imply any partnership with those
-        platforms.
-      </div>
+    <div className="w-full px-4 md:px-[150px] py-3 bg-surface-container-low border-t border-outline-variant/10 text-center text-xs text-on-surface-variant">
+      <strong>Independent tool:</strong> Aesthetic Letters is not affiliated
+      with, endorsed by, or sponsored by {names}. This is an unofficial Unicode
+      text-styling tool and does not imply any partnership with those platforms.
     </div>
   );
 }

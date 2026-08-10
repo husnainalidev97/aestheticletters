@@ -297,7 +297,6 @@ export default function DiscordFontsPage() {
 
         {/* Interactive Font Generator */}
         <DiscordFontGenerator totalFontStyles={totalFontStyles} />
-        <BrandDisclaimer brands={["Discord"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
@@ -852,6 +851,7 @@ export default function DiscordFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["Discord"]} />
       <Footer />
     </>
   );

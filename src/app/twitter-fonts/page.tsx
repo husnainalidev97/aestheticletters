@@ -343,7 +343,6 @@ export default function TwitterFontsPage() {
 
         {/* Interactive Font Generator */}
         <TwitterFontGenerator totalFontStyles={totalFontStyles} />
-        <BrandDisclaimer brands={["X", "Twitter"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
@@ -775,6 +774,7 @@ export default function TwitterFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["X", "Twitter"]} />
       <Footer />
     </>
   );

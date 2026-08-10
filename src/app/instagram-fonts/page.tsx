@@ -282,7 +282,6 @@ export default function InstagramFontsPage() {
           </p>
         </section>
         <InstagramFontCards />
-        <BrandDisclaimer brands={["Instagram", "Meta"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
@@ -895,6 +894,7 @@ export default function InstagramFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["Instagram", "Meta"]} />
       <Footer />
     </>
   );
