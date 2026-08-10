@@ -590,7 +590,15 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Ghost Whisper, Bat Wing, and
                   Blood Drip styles tend to work well because they retain character even at small sizes. Profile names
-                  benefit from gothic or glitch styles that look distinctive in the feed.
+                  benefit from gothic or glitch styles that look distinctive in the feed. For year-round TikTok styles beyond
+                  Halloween themes, check our{" "}
+                  <Link
+                    href="/tiktok-font-generator"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    tiktok text generator
+                  </Link>
+                  .
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Discord</h3>
