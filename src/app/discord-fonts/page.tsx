@@ -282,7 +282,6 @@ export default function DiscordFontsPage() {
             { label: "Discord Fonts", href: "/discord-fonts" },
           ]}
         />
-        <BrandDisclaimer brands={["Discord"]} />
 
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
@@ -298,6 +297,7 @@ export default function DiscordFontsPage() {
 
         {/* Interactive Font Generator */}
         <DiscordFontGenerator totalFontStyles={totalFontStyles} />
+        <BrandDisclaimer brands={["Discord"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />

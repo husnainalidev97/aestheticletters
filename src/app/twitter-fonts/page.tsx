@@ -328,7 +328,6 @@ export default function TwitterFontsPage() {
             { label: "Twitter Fonts", href: "/twitter-fonts" },
           ]}
         />
-        <BrandDisclaimer brands={["X", "Twitter"]} />
 
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
@@ -344,6 +343,7 @@ export default function TwitterFontsPage() {
 
         {/* Interactive Font Generator */}
         <TwitterFontGenerator totalFontStyles={totalFontStyles} />
+        <BrandDisclaimer brands={["X", "Twitter"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />

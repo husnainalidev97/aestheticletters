@@ -363,7 +363,6 @@ export default function TikTokFontsPage() {
             { label: "TikTok Font Generator", href: "/tiktok-font-generator" },
           ]}
         />
-        <BrandDisclaimer brands={["TikTok", "ByteDance"]} />
 
         {/* Hero Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
@@ -377,6 +376,7 @@ export default function TikTokFontsPage() {
 
         {/* Interactive Font Generator */}
         <TikTokFontGeneratorClient totalFontStyles={totalFontStyles} />
+        <BrandDisclaimer brands={["TikTok", "ByteDance"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />

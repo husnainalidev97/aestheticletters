@@ -273,7 +273,6 @@ export default function InstagramFontsPage() {
             { label: "Instagram Fonts", href: "/instagram-fonts" },
           ]}
         />
-        <BrandDisclaimer brands={["Instagram", "Meta"]} />
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             Instagram Fonts — Copy and Paste
@@ -283,6 +282,7 @@ export default function InstagramFontsPage() {
           </p>
         </section>
         <InstagramFontCards />
+        <BrandDisclaimer brands={["Instagram", "Meta"]} />
 
         {/* Sticky section navigation */}
         <SectionNav sections={pageSections} />
