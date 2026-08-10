@@ -247,9 +247,9 @@ export default function PrivacyPolicyPage() {
                 services of interest to you.
               </p>
               <p className="mb-4">
-                Google uses cookies and similar technologies (including the DART
-                cookie and device identifiers) to serve and measure ads and to
-                personalize advertising. You can opt out of personalized
+                Google uses cookies and similar technologies (including device
+                identifiers) to serve and measure ads and to personalize
+                advertising. You can opt out of personalized
                 advertising from Google by visiting{" "}
                 <a
                   className="text-primary underline decoration-primary/40 hover:decoration-primary underline-offset-4 transition-colors"
