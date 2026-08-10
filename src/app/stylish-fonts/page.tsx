@@ -14,11 +14,12 @@ const pageSections = [
   { id: "why-stylish-fonts-dont-always-work-important-to-know", label: "Why Stylish Fonts" },
   { id: "how-to-use-the-stylish-font-maker-step-by-step", label: "How to Use" },
   { id: "choose-the-right-cool-stylish-font-for-your-use-case", label: "Choose the Right" },
+  { id: "where-can-you-use-stylish-typefaces", label: "Where to Use" },
   { id: "all-stylish-font-styles-you-can-use", label: "All Stylish Font" },
   { id: "how-stylish-fonts-actually-work-behind-the-scenes", label: "How Stylish Fonts" },
   { id: "common-mistakes-tips-when-using-stylish-letters", label: "Common Mistakes &" },
   { id: "why-use-this-stylish-font-generator", label: "Why Use This" },
-  { id: "explore-related-fonts", label: "Explore" },
+  { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
@@ -194,14 +195,6 @@ const useCasesData = [
   { label: "Gaming Usernames", description: "Gamers often prefer bold and edgy cool fonts styles. These stand out in games like Free Fire and PUBG." },
   { label: "Content Creation", description: "For captions and posts, try creative styles that grab attention but remain readable." },
   { label: "Messaging Apps", description: "Keep it simple. Use light decorative stylish english fonts that are easy to read in chats." },
-];
-
-const platforms = [
-  "Instagram bios and captions",
-  "WhatsApp messages and status",
-  "TikTok display names, bios, and descriptions",
-  "Facebook posts and comments",
-  "Free Fire and PUBG usernames",
 ];
 
 export default function StylishFontsPage() {
@@ -639,6 +632,59 @@ export default function StylishFontsPage() {
                 </div>
               </article>
 
+              {/* Where Can You Use Stylish Typefaces */}
+              <article className="scroll-mt-[9rem]" id="where-can-you-use-stylish-typefaces">
+                <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                  Where Can You Use Stylish Typefaces?
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  You can use stylish letters almost anywhere online. Here are some popular platforms:
+                </p>
+                <ul className="space-y-4 mb-6">
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      Instagram bios and captions — Script and bold styles work best here. Our{" "}
+                      <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                        ig font generator
+                      </Link>{" "}
+                      breaks down which style fits which part of your profile.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">WhatsApp messages and status</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      TikTok display names, bios, and descriptions get more visual impact from high-energy styles. Build yours with the{" "}
+                      <Link href="/tiktok-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">
+                        tiktok font generator
+                      </Link>.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">
+                      Facebook posts and comments read better with cleaner styles. The{" "}
+                      <Link href="/facebook-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                        facebook fonts
+                      </Link>{" "}
+                      tool covers 40+ Unicode options built for that platform.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span className="text-on-surface-variant">Free Fire and PUBG usernames</span>
+                  </li>
+                </ul>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  These typefaces help you stand out in crowded spaces. Whether you are branding yourself
+                  or just having fun, stylish text adds personality to your content.
+                </p>
+              </article>
+
               {/* All Stylish Font Styles */}
               <article className="scroll-mt-[9rem]" id="all-stylish-font-styles-you-can-use">
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
@@ -810,58 +856,77 @@ export default function StylishFontsPage() {
             </div>
 
             {/* Sidebar */}
-            <Sidebar
-              useCasesHeading="Where Can You Use Stylish Typefaces?"
-              useCasesContent={
-                <>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                    You can use stylish letters almost anywhere online. Here are some popular platforms:
-                  </p>
-                  <ul className="space-y-3">
-                    {platforms.map((platform) => (
-                      <li key={platform} className="flex items-start gap-3">
-                        <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
-                        <span className="text-sm text-on-surface-variant">{platform}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-on-surface-variant leading-relaxed mt-4">
-                    These typefaces help you stand out in crowded spaces. Whether you are branding yourself
-                    or just having fun, stylish text adds personality to your content.
-                  </p>
-                </>
-              }
-              showBanner={false}
-              showTips={false}
-            />
+            <Sidebar showBanner={false} showTips={false} />
           </div>
         </section>
 
-        {/* Explore Related Fonts */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8 scroll-mt-[9rem]" id="explore-related-fonts">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center leading-tight">
-            Explore Related Fonts
+        {/* Explore More Tools */}
+        <section id="explore-more-tools" className="scroll-mt-[9rem] max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
           </h2>
-          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl editorial-shadow p-6 md:p-8">
-            <ul className="flex flex-wrap justify-center gap-3 md:gap-4 list-none p-0 m-0">
-              {[
-                { label: "Aesthetic Fonts", href: "/" },
-                { label: "Fancy Fonts", href: "/fancy-fonts" },
-                { label: "Cursive Fonts", href: "/cursive-fonts" },
-                { label: "Cute Fonts", href: "/cute-fonts" },
-                { label: "Instagram Fonts", href: "/instagram-fonts" },
-                { label: "Facebook Fonts", href: "/facebook-fonts" },
-              ].map((tool) => (
-                <li key={tool.href}>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Want more than stylish fonts? Check out these generators for other
+            platforms and text styles.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Similar Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Similar Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Aesthetic Fonts", href: "/", icon: "\u2728", desc: "All in one text styler" },
+                  { label: "Fancy Fonts", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+                  { label: "Cursive Fonts", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Handwriting scripts" },
+                  { label: "Cute Fonts", href: "/cute-fonts", icon: "\uD83C\uDF80", desc: "Adorable text styles" },
+                ].map((tool) => (
                   <Link
+                    key={tool.href}
                     href={tool.href}
-                    className="inline-flex items-center px-6 py-3 rounded-full bg-surface-container-low font-body font-medium text-sm md:text-base text-on-surface hover:bg-surface-container hover:text-primary transition-colors"
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
                   >
-                    {tool.label}
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Instagram Fonts", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Facebook Fonts", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
+                  { label: "TikTok Fonts", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

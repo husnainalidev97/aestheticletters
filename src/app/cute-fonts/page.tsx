@@ -714,7 +714,11 @@ export default function CuteFontsPage() {
                     <h3 className="font-headline font-bold mb-2 text-lg">Instagram &amp; TikTok</h3>
                     <p className="text-sm text-on-surface-variant leading-relaxed">
                       Pretty fonts are widely used in bios, reels captions, highlights, and usernames. Soft styles
-                      like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles.
+                      like Love Notes or Sweet Ribbons work well for lifestyle creators, fashion pages, and modern profiles. Our{" "}
+                      <Link href="/instagram-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
+                        instagram text generator
+                      </Link>{" "}
+                      covers more style breakdowns for bios and highlights.
                     </p>
                   </div>
                   <div className="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
@@ -829,6 +833,7 @@ export default function CuteFontsPage() {
                   { label: "Discord Font Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style your server text" },
                   { label: "Facebook Text Generator", href: "/facebook-fonts", icon: "\uD83D\uDCAC", desc: "Style your FB posts" },
                   { label: "Twitter Font Generator", href: "/twitter-fonts", icon: "\uD83D\uDC26", desc: "Fonts for X bios & tweets" },
+                  { label: "TikTok Font Generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

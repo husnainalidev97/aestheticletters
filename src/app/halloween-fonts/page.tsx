@@ -21,6 +21,7 @@ const pageSections = [
   { id: "creepy-fonts-on-cricut-what-actually-works", label: "Creepy Fonts on Cricut: What Actually Works" },
   { id: "halloween-fonts-for-different-use-cases", label: "Halloween Fonts for Different Use Cases" },
   { id: "when-not-to-use-spooky-fonts", label: "When NOT to Use Spooky Fonts" },
+  { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" }
 ];
 
@@ -590,7 +591,15 @@ export default function HalloweenFontsPage() {
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Ghost Whisper, Bat Wing, and
                   Blood Drip styles tend to work well because they retain character even at small sizes. Profile names
-                  benefit from gothic or glitch styles that look distinctive in the feed.
+                  benefit from gothic or glitch styles that look distinctive in the feed. For year-round TikTok styles beyond
+                  Halloween themes, check our{" "}
+                  <Link
+                    href="/tiktok-font-generator"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    tiktok text generator
+                  </Link>
+                  .
                 </p>
 
                 <h3 className="font-headline text-2xl font-bold mb-4 leading-tight">Discord</h3>
@@ -851,7 +860,7 @@ export default function HalloweenFontsPage() {
                   covers {totalFontStyles}+ decorative styles that work across every occasion.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg">
-                  Once October ends, our{" "}
+                  <strong className="text-on-surface">NOTE:</strong> Once October ends, our{" "}
                   <Link href="/christmas-fonts" className="text-primary underline underline-offset-4 hover:no-underline">
                     Christmas font generator
                   </Link>{" "}
@@ -899,6 +908,75 @@ export default function HalloweenFontsPage() {
               showBanner={false}
               showTips={false}
             />
+          </div>
+        </section>
+
+        {/* Explore More Tools */}
+        <section id="explore-more-tools" className="scroll-mt-[9rem] max-w-[1440px] mx-auto px-4 md:px-[150px] pt-16 pb-8">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3 text-center leading-tight">
+            Explore More Tools
+          </h2>
+          <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+            Want more than Halloween fonts? Check out these generators for seasonal styles, letters, and complete text styling.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Other Seasonal Font Styles */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Other Seasonal Font Styles
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Christmas Fonts", href: "/christmas-fonts", icon: "\uD83C\uDF84", desc: "Festive holiday text" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Popular Tools */}
+            <div>
+              <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="inline-block w-1 h-5 rounded-full bg-primary" />
+                Popular Tools
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u270D\uFE0F", desc: "Flowing handwritten text" },
+                  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Stand out on Insta" },
+                  { label: "Discord Text Generator", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Style server text" },
+                  { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83D\uDC51", desc: "Decorative text art" },
+                  { label: "TikTok Font Generator", href: "/tiktok-font-generator", icon: "\uD83C\uDFB5", desc: "Fonts for TikTok" },
+                  { label: "Aesthetic Font Generator", href: "/", icon: "\u2728", desc: "All-in-one text styler" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="text-2xl mb-2">{tool.icon}</span>
+                    <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {tool.label}
+                    </span>
+                    <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                      {tool.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

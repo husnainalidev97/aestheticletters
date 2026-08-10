@@ -477,7 +477,14 @@ export default function ChristmasFontsPage() {
                   goes. A styled greeting pastes cleanly into a regular post, a
                   comment or a page bio, but Facebook&rsquo;s name field, like
                   Discord&rsquo;s username, restricts characters and will reject
-                  styled text there.
+                  styled text there. For more Facebook-specific styles, our{" "}
+                  <Link
+                    href="/facebook-fonts"
+                    className="text-primary underline underline-offset-4 hover:no-underline"
+                  >
+                    fb font generator
+                  </Link>{" "}
+                  covers what works in each field.
                 </p>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   WhatsApp status updates and chats also accept styled text
