@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useConsent } from "./ConsentProvider";
 
 export default function CookieBanner() {
   const { consent, setConsent } = useConsent();
+  const [mounted, setMounted] = useState(false);
   const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    // hydration guard: wait until the client has mounted before deciding to show
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const [analytics, setAnalytics] = useState(true);
   const [ads, setAds] = useState(true);
@@ -34,6 +41,8 @@ export default function CookieBanner() {
   const closeManage = () => {
     setExpanded(false);
   };
+
+  if (!mounted) return null;
 
   if (expanded) {
     return (
