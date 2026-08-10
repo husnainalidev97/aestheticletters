@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { type ReactNode, type ReactElement, isValidElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
@@ -338,8 +338,15 @@ const faqs = [
   },
   {
     question: "Why didn't my copied weird text paste correctly somewhere?",
-    answer:
-      "Some apps process pasted text through filters of their own, which can silently strip unusual characters. Our bold text generator documents the same normalization issue stripping styled Unicode on certain platforms.",
+    answer: (
+      <p>
+        Some apps process pasted text through filters of their own, which can silently strip unusual characters. Our{" "}
+        <Link href="/bold-font-generator" className="text-primary underline underline-offset-4 hover:no-underline">
+          bold text generator
+        </Link>{" "}
+        documents the same normalization issue stripping styled Unicode on certain platforms.
+      </p>
+    ),
   },
 ];
 
@@ -450,6 +457,15 @@ export default function WeirdFontGeneratorPage() {
     ],
   };
 
+  const getAnswerText = (answer: ReactNode): string => {
+    if (answer == null) return "";
+    if (typeof answer === "string") return answer;
+    if (typeof answer === "number") return String(answer);
+    if (Array.isArray(answer)) return answer.map(getAnswerText).join("");
+    if (isValidElement(answer)) return getAnswerText((answer as ReactElement<{ children?: ReactNode }>).props.children);
+    return "";
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -458,7 +474,7 @@ export default function WeirdFontGeneratorPage() {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: getAnswerText(faq.answer),
       },
     })),
   };
