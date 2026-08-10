@@ -230,7 +230,7 @@ export default function CursiveFontGenerator() {
         <div className="w-full h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
           <div className="bg-surface p-4 rounded-lg text-center shadow-sm">
             <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-              Sponsored Placement
+              Advertisements
             </span>
             <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
           </div>

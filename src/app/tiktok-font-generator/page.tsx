@@ -10,6 +10,7 @@ import Sidebar from "../components/Sidebar";
 import SectionNav from "../components/SectionNav";
 import TikTokFontGeneratorClient from "../components/TikTokFontGeneratorClient";
 import TikTokSymbolsGroup from "./TikTokSymbolsGroup";
+import BrandDisclaimer from "../components/BrandDisclaimer";
 import { getTotalFontStyleCount } from "../lib/fontCount";
 import { TIKTOK_SYMBOL_GROUPS, tiktokFontCategories } from "../lib/tiktokFontStyles";
 
@@ -1076,6 +1077,7 @@ export default function TikTokFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["TikTok", "ByteDance"]} />
       <Footer />
     </>
   );

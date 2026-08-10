@@ -8,6 +8,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import FacebookFontsClient from "./FacebookFontsClientLazy";
+import BrandDisclaimer from "../components/BrandDisclaimer";
 import SectionNav from "../components/SectionNav";
 const pageSections = [
   { id: "what-are-facebook-fonts", label: "What Are Facebook" },
@@ -962,6 +963,7 @@ export default function FacebookFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["Facebook", "Meta"]} />
       <Footer />
     </>
   );

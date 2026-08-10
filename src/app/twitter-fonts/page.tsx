@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import TwitterFontGenerator from "../components/TwitterFontGenerator";
+import BrandDisclaimer from "../components/BrandDisclaimer";
 import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
@@ -773,6 +774,7 @@ export default function TwitterFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["X", "Twitter"]} />
       <Footer />
     </>
   );

@@ -12,6 +12,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import Breadcrumb from "../components/Breadcrumb";
 import TrendingFonts from "../components/TrendingFonts";
 import SectionNav from "../components/SectionNav";
+import BrandDisclaimer from "../components/BrandDisclaimer";
 const pageSections = [
   { id: "what-are-instagram-fonts", label: "What Are Instagram" },
   { id: "how-to-use-instagram-font-changer-step-by-step", label: "How to Use" },
@@ -893,6 +894,7 @@ export default function InstagramFontsPage() {
         </section>
       </main>
       <BackToTopButton />
+      <BrandDisclaimer brands={["Instagram", "Meta"]} />
       <Footer />
     </>
   );

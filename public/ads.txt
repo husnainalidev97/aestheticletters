@@ -1,0 +1,6 @@
+# Aesthetic Letters ads.txt
+# Replace the placeholder publisher ID below with your real Google AdSense
+# publisher ID (ca-pub-XXXXXXXXXXXXXXXX) once AdSense approves the account.
+#
+# Format: google.com, <publisher-id>, DIRECT, f08c47fec0942fa0
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

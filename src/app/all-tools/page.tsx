@@ -176,7 +176,7 @@ const toolCategories: ToolCategory[] = [
       {
         title: "Halloween Fonts",
         description:
-          "75+ spooky, gothic, and creepy font styles for Halloween-themed content, party invites, and horror designs.",
+          "75+ spooky, gothic, and festive font styles for Halloween-themed content, party invites, and seasonal designs.",
         icon: "skull",
         href: "/halloween-fonts",
       },
