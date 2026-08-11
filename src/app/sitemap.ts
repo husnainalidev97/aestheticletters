@@ -3,17 +3,17 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Tool pages not modified in this update cycle */
+  /* Tool pages not modified in the latest update cycle */
   const toolsModified = new Date("2026-08-03T00:00:00Z");
-  /* Info & legal pages — not modified in this update cycle */
+  /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
-  /* Pages updated with new cross-link content */
-  const today = new Date();
+  /* Pages updated on 10 Aug 2026: cross-links, brand disclaimers, cookie-consent flow, Halloween tone-down */
+  const siteUpdate = new Date("2026-08-10T00:00:00Z");
 
   return [
     {
       url: `${SITE_URL}/`,
-      lastModified: new Date(),
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 1,
       images: [
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/fancy-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cursive-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/instagram-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/stylish-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/cute-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -102,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/halloween-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -119,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/facebook-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -133,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/serif-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -143,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/sans-serif-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -162,7 +162,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/number-font-generator`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -186,7 +186,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/big-text-generator`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -200,7 +200,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/discord-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -213,7 +213,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/preppy-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -226,7 +226,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/weird-font-generator`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -240,7 +240,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/christmas-fonts`,
-      lastModified: today,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -253,7 +253,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/twitter-fonts`,
-      lastModified: toolsModified,
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -266,7 +266,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/tiktok-font-generator`,
-      lastModified: new Date(),
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
@@ -283,7 +283,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/all-tools`,
-      lastModified: new Date("2026-07-02T00:00:00Z"),
+      lastModified: siteUpdate,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -301,7 +301,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/privacy-policy`,
-      lastModified: infoModified,
+      lastModified: siteUpdate,
       changeFrequency: "yearly",
       priority: 0.3,
     },
