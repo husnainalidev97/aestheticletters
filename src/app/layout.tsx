@@ -137,6 +137,19 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});`,
           }}
         />
+        {/* Always load Google Analytics with Consent Mode default denied.
+            The script is in the initial HTML so every visitor is counted,
+            even before the cookie banner is interacted with. */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6QLR77B1GL"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `gtag('js',new Date());gtag('config','G-6QLR77B1GL');`,
+          }}
+        />
         {/* FOUC prevention — apply dark class before first paint */}
         <script
           dangerouslySetInnerHTML={{
