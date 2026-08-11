@@ -38,17 +38,17 @@ export default function ConsentAwareScripts() {
 
   return (
     <>
-      {consent?.analytics && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga-config" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_ID}');`}
-          </Script>
-        </>
-      )}
+      {/* Always load Google Analytics with Consent Mode default denied.
+          The default `analytics_storage: denied` is set in layout.tsx so no
+          cookies are used until the visitor opts in; we get cookieless,
+          modeled traffic data instead of losing all visibility. */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga-config" strategy="afterInteractive">
+        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_ID}');`}
+      </Script>
 
       {consent?.analytics && (
         <Script id="clarity" strategy="lazyOnload">
