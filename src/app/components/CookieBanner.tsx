@@ -4,9 +4,8 @@ import { useState } from "react";
 import { useConsent } from "./ConsentProvider";
 
 export default function CookieBanner() {
-  const { consent, setConsent } = useConsent();
+  const { consent, setConsent, requiresConsent } = useConsent();
   const [expanded, setExpanded] = useState(false);
-
   const [analytics, setAnalytics] = useState(true);
   const [ads, setAds] = useState(true);
 
@@ -108,7 +107,7 @@ export default function CookieBanner() {
     );
   }
 
-  if (consent !== null) return null;
+  if (!requiresConsent || consent !== null) return null;
 
   return (
     <div

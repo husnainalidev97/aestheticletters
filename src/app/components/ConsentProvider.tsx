@@ -5,7 +5,7 @@ import {
   useContext,
   useMemo,
   useState,
-  useSyncExternalStore,
+  useEffect,
   useCallback,
   type ReactNode,
 } from "react";
@@ -19,12 +19,13 @@ export interface Consent {
 interface ConsentContextValue {
   consent: Consent | null;
   setConsent: (consent: Consent) => void;
-  version: number;
+  requiresConsent: boolean;
 }
 
 const ConsentContext = createContext<ConsentContextValue | undefined>(undefined);
 
 const STORAGE_KEY = "al-cookie-consent";
+const CONSENT_COOKIE = "al-cookie-consent";
 
 function parse(raw: string | null): Consent | null {
   if (!raw) return null;
@@ -48,48 +49,81 @@ function parse(raw: string | null): Consent | null {
   return null;
 }
 
-function getSnapshot() {
-  if (typeof window === "undefined") return null;
-  try {
-    return window.localStorage.getItem(STORAGE_KEY);
-  } catch {
-    return null;
-  }
+function getCookie(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" + name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "=([^;]*)"
+    )
+  );
+  return match ? decodeURIComponent(match[1]) : undefined;
 }
 
-function getServerSnapshot() {
-  return null;
+function setCookie(name: string, value: string, maxAgeDays = 365) {
+  if (typeof document === "undefined") return;
+  const expires = new Date(Date.now() + maxAgeDays * 24 * 60 * 60 * 1000).toUTCString();
+  const secure = location.protocol === "https:" ? ";Secure" : "";
+  document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires};path=/;SameSite=Lax${secure}`;
 }
 
-function subscribe(callback: () => void) {
-  if (typeof window === "undefined") return () => {};
-  const handler = (event: StorageEvent) => {
-    if (event.key === STORAGE_KEY) callback();
-  };
-  window.addEventListener("storage", handler);
-  return () => window.removeEventListener("storage", handler);
-}
+export function ConsentProvider({
+  children,
+  serverConsent,
+  serverRequiresConsent,
+}: {
+  children: ReactNode;
+  serverConsent?: Consent | null;
+  serverRequiresConsent?: boolean;
+}) {
+  const requiresConsent = serverRequiresConsent ?? true;
+  const [consent, setConsentState] = useState<Consent | null>(
+    serverConsent ?? null
+  );
 
-export function ConsentProvider({ children }: { children: ReactNode }) {
-  const [version, setVersion] = useState(0);
-  const raw = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const consent = useMemo(() => parse(raw), [raw]);
-
-  const setConsent = useCallback((value: Consent) => {
+  useEffect(() => {
+    if (consent !== null) return;
+    const cookie = getCookie(CONSENT_COOKIE);
+    if (cookie) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setConsentState(parse(cookie));
+      return;
+    }
     try {
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+      const local = window.localStorage.getItem(STORAGE_KEY);
+      if (local) {
+        setConsentState(parse(local));
       }
     } catch {
       // ignore storage errors
     }
-    setVersion((v) => v + 1);
+  }, [consent]);
+
+  const setConsent = useCallback((value: Consent) => {
+    setConsentState(value);
+    const raw = value ? JSON.stringify(value) : "";
+    try {
+      if (value) {
+        window.localStorage.setItem(STORAGE_KEY, raw);
+      } else {
+        window.localStorage.removeItem(STORAGE_KEY);
+      }
+    } catch {
+      // ignore storage errors
+    }
+    if (value) {
+      setCookie(CONSENT_COOKIE, raw);
+    } else {
+      setCookie(CONSENT_COOKIE, "", -1);
+    }
   }, []);
 
+  const value = useMemo(
+    () => ({ consent, setConsent, requiresConsent }),
+    [consent, setConsent, requiresConsent]
+  );
+
   return (
-    <ConsentContext.Provider value={{ consent, setConsent, version }}>
-      {children}
-    </ConsentContext.Provider>
+    <ConsentContext.Provider value={value}>{children}</ConsentContext.Provider>
   );
 }
 

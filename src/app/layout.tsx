@@ -1,9 +1,32 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Space_Grotesk, Manrope, Noto_Sans_Math, Noto_Sans_Symbols, Noto_Sans_Symbols_2 } from "next/font/google";
 import "./globals.css";
-import { ConsentProvider } from "./components/ConsentProvider";
+import { ConsentProvider, type Consent } from "./components/ConsentProvider";
 import CookieBanner from "./components/CookieBanner";
 import ConsentAwareScripts from "./components/ConsentAwareScripts";
+
+function parseConsent(raw: string | undefined): Consent | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (
+      parsed &&
+      typeof parsed === "object" &&
+      "analytics" in parsed &&
+      "ads" in parsed
+    ) {
+      return {
+        analytics: Boolean(parsed.analytics),
+        ads: Boolean(parsed.ads),
+        functional: Boolean(parsed.functional ?? true),
+      };
+    }
+  } catch {
+    // ignore corrupt cookie
+  }
+  return null;
+}
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -118,11 +141,16 @@ const siteJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const geoCookie = cookieStore.get("al-geo-consent-required")?.value;
+  const requiresConsent = geoCookie !== "0";
+  const serverConsent = parseConsent(cookieStore.get("al-cookie-consent")?.value);
+
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${notoMath.variable} ${notoSymbols.variable} ${notoSymbols2.variable}`} suppressHydrationWarning>
       <head>
@@ -145,7 +173,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var c=localStorage.getItem("al-cookie-consent");if(c){document.documentElement.classList.add("cookie-consent-given")}}catch(e){}})();`,
+            __html: `(function(){try{var c=document.cookie.match(/(?:^|; )al-cookie-consent=([^;]*)/);var g=document.cookie.match(/(?:^|; )al-geo-consent-required=([^;]*)/);var l=localStorage.getItem("al-cookie-consent");if((c&&c[1])||(g&&decodeURIComponent(g[1])==="0")||l){document.documentElement.classList.add("cookie-consent-given")}}catch(e){}})();`,
           }}
         />
         {/* FOUC prevention — apply dark class before first paint */}
@@ -166,7 +194,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <ConsentProvider>
+        <ConsentProvider serverConsent={serverConsent} serverRequiresConsent={requiresConsent}>
           <CookieBanner />
           <ConsentAwareScripts />
         </ConsentProvider>
