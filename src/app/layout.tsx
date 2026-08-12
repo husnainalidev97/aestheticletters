@@ -137,17 +137,15 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});`,
           }}
         />
-        {/* Always load Google Analytics with Consent Mode default denied.
-            The script is in the initial HTML so every visitor is counted,
-            even before the cookie banner is interacted with. */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6QLR77B1GL"
+        {/* Pre-hide the cookie banner for returning users before first paint */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `.cookie-consent-given #cookie-banner{display:none!important}`,
+          }}
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `gtag('js',new Date());gtag('config','G-6QLR77B1GL');`,
+            __html: `(function(){try{var c=localStorage.getItem("al-cookie-consent");if(c){document.documentElement.classList.add("cookie-consent-given")}}catch(e){}})();`,
           }}
         />
         {/* FOUC prevention — apply dark class before first paint */}
@@ -169,10 +167,24 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <ConsentProvider>
-          {children}
           <CookieBanner />
           <ConsentAwareScripts />
         </ConsentProvider>
+        {children}
+        {/* Google Analytics — loaded with defer at the end of the body so it
+            does not block the initial render, while the consent default above
+            ensures Consent Mode is respected from the first dataLayer push. */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          defer
+          src="https://www.googletagmanager.com/gtag/js?id=G-6QLR77B1GL"
+        />
+        <script
+          defer
+          dangerouslySetInnerHTML={{
+            __html: `gtag('js',new Date());gtag('config','G-6QLR77B1GL');`,
+          }}
+        />
       </body>
     </html>
   );

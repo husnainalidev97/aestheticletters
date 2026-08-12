@@ -1,18 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useConsent } from "./ConsentProvider";
 
 export default function CookieBanner() {
   const { consent, setConsent } = useConsent();
-  const [mounted, setMounted] = useState(false);
   const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    // hydration guard: wait until the client has mounted before deciding to show
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
 
   const [analytics, setAnalytics] = useState(true);
   const [ads, setAds] = useState(true);
@@ -41,8 +34,6 @@ export default function CookieBanner() {
   const closeManage = () => {
     setExpanded(false);
   };
-
-  if (!mounted) return null;
 
   if (expanded) {
     return (
@@ -121,6 +112,7 @@ export default function CookieBanner() {
 
   return (
     <div
+      id="cookie-banner"
       role="dialog"
       aria-label="Cookie consent"
       className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:max-w-md rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 shadow-2xl"
