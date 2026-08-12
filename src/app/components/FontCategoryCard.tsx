@@ -77,6 +77,8 @@ function FontCategoryCard({
 
   useEffect(() => {
     if (visibleCount >= stylesToTransform.length) return;
+    const chunkSize = 4;
+    const nextCount = Math.min(visibleCount + chunkSize, stylesToTransform.length);
     let id: number | undefined;
     const cancel = () => {
       if (id !== undefined) {
@@ -85,9 +87,9 @@ function FontCategoryCard({
       }
     };
     if ("requestIdleCallback" in globalThis) {
-      id = globalThis.requestIdleCallback(() => setVisibleCount(stylesToTransform.length), { timeout: 200 });
+      id = globalThis.requestIdleCallback(() => setVisibleCount(nextCount), { timeout: 300 });
     } else {
-      id = globalThis.setTimeout(() => setVisibleCount(stylesToTransform.length), 200) as unknown as number;
+      id = globalThis.setTimeout(() => setVisibleCount(nextCount), 300) as unknown as number;
     }
     return cancel;
   }, [stylesToTransform.length, visibleCount]);

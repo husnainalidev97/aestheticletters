@@ -10,7 +10,7 @@ interface LazyMountProps {
 }
 
 function getInitialInView() {
-  if (typeof window === "undefined") return true;
+  if (typeof window === "undefined") return false;
   return !("IntersectionObserver" in window);
 }
 
