@@ -3,6 +3,7 @@
 import {
   createContext,
   useContext,
+  useMemo,
   useState,
   useSyncExternalStore,
   useCallback,
@@ -72,7 +73,7 @@ function subscribe(callback: () => void) {
 export function ConsentProvider({ children }: { children: ReactNode }) {
   const [version, setVersion] = useState(0);
   const raw = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const consent = parse(raw);
+  const consent = useMemo(() => parse(raw), [raw]);
 
   const setConsent = useCallback((value: Consent) => {
     try {

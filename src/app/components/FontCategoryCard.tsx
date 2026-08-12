@@ -45,10 +45,13 @@ function FontCategoryCard({
     ? category.styles
     : category.styles.slice(0, cardInitial);
 
+  const [visibleCount, setVisibleCount] = useState(Math.min(4, stylesToTransform.length));
+
   const transformedStyles = useMemo(() => {
     const wrap = (s: string) =>
       wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
-    return stylesToTransform.map((style, index) => {
+    const toRender = stylesToTransform.slice(0, visibleCount);
+    return toRender.map((style, index) => {
       let converted = wrap(style.transform(text));
       let display = wrap((style.displayTransform ?? style.transform)(text));
       if (category.symbols) {
@@ -68,14 +71,12 @@ function FontCategoryCard({
       };
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, text, showAllStyles, wrapSymbol]);
+  }, [category, text, showAllStyles, wrapSymbol, visibleCount]);
 
   const hiddenCount = category.styles.length - stylesToTransform.length;
 
-  const [visibleCount, setVisibleCount] = useState(Math.min(4, transformedStyles.length));
-
   useEffect(() => {
-    if (visibleCount >= transformedStyles.length) return;
+    if (visibleCount >= stylesToTransform.length) return;
     let id: number | undefined;
     const cancel = () => {
       if (id !== undefined) {
@@ -84,14 +85,14 @@ function FontCategoryCard({
       }
     };
     if ("requestIdleCallback" in globalThis) {
-      id = globalThis.requestIdleCallback(() => setVisibleCount(transformedStyles.length), { timeout: 200 });
+      id = globalThis.requestIdleCallback(() => setVisibleCount(stylesToTransform.length), { timeout: 200 });
     } else {
-      id = globalThis.setTimeout(() => setVisibleCount(transformedStyles.length), 200) as unknown as number;
+      id = globalThis.setTimeout(() => setVisibleCount(stylesToTransform.length), 200) as unknown as number;
     }
     return cancel;
-  }, [transformedStyles.length, visibleCount]);
+  }, [stylesToTransform.length, visibleCount]);
 
-  const visibleStyles = transformedStyles.slice(0, visibleCount);
+  const visibleStyles = transformedStyles;
 
   return (
     <div
