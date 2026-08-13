@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import CompactStyleCard from "./CompactStyleCard";
 import FontResultCard from "./FontResultCard";
 import type { FontCategory } from "../lib/fontStyles";
@@ -22,10 +22,17 @@ const DEFAULT_SIZE = 24;
 const STEP = 2;
 const MAX_SYMBOL_STYLES = 25;
 
+type SymbolStyle = {
+  name: string;
+  text: string;
+  category: string;
+  key?: string;
+};
+
 function getStylesForText(
   text: string,
   categories: FontCategory[],
-): { name: string; text: string; category: string }[] {
+): SymbolStyle[] {
   const results: { name: string; text: string; category: string }[] = [];
   const seen = new Set<string>();
 
@@ -72,6 +79,8 @@ export default function AlphabetLetterGenerator({
 
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
   const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -85,11 +94,59 @@ export default function AlphabetLetterGenerator({
     return () => mql.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    };
+  }, []);
+
   const handleChange = (newValue: string) => {
     if (value === undefined) {
       setInternalText(newValue);
     }
     onChange?.(newValue);
+  };
+
+  const fallbackCopy = (copyText: string) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = copyText;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+      document.execCommand("copy");
+    } catch {
+      // silent
+    }
+    document.body.removeChild(textarea);
+  };
+
+  const handleSymbolGridCopy = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const btn = target.closest("button[data-text]") as HTMLButtonElement | null;
+    if (!btn) return;
+    const copyText = btn.getAttribute("data-text") ?? "";
+    if (!copyText) return;
+
+    const onSuccess = () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      setCopiedKey(copyText);
+      copyTimerRef.current = setTimeout(() => setCopiedKey(null), 1500);
+    };
+
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard.writeText(copyText).then(onSuccess).catch(() => {
+        fallbackCopy(copyText);
+        onSuccess();
+      });
+    } else {
+      fallbackCopy(copyText);
+      onSuccess();
+    }
   };
 
   const decreaseSize = () => {
@@ -112,13 +169,71 @@ export default function AlphabetLetterGenerator({
     [upperText, lowerText],
   );
 
-  const capitalSymbolStyles = useMemo(
-    () => getStylesForText(upperText, fontCategories).slice(0, MAX_SYMBOL_STYLES),
-    [upperText],
-  );
-  const smallSymbolStyles = useMemo(
-    () => getStylesForText(lowerText, fontCategories).slice(0, MAX_SYMBOL_STYLES),
-    [lowerText],
+  const [visibleStandardCount, setVisibleStandardCount] = useState(4);
+
+  useEffect(() => {
+    if (visibleStandardCount >= standardStyles.length) return;
+    const nextCount = Math.min(visibleStandardCount + 4, standardStyles.length);
+    let id: number | undefined;
+    const cancel = () => {
+      if (id !== undefined) {
+        if ("cancelIdleCallback" in globalThis) globalThis.cancelIdleCallback(id);
+        else globalThis.clearTimeout(id);
+      }
+    };
+    if ("requestIdleCallback" in globalThis) {
+      id = globalThis.requestIdleCallback(() => setVisibleStandardCount(nextCount), { timeout: 200 });
+    } else {
+      id = globalThis.setTimeout(() => setVisibleStandardCount(nextCount), 200) as unknown as number;
+    }
+    return cancel;
+  }, [visibleStandardCount, standardStyles.length]);
+
+  const [capitalVisible, setCapitalVisible] = useState(false);
+  const [smallVisible, setSmallVisible] = useState(false);
+  const capitalRef = useRef<HTMLDivElement>(null);
+  const smallRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) {
+      let cancelled = false;
+      const id = setTimeout(() => {
+        if (!cancelled) {
+          setCapitalVisible(true);
+          setSmallVisible(true);
+        }
+      }, 0);
+      return () => {
+        cancelled = true;
+        clearTimeout(id);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (entry.target === capitalRef.current) setCapitalVisible(true);
+          if (entry.target === smallRef.current) setSmallVisible(true);
+        });
+      },
+      { rootMargin: "100px", threshold: 0 },
+    );
+    if (capitalRef.current) observer.observe(capitalRef.current);
+    if (smallRef.current) observer.observe(smallRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const symbolStyles = useMemo(
+    () => ({
+      capital: capitalVisible
+        ? getStylesForText(upperText, fontCategories).slice(0, MAX_SYMBOL_STYLES)
+        : [],
+      small: smallVisible
+        ? getStylesForText(lowerText, fontCategories).slice(0, MAX_SYMBOL_STYLES)
+        : [],
+    }),
+    [upperText, lowerText, capitalVisible, smallVisible],
   );
 
   return (
@@ -234,11 +349,11 @@ export default function AlphabetLetterGenerator({
 
       {/* Standard Unicode Styles — uppercase + lowercase together */}
       <div className="mt-10">
-        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+        <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Standard {upperLetter} Fonts
-        </h3>
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
-          {standardStyles.map((style) => (
+          {standardStyles.slice(0, visibleStandardCount).map((style) => (
             <FontResultCard
               key={`standard-${style.name}`}
               label={style.name}
@@ -262,20 +377,25 @@ export default function AlphabetLetterGenerator({
       </div>
 
       {/* Capital Letter Symbol Styles */}
-      <div>
-        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+      <div ref={capitalRef}>
+        <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Capital Letter &apos;{upperLetter}&apos; with Symbols
-        </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-          {capitalSymbolStyles.map((style) => (
-            <CompactStyleCard
-              key={`capital-${style.name}`}
-              label={`${style.category} – ${style.name}`}
-              text={style.text}
-              fontSize={fontSize}
-            />
-          ))}
-        </div>
+        </h2>
+        {symbolStyles.capital.length > 0 ? (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
+            {symbolStyles.capital.map((style) => (
+              <CompactStyleCard
+                key={`capital-${style.category}-${style.name}`}
+                label={`${style.category} – ${style.name}`}
+                text={style.text}
+                fontSize={fontSize}
+                copied={copiedKey === style.text}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
+        )}
       </div>
 
       {/* Ad Slot */}
@@ -291,20 +411,25 @@ export default function AlphabetLetterGenerator({
       </div>
 
       {/* Small Letter Symbol Styles */}
-      <div>
-        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+      <div ref={smallRef}>
+        <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Small Letter &apos;{lowerLetter}&apos; with Symbols
-        </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-          {smallSymbolStyles.map((style) => (
-            <CompactStyleCard
-              key={`small-${style.name}`}
-              label={`${style.category} – ${style.name}`}
-              text={style.text}
-              fontSize={fontSize}
-            />
-          ))}
-        </div>
+        </h2>
+        {symbolStyles.small.length > 0 ? (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
+            {symbolStyles.small.map((style) => (
+              <CompactStyleCard
+                key={`small-${style.category}-${style.name}`}
+                label={`${style.category} – ${style.name}`}
+                text={style.text}
+                fontSize={fontSize}
+                copied={copiedKey === style.text}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
+        )}
       </div>
     </section>
   );

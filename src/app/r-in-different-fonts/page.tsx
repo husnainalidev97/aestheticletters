@@ -10,6 +10,7 @@ const pageDescription =
   "See the letter R in different fonts, with decorative Unicode styles, symbols, emojis, and real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
 const canonicalUrl = "https://www.aestheticletters.com/r-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
+const pageDate = "2026-08-13T08:00:00+00:00";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -79,9 +80,25 @@ export default function RInDifferentFontsPage() {
         description: pageDescription,
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
-        datePublished: "2026-08-13T08:00:00+00:00",
-        dateModified: new Date().toISOString(),
+        datePublished: pageDate,
+        dateModified: pageDate,
         breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+        mainEntity: { "@id": `${canonicalUrl}#softwareapp` },
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${canonicalUrl}#softwareapp`,
+        name: "R in Different Fonts Generator",
+        description: pageDescription,
+        url: canonicalUrl,
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "All",
+        browserRequirements: "requires HTML5 support",
+        offers: {
+          "@type": "Offer",
+          price: "0.00",
+          priceCurrency: "USD",
+        },
       },
       {
         "@type": "BreadcrumbList",
@@ -94,6 +111,8 @@ export default function RInDifferentFontsPage() {
       },
       {
         "@type": "FAQPage",
+        "@id": `${canonicalUrl}#faq`,
+        inLanguage: "en",
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,

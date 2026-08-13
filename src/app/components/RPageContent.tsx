@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
+import LazyAlphabetLetterGenerator from "./LazyAlphabetLetterGenerator";
 import { otherAlphabetsR } from "../lib/alphabetFontStyles";
 
 interface RPageContentProps {
@@ -31,7 +31,7 @@ const popularTools = [
 export default function RPageContent({ faqs }: RPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader />
+      <LazyAlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
@@ -92,7 +92,7 @@ export default function RPageContent({ faqs }: RPageContentProps) {
 
             <article id="where-people-use-styled-r" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where People Use Styled R?
+                Where Do People Use Styled R?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg">
                 Styled R text works well in Instagram bios, Discord names, gaming profiles, and logo designs. A quick comparison across styles usually reveals the best match for a caption or display name.
