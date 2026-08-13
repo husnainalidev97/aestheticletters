@@ -5,9 +5,9 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import RPageContent from "../components/RPageContent";
 
-const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
+const pageTitle = "R in Different Fonts: Dozens of Unicode Styles to Copy";
 const pageDescription =
-  "See the letter R in different fonts, with 16 verified Unicode styles plus real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
+  "See the letter R in different fonts, with decorative Unicode styles, symbols, emojis, and real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
 const canonicalUrl = "https://www.aestheticletters.com/r-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
 
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: "Can I style the lowercase r too?",
-    answer: "Yes, every style on this page includes both the uppercase R and lowercase r.",
+    answer: "Yes. The page starts with a grid of capital R styles, then a second grid with small r styles. Both use the same Unicode style library.",
   },
   {
     question: "Why do some styled R characters show as boxes or question marks?",
@@ -80,7 +80,7 @@ export default function RInDifferentFontsPage() {
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-08-13T08:00:00+00:00",
-        dateModified: "2026-08-13T08:00:00+00:00",
+        dateModified: new Date().toISOString(),
         breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
       },
       {
@@ -125,7 +125,7 @@ export default function RInDifferentFontsPage() {
             R in Different Fonts
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto text-sm md:text-lg">
-            See the letter R in different fonts, with 16 verified Unicode styles and how R looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style instantly.
+            See the letter R in different fonts, with decorative Unicode styles, symbols, and how R looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style instantly.
           </p>
         </section>
 

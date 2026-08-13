@@ -16,7 +16,7 @@ interface AlphabetLetterGeneratorProps {
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
-const DEFAULT_SIZE = 18;
+const DEFAULT_SIZE = 24;
 const STEP = 2;
 
 function getStylesForText(
