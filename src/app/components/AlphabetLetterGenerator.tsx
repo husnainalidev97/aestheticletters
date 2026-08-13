@@ -21,6 +21,7 @@ const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 24;
 const STEP = 2;
 const MAX_SYMBOL_STYLES = 25;
+const SHOW_ADS = false; // re-enable after AdSense approval
 
 type SymbolStyle = {
   name: string;
@@ -365,17 +366,18 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {/* Ad Slot */}
-      <div className="my-10 px-4 md:px-0">
-        <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-          <div className="text-center">
-            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-              Advertisement
-            </span>
-            <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+      {SHOW_ADS && (
+        <div className="my-10 px-4 md:px-0">
+          <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+            <div className="text-center">
+              <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
+                Advertisement
+              </span>
+              <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Capital Letter Symbol Styles */}
       <div ref={capitalRef}>
@@ -399,17 +401,18 @@ export default function AlphabetLetterGenerator({
         )}
       </div>
 
-      {/* Ad Slot */}
-      <div className="my-10 px-4 md:px-0">
-        <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-          <div className="text-center">
-            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-              Advertisement
-            </span>
-            <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+      {SHOW_ADS && (
+        <div className="my-10 px-4 md:px-0">
+          <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+            <div className="text-center">
+              <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
+                Advertisement
+              </span>
+              <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Small Letter Symbol Styles */}
       <div ref={smallRef}>

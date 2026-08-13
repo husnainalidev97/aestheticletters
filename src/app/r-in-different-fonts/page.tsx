@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "Can I style the lowercase r too?",
-    answer: "Yes. The first grid shows both uppercase R and lowercase r together. After the ad slot there are dedicated grids for capital R with symbols and small r with symbols.",
+    answer: "Yes. The first grid shows both uppercase R and lowercase r together, followed by dedicated grids for capital R with symbols and small r with symbols.",
   },
   {
     question: "Why do some styled R characters show as boxes or question marks?",
