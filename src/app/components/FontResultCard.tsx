@@ -8,6 +8,7 @@ interface FontResultCardProps {
   span2?: boolean;
   featured?: boolean;
   fontSize?: number;
+  stacked?: boolean;
 }
 
 /** Detect if text contains wide Unicode characters (fullwidth, block, squared, negative squared) */
@@ -41,6 +42,7 @@ export default function FontResultCard({
   span2 = false,
   featured = false,
   fontSize,
+  stacked = false,
 }: FontResultCardProps) {
   const [copied, setCopied] = useState(false);
   const [cardHovered, setCardHovered] = useState(false);
@@ -93,7 +95,9 @@ export default function FontResultCard({
 
   // Smart font scaling: reduce size by 20% for wide Unicode characters
   const isWide = useMemo(() => hasWideChars(text), [text]);
-  const baseSize = fontSize ?? (featured ? 24 : 20);
+  const baseSize = stacked
+    ? Math.min(Math.max(fontSize ?? 28, 28), 48)
+    : (fontSize ?? (featured ? 24 : 20));
   const effectiveSize = isWide ? Math.round(baseSize * 0.8) : baseSize;
 
   // Derive all styles from React state — no imperative DOM manipulation
@@ -104,6 +108,43 @@ export default function FontResultCard({
     btnTransform = "scale(1.1)";
   } else {
     btnTransform = "scale(1)";
+  }
+
+  if (stacked) {
+    return (
+      <button
+        type="button"
+        onClick={handleCopy}
+        data-text={text}
+        data-label={label}
+        className="group relative flex flex-col items-center justify-center aspect-square w-full rounded-xl bg-surface-container-lowest border border-outline-variant/20 p-4 overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] cursor-pointer"
+        aria-label={`Copy ${text}${label ? ` (${label})` : ""}`}
+      >
+        <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors duration-300">
+          {label}
+        </span>
+
+        <span
+          className={`absolute top-3 right-3 flex items-center justify-center w-7 h-7 rounded-full transition-all duration-300 ${
+            copied ? "bg-[#15803d] text-white" : "bg-surface-container text-on-surface-variant group-hover:bg-surface-container-high group-hover:text-primary"
+          }`}
+          aria-hidden="true"
+        >
+          {copied ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+          )}
+        </span>
+
+        <span
+          className="font-body text-on-surface dark-preview-text text-center break-words px-2"
+          style={{ fontSize: `${effectiveSize}px`, lineHeight: 1.2 }}
+        >
+          {text}
+        </span>
+      </button>
+    );
   }
 
   return (

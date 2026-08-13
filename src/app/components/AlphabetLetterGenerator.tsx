@@ -359,6 +359,7 @@ export default function AlphabetLetterGenerator({
               label={style.name}
               text={style.text}
               fontSize={fontSize}
+              stacked
             />
           ))}
         </div>

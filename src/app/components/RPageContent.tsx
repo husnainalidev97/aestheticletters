@@ -85,6 +85,7 @@ export default function RPageContent({ faqs }: RPageContentProps) {
                     key={entry.script}
                     label={entry.label}
                     text={entry.lower ? `${entry.upper} ${entry.lower}` : entry.upper}
+                    stacked
                   />
                 ))}
               </div>
