@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import FontResultCard from "./FontResultCard";
-import { getLetterStyles } from "../lib/alphabetFontStyles";
+import { useState, useEffect, useMemo } from "react";
+import CompactStyleCard from "./CompactStyleCard";
+import type { FontCategory } from "../lib/fontStyles";
+import { fontCategories } from "../lib/fontStyles";
 
 interface AlphabetLetterGeneratorProps {
   letter: string;
@@ -12,65 +13,46 @@ interface AlphabetLetterGeneratorProps {
   onChange?: (value: string) => void;
 }
 
-interface AlphabetLetterStyleGridProps {
-  letter: string;
-  text?: string;
-  defaultText?: string;
-  className?: string;
-  id?: string;
-  hideHeading?: boolean;
-  fontSize?: number;
-}
-
 const MIN_SIZE = 14;
 const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
-const DEFAULT_SIZE = 22;
+const DEFAULT_SIZE = 18;
 const STEP = 2;
 
-export function AlphabetLetterStyleGrid({
-  letter,
-  text: controlledText,
-  defaultText,
-  className = "",
-  id,
-  hideHeading,
-  fontSize = DEFAULT_SIZE,
-}: AlphabetLetterStyleGridProps) {
-  const styles = getLetterStyles(letter);
-  const upperLetter = letter.toUpperCase();
-  const lowerLetter = upperLetter.toLowerCase();
+function getStylesForText(
+  text: string,
+  categories: FontCategory[],
+): { name: string; text: string; category: string }[] {
+  const results: { name: string; text: string; category: string }[] = [];
+  const seen = new Set<string>();
 
-  const text = controlledText ?? defaultText ?? upperLetter;
-  const isSingleLetter =
-    text.length === 1 && text.toLowerCase() === lowerLetter;
+  for (const category of categories) {
+    if (category.condition && !category.condition(text)) continue;
 
-  const previewForStyle = (transform: (t: string) => string): string => {
-    if (isSingleLetter) {
-      return `${transform(upperLetter)} ${transform(lowerLetter)}`;
-    }
-    return transform(text);
-  };
+    category.styles.forEach((style, index) => {
+      let converted = style.transform(text);
 
-  return (
-    <div id={id} className={`scroll-mt-[9rem] ${className}`}>
-      {!hideHeading && (
-        <h3 className="font-headline text-2xl md:text-4xl font-bold mb-6 text-center">
-          {upperLetter} in Every Font Style
-        </h3>
-      )}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {styles.map((style) => (
-          <FontResultCard
-            key={style.name}
-            label={style.name}
-            text={previewForStyle(style.transform)}
-            fontSize={fontSize}
-          />
-        ))}
-      </div>
-    </div>
-  );
+      if (category.symbols && category.symbols.length > 0) {
+        const offset = category.symbolOffset ?? 0;
+        const sym = category.symbols[((index + offset) * 37) % category.symbols.length];
+        converted = `${sym} ${converted} ${sym}`;
+      }
+
+      // Skip styles that did not actually change the letter and have no decoration.
+      if (converted === text && !category.symbols) return;
+      // Skip duplicate outputs (keep the first style name that produces them).
+      if (seen.has(converted)) return;
+      seen.add(converted);
+
+      results.push({
+        name: style.name,
+        text: converted,
+        category: category.name,
+      });
+    });
+  }
+
+  return results;
 }
 
 export default function AlphabetLetterGenerator({
@@ -81,25 +63,24 @@ export default function AlphabetLetterGenerator({
   onChange,
 }: AlphabetLetterGeneratorProps) {
   const upperLetter = letter.toUpperCase();
+  const lowerLetter = upperLetter.toLowerCase();
   const [internalText, setInternalText] = useState(defaultText ?? upperLetter);
   const text = value !== undefined ? value : internalText;
 
-  const maxDesktop = MAX_SIZE_DESKTOP;
-  const maxMobile = MAX_SIZE_MOBILE;
   const [fontSize, setFontSize] = useState(DEFAULT_SIZE);
-  const [maxSize, setMaxSize] = useState(maxDesktop);
+  const [maxSize, setMaxSize] = useState(MAX_SIZE_DESKTOP);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
     const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      const newMax = e.matches ? maxMobile : maxDesktop;
+      const newMax = e.matches ? MAX_SIZE_MOBILE : MAX_SIZE_DESKTOP;
       setMaxSize(newMax);
       setFontSize((prev) => Math.min(prev, newMax));
     };
     handler(mql);
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  }, [maxMobile, maxDesktop]);
+  }, []);
 
   const handleChange = (newValue: string) => {
     if (value === undefined) {
@@ -115,6 +96,18 @@ export default function AlphabetLetterGenerator({
   const increaseSize = () => {
     setFontSize((prev) => Math.min(maxSize, prev + STEP));
   };
+
+  const upperText = text.toUpperCase();
+  const lowerText = text.toLowerCase();
+
+  const capitalStyles = useMemo(
+    () => getStylesForText(upperText, fontCategories),
+    [upperText],
+  );
+  const smallStyles = useMemo(
+    () => getStylesForText(lowerText, fontCategories),
+    [lowerText],
+  );
 
   return (
     <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6">
@@ -227,14 +220,51 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {/* Style grid */}
-      <AlphabetLetterStyleGrid
-        letter={letter}
-        text={text}
-        hideHeading
-        fontSize={fontSize}
-        className="max-w-[1440px] mx-auto mt-10"
-      />
+      {/* Capital Letter Styles */}
+      <div className="mt-10">
+        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+          Capital Letter &apos;{upperLetter}&apos; Fonts
+        </h3>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
+          {capitalStyles.map((style) => (
+            <CompactStyleCard
+              key={`capital-${style.name}`}
+              label={`${style.category} – ${style.name}`}
+              text={style.text}
+              fontSize={fontSize}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Ad Slot */}
+      <div className="my-10 px-4 md:px-0">
+        <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+          <div className="text-center">
+            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
+              Advertisement
+            </span>
+            <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+          </div>
+        </div>
+      </div>
+
+      {/* Small Letter Styles */}
+      <div>
+        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+          Small Letter &apos;{lowerLetter}&apos; Fonts
+        </h3>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
+          {smallStyles.map((style) => (
+            <CompactStyleCard
+              key={`small-${style.name}`}
+              label={`${style.category} – ${style.name}`}
+              text={style.text}
+              fontSize={fontSize}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

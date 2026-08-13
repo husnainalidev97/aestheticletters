@@ -43,10 +43,10 @@ export default function RPageContent({ faqs }: RPageContentProps) {
                 R in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                This page shows R in different fonts across sixteen verified Unicode styles. Each card displays the uppercase R and lowercase r together. Each style comes with its own copy button beside it. One click sends the text to the clipboard, ready to drop straight into a caption, bio, or username field.
+                This page shows the letter R in different fonts using verified Unicode styles. The generator above starts with a grid of capital R designs, followed by an ad slot, and then a second grid of small r designs. Each card has its own copy button; one click copies the text to the clipboard.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                These sixteen styles cover every widely supported Unicode variant for R. No additional verified styles currently exist beyond this set.
+                The styles include plain Unicode fonts, decorative frames, symbols, and emojis. You can type any letter or word into the input to preview it across the same set of styles.
               </p>
             </article>
 
@@ -58,7 +58,7 @@ export default function RPageContent({ faqs }: RPageContentProps) {
                 Script, Fraktur, and Double-Struck R come from an older part of Unicode, called the Letterlike Symbols block. Their expected spot in the newer Mathematical Alphanumeric block was left empty, so these three styles use the older characters instead.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Only these three styles carry this exception. The other thirteen styles, including the popular Bold style, follow the newer Unicode block without any gap. The{" "}
+                Only these three styles carry this exception. The remaining styles, including the popular Bold style, follow the newer Unicode block without any gap. The{" "}
                 <Link href="/bold-font-generator" className={linkClass}>
                   bold font generator
                 </Link>{" "}
