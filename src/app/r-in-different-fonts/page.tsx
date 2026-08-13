@@ -124,9 +124,12 @@ export default function RInDifferentFontsPage() {
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
             R in Different Fonts
           </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto text-sm md:text-lg">
+            See the letter R in different fonts, with 16 verified Unicode styles and how R looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style instantly.
+          </p>
         </section>
 
-        <RPageContent />
+        <RPageContent faqs={faqs} />
       </main>
       <BackToTopButton />
       <Footer />
