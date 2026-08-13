@@ -78,23 +78,6 @@ export default function AlphabetFontsPage() {
           { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: canonicalUrl },
         ],
       },
-      {
-        "@type": "ItemList",
-        name: "Alphabet Fonts Directory",
-        description: "A directory of every letter from A to Z in different Unicode font styles.",
-        numberOfItems: LETTERS.length,
-        itemListElement: LETTERS.map((letter, index) => {
-          const live = LIVE_LETTERS.has(letter);
-          return {
-            "@type": "ListItem",
-            position: index + 1,
-            name: `${letter} in Different Fonts`,
-            url: live
-              ? `https://www.aestheticletters.com/${letter.toLowerCase()}-in-different-fonts`
-              : canonicalUrl,
-          };
-        }),
-      },
     ],
   };
 
