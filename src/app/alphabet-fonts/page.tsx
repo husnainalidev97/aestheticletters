@@ -12,7 +12,7 @@ const pageDescription =
 const canonicalUrl = "https://www.aestheticletters.com/alphabet-fonts";
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: { absolute: pageTitle },
   description: pageDescription,
   alternates: { canonical: canonicalUrl },
   openGraph: {
