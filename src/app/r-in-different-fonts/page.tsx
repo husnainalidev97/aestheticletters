@@ -4,7 +4,6 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import RPageContent from "../components/RPageContent";
-import AlphabetLetterGenerator from "../components/AlphabetLetterGenerator";
 
 const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
 const pageDescription =
@@ -131,23 +130,6 @@ export default function RInDifferentFontsPage() {
             Copy any style instantly.
           </p>
         </section>
-
-        <AlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader>
-          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10 space-y-4">
-            <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
-              This page shows R in different fonts across sixteen verified Unicode
-              styles. Each card displays the uppercase R and lowercase r together.
-              Each style comes with its own copy button beside it. One click sends
-              the text to the clipboard, ready to drop straight into a caption,
-              bio, or username field.
-            </p>
-            <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
-              These sixteen styles cover every widely supported Unicode variant
-              for R. No additional verified styles currently exist beyond this
-              set.
-            </p>
-          </div>
-        </AlphabetLetterGenerator>
 
         <RPageContent />
       </main>

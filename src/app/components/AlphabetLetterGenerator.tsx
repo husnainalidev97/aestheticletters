@@ -9,20 +9,34 @@ interface AlphabetLetterGeneratorProps {
   letter: string;
   defaultText?: string;
   hideInputHeader?: boolean;
+  hideStyleGrid?: boolean;
+  value?: string;
+  onChange?: (value: string) => void;
   children?: ReactNode;
 }
 
-export default function AlphabetLetterGenerator({
+interface AlphabetLetterStyleGridProps {
+  letter: string;
+  text?: string;
+  defaultText?: string;
+  children?: ReactNode;
+  className?: string;
+  id?: string;
+}
+
+export function AlphabetLetterStyleGrid({
   letter,
+  text: controlledText,
   defaultText,
-  hideInputHeader,
   children,
-}: AlphabetLetterGeneratorProps) {
+  className = "",
+  id,
+}: AlphabetLetterStyleGridProps) {
   const styles = getLetterStyles(letter);
   const upperLetter = letter.toUpperCase();
   const lowerLetter = upperLetter.toLowerCase();
-  const [text, setText] = useState(defaultText ?? upperLetter);
 
+  const text = controlledText ?? defaultText ?? upperLetter;
   const isSingleLetter =
     text.length === 1 && text.toLowerCase() === lowerLetter;
 
@@ -31,6 +45,46 @@ export default function AlphabetLetterGenerator({
       return `${transform(upperLetter)} ${transform(lowerLetter)}`;
     }
     return transform(text);
+  };
+
+  return (
+    <div id={id} className={`scroll-mt-[9rem] ${className}`}>
+      <h3 className="font-headline text-2xl md:text-4xl font-bold mb-6 text-center">
+        {upperLetter} in Every Font Style
+      </h3>
+      {children}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {styles.map((style) => (
+          <FontResultCard
+            key={style.name}
+            label={style.name}
+            text={previewForStyle(style.transform)}
+            fontSize={22}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function AlphabetLetterGenerator({
+  letter,
+  defaultText,
+  hideInputHeader,
+  hideStyleGrid,
+  value,
+  onChange,
+  children,
+}: AlphabetLetterGeneratorProps) {
+  const upperLetter = letter.toUpperCase();
+  const [internalText, setInternalText] = useState(defaultText ?? upperLetter);
+  const text = value !== undefined ? value : internalText;
+
+  const handleChange = (newValue: string) => {
+    if (value === undefined) {
+      setInternalText(newValue);
+    }
+    onChange?.(newValue);
   };
 
   return (
@@ -54,7 +108,7 @@ export default function AlphabetLetterGenerator({
             placeholder="Type or paste your text here..."
             aria-label={`Enter text to transform into ${upperLetter} font styles`}
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
           <div className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2">
             <CopyButton text={text} />
@@ -68,25 +122,15 @@ export default function AlphabetLetterGenerator({
       </div>
 
       {/* Style grid */}
-      <div
-        id={`${lowerLetter}-in-every-font-style`}
-        className="scroll-mt-[9rem]"
-      >
-        {children}
-        <h3 className="font-headline text-2xl md:text-4xl font-bold mb-6 text-center">
-          {upperLetter} in Every Font Style
-        </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {styles.map((style) => (
-            <FontResultCard
-              key={style.name}
-              label={style.name}
-              text={previewForStyle(style.transform)}
-              fontSize={22}
-            />
-          ))}
-        </div>
-      </div>
+      {!hideStyleGrid && (
+        <AlphabetLetterStyleGrid
+          letter={letter}
+          text={text}
+          className="max-w-[1440px] mx-auto"
+        >
+          {children}
+        </AlphabetLetterStyleGrid>
+      )}
     </section>
   );
 }

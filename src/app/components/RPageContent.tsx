@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import FontResultCard from "./FontResultCard";
 import FAQAccordion from "./FAQAccordion";
+import AlphabetLetterGenerator, {
+  AlphabetLetterStyleGrid,
+} from "./AlphabetLetterGenerator";
 import { otherAlphabetsR } from "../lib/alphabetFontStyles";
 
 const otherAlphabetCards = otherAlphabetsR.flatMap((entry) => {
@@ -56,11 +60,40 @@ const FAQS = [
 ];
 
 export default function RPageContent() {
+  const [text, setText] = useState("R");
+
   return (
     <>
+      {/* Live generator input */}
+      <AlphabetLetterGenerator
+        letter="R"
+        defaultText="R"
+        hideInputHeader
+        hideStyleGrid
+        value={text}
+        onChange={setText}
+      />
+
       {/* SEO Content */}
       <section className="bg-surface-container-low">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24">
+          <AlphabetLetterStyleGrid letter="R" text={text} className="mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10 space-y-4">
+              <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+                This page shows R in different fonts across sixteen verified
+                Unicode styles. Each card displays the uppercase R and lowercase
+                r together. Each style comes with its own copy button beside it.
+                One click sends the text to the clipboard, ready to drop straight
+                into a caption, bio, or username field.
+              </p>
+              <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+                These sixteen styles cover every widely supported Unicode variant
+                for R. No additional verified styles currently exist beyond this
+                set.
+              </p>
+            </div>
+          </AlphabetLetterStyleGrid>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-8 flex flex-col gap-16">
               <article
