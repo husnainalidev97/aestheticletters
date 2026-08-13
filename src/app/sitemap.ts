@@ -3,33 +3,50 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  /* Pages modified on 10 Aug 2026: cross-links, brand disclaimers, cookie-consent flow, Halloween tone-down */
+  const siteUpdate = new Date("2026-08-10T00:00:00Z");
   /* Tool pages not modified in the latest update cycle */
   const toolsModified = new Date("2026-08-03T00:00:00Z");
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
-  /* Pages updated on 10 Aug 2026: cross-links, brand disclaimers, cookie-consent flow, Halloween tone-down */
-  const siteUpdate = new Date("2026-08-10T00:00:00Z");
+  /* Alphabet Fonts cluster created on 13 Aug 2026 */
+  const alphabetModified = new Date("2026-08-13T00:00:00Z");
 
-  return [
-    {
-      url: `${SITE_URL}/`,
-      lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 1,
-      images: [
-        `${SITE_URL}/aesthetic-font-styles-category-grid-preview.webp`,
-        `${SITE_URL}/aesthetic-fonts-platform-mockups.webp`,
-        `${SITE_URL}/how-aesthetic-font-generator-works-3-steps.webp`,
-        `${SITE_URL}/common-mistakes-when-using-aesthetic-fonts.webp`,
-        `${SITE_URL}/aesthetic-font-generator-vs-real-fonts-comparison.webp`,
-        `${SITE_URL}/og-image.webp`,
-      ],
-    },
+  const home = {
+    url: `${SITE_URL}/`,
+    lastModified: siteUpdate,
+    changeFrequency: "weekly" as const,
+    priority: 1,
+    images: [
+      `${SITE_URL}/aesthetic-font-styles-category-grid-preview.webp`,
+      `${SITE_URL}/aesthetic-fonts-platform-mockups.webp`,
+      `${SITE_URL}/how-aesthetic-font-generator-works-3-steps.webp`,
+      `${SITE_URL}/common-mistakes-when-using-aesthetic-fonts.webp`,
+      `${SITE_URL}/aesthetic-font-generator-vs-real-fonts-comparison.webp`,
+      `${SITE_URL}/og-image.webp`,
+    ],
+  };
+
+  const toolsHub = {
+    url: `${SITE_URL}/all-tools`,
+    lastModified: siteUpdate,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  };
+
+  const alphabetHub = {
+    url: `${SITE_URL}/alphabet-fonts`,
+    lastModified: alphabetModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  };
+
+  const toolPages = [
     {
       url: `${SITE_URL}/fancy-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/fancy-fonts/fancy-fonts-og.webp`,
         `${SITE_URL}/images/fancy-fonts/what-are-fancy-fonts-before-after.webp`,
@@ -44,8 +61,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/cursive-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/cursive-fonts-og.webp`,
         `${SITE_URL}/how-to-use-this-cursive-fonts-generator-in-seconds.webp`,
@@ -58,8 +75,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/instagram-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/instagram-fonts/instagram-fonts-og.webp`,
         `${SITE_URL}/images/instagram-fonts/instagram-fonts-before-after.webp`,
@@ -72,8 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/stylish-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-og.webp`,
         `${SITE_URL}/images/stylish-fonts/stylish-fonts-why-they-dont-always-work.webp`,
@@ -86,8 +103,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/cute-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/usage-cute-fonts.webp`,
         `${SITE_URL}/how-cute-unicode-letters-work-plain-text-to-copy-paste.webp`,
@@ -103,8 +120,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/halloween-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/halloween-fonts-generator-75-spooky-gothic-copy-paste-text-styles.webp`,
         `${SITE_URL}/images/halloween-fonts/how-halloween-creepy-text-generator-works-unicode-mapping.webp`,
@@ -120,8 +137,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/facebook-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-og.webp`,
         `${SITE_URL}/images/facebook-fonts/facebook-fonts-what-are.webp`,
@@ -134,8 +151,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/serif-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/serif-fonts-og.jpg`,
         `${SITE_URL}/serif-fonts-explained-visually.webp`,
@@ -144,8 +161,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/sans-serif-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/sans-serif-fonts-generator-og.webp`,
         `${SITE_URL}/sans-serif-fonts-explained.webp`,
@@ -163,8 +180,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/number-font-generator`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/number-font-generator/number-font-generator-og.webp`,
         `${SITE_URL}/images/number-font-generator/what-is-number-font-generator-before-after.webp`,
@@ -175,8 +192,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/bold-font-generator`,
       lastModified: toolsModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/bold-font-generator/bold-font-generator-og.webp`,
         `${SITE_URL}/images/bold-font-generator/how-to-copy-paste-bold-fonts-three-steps.webp`,
@@ -187,8 +204,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/big-text-generator`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/big-text-generator/big-text-generator-og.webp`,
         `${SITE_URL}/images/big-text-generator/big-text-styles-comparison.webp`,
@@ -201,8 +218,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/discord-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/discord-fonts/discord-fonts-og.webp`,
         `${SITE_URL}/images/discord-fonts/discord-fonts-how-to-use.webp`,
@@ -214,8 +231,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/preppy-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/preppy-fonts/preppy-fonts-og.webp`,
         `${SITE_URL}/images/preppy-fonts/preppy-font-aesthetics-comparison.webp`,
@@ -227,8 +244,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/weird-font-generator`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/weird-font-generator/weird-font-generator-og.webp`,
         `${SITE_URL}/images/weird-font-generator/weird-fonts-how-to-use.webp`,
@@ -241,8 +258,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/christmas-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/christmas-fonts/christmas-fonts-og.webp`,
         `${SITE_URL}/images/christmas-fonts/what-are-christmas-fonts-before-after.webp`,
@@ -254,8 +271,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/twitter-fonts`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/twitter-fonts/twitter-fonts-og.webp`,
         `${SITE_URL}/images/twitter-fonts/twitter-fonts-how-to-use.webp`,
@@ -267,8 +284,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/tiktok-font-generator`,
       lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
       images: [
         `${SITE_URL}/images/tiktok-font-generator/tiktok-font-generator-og-card.webp`,
         `${SITE_URL}/images/tiktok-font-generator/thirteen-tiktok-font-styles-comparison-chart.webp`,
@@ -281,53 +298,56 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${SITE_URL}/images/tiktok-font-generator/common-mistakes-when-using-tiktok-fonts.webp`,
       ],
     },
-    {
-      url: `${SITE_URL}/all-tools`,
-      lastModified: siteUpdate,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/alphabet-fonts`,
-      lastModified: new Date("2026-08-13T00:00:00Z"),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+  ];
+
+  const alphabetPages = [
     {
       url: `${SITE_URL}/r-in-different-fonts`,
-      lastModified: new Date("2026-08-13T00:00:00Z"),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      lastModified: alphabetModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     },
+  ];
+
+  const infoPages = [
     {
       url: `${SITE_URL}/about`,
       lastModified: infoModified,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/contact`,
       lastModified: infoModified,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/privacy-policy`,
       lastModified: siteUpdate,
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/terms-and-services`,
       lastModified: infoModified,
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/disclaimer`,
       lastModified: infoModified,
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.3,
     },
+  ];
+
+  return [
+    home,
+    toolsHub,
+    ...toolPages,
+    alphabetHub,
+    ...alphabetPages,
+    ...infoPages,
   ];
 }

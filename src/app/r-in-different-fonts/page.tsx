@@ -5,15 +5,15 @@ import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import RPageContent from "../components/RPageContent";
 
-const pageTitle = "R in Different Fonts: Dozens of Unicode Styles to Copy";
+const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
 const pageDescription =
-  "See the letter R in different fonts, with decorative Unicode styles, symbols, emojis, and real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
+  "See the letter R in different fonts, with 16 verified Unicode styles plus real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
 const canonicalUrl = "https://www.aestheticletters.com/r-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
 const pageDate = "2026-08-13T08:00:00+00:00";
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: { absolute: pageTitle },
   description: pageDescription,
   alternates: { canonical: canonicalUrl },
   openGraph: {
