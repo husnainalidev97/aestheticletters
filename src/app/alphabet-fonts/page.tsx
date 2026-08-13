@@ -55,37 +55,43 @@ function ArrowForwardIcon({ className }: { className?: string }) {
 }
 
 export default function AlphabetFontsPage() {
-  const jsonLd = {
+  const pageDate = "2026-08-13T08:00:00+00:00";
+
+  const webPageJsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${canonicalUrl}#webpage`,
-        url: canonicalUrl,
-        name: pageTitle,
-        description: pageDescription,
-        inLanguage: "en",
-        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
-        datePublished: "2026-08-13T08:00:00+00:00",
-        dateModified: "2026-08-13T08:00:00+00:00",
-        breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${canonicalUrl}#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
-          { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: canonicalUrl },
-        ],
-      },
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+    datePublished: pageDate,
+    dateModified: pageDate,
+    breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
+      { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: canonicalUrl },
     ],
   };
+
+  const safeStringify = (obj: object) => JSON.stringify(obj).replace(/</g, "\\u003c");
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeStringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(breadcrumbJsonLd) }}
       />
 
       <TopNavBar activePage="alphabet-fonts" />

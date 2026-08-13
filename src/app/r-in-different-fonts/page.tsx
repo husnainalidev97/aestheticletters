@@ -69,64 +69,80 @@ const faqs = [
 ];
 
 export default function RInDifferentFontsPage() {
-  const jsonLd = {
+  const webPageJsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${canonicalUrl}#webpage`,
-        url: canonicalUrl,
-        name: pageTitle,
-        description: pageDescription,
-        inLanguage: "en",
-        isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
-        datePublished: pageDate,
-        dateModified: pageDate,
-        breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
-        mainEntity: { "@id": `${canonicalUrl}#softwareapp` },
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": `${canonicalUrl}#softwareapp`,
-        name: "R in Different Fonts Generator",
-        description: pageDescription,
-        url: canonicalUrl,
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "All",
-        browserRequirements: "requires HTML5 support",
-        offers: {
-          "@type": "Offer",
-          price: "0.00",
-          priceCurrency: "USD",
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${canonicalUrl}#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
-          { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: hubUrl },
-          { "@type": "ListItem", position: 3, name: "R in Different Fonts", item: canonicalUrl },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${canonicalUrl}#faq`,
-        inLanguage: "en",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
-        })),
-      },
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+    datePublished: pageDate,
+    dateModified: pageDate,
+    breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+    mainEntity: { "@id": `${canonicalUrl}#softwareapp` },
+  };
+
+  const softwareAppJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${canonicalUrl}#softwareapp`,
+    name: "R in Different Fonts Generator",
+    description: pageDescription,
+    url: canonicalUrl,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    browserRequirements: "requires HTML5 support",
+    offers: {
+      "@type": "Offer",
+      price: "0.00",
+      priceCurrency: "USD",
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
+      { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: hubUrl },
+      { "@type": "ListItem", position: 3, name: "R in Different Fonts", item: canonicalUrl },
     ],
   };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${canonicalUrl}#faq`,
+    inLanguage: "en",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const safeStringify = (obj: object) => JSON.stringify(obj).replace(/</g, "\\u003c");
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeStringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(faqJsonLd) }}
       />
       <TopNavBar activePage="r-in-different-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
