@@ -4,7 +4,6 @@ import TopNavBar from "../components/TopNavBar";
 import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
-import { letterRStyles } from "../lib/alphabetFontStyles";
 
 const pageTitle = "Alphabet Fonts — A–Z Directory";
 const pageDescription =
@@ -34,9 +33,21 @@ export const metadata: Metadata = {
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const LIVE_LETTERS = new Set(["R"]);
 
-function sampleR(styleName: string): string {
-  const style = letterRStyles.find((s) => s.name === styleName);
-  return style ? style.transform("R") : "R";
+function ArrowOutwardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 19L19 5M19 5H12M19 5V12" />
+    </svg>
+  );
 }
 
 export default function AlphabetFontsPage() {
@@ -74,12 +85,19 @@ export default function AlphabetFontsPage() {
             "@type": "ListItem",
             position: index + 1,
             name: `${letter} in Different Fonts`,
-            url: live ? `https://www.aestheticletters.com/${letter.toLowerCase()}-in-different-fonts` : canonicalUrl,
+            url: live
+              ? `https://www.aestheticletters.com/${letter.toLowerCase()}-in-different-fonts`
+              : canonicalUrl,
           };
         }),
       },
     ],
   };
+
+  const cardBase =
+    "group relative block bg-surface-container-low p-5 rounded-xl shadow-sm transition-all duration-300 ease-out";
+  const cardHover =
+    "hover:shadow-xl hover:bg-surface-container transform hover:-translate-y-1";
 
   return (
     <>
@@ -98,54 +116,61 @@ export default function AlphabetFontsPage() {
         />
 
         {/* Hero */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-            <div className="max-w-3xl">
-              <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+        <section className="relative px-4 lg:px-6 pt-8 pb-4 max-w-[1200px] mx-auto w-full">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <h1 className="font-headline text-4xl md:text-5xl font-bold text-on-background mb-2 tracking-tight">
                 Alphabet Fonts
               </h1>
-              <p className="font-body text-on-surface-variant text-sm md:text-lg max-w-2xl">
-                A directory for every letter from A to Z. Each page shows a single
-                letter in multiple verified Unicode styles, ready to copy and paste
-                for bios, captions, usernames, and design projects.
+              <p className="font-body text-on-surface-variant leading-relaxed">
+                Every letter A to Z is available in many Unicode font styles.{" "}
+                <span className="text-primary/80 font-medium">Click a letter</span>{" "}
+                to open its full style collection.
               </p>
             </div>
-            <div className="shrink-0">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-fixed text-on-primary-fixed font-headline font-bold text-sm">
+            <div className="hidden lg:flex items-center gap-2 mb-2">
+              <span className="font-label text-xs uppercase tracking-widest text-on-tertiary-fixed-variant bg-surface-container-high px-3 py-1 rounded-full">
                 A-Z Directory
               </span>
             </div>
           </div>
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         </section>
 
-        {/* Letter grid */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-12 md:pb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Alphabet Grid */}
+        <section className="px-4 lg:px-6 py-8 max-w-[1200px] mx-auto w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {LETTERS.map((letter) => {
               const live = LIVE_LETTERS.has(letter);
               const href = `/${letter.toLowerCase()}-in-different-fonts`;
-              const title = `${letter} in Different Fonts`;
-              const sub = `Every style for the letter ${letter}`;
-
               const content = (
-                <div className="flex flex-col h-full gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-xl shadow-sm">
-                    {letter}
+                <>
+                  <div className="flex flex-col h-full gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-lg shadow-inner">
+                      {letter}
+                    </div>
+                    <div className="flex flex-col">
+                      <h3 className="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">
+                        {letter} in Different Fonts
+                      </h3>
+                      <p className="font-body text-sm text-on-surface-variant">
+                        Every style for the letter {letter}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <h3 className="font-headline text-lg md:text-xl font-bold text-on-surface group-hover:text-primary transition-colors">
-                      {title}
-                    </h3>
-                    <p className="text-sm text-on-surface-variant">{sub}</p>
-                  </div>
-                </div>
+                  {live && (
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ArrowOutwardIcon className="w-5 h-5 text-primary" />
+                    </div>
+                  )}
+                </>
               );
 
               return live ? (
                 <Link
                   key={letter}
                   href={href}
-                  className="group block bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl hover:bg-surface-container transition-all duration-300 ease-out transform hover:-translate-y-1"
+                  className={`${cardBase} ${cardHover}`}
                 >
                   {content}
                 </Link>
@@ -154,7 +179,7 @@ export default function AlphabetFontsPage() {
                   key={letter}
                   role="link"
                   aria-disabled="true"
-                  className="group block bg-surface-container-low/60 p-5 rounded-xl border border-outline-variant/10 opacity-70 cursor-not-allowed"
+                  className={`${cardBase} opacity-70 cursor-not-allowed`}
                 >
                   {content}
                 </div>
@@ -163,51 +188,49 @@ export default function AlphabetFontsPage() {
           </div>
         </section>
 
-        {/* Beyond the Standard Character Set */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-16 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-surface-container-low rounded-2xl p-6 md:p-12">
-            <div>
-              <h2 className="font-headline text-2xl md:text-4xl font-bold mb-4 leading-tight">
-                Beyond the Standard Character Set
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-base md:text-lg mb-4">
-                The letters you see here are not drawn by a custom web font. They
-                are individual Unicode characters, each with its own code point.
-                That is why they stay styled after you copy and paste them into
-                Instagram, Discord, or a logo file.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-base md:text-lg">
-                From Gothic blackletter to double-struck symbols, every style lives
-                inside the Unicode standard. Your device already knows how to
-                display it — no download required.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-end">
-              <div className="flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-background border border-outline-variant/10 shadow-sm">
-                <span className="font-body text-3xl md:text-4xl text-on-surface mb-1">
-                  {sampleR("Bold Fraktur")}
+        {/* Visual Accent Section */}
+        <section className="w-full py-8 px-4 lg:px-6 max-w-[1200px] mx-auto overflow-hidden">
+          <div className="bg-surface-container-lowest rounded-[24px] p-8 relative">
+            <div className="grid md:grid-cols-2 items-center gap-8 relative z-10">
+              <div>
+                <span className="font-label text-xs uppercase tracking-widest text-primary block mb-4">
+                  Unicode Technology
                 </span>
-                <span className="text-xs uppercase tracking-widest text-on-surface-variant">
-                  Gothic
-                </span>
+                <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4">
+                  Beyond the Standard Character Set
+                </h2>
+                <p className="font-body text-on-surface-variant leading-relaxed mb-6">
+                  Our collection leverages Unicode character mapping to provide
+                  hundreds of aesthetic variations for every single letter of the
+                  alphabet.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                    𝔊𝔬𝔱𝔥𝔦𝔠
+                  </div>
+                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                    𝓑𝓮𝓵𝓵𝓪
+                  </div>
+                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                    𝔻𝕠𝕦𝕓𝕝𝕖
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-background border border-outline-variant/10 shadow-sm">
-                <span className="font-body text-3xl md:text-4xl text-on-surface mb-1">
-                  {sampleR("Bold Script")}
-                </span>
-                <span className="text-xs uppercase tracking-widest text-on-surface-variant">
-                  Bella
-                </span>
-              </div>
-              <div className="flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-background border border-outline-variant/10 shadow-sm">
-                <span className="font-body text-3xl md:text-4xl text-on-surface mb-1">
-                  {sampleR("Double-Struck")}
-                </span>
-                <span className="text-xs uppercase tracking-widest text-on-surface-variant">
-                  Double
-                </span>
+              <div className="h-48 md:h-64 flex items-center justify-center bg-surface-container rounded-xl overflow-hidden shadow-inner group">
+                <div className="relative flex gap-4 animate-pulse">
+                  <span className="text-6xl font-headline text-primary opacity-20 group-hover:opacity-50 transition-opacity">
+                    Aa
+                  </span>
+                  <span className="text-6xl font-headline text-on-surface opacity-10 group-hover:opacity-30 transition-opacity">
+                    Bb
+                  </span>
+                  <span className="text-6xl font-headline text-primary opacity-20 group-hover:opacity-50 transition-opacity">
+                    Cc
+                  </span>
+                </div>
               </div>
             </div>
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-primary/10 rounded-full blur-[120px]" />
           </div>
         </section>
       </main>
