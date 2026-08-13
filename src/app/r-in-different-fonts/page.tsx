@@ -4,6 +4,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import RPageContent from "../components/RPageContent";
+import AlphabetLetterGenerator from "../components/AlphabetLetterGenerator";
 
 const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
 const pageDescription =
@@ -118,6 +119,36 @@ export default function RInDifferentFontsPage() {
             { label: "R in Different Fonts", href: "/r-in-different-fonts" },
           ]}
         />
+
+        {/* Hero */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
+          <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
+            R in Different Fonts
+          </h1>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto text-sm md:text-lg">
+            See the letter R in different fonts, with 16 verified Unicode styles
+            and how R looks in other alphabets like Cyrillic, Thai, and Cherokee.
+            Copy any style instantly.
+          </p>
+        </section>
+
+        <AlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader>
+          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10 space-y-4">
+            <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+              This page shows R in different fonts across sixteen verified Unicode
+              styles. Each card displays the uppercase R and lowercase r together.
+              Each style comes with its own copy button beside it. One click sends
+              the text to the clipboard, ready to drop straight into a caption,
+              bio, or username field.
+            </p>
+            <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+              These sixteen styles cover every widely supported Unicode variant
+              for R. No additional verified styles currently exist beyond this
+              set.
+            </p>
+          </div>
+        </AlphabetLetterGenerator>
+
         <RPageContent />
       </main>
       <BackToTopButton />

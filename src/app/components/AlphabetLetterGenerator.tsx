@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import FontResultCard from "./FontResultCard";
 import CopyButton from "./CopyButton";
 import { getLetterStyles } from "../lib/alphabetFontStyles";
@@ -8,11 +8,15 @@ import { getLetterStyles } from "../lib/alphabetFontStyles";
 interface AlphabetLetterGeneratorProps {
   letter: string;
   defaultText?: string;
+  hideInputHeader?: boolean;
+  children?: ReactNode;
 }
 
 export default function AlphabetLetterGenerator({
   letter,
   defaultText,
+  hideInputHeader,
+  children,
 }: AlphabetLetterGeneratorProps) {
   const styles = getLetterStyles(letter);
   const upperLetter = letter.toUpperCase();
@@ -33,12 +37,16 @@ export default function AlphabetLetterGenerator({
     <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6">
       {/* Generator input */}
       <div className="text-center mb-6 md:mb-8">
-        <h2 className="font-headline text-xl md:text-3xl font-bold text-on-background mb-2">
-          Type a letter or word
-        </h2>
-        <p className="text-on-surface-variant text-sm md:text-base max-w-xl mx-auto mb-5">
-          The cards below update live. Keep it to one letter to see both the uppercase and lowercase forms side by side.
-        </p>
+        {!hideInputHeader && (
+          <>
+            <h2 className="font-headline text-xl md:text-3xl font-bold text-on-background mb-2">
+              Type a letter or word
+            </h2>
+            <p className="text-on-surface-variant text-sm md:text-base max-w-xl mx-auto mb-5">
+              The cards below update live. Keep it to one letter to see both the uppercase and lowercase forms side by side.
+            </p>
+          </>
+        )}
 
         <div className="relative w-full max-w-3xl mx-auto">
           <textarea
@@ -67,6 +75,7 @@ export default function AlphabetLetterGenerator({
         <h3 className="font-headline text-2xl md:text-4xl font-bold mb-6 text-center">
           {upperLetter} in Every Font Style
         </h3>
+        {children}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {styles.map((style) => (
             <FontResultCard
