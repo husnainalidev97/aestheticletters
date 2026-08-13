@@ -1,0 +1,162 @@
+// ---------------------------------------------------------------------------
+// Alphabet Font Styles — verified Unicode codepoints for single-letter pages.
+// R page is the first spoke; this data file is the master source for A–Z.
+// ---------------------------------------------------------------------------
+
+export interface AlphabetStyle {
+  name: string;
+  transform: (text: string) => string;
+  /** Optional note about rendering limits (e.g. no lowercase form). */
+  note?: string;
+}
+
+export interface OtherAlphabetEntry {
+  script: string;
+  label: string;
+  upper: string;
+  lower: string | null;
+  description: string;
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function buildMap(
+  upperStart: number,
+  lowerStart: number,
+  exceptions?: Record<string, string>,
+): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (let i = 0; i < 26; i++) {
+    map[String.fromCharCode(65 + i)] = String.fromCodePoint(upperStart + i);
+    map[String.fromCharCode(97 + i)] = String.fromCodePoint(lowerStart + i);
+  }
+  if (exceptions) Object.assign(map, exceptions);
+  return map;
+}
+
+function applyMap(text: string, charMap: Record<string, string>): string {
+  return [...text].map((c) => charMap[c] ?? c).join("");
+}
+
+// ── Character Maps ────────────────────────────────────────────────────────
+
+const boldMap = buildMap(0x1d400, 0x1d41a);
+const italicMap = buildMap(0x1d434, 0x1d44e, { h: "\u210E" });
+const boldItalicMap = buildMap(0x1d468, 0x1d482);
+const scriptMap = buildMap(0x1d49c, 0x1d4b6, {
+  B: "\u212C", E: "\u2130", F: "\u2131", H: "\u210B", I: "\u2110",
+  L: "\u2112", M: "\u2133", R: "\u211B", e: "\u212F", g: "\u210A", o: "\u2134",
+});
+const boldScriptMap = buildMap(0x1d4d0, 0x1d4ea);
+const frakturMap = buildMap(0x1d504, 0x1d51e, {
+  C: "\u212D", H: "\u210C", I: "\u2111", R: "\u211C", Z: "\u2128",
+});
+const boldFrakturMap = buildMap(0x1d56c, 0x1d586);
+const doubleStruckMap = buildMap(0x1d538, 0x1d552, {
+  C: "\u2102", H: "\u210D", N: "\u2115", P: "\u2119", Q: "\u211A", R: "\u211D", Z: "\u2124",
+});
+const sansSerifMap = buildMap(0x1d5a0, 0x1d5ba);
+const sansSerifBoldMap = buildMap(0x1d5d4, 0x1d5ee);
+const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
+const monospaceMap = buildMap(0x1d670, 0x1d68a);
+const fullwidthMap = buildMap(0xff21, 0xff41, { " ": "\u3000" });
+const circledMap = buildMap(0x24b6, 0x24d0);
+
+const smallCapsMap: Record<string, string> = {
+  A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
+  G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
+  M: "\u1D0D", N: "\u0274", O: "\u1D0F", P: "\u1D18", Q: "Q", R: "\u0280",
+  S: "\uA731", T: "\u1D1B", U: "\u1D1C", V: "\u1D20", W: "\u1D21", X: "x",
+  Y: "\u028F", Z: "\u1D22",
+  a: "\u1D00", b: "\u0299", c: "\u1D04", d: "\u1D05", e: "\u1D07", f: "\uA730",
+  g: "\u0262", h: "\u029C", i: "\u026A", j: "\u1D0A", k: "\u1D0B", l: "\u029F",
+  m: "\u1D0D", n: "\u0274", o: "\u1D0F", p: "\u1D18", q: "q", r: "\u0280",
+  s: "\uA731", t: "\u1D1B", u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x",
+  y: "\u028F", z: "\u1D22",
+};
+
+const superscriptMap: Record<string, string> = {
+  A: "\u1D2C", B: "\u1D2E", C: "\u1D9C", D: "\u1D30", E: "\u1D31", F: "\u1DA0",
+  G: "\u1D33", H: "\u1D34", I: "\u1D35", J: "\u1D36", K: "\u1D37", L: "\u1D38",
+  M: "\u1D39", N: "\u1D3A", O: "\u1D3C", P: "\u1D3E", Q: "Q", R: "\u1D3F",
+  S: "\u02E2", T: "\u1D40", U: "\u1D41", V: "\u2C7D", W: "\u1D42", X: "\u02E3",
+  Y: "\u02B8", Z: "\u1DBB",
+  a: "\u1D43", b: "\u1D47", c: "\u1D9C", d: "\u1D48", e: "\u1D49", f: "\u1DA0",
+  g: "\u1D4D", h: "\u02B0", i: "\u2071", j: "\u02B2", k: "\u1D4F", l: "\u02E1",
+  m: "\u1D50", n: "\u207F", o: "\u1D52", p: "\u1D56", q: "q", r: "\u02B3",
+  s: "\u02E2", t: "\u1D57", u: "\u1D58", v: "\u1D5B", w: "\u02B7", x: "\u02E3",
+  y: "\u02B8", z: "\u1DBB",
+};
+
+// ── 16 R Styles (master list for A–Z letter pages) ─────────────────────────
+
+export const letterRStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Superscript", transform: (t) => applyMap(t, superscriptMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+];
+
+// ── R in Other Alphabets ─────────────────────────────────────────────────
+
+export function getLetterStyles(letter: string): AlphabetStyle[] {
+  if (letter.toUpperCase() === "R") return letterRStyles;
+  return [];
+}
+
+export const otherAlphabetsR: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0420",
+    lower: "\u0440",
+    description: "The Cyrillic letter Er looks like a Latin P but sounds like R.",
+  },
+  {
+    script: "Armenian",
+    label: "Armenian",
+    upper: "\u054C",
+    lower: "\u057C",
+    description: "Armenian Ra in upper and lower case forms.",
+  },
+  {
+    script: "Thai",
+    label: "Thai",
+    upper: "\u0E23",
+    lower: "\u0E24",
+    description: "Thai Ro Rua and the alternate Ru used for Sanskrit roots.",
+  },
+  {
+    script: "Cherokee",
+    label: "Cherokee",
+    upper: "\u13A1",
+    lower: "\uAB71",
+    description: "Cherokee syllabary E visually resembles Latin R, with its small-form complement.",
+  },
+  {
+    script: "Chinese",
+    label: "Chinese",
+    upper: "\u5C3A",
+    lower: null,
+    description: "The CJK character 尺 (chǐ) is a visual lookalike, not a phonetic equivalent.",
+  },
+  {
+    script: "Canadian Aboriginal",
+    label: "Aboriginal",
+    upper: "\u1550",
+    lower: null,
+    description: "Unified Canadian Aboriginal Syllabics standalone R.",
+  },
+];

@@ -288,6 +288,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${SITE_URL}/alphabet-fonts`,
+      lastModified: new Date("2026-08-13T00:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/r-in-different-fonts`,
+      lastModified: new Date("2026-08-13T00:00:00Z"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/about`,
       lastModified: infoModified,
       changeFrequency: "monthly",
