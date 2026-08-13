@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import TopNavBar from "../components/TopNavBar";
+import Breadcrumb from "../components/Breadcrumb";
+import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTopButton";
 import RPageContent from "../components/RPageContent";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
 const pageDescription =
@@ -33,59 +30,6 @@ export const metadata: Metadata = {
     images: ["https://www.aestheticletters.com/og-image.webp"],
   },
 };
-
-const designTheme = {
-  "--color-background": "#0a0a0a",
-  "--color-surface": "#061422",
-  "--color-surface-bright": "#2d3a49",
-  "--color-surface-dim": "#061422",
-  "--color-surface-variant": "#293644",
-  "--color-surface-container": "#13212e",
-  "--color-surface-container-low": "#0f1d2a",
-  "--color-surface-container-lowest": "#020f1c",
-  "--color-surface-container-high": "#1e2b39",
-  "--color-surface-container-highest": "#293644",
-  "--color-on-background": "#d6e4f7",
-  "--color-on-surface": "#d6e4f7",
-  "--color-on-surface-variant": "#ccc3d2",
-  "--color-outline": "#958e9c",
-  "--color-outline-variant": "#4a4551",
-  "--color-primary": "#d4bbff",
-  "--color-on-primary": "#3e1975",
-  "--color-primary-container": "#b794f4",
-  "--color-on-primary-container": "#492680",
-  "--color-primary-fixed": "#ebdcff",
-  "--color-primary-fixed-dim": "#d4bbff",
-  "--color-on-primary-fixed": "#270058",
-  "--color-on-primary-fixed-variant": "#55338d",
-  "--color-secondary": "#c8c6c5",
-  "--color-on-secondary": "#303030",
-  "--color-secondary-container": "#474746",
-  "--color-on-secondary-container": "#b7b5b4",
-  "--color-secondary-fixed": "#e5e2e1",
-  "--color-secondary-fixed-dim": "#c8c6c5",
-  "--color-on-secondary-fixed": "#1b1c1c",
-  "--color-on-secondary-fixed-variant": "#474746",
-  "--color-tertiary": "#d0cb4c",
-  "--color-on-tertiary": "#333200",
-  "--color-tertiary-container": "#aeaa2d",
-  "--color-on-tertiary-container": "#3f3d00",
-  "--color-tertiary-fixed": "#ece865",
-  "--color-tertiary-fixed-dim": "#d0cb4c",
-  "--color-on-tertiary-fixed": "#1e1d00",
-  "--color-on-tertiary-fixed-variant": "#4b4900",
-  "--color-error": "#ffb4ab",
-  "--color-on-error": "#690005",
-  "--color-error-container": "#93000a",
-  "--color-on-error-container": "#ffdad6",
-  "--color-inverse-surface": "#d6e4f7",
-  "--color-inverse-on-surface": "#243240",
-  "--color-inverse-primary": "#6d4ca6",
-  "--color-surface-tint": "#d4bbff",
-  "--font-headline": "var(--font-inter), 'Inter', sans-serif",
-  "--font-body": "var(--font-inter), 'Inter', sans-serif",
-  "--font-label": "var(--font-inter), 'Inter', sans-serif",
-} as React.CSSProperties;
 
 const faqs = [
   {
@@ -165,12 +109,19 @@ export default function RInDifferentFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div
-        className={`${inter.variable} dark bg-background text-on-background min-h-screen`}
-        style={designTheme}
-      >
+      <TopNavBar activePage="r-in-different-fonts" />
+      <main id="main-content" className="pt-[5.5rem] pb-24">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Alphabet Fonts", href: "/alphabet-fonts" },
+            { label: "R in Different Fonts", href: "/r-in-different-fonts" },
+          ]}
+        />
         <RPageContent />
-      </div>
+      </main>
+      <BackToTopButton />
+      <Footer />
     </>
   );
 }

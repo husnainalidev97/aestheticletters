@@ -5,8 +5,6 @@ import { useEffect, useState, type ReactNode } from "react";
 import { letterRStyles, otherAlphabetsR } from "../lib/alphabetFontStyles";
 
 type IconName =
-  | "person"
-  | "chevronRight"
   | "edit"
   | "contentCopy"
   | "check"
@@ -20,16 +18,6 @@ type IconName =
 
 function RIcon({ name, className }: { name: IconName; className?: string }) {
   const icons: Record<IconName, ReactNode> = {
-    person: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-      </svg>
-    ),
-    chevronRight: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 18l6-6-6-6" />
-      </svg>
-    ),
     edit: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
@@ -175,325 +163,273 @@ export default function RPageContent() {
   }
 
   return (
-    <>
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full h-14 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-4">
-        <div className="w-8" />
-        <h2 className="font-headline text-lg md:text-xl font-semibold text-on-surface tracking-tight text-center flex-1">
-          Aesthetic Letters
-        </h2>
-        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
-          <RIcon name="person" className="w-[18px] h-[18px]" />
-        </div>
-      </header>
+    <div className="max-w-[1200px] mx-auto px-4">
+      {/* Header & Intro */}
+      <section className="mb-8">
+        <h1 className="font-headline text-3xl md:text-5xl font-bold text-on-surface mb-2">
+          R in Different Fonts
+        </h1>
+        <p className="font-body text-base text-on-surface-variant leading-relaxed">
+          See the letter R in different fonts, with 16 verified Unicode styles and how R
+          looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style
+          instantly.
+        </p>
+      </section>
 
-      <main id="main-content" className="pt-14">
-        <div className="max-w-[1200px] mx-auto px-4">
-          {/* Breadcrumb */}
-          <nav className="py-2">
-            <p className="font-label text-xs text-on-surface-variant/60 flex items-center gap-1">
-              Home <RIcon name="chevronRight" className="w-3.5 h-3.5" />
-              Alphabet Fonts <RIcon name="chevronRight" className="w-3.5 h-3.5" />
-              R in Different Fonts
-            </p>
-          </nav>
-
-          {/* Header & Intro */}
-          <section className="mb-8">
-            <h1 className="font-headline text-3xl md:text-5xl font-bold text-on-surface mb-2">
-              R in Different Fonts
-            </h1>
-            <p className="font-body text-base text-on-surface-variant leading-relaxed">
-              See the letter R in different fonts, with 16 verified Unicode styles and how R
-              looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style
-              instantly.
-            </p>
-          </section>
-
-          {/* Live Generator */}
-          <section className="mb-8">
-            <div className="bg-surface-container rounded-xl p-4 ring-1 ring-primary/10">
-              <div className="relative mb-4">
-                <input
-                  type="text"
-                  maxLength={1}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value.slice(0, 1))}
-                  placeholder="R"
-                  className="w-full bg-surface-container-lowest text-on-surface font-headline text-2xl border-none rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none transition-all placeholder:opacity-30"
-                />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
-                  <RIcon name="edit" className="w-5 h-5 text-on-surface-variant" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                {/* Bold live result */}
-                <div className="flex items-center justify-between bg-surface-container-high p-2 rounded-lg group active:bg-primary/5 transition-colors">
-                  <span className="font-headline text-2xl text-primary tracking-widest pl-2">
-                    {boldPreview}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => copy(boldPreview, "live-bold")}
-                    className={`font-label text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
-                      copiedId === "live-bold"
-                        ? "bg-tertiary text-on-tertiary"
-                        : "bg-primary text-on-primary"
-                    }`}
-                  >
-                    <RIcon
-                      name={copiedId === "live-bold" ? "check" : "contentCopy"}
-                      className="w-[18px] h-[18px]"
-                    />
-                    {copiedId === "live-bold" ? "Copied" : "Copy"}
-                  </button>
-                </div>
-                {/* Italic live result */}
-                <div className="flex items-center justify-between bg-surface-container-high p-2 rounded-lg group active:bg-primary/5 transition-colors">
-                  <span className="font-headline text-2xl text-primary tracking-widest pl-2">
-                    {italicPreview}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => copy(italicPreview, "live-italic")}
-                    className={`font-label text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
-                      copiedId === "live-italic"
-                        ? "bg-tertiary text-on-tertiary"
-                        : "bg-primary text-on-primary"
-                    }`}
-                  >
-                    <RIcon
-                      name={copiedId === "live-italic" ? "check" : "contentCopy"}
-                      className="w-[18px] h-[18px]"
-                    />
-                    {copiedId === "live-italic" ? "Copied" : "Copy"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Font Style Showcase */}
-          <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
-              R in Every Font Style
-            </h2>
-            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
-              This page shows R in different fonts across sixteen verified Unicode styles.
-              Each card displays the uppercase R and lowercase r together. Each style comes
-              with its own copy button beside it. One click sends the text to the clipboard,
-              ready to drop straight into a caption, bio, or username field.
-            </p>
-            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
-              These sixteen styles cover every widely supported Unicode variant for R. No
-              additional verified styles currently exist beyond this set.
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {styleCards.map((style) => {
-                const isCopied = copiedId === style.label;
-                return (
-                  <div
-                    key={style.label}
-                    className="bg-surface-container-low p-2 rounded-xl flex flex-col items-center text-center gap-2"
-                  >
-                    <span className="font-label text-xs text-on-surface-variant uppercase tracking-wider">
-                      {style.label}
-                    </span>
-                    <span className="font-headline text-2xl py-2 text-on-surface">
-                      {style.text}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => copy(style.text, style.label)}
-                      className={`w-full py-2 rounded-lg transition-all ${
-                        isCopied
-                          ? "bg-surface-container-highest text-tertiary"
-                          : "bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary"
-                      }`}
-                    >
-                      <RIcon
-                        name={isCopied ? "check" : "contentCopy"}
-                        className="w-[18px] h-[18px] mx-auto"
-                      />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* Technical Explainer */}
-          <section className="mb-8">
-            <div className="bg-surface-container-highest rounded-xl p-4 overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 opacity-10 rotate-12">
-                <RIcon name="info" className="w-20 h-20 text-on-surface" />
-              </div>
-              <h3 className="font-headline text-2xl font-semibold text-on-surface mb-2 relative z-10">
-                Why Do Some R Styles Look Different?
-              </h3>
-              <p className="font-body text-base text-on-surface-variant mb-2 relative z-10 leading-relaxed">
-                Script, Fraktur, and Double-Struck R come from an older part of Unicode,
-                called the Letterlike Symbols block. Their expected spot in the newer
-                Mathematical Alphanumeric block was left empty, so these three styles use
-                the older characters instead.
-              </p>
-              <p className="font-body text-base text-on-surface-variant relative z-10 leading-relaxed">
-                Only these three styles carry this exception. The other thirteen styles,
-                including the popular Bold style, follow the newer Unicode block without any
-                gap.{" "}
-                <Link href="/bold-font-generator" className="text-primary hover:underline">
-                  The Bold Font Generator
-                </Link>{" "}
-                turns full words into that same bold weight instantly.
-              </p>
-            </div>
-          </section>
-
-          {/* R in Other Alphabets */}
-          <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
-              R in Other Alphabets
-            </h2>
-            <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
-              These are real letters from other alphabets that happen to look like R. They
-              are not font styles of R.
-            </p>
-            <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
-              Each character below belongs to its own writing system, such as Cyrillic,
-              Thai, or Cherokee. They carry real meaning in their language and are not
-              simply decorative fonts made from the Latin R.
-            </p>
-            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
-              The letter R traces back to the Phoenician letter resh, which meant head.
-              Ancient Greeks adapted it into rho, then Etruscan and Roman scribes reshaped
-              it into the capital R used today. This same shape later influenced letters
-              in Cyrillic and other alphabets.
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {otherAlphabetCards.map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-surface-container-low p-2 rounded-xl flex justify-between items-center px-4"
-                >
-                  <div className="flex flex-col">
-                    <span className="font-label text-xs text-on-surface-variant">
-                      {item.label}
-                    </span>
-                    <span className="font-headline text-2xl text-primary">{item.char}</span>
-                  </div>
-                  <RIcon name="translate" className="w-5 h-5 text-on-surface-variant/30" />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Tags */}
-          <section className="mb-8 flex flex-wrap gap-2">
-            {TAGS.map((tag) => (
-              <span
-                key={tag}
-                className="bg-primary/10 text-primary px-3 py-1 rounded-full font-label text-sm"
-              >
-                {tag}
-              </span>
-            ))}
-          </section>
-
-          {/* Use case block */}
-          <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
-              Where People Use Styled R?
-            </h2>
-            <p className="font-body text-base text-on-surface-variant leading-relaxed">
-              Styled R text works well in Instagram bios, Discord names, gaming profiles,
-              and logo designs. A quick comparison across styles usually reveals the best
-              match for a caption or display name.
-            </p>
-          </section>
-
-          {/* FAQ */}
-          <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-2">
-              {FAQS.map((faq) => (
-                <details key={faq.question} className="bg-surface-container p-4 rounded-xl group">
-                  <summary className="list-none flex justify-between items-center font-label text-sm text-on-surface cursor-pointer">
-                    {faq.question}
-                    <RIcon name="expandMore" className="w-5 h-5 group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <p className="mt-2 font-body text-base text-on-surface-variant leading-relaxed">{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
-
-          {/* Ad Placement */}
-          <section className="mb-8">
-            <div className="w-full h-32 bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center justify-center gap-1 opacity-50">
-              <span className="font-label text-xs uppercase tracking-tighter text-on-surface-variant">
-                Advertisement
-              </span>
-              <div className="w-full h-px bg-outline-variant/10" />
-              <RIcon name="adsClick" className="w-6 h-6 text-on-surface-variant" />
-            </div>
-          </section>
-
-          {/* Explore More */}
-          <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
-              Explore More
-            </h2>
-            <div className="space-y-4">
-              <Link
-                href="/bold-font-generator"
-                className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
-              >
-                <RIcon name="textFields" className="w-5 h-5" />
-                <span className="font-label text-sm">Similar Font Styles</span>
-                <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/all-tools"
-                className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
-              >
-                <RIcon name="construction" className="w-5 h-5" />
-                <span className="font-label text-sm">Popular Text Tools</span>
-                <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </section>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="mt-8 px-4 py-8 border-t border-outline-variant/30">
-        <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <RIcon name="textFields" className="w-5 h-5 text-primary" />
-              <span className="font-headline text-lg text-on-surface tracking-tight">
-                Aesthetic Letters
-              </span>
-            </div>
-            <div className="flex gap-4">
-              <Link href="/about" className="font-label text-sm text-on-surface-variant hover:text-on-surface transition-colors">
-                About
-              </Link>
-              <Link href="/privacy-policy" className="font-label text-sm text-on-surface-variant hover:text-on-surface transition-colors">
-                Privacy
-              </Link>
-              <Link href="/contact" className="font-label text-sm text-on-surface-variant hover:text-on-surface transition-colors">
-                Contact
-              </Link>
+      {/* Live Generator */}
+      <section className="mb-8">
+        <div className="bg-surface-container rounded-xl p-4 ring-1 ring-primary/10">
+          <div className="relative mb-4">
+            <input
+              type="text"
+              maxLength={1}
+              value={input}
+              onChange={(e) => setInput(e.target.value.slice(0, 1))}
+              placeholder="R"
+              className="w-full bg-surface-container-lowest text-on-surface font-headline text-2xl border-none rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none transition-all placeholder:opacity-30"
+            />
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+              <RIcon name="edit" className="w-5 h-5 text-on-surface-variant" />
             </div>
           </div>
-          <p className="font-label text-xs text-on-surface-variant/50 text-center">
-            © 2024 Aesthetic Letters. All rights reserved.
+          <div className="space-y-2">
+            {/* Bold live result */}
+            <div className="flex items-center justify-between bg-surface-container-high p-2 rounded-lg group active:bg-primary/5 transition-colors">
+              <span className="font-headline text-2xl text-primary tracking-widest pl-2">
+                {boldPreview}
+              </span>
+              <button
+                type="button"
+                onClick={() => copy(boldPreview, "live-bold")}
+                className={`font-label text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
+                  copiedId === "live-bold"
+                    ? "bg-tertiary text-on-tertiary"
+                    : "bg-primary text-on-primary"
+                }`}
+              >
+                <RIcon
+                  name={copiedId === "live-bold" ? "check" : "contentCopy"}
+                  className="w-[18px] h-[18px]"
+                />
+                {copiedId === "live-bold" ? "Copied" : "Copy"}
+              </button>
+            </div>
+            {/* Italic live result */}
+            <div className="flex items-center justify-between bg-surface-container-high p-2 rounded-lg group active:bg-primary/5 transition-colors">
+              <span className="font-headline text-2xl text-primary tracking-widest pl-2">
+                {italicPreview}
+              </span>
+              <button
+                type="button"
+                onClick={() => copy(italicPreview, "live-italic")}
+                className={`font-label text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
+                  copiedId === "live-italic"
+                    ? "bg-tertiary text-on-tertiary"
+                    : "bg-primary text-on-primary"
+                }`}
+              >
+                <RIcon
+                  name={copiedId === "live-italic" ? "check" : "contentCopy"}
+                  className="w-[18px] h-[18px]"
+                />
+                {copiedId === "live-italic" ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Font Style Showcase */}
+      <section className="mb-8">
+        <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
+          R in Every Font Style
+        </h2>
+        <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+          This page shows R in different fonts across sixteen verified Unicode styles.
+          Each card displays the uppercase R and lowercase r together. Each style comes
+          with its own copy button beside it. One click sends the text to the clipboard,
+          ready to drop straight into a caption, bio, or username field.
+        </p>
+        <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+          These sixteen styles cover every widely supported Unicode variant for R. No
+          additional verified styles currently exist beyond this set.
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {styleCards.map((style) => {
+            const isCopied = copiedId === style.label;
+            return (
+              <div
+                key={style.label}
+                className="bg-surface-container-low p-2 rounded-xl flex flex-col items-center text-center gap-2"
+              >
+                <span className="font-label text-xs text-on-surface-variant uppercase tracking-wider">
+                  {style.label}
+                </span>
+                <span className="font-headline text-2xl py-2 text-on-surface">
+                  {style.text}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => copy(style.text, style.label)}
+                  className={`w-full py-2 rounded-lg transition-all ${
+                    isCopied
+                      ? "bg-surface-container-highest text-tertiary"
+                      : "bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary"
+                  }`}
+                >
+                  <RIcon
+                    name={isCopied ? "check" : "contentCopy"}
+                    className="w-[18px] h-[18px] mx-auto"
+                  />
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Technical Explainer */}
+      <section className="mb-8">
+        <div className="bg-surface-container-highest rounded-xl p-4 overflow-hidden relative">
+          <div className="absolute -right-4 -top-4 opacity-10 rotate-12">
+            <RIcon name="info" className="w-20 h-20 text-on-surface" />
+          </div>
+          <h3 className="font-headline text-2xl font-semibold text-on-surface mb-2 relative z-10">
+            Why Do Some R Styles Look Different?
+          </h3>
+          <p className="font-body text-base text-on-surface-variant mb-2 relative z-10 leading-relaxed">
+            Script, Fraktur, and Double-Struck R come from an older part of Unicode,
+            called the Letterlike Symbols block. Their expected spot in the newer
+            Mathematical Alphanumeric block was left empty, so these three styles use
+            the older characters instead.
+          </p>
+          <p className="font-body text-base text-on-surface-variant relative z-10 leading-relaxed">
+            Only these three styles carry this exception. The other thirteen styles,
+            including the popular Bold style, follow the newer Unicode block without any
+            gap.{" "}
+            <Link href="/bold-font-generator" className="text-primary hover:underline">
+              The Bold Font Generator
+            </Link>{" "}
+            turns full words into that same bold weight instantly.
           </p>
         </div>
-      </footer>
+      </section>
+
+      {/* R in Other Alphabets */}
+      <section className="mb-8">
+        <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
+          R in Other Alphabets
+        </h2>
+        <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
+          These are real letters from other alphabets that happen to look like R. They
+          are not font styles of R.
+        </p>
+        <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
+          Each character below belongs to its own writing system, such as Cyrillic,
+          Thai, or Cherokee. They carry real meaning in their language and are not
+          simply decorative fonts made from the Latin R.
+        </p>
+        <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+          The letter R traces back to the Phoenician letter resh, which meant head.
+          Ancient Greeks adapted it into rho, then Etruscan and Roman scribes reshaped
+          it into the capital R used today. This same shape later influenced letters
+          in Cyrillic and other alphabets.
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {otherAlphabetCards.map((item) => (
+            <div
+              key={item.label}
+              className="bg-surface-container-low p-2 rounded-xl flex justify-between items-center px-4"
+            >
+              <div className="flex flex-col">
+                <span className="font-label text-xs text-on-surface-variant">
+                  {item.label}
+                </span>
+                <span className="font-headline text-2xl text-primary">{item.char}</span>
+              </div>
+              <RIcon name="translate" className="w-5 h-5 text-on-surface-variant/30" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tags */}
+      <section className="mb-8 flex flex-wrap gap-2">
+        {TAGS.map((tag) => (
+          <span
+            key={tag}
+            className="bg-primary/10 text-primary px-3 py-1 rounded-full font-label text-sm"
+          >
+            {tag}
+          </span>
+        ))}
+      </section>
+
+      {/* Use case block */}
+      <section className="mb-8">
+        <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
+          Where People Use Styled R?
+        </h2>
+        <p className="font-body text-base text-on-surface-variant leading-relaxed">
+          Styled R text works well in Instagram bios, Discord names, gaming profiles,
+          and logo designs. A quick comparison across styles usually reveals the best
+          match for a caption or display name.
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="mb-8">
+        <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-2">
+          {FAQS.map((faq) => (
+            <details key={faq.question} className="bg-surface-container p-4 rounded-xl group">
+              <summary className="list-none flex justify-between items-center font-label text-sm text-on-surface cursor-pointer">
+                {faq.question}
+                <RIcon name="expandMore" className="w-5 h-5 group-open:rotate-180 transition-transform" />
+              </summary>
+              <p className="mt-2 font-body text-base text-on-surface-variant leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* Ad Placement */}
+      <section className="mb-8">
+        <div className="w-full h-32 bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center justify-center gap-1 opacity-50">
+          <span className="font-label text-xs uppercase tracking-tighter text-on-surface-variant">
+            Advertisement
+          </span>
+          <div className="w-full h-px bg-outline-variant/10" />
+          <RIcon name="adsClick" className="w-6 h-6 text-on-surface-variant" />
+        </div>
+      </section>
+
+      {/* Explore More */}
+      <section className="mb-8">
+        <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
+          Explore More
+        </h2>
+        <div className="space-y-4">
+          <Link
+            href="/bold-font-generator"
+            className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
+          >
+            <RIcon name="textFields" className="w-5 h-5" />
+            <span className="font-label text-sm">Similar Font Styles</span>
+            <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            href="/all-tools"
+            className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
+          >
+            <RIcon name="construction" className="w-5 h-5" />
+            <span className="font-label text-sm">Popular Text Tools</span>
+            <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </section>
 
       {/* Toast */}
       <div
@@ -506,6 +442,6 @@ export default function RPageContent() {
         <RIcon name="check" className="w-5 h-5 text-primary" />
         <span className="font-label text-sm">Copied to clipboard!</span>
       </div>
-    </>
+    </div>
   );
 }

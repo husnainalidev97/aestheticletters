@@ -34,56 +34,6 @@ export const metadata: Metadata = {
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const LIVE_LETTERS = new Set(["R"]);
 
-const designTheme = {
-  "--color-background": "#051424",
-  "--color-surface": "#051424",
-  "--color-surface-bright": "#2c3a4c",
-  "--color-surface-dim": "#051424",
-  "--color-surface-variant": "#273647",
-  "--color-surface-container": "#122131",
-  "--color-surface-container-low": "#0d1c2d",
-  "--color-surface-container-lowest": "#010f1f",
-  "--color-surface-container-high": "#1c2b3c",
-  "--color-surface-container-highest": "#273647",
-  "--color-on-background": "#d4e4fa",
-  "--color-on-surface": "#d4e4fa",
-  "--color-on-surface-variant": "#cac4d1",
-  "--color-outline": "#938f9a",
-  "--color-outline-variant": "#48454f",
-  "--color-primary": "#dfd5ff",
-  "--color-on-primary": "#332664",
-  "--color-primary-container": "#c4b5fd",
-  "--color-on-primary-container": "#514483",
-  "--color-primary-fixed": "#e7deff",
-  "--color-primary-fixed-dim": "#ccbeff",
-  "--color-on-primary-fixed": "#1e0e4e",
-  "--color-on-primary-fixed-variant": "#4a3d7c",
-  "--color-secondary": "#c8c5ca",
-  "--color-on-secondary": "#303033",
-  "--color-secondary-container": "#47464a",
-  "--color-on-secondary-container": "#b7b4b8",
-  "--color-secondary-fixed": "#e5e1e6",
-  "--color-secondary-fixed-dim": "#c8c5ca",
-  "--color-on-secondary-fixed": "#1b1b1e",
-  "--color-on-secondary-fixed-variant": "#47464a",
-  "--color-tertiary": "#dcdae1",
-  "--color-on-tertiary": "#303035",
-  "--color-tertiary-container": "#c0bec5",
-  "--color-on-tertiary-container": "#4d4d53",
-  "--color-tertiary-fixed": "#e4e1e8",
-  "--color-tertiary-fixed-dim": "#c8c5cc",
-  "--color-on-tertiary-fixed": "#1b1b20",
-  "--color-on-tertiary-fixed-variant": "#4d4d53",
-  "--color-error": "#ffb4ab",
-  "--color-on-error": "#690005",
-  "--color-error-container": "#93000a",
-  "--color-on-error-container": "#ffdad6",
-  "--color-inverse-surface": "#d4e4fa",
-  "--color-inverse-on-surface": "#233143",
-  "--color-inverse-primary": "#625595",
-  "--color-surface-tint": "#ccbeff",
-} as React.CSSProperties;
-
 function ArrowOutwardIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -152,9 +102,8 @@ export default function AlphabetFontsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="dark bg-background text-on-background min-h-screen" style={designTheme}>
-        <TopNavBar activePage="alphabet-fonts" />
-        <main id="main-content" className="pt-[5.5rem]">
+      <TopNavBar activePage="alphabet-fonts" />
+      <main id="main-content" className="pt-[5.5rem] pb-24">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -289,10 +238,9 @@ export default function AlphabetFontsPage() {
               <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-primary/10 rounded-full blur-[120px]" />
             </div>
           </section>
-        </main>
-        <BackToTopButton />
-        <Footer />
-      </div>
+      </main>
+      <BackToTopButton />
+      <Footer />
     </>
   );
 }
