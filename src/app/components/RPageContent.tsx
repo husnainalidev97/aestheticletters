@@ -2,23 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import FontResultCard from "./FontResultCard";
 import FAQAccordion from "./FAQAccordion";
 import SectionNav from "./SectionNav";
-import AlphabetLetterGenerator, {
-  AlphabetLetterStyleGrid,
-} from "./AlphabetLetterGenerator";
-import { otherAlphabetsR } from "../lib/alphabetFontStyles";
-
-const otherAlphabetCards = otherAlphabetsR.flatMap((entry) => {
-  if (entry.script === "Cyrillic") {
-    return [
-      { label: "Cyrillic (Upper)", char: entry.upper },
-      { label: "Cyrillic (Lower)", char: entry.lower ?? entry.upper },
-    ];
-  }
-  return [{ label: entry.label, char: entry.upper }];
-});
+import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
 
 const TAGS = ["Instagram", "Discord", "Gaming", "Logos", "Captions"];
 
@@ -96,10 +82,24 @@ export default function RPageContent() {
         letter="R"
         defaultText="R"
         hideInputHeader
-        hideStyleGrid
         value={text}
         onChange={setText}
-      />
+      >
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10 space-y-4">
+          <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+            This page shows R in different fonts across sixteen verified Unicode
+            styles. Each card displays the uppercase R and lowercase r together.
+            Each style comes with its own copy button beside it. One click sends
+            the text to the clipboard, ready to drop straight into a caption,
+            bio, or username field.
+          </p>
+          <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
+            These sixteen styles cover every widely supported Unicode variant
+            for R. No additional verified styles currently exist beyond this
+            set.
+          </p>
+        </div>
+      </AlphabetLetterGenerator>
 
       {/* Sticky section navigation */}
       <SectionNav sections={pageSections} />
@@ -109,26 +109,6 @@ export default function RPageContent() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Main Content */}
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <article id="r-in-every-font-style" className="scroll-mt-[9rem]">
-              <AlphabetLetterStyleGrid letter="R" text={text} className="">
-                <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10 space-y-4">
-                  <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
-                    This page shows R in different fonts across sixteen verified
-                    Unicode styles. Each card displays the uppercase R and
-                    lowercase r together. Each style comes with its own copy
-                    button beside it. One click sends the text to the clipboard,
-                    ready to drop straight into a caption, bio, or username
-                    field.
-                  </p>
-                  <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">
-                    These sixteen styles cover every widely supported Unicode
-                    variant for R. No additional verified styles currently exist
-                    beyond this set.
-                  </p>
-                </div>
-              </AlphabetLetterStyleGrid>
-            </article>
-
             <article
               id="why-some-r-styles-look-different"
               className="scroll-mt-[9rem]"
@@ -162,28 +142,18 @@ export default function RPageContent() {
                 like R. They are not font styles of R.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Each character below belongs to its own writing system, such as
+                Each character belongs to its own writing system, such as
                 Cyrillic, Thai, or Cherokee. They carry real meaning in their
                 language and are not simply decorative fonts made from the Latin
                 R.
               </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+              <p className="text-on-surface-variant leading-relaxed text-lg">
                 The letter R traces back to the Phoenician letter resh, which
                 meant head. Ancient Greeks adapted it into rho, then Etruscan
                 and Roman scribes reshaped it into the capital R used today.
                 This same shape later influenced letters in Cyrillic and other
                 alphabets.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {otherAlphabetCards.map((item) => (
-                  <FontResultCard
-                    key={item.label}
-                    label={item.label}
-                    text={item.char}
-                    fontSize={24}
-                  />
-                ))}
-              </div>
             </article>
 
             <article id="where-people-use-styled-r" className="scroll-mt-[9rem]">
