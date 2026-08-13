@@ -72,10 +72,10 @@ export default function AlphabetLetterGenerator({
         id={`${lowerLetter}-in-every-font-style`}
         className="scroll-mt-[9rem]"
       >
+        {children}
         <h3 className="font-headline text-2xl md:text-4xl font-bold mb-6 text-center">
           {upperLetter} in Every Font Style
         </h3>
-        {children}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {styles.map((style) => (
             <FontResultCard
