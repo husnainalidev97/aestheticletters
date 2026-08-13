@@ -11,7 +11,6 @@ type IconName =
   | "expandMore"
   | "textFields"
   | "construction"
-  | "arrowForward"
   | "adsClick"
   | "info";
 
@@ -45,11 +44,6 @@ function RIcon({ name, className }: { name: IconName; className?: string }) {
     construction: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M13.59 10.11l4.93-4.93a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-4.93 4.93 4.75 4.75zM4.93 20.07a2.99 2.99 0 0 0 4.24 0l7.78-7.78-4.24-4.24-7.78 7.78a2.99 2.99 0 0 0 0 4.24z" />
-      </svg>
-    ),
-    arrowForward: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" />
       </svg>
     ),
     adsClick: (
@@ -300,7 +294,7 @@ export default function RPageContent() {
             including the popular Bold style, follow the newer Unicode block without any
             gap.{" "}
             <Link href="/bold-font-generator" className="text-primary hover:underline">
-              The Bold Font Generator
+              bold font generator
             </Link>{" "}
             turns full words into that same bold weight instantly.
           </p>
@@ -418,22 +412,25 @@ export default function RPageContent() {
           Explore More
         </h2>
         <div className="space-y-4">
-          <Link
-            href="/bold-font-generator"
-            className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
-          >
-            <RIcon name="textFields" className="w-5 h-5" />
-            <span className="font-label text-sm">Similar Font Styles</span>
-            <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/all-tools"
-            className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
-          >
-            <RIcon name="construction" className="w-5 h-5" />
-            <span className="font-label text-sm">Popular Text Tools</span>
-            <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex items-center gap-3 p-4 rounded-xl bg-surface-container">
+            <RIcon name="textFields" className="w-5 h-5 text-on-surface-variant" />
+            <span className="font-label text-sm text-on-surface">Similar Font Styles</span>
+          </div>
+          <div className="p-4 rounded-xl bg-surface-container">
+            <div className="flex items-center gap-3 mb-2">
+              <RIcon name="construction" className="w-5 h-5 text-on-surface-variant" />
+              <span className="font-label text-sm text-on-surface">Popular Text Tools</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pl-8 font-body text-sm">
+              <Link href="/stylish-fonts" className="text-primary hover:underline">
+                Stylish Font Generator
+              </Link>
+              <span className="text-on-surface-variant">·</span>
+              <Link href="/fancy-fonts" className="text-primary hover:underline">
+                Fancy Font Generator
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
