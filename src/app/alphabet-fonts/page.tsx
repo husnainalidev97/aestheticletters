@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "https://www.aestheticletters.com/og-image.webp", width: 1200, height: 630 }],
+    images: [{ url: "https://www.aestheticletters.com/og-alphabet-fonts.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["https://www.aestheticletters.com/og-image.webp"],
+    images: ["https://www.aestheticletters.com/og-alphabet-fonts.webp"],
   },
 };
 
