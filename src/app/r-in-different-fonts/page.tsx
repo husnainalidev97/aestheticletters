@@ -80,8 +80,6 @@ export default function RInDifferentFontsPage() {
     isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
     datePublished: pageDate,
     dateModified: pageDate,
-    breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
-    mainEntity: { "@id": `${canonicalUrl}#softwareapp` },
   };
 
   const softwareAppJsonLd = {
@@ -108,7 +106,7 @@ export default function RInDifferentFontsPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
       { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: hubUrl },
-      { "@type": "ListItem", position: 3, name: "R in Different Fonts", item: canonicalUrl },
+      { "@type": "ListItem", position: 3, name: "R in Different Fonts" },
     ],
   };
 

@@ -68,7 +68,6 @@ export default function AlphabetFontsPage() {
     isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
     datePublished: pageDate,
     dateModified: pageDate,
-    breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
   };
 
   const breadcrumbJsonLd = {
@@ -77,7 +76,7 @@ export default function AlphabetFontsPage() {
     "@id": `${canonicalUrl}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
-      { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: canonicalUrl },
+      { "@type": "ListItem", position: 2, name: "Alphabet Fonts" },
     ],
   };
 
