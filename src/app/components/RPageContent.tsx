@@ -8,7 +8,6 @@ type IconName =
   | "edit"
   | "contentCopy"
   | "check"
-  | "translate"
   | "expandMore"
   | "textFields"
   | "construction"
@@ -31,13 +30,6 @@ function RIcon({ name, className }: { name: IconName; className?: string }) {
     check: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-      </svg>
-    ),
-    translate: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9" />
-        <ellipse cx="12" cy="12" rx="4" ry="9" />
-        <path d="M3 12h18" />
       </svg>
     ),
     expandMore: (
@@ -336,20 +328,34 @@ export default function RPageContent() {
           in Cyrillic and other alphabets.
         </p>
         <div className="grid grid-cols-2 gap-2">
-          {otherAlphabetCards.map((item) => (
-            <div
-              key={item.label}
-              className="bg-surface-container-low p-2 rounded-xl flex justify-between items-center px-4"
-            >
-              <div className="flex flex-col">
-                <span className="font-label text-xs text-on-surface-variant">
-                  {item.label}
-                </span>
-                <span className="font-headline text-2xl text-primary">{item.char}</span>
+          {otherAlphabetCards.map((item) => {
+            const isCopied = copiedId === `other-${item.label}`;
+            return (
+              <div
+                key={item.label}
+                className="bg-surface-container-low p-2 rounded-xl flex items-center gap-3 px-4"
+              >
+                <button
+                  type="button"
+                  aria-label={`Copy ${item.char}`}
+                  onClick={() => copy(item.char, `other-${item.label}`)}
+                  className={`shrink-0 w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
+                    isCopied
+                      ? "bg-tertiary text-on-tertiary"
+                      : "bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary"
+                  }`}
+                >
+                  <RIcon name={isCopied ? "check" : "contentCopy"} className="w-[18px] h-[18px]" />
+                </button>
+                <div className="flex flex-col min-w-0">
+                  <span className="font-label text-xs text-on-surface-variant">
+                    {item.label}
+                  </span>
+                  <span className="font-headline text-2xl text-primary">{item.char}</span>
+                </div>
               </div>
-              <RIcon name="translate" className="w-5 h-5 text-on-surface-variant/30" />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

@@ -143,8 +143,8 @@ export const otherAlphabetsR: OtherAlphabetEntry[] = [
   {
     script: "Canadian Aboriginal",
     label: "Aboriginal",
-    upper: "\u1550",
+    upper: "\u1587",
     lower: null,
-    description: "Unified Canadian Aboriginal Syllabics standalone R.",
+    description: "Canadian Aboriginal Syllabics Tlhi, visually confusable with Latin R.",
   },
 ];
