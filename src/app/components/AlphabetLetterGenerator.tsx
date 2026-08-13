@@ -353,7 +353,7 @@ export default function AlphabetLetterGenerator({
         <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Standard {upperLetter} Fonts
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
           {standardStyles.slice(0, visibleStandardCount).map((style) => (
             <FontResultCard
               key={`standard-${style.name}`}
@@ -380,7 +380,7 @@ export default function AlphabetLetterGenerator({
       )}
 
       {/* Capital Letter Symbol Styles */}
-      <div ref={capitalRef}>
+      <div ref={capitalRef} className="mt-10">
         <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Capital Letter &apos;{upperLetter}&apos; with Symbols
         </h2>
@@ -415,7 +415,7 @@ export default function AlphabetLetterGenerator({
       )}
 
       {/* Small Letter Symbol Styles */}
-      <div ref={smallRef}>
+      <div ref={smallRef} className="mt-10">
         <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
           Small Letter &apos;{lowerLetter}&apos; with Symbols
         </h2>

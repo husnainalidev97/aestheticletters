@@ -117,7 +117,7 @@ export default function FontResultCard({
         onClick={handleCopy}
         data-text={text}
         data-label={label}
-        className="group relative flex flex-col items-center justify-center aspect-square w-full rounded-xl bg-surface-container-lowest border border-outline-variant/20 p-4 overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] cursor-pointer"
+        className="group relative flex flex-col items-center justify-center aspect-square w-full rounded-xl bg-surface-container-lowest border border-outline-variant/20 p-3 overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] cursor-pointer"
         aria-label={`Copy ${text}${label ? ` (${label})` : ""}`}
       >
         <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors duration-300">
