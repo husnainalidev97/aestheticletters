@@ -110,7 +110,7 @@ export default function RInDifferentFontsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <TopNavBar activePage="r-in-different-fonts" />
-      <main id="main-content" className="pt-[5.5rem] pb-24">
+      <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },

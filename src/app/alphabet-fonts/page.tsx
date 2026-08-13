@@ -103,7 +103,7 @@ export default function AlphabetFontsPage() {
       />
 
       <TopNavBar activePage="alphabet-fonts" />
-      <main id="main-content" className="pt-[5.5rem] pb-24">
+      <main id="main-content" className="pt-[5.5rem]">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
