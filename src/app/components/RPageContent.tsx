@@ -43,10 +43,10 @@ export default function RPageContent({ faqs }: RPageContentProps) {
                 R in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                This page shows the letter R in different fonts using verified Unicode styles. The generator above starts with a grid of capital R designs, followed by an ad slot, and then a second grid of small r designs. Each card has its own copy button; one click copies the text to the clipboard.
+                This page shows the letter R in different fonts across three parts. The first grid shows the standard Unicode styles with the uppercase R and lowercase r together in each card. After an advertisement slot, the second grid shows capital R decorated with symbols and frames, and the third grid shows small r decorated the same way.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                The styles include plain Unicode fonts, decorative frames, symbols, and emojis. You can type any letter or word into the input to preview it across the same set of styles.
+                Each card has its own copy button. One click copies the exact Unicode characters to the clipboard, ready to paste into a bio, caption, or username field.
               </p>
             </article>
 

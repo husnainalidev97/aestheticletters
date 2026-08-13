@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useMemo } from "react";
 import CompactStyleCard from "./CompactStyleCard";
+import FontResultCard from "./FontResultCard";
 import type { FontCategory } from "../lib/fontStyles";
 import { fontCategories } from "../lib/fontStyles";
+import { letterRStyles } from "../lib/alphabetFontStyles";
 
 interface AlphabetLetterGeneratorProps {
   letter: string;
@@ -18,6 +20,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 24;
 const STEP = 2;
+const MAX_SYMBOL_STYLES = 25;
 
 function getStylesForText(
   text: string,
@@ -100,12 +103,21 @@ export default function AlphabetLetterGenerator({
   const upperText = text.toUpperCase();
   const lowerText = text.toLowerCase();
 
-  const capitalStyles = useMemo(
-    () => getStylesForText(upperText, fontCategories),
+  const standardStyles = useMemo(
+    () =>
+      letterRStyles.map((style) => ({
+        name: style.name,
+        text: `${style.transform(upperText)} ${style.transform(lowerText)}`,
+      })),
+    [upperText, lowerText],
+  );
+
+  const capitalSymbolStyles = useMemo(
+    () => getStylesForText(upperText, fontCategories).slice(0, MAX_SYMBOL_STYLES),
     [upperText],
   );
-  const smallStyles = useMemo(
-    () => getStylesForText(lowerText, fontCategories),
+  const smallSymbolStyles = useMemo(
+    () => getStylesForText(lowerText, fontCategories).slice(0, MAX_SYMBOL_STYLES),
     [lowerText],
   );
 
@@ -220,16 +232,16 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {/* Capital Letter Styles */}
+      {/* Standard Unicode Styles — uppercase + lowercase together */}
       <div className="mt-10">
         <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
-          Capital Letter &apos;{upperLetter}&apos; Fonts
+          Standard {upperLetter} Fonts
         </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
-          {capitalStyles.map((style) => (
-            <CompactStyleCard
-              key={`capital-${style.name}`}
-              label={`${style.category} – ${style.name}`}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+          {standardStyles.map((style) => (
+            <FontResultCard
+              key={`standard-${style.name}`}
+              label={style.name}
               text={style.text}
               fontSize={fontSize}
             />
@@ -249,13 +261,30 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {/* Small Letter Styles */}
+      {/* Capital Letter Symbol Styles */}
       <div>
         <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
-          Small Letter &apos;{lowerLetter}&apos; Fonts
+          Capital Letter &apos;{upperLetter}&apos; with Symbols
         </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
-          {smallStyles.map((style) => (
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          {capitalSymbolStyles.map((style) => (
+            <CompactStyleCard
+              key={`capital-${style.name}`}
+              label={`${style.category} – ${style.name}`}
+              text={style.text}
+              fontSize={fontSize}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Small Letter Symbol Styles */}
+      <div className="mt-10">
+        <h3 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+          Small Letter &apos;{lowerLetter}&apos; with Symbols
+        </h3>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          {smallSymbolStyles.map((style) => (
             <CompactStyleCard
               key={`small-${style.name}`}
               label={`${style.category} – ${style.name}`}

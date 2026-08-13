@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: "Can I style the lowercase r too?",
-    answer: "Yes. The page starts with a grid of capital R styles, then a second grid with small r styles. Both use the same Unicode style library.",
+    answer: "Yes. The first grid shows both uppercase R and lowercase r together. After the ad slot there are dedicated grids for capital R with symbols and small r with symbols.",
   },
   {
     question: "Why do some styled R characters show as boxes or question marks?",
