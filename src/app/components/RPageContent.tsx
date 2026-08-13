@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
+import { letterRStyles, otherAlphabetsR } from "../lib/alphabetFontStyles";
 
 type IconName =
   | "person"
@@ -90,34 +91,23 @@ function RIcon({ name, className }: { name: IconName; className?: string }) {
   );
 }
 
-const STYLE_CARDS = [
-  { label: "Bold", text: "𝐑 𝐫" },
-  { label: "Italic", text: "𝘙 𝘳" },
-  { label: "Bold Italic", text: "𝑹 𝒓" },
-  { label: "Script", text: "ℛ 𝓇" },
-  { label: "Bold Script", text: "𝓡 𝓻" },
-  { label: "Fraktur", text: "ℜ 𝔯" },
-  { label: "Bold Fraktur", text: "𝕽 𝖗" },
-  { label: "Double-Struck", text: "ℝ 𝕣" },
-  { label: "Sans-Serif", text: "𝖱 𝗋" },
-  { label: "Sans Bold", text: "𝗥 𝗿" },
-  { label: "Sans Italic", text: "𝘙 𝘳" },
-  { label: "Sans Bold Italic", text: "𝙍 𝙧" },
-  { label: "Monospace", text: "𝚁 𝚛" },
-  { label: "Circled", text: "Ⓡ ⓡ" },
-  { label: "Fullwidth", text: "Ｒ ｒ" },
-  { label: "Small Caps", text: "ʀ" },
-];
+const styleCards = letterRStyles.map((style) => {
+  const upper = style.transform("R");
+  const lower = style.transform("r");
+  const text = upper === lower ? upper : `${upper} ${lower}`;
+  const label = style.name === "Sans" ? "Sans-Serif" : style.name;
+  return { label, text };
+});
 
-const OTHER_ALPHABETS = [
-  { label: "Cyrillic (Upper)", char: "Я" },
-  { label: "Cyrillic (Lower)", char: "я" },
-  { label: "Armenian", char: "Ռ" },
-  { label: "Thai", char: "ภ" },
-  { label: "Cherokee", char: "Ꭱ" },
-  { label: "Chinese", char: "尺" },
-  { label: "Aboriginal", char: "尺" },
-];
+const otherAlphabetCards = otherAlphabetsR.flatMap((entry) => {
+  if (entry.script === "Cyrillic") {
+    return [
+      { label: "Cyrillic (Upper)", char: entry.upper },
+      { label: "Cyrillic (Lower)", char: entry.lower ?? entry.upper },
+    ];
+  }
+  return [{ label: entry.label, char: entry.upper }];
+});
 
 const FAQS = [
   {
@@ -128,7 +118,7 @@ const FAQS = [
   {
     question: "Are these real fonts?",
     answer:
-      "No, these are Unicode characters that look like different font styles. They work as regular text, not as installed fonts.",
+      "Not in the traditional sense. Each style here is a separate Unicode character with its own code point, not a typeface applied to normal letters. Because of this, the text pastes and displays as plain characters everywhere, with nothing to install.",
   },
   {
     question: "Why do some R styles look different from others?",
@@ -137,6 +127,21 @@ const FAQS = [
   {
     question: "Can I style the lowercase r too?",
     answer: "Yes, every style on this page includes both the uppercase R and lowercase r.",
+  },
+  {
+    question: "Why do some styled R characters show as boxes or question marks?",
+    answer:
+      "Some devices and apps do not support every Unicode character. When that happens, a styled R may show as a box or a question mark instead of the correct symbol. Try a different style from the list, or update the app or browser to fix this.",
+  },
+  {
+    question: "Is it free to use these R fonts?",
+    answer:
+      "Yes, every R style on this page is completely free. No signup or payment is needed. Copy and paste any style for personal projects, social media, or commercial use.",
+  },
+  {
+    question: "Can I create my own font style for R?",
+    answer:
+      "Not directly on this page. Unicode styles are fixed characters, not something anyone can design freely. Graphic design tools such as Photoshop or Canva allow fully custom letterforms instead.",
   },
 ];
 
@@ -147,10 +152,10 @@ export default function RPageContent() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [toast, setToast] = useState(false);
 
-  const char = (input.charAt(0) || "R").toUpperCase();
+  const char = input.charAt(0) || "R";
 
-  const boldPreview = char === "R" ? "𝐑" : char;
-  const italicPreview = char === "R" ? "𝘙" : char;
+  const boldPreview = letterRStyles[0].transform(char);
+  const italicPreview = letterRStyles[1].transform(char);
 
   useEffect(() => {
     if (!copiedId) return;
@@ -199,9 +204,9 @@ export default function RPageContent() {
               R in Different Fonts
             </h1>
             <p className="font-body text-base text-on-surface-variant leading-relaxed">
-              Transform the letter &apos;R&apos; into various aesthetic styles. These Unicode
-              characters work across social media, gaming profiles, and messaging apps
-              without needing special font files.
+              See the letter R in different fonts, with 16 verified Unicode styles and how R
+              looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style
+              instantly.
             </p>
           </section>
 
@@ -270,11 +275,21 @@ export default function RPageContent() {
 
           {/* Font Style Showcase */}
           <section className="mb-8">
-            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
+            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
               R in Every Font Style
             </h2>
+            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+              This page shows R in different fonts across sixteen verified Unicode styles.
+              Each card displays the uppercase R and lowercase r together. Each style comes
+              with its own copy button beside it. One click sends the text to the clipboard,
+              ready to drop straight into a caption, bio, or username field.
+            </p>
+            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+              These sixteen styles cover every widely supported Unicode variant for R. No
+              additional verified styles currently exist beyond this set.
+            </p>
             <div className="grid grid-cols-2 gap-2">
-              {STYLE_CARDS.map((style) => {
+              {styleCards.map((style) => {
                 const isCopied = copiedId === style.label;
                 return (
                   <div
@@ -314,13 +329,22 @@ export default function RPageContent() {
                 <RIcon name="info" className="w-20 h-20 text-on-surface" />
               </div>
               <h3 className="font-headline text-2xl font-semibold text-on-surface mb-2 relative z-10">
-                Why Some R Styles Look Different
+                Why Do Some R Styles Look Different?
               </h3>
-              <p className="font-body text-base text-on-surface-variant relative z-10">
+              <p className="font-body text-base text-on-surface-variant mb-2 relative z-10 leading-relaxed">
                 Script, Fraktur, and Double-Struck R come from an older part of Unicode,
                 called the Letterlike Symbols block. Their expected spot in the newer
                 Mathematical Alphanumeric block was left empty, so these three styles use
                 the older characters instead.
+              </p>
+              <p className="font-body text-base text-on-surface-variant relative z-10 leading-relaxed">
+                Only these three styles carry this exception. The other thirteen styles,
+                including the popular Bold style, follow the newer Unicode block without any
+                gap.{" "}
+                <Link href="/bold-font-generator" className="text-primary hover:underline">
+                  The Bold Font Generator
+                </Link>{" "}
+                turns full words into that same bold weight instantly.
               </p>
             </div>
           </section>
@@ -330,12 +354,23 @@ export default function RPageContent() {
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
               R in Other Alphabets
             </h2>
-            <p className="font-body text-base text-on-surface-variant mb-4">
+            <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
               These are real letters from other alphabets that happen to look like R. They
               are not font styles of R.
             </p>
+            <p className="font-body text-base text-on-surface-variant mb-2 leading-relaxed">
+              Each character below belongs to its own writing system, such as Cyrillic,
+              Thai, or Cherokee. They carry real meaning in their language and are not
+              simply decorative fonts made from the Latin R.
+            </p>
+            <p className="font-body text-base text-on-surface-variant mb-4 leading-relaxed">
+              The letter R traces back to the Phoenician letter resh, which meant head.
+              Ancient Greeks adapted it into rho, then Etruscan and Roman scribes reshaped
+              it into the capital R used today. This same shape later influenced letters
+              in Cyrillic and other alphabets.
+            </p>
             <div className="grid grid-cols-2 gap-2">
-              {OTHER_ALPHABETS.map((item) => (
+              {otherAlphabetCards.map((item) => (
                 <div
                   key={item.label}
                   className="bg-surface-container-low p-2 rounded-xl flex justify-between items-center px-4"
@@ -364,6 +399,18 @@ export default function RPageContent() {
             ))}
           </section>
 
+          {/* Use case block */}
+          <section className="mb-8">
+            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-2">
+              Where People Use Styled R?
+            </h2>
+            <p className="font-body text-base text-on-surface-variant leading-relaxed">
+              Styled R text works well in Instagram bios, Discord names, gaming profiles,
+              and logo designs. A quick comparison across styles usually reveals the best
+              match for a caption or display name.
+            </p>
+          </section>
+
           {/* FAQ */}
           <section className="mb-8">
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-4">
@@ -376,7 +423,7 @@ export default function RPageContent() {
                     {faq.question}
                     <RIcon name="expandMore" className="w-5 h-5 group-open:rotate-180 transition-transform" />
                   </summary>
-                  <p className="mt-2 font-body text-base text-on-surface-variant">{faq.answer}</p>
+                  <p className="mt-2 font-body text-base text-on-surface-variant leading-relaxed">{faq.answer}</p>
                 </details>
               ))}
             </div>
@@ -400,7 +447,7 @@ export default function RPageContent() {
             </h2>
             <div className="space-y-4">
               <Link
-                href="#"
+                href="/bold-font-generator"
                 className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
               >
                 <RIcon name="textFields" className="w-5 h-5" />
@@ -408,7 +455,7 @@ export default function RPageContent() {
                 <RIcon name="arrowForward" className="w-5 h-5 ml-auto group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="#"
+                href="/all-tools"
                 className="flex items-center gap-3 text-on-primary-container bg-primary-container/20 p-4 rounded-xl group"
               >
                 <RIcon name="construction" className="w-5 h-5" />

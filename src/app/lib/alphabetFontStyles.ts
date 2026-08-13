@@ -61,6 +61,7 @@ const sansSerifItalicMap = buildMap(0x1d608, 0x1d622);
 const monospaceMap = buildMap(0x1d670, 0x1d68a);
 const fullwidthMap = buildMap(0xff21, 0xff41, { " ": "\u3000" });
 const circledMap = buildMap(0x24b6, 0x24d0);
+const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
 
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
@@ -73,19 +74,6 @@ const smallCapsMap: Record<string, string> = {
   m: "\u1D0D", n: "\u0274", o: "\u1D0F", p: "\u1D18", q: "q", r: "\u0280",
   s: "\uA731", t: "\u1D1B", u: "\u1D1C", v: "\u1D20", w: "\u1D21", x: "x",
   y: "\u028F", z: "\u1D22",
-};
-
-const superscriptMap: Record<string, string> = {
-  A: "\u1D2C", B: "\u1D2E", C: "\u1D9C", D: "\u1D30", E: "\u1D31", F: "\u1DA0",
-  G: "\u1D33", H: "\u1D34", I: "\u1D35", J: "\u1D36", K: "\u1D37", L: "\u1D38",
-  M: "\u1D39", N: "\u1D3A", O: "\u1D3C", P: "\u1D3E", Q: "Q", R: "\u1D3F",
-  S: "\u02E2", T: "\u1D40", U: "\u1D41", V: "\u2C7D", W: "\u1D42", X: "\u02E3",
-  Y: "\u02B8", Z: "\u1DBB",
-  a: "\u1D43", b: "\u1D47", c: "\u1D9C", d: "\u1D48", e: "\u1D49", f: "\u1DA0",
-  g: "\u1D4D", h: "\u02B0", i: "\u2071", j: "\u02B2", k: "\u1D4F", l: "\u02E1",
-  m: "\u1D50", n: "\u207F", o: "\u1D52", p: "\u1D56", q: "q", r: "\u02B3",
-  s: "\u02E2", t: "\u1D57", u: "\u1D58", v: "\u1D5B", w: "\u02B7", x: "\u02E3",
-  y: "\u02B8", z: "\u1DBB",
 };
 
 // ── 16 R Styles (master list for A–Z letter pages) ─────────────────────────
@@ -102,11 +90,11 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
   { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
   { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
   { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
   { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
-  { name: "Superscript", transform: (t) => applyMap(t, superscriptMap) },
-  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
 ];
 
 // ── R in Other Alphabets ─────────────────────────────────────────────────
