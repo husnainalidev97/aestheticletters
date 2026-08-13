@@ -92,7 +92,7 @@ export default function Home() {
         "@type": "ItemList",
         name: "Aesthetic Letter Tools",
         description: "All font generator tools available on Aesthetic Letters. Every generator uses Unicode characters you can copy and paste into any platform.",
-        numberOfItems: 18,
+        numberOfItems: 19,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Instagram Fonts", url: "https://www.aestheticletters.com/instagram-fonts" },
           { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
@@ -112,6 +112,7 @@ export default function Home() {
           { "@type": "ListItem", position: 16, name: "Halloween Fonts", url: "https://www.aestheticletters.com/halloween-fonts" },
           { "@type": "ListItem", position: 17, name: "Christmas Fonts", url: "https://www.aestheticletters.com/christmas-fonts" },
           { "@type": "ListItem", position: 18, name: "Big Text Generator", url: "https://www.aestheticletters.com/big-text-generator" },
+          { "@type": "ListItem", position: 19, name: "R in Different Fonts", url: "https://www.aestheticletters.com/r-in-different-fonts" },
         ],
       },
     ],
@@ -269,6 +270,7 @@ export default function Home() {
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern fonts" },
                   { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky text styles" },
                   { label: "Christmas Fonts", href: "/christmas-fonts", icon: "\uD83C\uDF84", desc: "Festive holiday text" },
+                  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\u24C7", desc: "Letter R styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

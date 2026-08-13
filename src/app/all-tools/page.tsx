@@ -189,7 +189,6 @@ const toolCategories: ToolCategory[] = [
       },
     ],
   },
-
 ];
 
 export default function AllToolsPage() {

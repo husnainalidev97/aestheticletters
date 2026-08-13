@@ -24,7 +24,9 @@ type ActivePage =
   | "halloween-fonts"
   | "christmas-fonts"
   | "weird-font-generator"
-  | "tiktok-font-generator";
+  | "tiktok-font-generator"
+  | "alphabet-fonts"
+  | "r-in-different-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -33,6 +35,7 @@ interface TopNavBarProps {
 const navLinks = [
   { label: "Home", page: "home", href: "/" },
   { label: "All Tools", page: "all-tools", href: "/all-tools" },
+  { label: "Alphabet Fonts", page: "alphabet-fonts", href: "/alphabet-fonts" },
   { label: "About", page: "about", href: "/about" },
 ] as const;
 
@@ -347,6 +350,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               TikTok Fonts
+            </Link>
+            <Link
+              href="/r-in-different-fonts"
+              className={mobileLinkClass("r-in-different-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              R in Different Fonts
             </Link>
           </nav>
         </div>

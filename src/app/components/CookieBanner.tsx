@@ -114,33 +114,32 @@ export default function CookieBanner() {
       id="cookie-banner"
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:max-w-md rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 shadow-2xl"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest border-t border-outline-variant p-2 shadow-lg"
     >
-      <p className="text-sm text-on-surface-variant mb-4">
-        We use cookies and similar technologies for analytics and, in some
-        regions, personalized advertising. By clicking &ldquo;Accept all&rdquo;,
-        you agree to the use of optional cookies. You can manage or withdraw
-        your consent at any time.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-2">
-        <button
-          onClick={rejectOptional}
-          className="w-full sm:flex-1 px-3 py-2 rounded-xl border border-outline-variant text-sm text-on-surface-variant font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
-        >
-          Reject
-        </button>
-        <button
-          onClick={openManage}
-          className="w-full sm:flex-1 px-3 py-2 rounded-xl border border-outline-variant text-sm text-on-surface font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
-        >
-          Manage
-        </button>
-        <button
-          onClick={acceptAll}
-          className="w-full sm:flex-1 px-3 py-2 rounded-xl bg-primary text-sm text-on-primary font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
-        >
-          Accept all
-        </button>
+      <div className="max-w-[1440px] mx-auto px-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+        <span className="text-on-surface-variant text-center">
+          We use cookies for analytics and ads.
+        </span>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={acceptAll}
+            className="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+          >
+            Accept all
+          </button>
+          <button
+            onClick={rejectOptional}
+            className="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface-variant font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
+          >
+            Reject
+          </button>
+          <button
+            onClick={openManage}
+            className="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface font-medium hover:bg-surface-container transition-colors whitespace-nowrap"
+          >
+            Manage
+          </button>
+        </div>
       </div>
     </div>
   );
