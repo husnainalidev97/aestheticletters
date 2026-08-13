@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 import Breadcrumb from "../components/Breadcrumb";
@@ -32,6 +33,56 @@ export const metadata: Metadata = {
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const LIVE_LETTERS = new Set(["R"]);
+
+const designTheme = {
+  "--color-background": "#051424",
+  "--color-surface": "#051424",
+  "--color-surface-bright": "#2c3a4c",
+  "--color-surface-dim": "#051424",
+  "--color-surface-variant": "#273647",
+  "--color-surface-container": "#122131",
+  "--color-surface-container-low": "#0d1c2d",
+  "--color-surface-container-lowest": "#010f1f",
+  "--color-surface-container-high": "#1c2b3c",
+  "--color-surface-container-highest": "#273647",
+  "--color-on-background": "#d4e4fa",
+  "--color-on-surface": "#d4e4fa",
+  "--color-on-surface-variant": "#cac4d1",
+  "--color-outline": "#938f9a",
+  "--color-outline-variant": "#48454f",
+  "--color-primary": "#dfd5ff",
+  "--color-on-primary": "#332664",
+  "--color-primary-container": "#c4b5fd",
+  "--color-on-primary-container": "#514483",
+  "--color-primary-fixed": "#e7deff",
+  "--color-primary-fixed-dim": "#ccbeff",
+  "--color-on-primary-fixed": "#1e0e4e",
+  "--color-on-primary-fixed-variant": "#4a3d7c",
+  "--color-secondary": "#c8c5ca",
+  "--color-on-secondary": "#303033",
+  "--color-secondary-container": "#47464a",
+  "--color-on-secondary-container": "#b7b4b8",
+  "--color-secondary-fixed": "#e5e1e6",
+  "--color-secondary-fixed-dim": "#c8c5ca",
+  "--color-on-secondary-fixed": "#1b1b1e",
+  "--color-on-secondary-fixed-variant": "#47464a",
+  "--color-tertiary": "#dcdae1",
+  "--color-on-tertiary": "#303035",
+  "--color-tertiary-container": "#c0bec5",
+  "--color-on-tertiary-container": "#4d4d53",
+  "--color-tertiary-fixed": "#e4e1e8",
+  "--color-tertiary-fixed-dim": "#c8c5cc",
+  "--color-on-tertiary-fixed": "#1b1b20",
+  "--color-on-tertiary-fixed-variant": "#4d4d53",
+  "--color-error": "#ffb4ab",
+  "--color-on-error": "#690005",
+  "--color-error-container": "#93000a",
+  "--color-on-error-container": "#ffdad6",
+  "--color-inverse-surface": "#d4e4fa",
+  "--color-inverse-on-surface": "#233143",
+  "--color-inverse-primary": "#625595",
+  "--color-surface-tint": "#ccbeff",
+} as React.CSSProperties;
 
 function ArrowOutwardIcon({ className }: { className?: string }) {
   return (
@@ -94,11 +145,6 @@ export default function AlphabetFontsPage() {
     ],
   };
 
-  const cardBase =
-    "group relative block bg-surface-container-low p-5 rounded-xl shadow-sm transition-all duration-300 ease-out";
-  const cardHover =
-    "hover:shadow-xl hover:bg-surface-container transform hover:-translate-y-1";
-
   return (
     <>
       <script
@@ -106,136 +152,147 @@ export default function AlphabetFontsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <TopNavBar activePage="alphabet-fonts" />
-      <main id="main-content" className="pt-[5.5rem]">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Alphabet Fonts", href: "/alphabet-fonts" },
-          ]}
-        />
+      <div className="dark bg-background text-on-background min-h-screen" style={designTheme}>
+        <TopNavBar activePage="alphabet-fonts" />
+        <main id="main-content" className="pt-[5.5rem]">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Alphabet Fonts", href: "/alphabet-fonts" },
+            ]}
+          />
 
-        {/* Hero */}
-        <section className="relative px-4 lg:px-6 pt-8 pb-4 max-w-[1200px] mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="max-w-2xl">
-              <h1 className="font-headline text-4xl md:text-5xl font-bold text-on-background mb-2 tracking-tight">
-                Alphabet Fonts
-              </h1>
-              <p className="font-body text-on-surface-variant leading-relaxed">
-                Every letter A to Z is available in many Unicode font styles.{" "}
-                <span className="text-primary/80 font-medium">Click a letter</span>{" "}
-                to open its full style collection.
-              </p>
-            </div>
-            <div className="hidden lg:flex items-center gap-2 mb-2">
-              <span className="font-label text-xs uppercase tracking-widest text-on-tertiary-fixed-variant bg-surface-container-high px-3 py-1 rounded-full">
-                A-Z Directory
-              </span>
-            </div>
-          </div>
-          <div className="absolute -top-16 -right-16 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-        </section>
-
-        {/* Alphabet Grid */}
-        <section className="px-4 lg:px-6 py-8 max-w-[1200px] mx-auto w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {LETTERS.map((letter) => {
-              const live = LIVE_LETTERS.has(letter);
-              const href = `/${letter.toLowerCase()}-in-different-fonts`;
-              const content = (
-                <>
-                  <div className="flex flex-col h-full gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-lg shadow-inner">
-                      {letter}
-                    </div>
-                    <div className="flex flex-col">
-                      <h3 className="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">
-                        {letter} in Different Fonts
-                      </h3>
-                      <p className="font-body text-sm text-on-surface-variant">
-                        Every style for the letter {letter}
-                      </p>
-                    </div>
-                  </div>
-                  {live && (
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowOutwardIcon className="w-5 h-5 text-primary" />
-                    </div>
-                  )}
-                </>
-              );
-
-              return live ? (
-                <Link
-                  key={letter}
-                  href={href}
-                  className={`${cardBase} ${cardHover}`}
-                >
-                  {content}
-                </Link>
-              ) : (
-                <div
-                  key={letter}
-                  role="link"
-                  aria-disabled="true"
-                  className={`${cardBase} opacity-70 cursor-not-allowed`}
-                >
-                  {content}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Visual Accent Section */}
-        <section className="w-full py-8 px-4 lg:px-6 max-w-[1200px] mx-auto overflow-hidden">
-          <div className="bg-surface-container-lowest rounded-[24px] p-8 relative">
-            <div className="grid md:grid-cols-2 items-center gap-8 relative z-10">
-              <div>
-                <span className="font-label text-xs uppercase tracking-widest text-primary block mb-4">
-                  Unicode Technology
-                </span>
-                <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4">
-                  Beyond the Standard Character Set
-                </h2>
-                <p className="font-body text-on-surface-variant leading-relaxed mb-6">
-                  Our collection leverages Unicode character mapping to provide
-                  hundreds of aesthetic variations for every single letter of the
-                  alphabet.
+          {/* Hero */}
+          <section className="relative px-4 lg:px-6 pt-8 pb-4 max-w-[1200px] mx-auto w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div className="max-w-2xl">
+                <h1 className="font-headline text-4xl md:text-5xl font-bold text-on-surface mb-2 tracking-tight">
+                  Alphabet Fonts
+                </h1>
+                <p className="font-body text-on-surface-variant leading-relaxed">
+                  Every letter A to Z is available in many Unicode font styles.{" "}
+                  <span className="text-primary/80 font-medium">Click a letter</span>{" "}
+                  to open its full style collection.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
-                    𝔊𝔬𝔱𝔥𝔦𝔠
-                  </div>
-                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
-                    𝓑𝓮𝓵𝓵𝓪
-                  </div>
-                  <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
-                    𝔻𝕠𝕦𝕓𝕝𝕖
-                  </div>
-                </div>
               </div>
-              <div className="h-48 md:h-64 flex items-center justify-center bg-surface-container rounded-xl overflow-hidden shadow-inner group">
-                <div className="relative flex gap-4 animate-pulse">
-                  <span className="text-6xl font-headline text-primary opacity-20 group-hover:opacity-50 transition-opacity">
-                    Aa
-                  </span>
-                  <span className="text-6xl font-headline text-on-surface opacity-10 group-hover:opacity-30 transition-opacity">
-                    Bb
-                  </span>
-                  <span className="text-6xl font-headline text-primary opacity-20 group-hover:opacity-50 transition-opacity">
-                    Cc
-                  </span>
-                </div>
+              <div className="hidden lg:flex items-center gap-2 mb-2">
+                <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">
+                  A-Z Directory
+                </span>
               </div>
             </div>
-            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-primary/10 rounded-full blur-[120px]" />
-          </div>
-        </section>
-      </main>
-      <BackToTopButton />
-      <Footer />
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+          </section>
+
+          {/* Alphabet Grid */}
+          <section className="px-4 lg:px-6 py-8 max-w-[1200px] mx-auto w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {LETTERS.map((letter) => {
+                const live = LIVE_LETTERS.has(letter);
+                const href = `/${letter.toLowerCase()}-in-different-fonts`;
+
+                const title = `${letter} in Different Fonts`;
+                const sub = `Every style for the letter ${letter}`;
+
+                if (live) {
+                  return (
+                    <Link
+                      key={letter}
+                      href={href}
+                      className="group relative block bg-surface-container-low p-5 rounded-xl shadow-sm ring-2 ring-primary transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-xl hover:bg-surface-container"
+                    >
+                      <div className="flex flex-col h-full gap-4">
+                        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-lg shadow-inner">
+                          {letter}
+                        </div>
+                        <div className="flex flex-col">
+                          <h3 className="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">
+                            {title}
+                          </h3>
+                          <p className="font-body text-sm text-on-surface-variant">
+                            {sub}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowOutwardIcon className="w-5 h-5 text-primary" />
+                      </div>
+                    </Link>
+                  );
+                }
+
+                return (
+                  <div
+                    key={letter}
+                    role="link"
+                    aria-disabled="true"
+                    className="relative block bg-surface-container-low/60 p-5 rounded-xl shadow-sm opacity-60 cursor-not-allowed"
+                  >
+                    <div className="flex flex-col h-full gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/70 flex items-center justify-center text-on-primary font-headline text-lg shadow-inner">
+                        {letter}
+                      </div>
+                      <div className="flex flex-col">
+                        <h3 className="font-headline text-xl text-on-surface/70">
+                          {title}
+                        </h3>
+                        <p className="font-body text-sm text-on-surface-variant/70">
+                          {sub}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Visual Accent Section */}
+          <section className="w-full py-8 px-4 lg:px-6 max-w-[1200px] mx-auto overflow-hidden">
+            <div className="bg-surface-container-lowest rounded-3xl p-8 relative">
+              <div className="grid md:grid-cols-2 items-center gap-8 relative z-10">
+                <div>
+                  <span className="font-label text-xs uppercase tracking-widest text-primary block mb-4">
+                    Unicode Technology
+                  </span>
+                  <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4">
+                    Beyond the Standard Character Set
+                  </h2>
+                  <p className="font-body text-on-surface-variant leading-relaxed mb-6">
+                    Our collection leverages Unicode character mapping to provide
+                    hundreds of aesthetic variations for every single letter of the
+                    alphabet.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                      𝔊𝔬𝔱𝔥𝔦𝔠
+                    </div>
+                    <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                      𝓑𝓮𝓵𝓵𝓪
+                    </div>
+                    <div className="px-4 py-2 bg-surface-variant/30 rounded-lg text-on-surface font-body text-sm">
+                      𝔻𝕠𝕦𝕓𝕝𝕖
+                    </div>
+                  </div>
+                </div>
+                <div className="relative h-48 md:h-64 bg-surface-container rounded-xl overflow-hidden shadow-inner">
+                  <Image
+                    src="/images/alphabet-fonts/alphabet-fonts-visual.png"
+                    alt="Decorative preview of styled Aa, Bb, and Cc characters"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={false}
+                  />
+                </div>
+              </div>
+              <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-primary/10 rounded-full blur-[120px]" />
+            </div>
+          </section>
+        </main>
+        <BackToTopButton />
+        <Footer />
+      </div>
     </>
   );
 }
