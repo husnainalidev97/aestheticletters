@@ -35,6 +35,7 @@ interface TopNavBarProps {
 const navLinks = [
   { label: "Home", page: "home", href: "/" },
   { label: "All Tools", page: "all-tools", href: "/all-tools" },
+  { label: "Alphabet Fonts", page: "alphabet-fonts", href: "/alphabet-fonts" },
   { label: "About", page: "about", href: "/about" },
 ] as const;
 
@@ -349,13 +350,6 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               TikTok Fonts
-            </Link>
-            <Link
-              href="/alphabet-fonts"
-              className={mobileLinkClass("alphabet-fonts")}
-              onClick={() => setIsOpen(false)}
-            >
-              Alphabet Fonts
             </Link>
             <Link
               href="/r-in-different-fonts"
