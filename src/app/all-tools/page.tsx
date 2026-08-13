@@ -189,19 +189,6 @@ const toolCategories: ToolCategory[] = [
       },
     ],
   },
-  {
-    title: "Alphabet Fonts",
-    cards: [
-      {
-        title: "R in Different Fonts",
-        description:
-          "See the letter R in 16 verified Unicode font styles — bold, script, fraktur, double-struck, and more.",
-        icon: "sort_by_alpha",
-        href: "/r-in-different-fonts",
-      },
-    ],
-  },
-
 ];
 
 export default function AllToolsPage() {
