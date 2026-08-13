@@ -333,8 +333,14 @@ export default function RPageContent() {
             return (
               <div
                 key={item.label}
-                className="bg-surface-container-low p-2 rounded-xl flex items-center gap-3 px-4"
+                className="bg-surface-container-low p-2 rounded-xl flex items-center justify-between px-4"
               >
+                <div className="flex flex-col min-w-0">
+                  <span className="font-label text-xs text-on-surface-variant">
+                    {item.label}
+                  </span>
+                  <span className="font-headline text-2xl text-primary">{item.char}</span>
+                </div>
                 <button
                   type="button"
                   aria-label={`Copy ${item.char}`}
@@ -347,12 +353,6 @@ export default function RPageContent() {
                 >
                   <RIcon name={isCopied ? "check" : "contentCopy"} className="w-[18px] h-[18px]" />
                 </button>
-                <div className="flex flex-col min-w-0">
-                  <span className="font-label text-xs text-on-surface-variant">
-                    {item.label}
-                  </span>
-                  <span className="font-headline text-2xl text-primary">{item.char}</span>
-                </div>
               </div>
             );
           })}
