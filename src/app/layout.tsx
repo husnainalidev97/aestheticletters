@@ -208,17 +208,22 @@ export default async function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}}catch(e){}})();`,
           }}
         />
-        {/* Google AdSense verification / ad loader. A single inline script
-            sets the adsbygoogle queue to paused, then injects the exact AdSense
-            loader tag into <head>. ConsentAwareScripts resumes ad requests after
-            the user grants ads permission (non-EEA regions are treated as
-            granted). Disabled on pages where ads should not appear. */}
+        {/* Google AdSense verification. The static meta tag lets the AdSense
+            crawler verify ownership without executing JavaScript, while the
+            loader below is paused and only injects adsbygoogle.js on allowed
+            pages after the user grants ads consent. */}
         {adsEnabled && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);}catch(e){}})();`,
-            }}
-          />
+          <>
+            <meta
+              name="google-adsense-account"
+              content="ca-pub-5520146667836147"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);}catch(e){}})();`,
+              }}
+            />
+          </>
         )}
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
