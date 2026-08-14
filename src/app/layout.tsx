@@ -1,10 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { Space_Grotesk, Manrope, Noto_Sans_Math, Noto_Sans_Symbols, Noto_Sans_Symbols_2 } from "next/font/google";
 import "./globals.css";
 import { ConsentProvider, type Consent } from "./components/ConsentProvider";
 import CookieBanner from "./components/CookieBanner";
 import ConsentAwareScripts from "./components/ConsentAwareScripts";
+
+const ADS_EXCLUDED_PATHS = [
+  "/about",
+  "/contact",
+  "/privacy-policy",
+  "/terms-and-services",
+  "/disclaimer",
+  "/alphabet-fonts",
+];
+
+function isAlphabetSpoke(pathname: string) {
+  return /^\/[a-z]-in-different-fonts(?:\/|$)/.test(pathname);
+}
+
+function adsEnabledForPath(pathname: string) {
+  if (isAlphabetSpoke(pathname)) return false;
+  return !ADS_EXCLUDED_PATHS.some(
+    (p) => pathname === p || pathname.startsWith(`${p}/`)
+  );
+}
 
 function parseConsent(raw: string | undefined): Consent | null {
   if (!raw) return null;
@@ -147,6 +167,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const adsEnabled = adsEnabledForPath(pathname);
   const geoCookie = cookieStore.get("al-geo-consent-required")?.value;
   const requiresConsent = geoCookie !== "0";
   const serverConsent = parseConsent(cookieStore.get("al-cookie-consent")?.value);
@@ -189,12 +212,14 @@ export default async function RootLayout({
             sets the adsbygoogle queue to paused, then injects the exact AdSense
             loader tag into <head>. ConsentAwareScripts resumes ad requests after
             the user grants ads permission (non-EEA regions are treated as
-            granted). */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);}catch(e){}})();`,
-          }}
-        />
+            granted). Disabled on pages where ads should not appear. */}
+        {adsEnabled && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);}catch(e){}})();`,
+            }}
+          />
+        )}
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
         <a
@@ -207,7 +232,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <ConsentProvider serverConsent={serverConsent} serverRequiresConsent={requiresConsent}>
+        <ConsentProvider serverConsent={serverConsent} serverRequiresConsent={requiresConsent} serverAdsEnabled={adsEnabled}>
           <CookieBanner />
           <ConsentAwareScripts />
         </ConsentProvider>

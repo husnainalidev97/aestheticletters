@@ -20,6 +20,7 @@ interface ConsentContextValue {
   consent: Consent | null;
   setConsent: (consent: Consent) => void;
   requiresConsent: boolean;
+  adsEnabled: boolean;
 }
 
 const ConsentContext = createContext<ConsentContextValue | undefined>(undefined);
@@ -70,12 +71,15 @@ export function ConsentProvider({
   children,
   serverConsent,
   serverRequiresConsent,
+  serverAdsEnabled,
 }: {
   children: ReactNode;
   serverConsent?: Consent | null;
   serverRequiresConsent?: boolean;
+  serverAdsEnabled?: boolean;
 }) {
   const requiresConsent = serverRequiresConsent ?? true;
+  const adsEnabled = serverAdsEnabled ?? true;
   const [consent, setConsentState] = useState<Consent | null>(
     serverConsent ?? null
   );
@@ -118,8 +122,8 @@ export function ConsentProvider({
   }, []);
 
   const value = useMemo(
-    () => ({ consent, setConsent, requiresConsent }),
-    [consent, setConsent, requiresConsent]
+    () => ({ consent, setConsent, requiresConsent, adsEnabled }),
+    [consent, setConsent, requiresConsent, adsEnabled]
   );
 
   return (
