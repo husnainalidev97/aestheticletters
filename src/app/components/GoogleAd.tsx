@@ -26,11 +26,16 @@ export default function GoogleAd({
 
   useEffect(() => {
     if (!slot || typeof window === "undefined") return;
-    try {
-      window.adsbygoogle?.push({});
-    } catch {
-      // Ignore errors from AdSense not being loaded or consent still pending.
-      // ConsentAwareScripts will trigger a fresh push once ads are allowed.
+    const adsbygoogle = window.adsbygoogle;
+    // Only push when ads are explicitly allowed (pauseAdRequests === 0).
+    // When paused/undefined, ConsentAwareScripts will trigger the push
+    // once consent is granted.
+    if (adsbygoogle && adsbygoogle.pauseAdRequests === 0) {
+      try {
+        adsbygoogle.push({});
+      } catch {
+        // Ignore AdSense not being available yet.
+      }
     }
   }, [slot]);
 

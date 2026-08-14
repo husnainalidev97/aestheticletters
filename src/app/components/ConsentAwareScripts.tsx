@@ -73,7 +73,11 @@ export default function ConsentAwareScripts() {
     if (typeof window === "undefined") return;
     const adsAllowed = !requiresConsent || !!consent?.ads;
 
-    if (window.adsbygoogle) {
+    // Use the guarded setter installed by AdSenseScript so pauseAdRequests
+    // survives the AdSense script replacing window.adsbygoogle.
+    if (typeof window.__alSetAdPause === "function") {
+      window.__alSetAdPause(!adsAllowed);
+    } else if (window.adsbygoogle) {
       window.adsbygoogle.pauseAdRequests = adsAllowed ? 0 : 1;
     }
 
