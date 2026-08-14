@@ -187,8 +187,13 @@ export default async function RootLayout({
         />
         {/* Google AdSense verification / ad loader. The script is always
             present in <head> so Google can verify site ownership. Ad requests
-            remain paused in consent-required regions and only resume after the
-            user grants ads permission. */}
+            start paused; ConsentAwareScripts resumes them after the user grants
+            ads permission (non-EEA regions are treated as granted). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;}catch(e){}})();`,
+          }}
+        />
         <script
           id="adsense-script"
           async
