@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import CompactStyleCard from "./CompactStyleCard";
 import FontResultCard from "./FontResultCard";
+import GoogleAd from "./GoogleAd";
 import type { FontCategory } from "../lib/fontStyles";
 import { fontCategories } from "../lib/fontStyles";
 import { letterRStyles } from "../lib/alphabetFontStyles";
@@ -21,7 +22,7 @@ const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 24;
 const STEP = 2;
 const MAX_SYMBOL_STYLES = 25;
-const SHOW_ADS = false; // re-enable after AdSense approval
+const AD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT;
 
 type SymbolStyle = {
   name: string;
@@ -366,15 +367,15 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {SHOW_ADS && (
+      {AD_SLOT && (
         <div className="my-10 px-4 md:px-0">
-          <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-            <div className="text-center">
-              <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-                Advertisement
-              </span>
-              <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
-            </div>
+          <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+            <GoogleAd
+              slot={AD_SLOT}
+              format="auto"
+              responsive
+              className="w-full h-[150px]"
+            />
           </div>
         </div>
       )}
@@ -401,15 +402,15 @@ export default function AlphabetLetterGenerator({
         )}
       </div>
 
-      {SHOW_ADS && (
+      {AD_SLOT && (
         <div className="my-10 px-4 md:px-0">
-          <div className="w-full h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-            <div className="text-center">
-              <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-                Advertisement
-              </span>
-              <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
-            </div>
+          <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+            <GoogleAd
+              slot={AD_SLOT}
+              format="auto"
+              responsive
+              className="w-full h-[150px]"
+            />
           </div>
         </div>
       )}

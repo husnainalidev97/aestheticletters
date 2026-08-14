@@ -69,5 +69,23 @@ export default function ConsentAwareScripts() {
     });
   }, [consent, requiresConsent]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const adsAllowed = !requiresConsent || !!consent?.ads;
+
+    if (window.adsbygoogle) {
+      window.adsbygoogle.pauseAdRequests = adsAllowed ? 0 : 1;
+    }
+
+    if (adsAllowed) {
+      // Trigger AdSense to process any queued ad slots after consent is granted.
+      try {
+        window.adsbygoogle?.push({});
+      } catch {
+        // Ignore AdSense not being available yet.
+      }
+    }
+  }, [consent, requiresConsent]);
+
   return null;
 }

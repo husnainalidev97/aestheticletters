@@ -11,6 +11,7 @@ import { useTextHistory } from "../lib/useTextHistory";
 import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
 import TextHistory from "./TextHistory";
 import LazyMount from "./LazyMount";
+import GoogleAd from "./GoogleAd";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
@@ -332,17 +333,19 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
         </div>
       </section>
 
-      {/* Ad Slot — hidden pre-launch, toggle by removing 'hidden' class */}
-      <section className="hidden my-14 px-4 md:px-[150px]">
-        <div className="w-full h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
-          <div className="bg-surface p-4 rounded-lg text-center shadow-sm">
-            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-              Advertisements
-            </span>
-            <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+      {/* Ad Slot — shown once NEXT_PUBLIC_ADSENSE_HERO_SLOT is configured. */}
+      {process.env.NEXT_PUBLIC_ADSENSE_HERO_SLOT && (
+        <section className="my-14 px-4 md:px-[150px]">
+          <div className="w-full min-h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
+            <GoogleAd
+              slot={process.env.NEXT_PUBLIC_ADSENSE_HERO_SLOT}
+              format="auto"
+              responsive
+              className="w-full h-[150px]"
+            />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
