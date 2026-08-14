@@ -159,6 +159,9 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         {/* Consent default — deny optional cookies until the user consents */}
         <script
           dangerouslySetInnerHTML={{
@@ -182,6 +185,16 @@ export default async function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}}catch(e){}})();`,
           }}
         />
+        {/* Google AdSense — loaded in head for regions where no banner is
+            required (non-EEA/UK/CH). Consent-required regions load the script
+            dynamically from ConsentAwareScripts after the user grants ads. */}
+        {!requiresConsent && (
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147"
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
         <a

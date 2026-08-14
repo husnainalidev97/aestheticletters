@@ -8,6 +8,7 @@ import FavoritesSection from "../components/FavoritesSection";
 import ShareButtons from "../components/ShareButtons";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
+import GoogleAd from "../components/GoogleAd";
 
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
@@ -225,17 +226,19 @@ export default function CursiveFontGenerator() {
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Ad Slot — hidden, kept in code */}
-      <section className="hidden my-14 px-4 md:px-[150px]">
-        <div className="w-full h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
-          <div className="bg-surface p-4 rounded-lg text-center shadow-sm">
-            <span className="text-label text-on-surface-variant uppercase tracking-widest text-[10px] block mb-2">
-              Advertisements
-            </span>
-            <div className="w-32 h-6 bg-surface-container-highest animate-pulse rounded" />
+      {/* Ad Slot — shown once NEXT_PUBLIC_ADSENSE_CONTENT_SLOT is configured. */}
+      {process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT && (
+        <section className="my-14 px-4 md:px-[150px]">
+          <div className="w-full min-h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
+            <GoogleAd
+              slot={process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT}
+              format="auto"
+              responsive
+              className="w-full h-[150px]"
+            />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Unicode Style Category Cards — Progressive loading */}
       <section
