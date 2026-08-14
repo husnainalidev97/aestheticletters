@@ -15,7 +15,11 @@ function requiresConsent(request: NextRequest): boolean {
 }
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
+  // Forward the pathname to server components so they can make route-aware
+  // decisions (e.g. disabling the AdSense loader on non-monetized pages).
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
   const need = requiresConsent(request) ? "1" : "0";
   response.cookies.set("al-geo-consent-required", need, {
     httpOnly: false,

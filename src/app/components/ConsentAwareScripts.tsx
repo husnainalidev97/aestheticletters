@@ -23,7 +23,7 @@ function scheduleIdle(fn: () => void) {
 }
 
 export default function ConsentAwareScripts() {
-  const { consent, requiresConsent } = useConsent();
+  const { consent, requiresConsent, adsEnabled } = useConsent();
   const lastConsentRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -31,29 +31,19 @@ export default function ConsentAwareScripts() {
     const gtag = (window as { gtag?: (...args: unknown[]) => void }).gtag;
     if (!gtag) return;
 
-    const serialized = consent ? JSON.stringify(consent) : null;
-    const nextMarker = requiresConsent ? serialized : "granted";
-    if (nextMarker === lastConsentRef.current) return;
-    lastConsentRef.current = nextMarker;
-
-    if (!requiresConsent) {
-      // Outside the EEA/UK/CH the site can run Google tags without a banner.
-      gtag("consent", "update", {
-        ad_storage: "granted",
-        analytics_storage: "granted",
-        ad_user_data: "granted",
-        ad_personalization: "granted",
-      });
-      return;
-    }
+    const analyticsGranted = !requiresConsent || !!consent?.analytics;
+    const adsGranted = adsEnabled && (!requiresConsent || !!consent?.ads);
+    const marker = `${analyticsGranted}:${adsGranted}:${consent ? JSON.stringify(consent) : ""}`;
+    if (marker === lastConsentRef.current) return;
+    lastConsentRef.current = marker;
 
     gtag("consent", "update", {
-      analytics_storage: consent?.analytics ? "granted" : "denied",
-      ad_storage: consent?.ads ? "granted" : "denied",
-      ad_user_data: consent?.ads ? "granted" : "denied",
-      ad_personalization: consent?.ads ? "granted" : "denied",
+      analytics_storage: analyticsGranted ? "granted" : "denied",
+      ad_storage: adsGranted ? "granted" : "denied",
+      ad_user_data: adsGranted ? "granted" : "denied",
+      ad_personalization: adsGranted ? "granted" : "denied",
     });
-  }, [consent, requiresConsent]);
+  }, [consent, requiresConsent, adsEnabled]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -73,7 +63,7 @@ export default function ConsentAwareScripts() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const adsAllowed = !requiresConsent || !!consent?.ads;
+    const adsAllowed = adsEnabled && (!requiresConsent || !!consent?.ads);
 
     if (!adsAllowed) {
       // Try to stop future ad requests when the user has revoked or rejected ads.
@@ -122,7 +112,7 @@ export default function ConsentAwareScripts() {
       }
     };
     document.head.appendChild(script);
-  }, [consent, requiresConsent]);
+  }, [consent, requiresConsent, adsEnabled]);
 
   return null;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useConsent } from "./ConsentProvider";
 
 const AD_CLIENT = "ca-pub-5520146667836147";
 
@@ -22,11 +23,12 @@ export default function GoogleAd({
   className = "",
   style,
 }: GoogleAdProps) {
+  const { adsEnabled } = useConsent();
   const ref = useRef<HTMLModElement>(null);
   const pushedRef = useRef(false);
 
   useEffect(() => {
-    if (!slot || typeof window === "undefined" || pushedRef.current) return;
+    if (!adsEnabled || !slot || typeof window === "undefined" || pushedRef.current) return;
     pushedRef.current = true;
     // Initialize the AdSense queue if the script has not loaded yet; this lets
     // any consent-aware push() calls that happen before adsbygoogle.js finishes
@@ -37,9 +39,9 @@ export default function GoogleAd({
     } catch {
       // Ignore AdSense not being available yet.
     }
-  }, [slot]);
+  }, [slot, adsEnabled]);
 
-  if (!slot) return null;
+  if (!adsEnabled || !slot) return null;
 
   return (
     <ins
