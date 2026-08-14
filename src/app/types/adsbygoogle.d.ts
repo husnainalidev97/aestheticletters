@@ -8,6 +8,5 @@ interface AdsByGoogleArray extends Array<unknown> {
 declare global {
   interface Window {
     adsbygoogle?: AdsByGoogleArray;
-    __alSetAdPause?: (paused: boolean) => void;
   }
 }

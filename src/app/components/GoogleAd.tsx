@@ -23,19 +23,19 @@ export default function GoogleAd({
   style,
 }: GoogleAdProps) {
   const ref = useRef<HTMLModElement>(null);
+  const pushedRef = useRef(false);
 
   useEffect(() => {
-    if (!slot || typeof window === "undefined") return;
-    const adsbygoogle = window.adsbygoogle;
-    // Only push when ads are explicitly allowed (pauseAdRequests === 0).
-    // When paused/undefined, ConsentAwareScripts will trigger the push
-    // once consent is granted.
-    if (adsbygoogle && adsbygoogle.pauseAdRequests === 0) {
-      try {
-        adsbygoogle.push({});
-      } catch {
-        // Ignore AdSense not being available yet.
-      }
+    if (!slot || typeof window === "undefined" || pushedRef.current) return;
+    pushedRef.current = true;
+    // Initialize the AdSense queue if the script has not loaded yet; this lets
+    // any consent-aware push() calls that happen before adsbygoogle.js finishes
+    // loading stay queued and get processed once the script is ready.
+    window.adsbygoogle = window.adsbygoogle || [];
+    try {
+      window.adsbygoogle.push({});
+    } catch {
+      // Ignore AdSense not being available yet.
     }
   }, [slot]);
 

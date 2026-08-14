@@ -60,6 +60,24 @@ Check:
 
 The generated `*.report.html` can be opened in Chrome at `file://<path>`.
 
+## AdSense integration verification
+- The AdSense script is injected in `<head>` for non-consent regions and loaded dynamically by `src/app/components/ConsentAwareScripts.tsx` after the user grants ads in consent-required regions. The publisher ID is `ca-pub-5520146667836147`.
+- `NEXT_PUBLIC_ADSENSE_HERO_SLOT`, `NEXT_PUBLIC_ADSENSE_CONTENT_SLOT`, and `NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT` are baked at build time. To test placeholder visibility, create `.env.local`, rebuild, and restart `npm start`.
+- Ad placeholders only render when a `slot` prop is truthy (`src/app/components/GoogleAd.tsx`).
+- Consent wiring is in `src/app/components/ConsentAwareScripts.tsx`; it only loads `adsbygoogle.js` and unpauses `window.adsbygoogle.pauseAdRequests` once the user grants "Personalized advertising".
+- Verifying in Chrome DevTools Network that no `pagead2.googlesyndication.com` or `doubleclick.net` requests fire before cookie consent is a valid end-to-end check.
+- AdSense may auto-inject a hidden `<ins class="adsbygoogle adsbygoogle-noablate">` element on script load; count them in DevTools Console with `document.querySelectorAll('ins.adsbygoogle.adsbygoogle-noablate').length`.
+
+## Chrome remote debugging for programmatic checks
+- Launch Chrome with `--remote-debugging-port=9222 --remote-allow-origins='*'`.
+- `http://localhost:9222/json` lists page targets. Opening DevTools adds a `devtools://` target, so always pick the target whose `url` is the page under test rather than `json()[0]`.
+- Use the browser WebSocket URL from `http://localhost:9222/json/version` for `Browser.grantPermissions` calls (e.g. to pre-grant clipboard access), but clipboard copy buttons may still trigger a permission prompt unless triggered by a real user gesture.
+
+## Clipboard copy button testing
+- Copy uses `navigator.clipboard.writeText`. Chrome may display a permission bubble.
+- If a permission bubble appears, it can usually be allowed by clicking the **Allow** button with `computer` mouse interactions.
+- Once allowed, the copy icon should turn green and show a "Style Copied to Clipboard" toast.
+
 ## Common pitfalls
 - Cookie banner may overlay the generator on first load; accept it before interacting.
 - `navigator.clipboard` requires a user gesture and a focused document. Programmatic `button.click()` from the console may not trigger clipboard writes in a fresh session; use a real mouse click.
