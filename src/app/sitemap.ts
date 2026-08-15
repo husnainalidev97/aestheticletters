@@ -306,6 +306,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: alphabetModified,
       changeFrequency: "weekly" as const,
       priority: 0.7,
+      images: [`${SITE_URL}/og-r-in-different-fonts.webp`],
+    },
+    {
+      url: `${SITE_URL}/k-in-different-fonts`,
+      lastModified: new Date("2026-08-15T06:56:00+00:00"),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-k-in-different-fonts.webp`],
     },
   ];
 
