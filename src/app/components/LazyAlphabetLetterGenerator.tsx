@@ -20,7 +20,7 @@ function LoadingSkeleton() {
 
 const AlphabetLetterGenerator = dynamic(() => import("./AlphabetLetterGenerator"), {
   loading: LoadingSkeleton,
-  ssr: false,
+  ssr: true,
 });
 
 interface LazyAlphabetLetterGeneratorProps {

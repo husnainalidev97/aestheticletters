@@ -3,14 +3,14 @@ import TopNavBar from "../components/TopNavBar";
 import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
-import RPageContent from "../components/RPageContent";
+import KPageContent from "../components/KPageContent";
 
-const pageTitle = "R in Different Fonts: 16 Free Unicode Styles to Copy";
+const pageTitle = "K in Different Fonts: 22 Free Unicode Styles to Copy";
 const pageDescription =
-  "See the letter R in different fonts, with 16 verified Unicode styles plus real R letters from other alphabets like Cyrillic and Thai. Free, no signup needed.";
-const canonicalUrl = "https://www.aestheticletters.com/r-in-different-fonts";
+  "See the letter K in different fonts, with 22 verified Unicode styles plus real K letters from other alphabets like Cyrillic and Greek. Free, no signup needed.";
+const canonicalUrl = "https://www.aestheticletters.com/k-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
-const pageDate = "2026-08-13T08:00:00+00:00";
+const pageDate = "2026-08-15T06:56:00+00:00";
 
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     modifiedTime: pageDate,
     authors: ["Aesthetic Letters"],
     section: "Alphabet Fonts",
-    tags: ["R fonts", "Unicode R", "letter R", "aesthetic R", "copy paste R"],
+    tags: ["K fonts", "Unicode K", "letter K", "aesthetic K", "copy paste K"],
     images: [
       {
-        url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+        url: "https://www.aestheticletters.com/og-k-in-different-fonts.webp",
         width: 1200,
         height: 640,
-        alt: "R in Different Fonts: decorative R letterforms in lavender and purple",
+        alt: "K in Different Fonts: decorative K letterforms in lavender and purple",
       },
     ],
   },
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     description: pageDescription,
     images: [
       {
-        url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+        url: "https://www.aestheticletters.com/og-k-in-different-fonts.webp",
         width: 1200,
         height: 640,
-        alt: "R in Different Fonts: decorative R letterforms in lavender and purple",
+        alt: "K in Different Fonts: decorative K letterforms in lavender and purple",
       },
     ],
   },
@@ -54,41 +54,63 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "Does styled R text work in usernames?",
+    question: "Does styled K text work in usernames?",
     answer:
-      "Most platforms only allow plain letters and numbers in usernames, but styled R text works in bios, captions, and display names.",
+      "Usernames on most platforms strip anything beyond plain letters and numbers, so styled K rarely survives there. Bios, captions, and display names accept it without trouble.",
   },
   {
-    question: "Are these real fonts?",
+    question: "What are letter K fonts?",
     answer:
-      "Not in the traditional sense. Each style here is a separate Unicode character with its own code point, not a typeface applied to normal letters. Because of this, the text pastes and displays as plain characters everywhere, with nothing to install.",
+      "The term describes individual Unicode characters shaped like K, not installable typefaces. Each one already exists inside the Unicode standard, so copying and pasting is the only step involved.",
   },
   {
-    question: "Why do some R styles look different from others?",
-    answer: "A few styles come from an older part of Unicode, so they look more distinct than the rest.",
-  },
-  {
-    question: "Can I style the lowercase r too?",
-    answer: "Yes. The first grid shows both uppercase R and lowercase r together, followed by dedicated grids for capital R with symbols and small r with symbols.",
-  },
-  {
-    question: "Why do some styled R characters show as boxes or question marks?",
+    question: "Why do K font styles stay consistent instead of showing exceptions?",
     answer:
-      "Some devices and apps do not support every Unicode character. When that happens, a styled R may show as a box or a question mark instead of the correct symbol. Try a different style from the list, or update the app or browser to fix this.",
+      "A handful of letters lose certain styles to an older Unicode block, creating visible gaps. K never lost that ground, so its full style set stays intact everywhere.",
   },
   {
-    question: "Is it free to use these R fonts?",
+    question: "What's a cool font for K?",
     answer:
-      "Yes, every R style on this page is completely free. No signup or payment is needed. Copy and paste any style for personal projects, social media, or commercial use.",
+      "Script, double struck, and gothic tend to stand out the most among the styles above. Testing two or three side by side against your actual bio or name usually settles it fastest.",
   },
   {
-    question: "Can I create my own font style for R?",
+    question: "Can I find a fancy K in different fonts style for free?",
     answer:
-      "Not directly on this page. Unicode styles are fixed characters, not something anyone can design freely. Graphic design tools such as Photoshop or Canva allow fully custom letterforms instead.",
+      "Every style shown here, all 22 of them, costs nothing to copy or paste. Nothing requires a signup, a download, or a subscription.",
+  },
+  {
+    question: "What K font style works best for bios and usernames?",
+    answer:
+      "Short bios read better in lighter styles such as bold, italic, or small capital. Gaming names and display text can carry heavier styles like gothic or double struck without losing readability.",
+  },
+  {
+    question: "Are there different K fonts for uppercase and lowercase?",
+    answer:
+      "Each card on this page already pairs the uppercase K with its lowercase match from the same Unicode family. A single copy covers both cases at once.",
+  },
+  {
+    question: "Is it free to use these K fonts?",
+    answer:
+      "Every style here is free, with no signup or payment required. Personal projects, social posts, and commercial work can all use them without restriction.",
+  },
+  {
+    question: "What is the difference between styled K and regular K?",
+    answer:
+      "Every styled K carries its own dedicated code point in the Unicode standard. The plain keyboard K sits separately, at U+004B. Nothing here works like a font layered over the original letter, since each version stands as its own character.",
+  },
+  {
+    question: "How do I create my own styled K?",
+    answer:
+      "This page will not generate a custom style, since Unicode characters are fixed rather than editable. Software such as Photoshop or Canva handles fully custom letterforms instead.",
+  },
+  {
+    question: "What are the limitations of using styled K?",
+    answer:
+      "Not every device or app renders every Unicode character correctly. A missing font can turn styled K into a box or a question mark. Switching styles or updating the app usually resolves it.",
   },
 ];
 
-export default function RInDifferentFontsPage() {
+export default function KInDifferentFontsPage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -109,10 +131,10 @@ export default function RInDifferentFontsPage() {
     "@context": "https://schema.org",
     "@type": "ImageObject",
     "@id": `${canonicalUrl}#primaryimage`,
-    name: "R in Different Fonts OG banner",
+    name: "K in Different Fonts OG banner",
     description: pageDescription,
-    url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
-    contentUrl: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+    url: "https://www.aestheticletters.com/og-k-in-different-fonts.webp",
+    contentUrl: "https://www.aestheticletters.com/og-k-in-different-fonts.webp",
     width: 1200,
     height: 640,
     inLanguage: "en",
@@ -122,7 +144,7 @@ export default function RInDifferentFontsPage() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "@id": `${canonicalUrl}#softwareapp`,
-    name: "R in Different Fonts Generator",
+    name: "K in Different Fonts Generator",
     description: pageDescription,
     url: canonicalUrl,
     applicationCategory: "UtilitiesApplication",
@@ -142,7 +164,7 @@ export default function RInDifferentFontsPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.aestheticletters.com/", "name": "Home" } },
       { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: { "@id": hubUrl, "name": "Alphabet Fonts" } },
-      { "@type": "ListItem", position: 3, name: "R in Different Fonts", item: { "@id": canonicalUrl, "name": "R in Different Fonts" } },
+      { "@type": "ListItem", position: 3, name: "K in Different Fonts", item: { "@id": canonicalUrl, "name": "K in Different Fonts" } },
     ],
   };
 
@@ -182,27 +204,27 @@ export default function RInDifferentFontsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeStringify(ogImageJsonLd) }}
       />
-      <TopNavBar activePage="r-in-different-fonts" />
+      <TopNavBar activePage="k-in-different-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },
             { label: "Alphabet Fonts", href: "/alphabet-fonts" },
-            { label: "R in Different Fonts", href: "/r-in-different-fonts" },
+            { label: "K in Different Fonts", href: "/k-in-different-fonts" },
           ]}
         />
 
         {/* Hero */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
           <h1 className="font-headline text-2xl md:text-5xl font-bold tracking-tight leading-tight text-on-background mb-2 md:mb-3">
-            R in Different Fonts
+            K in Different Fonts
           </h1>
           <p className="font-body text-on-surface-variant max-w-2xl mx-auto text-sm md:text-lg">
-            See the letter R in different fonts, with decorative Unicode styles, symbols, and how R looks in other alphabets like Cyrillic, Thai, and Cherokee. Copy any style instantly.
+            This k font generator pairs 22 Unicode versions of K with five real K matches from other alphabets. Cyrillic and Greek are among them. Everything below copies as plain text in one click.
           </p>
         </section>
 
-        <RPageContent faqs={faqs} />
+        <KPageContent faqs={faqs} />
       </main>
       <BackToTopButton />
       <Footer />

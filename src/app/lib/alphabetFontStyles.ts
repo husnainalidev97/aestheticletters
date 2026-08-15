@@ -3,6 +3,8 @@
 // R page is the first spoke; this data file is the master source for A–Z.
 // ---------------------------------------------------------------------------
 
+import type { FontCategory } from "./fontStyles";
+
 export interface AlphabetStyle {
   name: string;
   transform: (text: string) => string;
@@ -63,6 +65,13 @@ const fullwidthMap = buildMap(0xff21, 0xff41, { " ": "\u3000" });
 const circledMap = buildMap(0x24b6, 0x24d0);
 const sansSerifBoldItalicMap = buildMap(0x1d63c, 0x1d656);
 
+const kWithHookMap: Record<string, string> = { K: "\u0198", k: "\u0199" };
+const kWithCedillaMap: Record<string, string> = { K: "\u0136", k: "\u0137" };
+const parenthesizedMap: Record<string, string> = { K: "\u{1F11A}", k: "\u24A6" };
+const squaredMap: Record<string, string> = { K: "\u{1F13A}", k: "\u{1F13A}" };
+const negativeSquaredMap: Record<string, string> = { K: "\u{1F17A}", k: "\u{1F17A}" };
+const superscriptMap: Record<string, string> = { K: "\u{1D37}", k: "\u{1D4F}" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -97,11 +106,88 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
-// ── R in Other Alphabets ─────────────────────────────────────────────────
+// ── 22 K Styles ──────────────────────────────────────────────────────────
+
+export const letterKStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur (Gothic)", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, superscriptMap) },
+  { name: "Hook K", transform: (t) => applyMap(t, kWithHookMap) },
+  { name: "K With Cedilla", transform: (t) => applyMap(t, kWithCedillaMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, squaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Negative Squared", transform: (t) => applyMap(t, negativeSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Parenthesized", transform: (t) => applyMap(t, parenthesizedMap) },
+];
 
 export function getLetterStyles(letter: string): AlphabetStyle[] {
-  if (letter.toUpperCase() === "R") return letterRStyles;
+  const upper = letter.toUpperCase();
+  if (upper === "R") return letterRStyles;
+  if (upper === "K") return letterKStyles;
   return [];
+}
+
+// ── K-specific symbol categories for the generator grids ──────────────────
+
+export interface LetterSymbolCategories {
+  capital?: FontCategory[];
+  small?: FontCategory[];
+}
+
+const kCapitalSymbolCategories: FontCategory[] = [
+  { name: "Black Star", styles: [{ name: "", transform: (text) => `★${text}★` }] },
+  { name: "White Star", styles: [{ name: "", transform: (text) => `☆${text}☆` }] },
+  { name: "Sparkles", styles: [{ name: "", transform: (text) => `✨${text}✨` }] },
+  { name: "Heavy Heart", styles: [{ name: "", transform: (text) => `❤${text}❤` }] },
+  { name: "Sparkling Heart", styles: [{ name: "", transform: (text) => `💖${text}💖` }] },
+  { name: "Cherry Blossom", styles: [{ name: "", transform: (text) => `🌸${text}🌸` }] },
+  { name: "Snowflake", styles: [{ name: "", transform: (text) => `❄${text}❄` }] },
+  { name: "Fire", styles: [{ name: "", transform: (text) => `🔥${text}🔥` }] },
+  { name: "High Voltage", styles: [{ name: "", transform: (text) => `⚡${text}⚡` }] },
+  { name: "Gem Stone", styles: [{ name: "", transform: (text) => `💎${text}💎` }] },
+  { name: "Crown", styles: [{ name: "", transform: (text) => `👑${text}👑` }] },
+  { name: "Butterfly", styles: [{ name: "", transform: (text) => `🦋${text}🦋` }] },
+  { name: "White Corner Brackets", styles: [{ name: "", transform: (text) => `『${text}』` }] },
+  { name: "Black Lenticular Brackets", styles: [{ name: "", transform: (text) => `【${text}】` }] },
+  { name: "Double Angle Quotes", styles: [{ name: "", transform: (text) => `«${text}»` }] },
+  { name: "Bullet", styles: [{ name: "", transform: (text) => `•${text}•` }] },
+];
+
+const kSmallSymbolCategories: FontCategory[] = [
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `✧${text}✧` }] },
+  { name: "Eight-Pointed Star", styles: [{ name: "", transform: (text) => `✴${text}✴` }] },
+  { name: "Dizzy Symbol", styles: [{ name: "", transform: (text) => `💫${text}💫` }] },
+  { name: "Two Hearts", styles: [{ name: "", transform: (text) => `💕${text}💕` }] },
+  { name: "White Heart Suit", styles: [{ name: "", transform: (text) => `♡${text}♡` }] },
+  { name: "Musical Note", styles: [{ name: "", transform: (text) => `🎵${text}🎵` }] },
+  { name: "Skull", styles: [{ name: "", transform: (text) => `💀${text}💀` }] },
+  { name: "Middle Dot", styles: [{ name: "", transform: (text) => `·${text}·` }] },
+  { name: "Degree Sign", styles: [{ name: "", transform: (text) => `°${text}°` }] },
+  { name: "Rightwards/Leftwards Arrow", styles: [{ name: "", transform: (text) => `→${text}←` }] },
+  { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `⟨${text}⟩` }] },
+  { name: "Corner Brackets", styles: [{ name: "", transform: (text) => `「${text}」` }] },
+  { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
+];
+
+export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
+  const upper = letter.toUpperCase();
+  if (upper === "K") {
+    return { capital: kCapitalSymbolCategories, small: kSmallSymbolCategories };
+  }
+  return null;
 }
 
 export const otherAlphabetsR: OtherAlphabetEntry[] = [
@@ -146,5 +232,43 @@ export const otherAlphabetsR: OtherAlphabetEntry[] = [
     upper: "\u1587",
     lower: null,
     description: "Canadian Aboriginal Syllabics Tlhi, visually confusable with Latin R.",
+  },
+];
+
+export const otherAlphabetsK: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u041A",
+    lower: "\u043A",
+    description: "Cyrillic Ka, adapted from Greek centuries after Cyril and Methodius built the alphabet for Slavic liturgy.",
+  },
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u039A",
+    lower: "\u03BA",
+    description: "Kappa itself, the direct ancestor of the Latin K.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic",
+    upper: "\u2C94",
+    lower: "\u2C95",
+    description: "Borrowed the same Greek shape for Egypt's Coptic Christian texts.",
+  },
+  {
+    script: "Cherokee",
+    label: "Cherokee",
+    upper: "\u13E6",
+    lower: "\uABB6",
+    description: "Represents the syllable tso, unrelated in sound to K despite the shared shape.",
+  },
+  {
+    script: "Old Italic",
+    label: "Old Italic",
+    upper: "\u{1030A}",
+    lower: null,
+    description: "The Etruscan letterform that Roman scribes eventually turned into the Latin K used today.",
   },
 ];

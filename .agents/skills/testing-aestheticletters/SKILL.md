@@ -83,3 +83,11 @@ The generated `*.report.html` can be opened in Chrome at `file://<path>`.
 - `navigator.clipboard` requires a user gesture and a focused document. Programmatic `button.click()` from the console may not trigger clipboard writes in a fresh session; use a real mouse click.
 - Generator category cards are wrapped in `LazyMount` with `inView=false` on the server, so cards below the fold may not render until scrolled near the viewport.
 - Some generator pages set `initialVisibleCategories` equal to the total number of categories, so no "Show More Categories" button appears.
+
+## Testing alphabet letter sub-pages (e.g. `/k-in-different-fonts`)
+- Vercel preview URLs for PRs may be gated behind `vercel.com/login`; if so, fall back to a local production build (`npm run build` then `npm start`).
+- Verify the desktop top nav highlights `Alphabet Fonts` for any `*-in-different-fonts` sub-page.
+- Verify the mobile hamburger drawer contains a highlighted link for the specific letter page (e.g. `K in Different Fonts`).
+- The mobile drawer panel should have `max-h-[80vh] overflow-y-auto` (or equivalent inline styles) so the long generator link list remains reachable on small viewports.
+- Check the 22 standard style cards, Unicode Names table rows, Other Alphabets entries, FAQ questions, and Explore More Tools links against `src/app/k-in-different-fonts/page.tsx` and `src/app/components/KPageContent.tsx`.
+- Clipboard paste tests can be confirmed by opening `data:text/html,<textarea autofocus style='font-size:24px;width:100vw;height:100vh'>paste here</textarea>` and pressing `Ctrl+V`.
