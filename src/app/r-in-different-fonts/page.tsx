@@ -22,13 +22,33 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp", width: 1200, height: 640 }],
+    locale: "en_US",
+    publishedTime: pageDate,
+    modifiedTime: pageDate,
+    authors: ["Aesthetic Letters"],
+    section: "Alphabet Fonts",
+    tags: ["R fonts", "Unicode R", "letter R", "aesthetic R", "copy paste R"],
+    images: [
+      {
+        url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+        width: 1200,
+        height: 640,
+        alt: "R in Different Fonts: decorative R letterforms in lavender and purple",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["https://www.aestheticletters.com/og-r-in-different-fonts.webp"],
+    images: [
+      {
+        url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+        width: 1200,
+        height: 640,
+        alt: "R in Different Fonts: decorative R letterforms in lavender and purple",
+      },
+    ],
   },
 };
 
@@ -78,8 +98,24 @@ export default function RInDifferentFontsPage() {
     description: pageDescription,
     inLanguage: "en",
     isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
+    author: { "@id": "https://www.aestheticletters.com/#organization" },
+    publisher: { "@id": "https://www.aestheticletters.com/#organization" },
+    primaryImageOfPage: { "@id": `${canonicalUrl}#primaryimage` },
     datePublished: pageDate,
     dateModified: pageDate,
+  };
+
+  const ogImageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${canonicalUrl}#primaryimage`,
+    name: "R in Different Fonts OG banner",
+    description: pageDescription,
+    url: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+    contentUrl: "https://www.aestheticletters.com/og-r-in-different-fonts.webp",
+    width: 1200,
+    height: 640,
+    inLanguage: "en",
   };
 
   const softwareAppJsonLd = {
@@ -104,9 +140,9 @@ export default function RInDifferentFontsPage() {
     "@type": "BreadcrumbList",
     "@id": `${canonicalUrl}#breadcrumb`,
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.aestheticletters.com/" },
-      { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: hubUrl },
-      { "@type": "ListItem", position: 3, name: "R in Different Fonts" },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.aestheticletters.com/", "name": "Home" } },
+      { "@type": "ListItem", position: 2, name: "Alphabet Fonts", item: { "@id": hubUrl, "name": "Alphabet Fonts" } },
+      { "@type": "ListItem", position: 3, name: "R in Different Fonts", item: { "@id": canonicalUrl, "name": "R in Different Fonts" } },
     ],
   };
 
@@ -141,6 +177,10 @@ export default function RInDifferentFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeStringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(ogImageJsonLd) }}
       />
       <TopNavBar activePage="r-in-different-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
