@@ -84,8 +84,10 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
     if (glowTimerRef.current) clearTimeout(glowTimerRef.current);
   }, [isDark]);
 
+  const isAlphabetSubpage = activePage?.endsWith("-in-different-fonts");
+
   const desktopLinkClass = (page: string) =>
-    page === activePage
+    page === activePage || (isAlphabetSubpage && page === "alphabet-fonts")
       ? "text-primary border-b-2 border-primary pb-1 hover:opacity-80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
       : "text-on-surface-variant hover:text-on-background hover:opacity-80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm";
 
@@ -358,6 +360,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               R in Different Fonts
+            </Link>
+            <Link
+              href="/k-in-different-fonts"
+              className={mobileLinkClass("k-in-different-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              K in Different Fonts
             </Link>
           </nav>
         </div>
