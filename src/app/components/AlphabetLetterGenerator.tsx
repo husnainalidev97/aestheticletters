@@ -6,7 +6,7 @@ import FontResultCard from "./FontResultCard";
 import GoogleAd from "./GoogleAd";
 import type { FontCategory } from "../lib/fontStyles";
 import { fontCategories } from "../lib/fontStyles";
-import { letterRStyles } from "../lib/alphabetFontStyles";
+import { getLetterStyles } from "../lib/alphabetFontStyles";
 
 interface AlphabetLetterGeneratorProps {
   letter: string;
@@ -162,13 +162,15 @@ export default function AlphabetLetterGenerator({
   const upperText = text.toUpperCase();
   const lowerText = text.toLowerCase();
 
+  const letterStyles = getLetterStyles(letter);
+
   const standardStyles = useMemo(
     () =>
-      letterRStyles.map((style) => ({
+      letterStyles.map((style) => ({
         name: style.name,
         text: `${style.transform(upperText)} ${style.transform(lowerText)}`,
       })),
-    [upperText, lowerText],
+    [letterStyles, upperText, lowerText],
   );
 
   const [visibleStandardCount, setVisibleStandardCount] = useState(4);
