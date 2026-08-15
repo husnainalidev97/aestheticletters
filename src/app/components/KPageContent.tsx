@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
-import LazyAlphabetLetterGenerator from "./LazyAlphabetLetterGenerator";
+import KStyleGrids from "./KStyleGrids";
 import { otherAlphabetsK } from "../lib/alphabetFontStyles";
 
 interface KPageContentProps {
@@ -34,6 +34,10 @@ const unicodeTableRows = [
   { glyph: "\u0198", name: "Latin Capital Letter K With Hook", code: "U+0198" },
 ];
 
+const similarTools = [
+  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD51", desc: "The R version of this alphabet font style page" },
+];
+
 const popularTools = [
   { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
@@ -44,8 +48,6 @@ const popularTools = [
 export default function KPageContent({ faqs }: KPageContentProps) {
   return (
     <>
-      <LazyAlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
-
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
@@ -59,10 +61,12 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                 Unicode styling turns a single letter into dozens of distinct symbols. Each one is a real character with its own code point, not a visual trick.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Below, K appears in 22 such styles, pulled from three categories. Mathematical alphanumerics, enclosed characters, and real letters borrowed from other languages all appear here. Every card pairs the uppercase K with its lowercase match, and one click copies the pair straight to the clipboard.
+                Below, K appears in 22 standard Unicode styles plus two symbol grids: one for capital K and one for small k. Every cell is clickable and copies the styled text to the clipboard in one step.
               </p>
 
-              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-12">
+              <KStyleGrids />
+
+              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-16">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
                   Unicode Names for K Styles
                 </h3>
@@ -90,7 +94,7 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 22 styles appear on the individual style cards above.
+                  Full names for all 22 standard styles appear in Grid 1 above.
                 </p>
               </div>
             </article>
@@ -192,11 +196,23 @@ export default function KPageContent({ faqs }: KPageContentProps) {
               <span className="inline-block w-1 h-5 rounded-full bg-primary" />
               Similar Font Styles
             </h3>
-            <p className="text-on-surface-variant text-sm">
-              <Link href="/r-in-different-fonts" className={linkClass}>
-                R in Different Fonts
-              </Link>
-            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {similarTools.map((tool) => (
+                <Link
+                  key={tool.href}
+                  href={tool.href}
+                  className="group flex flex-col items-center text-center p-4 md:p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                >
+                  <span className="text-2xl mb-2">{tool.icon}</span>
+                  <span className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">
+                    {tool.label}
+                  </span>
+                  <span className="text-on-surface-variant text-xs mt-1 leading-snug">
+                    {tool.desc}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
           <div>
             <h3 className="font-headline text-lg font-bold mb-4 flex items-center gap-2">
