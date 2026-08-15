@@ -209,7 +209,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className={`absolute top-[5.5rem] right-0 left-0 bg-background shadow-lg transition-transform duration-300 ${
+          className={`absolute top-[5.5rem] right-0 left-0 bg-background shadow-lg max-h-[80vh] overflow-y-auto transition-transform duration-300 ${
             isOpen ? "translate-y-0" : "-translate-y-4"
           }`}
         >
