@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
-import KStyleGrids from "./KStyleGrids";
+import LazyAlphabetLetterGenerator from "./LazyAlphabetLetterGenerator";
 import { otherAlphabetsK } from "../lib/alphabetFontStyles";
 
 interface KPageContentProps {
@@ -35,7 +35,7 @@ const unicodeTableRows = [
 ];
 
 const similarTools = [
-  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD51", desc: "The R version of this alphabet font style page" },
+  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
 ];
 
 const popularTools = [
@@ -48,6 +48,8 @@ const popularTools = [
 export default function KPageContent({ faqs }: KPageContentProps) {
   return (
     <>
+      <LazyAlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
+
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
@@ -61,12 +63,10 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                 Unicode styling turns a single letter into dozens of distinct symbols. Each one is a real character with its own code point, not a visual trick.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Below, K appears in 22 standard Unicode styles plus two symbol grids: one for capital K and one for small k. Every cell is clickable and copies the styled text to the clipboard in one step.
+                Below, K appears in 22 such styles, pulled from three categories. Mathematical alphanumerics, enclosed characters, and real letters borrowed from other languages all appear here. Every card pairs the uppercase K with its lowercase match, and one click copies the pair straight to the clipboard.
               </p>
 
-              <KStyleGrids />
-
-              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-16">
+              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-12">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
                   Unicode Names for K Styles
                 </h3>
@@ -94,7 +94,7 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 22 standard styles appear in Grid 1 above.
+                  Full names for all 22 styles appear on the individual style cards above.
                 </p>
               </div>
             </article>

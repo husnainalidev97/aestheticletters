@@ -6,7 +6,7 @@ import FontResultCard from "./FontResultCard";
 import GoogleAd from "./GoogleAd";
 import type { FontCategory } from "../lib/fontStyles";
 import { fontCategories } from "../lib/fontStyles";
-import { getLetterStyles } from "../lib/alphabetFontStyles";
+import { getLetterStyles, getLetterSymbolCategories } from "../lib/alphabetFontStyles";
 
 interface AlphabetLetterGeneratorProps {
   letter: string;
@@ -163,6 +163,7 @@ export default function AlphabetLetterGenerator({
   const lowerText = text.toLowerCase();
 
   const letterStyles = getLetterStyles(letter);
+  const letterSymbolCategories = useMemo(() => getLetterSymbolCategories(letter), [letter]);
 
   const standardStyles = useMemo(
     () =>
@@ -231,13 +232,13 @@ export default function AlphabetLetterGenerator({
   const symbolStyles = useMemo(
     () => ({
       capital: capitalVisible
-        ? getStylesForText(upperText, fontCategories).slice(0, MAX_SYMBOL_STYLES)
+        ? getStylesForText(upperText, letterSymbolCategories?.capital ?? fontCategories).slice(0, MAX_SYMBOL_STYLES)
         : [],
       small: smallVisible
-        ? getStylesForText(lowerText, fontCategories).slice(0, MAX_SYMBOL_STYLES)
+        ? getStylesForText(lowerText, letterSymbolCategories?.small ?? fontCategories).slice(0, MAX_SYMBOL_STYLES)
         : [],
     }),
-    [upperText, lowerText, capitalVisible, smallVisible],
+    [upperText, lowerText, capitalVisible, smallVisible, letterSymbolCategories],
   );
 
   return (
@@ -392,7 +393,7 @@ export default function AlphabetLetterGenerator({
             {symbolStyles.capital.map((style) => (
               <CompactStyleCard
                 key={`capital-${style.category}-${style.name}`}
-                label={`${style.category} – ${style.name}`}
+                label={style.name ? `${style.category} – ${style.name}` : style.category}
                 text={style.text}
                 fontSize={fontSize}
                 copied={copiedKey === style.text}
@@ -427,7 +428,7 @@ export default function AlphabetLetterGenerator({
             {symbolStyles.small.map((style) => (
               <CompactStyleCard
                 key={`small-${style.category}-${style.name}`}
-                label={`${style.category} – ${style.name}`}
+                label={style.name ? `${style.category} – ${style.name}` : style.category}
                 text={style.text}
                 fontSize={fontSize}
                 copied={copiedKey === style.text}
