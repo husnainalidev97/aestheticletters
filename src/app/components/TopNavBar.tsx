@@ -26,7 +26,8 @@ type ActivePage =
   | "weird-font-generator"
   | "tiktok-font-generator"
   | "alphabet-fonts"
-  | "r-in-different-fonts";
+  | "r-in-different-fonts"
+  | "k-in-different-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
