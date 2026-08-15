@@ -1,52 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { cookies, headers } from "next/headers";
 import { Space_Grotesk, Manrope, Noto_Sans_Math, Noto_Sans_Symbols, Noto_Sans_Symbols_2 } from "next/font/google";
 import "./globals.css";
-import { ConsentProvider, type Consent } from "./components/ConsentProvider";
+import { ConsentProvider } from "./components/ConsentProvider";
 import CookieBanner from "./components/CookieBanner";
 import ConsentAwareScripts from "./components/ConsentAwareScripts";
-
-const ADS_EXCLUDED_PATHS = [
-  "/about",
-  "/contact",
-  "/privacy-policy",
-  "/terms-and-services",
-  "/disclaimer",
-  "/alphabet-fonts",
-];
-
-function isAlphabetSpoke(pathname: string) {
-  return /^\/[a-z]-in-different-fonts(?:\/|$)/.test(pathname);
-}
-
-function adsEnabledForPath(pathname: string) {
-  if (isAlphabetSpoke(pathname)) return false;
-  return !ADS_EXCLUDED_PATHS.some(
-    (p) => pathname === p || pathname.startsWith(`${p}/`)
-  );
-}
-
-function parseConsent(raw: string | undefined): Consent | null {
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw);
-    if (
-      parsed &&
-      typeof parsed === "object" &&
-      "analytics" in parsed &&
-      "ads" in parsed
-    ) {
-      return {
-        analytics: Boolean(parsed.analytics),
-        ads: Boolean(parsed.ads),
-        functional: Boolean(parsed.functional ?? true),
-      };
-    }
-  } catch {
-    // ignore corrupt cookie
-  }
-  return null;
-}
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -161,19 +118,11 @@ const siteJsonLd = {
   ],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const headersList = await headers();
-  const pathname = headersList.get("x-pathname") ?? "";
-  const adsEnabled = adsEnabledForPath(pathname);
-  const geoCookie = cookieStore.get("al-geo-consent-required")?.value;
-  const requiresConsent = geoCookie !== "0";
-  const serverConsent = parseConsent(cookieStore.get("al-cookie-consent")?.value);
-
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${notoMath.variable} ${notoSymbols.variable} ${notoSymbols2.variable}`} suppressHydrationWarning>
       <head>
@@ -209,22 +158,14 @@ export default async function RootLayout({
           }}
         />
         {/* Google AdSense verification. The static meta tag lets the AdSense
-            crawler verify ownership without executing JavaScript, while the
-            loader below is paused and only injects adsbygoogle.js on allowed
-            pages after the user grants ads consent. */}
-        {adsEnabled && (
-          <>
-            <meta
-              name="google-adsense-account"
-              content="ca-pub-5520146667836147"
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `(function(){try{window.adsbygoogle=window.adsbygoogle||[];window.adsbygoogle.pauseAdRequests=1;var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);}catch(e){}})();`,
-              }}
-            />
-          </>
-        )}
+            crawler verify ownership without executing JavaScript. The actual
+            adsbygoogle.js loader is injected client-side by ConsentAwareScripts
+            only on pages that are not ad-excluded and after the user grants
+            consent where required. */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-5520146667836147"
+        />
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
         <a
@@ -237,7 +178,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <ConsentProvider serverConsent={serverConsent} serverRequiresConsent={requiresConsent} serverAdsEnabled={adsEnabled}>
+        <ConsentProvider>
           <CookieBanner />
           <ConsentAwareScripts />
         </ConsentProvider>

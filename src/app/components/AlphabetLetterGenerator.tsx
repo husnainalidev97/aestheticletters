@@ -174,7 +174,7 @@ export default function AlphabetLetterGenerator({
     [letterStyles, upperText, lowerText],
   );
 
-  const [visibleStandardCount, setVisibleStandardCount] = useState(4);
+  const [visibleStandardCount, setVisibleStandardCount] = useState(standardStyles.length);
 
   useEffect(() => {
     if (visibleStandardCount >= standardStyles.length) return;
@@ -194,8 +194,8 @@ export default function AlphabetLetterGenerator({
     return cancel;
   }, [visibleStandardCount, standardStyles.length]);
 
-  const [capitalVisible, setCapitalVisible] = useState(false);
-  const [smallVisible, setSmallVisible] = useState(false);
+  const [capitalVisible, setCapitalVisible] = useState(true);
+  const [smallVisible, setSmallVisible] = useState(true);
   const capitalRef = useRef<HTMLDivElement>(null);
   const smallRef = useRef<HTMLDivElement>(null);
 

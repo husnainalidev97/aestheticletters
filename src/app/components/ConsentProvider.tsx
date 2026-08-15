@@ -9,6 +9,7 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 export interface Consent {
   analytics: boolean;
@@ -27,6 +28,27 @@ const ConsentContext = createContext<ConsentContextValue | undefined>(undefined)
 
 const STORAGE_KEY = "al-cookie-consent";
 const CONSENT_COOKIE = "al-cookie-consent";
+const GEO_CONSENT_COOKIE = "al-geo-consent-required";
+
+const ADS_EXCLUDED_PATHS = [
+  "/about",
+  "/contact",
+  "/privacy-policy",
+  "/terms-and-services",
+  "/disclaimer",
+  "/alphabet-fonts",
+];
+
+function isAlphabetSpoke(pathname: string) {
+  return /^\/[a-z]-in-different-fonts(?:\/|$)/.test(pathname);
+}
+
+function adsEnabledForPath(pathname: string) {
+  if (isAlphabetSpoke(pathname)) return false;
+  return !ADS_EXCLUDED_PATHS.some(
+    (p) => pathname === p || pathname.startsWith(`${p}/`)
+  );
+}
 
 function parse(raw: string | null): Consent | null {
   if (!raw) return null;
@@ -69,26 +91,29 @@ function setCookie(name: string, value: string, maxAgeDays = 365) {
 
 export function ConsentProvider({
   children,
-  serverConsent,
-  serverRequiresConsent,
-  serverAdsEnabled,
 }: {
   children: ReactNode;
-  serverConsent?: Consent | null;
-  serverRequiresConsent?: boolean;
-  serverAdsEnabled?: boolean;
 }) {
-  const requiresConsent = serverRequiresConsent ?? true;
-  const adsEnabled = serverAdsEnabled ?? true;
-  const [consent, setConsentState] = useState<Consent | null>(
-    serverConsent ?? null
-  );
+  const pathname = usePathname() ?? "";
+  const [adsEnabled, setAdsEnabled] = useState(false);
+  const [requiresConsent, setRequiresConsent] = useState(true);
+  const [consent, setConsentState] = useState<Consent | null>(null);
+
+  useEffect(() => {
+    setAdsEnabled(adsEnabledForPath(pathname));
+  }, [pathname]);
+
+  useEffect(() => {
+    const geoCookie = getCookie(GEO_CONSENT_COOKIE);
+    if (geoCookie === "0") {
+      setRequiresConsent(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (consent !== null) return;
     const cookie = getCookie(CONSENT_COOKIE);
     if (cookie) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setConsentState(parse(cookie));
       return;
     }
