@@ -47,8 +47,8 @@ export default function ConsentAwareScripts() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Only load Clarity when the user explicitly grants analytics.
-    if (!requiresConsent || !consent?.analytics) return;
+    // Load Clarity when no consent is required, or when the user grants analytics.
+    if (requiresConsent && !consent?.analytics) return;
     if (document.getElementById("clarity-script")) return;
 
     scheduleIdle(() => {
