@@ -14,6 +14,7 @@ const canonicalUrl = "https://www.aestheticletters.com/alphabet-fonts";
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: pageDescription,
+  robots: { index: false, follow: true },
   alternates: { canonical: canonicalUrl },
   openGraph: {
     siteName: "Aesthetic Letters",
@@ -117,63 +118,39 @@ export default function AlphabetFontsPage() {
         <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-8">
           <h2 className="sr-only">A–Z Letter Directory</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {LETTERS.map((letter) => {
-              const live = LIVE_LETTERS.has(letter);
+            {LETTERS.filter((letter) => LIVE_LETTERS.has(letter)).map((letter) => {
               const href = `/${letter.toLowerCase()}-in-different-fonts`;
-
               const title = `${letter} in Different Fonts`;
               const sub = `Every style for the letter ${letter}`;
 
-              if (live) {
-                return (
-                  <Link
-                    key={letter}
-                    href={href}
-                    className="group flex flex-col justify-between p-8 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:-translate-y-1 hover:bg-surface-container-high min-h-[220px] ring-2 ring-primary"
-                  >
-                    <div>
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-lg mb-6">
-                        {letter}
-                      </div>
-                      <h3 className="font-headline text-xl font-bold mb-2 text-on-surface group-hover:text-primary transition-colors">
-                        {title}
-                      </h3>
-                      <p className="text-sm text-on-surface-variant leading-snug">
-                        {sub}
-                      </p>
-                    </div>
-                    <div className="mt-6 flex items-center text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                      Open Tool{" "}
-                      <ArrowForwardIcon className="ml-2" />
-                    </div>
-                  </Link>
-                );
-              }
-
               return (
-                <div
+                <Link
                   key={letter}
-                  aria-disabled="true"
-                  className="relative flex flex-col justify-between p-8 bg-surface-container-lowest rounded-xl min-h-[220px] opacity-60 cursor-not-allowed"
+                  href={href}
+                  className="group flex flex-col justify-between p-8 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:-translate-y-1 hover:bg-surface-container-high min-h-[220px] ring-2 ring-primary"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-headline text-lg mb-6">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline text-lg mb-6">
                       {letter}
                     </div>
-                    <h3 className="font-headline text-xl font-bold mb-2 text-on-surface/70">
+                    <h3 className="font-headline text-xl font-bold mb-2 text-on-surface group-hover:text-primary transition-colors">
                       {title}
                     </h3>
-                    <p className="text-sm text-on-surface-variant/70 leading-snug">
+                    <p className="text-sm text-on-surface-variant leading-snug">
                       {sub}
                     </p>
                   </div>
-                  <div className="mt-6 flex items-center text-on-surface-variant font-bold text-xs uppercase tracking-widest">
-                    Coming Soon
+                  <div className="mt-6 flex items-center text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    Open Tool{" "}
+                    <ArrowForwardIcon className="ml-2" />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
+          <p className="text-center text-on-surface-variant mt-8">
+            More letters are on the way.
+          </p>
         </section>
 
         {/* Visual Accent Section */}

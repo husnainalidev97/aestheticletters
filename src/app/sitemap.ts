@@ -3,10 +3,10 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Pages modified on 10 Aug 2026: cross-links, brand disclaimers, cookie-consent flow, Halloween tone-down */
-  const siteUpdate = new Date("2026-08-10T00:00:00Z");
-  /* Tool pages not modified in the latest update cycle */
-  const toolsModified = new Date("2026-08-03T00:00:00Z");
+  /* SSR/grid fixes deployed on 16 Aug 2026 */
+  const siteUpdate = new Date("2026-08-16T00:00:00Z");
+  /* Tool pages re-rendered server-side on 16 Aug 2026 */
+  const toolsModified = new Date("2026-08-16T00:00:00Z");
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
   /* Alphabet Fonts cluster created on 13 Aug 2026 */
@@ -30,13 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolsHub = {
     url: `${SITE_URL}/all-tools`,
     lastModified: siteUpdate,
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-  };
-
-  const alphabetHub = {
-    url: `${SITE_URL}/alphabet-fonts`,
-    lastModified: alphabetModified,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   };
@@ -354,7 +347,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     home,
     toolsHub,
     ...toolPages,
-    alphabetHub,
     ...alphabetPages,
     ...infoPages,
   ];

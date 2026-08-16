@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TopNavBar from "../components/TopNavBar";
 
-import InstagramFontCards from "../components/InstagramFontCardsLazy";
+import InstagramFontCards from "../components/InstagramFontCards";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import Sidebar from "../components/Sidebar";

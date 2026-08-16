@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect, lazy, Suspense, useDeferredValue } from "react";
 import Link from "next/link";
 import type { FontCategory } from "../lib/fontStyles";
+import { fontCategories as defaultFontCategories } from "../lib/fontStyles";
 import type { WrapSymbol } from "../lib/bigTextFontStyles";
 import FontCategoryCard from "./FontCategoryCard";
 import FavoritesSection from "./FavoritesSection";
@@ -10,7 +11,6 @@ import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import CategoryJumpLinks, { slugify } from "./CategoryJumpLinks";
 import TextHistory from "./TextHistory";
-import LazyMount from "./LazyMount";
 import GoogleAd from "./GoogleAd";
 
 const PlatformPreview = lazy(() => import("./PlatformPreview"));
@@ -89,23 +89,13 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [homeCategories, setHomeCategories] = useState<FontCategory[] | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadMoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
-
-  useEffect(() => {
-    if (customCategories) return;
-    let cancelled = false;
-    import("../lib/fontStyles").then((mod) => {
-      if (!cancelled) setHomeCategories(mod.fontCategories);
-    });
-    return () => { cancelled = true; };
-  }, [customCategories]);
 
   // Modal states for Preview & Download
   const [previewText, setPreviewText] = useState<string | null>(null);
@@ -211,33 +201,12 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
     setFontSize((prev) => Math.min(maxSize, prev + STEP));
   };
 
-  if (!customCategories && !homeCategories) {
-    return (
-      <div className="min-h-[600px] md:min-h-[900px]">
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pt-8 pb-4 md:pt-10 md:pb-6 text-center">
-          <div className="w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
-            <div className="h-[56px] md:h-[120px] rounded-xl bg-surface-container-low animate-pulse" />
-            <div className="h-[52px] rounded-2xl bg-surface-container-low animate-pulse" />
-            <div className="h-[40px] rounded-xl bg-surface-container-low animate-pulse" />
-          </div>
-        </section>
-        <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2].map((i) => (
-              <div key={i} className="h-[280px] rounded-xl bg-surface-container-low animate-pulse" />
-            ))}
-          </div>
-        </section>
-      </div>
-    );
-  }
-
   const displayText = deferredText || defaultText;
-  const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
-  const allCategories = (customCategories || homeCategories)!;
+  const allCategories = customCategories || defaultFontCategories;
   const filteredCategories = allCategories.filter(
     (cat) => !cat.condition || cat.condition(text),
   );
+  const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
   const visibleCategories = showAll
     ? filteredCategories
     : filteredCategories.slice(0, initialCategoryCount);
@@ -460,24 +429,22 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
             <div
               key={category.name}
               id={`cat-${slugify(category.name)}`}
-              className="animate-card-fade-in scroll-mt-28"
+              className="animate-card-fade-in scroll-mt-28 min-h-[380px] md:min-h-[420px]"
             >
-              <LazyMount className="min-h-[380px] md:min-h-[420px]" rootMargin="60px">
-                <FontCategoryCard
-                  category={category}
-                  text={displayText}
-                  fontSize={fontSize}
-                  copiedId={copiedId}
-                  onCopy={handleCopy}
-                  isDark={DARK_CATEGORIES.has(category.name)}
-                  isFavorite={isFavorite}
-                  onToggleFavorite={toggleFavorite}
-                  onPreview={handlePreview}
-                  onDownload={hideDownload ? undefined : handleDownload}
-                  onScalePreview={enableScalePreview ? handleScalePreview : undefined}
-                  wrapSymbol={wrapSymbol}
-                />
-              </LazyMount>
+              <FontCategoryCard
+                category={category}
+                text={displayText}
+                fontSize={fontSize}
+                copiedId={copiedId}
+                onCopy={handleCopy}
+                isDark={DARK_CATEGORIES.has(category.name)}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
+                onPreview={handlePreview}
+                onDownload={hideDownload ? undefined : handleDownload}
+                onScalePreview={enableScalePreview ? handleScalePreview : undefined}
+                wrapSymbol={wrapSymbol}
+              />
             </div>
           ))}
         </div>

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
-import LazyAlphabetLetterGenerator from "./LazyAlphabetLetterGenerator";
+import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
 import { otherAlphabetsK } from "../lib/alphabetFontStyles";
 
 interface KPageContentProps {
@@ -48,7 +48,7 @@ const popularTools = [
 export default function KPageContent({ faqs }: KPageContentProps) {
   return (
     <>
-      <LazyAlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
+      <AlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 

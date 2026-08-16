@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useMemo, useState, useEffect, lazy, Suspense } from "react";
+import { memo, useMemo, lazy, Suspense } from "react";
 import type { FontCategory } from "../lib/fontStyles";
 
 const ShareButtons = lazy(() => import("./ShareButtons"));
@@ -35,23 +35,13 @@ function FontCategoryCard({
   onDownload,
   onScalePreview,
   wrapSymbol,
-  initialVisibleStyles,
 }: FontCategoryCardProps) {
   const title = category.name;
-  const cardInitial = initialVisibleStyles ?? category.initialVisibleStyles;
-  const [showAllStyles, setShowAllStyles] = useState(!cardInitial);
-
-  const stylesToTransform = showAllStyles
-    ? category.styles
-    : category.styles.slice(0, cardInitial);
-
-  const [visibleCount, setVisibleCount] = useState(Math.min(4, stylesToTransform.length));
 
   const transformedStyles = useMemo(() => {
     const wrap = (s: string) =>
       wrapSymbol ? `${wrapSymbol} ${s} ${wrapSymbol}` : s;
-    const toRender = stylesToTransform.slice(0, visibleCount);
-    return toRender.map((style, index) => {
+    return category.styles.map((style, index) => {
       let converted = wrap(style.transform(text));
       let display = wrap((style.displayTransform ?? style.transform)(text));
       if (category.symbols) {
@@ -70,29 +60,7 @@ function FontCategoryCard({
         styleId: `${category.name}-${style.name}`,
       };
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, text, showAllStyles, wrapSymbol, visibleCount]);
-
-  const hiddenCount = category.styles.length - stylesToTransform.length;
-
-  useEffect(() => {
-    if (visibleCount >= stylesToTransform.length) return;
-    const chunkSize = 4;
-    const nextCount = Math.min(visibleCount + chunkSize, stylesToTransform.length);
-    let id: number | undefined;
-    const cancel = () => {
-      if (id !== undefined) {
-        if ("cancelIdleCallback" in globalThis) globalThis.cancelIdleCallback(id);
-        else globalThis.clearTimeout(id);
-      }
-    };
-    if ("requestIdleCallback" in globalThis) {
-      id = globalThis.requestIdleCallback(() => setVisibleCount(nextCount), { timeout: 300 });
-    } else {
-      id = globalThis.setTimeout(() => setVisibleCount(nextCount), 300) as unknown as number;
-    }
-    return cancel;
-  }, [stylesToTransform.length, visibleCount]);
+  }, [category, text, wrapSymbol]);
 
   const visibleStyles = transformedStyles;
 
@@ -234,18 +202,7 @@ function FontCategoryCard({
             </div>
           );
         })}
-        {!showAllStyles && hiddenCount > 0 && (
-          <button
-            onClick={() => setShowAllStyles(true)}
-            className={`w-full py-3 rounded-xl text-sm font-headline font-bold transition-all ${
-              isDark
-                ? "text-primary/80 hover:bg-surface-container-lowest/30"
-                : "text-primary hover:bg-surface-container-high"
-            }`}
-          >
-            Show {hiddenCount} More Styles
-          </button>
-        )}
+
       </div>
       {isDark && (
         <div className="absolute -right-4 -bottom-4 opacity-[0.07] text-primary pointer-events-none">
