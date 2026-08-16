@@ -34,13 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
-  const alphabetHub = {
-    url: `${SITE_URL}/alphabet-fonts`,
-    lastModified: alphabetModified,
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-  };
-
   const toolPages = [
     {
       url: `${SITE_URL}/fancy-fonts`,
@@ -354,7 +347,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     home,
     toolsHub,
     ...toolPages,
-    alphabetHub,
     ...alphabetPages,
     ...infoPages,
   ];

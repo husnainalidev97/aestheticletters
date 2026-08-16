@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
-import LazyAlphabetLetterGenerator from "./LazyAlphabetLetterGenerator";
+import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
 import { otherAlphabetsR } from "../lib/alphabetFontStyles";
 
 interface RPageContentProps {
@@ -35,7 +35,7 @@ const popularTools = [
 export default function RPageContent({ faqs }: RPageContentProps) {
   return (
     <>
-      <LazyAlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader />
+      <AlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
