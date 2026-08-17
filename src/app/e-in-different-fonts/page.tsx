@@ -12,6 +12,8 @@ const canonicalUrl = "https://www.aestheticletters.com/e-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
 const pageDate = "2026-08-17T06:00:00+00:00";
 
+const pageModifiedDate = new Date();
+
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: pageDescription,
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     description: pageDescription,
     locale: "en_US",
     publishedTime: pageDate,
-    modifiedTime: pageDate,
+    modifiedTime: pageModifiedDate.toISOString(),
     authors: ["Aesthetic Letters"],
     section: "Alphabet Fonts",
     tags: ["e fonts", "Unicode e", "letter e", "aesthetic e", "copy paste e"],
@@ -117,7 +119,7 @@ export default function EInDifferentFontsPage() {
     publisher: { "@id": "https://www.aestheticletters.com/#organization" },
     primaryImageOfPage: { "@id": `${canonicalUrl}#primaryimage` },
     datePublished: pageDate,
-    dateModified: pageDate,
+    dateModified: pageModifiedDate.toISOString(),
   };
 
   const ogImageJsonLd = {

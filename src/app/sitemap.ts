@@ -308,7 +308,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/e-in-different-fonts`,
-      lastModified: new Date("2026-08-17T06:00:00+00:00"),
+      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-e-in-different-fonts.webp`],
