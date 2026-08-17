@@ -34,7 +34,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["https://www.aestheticletters.com/og-e-in-different-fonts.webp"],
+    images: [
+      {
+        url: "https://www.aestheticletters.com/og-e-in-different-fonts.webp",
+        width: 1200,
+        height: 640,
+        alt: "E in Different Fonts preview showing the letter E in multiple Unicode styles on a lavender background",
+      },
+    ],
   },
 };
 
@@ -176,10 +183,6 @@ export default function EInDifferentFontsPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeStringify(ogImageJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeStringify(softwareAppJsonLd) }}
       />
       <script
@@ -189,6 +192,10 @@ export default function EInDifferentFontsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeStringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeStringify(ogImageJsonLd) }}
       />
       <TopNavBar activePage="e-in-different-fonts" />
       <main id="main-content" className="pt-[5.5rem]">
