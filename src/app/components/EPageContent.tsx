@@ -50,7 +50,7 @@ const popularTools = [
 export default function EPageContent({ faqs }: EPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="e" defaultText="e" hideInputHeader hideSymbolStyles />
+      <AlphabetLetterGenerator letter="e" defaultText="E" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 

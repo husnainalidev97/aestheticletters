@@ -36,6 +36,7 @@ const unicodeTableRows = [
 
 const similarTools = [
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
+  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
 ];
 
 const popularTools = [

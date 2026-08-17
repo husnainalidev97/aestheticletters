@@ -10,6 +10,8 @@ export interface AlphabetStyle {
   transform: (text: string) => string;
   /** Optional note about rendering limits (e.g. no lowercase form). */
   note?: string;
+  /** If set, render only the uppercase or lowercase form of this style. */
+  singleSide?: "upper" | "lower";
 }
 
 export interface OtherAlphabetEntry {
@@ -80,7 +82,7 @@ const eNegativeSquaredMap: Record<string, string> = { E: "\u{1F174}", e: "\u{1F1
 const eSuperscriptMap: Record<string, string> = { E: "\u{1D31}", e: "\u{1D49}" };
 const eOpenEMap: Record<string, string> = { E: "\u0190", e: "\u025B" };
 const eEulerMap: Record<string, string> = { E: "\u2147", e: "\u2147" };
-const eSubscriptMap: Record<string, string> = { E: "\u2091", e: "\u2091" };
+const eWithOgonekMap: Record<string, string> = { E: "\u0118", e: "\u0119" };
 
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
@@ -122,26 +124,26 @@ export const letterEStyles: AlphabetStyle[] = [
   { name: "Bold", transform: (t) => applyMap(t, boldMap) },
   { name: "Italic", transform: (t) => applyMap(t, italicMap) },
   { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
-  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Letterlike Symbols block, not Math Alphanumeric" },
   { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
   { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
-  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
   { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
-  { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Bold Fraktur (Gothic)", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
   { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
   { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
   { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
   { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
   { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
-  { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, eSuperscriptMap) },
+  { name: "Open E", transform: (t) => applyMap(t, eOpenEMap) },
+  { name: "E With Ogonek", transform: (t) => applyMap(t, eWithOgonekMap) },
   { name: "Circled", transform: (t) => applyMap(t, circledMap) },
-  { name: "Squared", transform: (t) => applyMap(t, eSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
-  { name: "Negative Squared", transform: (t) => applyMap(t, eNegativeSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Squared", transform: (t) => applyMap(t, eSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, eNegativeSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
   { name: "Parenthesized", transform: (t) => applyMap(t, eParenthesizedMap) },
-  { name: "Superscript", transform: (t) => applyMap(t, eSuperscriptMap) },
-  { name: "Latin Open E", transform: (t) => applyMap(t, eOpenEMap) },
-  { name: "Euler's Number", transform: (t) => applyMap(t, eEulerMap) },
-  { name: "Subscript", transform: (t) => applyMap(t, eSubscriptMap) },
+  { name: "Double-Struck Italic (Euler's Number)", transform: (t) => applyMap(t, eEulerMap), note: "Lowercase only, no Unicode capital equivalent", singleSide: "lower" },
 ];
 
 // ── 22 K Styles ──────────────────────────────────────────────────────────
@@ -221,10 +223,16 @@ const kSmallSymbolCategories: FontCategory[] = [
   { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
 ];
 
+const eCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
+const eSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
+
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
   if (upper === "K") {
     return { capital: kCapitalSymbolCategories, small: kSmallSymbolCategories };
+  }
+  if (upper === "E") {
+    return { capital: eCapitalSymbolCategories, small: eSmallSymbolCategories };
   }
   return null;
 }

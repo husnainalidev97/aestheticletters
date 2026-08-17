@@ -169,10 +169,19 @@ export default function AlphabetLetterGenerator({
 
   const standardStyles = useMemo(
     () =>
-      letterStyles.map((style) => ({
-        name: style.name,
-        text: `${style.transform(upperText)} ${style.transform(lowerText)}`,
-      })),
+      letterStyles.map((style) => {
+        const upper = style.transform(upperText);
+        const lower = style.transform(lowerText);
+        let text: string;
+        if (style.singleSide === "upper") {
+          text = upper;
+        } else if (style.singleSide === "lower") {
+          text = lower;
+        } else {
+          text = `${upper} ${lower}`;
+        }
+        return { name: style.name, text };
+      }),
     [letterStyles, upperText, lowerText],
   );
 
