@@ -4,18 +4,19 @@ import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
-import { otherAlphabetsK } from "../lib/alphabetFontStyles";
+import { otherAlphabetsE } from "../lib/alphabetFontStyles";
 
-interface KPageContentProps {
+interface EPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
 const pageSections = [
-  { id: "k-in-every-font-style", label: "K Font Styles" },
-  { id: "unicode-names-for-k-styles", label: "Unicode Names" },
-  { id: "why-do-k-styles-stay-consistent", label: "Why Consistent" },
-  { id: "k-in-other-alphabets", label: "Other Alphabets" },
-  { id: "where-people-use-styled-k", label: "Uses" },
+  { id: "e-in-every-font-style", label: "E Font Styles" },
+  { id: "unicode-names-for-e-styles", label: "Unicode Names" },
+  { id: "why-does-e-lose-its-script-style", label: "Script Gap" },
+  { id: "the-eulers-number-symbol", label: "Euler's Number" },
+  { id: "e-in-other-alphabets", label: "Other Alphabets" },
+  { id: "where-do-people-use-styled-e", label: "Uses" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
@@ -23,62 +24,67 @@ const pageSections = [
 const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
 
 const unicodeTableRows = [
-  { glyph: "\u{1D40A}", name: "Mathematical Bold Capital K", code: "U+1D40A" },
-  { glyph: "\u{1D4A6}", name: "Mathematical Script Capital K", code: "U+1D4A6" },
-  { glyph: "\u{1D50E}", name: "Mathematical Fraktur Capital K", code: "U+1D50E" },
-  { glyph: "\u{1D542}", name: "Mathematical Double-Struck Capital K", code: "U+1D542" },
-  { glyph: "\u{1D576}", name: "Mathematical Bold Fraktur Capital K", code: "U+1D576" },
-  { glyph: "\u{1D67A}", name: "Mathematical Monospace Capital K", code: "U+1D67A" },
-  { glyph: "\uFF2B", name: "Fullwidth Latin Capital Letter K", code: "U+FF2B" },
-  { glyph: "\u1D0B", name: "Latin Letter Small Capital K", code: "U+1D0B" },
-  { glyph: "\u0198", name: "Latin Capital Letter K With Hook", code: "U+0198" },
+  { glyph: "\u{1D404}", name: "Mathematical Bold Capital E", code: "U+1D404" },
+  { glyph: "\u2130", name: "Script Capital E", code: "U+2130" },
+  { glyph: "\u{1D508}", name: "Mathematical Fraktur Capital E", code: "U+1D508" },
+  { glyph: "\u{1D53C}", name: "Mathematical Double-Struck Capital E", code: "U+1D53C" },
+  { glyph: "\u{1D570}", name: "Mathematical Bold Fraktur Capital E", code: "U+1D570" },
+  { glyph: "\u{1D674}", name: "Mathematical Monospace Capital E", code: "U+1D674" },
+  { glyph: "\uFF25", name: "Fullwidth Latin Capital Letter E", code: "U+FF25" },
+  { glyph: "\u1D07", name: "Latin Letter Small Capital E", code: "U+1D07" },
+  { glyph: "\u0190", name: "Latin Capital Letter Open E", code: "U+0190" },
 ];
 
 const similarTools = [
+  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
-  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
 ];
 
 const popularTools = [
   { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
+  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u270D", desc: "Flowing cursive and handwriting-style text" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
 ];
 
-export default function KPageContent({ faqs }: KPageContentProps) {
+export default function EPageContent({ faqs }: EPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
+      <AlphabetLetterGenerator letter="e" defaultText="E" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <article id="k-in-every-font-style" className="scroll-mt-[9rem]">
+            <p className="text-on-surface-variant leading-relaxed text-lg">
+              English readers use the letter E more than any other letter, so a styled E carries extra visibility across bios and captions. This generator holds 23 verified Unicode versions, plus five real E letters borrowed from other alphabets. Every result below pastes as plain text, with no download required.
+            </p>
+
+            <article id="e-in-every-font-style" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Every Font Style
+                E in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Unicode styling turns a single letter into dozens of distinct symbols. Each one is a real character with its own code point, not a visual trick.
+                Mathematicians needed different letter styles long before social media existed, to separate variables inside equations. Unicode preserved that need as 23 separate E characters, split across three groups: math alphanumerics, enclosed shapes, and letters borrowed from other alphabets.
               </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Below, K appears in 22 such styles, pulled from three categories. Mathematical alphanumerics, enclosed characters, and real letters borrowed from other languages all appear here. Every card pairs the uppercase K with its lowercase match, and one click copies the pair straight to the clipboard.
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Tap any card below. Its uppercase pairs with its lowercase match when a pair exists, and both copy together in a single click.
               </p>
 
-              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-12">
+              <div id="unicode-names-for-e-styles" className="scroll-mt-[9rem] mt-12">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
-                  Unicode Names for K Styles
+                  Unicode Names for E Styles
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Every symbol above maps to a real Unicode code point, confirmed here by name rather than assumed from appearance. A sample of nine such mappings appears in the table below, pulled directly from the Unicode standard.
+                  Names carry more proof than appearance alone. The table below lists nine E styles by their exact Unicode designation, pulled straight from the standard, so nothing here relies on guesswork.
                 </p>
                 <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
                   <table className="w-full text-left text-sm md:text-base">
                     <thead>
                       <tr className="border-b border-outline-variant/20 bg-surface-container-highest/50">
-                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled K</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled E</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Unicode Name</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Code Point</th>
                       </tr>
@@ -95,59 +101,71 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 22 styles appear on the individual style cards above.
+                  Full names for all 23 styles appear on the individual style cards above.
                 </p>
               </div>
             </article>
 
-            <article id="why-do-k-styles-stay-consistent" className="scroll-mt-[9rem]">
+            <article id="why-does-e-lose-its-script-style" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Why Do K Styles Stay Consistent?
+                Why Does E Lose Its Script Style?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Several Unicode mathematical styles skip certain letters entirely, including R, C, and H. Devices then pull substitute characters from an older Letterlike Symbols block instead. K carries no such gap.
+                Script Capital E and Script Small E do not live in the Mathematical Alphanumeric block with the rest of E&apos;s styles. Both sit inside an older section called Letterlike Symbols instead. Unicode reused these two existing characters rather than building duplicates, since mathematicians already used script E for limits and sets before the newer block existed.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                All 13 mathematical styles exist at their expected code points, nothing borrowed from elsewhere. This full coverage traces back further than Unicode itself. Greek kappa gave English its K, by way of the Semitic kaph, once a symbol for an open hand.
+                This kind of gap only touches a handful of letters. R loses three entire styles the same way, while a few others lose one or two. E loses just its Script pair, so twelve of its thirteen mathematical styles still render at their expected, native code points.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Bold, Fraktur, Double Struck, and Bold Fraktur all sit exactly where expected, with nothing borrowed from elsewhere. That leaves E with one of the smaller gaps among the affected letters.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Classical Latin barely touched the letter, keeping it for a short list of fixed words. Unicode still gave K a complete set regardless. Every mathematical K style on this page renders identically across devices and platforms, with no unexpected substitutions to explain. Full words can carry that same weight too, through the{" "}
+                Full word styling works the same way through the{" "}
                 <Link href="/bold-font-generator" className={linkClass}>
-                  bold text generator
+                  bold text maker
                 </Link>
-                , which converts entire phrases at once.
+                , which turns entire phrases into matching Unicode text.
               </p>
             </article>
 
-            <article id="k-in-other-alphabets" className="scroll-mt-[9rem]">
+            <article id="the-eulers-number-symbol" className="scroll-mt-[9rem]">
+              <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
+                The Euler&apos;s Number Symbol (ⅇ)
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Not every E character above pairs with a partner. Double Struck Italic Small e stands alone, formatted only in lowercase, at code point U+2147. Mathematics uses this exact glyph as shorthand for Euler&apos;s number, the constant behind natural logarithms and continuous growth curves.
+              </p>
+            </article>
+
+            <article id="e-in-other-alphabets" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Other Alphabets
+                E in Other Alphabets
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                K is not unique to the Latin alphabet. Several unrelated writing systems carry a nearly identical shape, some by direct inheritance from Greek, others by pure coincidence.
+                Five separate writing systems, spanning three continents and roughly three thousand years, each developed a letter close to E. Some inherited it directly from Greek. Others arrived at a matching shape or sound through an entirely separate path.
               </p>
               <ul className="list-disc pl-6 space-y-4 text-on-surface-variant leading-relaxed text-lg mb-8">
                 <li>
-                  <span className="text-on-surface font-medium">Cyrillic К к:</span> adapted from Greek centuries after Cyril and Methodius built the alphabet for Slavic liturgy
+                  <span className="text-on-surface font-medium">Cyrillic Е е:</span> shares an identical shape with Latin E, adapted after Cyril and Methodius built the alphabet for Slavic liturgy.
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Greek Κ κ:</span> kappa itself, the direct ancestor of the Latin K
+                  <span className="text-on-surface font-medium">Greek Ε ε:</span> epsilon itself, the direct ancestor behind the Latin E.
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Coptic Ⲕ ⲕ:</span> borrowed the same Greek shape for Egypt&apos;s Coptic Christian texts
+                  <span className="text-on-surface font-medium">Coptic Ⲉ ⲉ:</span> carried the same Greek shape into Egypt&apos;s Coptic Christian texts.
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Cherokee Ꮶ ꮶ:</span> represents the syllable tso, unrelated in sound to K despite the shared shape
+                  <span className="text-on-surface font-medium">Old Italic 𐌄:</span> the Etruscan letterform that Roman scribes later reshaped into today&apos;s Latin E.
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Old Italic 𐌊:</span> the Etruscan letterform that Roman scribes eventually turned into the Latin K used today
+                  <span className="text-on-surface font-medium">Runic ᛖ:</span> the Elder Futhark rune Ehwaz, marking the E sound in early Germanic writing.
                 </li>
               </ul>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                None of these are font styles. Each is a distinct letter, in active or historic use within its own language.
+                None of these count as font styles. Each stands as its own distinct letter, in active or historic use within its own language.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {otherAlphabetsK.map((entry) => (
+                {otherAlphabetsE.map((entry) => (
                   <FontResultCard
                     key={entry.script}
                     label={entry.label}
@@ -158,12 +176,12 @@ export default function KPageContent({ faqs }: KPageContentProps) {
               </div>
             </article>
 
-            <article id="where-people-use-styled-k" className="scroll-mt-[9rem]">
+            <article id="where-do-people-use-styled-e" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where Do People Use Styled K?
+                Where Do People Use Styled E?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Bios, gaming names, and Discord profiles are the most common home for styled K text. Logo mockups and quick graphic drafts use it too. Since every style copies as plain text, testing a few options before settling on one costs nothing but a click.
+                A plain E blends into a feed full of plain text, so people reach for a styled version to stand out. Gaming profiles, Discord names, and Instagram bios see the heaviest use. Logo drafts and quick graphics pick it up too, since every style still pastes as plain text with zero setup cost.
               </p>
             </article>
           </div>
@@ -189,7 +207,7 @@ export default function KPageContent({ faqs }: KPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
-          Beyond K, several other generators on this site cover full word styling, platform specific text, and more.
+          Beyond E, several other generators on this site cover full word styling, platform specific text, and more.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>

@@ -3,14 +3,12 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* SSR/grid fixes deployed on 16 Aug 2026 */
-  const siteUpdate = new Date("2026-08-16T00:00:00Z");
-  /* Tool pages re-rendered server-side on 16 Aug 2026 */
-  const toolsModified = new Date("2026-08-16T00:00:00Z");
+  /* E page + cross-links deployed on 17 Aug 2026 */
+  const siteUpdate = new Date("2026-08-17T06:00:00+00:00");
+  /* Tool pages re-rendered server-side on 17 Aug 2026 */
+  const toolsModified = new Date("2026-08-17T06:00:00+00:00");
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
-  /* Alphabet Fonts cluster created on 13 Aug 2026 */
-  const alphabetModified = new Date("2026-08-13T00:00:00Z");
 
   const home = {
     url: `${SITE_URL}/`,
@@ -296,17 +294,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const alphabetPages = [
     {
       url: `${SITE_URL}/r-in-different-fonts`,
-      lastModified: alphabetModified,
+      lastModified: new Date("2026-08-17T06:00:00+00:00"),
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-r-in-different-fonts.webp`],
     },
     {
       url: `${SITE_URL}/k-in-different-fonts`,
-      lastModified: new Date("2026-08-15T06:56:00+00:00"),
+      lastModified: new Date("2026-08-17T06:00:00+00:00"),
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-k-in-different-fonts.webp`],
+    },
+    {
+      url: `${SITE_URL}/e-in-different-fonts`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-e-in-different-fonts.webp`],
     },
   ];
 

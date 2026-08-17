@@ -23,6 +23,7 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 
 const similarTools = [
   { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
+  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
 ];
 
 const popularTools = [

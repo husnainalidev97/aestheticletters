@@ -189,6 +189,32 @@ const toolCategories: ToolCategory[] = [
       },
     ],
   },
+  {
+    title: "Alphabet Fonts",
+    cards: [
+      {
+        title: "E in Different Fonts",
+        description:
+          "See the letter E in 23 Unicode font styles plus real E letters from other alphabets. Copy and paste instantly.",
+        icon: "sort_by_alpha",
+        href: "/e-in-different-fonts",
+      },
+      {
+        title: "K in Different Fonts",
+        description:
+          "See the letter K in 22 Unicode font styles plus real K letters from other alphabets. Copy and paste instantly.",
+        icon: "sort_by_alpha",
+        href: "/k-in-different-fonts",
+      },
+      {
+        title: "R in Different Fonts",
+        description:
+          "See the letter R in 16 Unicode font styles plus real R letters from other alphabets. Copy and paste instantly.",
+        icon: "sort_by_alpha",
+        href: "/r-in-different-fonts",
+      },
+    ],
+  },
 ];
 
 export default function AllToolsPage() {
