@@ -57,7 +57,7 @@ export default function EPageContent({ faqs }: EPageContentProps) {
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <p className="text-on-surface-variant leading-relaxed text-lg mb-16">
+            <p className="text-on-surface-variant leading-relaxed text-lg">
               English readers use the letter E more than any other letter, so a styled E carries extra visibility across bios and captions. This generator holds 23 verified Unicode versions, plus five real E letters borrowed from other alphabets. Every result below pastes as plain text, with no download required.
             </p>
 
@@ -128,9 +128,9 @@ export default function EPageContent({ faqs }: EPageContentProps) {
             </article>
 
             <article id="the-eulers-number-symbol" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+              <h3 className="font-headline text-3xl font-bold mb-6 leading-tight">
                 The Euler&apos;s Number Symbol (ⅇ)
-              </h2>
+              </h3>
               <p className="text-on-surface-variant leading-relaxed text-lg">
                 Not every E character above pairs with a partner. Double Struck Italic Small e stands alone, formatted only in lowercase, at code point U+2147. Mathematics uses this exact glyph as shorthand for Euler&apos;s number, the constant behind natural logarithms and continuous growth curves.
               </p>
