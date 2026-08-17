@@ -57,13 +57,14 @@ export default function EPageContent({ faqs }: EPageContentProps) {
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
+            <p className="text-on-surface-variant leading-relaxed text-lg mb-16">
+              English readers use the letter E more than any other letter, so a styled E carries extra visibility across bios and captions. This generator holds 23 verified Unicode versions, plus five real E letters borrowed from other alphabets. Every result below pastes as plain text, with no download required.
+            </p>
+
             <article id="e-in-every-font-style" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                 E in Every Font Style
               </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                English readers use the letter E more than any other letter, so a styled E carries extra visibility across bios and captions. This generator holds 23 verified Unicode versions, plus five real E letters borrowed from other alphabets. Every result below pastes as plain text, with no download required.
-              </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                 Mathematicians needed different letter styles long before social media existed, to separate variables inside equations. Unicode preserved that need as 23 separate E characters, split across three groups: math alphanumerics, enclosed shapes, and letters borrowed from other alphabets.
               </p>
