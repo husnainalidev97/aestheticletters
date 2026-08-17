@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     authors: ["Aesthetic Letters"],
     section: "Alphabet Fonts",
     tags: ["e fonts", "Unicode e", "letter e", "aesthetic e", "copy paste e"],
-    images: [{ url: "https://www.aestheticletters.com/og-e-in-different-fonts.webp", width: 1200, height: 640 }],
+    images: [{ url: "https://www.aestheticletters.com/og-e-in-different-fonts.webp", width: 1200, height: 640, alt: "E in Different Fonts preview showing the letter E in multiple Unicode styles on a lavender background" }],
   },
   twitter: {
     card: "summary_large_image",
