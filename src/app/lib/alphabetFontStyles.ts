@@ -137,6 +137,7 @@ export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
   if (upper === "K") return letterKStyles;
+  if (upper === "E") return letterRStyles;
   return [];
 }
 

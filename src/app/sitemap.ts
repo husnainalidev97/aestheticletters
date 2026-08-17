@@ -308,6 +308,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       images: [`${SITE_URL}/og-k-in-different-fonts.webp`],
     },
+    {
+      url: `${SITE_URL}/e-in-different-fonts`,
+      lastModified: new Date("2026-08-17T06:00:00+00:00"),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-image.webp`],
+    },
   ];
 
   const infoPages = [
