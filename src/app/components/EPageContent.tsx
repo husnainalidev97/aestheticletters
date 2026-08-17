@@ -42,6 +42,7 @@ const similarTools = [
 
 const popularTools = [
   { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
+  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u270D", desc: "Flowing cursive and handwriting-style text" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
@@ -121,14 +122,14 @@ export default function EPageContent({ faqs }: EPageContentProps) {
               <p className="text-on-surface-variant leading-relaxed text-lg">
                 Full word styling works the same way through the{" "}
                 <Link href="/bold-font-generator" className={linkClass}>
-                  bold font generator
+                  bold text maker
                 </Link>
                 , which turns entire phrases into matching Unicode text.
               </p>
             </article>
 
             <article id="the-eulers-number-symbol" className="scroll-mt-[9rem]">
-              <h3 className="font-headline text-3xl font-bold mb-6 leading-tight">
+              <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
                 The Euler&apos;s Number Symbol (ⅇ)
               </h3>
               <p className="text-on-surface-variant leading-relaxed text-lg">

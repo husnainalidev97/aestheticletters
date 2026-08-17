@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     authors: ["Aesthetic Letters"],
     section: "Alphabet Fonts",
     tags: ["e fonts", "Unicode e", "letter e", "aesthetic e", "copy paste e"],
-    images: [{ url: "https://www.aestheticletters.com/og-image.webp", width: 1200, height: 640 }],
+    images: [{ url: "https://www.aestheticletters.com/og-e-in-different-fonts.webp", width: 1200, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["https://www.aestheticletters.com/og-image.webp"],
+    images: ["https://www.aestheticletters.com/og-e-in-different-fonts.webp"],
   },
 };
 

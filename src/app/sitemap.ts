@@ -311,7 +311,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-08-17T06:00:00+00:00"),
       changeFrequency: "weekly" as const,
       priority: 0.7,
-      images: [`${SITE_URL}/og-image.webp`],
+      images: [`${SITE_URL}/og-e-in-different-fonts.webp`],
     },
   ];
 
