@@ -12,6 +12,7 @@ interface AlphabetLetterGeneratorProps {
   letter: string;
   defaultText?: string;
   hideInputHeader?: boolean;
+  hideSymbolStyles?: boolean;
   value?: string;
   onChange?: (value: string) => void;
 }
@@ -71,6 +72,7 @@ export default function AlphabetLetterGenerator({
   letter,
   defaultText,
   hideInputHeader,
+  hideSymbolStyles,
   value,
   onChange,
 }: AlphabetLetterGeneratorProps) {
@@ -383,62 +385,66 @@ export default function AlphabetLetterGenerator({
         </div>
       )}
 
-      {/* Capital Letter Symbol Styles */}
-      <div ref={capitalRef} className="mt-10">
-        <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
-          Capital Letter &apos;{upperLetter}&apos; with Symbols
-        </h2>
-        {symbolStyles.capital.length > 0 ? (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
-            {symbolStyles.capital.map((style) => (
-              <CompactStyleCard
-                key={`capital-${style.category}-${style.name}`}
-                label={style.name ? `${style.category} – ${style.name}` : style.category}
-                text={style.text}
-                fontSize={fontSize}
-                copied={copiedKey === style.text}
-              />
-            ))}
+      {!hideSymbolStyles && (
+        <>
+          {/* Capital Letter Symbol Styles */}
+          <div ref={capitalRef} className="mt-10">
+            <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+              Capital Letter &apos;{upperLetter}&apos; with Symbols
+            </h2>
+            {symbolStyles.capital.length > 0 ? (
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
+                {symbolStyles.capital.map((style) => (
+                  <CompactStyleCard
+                    key={`capital-${style.category}-${style.name}`}
+                    label={style.name ? `${style.category} – ${style.name}` : style.category}
+                    text={style.text}
+                    fontSize={fontSize}
+                    copied={copiedKey === style.text}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
+            )}
           </div>
-        ) : (
-          <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
-        )}
-      </div>
 
-      {AD_SLOT && (
-        <div className="my-10 px-4 md:px-0">
-          <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-            <GoogleAd
-              slot={AD_SLOT}
-              format="auto"
-              responsive
-              className="w-full h-[150px]"
-            />
+          {AD_SLOT && (
+            <div className="my-10 px-4 md:px-0">
+              <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
+                <GoogleAd
+                  slot={AD_SLOT}
+                  format="auto"
+                  responsive
+                  className="w-full h-[150px]"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Small Letter Symbol Styles */}
+          <div ref={smallRef} className="mt-10">
+            <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
+              Small Letter &apos;{lowerLetter}&apos; with Symbols
+            </h2>
+            {symbolStyles.small.length > 0 ? (
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
+                {symbolStyles.small.map((style) => (
+                  <CompactStyleCard
+                    key={`small-${style.category}-${style.name}`}
+                    label={style.name ? `${style.category} – ${style.name}` : style.category}
+                    text={style.text}
+                    fontSize={fontSize}
+                    copied={copiedKey === style.text}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
+            )}
           </div>
-        </div>
+        </>
       )}
-
-      {/* Small Letter Symbol Styles */}
-      <div ref={smallRef} className="mt-10">
-        <h2 className="font-headline text-xl md:text-2xl font-bold text-center text-on-background mb-6">
-          Small Letter &apos;{lowerLetter}&apos; with Symbols
-        </h2>
-        {symbolStyles.small.length > 0 ? (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3" onClick={handleSymbolGridCopy}>
-            {symbolStyles.small.map((style) => (
-              <CompactStyleCard
-                key={`small-${style.category}-${style.name}`}
-                label={style.name ? `${style.category} – ${style.name}` : style.category}
-                text={style.text}
-                fontSize={fontSize}
-                copied={copiedKey === style.text}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="min-h-[240px] rounded-xl bg-surface-container-low/30" aria-hidden="true" />
-        )}
-      </div>
     </section>
   );
 }
