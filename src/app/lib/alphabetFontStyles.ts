@@ -72,6 +72,16 @@ const squaredMap: Record<string, string> = { K: "\u{1F13A}", k: "\u{1F13A}" };
 const negativeSquaredMap: Record<string, string> = { K: "\u{1F17A}", k: "\u{1F17A}" };
 const superscriptMap: Record<string, string> = { K: "\u{1D37}", k: "\u{1D4F}" };
 
+// ── E-specific character maps ───────────────────────────────────────────────
+
+const eParenthesizedMap: Record<string, string> = { E: "\u{1F114}", e: "\u24A0" };
+const eSquaredMap: Record<string, string> = { E: "\u{1F134}", e: "\u{1F134}" };
+const eNegativeSquaredMap: Record<string, string> = { E: "\u{1F174}", e: "\u{1F174}" };
+const eSuperscriptMap: Record<string, string> = { E: "\u{1D31}", e: "\u{1D49}" };
+const eOpenEMap: Record<string, string> = { E: "\u0190", e: "\u025B" };
+const eEulerMap: Record<string, string> = { E: "\u2147", e: "\u2147" };
+const eSubscriptMap: Record<string, string> = { E: "\u2091", e: "\u2091" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -106,6 +116,34 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
+// ── 23 E Styles ──────────────────────────────────────────────────────────
+
+export const letterEStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, eSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Negative Squared", transform: (t) => applyMap(t, eNegativeSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Parenthesized", transform: (t) => applyMap(t, eParenthesizedMap) },
+  { name: "Superscript", transform: (t) => applyMap(t, eSuperscriptMap) },
+  { name: "Latin Open E", transform: (t) => applyMap(t, eOpenEMap) },
+  { name: "Euler's Number", transform: (t) => applyMap(t, eEulerMap) },
+  { name: "Subscript", transform: (t) => applyMap(t, eSubscriptMap) },
+];
+
 // ── 22 K Styles ──────────────────────────────────────────────────────────
 
 export const letterKStyles: AlphabetStyle[] = [
@@ -137,7 +175,7 @@ export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
   if (upper === "K") return letterKStyles;
-  if (upper === "E") return letterRStyles;
+  if (upper === "E") return letterEStyles;
   return [];
 }
 
@@ -271,5 +309,43 @@ export const otherAlphabetsK: OtherAlphabetEntry[] = [
     upper: "\u{1030A}",
     lower: null,
     description: "The Etruscan letterform that Roman scribes eventually turned into the Latin K used today.",
+  },
+];
+
+export const otherAlphabetsE: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0415",
+    lower: "\u0435",
+    description: "Cyrillic Ye shares an identical shape with Latin E, adapted after Cyril and Methodius built the alphabet for Slavic liturgy.",
+  },
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u0395",
+    lower: "\u03B5",
+    description: "Epsilon itself, the direct ancestor behind the Latin E.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic",
+    upper: "\u2C88",
+    lower: "\u2C89",
+    description: "Carried the same Greek shape into Egypt's Coptic Christian texts.",
+  },
+  {
+    script: "Old Italic",
+    label: "Old Italic",
+    upper: "\u{10304}",
+    lower: null,
+    description: "The Etruscan letterform that Roman scribes later reshaped into today's Latin E.",
+  },
+  {
+    script: "Runic",
+    label: "Runic",
+    upper: "\u16D6",
+    lower: null,
+    description: "The Elder Futhark rune Ehwaz, marking the E sound in early Germanic writing.",
   },
 ];
