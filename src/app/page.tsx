@@ -272,9 +272,6 @@ export default function Home() {
                   { label: "Sans Serif Fonts", href: "/sans-serif-fonts", icon: "\uD83D\uDDA5\uFE0F", desc: "Clean modern fonts" },
                   { label: "Halloween Fonts", href: "/halloween-fonts", icon: "\uD83C\uDF83", desc: "Spooky text styles" },
                   { label: "Christmas Fonts", href: "/christmas-fonts", icon: "\uD83C\uDF84", desc: "Festive holiday text" },
-                  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "Letter E styles" },
-                  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "Letter K styles" },
-                  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\u24C7", desc: "Letter R styles" },
                 ].map((tool) => (
                   <Link
                     key={tool.href}

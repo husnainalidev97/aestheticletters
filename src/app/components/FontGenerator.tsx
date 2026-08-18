@@ -26,7 +26,7 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
@@ -89,7 +89,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
-  const [showAll, setShowAll] = useState(true);
+  const [showAll, setShowAll] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -207,7 +207,8 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
     (cat) => !cat.condition || cat.condition(text),
   );
   const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
-  const visibleCategories = showAll
+  const shouldExpand = showAll || filteredCategories.length <= 5;
+  const visibleCategories = shouldExpand
     ? filteredCategories
     : filteredCategories.slice(0, initialCategoryCount);
 
@@ -319,7 +320,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Font Category Cards — Progressive 3+7 loading */}
+      {/* Font Category Cards — Progressive 4+6 loading */}
       <section
         id={RESULTS_ID}
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
@@ -487,7 +488,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
         )}
 
         {/* Explore More Button — loads remaining deferred categories */}
-        {!showAll && filteredCategories.length > initialCategoryCount && (
+        {!showAll && visibleCategories.length < filteredCategories.length && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
