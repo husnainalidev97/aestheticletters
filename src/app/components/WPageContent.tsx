@@ -37,15 +37,15 @@ const popularTools = [
 ];
 
 const unicodeNameRows = [
-  { char: "𝐖", name: "Mathematical Bold Capital W", code: "U+1D416" },
-  { char: "𝒲", name: "Mathematical Script Capital W", code: "U+1D4B2" },
-  { char: "𝔚", name: "Mathematical Fraktur Capital W", code: "U+1D51A" },
-  { char: "𝕎", name: "Mathematical Double-Struck Capital W", code: "U+1D54E" },
-  { char: "𝖂", name: "Mathematical Bold Fraktur Capital W", code: "U+1D582" },
-  { char: "𝚆", name: "Mathematical Monospace Capital W", code: "U+1D686" },
-  { char: "Ｗ", name: "Fullwidth Latin Capital Letter W", code: "U+FF37" },
-  { char: "ᴡ", name: "Latin Letter Small Capital W", code: "U+1D21" },
-  { char: "Ŵ", name: "Latin Capital Letter W With Circumflex", code: "U+0174" },
+  { glyph: "𝐖", name: "Mathematical Bold Capital W", code: "U+1D416" },
+  { glyph: "𝒲", name: "Mathematical Script Capital W", code: "U+1D4B2" },
+  { glyph: "𝔚", name: "Mathematical Fraktur Capital W", code: "U+1D51A" },
+  { glyph: "𝕎", name: "Mathematical Double-Struck Capital W", code: "U+1D54E" },
+  { glyph: "𝖂", name: "Mathematical Bold Fraktur Capital W", code: "U+1D582" },
+  { glyph: "𝚆", name: "Mathematical Monospace Capital W", code: "U+1D686" },
+  { glyph: "Ｗ", name: "Fullwidth Latin Capital Letter W", code: "U+FF37" },
+  { glyph: "ᴡ", name: "Latin Letter Small Capital W", code: "U+1D21" },
+  { glyph: "Ŵ", name: "Latin Capital Letter W With Circumflex", code: "U+0174" },
 ];
 
 export default function WPageContent({ faqs }: WPageContentProps) {
@@ -71,40 +71,40 @@ export default function WPageContent({ faqs }: WPageContentProps) {
               <p className="text-on-surface-variant leading-relaxed text-lg">
                 A smaller group comes from enclosed number and letter sets originally meant for lists and labels. The last group holds genuine letters borrowed from languages outside English.
               </p>
-            </article>
 
-            <article id="unicode-names-for-w-styles" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Unicode Names for W Styles
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Nine samples from the full set appear below, listed by their formal Unicode name rather than a nickname someone invented for a font tool.
-              </p>
+              <div id="unicode-names-for-w-styles" className="scroll-mt-[9rem] mt-12">
+                <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
+                  Unicode Names for W Styles
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  Nine samples from the full set appear below, listed by their formal Unicode name rather than a nickname someone invented for a font tool.
+                </p>
 
-              <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
-                <table className="w-full text-sm md:text-base border-collapse">
-                  <thead>
-                    <tr className="text-left border-b border-outline-variant/30">
-                      <th className="py-4 px-5 font-headline font-bold text-on-surface">Styled W</th>
-                      <th className="py-4 px-5 font-headline font-bold text-on-surface">Unicode Name</th>
-                      <th className="py-4 px-5 font-headline font-bold text-on-surface">Code Point</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {unicodeNameRows.map((row) => (
-                      <tr key={row.code} className="border-b border-outline-variant/10 last:border-b-0">
-                        <td className="py-4 px-5 font-body text-lg text-on-surface">{row.char}</td>
-                        <td className="py-4 px-5 text-on-surface-variant">{row.name}</td>
-                        <td className="py-4 px-5 text-on-surface-variant font-mono whitespace-nowrap">{row.code}</td>
+                <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
+                  <table className="w-full text-left text-sm md:text-base">
+                    <thead>
+                      <tr className="border-b border-outline-variant/20 bg-surface-container-highest/50">
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled W</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Unicode Name</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Code Point</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {unicodeNameRows.map((row) => (
+                        <tr key={row.code} className="border-b border-outline-variant/10 last:border-0">
+                          <td className="px-4 py-3 text-on-surface font-medium text-lg">{row.glyph}</td>
+                          <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
+                          <td className="px-4 py-3 text-on-surface-variant font-mono">{row.code}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-              <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                The remaining thirteen styles carry equally specific names, viewable on each card above.
-              </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
+                  The remaining thirteen styles carry equally specific names, viewable on each card above.
+                </p>
+              </div>
             </article>
 
             <article id="why-is-w-called-double-u" className="scroll-mt-[9rem]">
@@ -145,15 +145,15 @@ export default function WPageContent({ faqs }: WPageContentProps) {
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                 A few characters from other writing systems still resemble it closely enough to mention, even without a direct family link.
               </p>
-              <ul className="list-disc list-inside space-y-3 text-on-surface-variant leading-relaxed text-lg mb-8">
+              <ul className="list-disc pl-6 space-y-4 text-on-surface-variant leading-relaxed text-lg mb-8">
                 <li>
-                  <strong>Cyrillic Omega Ѡ ѡ:</strong> appeared in Old Church Slavonic manuscripts, its rounded twin-arch outline is the nearest visual match W has anywhere outside Latin script
+                  <span className="text-on-surface font-medium">Cyrillic Omega Ѡ ѡ:</span> appeared in Old Church Slavonic manuscripts, its rounded twin-arch outline is the nearest visual match W has anywhere outside Latin script
                 </li>
                 <li>
-                  <strong>Coptic Shei Ϣ ϣ:</strong> Egyptian Christian scribes lifted the same rounded shape from Demotic writing centuries earlier
+                  <span className="text-on-surface font-medium">Coptic Shei Ϣ ϣ:</span> Egyptian Christian scribes lifted the same rounded shape from Demotic writing centuries earlier
                 </li>
                 <li>
-                  <strong>W With Hook Ⱳ ⱳ:</strong> not decorative at all, this is a working letter in the Puguli and Lobiri languages spoken in Burkina Faso today
+                  <span className="text-on-surface font-medium">W With Hook Ⱳ ⱳ:</span> not decorative at all, this is a working letter in the Puguli and Lobiri languages spoken in Burkina Faso today
                 </li>
               </ul>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">

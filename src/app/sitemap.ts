@@ -315,7 +315,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/w-in-different-fonts`,
-      lastModified: new Date("2026-08-18T08:00:00+00:00"),
+      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-w-in-different-fonts.webp`],

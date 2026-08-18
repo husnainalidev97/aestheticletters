@@ -11,6 +11,7 @@ const pageDescription =
 const canonicalUrl = "https://www.aestheticletters.com/w-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
 const pageDate = "2026-08-18T08:00:00+00:00";
+const pageModifiedDate = new Date();
 
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     description: pageDescription,
     locale: "en_US",
     publishedTime: pageDate,
-    modifiedTime: pageDate,
+    modifiedTime: pageModifiedDate.toISOString(),
     authors: ["Aesthetic Letters"],
     section: "Alphabet Fonts",
     tags: ["W fonts", "Unicode W", "letter W", "aesthetic W", "copy paste W"],
@@ -124,7 +125,7 @@ export default function WInDifferentFontsPage() {
     publisher: { "@id": "https://www.aestheticletters.com/#organization" },
     primaryImageOfPage: { "@id": `${canonicalUrl}#primaryimage` },
     datePublished: pageDate,
-    dateModified: pageDate,
+    dateModified: pageModifiedDate.toISOString(),
   };
 
   const ogImageJsonLd = {
