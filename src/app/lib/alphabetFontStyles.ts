@@ -84,6 +84,13 @@ const eOpenEMap: Record<string, string> = { E: "\u0190", e: "\u025B" };
 const eEulerMap: Record<string, string> = { E: "\u2147", e: "\u2147" };
 const eWithOgonekMap: Record<string, string> = { E: "\u0118", e: "\u0119" };
 
+const wSuperscriptMap: Record<string, string> = { W: "\u{1D42}", w: "\u{2B7}" };
+const wWithCircumflexMap: Record<string, string> = { W: "\u0174", w: "\u0175" };
+const wWithHookMap: Record<string, string> = { W: "\u2C72", w: "\u2C73" };
+const wSquaredMap: Record<string, string> = { W: "\u{1F146}", w: "\u{1F146}" };
+const wNegativeSquaredMap: Record<string, string> = { W: "\u{1F186}", w: "\u{1F186}" };
+const wParenthesizedMap: Record<string, string> = { W: "\u{1F126}", w: "\u24B2" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -173,11 +180,39 @@ export const letterKStyles: AlphabetStyle[] = [
   { name: "Parenthesized", transform: (t) => applyMap(t, parenthesizedMap) },
 ];
 
+// ── 22 W Styles ──────────────────────────────────────────────────────────
+
+export const letterWStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, wSuperscriptMap) },
+  { name: "W With Circumflex", transform: (t) => applyMap(t, wWithCircumflexMap) },
+  { name: "W With Hook", transform: (t) => applyMap(t, wWithHookMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, wSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Negative Squared", transform: (t) => applyMap(t, wNegativeSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Parenthesized", transform: (t) => applyMap(t, wParenthesizedMap) },
+];
+
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
   if (upper === "K") return letterKStyles;
   if (upper === "E") return letterEStyles;
+  if (upper === "W") return letterWStyles;
   return [];
 }
 
@@ -225,6 +260,8 @@ const kSmallSymbolCategories: FontCategory[] = [
 
 const eCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const eSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
+const wCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
+const wSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
@@ -233,6 +270,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   if (upper === "E") {
     return { capital: eCapitalSymbolCategories, small: eSmallSymbolCategories };
+  }
+  if (upper === "W") {
+    return { capital: wCapitalSymbolCategories, small: wSmallSymbolCategories };
   }
   return null;
 }
@@ -355,5 +395,29 @@ export const otherAlphabetsE: OtherAlphabetEntry[] = [
     upper: "\u16D6",
     lower: null,
     description: "The Elder Futhark rune Ehwaz, marking the E sound in early Germanic writing.",
+  },
+];
+
+export const otherAlphabetsW: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0460",
+    lower: "\u0461",
+    description: "Cyrillic Omega appeared in Old Church Slavonic manuscripts; its rounded twin-arch outline is the nearest visual match W has anywhere outside Latin script.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic",
+    upper: "\u03E2",
+    lower: "\u03E3",
+    description: "Coptic Shei was lifted by Egyptian Christian scribes from Demotic writing centuries earlier.",
+  },
+  {
+    script: "W With Hook",
+    label: "W With Hook",
+    upper: "\u2C72",
+    lower: "\u2C73",
+    description: "A working letter in the Puguli and Lobiri languages spoken in Burkina Faso today, not decorative at all.",
   },
 ];
