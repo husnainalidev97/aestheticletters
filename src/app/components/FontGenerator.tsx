@@ -89,7 +89,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
 
-  const [showAll, setShowAll] = useState(true);
+  const [showAll, setShowAll] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -207,7 +207,8 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
     (cat) => !cat.condition || cat.condition(text),
   );
   const initialCategoryCount = initialVisibleCategories ?? INITIAL_COUNT;
-  const visibleCategories = showAll
+  const shouldExpand = showAll || filteredCategories.length <= 5;
+  const visibleCategories = shouldExpand
     ? filteredCategories
     : filteredCategories.slice(0, initialCategoryCount);
 
@@ -487,7 +488,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
         )}
 
         {/* Explore More Button — loads remaining deferred categories */}
-        {!showAll && filteredCategories.length > initialCategoryCount && (
+        {!showAll && visibleCategories.length < filteredCategories.length && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleExploreMore}
