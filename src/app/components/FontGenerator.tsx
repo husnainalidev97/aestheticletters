@@ -26,7 +26,7 @@ const DEFAULT_SIZE = 18;
 const STEP = 2;
 
 /** Priority 1 — rendered on first paint. */
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 4;
 
 /** Categories that receive the dark card treatment. */
 const DARK_CATEGORIES = new Set(["Dark Aesthetic", "Glitch"]);
@@ -320,7 +320,7 @@ export default function FontGenerator({ totalFontStyles, hideHeader, hideExplore
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Font Category Cards — Progressive 3+7 loading */}
+      {/* Font Category Cards — Progressive 4+6 loading */}
       <section
         id={RESULTS_ID}
         className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-24 scroll-mt-[5.5rem]"
