@@ -61,6 +61,12 @@ export default function SPageContent({ faqs }: SPageContentProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
             <article id="s-in-every-font-style" className="scroll-mt-[9rem]">
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Every letter carries more than one shape once Unicode gets involved, and S is no exception. This s font generator holds 37 verified Unicode styles for S. They come from bold and italic sets, enclosed symbols, and real diacritic letters used in languages like German and Turkish.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Five more entries show S as it appears in totally different alphabets, including Cyrillic and Greek. Copying any style below takes a single tap, and it pastes as plain text anywhere Unicode works. That makes it ready for a tattoo sketch, a nail design, a logo draft, or a bio that needs one letter to stand out.
+              </p>
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                 S in Every Font Style
               </h2>
