@@ -26,6 +26,7 @@ const similarTools = [
   { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
+  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD62", desc: "The S version of this alphabet font style page" },
 ];
 
 const popularTools = [

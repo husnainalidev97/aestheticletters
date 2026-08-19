@@ -53,9 +53,7 @@ const popularTools = [
 export default function SPageContent({ faqs }: SPageContentProps) {
   return (
     <>
-      <div id="s-in-every-font-style" className="scroll-mt-[9rem]">
-        <AlphabetLetterGenerator letter="S" defaultText="S" hideInputHeader />
-      </div>
+      <AlphabetLetterGenerator letter="S" defaultText="S" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
