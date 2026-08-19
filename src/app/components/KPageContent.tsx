@@ -38,6 +38,7 @@ const similarTools = [
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
   { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD66", desc: "The W version of this alphabet font style page" },
+  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD62", desc: "The S version of this alphabet font style page" },
 ];
 
 const popularTools = [
