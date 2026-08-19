@@ -4,40 +4,28 @@ import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
-import { otherAlphabetsK } from "../lib/alphabetFontStyles";
+import { otherAlphabetsW } from "../lib/alphabetFontStyles";
 
-interface KPageContentProps {
+interface WPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
 const pageSections = [
-  { id: "k-in-every-font-style", label: "K Font Styles" },
-  { id: "unicode-names-for-k-styles", label: "Unicode Names" },
-  { id: "why-do-k-styles-stay-consistent", label: "Why Consistent" },
-  { id: "k-in-other-alphabets", label: "Other Alphabets" },
-  { id: "where-people-use-styled-k", label: "Uses" },
+  { id: "w-in-every-font-style", label: "W Font Styles" },
+  { id: "unicode-names-for-w-styles", label: "Unicode Names" },
+  { id: "why-is-w-called-double-u", label: "Why Double-U" },
+  { id: "w-in-other-alphabets", label: "Other Alphabets" },
+  { id: "where-people-use-styled-w", label: "Uses" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
 
 const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
 
-const unicodeTableRows = [
-  { glyph: "\u{1D40A}", name: "Mathematical Bold Capital K", code: "U+1D40A" },
-  { glyph: "\u{1D4A6}", name: "Mathematical Script Capital K", code: "U+1D4A6" },
-  { glyph: "\u{1D50E}", name: "Mathematical Fraktur Capital K", code: "U+1D50E" },
-  { glyph: "\u{1D542}", name: "Mathematical Double-Struck Capital K", code: "U+1D542" },
-  { glyph: "\u{1D576}", name: "Mathematical Bold Fraktur Capital K", code: "U+1D576" },
-  { glyph: "\u{1D67A}", name: "Mathematical Monospace Capital K", code: "U+1D67A" },
-  { glyph: "\uFF2B", name: "Fullwidth Latin Capital Letter K", code: "U+FF2B" },
-  { glyph: "\u1D0B", name: "Latin Letter Small Capital K", code: "U+1D0B" },
-  { glyph: "\u0198", name: "Latin Capital Letter K With Hook", code: "U+0198" },
-];
-
 const similarTools = [
+  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
-  { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD66", desc: "The W version of this alphabet font style page" },
 ];
 
 const popularTools = [
@@ -45,47 +33,64 @@ const popularTools = [
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
+  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u2712", desc: "Flowing, handwritten script styles" },
 ];
 
-export default function KPageContent({ faqs }: KPageContentProps) {
+const unicodeNameRows = [
+  { glyph: "𝐖", name: "Mathematical Bold Capital W", code: "U+1D416" },
+  { glyph: "𝒲", name: "Mathematical Script Capital W", code: "U+1D4B2" },
+  { glyph: "𝔚", name: "Mathematical Fraktur Capital W", code: "U+1D51A" },
+  { glyph: "𝕎", name: "Mathematical Double-Struck Capital W", code: "U+1D54E" },
+  { glyph: "𝖂", name: "Mathematical Bold Fraktur Capital W", code: "U+1D582" },
+  { glyph: "𝚆", name: "Mathematical Monospace Capital W", code: "U+1D686" },
+  { glyph: "Ｗ", name: "Fullwidth Latin Capital Letter W", code: "U+FF37" },
+  { glyph: "ᴡ", name: "Latin Letter Small Capital W", code: "U+1D21" },
+  { glyph: "Ŵ", name: "Latin Capital Letter W With Circumflex", code: "U+0174" },
+];
+
+export default function WPageContent({ faqs }: WPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
+      <AlphabetLetterGenerator letter="W" defaultText="W" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <article id="k-in-every-font-style" className="scroll-mt-[9rem]">
+            <article id="w-in-every-font-style" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Every Font Style
+                W in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Unicode styling turns a single letter into dozens of distinct symbols. Each one is a real character with its own code point, not a visual trick.
+                A keyboard only produces one W. Unicode holds dozens more, each sitting at its own fixed address in the standard, waiting to be typed by anything that understands text.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Below, K appears in 22 such styles, pulled from three categories. Mathematical alphanumerics, enclosed characters, and real letters borrowed from other languages all appear here. Every card pairs the uppercase K with its lowercase match, and one click copies the pair straight to the clipboard.
+                The 22 versions on this page split into three groups. Most come from a mathematical block built for equations, later adopted by social media for decoration.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                A smaller group comes from enclosed number and letter sets originally meant for lists and labels. The last group holds genuine letters borrowed from languages outside English.
               </p>
 
-              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-12">
+              <div id="unicode-names-for-w-styles" className="scroll-mt-[9rem] mt-12">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
-                  Unicode Names for K Styles
+                  Unicode Names for W Styles
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Every symbol above maps to a real Unicode code point, confirmed here by name rather than assumed from appearance. A sample of nine such mappings appears in the table below, pulled directly from the Unicode standard.
+                  Nine samples from the full set appear below, listed by their formal Unicode name rather than a nickname someone invented for a font tool.
                 </p>
+
                 <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
                   <table className="w-full text-left text-sm md:text-base">
                     <thead>
                       <tr className="border-b border-outline-variant/20 bg-surface-container-highest/50">
-                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled K</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled W</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Unicode Name</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Code Point</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {unicodeTableRows.map((row) => (
+                      {unicodeNameRows.map((row) => (
                         <tr key={row.code} className="border-b border-outline-variant/10 last:border-0">
                           <td className="px-4 py-3 text-on-surface font-medium text-lg">{row.glyph}</td>
                           <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
@@ -95,60 +100,67 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                     </tbody>
                   </table>
                 </div>
+
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 22 styles appear on the individual style cards above.
+                  The remaining thirteen styles carry equally specific names, viewable on each card above.
                 </p>
               </div>
             </article>
 
-            <article id="why-do-k-styles-stay-consistent" className="scroll-mt-[9rem]">
+            <article id="why-is-w-called-double-u" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Why Do K Styles Stay Consistent?
+                Why Is W Called &quot;Double-U&quot;?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Several Unicode mathematical styles skip certain letters entirely, including R, C, and H. Devices then pull substitute characters from an older Letterlike Symbols block instead. K carries no such gap.
+                Roman writers never needed a separate symbol for the W sound. Their alphabet used V to cover two jobs at once, standing in for both a V sound and a W sound depending on the word.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                All 13 mathematical styles exist at their expected code points, nothing borrowed from elsewhere. This full coverage traces back further than Unicode itself. Greek kappa gave English its K, by way of the Semitic kaph, once a symbol for an open hand.
+                That shortcut caused confusion once European languages started needing a clear W. Scribes writing in the early Middle Ages began pairing two V letters side by side wherever the sound needed marking clearly. Over time, that pair fused visually into a single connected shape.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                English kept a fossil of the older habit in its name for the letter. Early scribes in England often wrote the doubled letter as two U shapes instead of two V shapes. U and V were still loosely interchangeable back then.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Say the name today and that old spelling choice still shows through, even though the printed letter clearly descends from V.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Few Latin letters share this kind of backstory. Most consonants trace a long chain back through Greek and Phoenician writing, stretching across thousands of years and several civilizations. W skips all of that.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Classical Latin barely touched the letter, keeping it for a short list of fixed words. Unicode still gave K a complete set regardless. Every mathematical K style on this page renders identically across devices and platforms, with no unexpected substitutions to explain. Full words can carry that same weight too, through the{" "}
+                Someone assembled it directly inside the Latin alphabet, centuries after Rome had already fallen. The goal was simple: fix a gap English and its neighbors kept running into. A whole sentence can wear this same bold treatment through the{" "}
                 <Link href="/bold-font-generator" className={linkClass}>
-                  bold text generator
+                  bold generator
                 </Link>
-                , which converts entire phrases at once.
+                , which restyles complete phrases rather than single letters.
               </p>
             </article>
 
-            <article id="k-in-other-alphabets" className="scroll-mt-[9rem]">
+            <article id="w-in-other-alphabets" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Other Alphabets
+                W in Other Alphabets
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                K is not unique to the Latin alphabet. Several unrelated writing systems carry a nearly identical shape, some by direct inheritance from Greek, others by pure coincidence.
+                Most Latin letters can point to a clear parent letter in an older script. W cannot. No single ancestor exists, since the letter itself grew out of a doubling trick rather than a borrowed shape.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                A few characters from other writing systems still resemble it closely enough to mention, even without a direct family link.
               </p>
               <ul className="list-disc pl-6 space-y-4 text-on-surface-variant leading-relaxed text-lg mb-8">
                 <li>
-                  <span className="text-on-surface font-medium">Cyrillic К к:</span> adapted from Greek centuries after Cyril and Methodius built the alphabet for Slavic liturgy
+                  <span className="text-on-surface font-medium">Cyrillic Omega Ѡ ѡ:</span> appeared in Old Church Slavonic manuscripts, its rounded twin-arch outline is the nearest visual match W has anywhere outside Latin script
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Greek Κ κ:</span> kappa itself, the direct ancestor of the Latin K
+                  <span className="text-on-surface font-medium">Coptic Shei Ϣ ϣ:</span> Egyptian Christian scribes lifted the same rounded shape from Demotic writing centuries earlier
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Coptic Ⲕ ⲕ:</span> borrowed the same Greek shape for Egypt&apos;s Coptic Christian texts
-                </li>
-                <li>
-                  <span className="text-on-surface font-medium">Cherokee Ꮶ ꮶ:</span> represents the syllable tso, unrelated in sound to K despite the shared shape
-                </li>
-                <li>
-                  <span className="text-on-surface font-medium">Old Italic 𐌊:</span> the Etruscan letterform that Roman scribes eventually turned into the Latin K used today
+                  <span className="text-on-surface font-medium">W With Hook Ⱳ ⱳ:</span> not decorative at all, this is a working letter in the Puguli and Lobiri languages spoken in Burkina Faso today
                 </li>
               </ul>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                None of these are font styles. Each is a distinct letter, in active or historic use within its own language.
+                Each entry above stands as a genuine letter somewhere, past or present, rather than a font trick dressed up to look historical.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {otherAlphabetsK.map((entry) => (
+                {otherAlphabetsW.map((entry) => (
                   <FontResultCard
                     key={entry.script}
                     label={entry.label}
@@ -159,12 +171,22 @@ export default function KPageContent({ faqs }: KPageContentProps) {
               </div>
             </article>
 
-            <article id="where-people-use-styled-k" className="scroll-mt-[9rem]">
+            <article id="where-people-use-styled-w" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where Do People Use Styled K?
+                Where Do People Use Styled W?
               </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Profile bios collect the largest share of styled W usage, followed closely by gaming tags and Discord display names. Anyone mocking up a quick logo or a thumbnail graphic reaches for it too, since no design software is required.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                One field almost always rejects it. Usernames on major platforms typically restrict input to plain alphanumeric characters, so a styled W entered there either gets stripped or blocked outright.
+              </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Bios, gaming names, and Discord profiles are the most common home for styled K text. Logo mockups and quick graphic drafts use it too. Since every style copies as plain text, testing a few options before settling on one costs nothing but a click.
+                Bio text, captions, and display names sit in a different, more permissive category and generally render styled characters without issue. Someone styling an entire name rather than a single letter can pair this page with the{" "}
+                <Link href="/stylish-fonts" className={linkClass}>
+                  stylish font generator
+                </Link>
+                {" "}to keep the whole phrase consistent.
               </p>
             </article>
           </div>
@@ -190,7 +212,7 @@ export default function KPageContent({ faqs }: KPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
-          Beyond K, several other generators on this site cover full word styling, platform specific text, and more.
+          Want more than W styles? Check out these generators for decorative, polished, and platform-ready text styles.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
