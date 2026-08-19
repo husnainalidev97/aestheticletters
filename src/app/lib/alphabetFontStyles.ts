@@ -91,6 +91,30 @@ const wSquaredMap: Record<string, string> = { W: "\u{1F146}", w: "\u{1F146}" };
 const wNegativeSquaredMap: Record<string, string> = { W: "\u{1F186}", w: "\u{1F186}" };
 const wParenthesizedMap: Record<string, string> = { W: "\u{1F126}", w: "\u24B2" };
 
+// ── S-specific character maps ───────────────────────────────────────────
+
+const sWithAcuteMap: Record<string, string> = { S: "\u015A", s: "\u015B" };
+const sWithCaronMap: Record<string, string> = { S: "\u0160", s: "\u0161" };
+const sWithCedillaMap: Record<string, string> = { S: "\u015E", s: "\u015F" };
+const sWithCircumflexMap: Record<string, string> = { S: "\u015C", s: "\u015D" };
+const sWithDotAboveMap: Record<string, string> = { S: "\u1E60", s: "\u1E61" };
+const sWithDotBelowMap: Record<string, string> = { S: "\u1E62", s: "\u1E63" };
+const sWithCommaBelowMap: Record<string, string> = { S: "\u0218", s: "\u0219" };
+const sWithHookMap: Record<string, string> = { S: "\uA7C5", s: "\u0282" };
+const sWithSwashTailMap: Record<string, string> = { S: "\u2C7E", s: "\u023F" };
+const sharpSMap: Record<string, string> = { S: "\u1E9E", s: "\u00DF" };
+const sWithAcuteAndDotAboveMap: Record<string, string> = { S: "\u1E64", s: "\u1E65" };
+const sWithCaronAndDotAboveMap: Record<string, string> = { S: "\u1E66", s: "\u1E67" };
+const sWithDotAboveAndBelowMap: Record<string, string> = { S: "\u1E68", s: "\u1E69" };
+const sWithObliqueStrokeMap: Record<string, string> = { S: "\uA7A8", s: "\uA7A9" };
+const sWithDiagonalStrokeMap: Record<string, string> = { S: "\uA7CC", s: "\uA7CD" };
+const longSMap: Record<string, string> = { S: "S", s: "\u017F" };
+const sSuperscriptMap: Record<string, string> = { S: "\u02E2", s: "\u02E2" };
+const sSubscriptMap: Record<string, string> = { S: "\u209B", s: "\u209B" };
+const sParenthesizedMap: Record<string, string> = { S: "\u{1F122}", s: "\u24AE" };
+const sSquaredMap: Record<string, string> = { S: "\u{1F142}", s: "\u{1F142}" };
+const sNegativeSquaredMap: Record<string, string> = { S: "\u{1F182}", s: "\u{1F182}" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -207,12 +231,55 @@ export const letterWStyles: AlphabetStyle[] = [
   { name: "Parenthesized", transform: (t) => applyMap(t, wParenthesizedMap) },
 ];
 
+// ── 37 S Styles ──────────────────────────────────────────────────────────
+
+export const letterSStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, sSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, sNegativeSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, sParenthesizedMap) },
+  { name: "S With Acute", transform: (t) => applyMap(t, sWithAcuteMap) },
+  { name: "S With Caron", transform: (t) => applyMap(t, sWithCaronMap) },
+  { name: "S With Cedilla", transform: (t) => applyMap(t, sWithCedillaMap) },
+  { name: "S With Circumflex", transform: (t) => applyMap(t, sWithCircumflexMap) },
+  { name: "S With Dot Above", transform: (t) => applyMap(t, sWithDotAboveMap) },
+  { name: "S With Dot Below", transform: (t) => applyMap(t, sWithDotBelowMap) },
+  { name: "S With Comma Below", transform: (t) => applyMap(t, sWithCommaBelowMap) },
+  { name: "S With Hook", transform: (t) => applyMap(t, sWithHookMap) },
+  { name: "S With Swash Tail", transform: (t) => applyMap(t, sWithSwashTailMap) },
+  { name: "Sharp S", transform: (t) => applyMap(t, sharpSMap) },
+  { name: "S With Acute + Dot Above", transform: (t) => applyMap(t, sWithAcuteAndDotAboveMap) },
+  { name: "S With Caron + Dot Above", transform: (t) => applyMap(t, sWithCaronAndDotAboveMap) },
+  { name: "S With Dot Above + Below", transform: (t) => applyMap(t, sWithDotAboveAndBelowMap) },
+  { name: "S With Oblique Stroke", transform: (t) => applyMap(t, sWithObliqueStrokeMap) },
+  { name: "S With Diagonal Stroke", transform: (t) => applyMap(t, sWithDiagonalStrokeMap) },
+  { name: "Long S", transform: (t) => applyMap(t, longSMap), note: "Lowercase long-s form only; uppercase falls back to Latin S", singleSide: "lower" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, sSuperscriptMap), note: "Small form used for both cases" },
+  { name: "Subscript", transform: (t) => applyMap(t, sSubscriptMap), note: "Small form used for both cases" },
+];
+
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
   if (upper === "K") return letterKStyles;
   if (upper === "E") return letterEStyles;
   if (upper === "W") return letterWStyles;
+  if (upper === "S") return letterSStyles;
   return [];
 }
 
@@ -262,6 +329,8 @@ const eCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const eSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 const wCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const wSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
+const sCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
+const sSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
@@ -273,6 +342,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   if (upper === "W") {
     return { capital: wCapitalSymbolCategories, small: wSmallSymbolCategories };
+  }
+  if (upper === "S") {
+    return { capital: sCapitalSymbolCategories, small: sSmallSymbolCategories };
   }
   return null;
 }
@@ -419,5 +491,43 @@ export const otherAlphabetsW: OtherAlphabetEntry[] = [
     upper: "\u2C72",
     lower: "\u2C73",
     description: "A working letter in the Puguli and Lobiri languages spoken in Burkina Faso today, not decorative at all.",
+  },
+];
+
+export const otherAlphabetsS: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0421",
+    lower: "\u0441",
+    description: "Cyrillic Es, adapted from Greek sigma, now stands for the same S sound in Russian and many Slavic languages.",
+  },
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u03A3",
+    lower: "\u03C3 \u03C2",
+    description: "Sigma itself, the direct ancestor of the Latin S.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic",
+    upper: "\u2CA4",
+    lower: "\u2CA5",
+    description: "Kept the Greek sigma shape for Coptic Christian texts in Egypt.",
+  },
+  {
+    script: "Cherokee",
+    label: "Cherokee",
+    upper: "\u13DA",
+    lower: null,
+    description: "Represents the syllable du, unrelated in sound to S despite the shared shape.",
+  },
+  {
+    script: "Gothic",
+    label: "Gothic",
+    upper: "\u{10343}",
+    lower: null,
+    description: "Called sauil, used in the fourth century Gothic Bible translation by Ulfilas.",
   },
 ];

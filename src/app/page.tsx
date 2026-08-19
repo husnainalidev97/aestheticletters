@@ -92,7 +92,7 @@ export default function Home() {
         "@type": "ItemList",
         name: "Aesthetic Letter Tools",
         description: "All font generator tools available on Aesthetic Letters. Every generator uses Unicode characters you can copy and paste into any platform.",
-        numberOfItems: 22,
+        numberOfItems: 23,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Instagram Fonts", url: "https://www.aestheticletters.com/instagram-fonts" },
           { "@type": "ListItem", position: 2, name: "Facebook Fonts", url: "https://www.aestheticletters.com/facebook-fonts" },
@@ -116,6 +116,7 @@ export default function Home() {
           { "@type": "ListItem", position: 20, name: "K in Different Fonts", url: "https://www.aestheticletters.com/k-in-different-fonts" },
           { "@type": "ListItem", position: 21, name: "R in Different Fonts", url: "https://www.aestheticletters.com/r-in-different-fonts" },
           { "@type": "ListItem", position: 22, name: "W in Different Fonts", url: "https://www.aestheticletters.com/w-in-different-fonts" },
+          { "@type": "ListItem", position: 23, name: "S in Different Fonts", url: "https://www.aestheticletters.com/s-in-different-fonts" },
         ],
       },
     ],
