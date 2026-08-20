@@ -119,8 +119,8 @@ const sNegativeSquaredMap: Record<string, string> = { S: "\u{1F182}", s: "\u{1F1
 
 const bSuperscriptMap: Record<string, string> = { B: "\u{1D2E}", b: "\u{1D47}" };
 const bParenthesizedMap: Record<string, string> = { B: "\u{1F111}", b: "\u249D" };
-const bSquaredMap: Record<string, string> = { B: "\u{1F131}", b: "\u{1F151}" };
-const bNegativeSquaredMap: Record<string, string> = { B: "\u{1F171}", b: "\u{1F191}" };
+const bSquaredMap: Record<string, string> = { B: "\u{1F131}", b: "\u{1F131}" };
+const bNegativeSquaredMap: Record<string, string> = { B: "\u{1F171}", b: "\u{1F171}" };
 const bWithHookMap: Record<string, string> = { B: "\u0181", b: "\u0253" };
 const bWithStrokeMap: Record<string, string> = { B: "\u0243", b: "\u0180" };
 const bWithDotAboveMap: Record<string, string> = { B: "\u{1E02}", b: "\u{1E03}" };

@@ -384,7 +384,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               className={mobileLinkClass("e-in-different-fonts")}
               onClick={() => setIsOpen(false)}
             >
-              e in Different Fonts
+              E in Different Fonts
             </Link>
             <Link
               href="/w-in-different-fonts"
