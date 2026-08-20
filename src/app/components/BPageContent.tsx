@@ -70,10 +70,10 @@ export default function BPageContent({ faqs }: BPageContentProps) {
                 That number will look small next to sites promising 150 or more B styles. Most of those bigger counts pad the list with color changes or spacing tricks that are not separate letters at all.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Three different sources feed into this set. Real alphabet letters borrowed from other languages sit at one end, genuinely spoken by real people today. Enclosed shapes built for numbered lists and labels sit in the middle. A mathematical symbol block, originally meant for equations, supplies the largest group. Social media later turned that block into decoration.
+                Three different sources feed into this set. Real alphabet letters borrowed from other languages sit at one end, genuinely spoken by real people today. Enclosed shapes built for numbered lists and labels sit in the middle.
               </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Each card has its own copy button. One click copies the exact Unicode characters to the clipboard, ready to paste into a bio, caption, or username field.
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                A mathematical symbol block, originally meant for equations, supplies the largest group. Social media later turned that block into decoration.
               </p>
 
               <div id="unicode-names-for-b-styles" className="scroll-mt-[9rem] mt-12">
