@@ -115,6 +115,22 @@ const sParenthesizedMap: Record<string, string> = { S: "\u{1F122}", s: "\u24AE" 
 const sSquaredMap: Record<string, string> = { S: "\u{1F142}", s: "\u{1F142}" };
 const sNegativeSquaredMap: Record<string, string> = { S: "\u{1F182}", s: "\u{1F182}" };
 
+// ── B-specific character maps ──────────────────────────────────────────────
+
+const bSuperscriptMap: Record<string, string> = { B: "\u{1D2E}", b: "\u{1D47}" };
+const bParenthesizedMap: Record<string, string> = { B: "\u{1F111}", b: "\u249D" };
+const bSquaredMap: Record<string, string> = { B: "\u{1F131}", b: "\u{1F151}" };
+const bNegativeSquaredMap: Record<string, string> = { B: "\u{1F171}", b: "\u{1F191}" };
+const bWithHookMap: Record<string, string> = { B: "\u0181", b: "\u0253" };
+const bWithStrokeMap: Record<string, string> = { B: "\u0243", b: "\u0180" };
+const bWithDotAboveMap: Record<string, string> = { B: "\u{1E02}", b: "\u{1E03}" };
+const bWithDotBelowMap: Record<string, string> = { B: "\u{1E04}", b: "\u{1E05}" };
+const bWithLineBelowMap: Record<string, string> = { B: "\u{1E06}", b: "\u{1E07}" };
+const bWithTopbarMap: Record<string, string> = { B: "\u0182", b: "\u0183" };
+const bWithFlourishMap: Record<string, string> = { B: "\uA796", b: "\uA797" };
+const latinBetaMap: Record<string, string> = { B: "\uA7B4", b: "\uA7B5" };
+const bWithMiddleTildeMap: Record<string, string> = { B: "B", b: "\u{1D6C}" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -149,25 +165,38 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
-// ── 16 B Styles (initial set for the B in different fonts page) ───────────
+// ── 29 B Styles ──────────────────────────────────────────────────────────
 
 export const letterBStyles: AlphabetStyle[] = [
   { name: "Bold", transform: (t) => applyMap(t, boldMap) },
   { name: "Italic", transform: (t) => applyMap(t, italicMap) },
   { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
-  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Letterlike Symbols block, not Math Alphanumeric" },
   { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
   { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
-  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
   { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
-  { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
   { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
   { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
   { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
   { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
-  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
   { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
-  { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, bSuperscriptMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Parenthesized", transform: (t) => applyMap(t, bParenthesizedMap) },
+  { name: "Squared", transform: (t) => applyMap(t, bSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, bNegativeSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "B With Hook", transform: (t) => applyMap(t, bWithHookMap) },
+  { name: "B With Stroke", transform: (t) => applyMap(t, bWithStrokeMap) },
+  { name: "B With Dot Above", transform: (t) => applyMap(t, bWithDotAboveMap) },
+  { name: "B With Dot Below", transform: (t) => applyMap(t, bWithDotBelowMap) },
+  { name: "B With Line Below", transform: (t) => applyMap(t, bWithLineBelowMap) },
+  { name: "B With Topbar", transform: (t) => applyMap(t, bWithTopbarMap) },
+  { name: "B With Flourish", transform: (t) => applyMap(t, bWithFlourishMap) },
+  { name: "Latin Beta", transform: (t) => applyMap(t, latinBetaMap) },
+  { name: "B With Middle Tilde", transform: (t) => applyMap(t, bWithMiddleTildeMap), note: "Lowercase form only; uppercase falls back to Latin B", singleSide: "lower" },
 ];
 
 // ── 23 E Styles ──────────────────────────────────────────────────────────
@@ -353,6 +382,8 @@ const wCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const wSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 const sCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const sSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
+const bCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
+const bSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
@@ -367,6 +398,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   if (upper === "S") {
     return { capital: sCapitalSymbolCategories, small: sSmallSymbolCategories };
+  }
+  if (upper === "B") {
+    return { capital: bCapitalSymbolCategories, small: bSmallSymbolCategories };
   }
   return null;
 }
@@ -551,5 +585,29 @@ export const otherAlphabetsS: OtherAlphabetEntry[] = [
     upper: "\u{10343}",
     lower: null,
     description: "Called sauil, used in the fourth century Gothic Bible translation by Ulfilas.",
+  },
+];
+
+export const otherAlphabetsB: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic Ve",
+    label: "Cyrillic Ve",
+    upper: "\u0412",
+    lower: "\u0432",
+    description: "Looks exactly like the Latin capital B, yet stands for a completely different sound, /v/ rather than /b/.",
+  },
+  {
+    script: "Cyrillic Be",
+    label: "Cyrillic Be",
+    upper: "\u0411",
+    lower: "\u0431",
+    description: "Keeps the actual /b/ sound but wears a different shape, and both Cyrillic letters trace back to the same Greek Beta.",
+  },
+  {
+    script: "B With Hook",
+    label: "B With Hook",
+    upper: "\u0181",
+    lower: "\u0253",
+    description: "A real working letter, not decorative, still used in Fula, Hausa, and Giziga across parts of West Africa.",
   },
 ];
