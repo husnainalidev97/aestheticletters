@@ -295,6 +295,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const alphabetPages = [
     {
+      url: `${SITE_URL}/b-in-different-fonts`,
+      lastModified: alphabetPagesUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-b-in-different-fonts.webp`],
+    },
+    {
       url: `${SITE_URL}/r-in-different-fonts`,
       lastModified: alphabetPagesUpdated,
       changeFrequency: "weekly" as const,

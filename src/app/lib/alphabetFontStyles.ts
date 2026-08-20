@@ -149,6 +149,27 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
+// ── 16 B Styles (initial set for the B in different fonts page) ───────────
+
+export const letterBStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Sans", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+];
+
 // ── 23 E Styles ──────────────────────────────────────────────────────────
 
 export const letterEStyles: AlphabetStyle[] = [
@@ -276,6 +297,7 @@ export const letterSStyles: AlphabetStyle[] = [
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
+  if (upper === "B") return letterBStyles;
   if (upper === "K") return letterKStyles;
   if (upper === "E") return letterEStyles;
   if (upper === "W") return letterWStyles;

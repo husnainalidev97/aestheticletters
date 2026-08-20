@@ -2,27 +2,16 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
-import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
-import { otherAlphabetsR } from "../lib/alphabetFontStyles";
 
-interface RPageContentProps {
+interface BPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
-const pageSections = [
-  { id: "r-in-every-font-style", label: "R Font Styles" },
-  { id: "why-do-some-r-styles-look-different", label: "Why Different" },
-  { id: "r-in-other-alphabets", label: "Other Alphabets" },
-  { id: "where-people-use-styled-r", label: "Uses" },
-  { id: "explore-more-tools", label: "Explore" },
-  { id: "frequently-asked-questions", label: "FAQ" },
-];
-
-const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
+const pageSections: { id: string; label: string }[] = [];
 
 const similarTools = [
-  { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
+  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
   { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
   { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD66", desc: "The W version of this alphabet font style page" },
@@ -36,78 +25,16 @@ const popularTools = [
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
 ];
 
-export default function RPageContent({ faqs }: RPageContentProps) {
+export default function BPageContent({ faqs }: BPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="R" defaultText="R" hideInputHeader />
+      <AlphabetLetterGenerator letter="B" defaultText="B" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-8 flex flex-col gap-16">
-            <article id="r-in-every-font-style" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                R in Every Font Style
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                This page shows the letter R in different fonts across three parts. The first grid shows the standard Unicode styles with the uppercase R and lowercase r together in each card. The second grid shows capital R decorated with symbols and frames, and the third grid shows small r decorated the same way.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Each card has its own copy button. One click copies the exact Unicode characters to the clipboard, ready to paste into a bio, caption, or username field.
-              </p>
-            </article>
-
-            <article id="why-do-some-r-styles-look-different" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Why Do Some R Styles Look Different?
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Script, Fraktur, and Double-Struck R come from an older part of Unicode, called the Letterlike Symbols block. Their expected spot in the newer Mathematical Alphanumeric block was left empty, so these three styles use the older characters instead.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Only these three styles carry this exception. The remaining styles, including the popular Bold style, follow the newer Unicode block without any gap. The{" "}
-                <Link href="/bold-font-generator" className={linkClass}>
-                  bold font generator
-                </Link>{" "}
-                turns full words into that same bold weight instantly.
-              </p>
-            </article>
-
-            <article id="r-in-other-alphabets" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                R in Other Alphabets
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                These are real letters from other alphabets that happen to look like R. They are not font styles of R.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Each character below belongs to its own writing system, such as Cyrillic, Thai, or Cherokee. They carry real meaning in their language and are not simply decorative fonts made from the Latin R.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                The letter R traces back to the Phoenician letter resh, which meant head. Ancient Greeks adapted it into rho, then Etruscan and Roman scribes reshaped it into the capital R used today. This same shape later influenced letters in Cyrillic and other alphabets.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {otherAlphabetsR.map((entry) => (
-                  <FontResultCard
-                    key={entry.script}
-                    label={entry.label}
-                    text={entry.lower ? `${entry.upper} ${entry.lower}` : entry.upper}
-                    stacked
-                  />
-                ))}
-              </div>
-            </article>
-
-            <article id="where-people-use-styled-r" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where Do People Use Styled R?
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Styled R text works well in Instagram bios, Discord names, gaming profiles, and logo designs. A quick comparison across styles usually reveals the best match for a caption or display name.
-              </p>
-            </article>
-          </div>
+          <div className="lg:col-span-8 flex flex-col gap-16" />
 
           <aside className="lg:col-span-4 space-y-12">
             <div className="p-8 bg-primary-container/10 rounded-2xl border border-primary/10">
@@ -130,7 +57,7 @@ export default function RPageContent({ faqs }: RPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
-          Want more than R styles? Check out these generators for decorative, polished, and platform-ready text styles.
+          Want more than B styles? Check out these generators for decorative, polished, and platform-ready text styles.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
