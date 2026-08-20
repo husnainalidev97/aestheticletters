@@ -382,8 +382,42 @@ const wCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const wSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 const sCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const sSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
-const bCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
-const bSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
+const bCapitalSymbolCategories: FontCategory[] = [
+  { name: "Maple Leaf", styles: [{ name: "", transform: (text) => `🍁${text}🍁` }] },
+  { name: "Four Leaf Clover", styles: [{ name: "", transform: (text) => `🍀${text}🍀` }] },
+  { name: "Rose", styles: [{ name: "", transform: (text) => `🌹${text}🌹` }] },
+  { name: "Sunflower", styles: [{ name: "", transform: (text) => `🌻${text}🌻` }] },
+  { name: "Mushroom", styles: [{ name: "", transform: (text) => `🍄${text}🍄` }] },
+  { name: "Herb", styles: [{ name: "", transform: (text) => `🌿${text}🌿` }] },
+  { name: "Leaf Fluttering", styles: [{ name: "", transform: (text) => `🍃${text}🍃` }] },
+  { name: "Sun", styles: [{ name: "", transform: (text) => `☀${text}☀` }] },
+  { name: "Cloud", styles: [{ name: "", transform: (text) => `☁${text}☁` }] },
+  { name: "Crescent Moon", styles: [{ name: "", transform: (text) => `🌙${text}🌙` }] },
+  { name: "Rainbow", styles: [{ name: "", transform: (text) => `🌈${text}🌈` }] },
+  { name: "Umbrella", styles: [{ name: "", transform: (text) => `☂${text}☂` }] },
+  { name: "Snowman", styles: [{ name: "", transform: (text) => `⛄${text}⛄` }] },
+  { name: "Coffee", styles: [{ name: "", transform: (text) => `☕${text}☕` }] },
+  { name: "Pizza", styles: [{ name: "", transform: (text) => `🍕${text}🍕` }] },
+  { name: "Balloon", styles: [{ name: "", transform: (text) => `🎈${text}🎈` }] },
+];
+
+const bSmallSymbolCategories: FontCategory[] = [
+  { name: "Ribbon", styles: [{ name: "", transform: (text) => `🎀${text}🎀` }] },
+  { name: "Comet", styles: [{ name: "", transform: (text) => `☄${text}☄` }] },
+  { name: "Pushpin", styles: [{ name: "", transform: (text) => `📍${text}📍` }] },
+  { name: "Scissors", styles: [{ name: "", transform: (text) => `✂${text}✂` }] },
+  { name: "Envelope", styles: [{ name: "", transform: (text) => `✉${text}✉` }] },
+  { name: "Pencil", styles: [{ name: "", transform: (text) => `✏${text}✏` }] },
+  { name: "Black Nib", styles: [{ name: "", transform: (text) => `✒${text}✒` }] },
+  { name: "Memo", styles: [{ name: "", transform: (text) => `📝${text}📝` }] },
+  { name: "Lock", styles: [{ name: "", transform: (text) => `🔒${text}🔒` }] },
+  { name: "Key", styles: [{ name: "", transform: (text) => `🔑${text}🔑` }] },
+  { name: "Bell", styles: [{ name: "", transform: (text) => `🔔${text}🔔` }] },
+  { name: "Anchor", styles: [{ name: "", transform: (text) => `⚓${text}⚓` }] },
+  { name: "Atom", styles: [{ name: "", transform: (text) => `⚛${text}⚛` }] },
+  { name: "Fullwidth Brackets", styles: [{ name: "", transform: (text) => `［${text}］` }] },
+  { name: "Fullwidth Braces", styles: [{ name: "", transform: (text) => `｛${text}｝` }] },
+];
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
