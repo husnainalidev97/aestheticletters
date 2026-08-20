@@ -117,6 +117,7 @@ export default function Home() {
           { "@type": "ListItem", position: 21, name: "R in Different Fonts", url: "https://www.aestheticletters.com/r-in-different-fonts" },
           { "@type": "ListItem", position: 22, name: "W in Different Fonts", url: "https://www.aestheticletters.com/w-in-different-fonts" },
           { "@type": "ListItem", position: 23, name: "S in Different Fonts", url: "https://www.aestheticletters.com/s-in-different-fonts" },
+          { "@type": "ListItem", position: 24, name: "B in Different Fonts", url: "https://www.aestheticletters.com/b-in-different-fonts" },
         ],
       },
     ],

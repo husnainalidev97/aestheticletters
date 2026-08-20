@@ -27,6 +27,7 @@ type ActivePage =
   | "tiktok-font-generator"
   | "alphabet-fonts"
   | "r-in-different-fonts"
+  | "b-in-different-fonts"
   | "k-in-different-fonts"
   | "e-in-different-fonts"
   | "w-in-different-fonts"
@@ -365,6 +366,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               R in Different Fonts
             </Link>
             <Link
+              href="/b-in-different-fonts"
+              className={mobileLinkClass("b-in-different-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              B in Different Fonts
+            </Link>
+            <Link
               href="/k-in-different-fonts"
               className={mobileLinkClass("k-in-different-fonts")}
               onClick={() => setIsOpen(false)}
@@ -376,7 +384,7 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               className={mobileLinkClass("e-in-different-fonts")}
               onClick={() => setIsOpen(false)}
             >
-              e in Different Fonts
+              E in Different Fonts
             </Link>
             <Link
               href="/w-in-different-fonts"

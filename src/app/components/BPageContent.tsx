@@ -4,18 +4,18 @@ import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
-import { otherAlphabetsK } from "../lib/alphabetFontStyles";
+import { otherAlphabetsB } from "../lib/alphabetFontStyles";
 
-interface KPageContentProps {
+interface BPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
 const pageSections = [
-  { id: "k-in-every-font-style", label: "K Font Styles" },
-  { id: "unicode-names-for-k-styles", label: "Unicode Names" },
-  { id: "why-do-k-styles-stay-consistent", label: "Why Consistent" },
-  { id: "k-in-other-alphabets", label: "Other Alphabets" },
-  { id: "where-people-use-styled-k", label: "Uses" },
+  { id: "b-in-every-font-style", label: "B Font Styles" },
+  { id: "unicode-names-for-b-styles", label: "Unicode Names" },
+  { id: "how-a-picture-of-a-house-became-the-letter-b", label: "History" },
+  { id: "b-in-other-alphabets", label: "Other Alphabets" },
+  { id: "where-do-people-use-styled-b", label: "Uses" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
@@ -23,65 +23,71 @@ const pageSections = [
 const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
 
 const unicodeTableRows = [
-  { glyph: "\u{1D40A}", name: "Mathematical Bold Capital K", code: "U+1D40A" },
-  { glyph: "\u{1D4A6}", name: "Mathematical Script Capital K", code: "U+1D4A6" },
-  { glyph: "\u{1D50E}", name: "Mathematical Fraktur Capital K", code: "U+1D50E" },
-  { glyph: "\u{1D542}", name: "Mathematical Double-Struck Capital K", code: "U+1D542" },
-  { glyph: "\u{1D576}", name: "Mathematical Bold Fraktur Capital K", code: "U+1D576" },
-  { glyph: "\u{1D67A}", name: "Mathematical Monospace Capital K", code: "U+1D67A" },
-  { glyph: "\uFF2B", name: "Fullwidth Latin Capital Letter K", code: "U+FF2B" },
-  { glyph: "\u1D0B", name: "Latin Letter Small Capital K", code: "U+1D0B" },
-  { glyph: "\u0198", name: "Latin Capital Letter K With Hook", code: "U+0198" },
+  { glyph: "\u{1D401}", name: "Mathematical Bold Capital B", code: "U+1D401" },
+  { glyph: "\u{1D435}", name: "Mathematical Italic Capital B", code: "U+1D435" },
+  { glyph: "\u{1D505}", name: "Mathematical Fraktur Capital B", code: "U+1D505" },
+  { glyph: "\u{1D539}", name: "Mathematical Double-Struck Capital B", code: "U+1D539" },
+  { glyph: "\u{1D671}", name: "Mathematical Monospace Capital B", code: "U+1D671" },
+  { glyph: "\uFF22", name: "Fullwidth Latin Capital Letter B", code: "U+FF22" },
+  { glyph: "\u24B7", name: "Circled Latin Capital Letter B", code: "U+24B7" },
+  { glyph: "\u0181", name: "Latin Capital Letter B With Hook", code: "U+0181" },
+  { glyph: "\u0299", name: "Latin Letter Small Capital B", code: "U+0299" },
 ];
 
 const similarTools = [
-  { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
-  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
+  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
+  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD61", desc: "The R version of this alphabet font style page" },
+  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD67", desc: "The S version of this alphabet font style page" },
   { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD66", desc: "The W version of this alphabet font style page" },
-  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD62", desc: "The S version of this alphabet font style page" },
 ];
 
 const popularTools = [
-  { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
+  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u2712", desc: "Flowing, handwritten script styles" },
 ];
 
-export default function KPageContent({ faqs }: KPageContentProps) {
+export default function BPageContent({ faqs }: BPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="K" defaultText="K" hideInputHeader />
+      <AlphabetLetterGenerator letter="B" defaultText="B" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <article id="k-in-every-font-style" className="scroll-mt-[9rem]">
+            <article id="b-in-every-font-style" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Every Font Style
+                B in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Unicode styling turns a single letter into dozens of distinct symbols. Each one is a real character with its own code point, not a visual trick.
+                Twenty nine Unicode styles make up this page. Each one was checked by hand against the official Unicode standard before it made the list.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Below, K appears in 22 such styles, pulled from three categories. Mathematical alphanumerics, enclosed characters, and real letters borrowed from other languages all appear here. Every card pairs the uppercase K with its lowercase match, and one click copies the pair straight to the clipboard.
+                That number will look small next to sites promising 150 or more B styles. Most of those bigger counts pad the list with color changes or spacing tricks that are not separate letters at all.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Three different sources feed into this set. Real alphabet letters borrowed from other languages sit at one end, genuinely spoken by real people today. Enclosed shapes built for numbered lists and labels sit in the middle.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                A mathematical symbol block, originally meant for equations, supplies the largest group. Social media later turned that block into decoration.
               </p>
 
-              <div id="unicode-names-for-k-styles" className="scroll-mt-[9rem] mt-12">
+              <div id="unicode-names-for-b-styles" className="scroll-mt-[9rem] mt-12">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
-                  Unicode Names for K Styles
+                  Unicode Names for B Styles
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Every symbol above maps to a real Unicode code point, confirmed here by name rather than assumed from appearance. A sample of nine such mappings appears in the table below, pulled directly from the Unicode standard.
+                  The table below pairs nine styles from the full set with their real Unicode name. That name comes from the standard itself, not a label a generator site made up.
                 </p>
                 <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
                   <table className="w-full text-left text-sm md:text-base">
                     <thead>
                       <tr className="border-b border-outline-variant/20 bg-surface-container-highest/50">
-                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled K</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled B</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Unicode Name</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Code Point</th>
                       </tr>
@@ -98,59 +104,64 @@ export default function KPageContent({ faqs }: KPageContentProps) {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 22 styles appear on the individual style cards above.
+                  Every other style on this page carries a similarly exact name, visible on each card above. One entry breaks the usual pattern, though. Script Capital B does not come from the math symbol block at all. Unicode pulled it from an older set called Letterlike Symbols instead, since a matching shape already existed there.
                 </p>
               </div>
             </article>
 
-            <article id="why-do-k-styles-stay-consistent" className="scroll-mt-[9rem]">
+            <article id="how-a-picture-of-a-house-became-the-letter-b" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Why Do K Styles Stay Consistent?
+                How a Picture of a House Became the Letter B?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Several Unicode mathematical styles skip certain letters entirely, including R, C, and H. Devices then pull substitute characters from an older Letterlike Symbols block instead. K carries no such gap.
+                Ancient Egyptian writing used pictures for sounds long before any alphabet existed. One of those pictures showed the floor plan of a house. Early Semitic writing borrowed that picture and gave it a b sound.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                All 13 mathematical styles exist at their expected code points, nothing borrowed from elsewhere. This full coverage traces back further than Unicode itself. Greek kappa gave English its K, by way of the Semitic kaph, once a symbol for an open hand.
+                Around 1000 BCE, scribes in the Phoenician city of Byblos gave that house picture a simpler, more linear shape. They called the letter bēt, the Phoenician word for house. Its place in the alphabet stayed fixed at number two from that point onward.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                The Phoenician alphabet reached Greek traders next, and they reshaped the name into beta, close to the old bēt but distinctly Greek. Its form stayed largely intact through this stage. From Greece the letter moved into Etruscan hands in northern Italy, and Latin picked it up from there, settling into the B known now.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                That path runs through four separate civilizations across roughly three thousand years, all without changing the letter&apos;s basic job. Few letters in the English alphabet can trace a lineage that clean. Most consonants shift shape or meaning somewhere along the way, but B has stayed remarkably close to its house shaped root the entire time.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                English speakers say &quot;bee&quot; rather than &quot;beta&quot; today because Latin shortened most consonant names to a single, simple syllable. C became &quot;cee,&quot; D became &quot;dee,&quot; and B followed the same pattern rather than keeping the fuller Greek original.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Classical Latin barely touched the letter, keeping it for a short list of fixed words. Unicode still gave K a complete set regardless. Every mathematical K style on this page renders identically across devices and platforms, with no unexpected substitutions to explain. Full words can carry that same weight too, through the{" "}
-                <Link href="/bold-font-generator" className={linkClass}>
-                  bold text generator
-                </Link>
-                , which converts entire phrases at once.
+                That old Greek name never fully disappeared, though. It still shows up in beta test, beta version, and star names like Beta Centauri. Each one is a small echo of bēt, the word for house that started this whole chain.
               </p>
             </article>
 
-            <article id="k-in-other-alphabets" className="scroll-mt-[9rem]">
+            <article id="b-in-other-alphabets" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                K in Other Alphabets
+                B in Other Alphabets
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                K is not unique to the Latin alphabet. Several unrelated writing systems carry a nearly identical shape, some by direct inheritance from Greek, others by pure coincidence.
+                Most Latin letters point back to one clear ancestor, and B does exactly that through Phoenician and Greek. A few characters in other writing systems still connect to B today, either through shared shape or shared sound.
               </p>
               <ul className="list-disc pl-6 space-y-4 text-on-surface-variant leading-relaxed text-lg mb-8">
                 <li>
-                  <span className="text-on-surface font-medium">Cyrillic К к:</span> adapted from Greek centuries after Cyril and Methodius built the alphabet for Slavic liturgy
+                  <span className="text-on-surface font-medium">Cyrillic В (Ve):</span> looks exactly like the Latin capital B, yet stands for a completely different sound, /v/ rather than /b/
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Greek Κ κ:</span> kappa itself, the direct ancestor of the Latin K
+                  <span className="text-on-surface font-medium">Cyrillic Б (Be):</span> keeps the actual /b/ sound but wears a different shape, and both Cyrillic letters trace back to the same Greek Beta
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Coptic Ⲕ ⲕ:</span> borrowed the same Greek shape for Egypt&apos;s Coptic Christian texts
-                </li>
-                <li>
-                  <span className="text-on-surface font-medium">Cherokee Ꮶ ꮶ:</span> represents the syllable tso, unrelated in sound to K despite the shared shape
-                </li>
-                <li>
-                  <span className="text-on-surface font-medium">Old Italic 𐌊:</span> the Etruscan letterform that Roman scribes eventually turned into the Latin K used today
+                  <span className="text-on-surface font-medium">B With Hook (Ɓ ɓ):</span> a real working letter, not decorative, still used in Fula, Hausa, and Giziga across parts of West Africa
                 </li>
               </ul>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                None of these are font styles. Each is a distinct letter, in active or historic use within its own language.
+                That first entry surprises most people the first time they see it. A Russian or Bulgarian word using В is not borrowing a Latin B at all. Both letters simply grew from the same Greek Beta and ended up looking alike by coincidence of history, not by direct copying.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                Cyrillic В в Cyrillic Б б B With Hook Ɓ ɓ
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                None of these three are cosmetic additions. Each one belongs to a real alphabet with real speakers, not a shape invented just to look old or exotic.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {otherAlphabetsK.map((entry) => (
+                {otherAlphabetsB.map((entry) => (
                   <FontResultCard
                     key={entry.script}
                     label={entry.label}
@@ -161,12 +172,25 @@ export default function KPageContent({ faqs }: KPageContentProps) {
               </div>
             </article>
 
-            <article id="where-people-use-styled-k" className="scroll-mt-[9rem]">
+            <article id="where-do-people-use-styled-b" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where Do People Use Styled K?
+                Where Do People Use Styled B?
               </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Not every text field accepts a styled letter. Usernames on most platforms limit input to plain letters and numbers. A styled B typed there usually fails, either stripped out automatically or rejected outright.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Bios, captions, and display names behave completely differently. These fields typically accept styled Unicode without any pushback. That&apos;s exactly why bios carry the heaviest styled B usage across social platforms, with gaming tags and Discord names close behind.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                A single letter can also work as a decorative initial on its own. Someone with a name starting in B might drop one bold or circled version straight into their display name. That one character alone can add some personality.
+              </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Bios, gaming names, and Discord profiles are the most common home for styled K text. Logo mockups and quick graphic drafts use it too. Since every style copies as plain text, testing a few options before settling on one costs nothing but a click.
+                Styling more than one letter calls for a different tool. The{" "}
+                <Link href="/stylish-fonts" className={linkClass}>
+                  stylish text generator
+                </Link>{" "}
+                covers full names and phrases rather than a single character.
               </p>
             </article>
           </div>
@@ -192,7 +216,7 @@ export default function KPageContent({ faqs }: KPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
-          Beyond K, several other generators on this site cover full word styling, platform specific text, and more.
+          Want more than B styles? Check out these generators for decorative, polished text that works on any platform.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>

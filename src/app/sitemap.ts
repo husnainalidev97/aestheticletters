@@ -3,12 +3,12 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* E page deployed on 17 Aug 2026; W page + alphabet cross-links on 18 Aug 2026; S page on 19 Aug 2026 */
-  const siteUpdate = new Date("2026-08-19T08:00:00+00:00");
+  /* E page deployed on 17 Aug 2026; W page + alphabet cross-links on 18 Aug 2026; S page on 19 Aug 2026; B page on 20 Aug 2026 */
+  const siteUpdate = new Date("2026-08-20T08:00:00+00:00");
   /* Tool pages re-rendered server-side on 19 Aug 2026 */
   const toolsModified = new Date("2026-08-19T08:00:00+00:00");
-  /* Alphabet pages refreshed with S cross-links on 19 Aug 2026 */
-  const alphabetPagesUpdated = new Date();
+  /* Alphabet pages refreshed with B cross-links on 20 Aug 2026 */
+  const alphabetPagesUpdated = new Date("2026-08-20T08:00:00+00:00");
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -32,6 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: siteUpdate,
     changeFrequency: "weekly" as const,
     priority: 0.9,
+  };
+
+  const alphabetFontsHub = {
+    url: `${SITE_URL}/alphabet-fonts`,
+    lastModified: alphabetPagesUpdated,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+    images: [`${SITE_URL}/og-alphabet-fonts.webp`],
   };
 
   const toolPages = [
@@ -295,6 +303,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const alphabetPages = [
     {
+      url: `${SITE_URL}/b-in-different-fonts`,
+      lastModified: alphabetPagesUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-b-in-different-fonts.webp`],
+    },
+    {
       url: `${SITE_URL}/r-in-different-fonts`,
       lastModified: alphabetPagesUpdated,
       changeFrequency: "weekly" as const,
@@ -367,6 +382,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     home,
     toolsHub,
+    alphabetFontsHub,
     ...toolPages,
     ...alphabetPages,
     ...infoPages,
