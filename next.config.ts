@@ -51,7 +51,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
+        source: "/:path((?!ads\\.txt$).*)",
         has: [{ type: "host", value: "aestheticletters.com" }],
         destination: "https://www.aestheticletters.com/:path*",
         permanent: true,
