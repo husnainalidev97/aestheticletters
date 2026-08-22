@@ -4,6 +4,7 @@ import "./globals.css";
 import { ConsentProvider } from "./components/ConsentProvider";
 import CookieBanner from "./components/CookieBanner";
 import ConsentAwareScripts from "./components/ConsentAwareScripts";
+import { ADS_EXCLUDED_PATHS } from "@/lib/ads";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -163,14 +164,14 @@ export default function RootLayout({
           name="google-adsense-account"
           content="ca-pub-5520146667836147"
         />
-        {/* Standard AdSense loader script as provided by AdSense. Consent
-            updates and ad-unit initialization are still handled by
+        {/* Standard AdSense loader script as provided by AdSense. It is only
+            injected on monetized pages; excluded paths are skipped.
+            Consent updates and ad-unit initialization are still handled by
             ConsentAwareScripts. */}
         <script
-          id="adsense-script"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147"
-          crossOrigin="anonymous"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){if(document.getElementById("adsense-script"))return;var p=location.pathname;var parts=p.split("/");if(parts[1]&&/^[a-z]-in-different-fonts/.test(parts[1]))return;var e=${JSON.stringify(ADS_EXCLUDED_PATHS)};for(var i=0;i<e.length;i++){if(p===e[i]||p.indexOf(e[i]+"/")===0)return;}window.adsbygoogle=window.adsbygoogle||[];var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);})();`,
+          }}
         />
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">

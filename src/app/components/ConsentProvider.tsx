@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname } from "next/navigation";
+import { adsEnabledForPath } from "@/lib/ads";
 
 export interface Consent {
   analytics: boolean;
@@ -29,26 +30,6 @@ const ConsentContext = createContext<ConsentContextValue | undefined>(undefined)
 const STORAGE_KEY = "al-cookie-consent";
 const CONSENT_COOKIE = "al-cookie-consent";
 const GEO_CONSENT_COOKIE = "al-geo-consent-required";
-
-const ADS_EXCLUDED_PATHS = [
-  "/about",
-  "/contact",
-  "/privacy-policy",
-  "/terms-and-services",
-  "/disclaimer",
-  "/alphabet-fonts",
-];
-
-function isAlphabetSpoke(pathname: string) {
-  return /^\/[a-z]-in-different-fonts(?:\/|$)/.test(pathname);
-}
-
-function adsEnabledForPath(pathname: string) {
-  if (isAlphabetSpoke(pathname)) return false;
-  return !ADS_EXCLUDED_PATHS.some(
-    (p) => pathname === p || pathname.startsWith(`${p}/`)
-  );
-}
 
 function parse(raw: string | null): Consent | null {
   if (!raw) return null;
