@@ -158,13 +158,19 @@ export default function RootLayout({
           }}
         />
         {/* Google AdSense verification. The static meta tag lets the AdSense
-            crawler verify ownership without executing JavaScript. The actual
-            adsbygoogle.js loader is injected client-side by ConsentAwareScripts
-            only on pages that are not ad-excluded and after the user grants
-            consent where required. */}
+            crawler verify ownership without executing JavaScript. */}
         <meta
           name="google-adsense-account"
           content="ca-pub-5520146667836147"
+        />
+        {/* Standard AdSense loader script as provided by AdSense. Consent
+            updates and ad-unit initialization are still handled by
+            ConsentAwareScripts. */}
+        <script
+          id="adsense-script"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147"
+          crossOrigin="anonymous"
         />
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
