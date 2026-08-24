@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const LIVE_LETTERS = new Set(["B", "R", "K", "E", "W", "S"]);
+const LIVE_LETTERS = new Set(["B", "R", "K", "E", "W", "S", "H"]);
 
 function ArrowForwardIcon({ className }: { className?: string }) {
   return (

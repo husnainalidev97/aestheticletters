@@ -310,6 +310,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${SITE_URL}/og-b-in-different-fonts.webp`],
     },
     {
+      url: `${SITE_URL}/h-in-different-fonts`,
+      lastModified: alphabetPagesUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-h-in-different-fonts.webp`],
+    },
+    {
       url: `${SITE_URL}/r-in-different-fonts`,
       lastModified: alphabetPagesUpdated,
       changeFrequency: "weekly" as const,
