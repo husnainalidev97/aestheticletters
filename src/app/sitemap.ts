@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUpdate = new Date("2026-08-20T08:00:00+00:00");
   /* Tool pages re-rendered server-side on 19 Aug 2026 */
   const toolsModified = new Date("2026-08-19T08:00:00+00:00");
-  /* Alphabet pages refreshed with B cross-links on 20 Aug 2026 */
-  const alphabetPagesUpdated = new Date("2026-08-20T08:00:00+00:00");
+  /* Alphabet pages refreshed with H cross-links on 24 Aug 2026 */
+  const alphabetPagesUpdated = new Date("2026-08-24T08:00:00+00:00");
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
