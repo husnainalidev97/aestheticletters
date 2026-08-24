@@ -22,7 +22,7 @@ const MAX_SIZE_DESKTOP = 40;
 const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 24;
 const STEP = 2;
-const MAX_SYMBOL_STYLES = 25;
+const MAX_SYMBOL_STYLES = 30;
 const AD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT;
 
 type SymbolStyle = {
