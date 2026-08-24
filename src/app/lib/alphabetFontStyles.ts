@@ -174,6 +174,10 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
+// ── 16 J Styles (base set for the new J page) ─────────────────────────────
+
+export const letterJStyles: AlphabetStyle[] = letterRStyles;
+
 // ── 22 H Styles ───────────────────────────────────────────────────────────
 
 export const letterHStyles: AlphabetStyle[] = [
@@ -362,6 +366,7 @@ export const letterSStyles: AlphabetStyle[] = [
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
+  if (upper === "J") return letterJStyles;
   if (upper === "H") return letterHStyles;
   if (upper === "B") return letterBStyles;
   if (upper === "K") return letterKStyles;
