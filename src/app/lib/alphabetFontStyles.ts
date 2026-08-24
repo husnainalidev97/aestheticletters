@@ -91,6 +91,15 @@ const wSquaredMap: Record<string, string> = { W: "\u{1F146}", w: "\u{1F146}" };
 const wNegativeSquaredMap: Record<string, string> = { W: "\u{1F186}", w: "\u{1F186}" };
 const wParenthesizedMap: Record<string, string> = { W: "\u{1F126}", w: "\u24B2" };
 
+// ── H-specific character maps ─────────────────────────────────────────────
+
+const hSuperscriptMap: Record<string, string> = { H: "\u{1D34}", h: "\u{02B0}" };
+const hWithCircumflexMap: Record<string, string> = { H: "\u{0124}", h: "\u{0125}" };
+const hWithStrokeMap: Record<string, string> = { H: "\u{0126}", h: "\u{0127}" };
+const hParenthesizedMap: Record<string, string> = { H: "\u{1F117}", h: "\u{24A3}" };
+const hSquaredMap: Record<string, string> = { H: "\u{1F137}", h: "\u{1F137}" };
+const hNegativeSquaredMap: Record<string, string> = { H: "\u{1F177}", h: "\u{1F177}" };
+
 // ── S-specific character maps ───────────────────────────────────────────
 
 const sWithAcuteMap: Record<string, string> = { S: "\u015A", s: "\u015B" };
@@ -163,6 +172,33 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Circled", transform: (t) => applyMap(t, circledMap) },
   { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
+];
+
+// ── 22 H Styles ───────────────────────────────────────────────────────────
+
+export const letterHStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Letterlike Symbols block, not Math Alphanumeric" },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, hSuperscriptMap) },
+  { name: "H With Circumflex", transform: (t) => applyMap(t, hWithCircumflexMap) },
+  { name: "H With Stroke", transform: (t) => applyMap(t, hWithStrokeMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, hSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, hNegativeSquaredMap), note: "Capital only, no Unicode lowercase equivalent", singleSide: "upper" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, hParenthesizedMap) },
 ];
 
 // ── 29 B Styles ──────────────────────────────────────────────────────────
@@ -326,6 +362,7 @@ export const letterSStyles: AlphabetStyle[] = [
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
   if (upper === "R") return letterRStyles;
+  if (upper === "H") return letterHStyles;
   if (upper === "B") return letterBStyles;
   if (upper === "K") return letterKStyles;
   if (upper === "E") return letterEStyles;
@@ -374,6 +411,41 @@ const kSmallSymbolCategories: FontCategory[] = [
   { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `⟨${text}⟩` }] },
   { name: "Corner Brackets", styles: [{ name: "", transform: (text) => `「${text}」` }] },
   { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
+];
+
+const hCapitalSymbolCategories: FontCategory[] = [
+  { name: "Curly Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⊰" + c + "⊱").join("") }] },
+  { name: "Spark Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "╰" + c + "╯").join("") }] },
+  { name: "Moon Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "☾" + c + "☽").join("") }] },
+  { name: "Dot Edges", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⦑" + c + "⦒").join("") }] },
+  { name: "Arc Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⌠" + c + "⌡").join("") }] },
+  { name: "Black Star", styles: [{ name: "", transform: (text) => `★${text}★` }] },
+  { name: "Sparkles", styles: [{ name: "", transform: (text) => `✨${text}✨` }] },
+  { name: "Heavy Heart", styles: [{ name: "", transform: (text) => `❤${text}❤` }] },
+  { name: "Cherry Blossom", styles: [{ name: "", transform: (text) => `🌸${text}🌸` }] },
+  { name: "Snowflake", styles: [{ name: "", transform: (text) => `❄${text}❄` }] },
+  { name: "Fire", styles: [{ name: "", transform: (text) => `🔥${text}🔥` }] },
+  { name: "High Voltage", styles: [{ name: "", transform: (text) => `⚡${text}⚡` }] },
+  { name: "Gem Stone", styles: [{ name: "", transform: (text) => `💎${text}💎` }] },
+  { name: "Crown", styles: [{ name: "", transform: (text) => `👑${text}👑` }] },
+  { name: "Butterfly", styles: [{ name: "", transform: (text) => `🦋${text}🦋` }] },
+  { name: "White Corner Brackets", styles: [{ name: "", transform: (text) => `『${text}』` }] },
+];
+
+const hSmallSymbolCategories: FontCategory[] = [
+  { name: "Curly Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⊰" + c + "⊱").join("") }] },
+  { name: "Spark Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "╰" + c + "╯").join("") }] },
+  { name: "Moon Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "☾" + c + "☽").join("") }] },
+  { name: "Dot Edges", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⦑" + c + "⦒").join("") }] },
+  { name: "Arc Wrap", styles: [{ name: "", transform: (text) => text.split("").map((c) => c === " " ? " " : "⌠" + c + "⌡").join("") }] },
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `✧${text}✧` }] },
+  { name: "Dizzy Symbol", styles: [{ name: "", transform: (text) => `💫${text}💫` }] },
+  { name: "Cherry Blossom", styles: [{ name: "", transform: (text) => `🌸${text}🌸` }] },
+  { name: "White Heart Suit", styles: [{ name: "", transform: (text) => `♡${text}♡` }] },
+  { name: "Musical Note", styles: [{ name: "", transform: (text) => `🎵${text}🎵` }] },
+  { name: "Skull", styles: [{ name: "", transform: (text) => `💀${text}💀` }] },
+  { name: "Middle Dot", styles: [{ name: "", transform: (text) => `·${text}·` }] },
+  { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `⟨${text}⟩` }] },
 ];
 
 const eCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
@@ -436,6 +508,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   if (upper === "B") {
     return { capital: bCapitalSymbolCategories, small: bSmallSymbolCategories };
   }
+  if (upper === "H") {
+    return { capital: hCapitalSymbolCategories, small: hSmallSymbolCategories };
+  }
   return null;
 }
 
@@ -481,6 +556,37 @@ export const otherAlphabetsR: OtherAlphabetEntry[] = [
     upper: "\u1587",
     lower: null,
     description: "Canadian Aboriginal Syllabics Tlhi, visually confusable with Latin R.",
+  },
+];
+
+export const otherAlphabetsH: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u041D",
+    lower: "\u043D",
+    description: "Cyrillic Ne looks identical to Latin H, yet Russian and other Slavic languages use it for the N sound, not H.",
+  },
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u0397",
+    lower: "\u03B7",
+    description: "Greek Eta is the ancestor of Latin H, but in modern Greek it stands for the long vowel /i/ and carries no H sound.",
+  },
+  {
+    script: "Cherokee",
+    label: "Cherokee",
+    upper: "\u13BB",
+    lower: "\uAB8B",
+    description: "Cherokee syllabary Mi shares the same shape but represents an unrelated syllable inside that writing system.",
+  },
+  {
+    script: "Maltese",
+    label: "H With Stroke",
+    upper: "\u0126",
+    lower: "\u0127",
+    description: "Maltese uses the stroked H for a sound close to English H but produced further back in the throat.",
   },
 ];
 
