@@ -96,7 +96,7 @@ const wParenthesizedMap: Record<string, string> = { W: "\u{1F126}", w: "\u24B2" 
 const hSuperscriptMap: Record<string, string> = { H: "\u{1D34}", h: "\u{02B0}" };
 const hWithCircumflexMap: Record<string, string> = { H: "\u{0124}", h: "\u{0125}" };
 const hWithStrokeMap: Record<string, string> = { H: "\u{0126}", h: "\u{0127}" };
-const hParenthesizedMap: Record<string, string> = { H: "\u{1F117}", h: "\u{24A7}" };
+const hParenthesizedMap: Record<string, string> = { H: "\u{1F117}", h: "\u{24A3}" };
 const hSquaredMap: Record<string, string> = { H: "\u{1F137}", h: "\u{1F137}" };
 const hNegativeSquaredMap: Record<string, string> = { H: "\u{1F177}", h: "\u{1F177}" };
 

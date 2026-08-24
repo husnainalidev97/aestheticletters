@@ -24,11 +24,11 @@ const linkClass = "text-primary underline underline-offset-4 hover:no-underline"
 
 const similarTools = [
   { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
-  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD5A", desc: "The K version of this alphabet font style page" },
+  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD7A", desc: "The K version of this alphabet font style page" },
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD81", desc: "The R version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
-  { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD66", desc: "The W version of this alphabet font style page" },
-  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD62", desc: "The S version of this alphabet font style page" },
+  { label: "W in Different Fonts", href: "/w-in-different-fonts", icon: "\uD83C\uDD86", desc: "The W version of this alphabet font style page" },
+  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD82", desc: "The S version of this alphabet font style page" },
 ];
 
 const popularTools = [
@@ -45,7 +45,7 @@ const unicodeTable = [
   { styled: "\u210C", name: "Black-Letter Capital H", code: "U+210C" },
   { styled: "\u210D", name: "Double-Struck Capital H", code: "U+210D" },
   { styled: "\uD835\uDD73", name: "Mathematical Bold Fraktur Capital H", code: "U+1D573" },
-  { styled: "\uD835\uDEB7", name: "Mathematical Monospace Capital H", code: "U+1D677" },
+  { styled: "\uD835\uDE77", name: "Mathematical Monospace Capital H", code: "U+1D677" },
   { styled: "\uFF28", name: "Fullwidth Latin Capital Letter H", code: "U+FF28" },
   { styled: "\u029C", name: "Latin Letter Small Capital H", code: "U+029C" },
   { styled: "\u0124", name: "Latin Capital Letter H With Circumflex", code: "U+0124" },
