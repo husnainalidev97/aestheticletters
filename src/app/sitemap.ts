@@ -7,8 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUpdate = new Date("2026-08-20T08:00:00+00:00");
   /* Tool pages re-rendered server-side on 19 Aug 2026 */
   const toolsModified = new Date("2026-08-19T08:00:00+00:00");
-  /* Alphabet pages refreshed with H cross-links on 24 Aug 2026 */
+  /* Alphabet pages refreshed with H cross-links and J page added on 24 Aug 2026 */
   const alphabetPagesUpdated = new Date("2026-08-24T08:00:00+00:00");
+  /* J in Different Fonts added on 24 Aug 2026 */
+  const jPageUpdated = new Date();
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -318,7 +320,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/j-in-different-fonts`,
-      lastModified: alphabetPagesUpdated,
+      lastModified: jPageUpdated,
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-j-in-different-fonts.webp`],
