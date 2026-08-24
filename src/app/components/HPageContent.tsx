@@ -78,41 +78,41 @@ export default function HPageContent({ faqs }: HPageContentProps) {
               <p className="text-on-surface-variant leading-relaxed text-lg">
                 A second, much smaller share comes from character sets built for enclosed lists and reference labels, never meant for styling at all. The final share belongs to working letters, still pronounced daily inside languages that sit outside English.
               </p>
-            </article>
 
-            <article id="unicode-names-for-h-styles" className="scroll-mt-[9rem]">
-              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Unicode Names for H Styles
-              </h2>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                The table below pulls nine examples straight from the full set, each labeled with its registered Unicode name instead of a nickname a font site made up.
-              </p>
-              <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 mb-8">
-                <table className="w-full text-left border-collapse">
-                  <thead className="bg-surface-container-high">
-                    <tr>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Styled H</th>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Unicode Name</th>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Code Point</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-outline-variant/10">
-                    {unicodeTable.map((row) => (
-                      <tr key={row.code} className="bg-surface-container-lowest">
-                        <td className="px-4 py-3 text-lg font-body">{row.styled}</td>
-                        <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
-                        <td className="px-4 py-3 text-on-surface-variant font-mono">{row.code}</td>
+              <section id="unicode-names-for-h-styles" className="scroll-mt-[9rem] mt-16">
+                <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
+                  Unicode Names for H Styles
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                  The table below pulls nine examples straight from the full set, each labeled with its registered Unicode name instead of a nickname a font site made up.
+                </p>
+                <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 mb-8">
+                  <table className="w-full text-left border-collapse">
+                    <thead className="bg-surface-container-high">
+                      <tr>
+                        <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Styled H</th>
+                        <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Unicode Name</th>
+                        <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Code Point</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Four styles here hide a small technical quirk. Script, Fraktur, and Double-Struck capitals were never built inside the main math styling set. Unicode routes them instead to an older set called Letterlike Symbols.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mt-4">
-                Italic lowercase h flips that pattern. Its real address belongs to a science symbol, the Planck constant, borrowed from a completely different field. None of this points to a broken generator. It simply shows how Unicode locked in character addresses long before anyone used them to decorate a bio.
-              </p>
+                    </thead>
+                    <tbody className="divide-y divide-outline-variant/10">
+                      {unicodeTable.map((row) => (
+                        <tr key={row.code} className="bg-surface-container-lowest">
+                          <td className="px-4 py-3 text-lg font-body">{row.styled}</td>
+                          <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
+                          <td className="px-4 py-3 text-on-surface-variant font-mono">{row.code}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Four styles here hide a small technical quirk. Script, Fraktur, and Double-Struck capitals were never built inside the main math styling set. Unicode routes them instead to an older set called Letterlike Symbols.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed text-lg mt-4">
+                  Italic lowercase h flips that pattern. Its real address belongs to a science symbol, the Planck constant, borrowed from a completely different field. None of this points to a broken generator. It simply shows how Unicode locked in character addresses long before anyone used them to decorate a bio.
+                </p>
+              </section>
             </article>
 
             <article id="why-do-some-hs-go-silent" className="scroll-mt-[9rem]">
