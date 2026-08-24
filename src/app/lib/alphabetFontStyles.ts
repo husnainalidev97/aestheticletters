@@ -100,6 +100,15 @@ const hParenthesizedMap: Record<string, string> = { H: "\u{1F117}", h: "\u{24A3}
 const hSquaredMap: Record<string, string> = { H: "\u{1F137}", h: "\u{1F137}" };
 const hNegativeSquaredMap: Record<string, string> = { H: "\u{1F177}", h: "\u{1F177}" };
 
+// ── J-specific character maps ─────────────────────────────────────────────
+
+const jSuperscriptMap: Record<string, string> = { J: "\u{1D36}", j: "\u{02B2}" };
+const jWithCircumflexMap: Record<string, string> = { J: "\u0134", j: "\u0135" };
+const jWithStrokeMap: Record<string, string> = { J: "\u0248", j: "\u0249" };
+const jSquaredMap: Record<string, string> = { J: "\u{1F139}", j: "\u{1F139}" };
+const jNegativeSquaredMap: Record<string, string> = { J: "\u{1F179}", j: "\u{1F179}" };
+const jParenthesizedMap: Record<string, string> = { J: "\u{1F119}", j: "\u24A5" };
+
 // ── S-specific character maps ───────────────────────────────────────────
 
 const sWithAcuteMap: Record<string, string> = { S: "\u015A", s: "\u015B" };
@@ -174,9 +183,32 @@ export const letterRStyles: AlphabetStyle[] = [
   { name: "Small Caps", transform: (t) => applyMap(t, smallCapsMap) },
 ];
 
-// ── 16 J Styles (base set for the new J page) ─────────────────────────────
+// ── 22 J Styles ───────────────────────────────────────────────────────────
 
-export const letterJStyles: AlphabetStyle[] = letterRStyles;
+export const letterJStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, jSuperscriptMap) },
+  { name: "J With Circumflex", transform: (t) => applyMap(t, jWithCircumflexMap) },
+  { name: "J With Stroke", transform: (t) => applyMap(t, jWithStrokeMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, jSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, jNegativeSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, jParenthesizedMap) },
+];
 
 // ── 22 H Styles ───────────────────────────────────────────────────────────
 
@@ -496,6 +528,40 @@ const bSmallSymbolCategories: FontCategory[] = [
   { name: "Fullwidth Braces", styles: [{ name: "", transform: (text) => `｛${text}｝` }] },
 ];
 
+const jCapitalSymbolCategories: FontCategory[] = [
+  { name: "Single Angle Quotes", styles: [{ name: "", transform: (text) => `\u2039${text}\u203A` }] },
+  { name: "Angle Brackets", styles: [{ name: "", transform: (text) => `\u27E8${text}\u27E9` }] },
+  { name: "Ceiling Brackets", styles: [{ name: "", transform: (text) => `\u2308${text}\u2309` }] },
+  { name: "Floor Brackets", styles: [{ name: "", transform: (text) => `\u230A${text}\u230B` }] },
+  { name: "Section Signs", styles: [{ name: "", transform: (text) => `\u00A7${text}\u00A7` }] },
+  { name: "Pilcrows", styles: [{ name: "", transform: (text) => `\u00B6${text}\u00B6` }] },
+  { name: "Daggers", styles: [{ name: "", transform: (text) => `\u2020${text}\u2020` }] },
+  { name: "Double Daggers", styles: [{ name: "", transform: (text) => `\u2021${text}\u2021` }] },
+  { name: "Double Vertical Lines", styles: [{ name: "", transform: (text) => `\u2016${text}\u2016` }] },
+  { name: "Asterisms", styles: [{ name: "", transform: (text) => `\u2042${text}\u2042` }] },
+  { name: "Star Operators", styles: [{ name: "", transform: (text) => `\u22C6${text}\u22C6` }] },
+  { name: "Bullet Operators", styles: [{ name: "", transform: (text) => `\u2219${text}\u2219` }] },
+  { name: "Four Teardrop-Spoked Asterisks", styles: [{ name: "", transform: (text) => `\u2058${text}\u2058` }] },
+  { name: "Therefore", styles: [{ name: "", transform: (text) => `\u2234${text}\u2234` }] },
+  { name: "Because", styles: [{ name: "", transform: (text) => `\u2235${text}\u2235` }] },
+];
+
+const jSmallSymbolCategories: FontCategory[] = [
+  { name: "Dot Above", styles: [{ name: "", transform: (text) => `\u02D9${text}\u02D9` }] },
+  { name: "Ring Above", styles: [{ name: "", transform: (text) => `\u02DA${text}\u02DA` }] },
+  { name: "Underties", styles: [{ name: "", transform: (text) => `\u203F${text}\u203F` }] },
+  { name: "Character Ties", styles: [{ name: "", transform: (text) => `\u2040${text}\u2040` }] },
+  { name: "Middle Dots", styles: [{ name: "", transform: (text) => `\u00B7${text}\u00B7` }] },
+  { name: "Degree Signs", styles: [{ name: "", transform: (text) => `\u00B0${text}\u00B0` }] },
+  { name: "Tildes", styles: [{ name: "", transform: (text) => `\u007E${text}\u007E` }] },
+  { name: "Four Teardrop-Spoked Asterisks", styles: [{ name: "", transform: (text) => `\u2058${text}\u2058` }] },
+  { name: "Bullet Operators", styles: [{ name: "", transform: (text) => `\u2219${text}\u2219` }] },
+  { name: "Single Angle Quotes", styles: [{ name: "", transform: (text) => `\u2039${text}\u203A` }] },
+  { name: "Angle Brackets", styles: [{ name: "", transform: (text) => `\u27E8${text}\u27E9` }] },
+  { name: "Daggers", styles: [{ name: "", transform: (text) => `\u2020${text}\u2020` }] },
+  { name: "Section Signs", styles: [{ name: "", transform: (text) => `\u00A7${text}\u00A7` }] },
+];
+
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
   if (upper === "K") {
@@ -515,6 +581,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   if (upper === "H") {
     return { capital: hCapitalSymbolCategories, small: hSmallSymbolCategories };
+  }
+  if (upper === "J") {
+    return { capital: jCapitalSymbolCategories, small: jSmallSymbolCategories };
   }
   return null;
 }
@@ -754,5 +823,29 @@ export const otherAlphabetsB: OtherAlphabetEntry[] = [
     upper: "\u0181",
     lower: "\u0253",
     description: "A real working letter, not decorative, still used in Fula, Hausa, and Giziga across parts of West Africa.",
+  },
+];
+
+export const otherAlphabetsJ: OtherAlphabetEntry[] = [
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u0399",
+    lower: "\u03B9",
+    description: "The direct ancestor of both I and J, carried into Latin through Etruscan traders roughly 2,700 years ago.",
+  },
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0408",
+    lower: "\u0458",
+    description: "Not a lookalike, but the actual Latin J itself, adopted into Serbian Cyrillic by Vuk Karadžić in his 1818 dictionary.",
+  },
+  {
+    script: "J With Stroke",
+    label: "J With Stroke",
+    upper: "\u0248",
+    lower: "\u0249",
+    description: "A working letter today in the Arhuaco language of Colombia and the Oniyan language of Guinea.",
   },
 ];
