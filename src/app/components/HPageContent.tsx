@@ -108,7 +108,10 @@ export default function HPageContent({ faqs }: HPageContentProps) {
                 </table>
               </div>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Four styles here hide a small technical quirk. Script, Fraktur, and Double-Struck capitals were never built inside the main math styling set. Unicode routes them instead to an older set called Letterlike Symbols. Italic lowercase h flips that pattern. Its real address belongs to a science symbol, the Planck constant, borrowed from a completely different field. None of this points to a broken generator. It simply shows how Unicode locked in character addresses long before anyone used them to decorate a bio.
+                Four styles here hide a small technical quirk. Script, Fraktur, and Double-Struck capitals were never built inside the main math styling set. Unicode routes them instead to an older set called Letterlike Symbols.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mt-4">
+                Italic lowercase h flips that pattern. Its real address belongs to a science symbol, the Planck constant, borrowed from a completely different field. None of this points to a broken generator. It simply shows how Unicode locked in character addresses long before anyone used them to decorate a bio.
               </p>
             </article>
 
