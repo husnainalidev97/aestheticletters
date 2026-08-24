@@ -413,6 +413,41 @@ const kSmallSymbolCategories: FontCategory[] = [
   { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
 ];
 
+const hCapitalSymbolCategories: FontCategory[] = [
+  { name: "Black Star", styles: [{ name: "", transform: (text) => `★${text}★` }] },
+  { name: "White Star", styles: [{ name: "", transform: (text) => `☆${text}☆` }] },
+  { name: "Sparkles", styles: [{ name: "", transform: (text) => `✨${text}✨` }] },
+  { name: "Heavy Heart", styles: [{ name: "", transform: (text) => `❤${text}❤` }] },
+  { name: "Sparkling Heart", styles: [{ name: "", transform: (text) => `💖${text}💖` }] },
+  { name: "Cherry Blossom", styles: [{ name: "", transform: (text) => `🌸${text}🌸` }] },
+  { name: "Snowflake", styles: [{ name: "", transform: (text) => `❄${text}❄` }] },
+  { name: "Fire", styles: [{ name: "", transform: (text) => `🔥${text}🔥` }] },
+  { name: "High Voltage", styles: [{ name: "", transform: (text) => `⚡${text}⚡` }] },
+  { name: "Gem Stone", styles: [{ name: "", transform: (text) => `💎${text}💎` }] },
+  { name: "Crown", styles: [{ name: "", transform: (text) => `👑${text}👑` }] },
+  { name: "Butterfly", styles: [{ name: "", transform: (text) => `🦋${text}🦋` }] },
+  { name: "White Corner Brackets", styles: [{ name: "", transform: (text) => `『${text}』` }] },
+  { name: "Black Lenticular Brackets", styles: [{ name: "", transform: (text) => `【${text}】` }] },
+  { name: "Double Angle Quotes", styles: [{ name: "", transform: (text) => `«${text}»` }] },
+  { name: "Bullet", styles: [{ name: "", transform: (text) => `•${text}•` }] },
+];
+
+const hSmallSymbolCategories: FontCategory[] = [
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `✧${text}✧` }] },
+  { name: "Eight-Pointed Star", styles: [{ name: "", transform: (text) => `✴${text}✴` }] },
+  { name: "Dizzy Symbol", styles: [{ name: "", transform: (text) => `💫${text}💫` }] },
+  { name: "Two Hearts", styles: [{ name: "", transform: (text) => `💕${text}💕` }] },
+  { name: "White Heart Suit", styles: [{ name: "", transform: (text) => `♡${text}♡` }] },
+  { name: "Musical Note", styles: [{ name: "", transform: (text) => `🎵${text}🎵` }] },
+  { name: "Skull", styles: [{ name: "", transform: (text) => `💀${text}💀` }] },
+  { name: "Middle Dot", styles: [{ name: "", transform: (text) => `·${text}·` }] },
+  { name: "Degree Sign", styles: [{ name: "", transform: (text) => `°${text}°` }] },
+  { name: "Rightwards/Leftwards Arrow", styles: [{ name: "", transform: (text) => `→${text}←` }] },
+  { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `⟨${text}⟩` }] },
+  { name: "Corner Brackets", styles: [{ name: "", transform: (text) => `「${text}」` }] },
+  { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
+];
+
 const eCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
 const eSmallSymbolCategories: FontCategory[] = kSmallSymbolCategories;
 const wCapitalSymbolCategories: FontCategory[] = kCapitalSymbolCategories;
@@ -474,7 +509,7 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
     return { capital: bCapitalSymbolCategories, small: bSmallSymbolCategories };
   }
   if (upper === "H") {
-    return { capital: kCapitalSymbolCategories, small: kSmallSymbolCategories };
+    return { capital: hCapitalSymbolCategories, small: hSmallSymbolCategories };
   }
   return null;
 }
