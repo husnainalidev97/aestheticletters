@@ -4,7 +4,6 @@ import "./globals.css";
 import { ConsentProvider } from "./components/ConsentProvider";
 import CookieBanner from "./components/CookieBanner";
 import ConsentAwareScripts from "./components/ConsentAwareScripts";
-import { ADS_EXCLUDED_PATHS } from "@/lib/ads";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -158,20 +157,11 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}}catch(e){}})();`,
           }}
         />
-        {/* Google AdSense verification. The static meta tag lets the AdSense
-            crawler verify ownership without executing JavaScript. */}
+        {/* Google AdSense verification. The client-side loader runs after
+            hydration through ConsentAwareScripts on monetized pages. */}
         <meta
           name="google-adsense-account"
           content="ca-pub-5520146667836147"
-        />
-        {/* Standard AdSense loader script as provided by AdSense. It is only
-            injected on monetized pages; excluded paths are skipped.
-            Consent updates and ad-unit initialization are still handled by
-            ConsentAwareScripts. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){if(document.getElementById("adsense-script"))return;var p=location.pathname;var e=${JSON.stringify(ADS_EXCLUDED_PATHS)};for(var i=0;i<e.length;i++){if(p===e[i]||p.indexOf(e[i]+"/")===0)return;}window.adsbygoogle=window.adsbygoogle||[];var s=document.createElement("script");s.id="adsense-script";s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520146667836147";document.head.appendChild(s);})();`,
-          }}
         />
       </head>
       <body className="bg-background text-on-background font-body transition-colors duration-300">
