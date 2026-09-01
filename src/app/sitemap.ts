@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const alphabetPagesUpdated = new Date("2026-08-24T08:00:00+00:00");
   /* J in Different Fonts added on 24 Aug 2026 */
   const jPageUpdated = new Date();
+  const gPageUpdated = new Date();
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -317,6 +318,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-h-in-different-fonts.webp`],
+    },
+    {
+      url: `${SITE_URL}/g-in-different-fonts`,
+      lastModified: gPageUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-g-in-different-fonts.webp`],
     },
     {
       url: `${SITE_URL}/j-in-different-fonts`,
