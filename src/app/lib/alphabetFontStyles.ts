@@ -109,6 +109,15 @@ const jSquaredMap: Record<string, string> = { J: "\u{1F139}", j: "\u{1F139}" };
 const jNegativeSquaredMap: Record<string, string> = { J: "\u{1F179}", j: "\u{1F179}" };
 const jParenthesizedMap: Record<string, string> = { J: "\u{1F119}", j: "\u24A5" };
 
+// ── G-specific character maps ─────────────────────────────────────────────
+
+const gSuperscriptMap: Record<string, string> = { G: "\u{1D33}", g: "\u{1D4D}" };
+const gWithCircumflexMap: Record<string, string> = { G: "\u011C", g: "\u011D" };
+const gWithHookMap: Record<string, string> = { G: "\u0193", g: "\u0260" };
+const gSquaredMap: Record<string, string> = { G: "\u{1F136}", g: "\u{1F136}" };
+const gNegativeSquaredMap: Record<string, string> = { G: "\u{1F176}", g: "\u{1F176}" };
+const gParenthesizedMap: Record<string, string> = { G: "\u{1F116}", g: "\u24A2" };
+
 // ── S-specific character maps ───────────────────────────────────────────
 
 const sWithAcuteMap: Record<string, string> = { S: "\u015A", s: "\u015B" };
@@ -395,8 +404,36 @@ export const letterSStyles: AlphabetStyle[] = [
   { name: "Subscript", transform: (t) => applyMap(t, sSubscriptMap), note: "Small form used for both cases" },
 ];
 
+// ── 22 G Styles ───────────────────────────────────────────────────────────
+
+export const letterGStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Small g comes from the Letterlike Symbols block" },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, gSuperscriptMap) },
+  { name: "G With Circumflex", transform: (t) => applyMap(t, gWithCircumflexMap) },
+  { name: "G With Hook", transform: (t) => applyMap(t, gWithHookMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, gSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, gNegativeSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, gParenthesizedMap) },
+];
+
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
+  if (upper === "G") return letterGStyles;
   if (upper === "R") return letterRStyles;
   if (upper === "J") return letterJStyles;
   if (upper === "H") return letterHStyles;
@@ -562,8 +599,40 @@ const jSmallSymbolCategories: FontCategory[] = [
   { name: "Section Signs", styles: [{ name: "", transform: (text) => `\u00A7${text}\u00A7` }] },
 ];
 
+const gCapitalSymbolCategories: FontCategory[] = [
+  { name: "Black Star", styles: [{ name: "", transform: (text) => `★${text}★` }] },
+  { name: "Sparkles", styles: [{ name: "", transform: (text) => `✨${text}✨` }] },
+  { name: "Crown", styles: [{ name: "", transform: (text) => `👑${text}👑` }] },
+  { name: "Yellow Heart", styles: [{ name: "", transform: (text) => `💛${text}💛` }] },
+  { name: "Fire", styles: [{ name: "", transform: (text) => `🔥${text}🔥` }] },
+  { name: "High Voltage", styles: [{ name: "", transform: (text) => `⚡${text}⚡` }] },
+  { name: "Video Game", styles: [{ name: "", transform: (text) => `🎮${text}🎮` }] },
+  { name: "Gem Stone", styles: [{ name: "", transform: (text) => `💎${text}💎` }] },
+  { name: "Glowing Star", styles: [{ name: "", transform: (text) => `🌟${text}🌟` }] },
+  { name: "Four Leaf Clover", styles: [{ name: "", transform: (text) => `🍀${text}🍀` }] },
+  { name: "White Corner Brackets", styles: [{ name: "", transform: (text) => `『${text}』` }] },
+  { name: "Black Lenticular Brackets", styles: [{ name: "", transform: (text) => `【${text}】` }] },
+  { name: "Double Angle Quotes", styles: [{ name: "", transform: (text) => `«${text}»` }] },
+  { name: "Bullet", styles: [{ name: "", transform: (text) => `•${text}•` }] },
+];
+
+const gSmallSymbolCategories: FontCategory[] = [
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `✧${text}✧` }] },
+  { name: "Dizzy Symbol", styles: [{ name: "", transform: (text) => `💫${text}💫` }] },
+  { name: "White Heart Suit", styles: [{ name: "", transform: (text) => `♡${text}♡` }] },
+  { name: "Middle Dot", styles: [{ name: "", transform: (text) => `·${text}·` }] },
+  { name: "Degree Sign", styles: [{ name: "", transform: (text) => `°${text}°` }] },
+  { name: "Rightwards/Leftwards Arrow", styles: [{ name: "", transform: (text) => `→${text}←` }] },
+  { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `⟨${text}⟩` }] },
+  { name: "Corner Brackets", styles: [{ name: "", transform: (text) => `「${text}」` }] },
+  { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
+];
+
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
+  if (upper === "G") {
+    return { capital: gCapitalSymbolCategories, small: gSmallSymbolCategories };
+  }
   if (upper === "K") {
     return { capital: kCapitalSymbolCategories, small: kSmallSymbolCategories };
   }
@@ -587,6 +656,30 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   return null;
 }
+
+export const otherAlphabetsG: OtherAlphabetEntry[] = [
+  {
+    script: "Greek",
+    label: "Greek Gamma",
+    upper: "\u0393",
+    lower: "\u03B3",
+    description: "Gamma is the direct ancestor of G, passed to Rome through the Etruscan alphabet.",
+  },
+  {
+    script: "Cyrillic",
+    label: "Cyrillic Ghe",
+    upper: "\u0413",
+    lower: "\u0433",
+    description: "Ghe branches from the same Greek source and is still used across Slavic languages.",
+  },
+  {
+    script: "Latin Extended",
+    label: "G With Hook",
+    upper: "\u0193",
+    lower: "\u0260",
+    description: "A working letter in the Fula and Hausa alphabets of West Africa.",
+  },
+];
 
 export const otherAlphabetsR: OtherAlphabetEntry[] = [
   {
