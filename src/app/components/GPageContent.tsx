@@ -57,18 +57,15 @@ export default function GPageContent({ faqs }: GPageContentProps) {
     <>
       <AlphabetLetterGenerator letter="G" defaultText="G" hideInputHeader />
 
-      <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] pb-4 md:pb-6">
-        <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-3xl">
-          This tool changes the letter G in different fonts, giving you 22 real Unicode styles to browse and copy. Each style pairs a capital G with a matching lowercase g. Type your own letter above, scroll through every card, then tap once to copy the style you like.
-        </p>
-      </section>
-
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
             <article id="g-in-every-font-style" className="scroll-mt-[9rem]">
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                This tool changes the letter G in different fonts, giving you 22 real Unicode styles to browse and copy. Each style pairs a capital G with a matching lowercase g. Type your own letter above, scroll through every card, then tap once to copy the style you like.
+              </p>
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                 G in Every Font Style
               </h2>
