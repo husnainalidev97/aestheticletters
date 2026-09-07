@@ -7,7 +7,7 @@ import LPageContent from "../components/LPageContent";
 
 const pageTitle = "L in Different Fonts: 22 Unicode Styles - (Free to Copy)";
 const pageDescription =
-  "Get the letter L in different fonts through 22 verified Unicode styles, alongside real L letters from Greek, Cyrillic, and Coptic scripts. Free to copy, no signup ever.";
+  "Get the letter L in different fonts through 22 verified Unicode styles, alongside real L letters from Greek, Cyrillic, and Coptic scripts. Try now it's free.";
 const canonicalUrl = "https://www.aestheticletters.com/l-in-different-fonts";
 const hubUrl = "https://www.aestheticletters.com/alphabet-fonts";
 const pageDate = "2026-09-07T08:00:00+00:00";
