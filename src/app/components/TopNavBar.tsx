@@ -34,7 +34,8 @@ type ActivePage =
   | "s-in-different-fonts"
   | "h-in-different-fonts"
   | "j-in-different-fonts"
-  | "g-in-different-fonts";
+  | "g-in-different-fonts"
+  | "l-in-different-fonts";
 
 interface TopNavBarProps {
   activePage?: ActivePage;
@@ -367,6 +368,13 @@ export default function TopNavBar({ activePage }: TopNavBarProps) {
               onClick={() => setIsOpen(false)}
             >
               G in Different Fonts
+            </Link>
+            <Link
+              href="/l-in-different-fonts"
+              className={mobileLinkClass("l-in-different-fonts")}
+              onClick={() => setIsOpen(false)}
+            >
+              L in Different Fonts
             </Link>
             <Link
               href="/r-in-different-fonts"
