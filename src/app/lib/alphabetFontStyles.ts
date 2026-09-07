@@ -117,6 +117,12 @@ const gWithHookMap: Record<string, string> = { G: "\u0193", g: "\u0260" };
 const gSquaredMap: Record<string, string> = { G: "\u{1F136}", g: "\u{1F136}" };
 const gNegativeSquaredMap: Record<string, string> = { G: "\u{1F176}", g: "\u{1F176}" };
 const gParenthesizedMap: Record<string, string> = { G: "\u{1F116}", g: "\u24A2" };
+const lSuperscriptMap: Record<string, string> = { L: "\u1D38", l: "\u02E1" };
+const lWithStrokeMap: Record<string, string> = { L: "\u0141", l: "\u0142" };
+const lWithAcuteMap: Record<string, string> = { L: "\u0139", l: "\u013A" };
+const lSquaredMap: Record<string, string> = { L: "\u{1F13B}", l: "\u{1F13B}" };
+const lNegativeSquaredMap: Record<string, string> = { L: "\u{1F17B}", l: "\u{1F17B}" };
+const lParenthesizedMap: Record<string, string> = { L: "\u{1F11B}", l: "\u24A7" };
 
 // ── S-specific character maps ───────────────────────────────────────────
 
@@ -431,8 +437,36 @@ export const letterGStyles: AlphabetStyle[] = [
   { name: "Parenthesized", transform: (t) => applyMap(t, gParenthesizedMap) },
 ];
 
+// ── 22 L Styles ───────────────────────────────────────────────────────────
+
+export const letterLStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Capital L comes from the Letterlike Symbols block" },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, lSuperscriptMap) },
+  { name: "L With Stroke", transform: (t) => applyMap(t, lWithStrokeMap) },
+  { name: "L With Acute", transform: (t) => applyMap(t, lWithAcuteMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, lSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, lNegativeSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, lParenthesizedMap) },
+];
+
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
+  if (upper === "L") return letterLStyles;
   if (upper === "G") return letterGStyles;
   if (upper === "R") return letterRStyles;
   if (upper === "J") return letterJStyles;
@@ -656,6 +690,44 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   return null;
 }
+
+export const otherAlphabetsL: OtherAlphabetEntry[] = [
+  {
+    script: "Greek",
+    label: "Greek Lambda",
+    upper: "\u039B",
+    lower: "\u03BB",
+    description: "Lambda is the direct ancestor of Latin L, still used for math and physics symbols.",
+  },
+  {
+    script: "Cyrillic",
+    label: "Cyrillic El",
+    upper: "\u041B",
+    lower: "\u043B",
+    description: "El descends from Greek Lambda and is used across Russian, Bulgarian, and Serbian.",
+  },
+  {
+    script: "Hebrew",
+    label: "Hebrew Lamed",
+    upper: "\u05DC",
+    lower: null,
+    description: "Lamed shares the Phoenician root and is the twelfth letter of the Hebrew alphabet.",
+  },
+  {
+    script: "Arabic",
+    label: "Arabic Lam",
+    upper: "\u0644",
+    lower: null,
+    description: "Lam carries the same ancient root forward throughout everyday Arabic script.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic Laula",
+    upper: "\u2C96",
+    lower: "\u2C97",
+    description: "Laula was adapted by Egyptian Christian scribes and stays close to its Greek source.",
+  },
+];
 
 export const otherAlphabetsG: OtherAlphabetEntry[] = [
   {
