@@ -696,8 +696,20 @@ const gSmallSymbolCategories: FontCategory[] = [
   { name: "White Lenticular Brackets", styles: [{ name: "", transform: (text) => `〖${text}〗` }] },
 ];
 
+const mSymbolCategories: FontCategory[] = [
+  { name: "Wave Dash", styles: [{ name: "", transform: (text) => `\u301C${text}\u301C` }] },
+  { name: "Black Four Pointed Star", styles: [{ name: "", transform: (text) => `\u2726${text}\u2726` }] },
+  { name: "Middle Dot", styles: [{ name: "", transform: (text) => `\u00B7${text}\u00B7` }] },
+  { name: "Four Dot Punctuation", styles: [{ name: "", transform: (text) => `\u2058${text}\u2058` }] },
+  { name: "White Diamond", styles: [{ name: "", transform: (text) => `\u25C7${text}\u25C7` }] },
+  { name: "Ring Above", styles: [{ name: "", transform: (text) => `\u02DA${text}\u02DA` }] },
+];
+
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
+  if (upper === "M") {
+    return { capital: mSymbolCategories, small: mSymbolCategories };
+  }
   if (upper === "G") {
     return { capital: gCapitalSymbolCategories, small: gSmallSymbolCategories };
   }
