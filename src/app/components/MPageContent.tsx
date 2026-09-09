@@ -2,24 +2,81 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
+import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
+import { otherAlphabetsM } from "../lib/alphabetFontStyles";
 
 interface MPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
 const pageSections = [
+  { id: "unicode-names-for-the-letter-m", label: "Unicode Names" },
+  { id: "where-does-the-letter-m-come-from", label: "Origin" },
+  { id: "m-in-other-alphabets", label: "Other Alphabets" },
+  { id: "where-people-use-stylish-m-text", label: "Uses" },
+  { id: "is-it-safe-to-use-this-m-font-generator", label: "Safety" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
 
-const similarTools: { label: string; href: string; icon: string; desc: string }[] = [];
+const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
+
+const similarTools = [
+  { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
+  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
+  { label: "H in Different Fonts", href: "/h-in-different-fonts", icon: "\uD83C\uDD77", desc: "The H version of this alphabet font style page" },
+  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD7A", desc: "The K version of this alphabet font style page" },
+  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD81", desc: "The R version of this alphabet font style page" },
+  { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD82", desc: "The S version of this alphabet font style page" },
+];
 
 const popularTools = [
   { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
   { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
   { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
+  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u270D", desc: "Flowing cursive and handwriting-style text" },
+  { label: "Big Text Generator", href: "/big-text-generator", icon: "\uD83D\uDD24", desc: "Large, attention-grabbing Unicode text" },
+];
+
+const unicodeTable = [
+  { styled: "\uD835\uDC0C", name: "Mathematical Bold Capital M", code: "U+1D40C" },
+  { styled: "\u2133", name: "Script Capital M", code: "U+2133" },
+  { styled: "\uD835\uDD10", name: "Mathematical Fraktur Capital M", code: "U+1D510" },
+  { styled: "\uD835\uDD44", name: "Mathematical Double-Struck Capital M", code: "U+1D544" },
+  { styled: "\uD835\uDD78", name: "Mathematical Bold Fraktur Capital M", code: "U+1D578" },
+  { styled: "\uD835\uDE7C", name: "Mathematical Monospace Capital M", code: "U+1D67C" },
+  { styled: "\uFF2D", name: "Fullwidth Latin Capital Letter M", code: "U+FF2D" },
+  { styled: "\u1D0D", name: "Latin Letter Small Capital M", code: "U+1D0D" },
+  { styled: "\u2C6E", name: "Latin Capital Letter M With Hook", code: "U+2C6E" },
+];
+
+const otherAlphabetNotes = [
+  {
+    heading: "Cyrillic Em",
+    text: "Cyrillic Em looks almost identical to Latin M, since both letters share the same Phoenician root. Russian, Bulgarian, and Ukrainian all use this letter today, spelled and pronounced the same way.",
+  },
+  {
+    heading: "Greek Mu",
+    text: "Greek Mu sits right in the middle of the M family tree, connecting Phoenician Mem to Latin M. It still appears constantly in mathematics and physics, representing units like micro and friction.",
+  },
+  {
+    heading: "Coptic Mi",
+    text: "Coptic Mi descended from the same Greek Mu, carried into Egypt through the Coptic alphabet. It still appears in Coptic Christian texts and liturgical readings used today.",
+  },
+  {
+    heading: "M With Hook",
+    text: "M With Hook represents a specific nasal sound in the International Phonetic Alphabet, not a letter from any national alphabet. Linguists use it to transcribe sounds that plain M cannot capture accurately.",
+  },
+];
+
+const usePlaces = [
+  "Monogram logos and personal branding marks",
+  "Wedding invitations and stationery designs",
+  "YouTube channel names and video titles",
+  "Discord server names and channel headers",
+  "Gaming usernames across PUBG, Free Fire, and Fortnite",
 ];
 
 export default function MPageContent({ faqs }: MPageContentProps) {
@@ -32,6 +89,121 @@ export default function MPageContent({ faqs }: MPageContentProps) {
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
+            <article id="unicode-names-for-the-letter-m" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                Unicode Names for the Letter M
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Every font style above comes from a real Unicode character with its own formal name and code point. The table below lists nine examples, verified through direct lookup rather than guesswork.
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 mb-8">
+                <table className="w-full text-left border-collapse">
+                  <thead className="bg-surface-container-high">
+                    <tr>
+                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Styled M</th>
+                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Unicode Name</th>
+                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Code Point</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-outline-variant/10">
+                    {unicodeTable.map((row) => (
+                      <tr key={row.code} className="bg-surface-container-lowest">
+                        <td className="px-4 py-3 text-lg font-body">{row.styled}</td>
+                        <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
+                        <td className="px-4 py-3 text-on-surface-variant font-mono">{row.code}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Each code point shown above matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
+              </p>
+
+              <section className="mt-16">
+                <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
+                  Why Script Capital M Sits in a Different Block
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed text-lg">
+                  Script capital M does not exist inside the main Mathematical Alphanumeric block, unlike its lowercase partner. Unicode reuses an older character instead, placed at U+2133 inside the Letterlike Symbols block. This same gap pattern shows up across several other letters, confirmed through direct Python verification rather than assumption.
+                </p>
+              </section>
+            </article>
+
+            <article id="where-does-the-letter-m-come-from" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                Where Does the Letter M Come From?
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                The letter M traces back further than most people expect, starting with an ancient Egyptian symbol for water. Phoenician scribes turned that wave shape into Mem, one of the earliest alphabet letters on record.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Greek speakers adopted Mem and renamed it Mu, keeping much of its original shape and sound. Etruscan traders carried Mu into Italy, where early Latin writers reshaped it into the M used today.
+              </p>
+            </article>
+
+            <article id="m-in-other-alphabets" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                M in Other Alphabets
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Several other alphabets carry a letter that looks or sounds close to M, and the reason runs deeper than coincidence. Merchant sailors carried the Phoenician alphabet along Mediterranean trade routes starting around 1000 BC.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
+                Each culture that borrowed it kept the same letter shape, while the sound shifted slightly over time. That shared origin explains why M still looks familiar across three completely different writing systems today.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                {otherAlphabetsM.map((entry) => (
+                  <FontResultCard
+                    key={entry.script}
+                    label={entry.label}
+                    text={entry.lower ? `${entry.upper} ${entry.lower}` : entry.upper}
+                    stacked
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col gap-8">
+                {otherAlphabetNotes.map((note) => (
+                  <div key={note.heading}>
+                    <h3 className="font-headline text-2xl font-bold mb-3 leading-tight">{note.heading}</h3>
+                    <p className="text-on-surface-variant leading-relaxed text-lg">{note.text}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article id="where-people-use-stylish-m-text" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                Where People Use Stylish M Text?
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                People reach for these M styles across social media bios, gaming usernames, and personal branding projects. A bold or fraktur M can make a single initial stand out in a crowded feed.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-4">
+                Common places these styles show up:
+              </p>
+              <ul className="list-disc list-inside text-on-surface-variant leading-relaxed text-lg mb-6 space-y-2">
+                {usePlaces.map((place) => (
+                  <li key={place}>{place}</li>
+                ))}
+              </ul>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Many people also use the{" "}
+                <Link href="/stylish-fonts" className={linkClass}>
+                  stylish font generator
+                </Link>{" "}
+                to style a full name instead of just one letter.
+              </p>
+            </article>
+
+            <article id="is-it-safe-to-use-this-m-font-generator" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                Is It Safe to Use This M Font Generator?
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg">
+                Yes, this generator runs entirely inside your browser through JavaScript, so nothing gets uploaded or stored anywhere. Your text never leaves your device during the conversion process, keeping the entire tool private and safe.
+              </p>
+            </article>
           </div>
 
           <aside className="lg:col-span-4 space-y-12">
@@ -55,6 +227,7 @@ export default function MPageContent({ faqs }: MPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
+          These related generators go beyond single letters, covering decorative, polished, and platform-ready text styles for full words and phrases.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>

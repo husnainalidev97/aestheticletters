@@ -123,6 +123,12 @@ const lWithAcuteMap: Record<string, string> = { L: "\u0139", l: "\u013A" };
 const lSquaredMap: Record<string, string> = { L: "\u{1F13B}", l: "\u{1F13B}" };
 const lNegativeSquaredMap: Record<string, string> = { L: "\u{1F17B}", l: "\u{1F17B}" };
 const lParenthesizedMap: Record<string, string> = { L: "\u{1F11B}", l: "\u24A7" };
+const mSuperscriptMap: Record<string, string> = { M: "\u1D39", m: "\u1D50" };
+const mWithHookMap: Record<string, string> = { M: "\u2C6E", m: "\u0271" };
+const mWithAcuteMap: Record<string, string> = { M: "\u1E3E", m: "\u1E3F" };
+const mSquaredMap: Record<string, string> = { M: "\u{1F13C}", m: "\u{1F13C}" };
+const mNegativeSquaredMap: Record<string, string> = { M: "\u{1F17C}", m: "\u{1F17C}" };
+const mParenthesizedMap: Record<string, string> = { M: "\u{1F11C}", m: "\u24A8" };
 
 // ── S-specific character maps ───────────────────────────────────────────
 
@@ -464,8 +470,36 @@ export const letterLStyles: AlphabetStyle[] = [
   { name: "Parenthesized", transform: (t) => applyMap(t, lParenthesizedMap) },
 ];
 
+// ── 22 M Styles ───────────────────────────────────────────────────────────
+
+export const letterMStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap), note: "Capital M comes from the Letterlike Symbols block" },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap), note: "Same glyph used for both cases" },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, mSuperscriptMap) },
+  { name: "M With Hook", transform: (t) => applyMap(t, mWithHookMap) },
+  { name: "M With Acute", transform: (t) => applyMap(t, mWithAcuteMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, mSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Negative Squared", transform: (t) => applyMap(t, mNegativeSquaredMap), note: "Same glyph used for both cases" },
+  { name: "Parenthesized", transform: (t) => applyMap(t, mParenthesizedMap) },
+];
+
 export function getLetterStyles(letter: string): AlphabetStyle[] {
   const upper = letter.toUpperCase();
+  if (upper === "M") return letterMStyles;
   if (upper === "L") return letterLStyles;
   if (upper === "G") return letterGStyles;
   if (upper === "R") return letterRStyles;
@@ -690,6 +724,37 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   return null;
 }
+
+export const otherAlphabetsM: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic Em",
+    upper: "\u041C",
+    lower: "\u043C",
+    description: "Em looks almost identical to Latin M and is used across Russian, Bulgarian, and Ukrainian.",
+  },
+  {
+    script: "Greek",
+    label: "Greek Mu",
+    upper: "\u039C",
+    lower: "\u03BC",
+    description: "Mu connects Phoenician Mem to Latin M and still appears in mathematics and physics.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic Mi",
+    upper: "\u2C98",
+    lower: "\u2C99",
+    description: "Mi descended from Greek Mu and still appears in Coptic Christian texts today.",
+  },
+  {
+    script: "IPA",
+    label: "M With Hook",
+    upper: "\u2C6E",
+    lower: "\u0271",
+    description: "M With Hook represents a specific nasal sound in the International Phonetic Alphabet.",
+  },
+];
 
 export const otherAlphabetsL: OtherAlphabetEntry[] = [
   {
