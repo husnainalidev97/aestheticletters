@@ -26,8 +26,8 @@ const similarTools = [
   { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
   { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
   { label: "H in Different Fonts", href: "/h-in-different-fonts", icon: "\uD83C\uDD77", desc: "The H version of this alphabet font style page" },
-  { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD7A", desc: "The K version of this alphabet font style page" },
-  { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD81", desc: "The R version of this alphabet font style page" },
+  { label: "G in Different Fonts", href: "/g-in-different-fonts", icon: "\uD83C\uDD76", desc: "The G version of this alphabet font style page" },
+  { label: "L in Different Fonts", href: "/l-in-different-fonts", icon: "\uD83C\uDD7B", desc: "The L version of this alphabet font style page" },
   { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD82", desc: "The S version of this alphabet font style page" },
 ];
 
@@ -82,10 +82,10 @@ export default function MPageContent({ faqs }: MPageContentProps) {
                 Unicode Names for the Letter M
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Every font style above comes from a real Unicode character with its own formal name and code point. The table below lists nine examples, verified through direct lookup rather than guesswork.
+                Every font style above comes from a real Unicode character with its own formal name and code point. Each one was checked by direct lookup, not guesswork.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Each code point shown above matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
+                Every code point matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
               </p>
 
               <section className="mt-16">
