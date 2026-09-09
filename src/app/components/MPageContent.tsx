@@ -82,10 +82,10 @@ export default function MPageContent({ faqs }: MPageContentProps) {
                 Unicode Names for the Letter M
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Every font style above comes from a real Unicode character with its own formal name and code point. Each one has been verified through direct lookup rather than guesswork.
+                Every font style above comes from a real Unicode character with its own formal name and code point. The table below lists nine examples, verified through direct lookup rather than guesswork.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Every code point matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
+                Each code point shown above matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
               </p>
 
               <section className="mt-16">
