@@ -1,3 +1,5 @@
+export const DEFAULT_ADSENSE_SLOT = "7653814606";
+
 export const ADS_EXCLUDED_PATHS = [
   "/about",
   "/contact",

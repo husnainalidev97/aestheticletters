@@ -178,8 +178,8 @@ export default function RootLayout({
         <ConsentProvider>
           <CookieBanner />
           <ConsentAwareScripts />
+          {children}
         </ConsentProvider>
-        {children}
         {/* Google Analytics — loaded with defer at the end of the body so it
             does not block the initial render, while the consent default above
             ensures Consent Mode is respected from the first dataLayer push. */}

@@ -8,7 +8,7 @@ import FavoritesSection from "../components/FavoritesSection";
 import ShareButtons from "../components/ShareButtons";
 import CategoryJumpLinks, { slugify } from "../components/CategoryJumpLinks";
 import TextHistory from "../components/TextHistory";
-import GoogleAd from "../components/GoogleAd";
+import AdSection from "../components/AdSection";
 
 const PlatformPreview = lazy(() => import("../components/PlatformPreview"));
 const DownloadImage = lazy(() => import("../components/DownloadImage"));
@@ -226,19 +226,7 @@ export default function CursiveFontGenerator() {
       {/* Favorites Section */}
       <FavoritesSection favorites={favorites} onRemove={removeFavorite} />
 
-      {/* Ad Slot — shown once NEXT_PUBLIC_ADSENSE_CONTENT_SLOT is configured. */}
-      {process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT && (
-        <section className="my-14 px-4 md:px-[150px]">
-          <div className="w-full min-h-[150px] bg-surface-container-low items-center justify-center rounded-xl overflow-hidden border-none">
-            <GoogleAd
-              slot={process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT}
-              format="auto"
-              responsive
-              className="w-full h-[150px]"
-            />
-          </div>
-        </section>
-      )}
+      <AdSection slot={process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT} />
 
       {/* Unicode Style Category Cards — Progressive loading */}
       <section
