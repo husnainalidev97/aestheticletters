@@ -122,6 +122,7 @@ export default function Home() {
           { "@type": "ListItem", position: 26, name: "J in Different Fonts", url: "https://www.aestheticletters.com/j-in-different-fonts" },
           { "@type": "ListItem", position: 27, name: "G in Different Fonts", url: "https://www.aestheticletters.com/g-in-different-fonts" },
           { "@type": "ListItem", position: 28, name: "L in Different Fonts", url: "https://www.aestheticletters.com/l-in-different-fonts" },
+          { "@type": "ListItem", position: 29, name: "M in Different Fonts", url: "https://www.aestheticletters.com/m-in-different-fonts" },
         ],
       },
     ],
