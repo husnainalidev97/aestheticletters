@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import CompactStyleCard from "./CompactStyleCard";
 import FontResultCard from "./FontResultCard";
-import GoogleAd from "./GoogleAd";
+import AdSection from "./AdSection";
 import type { FontCategory } from "../lib/fontStyles";
 import { fontCategories } from "../lib/fontStyles";
 import { getLetterStyles, getLetterSymbolCategories } from "../lib/alphabetFontStyles";
@@ -23,7 +23,6 @@ const MAX_SIZE_MOBILE = 30;
 const DEFAULT_SIZE = 24;
 const STEP = 2;
 const MAX_SYMBOL_STYLES = 30;
-const AD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT;
 
 type SymbolStyle = {
   name: string;
@@ -381,18 +380,10 @@ export default function AlphabetLetterGenerator({
         </div>
       </div>
 
-      {AD_SLOT && (
-        <div className="my-10 px-4 md:px-0">
-          <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-            <GoogleAd
-              slot={AD_SLOT}
-              format="auto"
-              responsive
-              className="w-full h-[150px]"
-            />
-          </div>
-        </div>
-      )}
+      <AdSection
+        slot={process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT}
+        className="my-10 px-4 md:px-0"
+      />
 
       {!hideSymbolStyles && (
         <>
@@ -418,18 +409,10 @@ export default function AlphabetLetterGenerator({
             )}
           </div>
 
-          {AD_SLOT && (
-            <div className="my-10 px-4 md:px-0">
-              <div className="w-full min-h-[150px] bg-surface-container-low flex items-center justify-center rounded-xl overflow-hidden border border-outline-variant/10">
-                <GoogleAd
-                  slot={AD_SLOT}
-                  format="auto"
-                  responsive
-                  className="w-full h-[150px]"
-                />
-              </div>
-            </div>
-          )}
+          <AdSection
+            slot={process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT}
+            className="my-10 px-4 md:px-0"
+          />
 
           {/* Small Letter Symbol Styles */}
           <div ref={smallRef} className="mt-10">
