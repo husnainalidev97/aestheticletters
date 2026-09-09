@@ -3,12 +3,12 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.aestheticletters.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* E page deployed on 17 Aug 2026; W page + alphabet cross-links on 18 Aug 2026; S page on 19 Aug 2026; B page on 20 Aug 2026 */
-  const siteUpdate = new Date("2026-08-20T08:00:00+00:00");
-  /* Tool pages re-rendered server-side on 19 Aug 2026 */
-  const toolsModified = new Date("2026-08-19T08:00:00+00:00");
-  /* Alphabet pages refreshed with H cross-links and J page added on 24 Aug 2026 */
-  const alphabetPagesUpdated = new Date("2026-08-24T08:00:00+00:00");
+  /* Site-wide AdSense display units added on 09 Sep 2026 */
+  const siteUpdate = new Date("2026-09-09T08:00:00+00:00");
+  /* Tool pages re-rendered server-side on 19 Aug 2026; ads added 09 Sep 2026 */
+  const toolsModified = new Date("2026-09-09T08:00:00+00:00");
+  /* Alphabet pages refreshed 24 Aug 2026; ads added 09 Sep 2026 */
+  const alphabetPagesUpdated = new Date("2026-09-09T08:00:00+00:00");
   /* J in Different Fonts added on 24 Aug 2026 */
   const jPageUpdated = new Date();
   const gPageUpdated = new Date();
@@ -401,7 +401,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/privacy-policy`,
-      lastModified: siteUpdate,
+      lastModified: infoModified,
       changeFrequency: "yearly" as const,
       priority: 0.3,
     },
