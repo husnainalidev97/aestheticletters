@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const jPageUpdated = new Date();
   const gPageUpdated = new Date();
   const lPageUpdated = new Date();
+  const mPageUpdated = new Date();
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -333,6 +334,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-l-in-different-fonts.webp`],
+    },
+    {
+      url: `${SITE_URL}/m-in-different-fonts`,
+      lastModified: mPageUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-m-in-different-fonts.webp`],
     },
     {
       url: `${SITE_URL}/j-in-different-fonts`,
