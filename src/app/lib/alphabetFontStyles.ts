@@ -703,6 +703,12 @@ const mSymbolCategories: FontCategory[] = [
   { name: "Four Dot Punctuation", styles: [{ name: "", transform: (text) => `\u2058${text}\u2058` }] },
   { name: "White Diamond", styles: [{ name: "", transform: (text) => `\u25C7${text}\u25C7` }] },
   { name: "Ring Above", styles: [{ name: "", transform: (text) => `\u02DA${text}\u02DA` }] },
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `\u2727${text}\u2727` }] },
+  { name: "Black Star", styles: [{ name: "", transform: (text) => `\u2605${text}\u2605` }] },
+  { name: "White Heart Suit", styles: [{ name: "", transform: (text) => `\u2661${text}\u2661` }] },
+  { name: "Mathematical Angle Brackets", styles: [{ name: "", transform: (text) => `\u27E8${text}\u27E9` }] },
+  { name: "Corner Brackets", styles: [{ name: "", transform: (text) => `\u300C${text}\u300D` }] },
+  { name: "Rightwards/Leftwards Arrow", styles: [{ name: "", transform: (text) => `\u2192${text}\u2190` }] },
 ];
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
