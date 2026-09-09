@@ -40,18 +40,6 @@ const popularTools = [
   { label: "Big Text Generator", href: "/big-text-generator", icon: "\uD83D\uDD24", desc: "Large, attention-grabbing Unicode text" },
 ];
 
-const unicodeTable = [
-  { styled: "\uD835\uDC0C", name: "Mathematical Bold Capital M", code: "U+1D40C" },
-  { styled: "\u2133", name: "Script Capital M", code: "U+2133" },
-  { styled: "\uD835\uDD10", name: "Mathematical Fraktur Capital M", code: "U+1D510" },
-  { styled: "\uD835\uDD44", name: "Mathematical Double-Struck Capital M", code: "U+1D544" },
-  { styled: "\uD835\uDD78", name: "Mathematical Bold Fraktur Capital M", code: "U+1D578" },
-  { styled: "\uD835\uDE7C", name: "Mathematical Monospace Capital M", code: "U+1D67C" },
-  { styled: "\uFF2D", name: "Fullwidth Latin Capital Letter M", code: "U+FF2D" },
-  { styled: "\u1D0D", name: "Latin Letter Small Capital M", code: "U+1D0D" },
-  { styled: "\u2C6E", name: "Latin Capital Letter M With Hook", code: "U+2C6E" },
-];
-
 const otherAlphabetNotes = [
   {
     heading: "Cyrillic Em",
@@ -94,30 +82,10 @@ export default function MPageContent({ faqs }: MPageContentProps) {
                 Unicode Names for the Letter M
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Every font style above comes from a real Unicode character with its own formal name and code point. The table below lists nine examples, verified through direct lookup rather than guesswork.
+                Every font style above comes from a real Unicode character with its own formal name and code point. Each one has been verified through direct lookup rather than guesswork.
               </p>
-              <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 mb-8">
-                <table className="w-full text-left border-collapse">
-                  <thead className="bg-surface-container-high">
-                    <tr>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Styled M</th>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Unicode Name</th>
-                      <th className="px-4 py-3 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Code Point</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-outline-variant/10">
-                    {unicodeTable.map((row) => (
-                      <tr key={row.code} className="bg-surface-container-lowest">
-                        <td className="px-4 py-3 text-lg font-body">{row.styled}</td>
-                        <td className="px-4 py-3 text-on-surface-variant">{row.name}</td>
-                        <td className="px-4 py-3 text-on-surface-variant font-mono">{row.code}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Each code point shown above matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
+                Every code point matches the records kept by the Unicode Consortium, the nonprofit group responsible for maintaining the standard.
               </p>
 
               <section className="mt-16">
