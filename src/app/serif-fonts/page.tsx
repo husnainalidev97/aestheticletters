@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { type ReactNode, type ReactElement, isValidElement } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
@@ -335,6 +336,13 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   How to Use a Serif Font Generator?
                 </h2>
+                <Image
+                  src="/how-to-use-serif-font-generator.webp"
+                  alt="How to use a serif font generator in three steps"
+                  width={1672}
+                  height={941}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Using the tool is simple:
                 </p>
@@ -402,6 +410,13 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Unicode Serif Text vs Traditional Serif Fonts
                 </h2>
+                <Image
+                  src="/unicode-serif-text-vs-traditional-serif-fonts.webp"
+                  alt="Unicode serif text vs traditional serif fonts comparison"
+                  width={1672}
+                  height={941}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
                   Although they may appear similar at first glance, the way they function is quite different.
                 </p>
@@ -446,6 +461,13 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   What Are Serif Fonts? (History &amp; Origins)
                 </h2>
+                <Image
+                  src="/serif-fonts-history-and-origins.webp"
+                  alt="History and origins of serif fonts from Roman inscriptions to modern typography"
+                  width={1672}
+                  height={941}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
                   Serif fonts are recognized by the tiny extensions attached to letterforms. These extensions, known as
                   serifs, help create the classic appearance associated with traditional typography.
@@ -484,6 +506,13 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   8 Serif Font Styles for Inspiration &amp; Design Projects
                 </h2>
+                <Image
+                  src="/8-serif-font-styles.webp"
+                  alt="Eight serif font styles including transitional, slab, old style, modern, humanist, Scotch, Didone, and fatface"
+                  width={1672}
+                  height={941}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <p className="text-on-surface-variant leading-relaxed text-base mb-8 italic border-l-4 border-primary/30 pl-4">
                   The following font examples are traditional Google Fonts used for design reference only. For copy-paste ready text, use the Unicode styles in the generator above.
                 </p>
@@ -600,6 +629,13 @@ export default function SerifFontsPage() {
                 <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
                   Serif vs Sans-Serif — When to Use Which?
                 </h2>
+                <Image
+                  src="/serif-vs-sans-serif-when-to-use.webp"
+                  alt="Serif vs sans-serif fonts comparison and when to use each"
+                  width={1671}
+                  height={941}
+                  className="w-full h-auto rounded-xl mb-8"
+                />
                 <div className="overflow-x-auto rounded-xl border border-outline-variant/20 mb-6">
                   <table className="w-full text-sm">
                     <thead>
