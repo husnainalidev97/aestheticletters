@@ -64,7 +64,7 @@ const TRENDING_FONTS: TrendingFont[] = [
   {
     rank: "8",
     label: "The Ink-Box",
-    text: "\uD83C\uDD30\uD83C\uDD3B\uD83C\uDD38\uD83C\uDD32\uD83C\uDD34",
+    text: "\uD835\uDE70\uD835\uDE95\uD835\uDE92\uD835\uDE8C\uD835\uDE8E",
     best: "Best for: Creating a \u201Cstamped\u201D or retro look in captions.",
     styleSlug: "ink-box",
   },

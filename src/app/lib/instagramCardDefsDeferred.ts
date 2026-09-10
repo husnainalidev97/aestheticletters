@@ -1,5 +1,7 @@
 import { v, type CardDef } from "./instagramCardBuilder";
 
+const interpunct = (T: string) => [...T].join("\u00B7");
+
 const deferredCardDefs: CardDef[] = [
   /* ═══ 4. Minimal Instagram Fonts ═══ */
   {
@@ -66,7 +68,22 @@ const deferredCardDefs: CardDef[] = [
       { label: "Strikethrough Aesthetic", gen: (T) => v("plain", "strikethrough")(T) },
     ],
   },
-  /* ═══ 8. Gothic Instagram Fonts ═══ */
+  /* ═══ 8. Circled & Bubble Instagram Fonts ═══ */
+  {
+    name: "Circled & Bubble Instagram Fonts",
+    description: "Enclosed alphanumerics for playful bubble letters",
+    styles: [
+      { label: "Bubble Caps", gen: (T) => v("circled")(T) },
+      { label: "Bubble Solid", gen: (T) => v("circled-negative")(T) },
+      { label: "Boxed Bubble", gen: (T) => v("squared")(T) },
+      { label: "Soft Parenthesis", gen: (T) => v("parenthesized")(T) },
+      { label: "Wide Bubble", gen: (T) => v("fullwidth")(T) },
+      { label: "Sparkle Bubble", gen: (T) => `✧${v("circled")(T)}✧` },
+      { label: "Pop Bubble", gen: (T) => `♡${v("circled-negative")(T)}♡` },
+      { label: "Mini Bubble", gen: (T) => interpunct(T).replace(/ /g, "  ") },
+    ],
+  },
+  /* ═══ 9. Gothic Instagram Fonts ═══ */
   {
     name: "Gothic Instagram Fonts",
     description: "Dark combining effects with layered diacritical marks",
@@ -83,24 +100,24 @@ const deferredCardDefs: CardDef[] = [
       { label: "Heavy Gothic", gen: (T) => v("bold-fraktur", null, "heavy-box")(T) },
     ],
   },
-  /* ═══ 9. High-Impact Instagram Fonts ═══ */
+  /* ═══ 10. High-Impact Instagram Fonts ═══ */
   {
     name: "High-Impact Instagram Fonts",
     description: "Fullwidth characters with box drawing frames",
     styles: [
       { label: "Block Frame", gen: (T) => v("fullwidth", null, { prefix: "┏━", suffix: "━┓" })(T) },
-      { label: "Heavy Border", gen: (T) => v("fullwidth", null, { prefix: "╔═", suffix: "═╗" })(T) },
+      { label: "Heavy Border", gen: (T) => v("bold-fraktur")(T) },
       { label: "Pipeline", gen: (T) => v("fullwidth", null, "double-pipe")(T) },
-      { label: "Neon Box", gen: (T) => v("fullwidth", null, { prefix: "╠═", suffix: "═╣" })(T) },
-      { label: "Steel Grid", gen: (T) => v("fullwidth", null, "heavy-pipe")(T) },
+      { label: "Neon Box", gen: (T) => v("sans-bold")(T) },
+      { label: "Steel Grid", gen: (T) => v("sans-bold-italic")(T) },
       { label: "Corner Frame", gen: (T) => v("fullwidth", null, "light-box")(T) },
-      { label: "Tortoise Impact", gen: (T) => v("fullwidth", null, "tortoise")(T) },
-      { label: "Impact Layer", gen: (T) => v("fullwidth", null, { prefix: "▐", suffix: "▌" })(T) },
-      { label: "Ink Box", gen: (T) => v("squared")(T) },
-      { label: "Scarab Impact", gen: (T) => v("fullwidth", null, "hieroglyph")(T) },
+      { label: "Tortoise Impact", gen: (T) => v("double-struck")(T) },
+      { label: "Impact Layer", gen: (T) => v("bold-script")(T) },
+      { label: "Ink Box", gen: (T) => v("monospace")(T) },
+      { label: "Scarab Impact", gen: (T) => v("circled")(T) },
     ],
   },
-  /* ═══ 10. Instagram Fonts for Name ═══ */
+  /* ═══ 11. Instagram Fonts for Name ═══ */
   {
     name: "Instagram Fonts for Name",
     description: "Short punchy styles with layered character marks",
@@ -108,33 +125,33 @@ const deferredCardDefs: CardDef[] = [
       { label: "Inverted Stamp", gen: (T) => v("plain", ["\u0311", "\u032A"])(T) },
       { label: "Name Ring", gen: (T) => v("plain", "ring-above-macron-below")(T) },
       { label: "Tag Accent", gen: (T) => v("plain", ["\u0301", "\u0328"])(T) },
-      { label: "Handle Dot", gen: (T) => v("plain", ["\u0307", "\u0327"])(T) },
-      { label: "Profile Breve", gen: (T) => v("plain", ["\u0306", "\u0323"])(T) },
-      { label: "ID Caron", gen: (T) => v("plain", ["\u030C", "\u0330"])(T) },
-      { label: "Alias Wave", gen: (T) => v("plain", ["\u0303", "\u032D"])(T) },
+      { label: "Handle Dot", gen: (T) => interpunct(T) },
+      { label: "Profile Stamp", gen: (T) => v("squared")(T) },
+      { label: "ID Badge", gen: (T) => v("circled-negative")(T) },
+      { label: "Alias Wave", gen: (T) => `\u301C${v("fullwidth")(T)}\u301C` },
       { label: "Snowflake Name", gen: (T) => v("sans", null, "snowflake")(T) },
       { label: "Glow Up", gen: (T) => v("plain", "ring-above")(T) },
       { label: "Bracket Name", gen: (T) => v("sans-bold", null, "lenticular")(T) },
     ],
   },
-  /* ═══ 11. Instagram Fonts for Business ═══ */
+  /* ═══ 12. Instagram Fonts for Business ═══ */
   {
     name: "Instagram Fonts for Business",
     description: "Subtle professional textures with clean marks",
     styles: [
-      { label: "Executive", gen: (T) => v("sans", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Boardroom", gen: (T) => v("sans-bold", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Corporate", gen: (T) => v("monospace", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Analyst", gen: (T) => v("sans-italic", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Director", gen: (T) => v("bold", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Presenter", gen: (T) => v("sans-bold-italic", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Consultant", gen: (T) => v("double-struck", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Strategist", gen: (T) => v("italic", null, { prefix: "—", suffix: "—" })(T) },
-      { label: "Lotus Business", gen: (T) => v("double-struck", null, "hieroglyph")(T) },
-      { label: "Pencil Business", gen: (T) => v("sans-bold", null, "pencil")(T) },
+      { label: "Executive", gen: (T) => v("sans-bold")(T) },
+      { label: "Boardroom", gen: (T) => v("small-caps")(T) },
+      { label: "Corporate", gen: (T) => v("monospace")(T) },
+      { label: "Analyst", gen: (T) => v("sans")(T) },
+      { label: "Director", gen: (T) => v("bold")(T) },
+      { label: "Presenter", gen: (T) => v("double-struck")(T) },
+      { label: "Consultant", gen: (T) => v("sans-bold-italic")(T) },
+      { label: "Strategist", gen: (T) => v("fullwidth")(T) },
+      { label: "Lotus Business", gen: (T) => v("plain", "line-below")(T) },
+      { label: "Pencil Business", gen: (T) => v("italic")(T) },
     ],
   },
-  /* ═══ 12. Instagram Username Fonts ═══ */
+  /* ═══ 13. Instagram Username Fonts ═══ */
   {
     name: "Instagram Username Fonts",
     description: "Elegant identity styles with layered diacritics",

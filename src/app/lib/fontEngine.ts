@@ -88,6 +88,9 @@ export const BASE_ALPHABETS: BaseAlphabet[] = [
   { id: "sans-bold-italic", name: "Sans Bold Italic", upper: 0x1D63C, lower: 0x1D656 },
   { id: "monospace", name: "Monospace", upper: 0x1D670, lower: 0x1D68A },
   { id: "squared", name: "Squared", upper: 0x1F130, lower: 0x1F130 },
+  { id: "circled", name: "Circled", upper: 0x24B6, lower: 0x24D0 },
+  { id: "circled-negative", name: "Circled Negative", upper: 0x1F150, lower: 0x1F150 },
+  { id: "parenthesized", name: "Parenthesized", upper: 0x249C, lower: 0x249C },
 ];
 
 const SC_MAP: Record<string, string> = {

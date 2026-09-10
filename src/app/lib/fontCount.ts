@@ -19,7 +19,7 @@ import { tiktokFontCategories } from "./tiktokFontStyles";
 import instagramDeferredCardDefs from "./instagramCardDefsDeferred";
 
 // Instagram card defs are split: the first 3 categories (30 styles) live in the
-// InstagramFontCards client component, and the remaining 9 categories live in the
+// InstagramFontCards client component, and the remaining 10 categories live in the
 // deferred data file. We count both here and avoid importing a "use client" file.
 const INSTAGRAM_INITIAL_STYLE_COUNT = 30;
 

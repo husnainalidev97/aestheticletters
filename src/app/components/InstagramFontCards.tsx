@@ -5,6 +5,7 @@ import { copyToClipboard } from "../lib/clipboard";
 import { useFavorites } from "../lib/useFavorites";
 import { useTextHistory } from "../lib/useTextHistory";
 import { v, type CardDef } from "../lib/instagramCardBuilder";
+import deferredCardDefs from "../lib/instagramCardDefsDeferred";
 import FavoritesSection from "./FavoritesSection";
 import CategoryJumpLinks from "./CategoryJumpLinks";
 import TextHistory from "./TextHistory";
@@ -13,7 +14,8 @@ const PlatformPreview = lazy(() => import("./PlatformPreview"));
 const DownloadImage = lazy(() => import("./DownloadImage"));
 const ShareButtons = lazy(() => import("./ShareButtons"));
 
-// Initial card definitions — loaded eagerly (first 3 categories for above-fold)
+// First 3 categories are visible on load; the rest are server-rendered but
+// collapsed until "Load All" so crawlers still see every card's text.
 const initialCardDefs: CardDef[] = [
   /* ═══ 1. Instagram Bio Fonts ═══ */
   {
@@ -68,8 +70,9 @@ const initialCardDefs: CardDef[] = [
   },
 ];
 
-// Total count across initial + deferred (used for UI labels)
-const TOTAL_CATEGORY_COUNT = 12;
+const allCardDefs: CardDef[] = [...initialCardDefs, ...deferredCardDefs];
+const INITIAL_CATEGORY_COUNT = initialCardDefs.length;
+const TOTAL_CATEGORY_COUNT = allCardDefs.length;
 
 /* ── Slug helper for stable DOM ids ── */
 
@@ -84,6 +87,7 @@ const IG_EMOJIS: Record<string, string> = {
   "Instagram Script Fonts": "\u270d\ufe0f",
   "Adorable Instagram Fonts": "\ud83d\udc95",
   "Decorative Instagram Fonts": "\u2728",
+  "Circled & Bubble Instagram Fonts": "\ud83d\udd35",
   "Gothic Instagram Fonts": "\u2694\ufe0f",
   "High-Impact Instagram Fonts": "\ud83d\udd25",
   "Instagram Fonts for Name": "\ud83c\udff7\ufe0f",
@@ -121,13 +125,9 @@ export default function InstagramFontCards() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyCount, setCopyCount] = useState(0);
   const [allLoaded, setAllLoaded] = useState(false);
-  const [allCardDefs, setAllCardDefs] = useState<CardDef[]>(initialCardDefs);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const cards = useMemo(
-    () => generateCards(input, allCardDefs),
-    [input, allCardDefs],
-  );
+  const cards = useMemo(() => generateCards(input, allCardDefs), [input]);
 
   const igCategoryLinks = useMemo(
     () => allCardDefs.map((card) => ({
@@ -135,15 +135,12 @@ export default function InstagramFontCards() {
       emoji: IG_EMOJIS[card.name] || "\u2726",
       id: `cat-${slugify(card.name)}`,
     })),
-    [allCardDefs],
+    [],
   );
 
-  const loadAllDefs = useCallback(async () => {
-    if (allLoaded) return;
-    const { default: deferred } = await import("../lib/instagramCardDefsDeferred");
-    setAllCardDefs([...initialCardDefs, ...deferred]);
+  const loadAllDefs = useCallback(() => {
     setAllLoaded(true);
-  }, [allLoaded]);
+  }, []);
   const { favorites, isFavorite, toggleFavorite, removeFavorite } = useFavorites();
   const { addEntry } = useTextHistory();
   const [previewText, setPreviewText] = useState<string | null>(null);
@@ -278,9 +275,14 @@ export default function InstagramFontCards() {
         style={{ "--ig-font-size": `${fontSize}px` } as React.CSSProperties}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cards.map((card) => {
+          {cards.map((card, cardIdx) => {
+            const collapsed = cardIdx >= INITIAL_CATEGORY_COUNT && !allLoaded;
             return (
-              <div key={card.name} id={`cat-${slugify(card.name)}`} className="animate-card-fade-in scroll-mt-28">
+              <div
+                key={card.name}
+                id={`cat-${slugify(card.name)}`}
+                className={`animate-card-fade-in scroll-mt-28${collapsed ? " hidden" : ""}`}
+              >
                 <div className="rounded-xl bg-surface-container-lowest editorial-shadow p-6 md:p-8 transition-colors duration-300">
                   <strong className="block font-headline text-xl font-bold mb-6 text-on-background">
                     {card.name}
@@ -383,7 +385,7 @@ export default function InstagramFontCards() {
               onClick={loadAllDefs}
               className="px-8 py-4 border-2 border-primary/20 text-primary font-headline font-bold rounded-xl hover:bg-primary/5 transition-colors tracking-tight flex items-center gap-2"
             >
-              Load All {TOTAL_CATEGORY_COUNT - initialCardDefs.length} Remaining Styles
+              Load All {TOTAL_CATEGORY_COUNT - INITIAL_CATEGORY_COUNT} Remaining Styles
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
           </div>
