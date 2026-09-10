@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolsModified = new Date("2026-09-09T08:00:00+00:00");
   /* Instagram Fonts card refresh + Circled & Bubble category on 10 Sep 2026; also bumps All Tools hub */
   const instagramFontsUpdated = new Date("2026-09-10T06:30:00+00:00");
+  /* Serif Fonts section infographics added on 10 Sep 2026; also bumps All Tools hub */
+  const serifFontsUpdated = new Date("2026-09-10T12:30:00+00:00");
   /* Alphabet pages refreshed 24 Aug 2026; ads added 09 Sep 2026 */
   const alphabetPagesUpdated = new Date("2026-09-09T08:00:00+00:00");
   /* J in Different Fonts added on 24 Aug 2026 */
@@ -36,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const toolsHub = {
     url: `${SITE_URL}/all-tools`,
-    lastModified: instagramFontsUpdated,
+    lastModified: serifFontsUpdated,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   };
@@ -158,12 +160,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/serif-fonts`,
-      lastModified: siteUpdate,
+      lastModified: serifFontsUpdated,
       changeFrequency: "weekly" as const,
       priority: 0.8,
       images: [
         `${SITE_URL}/serif-fonts-og.jpg`,
         `${SITE_URL}/serif-fonts-explained-visually.webp`,
+        `${SITE_URL}/how-to-use-serif-font-generator.webp`,
+        `${SITE_URL}/unicode-serif-text-vs-traditional-serif-fonts.webp`,
+        `${SITE_URL}/serif-fonts-history-and-origins.webp`,
+        `${SITE_URL}/8-serif-font-styles.webp`,
+        `${SITE_URL}/serif-vs-sans-serif-when-to-use.webp`,
       ],
     },
     {
