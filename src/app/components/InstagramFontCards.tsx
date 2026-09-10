@@ -69,7 +69,7 @@ const initialCardDefs: CardDef[] = [
 ];
 
 // Total count across initial + deferred (used for UI labels)
-const TOTAL_CATEGORY_COUNT = 12;
+const TOTAL_CATEGORY_COUNT = 13;
 
 /* ── Slug helper for stable DOM ids ── */
 
@@ -84,6 +84,7 @@ const IG_EMOJIS: Record<string, string> = {
   "Instagram Script Fonts": "\u270d\ufe0f",
   "Adorable Instagram Fonts": "\ud83d\udc95",
   "Decorative Instagram Fonts": "\u2728",
+  "Circled & Bubble Instagram Fonts": "\ud83d\udd35",
   "Gothic Instagram Fonts": "\u2694\ufe0f",
   "High-Impact Instagram Fonts": "\ud83d\udd25",
   "Instagram Fonts for Name": "\ud83c\udff7\ufe0f",
