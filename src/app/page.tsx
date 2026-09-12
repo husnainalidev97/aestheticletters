@@ -20,9 +20,9 @@ const homePageSections = [
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
 export const metadata: Metadata = {
-  title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
+  title: "Aesthetic Letters – Aesthetic Font Generator (120+ Styles)",
   description:
-    "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
+    "Aesthetic Letters is a free aesthetic font generator with 120+ Unicode styles. Copy and paste stylish text for Instagram, WhatsApp, Facebook, and more.",
   alternates: {
     canonical: "https://www.aestheticletters.com/",
   },
@@ -30,18 +30,18 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Letters",
     type: "article",
     url: "https://www.aestheticletters.com/",
-    title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
+    title: "Aesthetic Letters – Aesthetic Font Generator (120+ Styles)",
     description:
-      "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
+      "Aesthetic Letters is a free aesthetic font generator with 120+ Unicode styles. Copy and paste stylish text for Instagram, WhatsApp, Facebook, and more.",
     images: [{ url: "https://www.aestheticletters.com/og-image.webp", width: 1200, height: 624 }],
     publishedTime: "2026-04-19T08:00:00+00:00",
     modifiedTime: new Date().toISOString(),
   },
   twitter: {
     card: "summary_large_image",
-    title: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
+    title: "Aesthetic Letters – Aesthetic Font Generator (120+ Styles)",
     description:
-      "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
+      "Aesthetic Letters is a free aesthetic font generator with 120+ Unicode styles. Copy and paste stylish text for Instagram, WhatsApp, Facebook, and more.",
     images: ["https://www.aestheticletters.com/og-image.webp"],
   },
 };
@@ -68,9 +68,9 @@ export default function Home() {
         "@type": "WebPage",
         "@id": "https://www.aestheticletters.com/#webpage",
         url: "https://www.aestheticletters.com",
-        name: "120+ Free Aesthetic Fonts - Copy Paste for Instagram & FB",
+        name: "Aesthetic Letters – Aesthetic Font Generator (120+ Styles)",
         description:
-          "Create aesthetic fonts with 120+ styles. Copy and paste stylish text for Instagram, Facebook, WhatsApp, and more. Simple, fast, and free to use.",
+          "Aesthetic Letters is a free aesthetic font generator with 120+ Unicode styles. Copy and paste stylish text for Instagram, WhatsApp, Facebook, and more.",
         inLanguage: "en",
         isPartOf: { "@id": "https://www.aestheticletters.com/#website" },
         datePublished: "2026-04-19T08:00:00+00:00",

@@ -7,6 +7,11 @@ export const homeFaqs = [
       "Aesthetic letters are lovely and decorative text styles that make your content look unique. They can be used in Instagram captions, Facebook posts, WhatsApp messages, TikTok videos, YouTube, and gaming usernames.",
   },
   {
+    question: "Is there a free aesthetic font generator?",
+    answer:
+      "Yes. Aesthetic Letters is completely free, with no sign-up, downloads, or hidden limits. Just type your text, pick from 120+ styles, and copy and paste it anywhere.",
+  },
+  {
     question: "How do I copy and paste aesthetic lettering on mobile (Android and iPhone)?",
     answer:
       'Simply select the generated text, tap "Copy," and paste it anywhere like an Instagram bio, WhatsApp chat, or gaming username. iPhone and Android versions work the same.',

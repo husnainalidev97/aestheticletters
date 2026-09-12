@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   title = "Aesthetic Letters",
-  description = "Give your words a fresh and modern look with over 120 aesthetic fonts, perfect for quotes, creative posts, and visual storytelling.",
+  description = "Give your words a fresh, modern look with Aesthetic Letters, over 120 aesthetic fonts perfect for quotes, creative posts, and visual storytelling.",
   showInput = true,
 }: HeroSectionProps) {
   return (
