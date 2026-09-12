@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const instagramFontsUpdated = new Date("2026-09-10T06:30:00+00:00");
   /* Serif Fonts section infographics added on 10 Sep 2026; also bumps All Tools hub */
   const serifFontsUpdated = new Date("2026-09-10T12:30:00+00:00");
+  /* Home page meta, intro line and FAQ refreshed on 12 Sep 2026 */
+  const homeUpdated = new Date("2026-09-12T08:00:00+00:00");
   /* Alphabet pages refreshed 24 Aug 2026; ads added 09 Sep 2026 */
   const alphabetPagesUpdated = new Date("2026-09-09T08:00:00+00:00");
   /* J in Different Fonts added on 24 Aug 2026 */
@@ -23,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const home = {
     url: `${SITE_URL}/`,
-    lastModified: siteUpdate,
+    lastModified: homeUpdated,
     changeFrequency: "weekly" as const,
     priority: 1,
     images: [
