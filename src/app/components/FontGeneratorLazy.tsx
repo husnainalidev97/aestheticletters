@@ -11,8 +11,8 @@ const FontGeneratorDynamic = dynamic(() => import("./FontGenerator"), {
           Aesthetic Fonts Copy and Paste
         </h1>
         <p className="font-body text-on-surface-variant max-w-2xl mx-auto mb-4 text-sm md:text-lg">
-          Give your words a fresh and modern look with over 120 aesthetic
-          fonts, perfect for quotes, creative posts, and visual storytelling.
+          Give your words a fresh, modern look with Aesthetic Letters, over 120
+          aesthetic fonts perfect for quotes, creative posts, and visual storytelling.
         </p>
         <div className="w-full max-w-3xl mx-auto space-y-3 md:space-y-5">
           {/* Textarea skeleton */}
