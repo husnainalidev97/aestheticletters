@@ -4,19 +4,19 @@ import SectionNav from "./SectionNav";
 import FAQAccordion from "./FAQAccordion";
 import FontResultCard from "./FontResultCard";
 import AlphabetLetterGenerator from "./AlphabetLetterGenerator";
-import { otherAlphabetsE } from "../lib/alphabetFontStyles";
+import { otherAlphabetsT } from "../lib/alphabetFontStyles";
 
-interface EPageContentProps {
+interface TPageContentProps {
   faqs: { question: string; answer: string | ReactNode }[];
 }
 
 const pageSections = [
-  { id: "e-in-every-font-style", label: "E Font Styles" },
-  { id: "unicode-names-for-e-styles", label: "Unicode Names" },
-  { id: "why-does-e-lose-its-script-style", label: "Script Gap" },
-  { id: "the-eulers-number-symbol", label: "Euler's Number" },
-  { id: "e-in-other-alphabets", label: "Other Alphabets" },
-  { id: "where-do-people-use-styled-e", label: "Uses" },
+  { id: "t-in-every-font-style", label: "T Font Styles" },
+  { id: "unicode-names-for-t-styles", label: "Unicode Names" },
+  { id: "why-do-t-styles-stay-consistent", label: "Why Consistent" },
+  { id: "the-history-of-the-letter-t", label: "History" },
+  { id: "t-in-other-alphabets", label: "Other Alphabets" },
+  { id: "where-people-use-styled-t", label: "Uses" },
   { id: "explore-more-tools", label: "Explore" },
   { id: "frequently-asked-questions", label: "FAQ" },
 ];
@@ -24,71 +24,69 @@ const pageSections = [
 const linkClass = "text-primary underline underline-offset-4 hover:no-underline";
 
 const unicodeTableRows = [
-  { glyph: "\u{1D404}", name: "Mathematical Bold Capital E", code: "U+1D404" },
-  { glyph: "\u2130", name: "Script Capital E", code: "U+2130" },
-  { glyph: "\u{1D508}", name: "Mathematical Fraktur Capital E", code: "U+1D508" },
-  { glyph: "\u{1D53C}", name: "Mathematical Double-Struck Capital E", code: "U+1D53C" },
-  { glyph: "\u{1D570}", name: "Mathematical Bold Fraktur Capital E", code: "U+1D570" },
-  { glyph: "\u{1D674}", name: "Mathematical Monospace Capital E", code: "U+1D674" },
-  { glyph: "\uFF25", name: "Fullwidth Latin Capital Letter E", code: "U+FF25" },
-  { glyph: "\u1D07", name: "Latin Letter Small Capital E", code: "U+1D07" },
-  { glyph: "\u0190", name: "Latin Capital Letter Open E", code: "U+0190" },
+  { glyph: "\u{1D413}", name: "Mathematical Bold Capital T", code: "U+1D413" },
+  { glyph: "\u{1D4AF}", name: "Mathematical Script Capital T", code: "U+1D4AF" },
+  { glyph: "\u{1D517}", name: "Mathematical Fraktur Capital T", code: "U+1D517" },
+  { glyph: "\u{1D54B}", name: "Mathematical Double-Struck Capital T", code: "U+1D54B" },
+  { glyph: "\u{1D57F}", name: "Mathematical Bold Fraktur Capital T", code: "U+1D57F" },
+  { glyph: "\u{1D683}", name: "Mathematical Monospace Capital T", code: "U+1D683" },
+  { glyph: "\uFF34", name: "Fullwidth Latin Capital Letter T", code: "U+FF34" },
+  { glyph: "\u1D1B", name: "Latin Letter Small Capital T", code: "U+1D1B" },
+  { glyph: "\u01AC", name: "Latin Capital Letter T With Hook", code: "U+01AC" },
 ];
 
 const similarTools = [
   { label: "B in Different Fonts", href: "/b-in-different-fonts", icon: "\uD83C\uDD71", desc: "The B version of this alphabet font style page" },
+  { label: "E in Different Fonts", href: "/e-in-different-fonts", icon: "\uD83C\uDD74", desc: "The E version of this alphabet font style page" },
   { label: "H in Different Fonts", href: "/h-in-different-fonts", icon: "\uD83C\uDD77", desc: "The H version of this alphabet font style page" },
   { label: "K in Different Fonts", href: "/k-in-different-fonts", icon: "\uD83C\uDD7A", desc: "The K version of this alphabet font style page" },
   { label: "R in Different Fonts", href: "/r-in-different-fonts", icon: "\uD83C\uDD81", desc: "The R version of this alphabet font style page" },
   { label: "S in Different Fonts", href: "/s-in-different-fonts", icon: "\uD83C\uDD82", desc: "The S version of this alphabet font style page" },
-  { label: "T in Different Fonts", href: "/t-in-different-fonts", icon: "\uD83C\uDD83", desc: "The T version of this alphabet font style page" },
 ];
 
 const popularTools = [
-  { label: "Stylish Font Generator", href: "/stylish-fonts", icon: "\u2728", desc: "Clean, polished styles for bios and profiles" },
-  { label: "Cursive Font Generator", href: "/cursive-fonts", icon: "\u270D", desc: "Flowing cursive and handwriting-style text" },
+  { label: "Sans Serif Font Generator", href: "/sans-serif-fonts", icon: "\uD83D\uDD8B\uFE0F", desc: "Clean, modern Unicode styles for whole sentences" },
+  { label: "Number Font Generator", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Styled digits to match your lettering" },
+  { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Styles for server names, bios, and chat" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
-  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD34", desc: "Thick, standout Unicode text" },
-  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles for bios, captions, and comments" },
 ];
 
-export default function EPageContent({ faqs }: EPageContentProps) {
+export default function TPageContent({ faqs }: TPageContentProps) {
   return (
     <>
-      <AlphabetLetterGenerator letter="e" defaultText="E" hideInputHeader />
+      <AlphabetLetterGenerator letter="T" defaultText="T" hideInputHeader />
 
       <SectionNav sections={pageSections} />
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-[150px] py-24 bg-surface-container-low">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 flex flex-col gap-16">
-            <p className="text-on-surface-variant leading-relaxed text-lg">
-              English readers use the letter E more than any other letter, so a styled E carries extra visibility across bios and captions. This generator holds 23 verified Unicode versions, plus five real E letters borrowed from other alphabets. Every result below pastes as plain text, with no download required.
-            </p>
-
-            <article id="e-in-every-font-style" className="scroll-mt-[9rem]">
+            <article id="t-in-every-font-style" className="scroll-mt-[9rem]">
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-10">
+                T carries a shape most people can draw from memory: one straight line crossing another. That simplicity has not stopped it from picking up 22 separate Unicode styles, plus five genuine letters borrowed from other alphabets. Every version below copies straight to your clipboard with a single tap.
+              </p>
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                E in Every Font Style
+                T in Every Font Style
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Mathematicians needed different letter styles long before social media existed, to separate variables inside equations. Unicode preserved that need as 23 separate E characters, split across three groups: math alphanumerics, enclosed shapes, and letters borrowed from other alphabets.
+                A single keystroke produces one T. Unicode multiplies that same letter across 22 separate characters, each with its own fixed code point rather than a font layered on top.
               </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg">
-                Tap any card below. Its uppercase pairs with its lowercase match when a pair exists, and both copy together in a single click.
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Three separate categories make up that count. Mathematical alphanumerics cover the bulk of them, Latin Extended contributes two working letters, and enclosed characters round out the rest. Every card below pairs T with its lowercase match for a single copy.
               </p>
 
-              <div id="unicode-names-for-e-styles" className="scroll-mt-[9rem] mt-12">
+              <div id="unicode-names-for-t-styles" className="scroll-mt-[9rem] mt-12">
                 <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
-                  Unicode Names for E Styles
+                  Unicode Names for T Styles
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                  Names carry more proof than appearance alone. The table below lists nine E styles by their exact Unicode designation, pulled straight from the standard, so nothing here relies on guesswork.
+                  Nine of those 22 styles get named and numbered in the table below, straight from the Unicode standard rather than guessed from how they look on screen.
                 </p>
                 <div className="overflow-x-auto rounded-2xl border border-outline-variant/20 bg-surface-container-lowest">
                   <table className="w-full text-left text-sm md:text-base">
                     <thead>
                       <tr className="border-b border-outline-variant/20 bg-surface-container-highest/50">
-                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled E</th>
+                        <th className="px-4 py-3 font-headline font-bold text-on-surface">Styled T</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Unicode Name</th>
                         <th className="px-4 py-3 font-headline font-bold text-on-surface">Code Point</th>
                       </tr>
@@ -105,71 +103,77 @@ export default function EPageContent({ faqs }: EPageContentProps) {
                   </table>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-lg mt-6">
-                  Full names for all 23 styles appear on the individual style cards above.
+                  The remaining thirteen names sit directly on their own cards above.
                 </p>
               </div>
             </article>
 
-            <article id="why-does-e-lose-its-script-style" className="scroll-mt-[9rem]">
+            <article id="why-do-t-styles-stay-consistent" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Why Does E Lose Its Script Style?
+                Why Do T Styles Stay Consistent?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Script Capital E and Script Small E do not live in the Mathematical Alphanumeric block with the rest of E&apos;s styles. Both sit inside an older section called Letterlike Symbols instead. Unicode reused these two existing characters rather than building duplicates, since mathematicians already used script E for limits and sets before the newer block existed.
+                A few letters lose ground inside the Mathematical Alphanumeric block. R, C, and H all fall back on an older Letterlike Symbols set instead of their expected style. T avoids that fate entirely, holding its place across all 13 styles without a single substitution.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                This kind of gap only touches a handful of letters. R loses three entire styles the same way, while a few others lose one or two. E loses just its Script pair, so twelve of its thirteen mathematical styles still render at their expected, native code points.
-              </p>
-              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Bold, Fraktur, Double Struck, and Bold Fraktur all sit exactly where expected, with nothing borrowed from elsewhere. That leaves E with one of the smaller gaps among the affected letters.
+                That completeness has nothing to do with luck. Unicode simply never carved out an exception for T, the way it did for a handful of its neighbors. Every mathematical version on this page will display the same way on a phone, a laptop, or a games console.
               </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Full word styling works the same way through the{" "}
-                <Link href="/bold-font-generator" className={linkClass}>
-                  bold text maker
-                </Link>
-                , which turns entire phrases into matching Unicode text.
+                Full words carry that same reliability too. The{" "}
+                <Link href="/sans-serif-fonts" className={linkClass}>
+                  sans serif font generator
+                </Link>{" "}
+                applies this same clean, modern styling across an entire sentence instead of one letter at a time.
               </p>
             </article>
 
-            <article id="the-eulers-number-symbol" className="scroll-mt-[9rem]">
-              <h3 className="font-headline text-2xl font-bold mb-6 leading-tight">
-                The Euler&apos;s Number Symbol (ⅇ)
-              </h3>
+            <article id="the-history-of-the-letter-t" className="scroll-mt-[9rem]">
+              <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
+                The History of the Letter T
+              </h2>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                T began as an Egyptian hieroglyph shaped like a pair of crossed sticks. Phoenician traders later turned that image into taw, their word for mark or sign. Taw stood as the final letter in their alphabet.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Greek scribes adopted taw around the eighth century BCE and renamed it tau. They kept its crossbar shape and its sound almost untouched. Etruscan writers picked up that same tau soon after, carrying it toward Rome with barely any change.
+              </p>
+              <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
+                Roman scribes then adopted the Etruscan letterform as T, the shape still used today. Few letters have kept their form and sound this steady across three thousand years. English later placed T twentieth in its own alphabet, unchanged in shape since ancient Phoenicia.
+              </p>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                Not every E character above pairs with a partner. Double Struck Italic Small e stands alone, formatted only in lowercase, at code point U+2147. Mathematics uses this exact glyph as shorthand for Euler&apos;s number, the constant behind natural logarithms and continuous growth curves.
+                T carries meaning well past the alphabet too. Medieval Christians used the tau cross, shaped exactly like a capital T, as a mark of penance and protection. Saint Francis of Assisi later adopted it as his personal signature, a tradition some Franciscan communities still honor today.
               </p>
             </article>
 
-            <article id="e-in-other-alphabets" className="scroll-mt-[9rem]">
+            <article id="t-in-other-alphabets" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                E in Other Alphabets
+                T in Other Alphabets
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
-                Five separate writing systems, spanning three continents and roughly three thousand years, each developed a letter close to E. Some inherited it directly from Greek. Others arrived at a matching shape or sound through an entirely separate path.
+                Latin borrowed its T from Greek, but Greek was not the last stop for that shape. A handful of unrelated scripts landed on something close to the same design, occasionally by heritage and occasionally by accident.
               </p>
               <ul className="list-disc pl-6 space-y-4 text-on-surface-variant leading-relaxed text-lg mb-8">
                 <li>
-                  <span className="text-on-surface font-medium">Cyrillic Е е:</span> shares an identical shape with Latin E, adapted after Cyril and Methodius built the alphabet for Slavic liturgy.
+                  <span className="text-on-surface font-medium">Cyrillic Т т:</span> shares its shape with Latin T through the same Greek tau lineage, still active across Slavic languages today
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Greek Ε ε:</span> epsilon itself, the direct ancestor behind the Latin E.
+                  <span className="text-on-surface font-medium">Greek Τ τ:</span> the tau that started this whole chain, still written and spoken in Greek today
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Coptic Ⲉ ⲉ:</span> carried the same Greek shape into Egypt&apos;s Coptic Christian texts.
+                  <span className="text-on-surface font-medium">Coptic Ⲧ ⲧ:</span> inherited the Greek tau shape when Coptic scribes adapted the alphabet for Egyptian Christian scripture
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Old Italic 𐌄:</span> the Etruscan letterform that Roman scribes later reshaped into today&apos;s Latin E.
+                  <span className="text-on-surface font-medium">Cherokee Ꭲ ꭲ:</span> looks nearly identical to Latin T, but represents the vowel sound &quot;i&quot; instead, unrelated in origin or sound
                 </li>
                 <li>
-                  <span className="text-on-surface font-medium">Runic ᛖ:</span> the Elder Futhark rune Ehwaz, marking the E sound in early Germanic writing.
+                  <span className="text-on-surface font-medium">Old Italic 𐌕:</span> found on Etruscan inscriptions predating Rome by centuries, nearly unchanged from the Latin T used now
                 </li>
               </ul>
               <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-                None of these count as font styles. Each stands as its own distinct letter, in active or historic use within its own language.
+                Each of these counts as a real, independent letter, not a decorative style. Several remain in daily use, others survive only in historical texts.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {otherAlphabetsE.map((entry) => (
+                {otherAlphabetsT.map((entry) => (
                   <FontResultCard
                     key={entry.script}
                     label={entry.label}
@@ -180,12 +184,12 @@ export default function EPageContent({ faqs }: EPageContentProps) {
               </div>
             </article>
 
-            <article id="where-do-people-use-styled-e" className="scroll-mt-[9rem]">
+            <article id="where-people-use-styled-t" className="scroll-mt-[9rem]">
               <h2 className="font-headline text-4xl font-bold mb-8 leading-tight">
-                Where Do People Use Styled E?
+                Where Do People Use Styled T?
               </h2>
               <p className="text-on-surface-variant leading-relaxed text-lg">
-                A plain E blends into a feed full of plain text, so people reach for a styled version to stand out. Gaming profiles, Discord names, and Instagram bios see the heaviest use. Logo drafts and quick graphics pick it up too, since every style still pastes as plain text with zero setup cost.
+                Discord names, Instagram bios, and gaming profiles pick up styled T most often. Its cross-like shape also makes it a natural fit for logo sketches and quick graphic mockups, beyond just text styling. Every style here pastes as plain text, so trying a few before settling on one takes seconds.
               </p>
             </article>
           </div>
@@ -211,7 +215,7 @@ export default function EPageContent({ faqs }: EPageContentProps) {
           Explore More Tools
         </h2>
         <p className="text-on-surface-variant text-center text-sm md:text-base mb-10 max-w-xl mx-auto">
-          Beyond E, several other generators on this site cover full word styling, platform specific text, and more.
+          A handful of other tools on this site round out the full styling picture, covering whole words, specific platforms, and more.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
