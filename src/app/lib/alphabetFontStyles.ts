@@ -170,6 +170,15 @@ const bWithFlourishMap: Record<string, string> = { B: "\uA796", b: "\uA797" };
 const latinBetaMap: Record<string, string> = { B: "\uA7B4", b: "\uA7B5" };
 const bWithMiddleTildeMap: Record<string, string> = { B: "B", b: "\u{1D6C}" };
 
+// ── T-specific character maps ─────────────────────────────────────────────
+
+const tSuperscriptMap: Record<string, string> = { T: "\u1D40", t: "\u1D57" };
+const tWithHookMap: Record<string, string> = { T: "\u01AC", t: "\u01AD" };
+const tWithCedillaMap: Record<string, string> = { T: "\u0162", t: "\u0163" };
+const tSquaredMap: Record<string, string> = { T: "\u{1F143}", t: "\u{1F143}" };
+const tNegativeSquaredMap: Record<string, string> = { T: "\u{1F183}", t: "\u{1F183}" };
+const tParenthesizedMap: Record<string, string> = { T: "\u{1F123}", t: "\u24AF" };
+
 const smallCapsMap: Record<string, string> = {
   A: "\u1D00", B: "\u0299", C: "\u1D04", D: "\u1D05", E: "\u1D07", F: "\uA730",
   G: "\u0262", H: "\u029C", I: "\u026A", J: "\u1D0A", K: "\u1D0B", L: "\u029F",
@@ -347,6 +356,33 @@ export const letterKStyles: AlphabetStyle[] = [
   { name: "Parenthesized", transform: (t) => applyMap(t, parenthesizedMap) },
 ];
 
+// ── 22 T Styles ──────────────────────────────────────────────────────────
+
+export const letterTStyles: AlphabetStyle[] = [
+  { name: "Bold", transform: (t) => applyMap(t, boldMap) },
+  { name: "Italic", transform: (t) => applyMap(t, italicMap) },
+  { name: "Bold Italic", transform: (t) => applyMap(t, boldItalicMap) },
+  { name: "Script", transform: (t) => applyMap(t, scriptMap) },
+  { name: "Bold Script", transform: (t) => applyMap(t, boldScriptMap) },
+  { name: "Fraktur", transform: (t) => applyMap(t, frakturMap) },
+  { name: "Double-Struck", transform: (t) => applyMap(t, doubleStruckMap) },
+  { name: "Bold Fraktur (Gothic)", transform: (t) => applyMap(t, boldFrakturMap) },
+  { name: "Sans-Serif", transform: (t) => applyMap(t, sansSerifMap) },
+  { name: "Sans Bold", transform: (t) => applyMap(t, sansSerifBoldMap) },
+  { name: "Sans Italic", transform: (t) => applyMap(t, sansSerifItalicMap) },
+  { name: "Sans Bold Italic", transform: (t) => applyMap(t, sansSerifBoldItalicMap) },
+  { name: "Monospace", transform: (t) => applyMap(t, monospaceMap) },
+  { name: "Fullwidth", transform: (t) => applyMap(t, fullwidthMap) },
+  { name: "Small Capital", transform: (t) => applyMap(t, smallCapsMap) },
+  { name: "Superscript/Modifier", transform: (t) => applyMap(t, tSuperscriptMap) },
+  { name: "Hook T", transform: (t) => applyMap(t, tWithHookMap) },
+  { name: "T With Cedilla", transform: (t) => applyMap(t, tWithCedillaMap) },
+  { name: "Circled", transform: (t) => applyMap(t, circledMap) },
+  { name: "Squared", transform: (t) => applyMap(t, tSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Negative Squared", transform: (t) => applyMap(t, tNegativeSquaredMap), note: "No lowercase form exists; uppercase shape is used for both." },
+  { name: "Parenthesized", transform: (t) => applyMap(t, tParenthesizedMap) },
+];
+
 // ── 22 W Styles ──────────────────────────────────────────────────────────
 
 export const letterWStyles: AlphabetStyle[] = [
@@ -507,6 +543,7 @@ export function getLetterStyles(letter: string): AlphabetStyle[] {
   if (upper === "H") return letterHStyles;
   if (upper === "B") return letterBStyles;
   if (upper === "K") return letterKStyles;
+  if (upper === "T") return letterTStyles;
   if (upper === "E") return letterEStyles;
   if (upper === "W") return letterWStyles;
   if (upper === "S") return letterSStyles;
@@ -711,6 +748,40 @@ const mSymbolCategories: FontCategory[] = [
   { name: "Rightwards/Leftwards Arrow", styles: [{ name: "", transform: (text) => `\u2192${text}\u2190` }] },
 ];
 
+const tCapitalSymbolCategories: FontCategory[] = [
+  { name: "Hourglass", styles: [{ name: "", transform: (text) => `\u23F3${text}\u23F3` }] },
+  { name: "Direct Hit", styles: [{ name: "", transform: (text) => `\u{1F3AF}${text}\u{1F3AF}` }] },
+  { name: "Crescent Moon", styles: [{ name: "", transform: (text) => `\u{1F319}${text}\u{1F319}` }] },
+  { name: "Ribbon", styles: [{ name: "", transform: (text) => `\u{1F380}${text}\u{1F380}` }] },
+  { name: "Black Four Pointed Star", styles: [{ name: "", transform: (text) => `\u2726${text}\u2726` }] },
+  { name: "Nazar Amulet", styles: [{ name: "", transform: (text) => `\u{1F9FF}${text}\u{1F9FF}` }] },
+  { name: "Top Corner Brackets", styles: [{ name: "", transform: (text) => `\u231C${text}\u231F` }] },
+  { name: "Position Indicator", styles: [{ name: "", transform: (text) => `\u2316${text}\u2316` }] },
+  { name: "Diamond With Inner Diamond", styles: [{ name: "", transform: (text) => `\u25C8${text}\u25C8` }] },
+  { name: "Hermitian Sparkle", styles: [{ name: "", transform: (text) => `\u22B9${text}\u22B9` }] },
+  { name: "Six Pointed Black Star", styles: [{ name: "", transform: (text) => `\u2736${text}\u2736` }] },
+  { name: "Ticked Diamonds", styles: [{ name: "", transform: (text) => `\u27E2${text}\u27E3` }] },
+  { name: "Black Diamond Minus White X", styles: [{ name: "", transform: (text) => `\u2756${text}\u2756` }] },
+  { name: "Viewdata Square", styles: [{ name: "", transform: (text) => `\u2317${text}\u2317` }] },
+];
+
+const tSmallSymbolCategories: FontCategory[] = [
+  { name: "Wavy Line", styles: [{ name: "", transform: (text) => `\u2307${text}\u2307` }] },
+  { name: "White Four-Pointed Star", styles: [{ name: "", transform: (text) => `\u2727${text}\u2727` }] },
+  { name: "Four Dot Mark", styles: [{ name: "", transform: (text) => `\u2058${text}\u2058` }] },
+  { name: "Shamrock", styles: [{ name: "", transform: (text) => `\u2618${text}\u2618` }] },
+  { name: "White Concave-Sided Diamond", styles: [{ name: "", transform: (text) => `\u27E1${text}\u27E1` }] },
+  { name: "Horizontal Line Extension", styles: [{ name: "", transform: (text) => `\u23E4${text}\u23E4` }] },
+  { name: "White Square Brackets", styles: [{ name: "", transform: (text) => `\u27E6${text}\u27E7` }] },
+  { name: "Medium Small White Circle", styles: [{ name: "", transform: (text) => `\u26AC${text}\u26AC` }] },
+  { name: "Square Lozenge", styles: [{ name: "", transform: (text) => `\u2311${text}\u2311` }] },
+  { name: "Ring Operator", styles: [{ name: "", transform: (text) => `\u2218${text}\u2218` }] },
+  { name: "Flower Punctuation Mark", styles: [{ name: "", transform: (text) => `\u2055${text}\u2055` }] },
+  { name: "Curly Precedes/Succeeds", styles: [{ name: "", transform: (text) => `\u22B0${text}\u22B1` }] },
+  { name: "S-Shaped Bag Delimiters", styles: [{ name: "", transform: (text) => `\u27C5${text}\u27C6` }] },
+  { name: "Diamond Operator", styles: [{ name: "", transform: (text) => `\u22C4${text}\u22C4` }] },
+];
+
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
   const upper = letter.toUpperCase();
   if (upper === "M") {
@@ -721,6 +792,9 @@ export function getLetterSymbolCategories(letter: string): LetterSymbolCategorie
   }
   if (upper === "K") {
     return { capital: kCapitalSymbolCategories, small: kSmallSymbolCategories };
+  }
+  if (upper === "T") {
+    return { capital: tCapitalSymbolCategories, small: tSmallSymbolCategories };
   }
   if (upper === "E") {
     return { capital: eCapitalSymbolCategories, small: eSmallSymbolCategories };
@@ -947,6 +1021,44 @@ export const otherAlphabetsK: OtherAlphabetEntry[] = [
     upper: "\u{1030A}",
     lower: null,
     description: "The Etruscan letterform that Roman scribes eventually turned into the Latin K used today.",
+  },
+];
+
+export const otherAlphabetsT: OtherAlphabetEntry[] = [
+  {
+    script: "Cyrillic",
+    label: "Cyrillic",
+    upper: "\u0422",
+    lower: "\u0442",
+    description: "Shares its shape with Latin T through the same Greek tau lineage, still active across Slavic languages today.",
+  },
+  {
+    script: "Greek",
+    label: "Greek",
+    upper: "\u03A4",
+    lower: "\u03C4",
+    description: "The tau that started this whole chain, still written and spoken in Greek today.",
+  },
+  {
+    script: "Coptic",
+    label: "Coptic",
+    upper: "\u2CA6",
+    lower: "\u2CA7",
+    description: "Inherited the Greek tau shape when Coptic scribes adapted the alphabet for Egyptian Christian scripture.",
+  },
+  {
+    script: "Cherokee",
+    label: "Cherokee",
+    upper: "\u13A2",
+    lower: "\uAB72",
+    description: "Looks nearly identical to Latin T, but represents the vowel sound i instead, unrelated in origin or sound.",
+  },
+  {
+    script: "Old Italic",
+    label: "Old Italic",
+    upper: "\u{10315}",
+    lower: null,
+    description: "Found on Etruscan inscriptions predating Rome by centuries, nearly unchanged from the Latin T used now.",
   },
 ];
 

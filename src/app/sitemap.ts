@@ -20,6 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const gPageUpdated = new Date();
   const lPageUpdated = new Date();
   const mPageUpdated = new Date();
+  /* T in Different Fonts added on 13 Sep 2026; hub grid updated with T tile */
+  const tPageUpdated = new Date("2026-09-13T08:30:00+00:00");
+  const alphabetHubUpdated = tPageUpdated;
   /* Info & legal pages — not modified in the latest update cycle */
   const infoModified = new Date("2026-04-19T00:00:00Z");
 
@@ -47,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const alphabetFontsHub = {
     url: `${SITE_URL}/alphabet-fonts`,
-    lastModified: alphabetPagesUpdated,
+    lastModified: alphabetHubUpdated,
     changeFrequency: "weekly" as const,
     priority: 0.8,
     images: [`${SITE_URL}/og-alphabet-fonts.webp`],
@@ -366,6 +369,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
       images: [`${SITE_URL}/og-r-in-different-fonts.webp`],
+    },
+    {
+      url: `${SITE_URL}/t-in-different-fonts`,
+      lastModified: tPageUpdated,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      images: [`${SITE_URL}/og-t-in-different-fonts.webp`],
     },
     {
       url: `${SITE_URL}/k-in-different-fonts`,
