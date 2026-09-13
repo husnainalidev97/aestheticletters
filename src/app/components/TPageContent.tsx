@@ -49,6 +49,8 @@ const popularTools = [
   { label: "Number Font Generator", href: "/number-font-generator", icon: "\uD83D\uDD22", desc: "Styled digits to match your lettering" },
   { label: "Discord Fonts", href: "/discord-fonts", icon: "\uD83C\uDFAE", desc: "Styles for server names, bios, and chat" },
   { label: "Fancy Font Generator", href: "/fancy-fonts", icon: "\uD83C\uDF1F", desc: "More decorative Unicode styles" },
+  { label: "Bold Font Generator", href: "/bold-font-generator", icon: "\uD83D\uDD8A\uFE0F", desc: "Heavy Unicode bold for names and headlines" },
+  { label: "Instagram Font Generator", href: "/instagram-fonts", icon: "\uD83D\uDCF8", desc: "Styles built for bios, captions, and stories" },
 ];
 
 export default function TPageContent({ faqs }: TPageContentProps) {
