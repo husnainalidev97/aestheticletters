@@ -756,6 +756,13 @@ const tCapitalSymbolCategories: FontCategory[] = [
   { name: "Black Four Pointed Star", styles: [{ name: "", transform: (text) => `\u2726${text}\u2726` }] },
   { name: "Nazar Amulet", styles: [{ name: "", transform: (text) => `\u{1F9FF}${text}\u{1F9FF}` }] },
   { name: "Top Corner Brackets", styles: [{ name: "", transform: (text) => `\u231C${text}\u231F` }] },
+  { name: "Position Indicator", styles: [{ name: "", transform: (text) => `\u2316${text}\u2316` }] },
+  { name: "Diamond With Inner Diamond", styles: [{ name: "", transform: (text) => `\u25C8${text}\u25C8` }] },
+  { name: "Hermitian Sparkle", styles: [{ name: "", transform: (text) => `\u22B9${text}\u22B9` }] },
+  { name: "Six Pointed Black Star", styles: [{ name: "", transform: (text) => `\u2736${text}\u2736` }] },
+  { name: "Ticked Diamonds", styles: [{ name: "", transform: (text) => `\u27E2${text}\u27E3` }] },
+  { name: "Black Diamond Minus White X", styles: [{ name: "", transform: (text) => `\u2756${text}\u2756` }] },
+  { name: "Viewdata Square", styles: [{ name: "", transform: (text) => `\u2317${text}\u2317` }] },
 ];
 
 const tSmallSymbolCategories: FontCategory[] = [
@@ -766,6 +773,13 @@ const tSmallSymbolCategories: FontCategory[] = [
   { name: "White Concave-Sided Diamond", styles: [{ name: "", transform: (text) => `\u27E1${text}\u27E1` }] },
   { name: "Horizontal Line Extension", styles: [{ name: "", transform: (text) => `\u23E4${text}\u23E4` }] },
   { name: "White Square Brackets", styles: [{ name: "", transform: (text) => `\u27E6${text}\u27E7` }] },
+  { name: "Medium Small White Circle", styles: [{ name: "", transform: (text) => `\u26AC${text}\u26AC` }] },
+  { name: "Square Lozenge", styles: [{ name: "", transform: (text) => `\u2311${text}\u2311` }] },
+  { name: "Ring Operator", styles: [{ name: "", transform: (text) => `\u2218${text}\u2218` }] },
+  { name: "Flower Punctuation Mark", styles: [{ name: "", transform: (text) => `\u2055${text}\u2055` }] },
+  { name: "Curly Precedes/Succeeds", styles: [{ name: "", transform: (text) => `\u22B0${text}\u22B1` }] },
+  { name: "S-Shaped Bag Delimiters", styles: [{ name: "", transform: (text) => `\u27C5${text}\u27C6` }] },
+  { name: "Diamond Operator", styles: [{ name: "", transform: (text) => `\u22C4${text}\u22C4` }] },
 ];
 
 export function getLetterSymbolCategories(letter: string): LetterSymbolCategories | null {
