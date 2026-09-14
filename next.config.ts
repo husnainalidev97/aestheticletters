@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/(.*)", headers: securityHeaders },
       {
+        // Temporary: keep the X-Robots-Tag header consistent with the page's
+        // noindex meta tag while the de-indexing experiment is running.
+        source: "/t-in-different-fonts",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+      },
+      {
         // Cache HTML pages briefly and allow stale-while-revalidate,
         // while leaving immutable static assets (/_next/*, images, fonts) untouched.
         source: "/:path((?!_next|api)[^.]+)?",
