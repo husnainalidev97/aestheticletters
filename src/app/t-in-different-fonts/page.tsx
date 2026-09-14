@@ -18,6 +18,7 @@ const ogImageAlt =
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: pageDescription,
+  robots: { index: false, follow: true },
   alternates: { canonical: canonicalUrl },
   openGraph: {
     siteName: "Aesthetic Letters",
