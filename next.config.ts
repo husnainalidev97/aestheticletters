@@ -17,7 +17,7 @@ const securityHeaders = [
       "img-src 'self' data: https: blob: https://www.clarity.ms https://c.bing.com",
       "worker-src 'self' blob:",
       "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com https://pagead2.googlesyndication.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.clarity.ms https://*.clarity.ms https://fundingchoicesmessages.google.com https://*.adtrafficquality.google",
-      "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google",
+      "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google https://www.google.com",
     ].join("; "),
   },
 ];
@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },
+      {
+        // Temporary: keep the X-Robots-Tag header consistent with the page's
+        // noindex meta tag while the de-indexing experiment is running.
+        source: "/t-in-different-fonts",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+      },
       {
         // Cache HTML pages briefly and allow stale-while-revalidate,
         // while leaving immutable static assets (/_next/*, images, fonts) untouched.
